@@ -10,7 +10,6 @@ vendor/
 # Temporary files
 *.tmp
 *.swp
-/plugin/commands/backuprecoveryv1/backup-recovery-cli.md
 
 # Coverage reports
 *.cover
