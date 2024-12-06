@@ -1,24 +1,20 @@
-**Note** 
+# IBM Cloud Backup Recovery CLI Plug-in
 
-IBM Cloud Backup and Recovery is the Limited Availability (LA) offering in the present release and currently not available under the "General Availability (GA)".  Only after the GA release, it would be available through the "IBM Global Catalog" for delivery and consumption from all available Data center Region/Zones.  For more details/Questions about products, sales, support etc at [IBM HELP](https://www.ibm.com/contact/global)
-
-# IBM Cloud Backup Recovery CLI plug-in
-
-This plug-in for the IBM Cloud CLI allows users to interact with IBM Cloud Backup Recovery service entirely from the command line.
-
+**Note:**  
+IBM Cloud Backup and Recovery is the Limited Availability (LA) offering in the present release and is currently not available under the "General Availability (GA)". Only after the GA release, it will be available through the "IBM Global Catalog" for delivery and consumption from all available Data Center Region/Zones. For more details or questions about products, sales, or support, visit [IBM HELP](https://www.ibm.com/contact/global).
 
 ## Summary
 
-This repository contains the source to the Backup Recovery CLI plugin.
+This repository contains the source for the Backup Recovery CLI plug-in.
 
 ## Requirements
 
-* Have a [IBM Cloud Account](https://cloud.ibm.com)
-* Have [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started) installed
+- Have an [IBM Cloud Account](https://cloud.ibm.com).
+- Have [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started) installed.
 
 ## Installation
 
-`ibmcloud plugin install backup-recovery`
+```ibmcloud plugin install backup-recovery```
 
 ## Authentication
 
@@ -86,3 +82,9 @@ To see detailed HTTP information (full requests and responses) in the CLI plugin
 `export IBMCLOUD_TRACE=/path/to/trace.log`
 
 Note that both of these methods turn on tracing globally for all `ibmcloud` usage.
+
+
+## License
+
+This IBM CLI Plugin project is released under the Apache 2.0 license.
+The license's full text can be found in [LICENSE](LICENSE).
