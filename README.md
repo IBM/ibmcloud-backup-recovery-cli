@@ -1,10 +1,11 @@
+**Note** 
+
+IBM Cloud Backup and Recovery is the Limited Availability (LA) offering in the present release and currently not available under the "General Availability (GA)".  Only after the GA release, it would be available through the "IBM Global Catalog" for delivery and consumption from all available Data center Region/Zones.  For more details/Questions about products, sales, support etc at [IBM HELP](https://www.ibm.com/contact/global)
+
 # IBM Cloud Backup Recovery CLI plug-in
 
 This plug-in for the IBM Cloud CLI allows users to interact with IBM Cloud Backup Recovery service entirely from the command line.
 
-## NOTE
-
-IBM Cloud Backup and Recovery is the Limited Availability (LA) offering in the present release and currently not available under the "General Availability (GA)".  Only after the GA release, it would be available through the "IBM Global Catalog" for delivery and consumption from all available Data center Region/Zones.  For more details/Questions about products, sales, support etc at [IBM HELP](https://www.ibm.com/contact/global)
 
 ## Summary
 
@@ -22,6 +23,7 @@ This repository contains the source to the Backup Recovery CLI plugin.
 ## Authentication
 
 There are three ways to provide credentials to authenticate the CLI plugin:
+
 1. Export them as environment variables.
 
 2. Store them in a [credentials file](https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#storing-configuration-properties-in-a-file)
