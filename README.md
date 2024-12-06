@@ -1,17 +1,22 @@
-# NOTE: 
+# NOTE:
+
 IBM Cloud Backup and Recovery is the Limited Availability (LA) offering in the present release and currently not available under the "General Availability (GA)".  Only after the GA release, it would be available through the "IBM Global Catalog" for delivery and consumption from all available Data center Region/Zones.  For more details/Questions about products, sales, support etc at https://www.ibm.com/contact/global
 
 # IBM Cloud Backup Recovery CLI plug-in
+
 This plug-in for the IBM Cloud CLI allows users to interact with IBM Cloud Backup Recovery service entirely from the command line.
 
 ## Summary
+
 This repository contains the source to the Backup Recovery CLI plugin.
 
 ## Requirements
-* Have a [IBM Cloud Account](https://cloud.ibm.com) account
+
+* Have a [IBM Cloud Account](https://cloud.ibm.com)
 * Have [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started) installed
 
 ## Installation
+
 `ibmcloud plugin install backup-recovery`
 
 ## Authentication
@@ -27,7 +32,9 @@ If using a credentials file, it must be called `ibm-credentials.env` or the name
 3. Login to IBM Cloud on the command line - `ibmcloud login`. The CLI plugin will read the IAM access token stored in the CLI context and will refresh it if it expires.
 
 ## Commands
+
 ### backup-recovery
+
 ```
 NAME:
   backup-recovery - REST API used to configure protection source.
@@ -65,6 +72,7 @@ Use "ibmcloud backup-recovery service-command --help" for more information about
 ```
 
 ## Trace logging
+
 To see detailed HTTP information (full requests and responses) in the CLI plugin output, enable tracing using one of the following methods. The setting can be "false" (default, turns off tracing), "true" (turns on tracing, logs are sent to stderr), or a path to a file (turns on tracing, logs are sent to the file).
 1. Set the global "trace" setting with the [config command](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_config):
 `ibmcloud config trace true`
