@@ -23,9 +23,7 @@ There are three ways to provide credentials to authenticate the CLI plugin:
 1. Export them as environment variables.
 
 2. Store them in a [credentials file](https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#storing-configuration-properties-in-a-file)
-
 Properties must have the format `<service-name>_<property-key>`. For example, `BACKUP_RECOVERY_URL`. See [Define Configuration Properties](https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#define-configuration-properties) for more info.
-
 If using a credentials file, it must be called `ibm-credentials.env` or the name must be provided with an environment variable called `IBM_CREDENTIALS_FILE`. See [Complete Configuration-loading Process](https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#complete-configuration-loading-process) for more information about how the credentials file is located.
 
 3. Login to IBM Cloud on the command line - `ibmcloud login`. The CLI plugin will read the IAM access token stored in the CLI context and will refresh it if it expires.
@@ -34,7 +32,7 @@ If using a credentials file, it must be called `ibm-credentials.env` or the name
 
 ### backup-recovery
 
-```
+```yaml
 
 NAME:
   backup-recovery - REST API used to configure protection source.
@@ -82,7 +80,6 @@ To see detailed HTTP information (full requests and responses) in the CLI plugin
 `export IBMCLOUD_TRACE=/path/to/trace.log`
 
 Note that both of these methods turn on tracing globally for all `ibmcloud` usage.
-
 
 ## License
 
