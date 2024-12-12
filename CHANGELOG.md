@@ -6,4 +6,4 @@
 
 #### Features
 
-Initial release ([Limited Availability](./README.md#note))
+* Initial release ([Limited Availability](./README.md#note))

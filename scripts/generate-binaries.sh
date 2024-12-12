@@ -10,25 +10,25 @@ fi
 
 # build for osx
 env GOOS=darwin GOARCH=amd64 go build main.go
-mv main bin/darwin-amd64
-echo "Binary created for OSX: ./bin/darwin-amd64"
+mv main bin/ibmcloud-br-cli-darwin-amd64
+echo "Binary created for OSX: ./bin/ibmcloud-br-cli-darwin-amd64"
 
 # build for apple silicon (M1, etc.)
 env GOOS=darwin GOARCH=arm64 go build main.go
-mv main bin/darwin-arm64
-echo "Binary created for Apple Silicon: ./bin/darwin-arm64"
+mv main bin/ibmcloud-br-cli-darwin-arm64
+echo "Binary created for Apple Silicon: ./bin/ibmcloud-br-cli-darwin-arm64"
 
 # build for linux
 env GOOS=linux GOARCH=amd64 go build main.go
-mv main bin/linux-amd64
-echo "Binary created for Linux (AMD): ./bin/linux-amd64"
+mv main bin/ibmcloud-br-cli-linux-amd64
+echo "Binary created for Linux (AMD): ./bin/ibmcloud-br-cli-linux-amd64"
 
 # build for linux
 env GOOS=linux GOARCH=arm64 go build main.go
-mv main bin/linux-arm64
-echo "Binary created for Linux (ARM): ./bin/linux-arm64"
+mv main bin/ibmcloud-br-cli-linux-arm64
+echo "Binary created for Linux (ARM): ./bin/ibmcloud-br-cli-linux-arm64"
 
 # build for windows
 env GOOS=windows GOARCH=amd64 go build main.go
-mv main.exe bin/windows-amd64.exe
-echo "Binary created for Windows: ./bin/windows-amd64.exe"
+mv main.exe bin/ibmcloud-br-cli-windows-amd64.exe
+echo "Binary created for Windows: ./bin/ibmcloud-br-cli-windows-amd64.exe"
