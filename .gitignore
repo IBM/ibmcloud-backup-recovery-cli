@@ -1,0 +1,27 @@
+# Binaries
+bin/**
+
+# Dependency directories (vendor/)
+vendor/
+
+# Logs and debugging
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# Coverage reports
+*.cover
+*.coverage
+coverage.out
+
+# IDE-specific files
+.idea/
+.vscode/
+*.iml
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+

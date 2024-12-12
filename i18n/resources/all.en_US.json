@@ -1,0 +1,3290 @@
+[
+  {
+    "id": "additional-help-topics-header-help-menu",
+    "translation": "ADDITIONAL HELP TOPICS"
+  },
+  {
+    "id": "aliases-header-help-menu",
+    "translation": "ALIASES"
+  },
+  {
+    "id": "backup-recovery-agent-download-command-long-description",
+    "translation": "Download agent for different hosts."
+  },
+  {
+    "id": "backup-recovery-agent-download-command-short-description",
+    "translation": "Download agent."
+  },
+  {
+    "id": "backup-recovery-agent-download-linux-params-flag-description",
+    "translation": "Linux agent parameters. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-agent-download-linux-params-package-type-flag-description",
+    "translation": "Specifies the type of installer. Allowable values are: kScript, kRPM, kSuseRPM, kDEB, kPowerPCRPM."
+  },
+  {
+    "id": "backup-recovery-agent-download-platform-flag-description",
+    "translation": "Required. Specifies the platform for which agent needs to be downloaded. Allowable values are: kWindows, kLinux."
+  },
+  {
+    "id": "backup-recovery-agent-download-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-agent-ids-flag-description",
+    "translation": "Specifies agent IDs to be upgraded in the task."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-command-long-description",
+    "translation": "Create a schedule-based agent upgrade task."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-command-short-description",
+    "translation": "Create an upgrade task."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-description-flag-description",
+    "translation": "Specifies the description of the task."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-name-flag-description",
+    "translation": "Specifies the name of the task."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-retry-task-id-flag-description",
+    "translation": "Specifies the task that needs to be retried."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-schedule-end-time-usecs-flag-description",
+    "translation": "Specifies the time before which the upgrade task should start execution as a Unix epoch Timestamp (in microseconds). If this is not specified the task will start anytime after scheduleTimeUsecs."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-schedule-time-usecs-flag-description",
+    "translation": "Specifies the start time of the task specified by the user as a Unix epoch Timestamp (in microseconds). If no schedule is specified, the agents will be upgraded immediately."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-group-long-description",
+    "translation": "Commands for AgentUpgradeTask resource."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-group-short-description",
+    "translation": "Commands for AgentUpgradeTask resource."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-command-long-description",
+    "translation": "Get the list of agent upgrade tasks."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-command-short-description",
+    "translation": "Get upgrade tasks."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-ids-flag-description",
+    "translation": "Specifies IDs of tasks to be fetched."
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-bad-url-error-message",
+    "translation": "Invalid URL: Set the base URL with the BACKUP_RECOVERY_URL environment variable or key in a credentials file."
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-command-long-description",
+    "translation": "Get information about the available connectors."
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-command-short-description",
+    "translation": "Get information about the available connectors."
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-command-long-description",
+    "translation": "Creates a data-source connection which can be used to register and protect sources, to access filer services, etc."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-command-short-description",
+    "translation": "Create a data-source connection."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-connection-name-flag-description",
+    "translation": "Required. Specifies the name of the connection being created. For a given tenant, different connections can't have the same name. However, two (or more) different tenants can each have a connection with the same name."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-xibm-tenant-id-flag-description",
+    "translation": "Id of the tenant accessing the cluster."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-command-long-description",
+    "translation": "Delete a data-source connection using its ID. After deleting a connection, any connectors within it won't be able to connect to the cluster. A connection should only be deleted after ensuring that no sources are using it."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-command-short-description",
+    "translation": "Delete the data-source connection specified by the ID in the request path."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-connection-id-flag-description",
+    "translation": "Required. Specifies the ID of the connection, connectors belonging to which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-group-long-description",
+    "translation": "Commands for DataSourceConnection resource."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-group-short-description",
+    "translation": "Commands for DataSourceConnection resource."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-command-long-description",
+    "translation": "Gets all specified data-source connections."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-command-short-description",
+    "translation": "Get data-source connections."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-connection-ids-flag-description",
+    "translation": "Specifies the unique IDs of the connections which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-connection-names-flag-description",
+    "translation": "Specifies the names of the connections which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-command-long-description",
+    "translation": "Patch the data-source connection specified by the ID in the request path."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-command-short-description",
+    "translation": "Patch a data-source connection using its ID."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-connection-id-flag-description",
+    "translation": "Required. Specifies the ID of the connection, connectors belonging to which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-connection-name-flag-description",
+    "translation": "Required. New name for the connection being patched."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-command-long-description",
+    "translation": "Generate a token to register connectors against the data-source connection specified by the ID in the request path. The same token can be used to register multiple connectors as long as the token is valid. Once the token expires, typically in a day, this API can be hit again to generate another token."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-command-short-description",
+    "translation": "Generate registration token for a data-source connection."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-connection-id-flag-description",
+    "translation": "Required. Specifies the ID of the connection, connectors belonging to which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-command-long-description",
+    "translation": "Delete the data-source connector specified by the ID in the request path."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-command-short-description",
+    "translation": "Delete a data-source connector using its ID."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
+    "translation": "Required. Specifies the unique ID of the connector which is to be deleted."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-group-long-description",
+    "translation": "Commands for DataSourceConnector resource."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-group-short-description",
+    "translation": "Commands for DataSourceConnector resource."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-command-long-description",
+    "translation": "Gets all specified data-source connectors."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-command-short-description",
+    "translation": "Get data-source connectors."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connection-id-flag-description",
+    "translation": "Specifies the ID of the connection, connectors belonging to which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connector-ids-flag-description",
+    "translation": "Specifies the unique IDs of the connectors which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connector-names-flag-description",
+    "translation": "Specifies the names of the connectors which are to be fetched."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-command-long-description",
+    "translation": "Patch the data-source connector specified by the ID in the request path."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-command-short-description",
+    "translation": "Patch a data-source connector using its ID."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-connector-id-flag-description",
+    "translation": "Required. Specifies the unique ID of the connector which is to be deleted."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
+    "translation": "Name of the connector."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-command-long-description",
+    "translation": "Creates a download files and folders recovery."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-command-short-description",
+    "translation": "Create a download files and folders recovery."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-documents-flag-description",
+    "translation": "Specifies the list of documents to download using item ids. Only one of filesAndFolders or documents should be used. Currently only files are supported by documents. It can also be a path to a JSON file. The minimum length is 1 item."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-files-and-folders-flag-description",
+    "translation": "Required. Specifies the list of files and folders to download. It can also be a path to a JSON file. The minimum length is 1 item."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-glacier-retrieval-type-flag-description",
+    "translation": "Specifies the glacier retrieval type when restoring or downloding files or folders from a Glacier-based cloud snapshot. Allowable values are: kStandard, kExpeditedNoPCU, kExpeditedWithPCU."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-name-flag-description",
+    "translation": "Required. Specifies the name of the recovery task. This field must be set and must be a unique name."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-flag-description",
+    "translation": "Specifies the common snapshot parameters for a protected object. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-point-in-time-usecs-flag-description",
+    "translation": "Specifies the timestamp (in microseconds. from epoch) for recovering to a point-in-time in the past."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-protection-group-id-flag-description",
+    "translation": "Specifies the protection group id of the object snapshot."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-protection-group-name-flag-description",
+    "translation": "Specifies the protection group name of the object snapshot."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-recover-from-standby-flag-description",
+    "translation": "Specifies that user wants to perform standby restore if it is enabled for this object."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-snapshot-id-flag-description",
+    "translation": "Specifies the snapshot id."
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-parent-recovery-id-flag-description",
+    "translation": "If current recovery is child task triggered through another parent recovery operation, then this field will specify the id of the parent recovery. "
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-command-long-description",
+    "translation": "Download an indexed file from a snapshot."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-command-short-description",
+    "translation": "Download an indexed file."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-file-path-flag-description",
+    "translation": "Specifies the path to the file to download. If no path is specified and snapshot environment is kVMWare, VMX file for VMware will be downloaded. For other snapshot environments, this field must be specified."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-length-flag-description",
+    "translation": "Specifies the length of bytes to download. This can not be greater than 8MB (8388608 byets)."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-nvram-file-flag-description",
+    "translation": "Specifies if NVRAM file for VMware should be downloaded."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-retry-attempt-flag-description",
+    "translation": "Specifies the number of attempts the protection run took to create this file."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-snapshots-id-flag-description",
+    "translation": "Required. Specifies the snapshot id to download from."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-start-offset-flag-description",
+    "translation": "Specifies the start offset of file chunk to be downloaded."
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-cassandra-object-types-flag-description",
+    "translation": "Specifies one or more Cassandra object types to be searched. Allowable list items are: CassandraKeyspaces, CassandraTables."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-flag-description",
+    "translation": "Parameters required to search Cassandra on a cluster. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the Cassandra Objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-command-long-description",
+    "translation": "List all the indexed objects like files and folders, emails, mailboxes etc., that match the specified search and filter criteria from protected objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-command-short-description",
+    "translation": "List indexed objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-couchbase-object-types-flag-description",
+    "translation": "Specifies Couchbase object types be searched. For Couchbase it can only be set to 'CouchbaseBuckets'. Allowable list items are: CouchbaseBuckets."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-flag-description",
+    "translation": "Parameters required to search CouchBase on a cluster. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the Couchbase Objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-count-flag-description",
+    "translation": "Specifies the number of indexed objects to be fetched for the specified pagination cookie."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-attendees-addresses-flag-description",
+    "translation": "Filters the calendar items which have specified email addresses as attendees."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-bcc-recipient-addresses-flag-description",
+    "translation": "Filters the emails which are sent to specified email addresses in BCC."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-cc-recipient-addresses-flag-description",
+    "translation": "Filters the emails which are sent to specified email addresses in CC."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-created-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds where the created time of the email/item is less than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-created-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds where the created time of the email/item is more than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-due-date-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds where the last modification time of the email/item is less than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-due-date-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds where the last modification time of the email/item is more than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-email-address-flag-description",
+    "translation": "Filters the contact items which have specified text in email address."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-email-subject-flag-description",
+    "translation": "Filters the emails which have the specified text in its subject."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-first-name-flag-description",
+    "translation": "Filters the contacts with specified text in first name."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-flag-description",
+    "translation": "Specifies the request parameters to search for emails and email folders. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-folder-names-flag-description",
+    "translation": "Filters the emails which are categorized to specified folders."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-has-attachment-flag-description",
+    "translation": "Filters the emails which have attachment."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-modified-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds where the last modification time of the email/item is less than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-modified-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds where the last modification time of the email/item is more than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-name-flag-description",
+    "translation": "Filters the contacts with specified text in last name."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-middle-name-flag-description",
+    "translation": "Filters the contacts with specified text in middle name."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-o365-params-flag-description",
+    "translation": "Specifies email search request params specific to O365 environment. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-organizer-address-flag-description",
+    "translation": "Filters the calendar items which are organized by specified User's email address."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-received-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds where the received time of the email is less than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-received-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds where the received time of the email is more than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-recipient-addresses-flag-description",
+    "translation": "Filters the emails which are sent to specified email addresses."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-sender-address-flag-description",
+    "translation": "Filters the emails which are received from specified User's email address."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-source-environment-flag-description",
+    "translation": "Specifies the source environment. Allowable values are: kO365."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-task-status-types-flag-description",
+    "translation": "Specifies a list of task item status types. Task items having status within the given types will be returned. Allowable list items are: NotStarted, InProgress, Completed, WaitingOnOthers, Deferred."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-types-flag-description",
+    "translation": "Specifies a list of mailbox item types. Only items within the given types will be returned. Allowable list items are: Email, Folder, Calendar, Contact, Task, Note."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-exchange-params-flag-description",
+    "translation": "Specifies the parameters which are specific for searching Exchange mailboxes. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-exchange-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the Exchange Objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-flag-description",
+    "translation": "Specifies the request parameters to search for files and file folders. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-object-ids-flag-description",
+    "translation": "Specifies a list of object ids. Only files found in these objects will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-search-string-flag-description",
+    "translation": "Specifies the search string to filter the files. User can specify a wildcard character '*' as a suffix to a string where all files name are matched with the prefix string."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-source-environments-flag-description",
+    "translation": "Specifies a list of the source environments. Only files from these types of source will be returned. Allowable list items are: kVMware, kHyperV, kSQL, kView, kRemoteAdapter, kPhysical, kPhysicalFiles, kPure, kIbmFlashSystem, kAzure, kNetapp, kGenericNas, kAcropolis, kIsilon, kGPFS, kKVM, kAWS, kExchange, kOracle, kGCP, kFlashBlade, kO365, kHyperFlex, kKubernetes, kElastifile, kSAPHANA, kUDA, kSfdc."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-types-flag-description",
+    "translation": "Specifies a list of file types. Only files within the given types will be returned. Allowable list items are: File, Directory, Symlink."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-flag-description",
+    "translation": "Parameters required to search Hbase on a cluster. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-hbase-object-types-flag-description",
+    "translation": "Specifies one or more Hbase object types be searched. Allowable list items are: HbaseNamespaces, HbaseTables."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the Hbase Objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-flag-description",
+    "translation": "Parameters required to search HDFS on a cluster. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-hdfs-types-flag-description",
+    "translation": "Specifies types as Folders or Files or both to be searched. Allowable list items are: HDFSFolders, HDFSFiles."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the HDFS Folders and Files."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-flag-description",
+    "translation": "Parameters required to search Hive on a cluster. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-hive-object-types-flag-description",
+    "translation": "Specifies one or more Hive object types be searched. Allowable list items are: HiveDatabases, HiveTables, HivePartitions."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the Hive Objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-include-tenants-flag-description",
+    "translation": "If true, the response will include objects which belongs to all tenants which the current user has permission to see. Default value is false. The default value is false."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-might-have-snapshot-tag-ids-flag-description",
+    "translation": "Specifies list of snapshot tags, one or more of which might be present in the document. These are OR'ed together and the resulting criteria AND'ed with the rest of the query. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-might-have-tag-ids-flag-description",
+    "translation": "Specifies list of tags, one or more of which might be present in the document. These are OR'ed together and the resulting criteria AND'ed with the rest of the query. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-flag-description",
+    "translation": "Parameters required to search Mongo DB on a cluster. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-mongo-db-object-types-flag-description",
+    "translation": "Specifies one or more MongoDB object types be searched. Allowable list items are: MongoDatabases, MongoCollections."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the MongoDB Objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-flag-description",
+    "translation": "Specifies the request params to search for Groups items. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-mailbox-params-flag-description",
+    "translation": "Specifies the request parameters to search for mailbox items and folders. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-o365-params-flag-description",
+    "translation": "Specifies O365 specific params search request params to search for indexed items. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-site-params-flag-description",
+    "translation": "Specifies the request parameters to search for files/folders in document libraries. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-category-types-flag-description",
+    "translation": "Specifies a list of teams files types. Only items within the given types will be returned. Allowable list items are: Document, Excel, Powerpoint, Image, OneNote."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-names-flag-description",
+    "translation": "Specifies the list of channel names to filter while doing search for files."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-params-flag-description",
+    "translation": "Specifies the request parameters related to channels for Microsoft365 teams. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-creation-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds when the item is created."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-creation-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds when the item is created."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-flag-description",
+    "translation": "Specifies the request params to search for Teams items. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-o365-params-flag-description",
+    "translation": "Specifies O365 specific params search request params to search for indexed items. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-owner-names-flag-description",
+    "translation": "Specifies the list of owner email ids to filter on owner of the item."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-search-string-flag-description",
+    "translation": "Specifies the search string to filter the items. User can specify a wildcard character '*' as a suffix to a string where all item names are matched with the prefix string."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-size-bytes-lower-limit-flag-description",
+    "translation": "Specifies the minimum size of the item in bytes."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-size-bytes-upper-limit-flag-description",
+    "translation": "Specifies the maximum size of the item in bytes."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-types-flag-description",
+    "translation": "Specifies a list of Teams item types. Only items within the given types will be returned. Allowable list items are: Channel, Chat, Conversation, File, Folder."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-must-have-snapshot-tag-ids-flag-description",
+    "translation": "Specifies snapshot tags which must be all present in the document. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-must-have-tag-ids-flag-description",
+    "translation": "Specifies tags which must be all present in the document. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-object-type-flag-description",
+    "translation": "Required. Specifies the object type to be searched for. Allowable values are: Emails, Files, CassandraObjects, CouchbaseObjects, HbaseObjects, HiveObjects, MongoObjects, HDFSObjects, ExchangeObjects, PublicFolders, GroupsObjects, TeamsObjects, SharepointObjects, OneDriveObjects, UdaObjects, SfdcRecords."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-category-types-flag-description",
+    "translation": "Specifies a list of document library types. Only items within the given types will be returned. Allowable list items are: Document, Excel, Powerpoint, Image, OneNote."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-creation-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds when the file/folder is created."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-creation-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds when the file/folder is created."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-flag-description",
+    "translation": "Specifies the request parameters to search for files/folders in document libraries. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-include-files-flag-description",
+    "translation": "Specifies whether to include files in the response. Default is true. The default value is true."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-include-folders-flag-description",
+    "translation": "Specifies whether to include folders in the response. Default is true. The default value is true."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-o365-params-flag-description",
+    "translation": "Specifies O365 specific params search request params to search for indexed items. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-owner-names-flag-description",
+    "translation": "Specifies the list of owner names to filter on owner of the file/folder."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-search-string-flag-description",
+    "translation": "Specifies the search string to filter the files/folders. User can specify a wildcard character '*' as a suffix to a string where all item names are matched with the prefix string."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-size-bytes-lower-limit-flag-description",
+    "translation": "Specifies the minimum size of the file in bytes."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-size-bytes-upper-limit-flag-description",
+    "translation": "Specifies the maximum size of the file in bytes."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-pagination-cookie-flag-description",
+    "translation": "Specifies the pagination cookie with which subsequent parts of the response can be fetched."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-protection-group-ids-flag-description",
+    "translation": "Specifies a list of Protection Group ids to filter the indexed objects. If specified, the objects indexed by specified Protection Group ids will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-bcc-recipient-addresses-flag-description",
+    "translation": "Filters the public folder items which are sent to specified email addresses in BCC. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-cc-recipient-addresses-flag-description",
+    "translation": "Filters the public folder items which are sent to specified email addresses in CC. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-flag-description",
+    "translation": "Specifies the request parameters to search for Public Folder items. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-has-attachment-flag-description",
+    "translation": "Filters the public folder items which have attachment."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-received-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds where the received time of the public folder items is less than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-received-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds where the received time of the public folder item is more than specified value."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-recipient-addresses-flag-description",
+    "translation": "Filters the public folder items which are sent to specified email addresses. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-search-string-flag-description",
+    "translation": "Specifies the search string to filter the items. User can specify a wildcard character '*' as a suffix to a string where all item names are matched with the prefix string."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-sender-address-flag-description",
+    "translation": "Filters the public folder items which are received from specified user's email address. "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-types-flag-description",
+    "translation": "Specifies a list of public folder item types. Only items within the given types will be returned. Allowable list items are: Calendar, Contact, Post, Folder, Task, Journal, Note."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-flag-description",
+    "translation": "Specifies the parameters which are specific for searching Salesforce records. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-mutation-types-flag-description",
+    "translation": "Specifies a list of mutuation types for an object. Allowable list items are: All, Added, Removed, Changed."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-object-name-flag-description",
+    "translation": "Specifies the name of the object."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-query-string-flag-description",
+    "translation": "Specifies the query string to search records. Query string can be one or multiples clauses joined together by 'AND' or 'OR' claused."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-snapshot-id-flag-description",
+    "translation": "Specifies the id of the snapshot for the object."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-category-types-flag-description",
+    "translation": "Specifies a list of document library types. Only items within the given types will be returned. Allowable list items are: Document, Excel, Powerpoint, Image, OneNote."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-creation-end-time-secs-flag-description",
+    "translation": "Specifies the end time in Unix timestamp epoch in seconds when the file/folder is created."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-creation-start-time-secs-flag-description",
+    "translation": "Specifies the start time in Unix timestamp epoch in seconds when the file/folder is created."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-flag-description",
+    "translation": "Specifies the request parameters to search for files/folders in document libraries. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-include-files-flag-description",
+    "translation": "Specifies whether to include files in the response. Default is true. The default value is true."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-include-folders-flag-description",
+    "translation": "Specifies whether to include folders in the response. Default is true. The default value is true."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-o365-params-flag-description",
+    "translation": "Specifies O365 specific params search request params to search for indexed items. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-owner-names-flag-description",
+    "translation": "Specifies the list of owner names to filter on owner of the file/folder."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-search-string-flag-description",
+    "translation": "Specifies the search string to filter the files/folders. User can specify a wildcard character '*' as a suffix to a string where all item names are matched with the prefix string."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-size-bytes-lower-limit-flag-description",
+    "translation": "Specifies the minimum size of the file in bytes."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-size-bytes-upper-limit-flag-description",
+    "translation": "Specifies the maximum size of the file in bytes."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-snapshot-tags-flag-description",
+    "translation": "\"This field is deprecated. Please use mightHaveSnapshotTagIds.\"."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-storage-domain-ids-flag-description",
+    "translation": "Specifies the Storage Domain ids to filter indexed objects for which Protection Groups are writing data to Cohesity Views on the specified Storage Domains."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-tags-flag-description",
+    "translation": "\"This field is deprecated. Please use mightHaveTagIds.\"."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-tenant-id-flag-description",
+    "translation": "TenantId contains id of the tenant for which objects are to be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-flag-description",
+    "translation": "Parameters required to search Universal Data Adapter objects. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-search-string-flag-description",
+    "translation": "Specifies the search string to search the Universal Data Adapter Objects."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-source-ids-flag-description",
+    "translation": "Specifies a list of source ids. Only files found in these sources will be returned."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request from the read replica cache. There is a lag of 15 seconds between the read replica and primary data source."
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-long-description",
+    "translation": "REST API used to configure Backup Recovery Service."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-command-long-description",
+    "translation": "List the snapshots for a given object."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-command-short-description",
+    "translation": "List the snapshots for a given object."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-from-time-usecs-flag-description",
+    "translation": "Specifies the timestamp in Unix time epoch in microseconds to filter Object's snapshots which were taken after this value."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-id-flag-description",
+    "translation": "Required. Specifies the id of the Object."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-object-action-keys-flag-description",
+    "translation": "Filter by ObjectActionKey, which uniquely represents the protection of an object. An object can be protected in multiple ways but at most once for a given combination of ObjectActionKey. When specified, only snapshots matching the given action keys are returned for the corresponding object. Allowable list items are: kVMware, kHyperV, kVCD, kAzure, kGCP, kKVM, kAcropolis, kAWS, kAWSNative, kAwsS3, kAWSSnapshotManager, kRDSSnapshotManager, kAuroraSnapshotManager, kAwsRDSPostgresBackup, kAwsRDSPostgres, kAwsAuroraPostgres, kAzureNative, kAzureSQL, kAzureSnapshotManager, kPhysical, kPhysicalFiles, kGPFS, kElastifile, kNetapp, kGenericNas, kIsilon, kFlashBlade, kPure, kIbmFlashSystem, kSQL, kExchange, kAD, kOracle, kView, kRemoteAdapter, kO365, kO365PublicFolders, kO365Teams, kO365Group, kO365Exchange, kO365OneDrive, kO365Sharepoint, kKubernetes, kCassandra, kMongoDB, kCouchbase, kHdfs, kHive, kHBase, kSAPHANA, kUDA, kSfdc, kO365ExchangeCSM, kO365OneDriveCSM, kO365SharepointCSM."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-protection-group-ids-flag-description",
+    "translation": "If specified, this returns only the snapshots of the specified object ID, which belong to the provided protection group IDs."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-region-ids-flag-description",
+    "translation": "Filter by a list of region IDs."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-instance-ids-flag-description",
+    "translation": "Filter by a list of run instance IDs. If specified, only snapshots created by these protection runs will be returned."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-start-from-time-usecs-flag-description",
+    "translation": "Specifies the timestamp in Unix time epoch in microseconds to filter Object's snapshots which were run after this value."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-start-to-time-usecs-flag-description",
+    "translation": "Specifies the timestamp in Unix time epoch in microseconds to filter Object's snapshots which were run before this value."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-types-flag-description",
+    "translation": "Filter by run type. Only protection runs matching the specified types will be returned. By default, CDP hydration snapshots are not included unless explicitly queried using this field. Allowable list items are: kRegular, kFull, kLog, kSystem, kHydrateCDP, kStorageArraySnapshot."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-snapshot-actions-flag-description",
+    "translation": "Specifies a list of recovery actions. Only snapshots that apply to these actions will be returned. Allowable list items are: RecoverVMs, RecoverFiles, InstantVolumeMount, RecoverVmDisks, MountVolumes, RecoverVApps, RecoverRDS, RecoverAurora, RecoverS3Buckets, RecoverApps, RecoverNasVolume, RecoverPhysicalVolumes, RecoverSystem, RecoverSanVolumes, RecoverNamespaces, RecoverObjects, DownloadFilesAndFolders, RecoverPublicFolders, RecoverVAppTemplates, RecoverMailbox, RecoverOneDrive, RecoverMsTeam, RecoverMsGroup, RecoverSharePoint, ConvertToPst, RecoverSfdcRecords, RecoverAzureSQL, DownloadChats, RecoverRDSPostgres, RecoverMailboxCSM, RecoverOneDriveCSM, RecoverSharePointCSM."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-to-time-usecs-flag-description",
+    "translation": "Specifies the timestamp in Unix time epoch in microseconds to filter Object's snapshots which were taken before this value."
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-objects-search-cluster-identifiers-flag-description",
+    "translation": "Specifies the list of cluster identifiers. Format is clusterId:clusterIncarnationId. Only records from clusters having these identifiers will be returned."
+  },
+  {
+    "id": "backup-recovery-objects-search-command-long-description",
+    "translation": "List objects."
+  },
+  {
+    "id": "backup-recovery-objects-search-command-short-description",
+    "translation": "List Objects."
+  },
+  {
+    "id": "backup-recovery-objects-search-count-flag-description",
+    "translation": "Specifies the number of objects to be fetched for the specified pagination cookie."
+  },
+  {
+    "id": "backup-recovery-objects-search-environments-flag-description",
+    "translation": "Specifies the environment type to filter objects. Allowable list items are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-objects-search-external-filters-flag-description",
+    "translation": "Specifies the key-value pairs to filtering the results for the search. Each filter is of the form 'key:value'. The filter 'externalFilters:k1:v1&externalFilters:k2:v2&externalFilters:k2:v3' returns the documents where each document will match the query (k1=v1) AND (k2=v2 OR k2 = v3). Allowed keys: - vmBiosUuid - graphUuid - arn - instanceId - bucketName - azureId."
+  },
+  {
+    "id": "backup-recovery-objects-search-include-deleted-objects-flag-description",
+    "translation": "Specifies whether to include deleted objects in response. These objects can't be protected but can be recovered. This field is deprecated."
+  },
+  {
+    "id": "backup-recovery-objects-search-include-helios-tag-info-for-objects-flag-description",
+    "translation": "pecifies whether to include helios tags information for objects in response. Default value is false."
+  },
+  {
+    "id": "backup-recovery-objects-search-is-deleted-flag-description",
+    "translation": "If set to true, then objects which are deleted on atleast one cluster will be returned. If not set or set to false then objects which are registered on atleast one cluster are returned."
+  },
+  {
+    "id": "backup-recovery-objects-search-is-protected-flag-description",
+    "translation": "Specifies the protection status of objects. If set to true, only protected objects will be returned. If set to false, only unprotected objects will be returned. If not specified, all objects will be returned."
+  },
+  {
+    "id": "backup-recovery-objects-search-last-run-status-list-flag-description",
+    "translation": "Specifies a list of status of the object's last protection run. Only objects with last run status of these will be returned. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, LegalHold."
+  },
+  {
+    "id": "backup-recovery-objects-search-might-have-snapshot-tag-ids-flag-description",
+    "translation": "Specifies list of snapshot tags, one or more of which might be present in the document. These are OR'ed together and the resulting criteria AND'ed with the rest of the query. "
+  },
+  {
+    "id": "backup-recovery-objects-search-might-have-tag-ids-flag-description",
+    "translation": "Specifies list of tags, one or more of which might be present in the document. These are OR'ed together and the resulting criteria AND'ed with the rest of the query. "
+  },
+  {
+    "id": "backup-recovery-objects-search-must-have-snapshot-tag-ids-flag-description",
+    "translation": "Specifies snapshot tags which must be all present in the document. "
+  },
+  {
+    "id": "backup-recovery-objects-search-must-have-tag-ids-flag-description",
+    "translation": "Specifies tags which must be all present in the document. "
+  },
+  {
+    "id": "backup-recovery-objects-search-object-ids-flag-description",
+    "translation": "Specifies a list of Object ids to filter."
+  },
+  {
+    "id": "backup-recovery-objects-search-os-types-flag-description",
+    "translation": "Specifies the operating system types to filter objects on. Allowable list items are: kLinux, kWindows."
+  },
+  {
+    "id": "backup-recovery-objects-search-pagination-cookie-flag-description",
+    "translation": "Specifies the pagination cookie with which subsequent parts of the response can be fetched."
+  },
+  {
+    "id": "backup-recovery-objects-search-protection-group-ids-flag-description",
+    "translation": "Specifies a list of Protection Group ids to filter the objects. If specified, the objects protected by specified Protection Group ids will be returned."
+  },
+  {
+    "id": "backup-recovery-objects-search-protection-types-flag-description",
+    "translation": "Specifies the protection type to filter objects. Allowable list items are: kAgent, kNative, kSnapshotManager, kRDSSnapshotManager, kAuroraSnapshotManager, kAwsS3, kAwsRDSPostgresBackup, kAwsAuroraPostgres, kAwsRDSPostgres, kAzureSQL, kFile, kVolume."
+  },
+  {
+    "id": "backup-recovery-objects-search-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-objects-search-search-string-flag-description",
+    "translation": "Specifies the search string to filter the objects. This search string will be applicable for objectnames. User can specify a wildcard character '*' as a suffix to a string where all object names are matched with the prefix string. For example, if vm1 and vm2 are the names of objects, user can specify vm* to list the objects. If not specified, then all the objects will be returned which will match other filtering criteria."
+  },
+  {
+    "id": "backup-recovery-objects-search-source-ids-flag-description",
+    "translation": "Specifies a list of Protection Source object ids to filter the objects. If specified, the object which are present in those Sources will be returned."
+  },
+  {
+    "id": "backup-recovery-objects-search-source-uuids-flag-description",
+    "translation": "Specifies a list of Protection Source object uuids to filter the objects. If specified, the object which are present in those Sources will be returned."
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-categories-flag-description",
+    "translation": "Specifies the tag category to filter the objects and snapshots. Allowable list items are: Security."
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-names-flag-description",
+    "translation": "Specifies the tag names to filter the tagged objects and snapshots."
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-search-name-flag-description",
+    "translation": "Specifies the tag name to filter the tagged objects and snapshots. User can specify a wildcard character '*' as a suffix to a string where all object's tag names are matched with the prefix string."
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-sub-categories-flag-description",
+    "translation": "Specifies the tag subcategory to filter the objects and snapshots. Allowable list items are: Classification, Threats, Anomalies, Dspm."
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-types-flag-description",
+    "translation": "Specifies the tag names to filter the tagged objects and snapshots. Allowable list items are: System, Custom, ThirdParty."
+  },
+  {
+    "id": "backup-recovery-objects-search-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-cdp-protected-only-flag-description",
+    "translation": "Specifies whether to only return the CDP protected objects."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-command-long-description",
+    "translation": "List protected objects and corresponding detail information from registered sources filtered by specified query parameters. If no search pattern or filter parameters are specified, all protected objects currently found are returned."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-command-short-description",
+    "translation": "List Protected Objects."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-environments-flag-description",
+    "translation": "Specifies the environment type to filter objects. Allowable list items are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-filter-snapshot-from-usecs-flag-description",
+    "translation": "Specifies the timestamp in Unix time epoch in microseconds to filter the objects if the Object has a successful snapshot after this value."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-filter-snapshot-to-usecs-flag-description",
+    "translation": "Specifies the timestamp in Unix time epoch in microseconds to filter the objects if the Object has a successful snapshot before this value."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-object-action-key-flag-description",
+    "translation": "Filter by ObjectActionKey, which uniquely represents protection of an object. An object can be protected in multiple ways but atmost once for a given combination of ObjectActionKey. When specified, latest snapshot info matching the objectActionKey is for corresponding object. Allowable values are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-object-ids-flag-description",
+    "translation": "Specifies a list of Object ids to filter."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-os-types-flag-description",
+    "translation": "Specifies the operating system types to filter objects on. Allowable list items are: kLinux, kWindows."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-protection-group-ids-flag-description",
+    "translation": "Specifies a list of Protection Group ids to filter the objects. If specified, the objects protected by specified Protection Group ids will be returned."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-run-instance-ids-flag-description",
+    "translation": "Specifies a list of run instance ids. If specified only objects belonging to the provided run id will be retunrned."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-search-string-flag-description",
+    "translation": "Specifies the search string to filter the objects. This search string will be applicable for objectnames and Protection Group names. User can specify a wildcard character '*' as a suffix to a string where all object and their Protection Group names are matched with the prefix string. For example, if vm1 and vm2 are the names of objects, user can specify vm* to list the objects. If not specified, then all the objects with Protection Groups will be returned which will match other filtering criteria."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-snapshot-actions-flag-description",
+    "translation": "Specifies a list of recovery actions. Only snapshots that applies to these actions will be returned. Allowable list items are: RecoverVMs, RecoverFiles, InstantVolumeMount, RecoverVmDisks, MountVolumes, RecoverVApps, RecoverRDS, RecoverAurora, RecoverS3Buckets, RecoverApps, RecoverNasVolume, RecoverPhysicalVolumes, RecoverSystem, RecoverSanVolumes, RecoverNamespaces, RecoverObjects, DownloadFilesAndFolders, RecoverPublicFolders, RecoverVAppTemplates, RecoverMailbox, RecoverOneDrive, RecoverMsTeam, RecoverMsGroup, RecoverSharePoint, ConvertToPst, RecoverSfdcRecords, RecoverAzureSQL, DownloadChats, RecoverRDSPostgres, RecoverMailboxCSM, RecoverOneDriveCSM, RecoverSharePointCSM."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-source-ids-flag-description",
+    "translation": "Specifies a list of Protection Source object ids to filter the objects. If specified, the object which are present in those Sources will be returned."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-sub-result-size-flag-description",
+    "translation": "Specifies the size of objects to be fetched for a single subresult."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request to the read replica cache cache. There is a lag of 15 seconds between the read replica and primary data source."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-abort-in-blackouts-flag-description",
+    "translation": "Specifies whether currently executing jobs should abort if a blackout period specified by a policy starts. Available only if the selected policy has at least one blackout period. Default value is false. This field should not be set to true if 'pauseInBlackouts' is set to true."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-advanced-configs-flag-description",
+    "translation": "Specifies the advanced configuration for a protection job. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-alert-targets-flag-description",
+    "translation": "Specifies a list of targets to receive the alerts. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-backup-run-status-flag-description",
+    "translation": "Specifies the run status for which the user would like to receive alerts. Allowable list items are: kSuccess, kFailure, kSlaViolation, kWarning. The minimum length is 1 item."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-flag-description",
+    "translation": "Specifies a policy for alerting users of the status of a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
+    "translation": "Specifies whether object level alerts are raised for backup failures after each backup attempt."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-after-last-attempt-flag-description",
+    "translation": "Specifies whether object level alerts are raised for backup failures after last backup attempt."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-flag-description",
+    "translation": "Specifies whether object level alerts are raised for backup failures after the backup run."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-command-long-description",
+    "translation": "Create a Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-command-short-description",
+    "translation": "Create a Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-description-flag-description",
+    "translation": "Specifies a description of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-end-time-usecs-flag-description",
+    "translation": "Specifies the end time in micro seconds for this Protection Group. If this is not specified, the Protection Group won't be ended."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-environment-flag-description",
+    "translation": "Required. Specifies the environment type of the Protection Group. Allowable values are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-is-paused-flag-description",
+    "translation": "Specifies if the the Protection Group is paused. New runs are not scheduled for the paused Protection Groups. Active run if any is not impacted."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-last-modified-timestamp-usecs-flag-description",
+    "translation": "Specifies the last time this protection group was updated. If this is passed into a PUT request, then the backend will validate that the timestamp passed in matches the time that the protection group was actually last modified. If the two timestamps do not match, then the request will be rejected with a stale error."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-file-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a File based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-flag-description",
+    "translation": "Specifies the parameters specific to MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-native-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a Native based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-protection-type-flag-description",
+    "translation": "Specifies the MSSQL Protection Group type. Allowable values are: kFile, kVolume, kNative."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-volume-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a Volume based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-name-flag-description",
+    "translation": "Required. Specifies the name of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-pause-in-blackouts-flag-description",
+    "translation": "Specifies whether currently executing jobs should be paused if a blackout period specified by a policy starts. Available only if the selected policy has at least one blackout period. Default value is false. This field should not be set to true if 'abortInBlackouts' is sent as true."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-file-protection-type-params-flag-description",
+    "translation": "Specifies the parameters which are specific to Physical related Protection Groups. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-protection-type-flag-description",
+    "translation": "Specifies the Physical Protection Group type. Allowable values are: kFile, kVolume."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-volume-protection-type-params-flag-description",
+    "translation": "Specifies the parameters which are specific to Volume based physical Protection Groups. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-policy-id-flag-description",
+    "translation": "Required. Specifies the unique id of the Protection Policy associated with the Protection Group. The Policy provides retry settings Protection Schedules, Priority, SLA, etc."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-priority-flag-description",
+    "translation": "Specifies the priority of the Protection Group. Allowable values are: kLow, kMedium, kHigh."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-qos-policy-flag-description",
+    "translation": "Specifies whether the Protection Group will be written to HDD or SSD. Allowable values are: kBackupHDD, kBackupSSD, kTestAndDevHigh, kBackupAll."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-sla-flag-description",
+    "translation": "Specifies the SLA parameters for this Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-flag-description",
+    "translation": "Specifies the time of day. Used for scheduling purposes. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-hour-flag-description",
+    "translation": "Specifies the hour of the day (0-23). The maximum value is 23. The minimum value is 0."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-minute-flag-description",
+    "translation": "Specifies the minute of the hour (0-59). The maximum value is 59. The minimum value is 0."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-time-zone-flag-description",
+    "translation": "Specifies the time zone of the user. If not specified, default value is assumed as America/Los_Angeles. The default value is America/Los_Angeles."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-command-long-description",
+    "translation": "Returns Success if the Protection Group is deleted."
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-command-short-description",
+    "translation": "Delete a Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-delete-snapshots-flag-description",
+    "translation": "Specifies if Snapshots generated by the Protection Group should also be deleted when the Protection Group is deleted."
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-command-long-description",
+    "translation": "Returns the Protection Group corresponding to the specified Group id."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-command-short-description",
+    "translation": "List details about single Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-include-last-run-info-flag-description",
+    "translation": "If true, the response will include last run info. If it is false or not specified, the last run info won't be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-prune-excluded-source-ids-flag-description",
+    "translation": "If true, the response will not include the list of excluded source IDs in groups that contain this field. This can be set to true in order to improve performance if excluded source IDs are not needed by the user."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-prune-source-ids-flag-description",
+    "translation": "If true, the response will exclude the list of source IDs within the group specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-group-get-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-group-long-description",
+    "translation": "Commands for ProtectionGroup resource."
+  },
+  {
+    "id": "backup-recovery-protection-group-group-short-description",
+    "translation": "Commands for ProtectionGroup resource."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-command-long-description",
+    "translation": "Get the list of Protection Groups."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-command-short-description",
+    "translation": "Get the list of Protection Groups."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-environments-flag-description",
+    "translation": "Filter by environment types such as 'kVMware', 'kView', etc. Only Protection Groups protecting the specified environment types are returned. Allowable list items are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-ids-flag-description",
+    "translation": "Filter by a list of Protection Group ids."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-include-groups-with-datalock-only-flag-description",
+    "translation": "Whether to only return Protection Groups with a datalock."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-include-last-run-info-flag-description",
+    "translation": "If true, the response will include last run info. If it is false or not specified, the last run info won't be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-active-flag-description",
+    "translation": "Filter by Inactive or Active Protection Groups. If not set, all Inactive and Active Protection Groups are returned. If true, only Active Protection Groups are returned. If false, only Inactive Protection Groups are returned. When you create a Protection Group on a Primary Cluster with a replication schedule, the Cluster creates an Inactive copy of the Protection Group on the Remote Cluster. In addition, when an Active and running Protection Group is deactivated, the Protection Group becomes Inactive."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-deleted-flag-description",
+    "translation": "If true, return only Protection Groups that have been deleted but still have Snapshots associated with them. If false, return all Protection Groups except those Protection Groups that have been deleted and still have Snapshots associated with them. A Protection Group that is deleted with all its Snapshots is not returned for either of these cases."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-last-run-sla-violated-flag-description",
+    "translation": "If true, return Protection Groups for which last run SLA was violated."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-paused-flag-description",
+    "translation": "Filter by paused or non paused Protection Groups, If not set, all paused and non paused Protection Groups are returned. If true, only paused Protection Groups are returned. If false, only non paused Protection Groups are returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-any-status-flag-description",
+    "translation": "Filter by last any run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-archival-status-flag-description",
+    "translation": "Filter by last cloud archival run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-cloud-spin-status-flag-description",
+    "translation": "Filter by last cloud spin run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-local-backup-status-flag-description",
+    "translation": "Filter by last local backup run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-replication-status-flag-description",
+    "translation": "Filter by last remote replication run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-names-flag-description",
+    "translation": "Filter by a list of Protection Group names."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-policy-ids-flag-description",
+    "translation": "Filter by Policy ids that are associated with Protection Groups. Only Protection Groups associated with the specified Policy ids, are returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-prune-excluded-source-ids-flag-description",
+    "translation": "If true, the response will not include the list of excluded source IDs in groups that contain this field. This can be set to true in order to improve performance if excluded source IDs are not needed by the user."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-prune-source-ids-flag-description",
+    "translation": "If true, the response will exclude the list of source IDs within the group specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-source-ids-flag-description",
+    "translation": "Filter by Source ids that are associated with Protection Groups. Only Protection Groups associated with the specified Source ids, are returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request from the read replica cache. There is a lag of 15 seconds between the read replica and primary data source."
+  },
+  {
+    "id": "backup-recovery-protection-group-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-command-long-description",
+    "translation": "Create a new protection run. This can be used to start a run for a Protection Group on demand, ignoring the schedule and retention specified in the protection policy."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-command-short-description",
+    "translation": "Create a new protection run."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-objects-flag-description",
+    "translation": "Specifies the list of objects to be protected by this Protection Group run. These can be leaf objects or non-leaf objects in the protection hierarchy. This must be specified only if a subset of objects from the Protection Groups needs to be protected. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-run-type-flag-description",
+    "translation": "Required. Type of protection run. 'kRegular' indicates an incremental (CBT) backup. Incremental backups utilizing CBT (if supported) are captured of the target protection objects. The first run of a kRegular schedule captures all the blocks. 'kFull' indicates a full (no CBT) backup. A complete backup (all blocks) of the target protection objects are always captured and Change Block Tracking (CBT) is not utilized. 'kLog' indicates a Database Log backup. Capture the database transaction logs to allow rolling back to a specific point in time. 'kSystem' indicates system volume backup. It produces an image for bare metal recovery. Allowable values are: kRegular, kFull, kLog, kSystem, kHydrateCDP, kStorageArraySnapshot."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-archivals-flag-description",
+    "translation": "Specifies a list of archival targets configurations. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-cloud-replications-flag-description",
+    "translation": "Specifies a list of cloud replication targets configurations. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-flag-description",
+    "translation": "Specifies the replication and archival targets. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-replications-flag-description",
+    "translation": "Specifies a list of replication targets configurations. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-use-policy-defaults-flag-description",
+    "translation": "Specifies whether to use default policy settings or not. If specified as true then 'replications' and 'arcihvals' should not be specified. In case of true value, replicatioan targets congfigured in the policy will be added internally. The default value is false."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-group-long-description",
+    "translation": "Commands for ProtectionGroupRun resource."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-group-short-description",
+    "translation": "Commands for ProtectionGroupRun resource."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-archival-run-status-flag-description",
+    "translation": "Specifies a list of archival status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-cloud-spin-run-status-flag-description",
+    "translation": "Specifies a list of cloud spin status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-command-long-description",
+    "translation": "Get the runs for a particular Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-command-short-description",
+    "translation": "Get the list of runs for a Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-end-time-usecs-flag-description",
+    "translation": "End time for time range filter. Specify the end time as a Unix epoch Timestamp (in microseconds), only runs executing before this time will be returned. By default it is current time."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-exclude-non-restorable-runs-flag-description",
+    "translation": "Specifies whether to exclude non restorable runs. Run is treated restorable only if there is atleast one object snapshot (which may be either a local or an archival snapshot) which is not deleted or expired. Default value is false. The default value is false."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-filter-by-copy-task-end-time-flag-description",
+    "translation": "If true, then the details of the runs for which any copyTask completed in the given timerange will be returned. Only one of filterByEndTime and filterByCopyTaskEndTime can be set."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-filter-by-end-time-flag-description",
+    "translation": "If true, the runs with backup end time within the specified time range will be returned. Otherwise, the runs with start time in the time range are returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Group. "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-include-object-details-flag-description",
+    "translation": "Specifies if the result includes the object details for each protection run. If set to true, details of the protected object will be returned. If set to false or not specified, details will not be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-local-backup-run-status-flag-description",
+    "translation": "Specifies a list of local backup status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-num-runs-flag-description",
+    "translation": "Specifies the max number of runs. If not specified, at most 100 runs will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-only-return-successful-copy-run-flag-description",
+    "translation": "only successful copyruns are returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-replication-run-status-flag-description",
+    "translation": "Specifies a list of replication status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-id-flag-description",
+    "translation": "Specifies the protection run id. "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-tags-flag-description",
+    "translation": "Specifies a list of tags for protection runs. If this is specified, only the runs which match these tags will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-types-flag-description",
+    "translation": "Filter by run type. Only protection run matching the specified types will be returned. Allowable list items are: kAll, kHydrateCDP, kSystem, kStorageArraySnapshot, kIncremental, kFull, kLog."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-snapshot-target-types-flag-description",
+    "translation": "Specifies the snapshot's target type which should be filtered. Allowable list items are: Local, Archival, RpaasArchival, StorageArraySnapshot, Remote."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-start-time-usecs-flag-description",
+    "translation": "Start time for time range filter. Specify the start time as a Unix epoch Timestamp (in microseconds), only runs executing after this time will be returned. By default it is endTimeUsecs minus an hour."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request from the read replica cache. There is a lag of 15 seconds between the read replica and primary data source."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-action-flag-description",
+    "translation": "Required. Specifies the type of the action which will be performed on protection runs. Allowable values are: Pause, Resume, Cancel."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-cancel-params-flag-description",
+    "translation": "Specifies the cancel action params for a protection run. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-command-long-description",
+    "translation": "Perform various actions on a Protection Group run."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-command-short-description",
+    "translation": "Actions on protection group run."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-pause-params-flag-description",
+    "translation": "Specifies the pause action params for a protection run. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-resume-params-flag-description",
+    "translation": "Specifies the resume action params for a protection run. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-command-long-description",
+    "translation": "Update runs for a particular Protection Group. A user can perform the following actions: 1. Extend or reduce retention of a local, replication and archival snapshots. 2. Can perform resync operation on failed copy snapshots attempts in this Run. 3. Add new replication and archival snapshot targets to the Run. 4. Add or remove legal hold on the snapshots. Only a user with DSO role can perform this operation. 5. Delete the snapshots that were created as a part of this Run. 6. Apply datalock on existing snapshots where a user cannot manually delete snapshots before the expiry time."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-command-short-description",
+    "translation": "Update runs for a particular Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-update-protection-group-run-params-flag-description",
+    "translation": "Required. null It can also be a path to a JSON file. The minimum length is 1 item."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-abort-in-blackouts-flag-description",
+    "translation": "Specifies whether currently executing jobs should abort if a blackout period specified by a policy starts. Available only if the selected policy has at least one blackout period. Default value is false. This field should not be set to true if 'pauseInBlackouts' is set to true."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-advanced-configs-flag-description",
+    "translation": "Specifies the advanced configuration for a protection job. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-alert-targets-flag-description",
+    "translation": "Specifies a list of targets to receive the alerts. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-backup-run-status-flag-description",
+    "translation": "Specifies the run status for which the user would like to receive alerts. Allowable list items are: kSuccess, kFailure, kSlaViolation, kWarning. The minimum length is 1 item."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-flag-description",
+    "translation": "Specifies a policy for alerting users of the status of a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
+    "translation": "Specifies whether object level alerts are raised for backup failures after each backup attempt."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-after-last-attempt-flag-description",
+    "translation": "Specifies whether object level alerts are raised for backup failures after last backup attempt."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-flag-description",
+    "translation": "Specifies whether object level alerts are raised for backup failures after the backup run."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-command-long-description",
+    "translation": "Update the specified Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-command-short-description",
+    "translation": "Update a Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-description-flag-description",
+    "translation": "Specifies a description of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-end-time-usecs-flag-description",
+    "translation": "Specifies the end time in micro seconds for this Protection Group. If this is not specified, the Protection Group won't be ended."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-environment-flag-description",
+    "translation": "Required. Specifies the environment type of the Protection Group. Allowable values are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-id-flag-description",
+    "translation": "Required. Specifies the id of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-is-paused-flag-description",
+    "translation": "Specifies if the the Protection Group is paused. New runs are not scheduled for the paused Protection Groups. Active run if any is not impacted."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-last-modified-timestamp-usecs-flag-description",
+    "translation": "Specifies the last time this protection group was updated. If this is passed into a PUT request, then the backend will validate that the timestamp passed in matches the time that the protection group was actually last modified. If the two timestamps do not match, then the request will be rejected with a stale error."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-file-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a File based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-flag-description",
+    "translation": "Specifies the parameters specific to MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-native-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a Native based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-protection-type-flag-description",
+    "translation": "Specifies the MSSQL Protection Group type. Allowable values are: kFile, kVolume, kNative."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-volume-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a Volume based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-name-flag-description",
+    "translation": "Required. Specifies the name of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-pause-in-blackouts-flag-description",
+    "translation": "Specifies whether currently executing jobs should be paused if a blackout period specified by a policy starts. Available only if the selected policy has at least one blackout period. Default value is false. This field should not be set to true if 'abortInBlackouts' is sent as true."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-file-protection-type-params-flag-description",
+    "translation": "Specifies the parameters which are specific to Physical related Protection Groups. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-protection-type-flag-description",
+    "translation": "Specifies the Physical Protection Group type. Allowable values are: kFile, kVolume."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-volume-protection-type-params-flag-description",
+    "translation": "Specifies the parameters which are specific to Volume based physical Protection Groups. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-policy-id-flag-description",
+    "translation": "Required. Specifies the unique id of the Protection Policy associated with the Protection Group. The Policy provides retry settings Protection Schedules, Priority, SLA, etc."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-priority-flag-description",
+    "translation": "Specifies the priority of the Protection Group. Allowable values are: kLow, kMedium, kHigh."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-qos-policy-flag-description",
+    "translation": "Specifies whether the Protection Group will be written to HDD or SSD. Allowable values are: kBackupHDD, kBackupSSD, kTestAndDevHigh, kBackupAll."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-sla-flag-description",
+    "translation": "Specifies the SLA parameters for this Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-flag-description",
+    "translation": "Specifies the time of day. Used for scheduling purposes. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-hour-flag-description",
+    "translation": "Specifies the hour of the day (0-23). The maximum value is 23. The minimum value is 0."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-minute-flag-description",
+    "translation": "Specifies the minute of the hour (0-59). The maximum value is 59. The minimum value is 0."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-time-zone-flag-description",
+    "translation": "Specifies the time zone of the user. If not specified, default value is assumed as America/Los_Angeles. The default value is America/Los_Angeles."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-bmr-flag-description",
+    "translation": "Specifies the BMR schedule in case of physical source protection. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-cdp-flag-description",
+    "translation": "Specifies CDP (Continious Data Protection) backup settings for a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-flag-description",
+    "translation": "Specifies the backup schedule and retentions of a Protection Policy. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-log-flag-description",
+    "translation": "Specifies log backup settings for a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-regular-flag-description",
+    "translation": "Specifies the Incremental and Full policy settings and also the common Retention policy settings.\". It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-run-timeouts-flag-description",
+    "translation": "Specifies the backup timeouts for different type of runs(kFull, kRegular etc.). It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-storage-array-snapshot-flag-description",
+    "translation": "Specifies storage snapshot managment backup settings for a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-blackout-window-flag-description",
+    "translation": "List of Blackout Windows. If specified, this field defines blackout periods when new Group Runs are not started. If a Group Run has been scheduled but not yet executed and the blackout period starts, the behavior depends on the policy field AbortInBlackoutPeriod. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-cascaded-targets-config-flag-description",
+    "translation": "Specifies the configuration for cascaded replications. Using cascaded replication, replication cluster(Rx) can further replicate and archive the snapshot copies to further targets. Its recommended to create cascaded configuration where protection group will be created. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-command-long-description",
+    "translation": "Create the Protection Policy and returns the newly created policy object."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-command-short-description",
+    "translation": "Create a Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-data-lock-flag-description",
+    "translation": "This field is now deprecated. Please use the DataLockConfig in the backup retention. Allowable values are: Compliance, Administrative."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-description-flag-description",
+    "translation": "Specifies the description of the Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-extended-retention-flag-description",
+    "translation": "Specifies additional retention policies that should be applied to the backup snapshots. A backup snapshot will be retained up to a time that is the maximum of all retention policies that are applicable to it. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-is-cbs-enabled-flag-description",
+    "translation": "Specifies true if Calender Based Schedule is supported by client. Default value is assumed as false for this feature."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-last-modification-time-usecs-flag-description",
+    "translation": "Specifies the last time this Policy was updated. If this is passed into a PUT request, then the backend will validate that the timestamp passed in matches the time that the policy was actually last modified. If the two timestamps do not match, then the request will be rejected with a stale error."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-name-flag-description",
+    "translation": "Required. Specifies the name of the Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-archival-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-cloud-spin-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-flag-description",
+    "translation": "Specifies the replication, archival and cloud spin targets of Protection Policy. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-onprem-deploy-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-replication-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-rpaas-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-flag-description",
+    "translation": "Retry Options of a Protection Policy when a Protection Group run fails. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-retries-flag-description",
+    "translation": "Specifies the number of times to retry capturing Snapshots before the Protection Group Run fails. The minimum value is 0."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-retry-interval-mins-flag-description",
+    "translation": "Specifies the number of minutes before retrying a failed Protection Group. The minimum value is 1."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-template-id-flag-description",
+    "translation": "Specifies the parent policy template id to which the policy is linked to."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-version-flag-description",
+    "translation": "Specifies the current policy verison. Policy version is incremented for optionally supporting new features and differentialting across releases."
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-command-long-description",
+    "translation": "Deletes a Protection Policy based on given policy id."
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-command-short-description",
+    "translation": "Delete a Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Policy to delete."
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-command-long-description",
+    "translation": "Returns the Protection Policy details based on provided Policy Id."
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-command-short-description",
+    "translation": "List details about a single Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Policy to return."
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-policy-group-long-description",
+    "translation": "Commands for ProtectionPolicy resource."
+  },
+  {
+    "id": "backup-recovery-protection-policy-group-short-description",
+    "translation": "Commands for ProtectionPolicy resource."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-command-long-description",
+    "translation": "Lists protection policies based on filtering query parameters."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-command-short-description",
+    "translation": "List Protection Policies based on provided filtering parameters."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-exclude-linked-policies-flag-description",
+    "translation": "If excludeLinkedPolicies is set to true then only local policies created on cluster will be returned. The result will exclude all linked policies created from policy templates."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-ids-flag-description",
+    "translation": "Filter policies by a list of policy ids."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-include-replicated-policies-flag-description",
+    "translation": "If includeReplicatedPolicies is set to true, then response will also contain replicated policies. By default, replication policies are not included in the response."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-include-stats-flag-description",
+    "translation": "If includeStats is set to true, then response will return number of protection groups and objects. By default, the protection stats are not included in the response."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-policy-names-flag-description",
+    "translation": "Filter policies by a list of policy names."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-types-flag-description",
+    "translation": "Types specifies the policy type of policies to be returned. Allowable list items are: Regular, Internal."
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-bmr-flag-description",
+    "translation": "Specifies the BMR schedule in case of physical source protection. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-cdp-flag-description",
+    "translation": "Specifies CDP (Continious Data Protection) backup settings for a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-flag-description",
+    "translation": "Specifies the backup schedule and retentions of a Protection Policy. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-log-flag-description",
+    "translation": "Specifies log backup settings for a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-regular-flag-description",
+    "translation": "Specifies the Incremental and Full policy settings and also the common Retention policy settings.\". It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-run-timeouts-flag-description",
+    "translation": "Specifies the backup timeouts for different type of runs(kFull, kRegular etc.). It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-storage-array-snapshot-flag-description",
+    "translation": "Specifies storage snapshot managment backup settings for a Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-blackout-window-flag-description",
+    "translation": "List of Blackout Windows. If specified, this field defines blackout periods when new Group Runs are not started. If a Group Run has been scheduled but not yet executed and the blackout period starts, the behavior depends on the policy field AbortInBlackoutPeriod. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-cascaded-targets-config-flag-description",
+    "translation": "Specifies the configuration for cascaded replications. Using cascaded replication, replication cluster(Rx) can further replicate and archive the snapshot copies to further targets. Its recommended to create cascaded configuration where protection group will be created. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-command-long-description",
+    "translation": "Specifies the request to update the existing Protection Policy. On successful update, returns the updated policy object."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-command-short-description",
+    "translation": "Update a Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-data-lock-flag-description",
+    "translation": "This field is now deprecated. Please use the DataLockConfig in the backup retention. Allowable values are: Compliance, Administrative."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-description-flag-description",
+    "translation": "Specifies the description of the Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-extended-retention-flag-description",
+    "translation": "Specifies additional retention policies that should be applied to the backup snapshots. A backup snapshot will be retained up to a time that is the maximum of all retention policies that are applicable to it. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Policy to update."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-is-cbs-enabled-flag-description",
+    "translation": "Specifies true if Calender Based Schedule is supported by client. Default value is assumed as false for this feature."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-last-modification-time-usecs-flag-description",
+    "translation": "Specifies the last time this Policy was updated. If this is passed into a PUT request, then the backend will validate that the timestamp passed in matches the time that the policy was actually last modified. If the two timestamps do not match, then the request will be rejected with a stale error."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-name-flag-description",
+    "translation": "Required. Specifies the name of the Protection Policy."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-archival-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-cloud-spin-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-flag-description",
+    "translation": "Specifies the replication, archival and cloud spin targets of Protection Policy. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-onprem-deploy-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-replication-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-rpaas-targets-flag-description",
+    "translation": "null It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-flag-description",
+    "translation": "Retry Options of a Protection Policy when a Protection Group run fails. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-retries-flag-description",
+    "translation": "Specifies the number of times to retry capturing Snapshots before the Protection Group Run fails. The minimum value is 0."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-retry-interval-mins-flag-description",
+    "translation": "Specifies the number of minutes before retrying a failed Protection Group. The minimum value is 1."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-template-id-flag-description",
+    "translation": "Specifies the parent policy template id to which the policy is linked to."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-version-flag-description",
+    "translation": "Specifies the current policy verison. Policy version is incremented for optionally supporting new features and differentialting across releases."
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-group-long-description",
+    "translation": "Commands for ProtectionSource resource."
+  },
+  {
+    "id": "backup-recovery-protection-source-group-short-description",
+    "translation": "Commands for ProtectionSource resource."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-after-cursor-entity-id-flag-description",
+    "translation": "Specifies the entity id starting from which the items are to be returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy specifies if objects of all the tenants under the hierarchy of the logged in user's organization should be returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-before-cursor-entity-id-flag-description",
+    "translation": "Specifies the entity id upto which the items are to be returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-command-long-description",
+    "translation": "If no parameters are specified, all Protection Sources that are registered on the Cohesity Cluster are returned. In addition, an Object subtree gathered from each Source is returned. For example, the Cohesity Cluster interrogates a Source VMware vCenter Server and creates an hierarchical Object subtree that mirrors the Inventory tree on vCenter Server. The contents of the Object tree are returned as a \"nodes\" hierarchy of \"protectionSource\"s. Specifying parameters can alter the results that are returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-command-short-description",
+    "translation": "List Protection Sources."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-encryption-key-flag-description",
+    "translation": "Key to be used to encrypt the source credential. If include_source_credentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-environment-flag-description",
+    "translation": "This field is deprecated. Use environments instead."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-environments-flag-description",
+    "translation": "Return only Protection Sources that match the passed in environment type such as 'kVMware', 'kSQL', 'kView' 'kPhysical', 'kPuppeteer', 'kPure', 'kNetapp', 'kGenericNas', 'kHyperV', 'kAcropolis', or 'kAzure'. For example, set this parameter to 'kVMware' to only return the Sources (and their Object subtrees) found in the 'kVMware' (VMware vCenter Server) environment. Allowable list items are: kVMware, kHyperV, kSQL, kView, kPuppeteer, kPhysical, kPure, kNimble, kAzure, kNetapp, kAgent, kGenericNas, kAcropolis, kPhysicalFiles, kIsilon, kGPFS, kKVM, kAWS, kExchange, kHyperVVSS, kOracle, kGCP, kFlashBlade, kAWSNative, kO365, kO365Outlook, kHyperFlex, kGCPNative, kAzureNative, kKubernetes, kElastifile, kAD, kRDSSnapshotManager, kCassandra, kMongoDB, kCouchbase, kHdfs, kHBase, kUDA, KSfdc, kAwsS3."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-aws-types-flag-description",
+    "translation": "Specifies the Object types to be filtered out for AWS that match the passed in types such as 'kEC2Instance', 'kRDSInstance', 'kAuroraCluster', 'kTag', 'kAuroraTag', 'kRDSTag', kS3Bucket, kS3Tag. For example, set this parameter to 'kEC2Instance' to exclude ec2 instance from being returned. Allowable list items are: kEC2Instance, kRDSInstance, kAuroraCluster, kS3Bucket, kTag, kRDSTag, kAuroraTag, kS3Tag."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-kubernetes-types-flag-description",
+    "translation": "Specifies the Object types to be filtered out for Kubernetes that match the passed in types such as 'kService'. For example, set this parameter to 'kService' to exclude services from being returned. Allowable list items are: kService."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-office365-types-flag-description",
+    "translation": "Specifies the Object types to be filtered out for Office 365 that match the passed in types such as 'kDomain', 'kOutlook', 'kMailbox', etc. For example, set this parameter to 'kMailbox' to exclude Mailbox Objects from being returned. Allowable list items are: kDomain, kOutlook, kMailbox, kUsers, kUser, kGroups, kGroup, kSites, kSite."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-types-flag-description",
+    "translation": "Filter out the Object types (and their subtrees) that match the passed in types such as 'kVCenter', 'kFolder', 'kDatacenter', 'kComputeResource', 'kResourcePool', 'kDatastore', 'kHostSystem', 'kVirtualMachine', etc. For example, set this parameter to 'kResourcePool' to exclude Resource Pool Objects from being returned. Allowable list items are: kVCenter, kFolder, kDatacenter, kComputeResource, kClusterComputeResource, kResourcePool, kDatastore, kHostSystem, kVirtualMachine, kVirtualApp, kStandaloneHost, kStoragePod, kNetwork, kDistributedVirtualPortgroup, kTagCategory, kTag."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-get-teams-channels-flag-description",
+    "translation": "Filter policies by a list of policy ids."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-has-valid-mailbox-flag-description",
+    "translation": "If set to true, users with valid mailbox will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-has-valid-onedrive-flag-description",
+    "translation": "If set to true, users with valid onedrive will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-id-flag-description",
+    "translation": "Return the Object subtree for the passed in Protection Source id."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-datastores-flag-description",
+    "translation": "Set this parameter to true to also return kDatastore object types found in the Source in addition to their Object subtrees. By default, datastores are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-entity-permission-info-flag-description",
+    "translation": "If specified, then a list of entites with permissions assigned to them are returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-networks-flag-description",
+    "translation": "Set this parameter to true to also return kNetwork object types found in the Source in addition to their Object subtrees. By default, network objects are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-object-protection-info-flag-description",
+    "translation": "If specified, the object protection of entities(if any) will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-sfdc-fields-flag-description",
+    "translation": "Set this parameter to true to also return fields of the object found in the Source in addition to their Object subtrees. By default, Sfdc object fields are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-source-credentials-flag-description",
+    "translation": "If specified, then crednetial for the registered sources will be included. Credential is first encrypted with internal key and then reencrypted with user supplied 'encryption_key'."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-system-v-apps-flag-description",
+    "translation": "Set this parameter to true to also return system VApp object types found in the Source in addition to their Object subtrees. By default, VM folder objects are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-vm-folders-flag-description",
+    "translation": "Set this parameter to true to also return kVMFolder object types found in the Source in addition to their Object subtrees. By default, VM folder objects are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-is-security-group-flag-description",
+    "translation": "If set to true, Groups which are security enabled will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-node-id-flag-description",
+    "translation": "Specifies the entity id for the Node at any level within the Source entity hierarchy whose children are to be paginated."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-num-levels-flag-description",
+    "translation": "Specifies the expected number of levels from the root node to be returned in the entity hierarchy response."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-page-size-flag-description",
+    "translation": "Specifies the maximum number of entities to be returned within the page."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-prune-aggregation-info-flag-description",
+    "translation": "Specifies whether to prune the aggregation information about the number of entities protected/unprotected."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-prune-non-critical-info-flag-description",
+    "translation": "Specifies whether to prune non critical info within entities. Incase of VMs, virtual disk information will be pruned. Incase of Office365, metadata about user entities will be pruned. This can be used to limit the size of the response by caller."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-request-initiator-type-flag-description",
+    "translation": "Specifies the type of the request. Possible values are UIUser and UIAuto, which means the request is triggered by user or is an auto refresh request. Services like magneto will use this to determine the priority of the requests, so that it can more intelligently handle overload situations by prioritizing higher priority requests."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-sids-flag-description",
+    "translation": "Filter the object subtree for the sids given in the list."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request to the read replica cache. setting this to true ensures that the API request is served to the read replica. setting this to false will serve the request to the master."
+  },
+  {
+    "id": "backup-recovery-protection-source-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-command-long-description",
+    "translation": "Refresh a Protection Source."
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-command-short-description",
+    "translation": "Refresh a Protection Source."
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-id-flag-description",
+    "translation": "Required. Specifies the id of the Protection Source."
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-advanced-configs-flag-description",
+    "translation": "Specifies the advanced configuration for a protection source. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-command-long-description",
+    "translation": "Register a Protection Source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-command-short-description",
+    "translation": "Register a Protection Source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connection-id-flag-description",
+    "translation": "Specifies the id of the connection from where this source is reachable. This should only be set for a source being registered by a tenant user."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connections-flag-description",
+    "translation": "Specfies the list of connections for the source. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connector-group-id-flag-description",
+    "translation": "Specifies the connector group id of connector groups."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-data-source-connection-id-flag-description",
+    "translation": "Specifies the id of the connection from where this source is reachable. This should only be set for a source being registered by a tenant user. Also, this is the 'string' of connectionId. This property was added to accommodate for ID values that exceed 2^53 - 1, which is the max value for which JS maintains precision."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-encryption-key-flag-description",
+    "translation": "Specifies the key that user has encrypted the credential with."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-environment-flag-description",
+    "translation": "Required. Specifies the environment type of the Protection Source. Allowable values are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-is-internal-encrypted-flag-description",
+    "translation": "Specifies if credentials are encrypted by internal key."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-name-flag-description",
+    "translation": "A user specified name for this source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-applications-flag-description",
+    "translation": "Specifies the list of applications to be registered with Physical Source. Allowable list items are: kSQL, kOracle."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-endpoint-flag-description",
+    "translation": "Specifies the endpoint IPaddress, URL or hostname of the physical host."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-flag-description",
+    "translation": "Specifies parameters to register physical server. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-force-register-flag-description",
+    "translation": "The agent running on a physical host will fail the registration if it is already registered as part of another cluster. By setting this option to true, agent can be forced to register with the current cluster."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-host-type-flag-description",
+    "translation": "Specifies the type of host. Allowable values are: kLinux, kWindows."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-physical-type-flag-description",
+    "translation": "Specifies the type of physical server. Allowable values are: kGroup, kHost, kWindowsCluster, kOracleRACCluster, kOracleAPCluster, kUnixCluster."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-command-long-description",
+    "translation": "Delete Protection Source Registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-command-short-description",
+    "translation": "Delete Protection Source Registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-id-flag-description",
+    "translation": "Required. Specifies the ID of the Protection Source Registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-command-long-description",
+    "translation": "Get a Protection Source registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-command-short-description",
+    "translation": "Get a Protection Source registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-id-flag-description",
+    "translation": "Required. Specifies the id of the Protection Source registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-command-long-description",
+    "translation": "Patches a Protection Source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-command-short-description",
+    "translation": "Patches a Protection Source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-environment-flag-description",
+    "translation": "Required. Specifies the environment type of the Protection Source to be patched. Currently the only environment supported is kCassandra. Allowable values are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-id-flag-description",
+    "translation": "Required. Specifies the id of the Protection Source registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-advanced-configs-flag-description",
+    "translation": "Specifies the advanced configuration for a protection source. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-command-long-description",
+    "translation": "Update Protection Source registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-command-short-description",
+    "translation": "Update Protection Source registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connection-id-flag-description",
+    "translation": "Specifies the id of the connection from where this source is reachable. This should only be set for a source being registered by a tenant user."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connections-flag-description",
+    "translation": "Specfies the list of connections for the source. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connector-group-id-flag-description",
+    "translation": "Specifies the connector group id of connector groups."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-data-source-connection-id-flag-description",
+    "translation": "Specifies the id of the connection from where this source is reachable. This should only be set for a source being registered by a tenant user. Also, this is the 'string' of connectionId. This property was added to accommodate for ID values that exceed 2^53 - 1, which is the max value for which JS maintains precision."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-encryption-key-flag-description",
+    "translation": "Specifies the key that user has encrypted the credential with."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-environment-flag-description",
+    "translation": "Required. Specifies the environment type of the Protection Source. Allowable values are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-id-flag-description",
+    "translation": "Required. Specifies the id of the Protection Source registration."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-is-internal-encrypted-flag-description",
+    "translation": "Specifies if credentials are encrypted by internal key."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-last-modified-timestamp-usecs-flag-description",
+    "translation": "Specifies the end time of attempt in Unix epoch Timestamp(in microseconds) for an object."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-name-flag-description",
+    "translation": "A user specified name for this source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-applications-flag-description",
+    "translation": "Specifies the list of applications to be registered with Physical Source. Allowable list items are: kSQL, kOracle."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-endpoint-flag-description",
+    "translation": "Specifies the endpoint IPaddress, URL or hostname of the physical host."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-flag-description",
+    "translation": "Specifies parameters to register physical server. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-force-register-flag-description",
+    "translation": "The agent running on a physical host will fail the registration if it is already registered as part of another cluster. By setting this option to true, agent can be forced to register with the current cluster."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-host-type-flag-description",
+    "translation": "Specifies the type of host. Allowable values are: kLinux, kWindows."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-physical-type-flag-description",
+    "translation": "Specifies the type of physical server. Allowable values are: kGroup, kHost, kWindowsCluster, kOracleRACCluster, kOracleAPCluster, kUnixCluster."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-command-long-description",
+    "translation": "Get the list of Protection Source registrations."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-command-short-description",
+    "translation": "Get the list of Protection Source registrations."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-encryption-key-flag-description",
+    "translation": "Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-ids-flag-description",
+    "translation": "Ids specifies the list of source registration ids to return. If left empty, every source registration will be returned by default."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-ignore-tenant-migration-in-progress-check-flag-description",
+    "translation": "If true, tenant migration check will be ignored."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-include-external-metadata-flag-description",
+    "translation": "If true, the external entity metadata like maintenance mode config for the registered sources will be included."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-include-source-credentials-flag-description",
+    "translation": "If true, the encrypted crednetial for the registered sources will be included. Credential is first encrypted with internal key and then reencrypted with user supplied encryption key."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request from the read replica cache. There is a lag of 15 seconds between the read replica and primary data source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-sources-group-long-description",
+    "translation": "Commands for ProtectionSources resource."
+  },
+  {
+    "id": "backup-recovery-protection-sources-group-short-description",
+    "translation": "Commands for ProtectionSources resource."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-after-cursor-entity-id-flag-description",
+    "translation": "Specifies the entity id starting from which the items are to be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy specifies if objects of all the tenants under the hierarchy of the logged in user's organization should be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-before-cursor-entity-id-flag-description",
+    "translation": "Specifies the entity id upto which the items are to be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-command-long-description",
+    "translation": "If no parameters are specified, all Protection Sources that are registered on the Cohesity Cluster are returned. In addition, an Object subtree gathered from each Source is returned. For example, the Cohesity Cluster interrogates a Source VMware vCenter Server and creates an hierarchical Object subtree that mirrors the Inventory tree on vCenter Server. The contents of the Object tree are returned as a \"nodes\" hierarchy of \"protectionSource\"s. Specifying parameters can alter the results that are returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-command-short-description",
+    "translation": "List Protection Sources."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-encryption-key-flag-description",
+    "translation": "Key to be used to encrypt the source credential. If include_source_credentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-environment-flag-description",
+    "translation": "This field is deprecated. Use environments instead."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-environments-flag-description",
+    "translation": "Return only Protection Sources that match the passed in environment type such as 'kVMware', 'kSQL', 'kView' 'kPhysical', 'kPuppeteer', 'kPure', 'kNetapp', 'kGenericNas', 'kHyperV', 'kAcropolis', or 'kAzure'. For example, set this parameter to 'kVMware' to only return the Sources (and their Object subtrees) found in the 'kVMware' (VMware vCenter Server) environment. Allowable list items are: kVMware, kHyperV, kSQL, kView, kPuppeteer, kPhysical, kPure, kNimble, kAzure, kNetapp, kAgent, kGenericNas, kAcropolis, kPhysicalFiles, kIsilon, kGPFS, kKVM, kAWS, kExchange, kHyperVVSS, kOracle, kGCP, kFlashBlade, kAWSNative, kO365, kO365Outlook, kHyperFlex, kGCPNative, kAzureNative, kKubernetes, kElastifile, kAD, kRDSSnapshotManager, kCassandra, kMongoDB, kCouchbase, kHdfs, kHBase, kUDA, KSfdc, kAwsS3."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-aws-types-flag-description",
+    "translation": "Specifies the Object types to be filtered out for AWS that match the passed in types such as 'kEC2Instance', 'kRDSInstance', 'kAuroraCluster', 'kTag', 'kAuroraTag', 'kRDSTag', kS3Bucket, kS3Tag. For example, set this parameter to 'kEC2Instance' to exclude ec2 instance from being returned. Allowable list items are: kEC2Instance, kRDSInstance, kAuroraCluster, kS3Bucket, kTag, kRDSTag, kAuroraTag, kS3Tag."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-kubernetes-types-flag-description",
+    "translation": "Specifies the Object types to be filtered out for Kubernetes that match the passed in types such as 'kService'. For example, set this parameter to 'kService' to exclude services from being returned. Allowable list items are: kService."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-office365-types-flag-description",
+    "translation": "Specifies the Object types to be filtered out for Office 365 that match the passed in types such as 'kDomain', 'kOutlook', 'kMailbox', etc. For example, set this parameter to 'kMailbox' to exclude Mailbox Objects from being returned. Allowable list items are: kDomain, kOutlook, kMailbox, kUsers, kUser, kGroups, kGroup, kSites, kSite."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-types-flag-description",
+    "translation": "Filter out the Object types (and their subtrees) that match the passed in types such as 'kVCenter', 'kFolder', 'kDatacenter', 'kComputeResource', 'kResourcePool', 'kDatastore', 'kHostSystem', 'kVirtualMachine', etc. For example, set this parameter to 'kResourcePool' to exclude Resource Pool Objects from being returned. Allowable list items are: kVCenter, kFolder, kDatacenter, kComputeResource, kClusterComputeResource, kResourcePool, kDatastore, kHostSystem, kVirtualMachine, kVirtualApp, kStandaloneHost, kStoragePod, kNetwork, kDistributedVirtualPortgroup, kTagCategory, kTag."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-get-teams-channels-flag-description",
+    "translation": "Filter policies by a list of policy ids."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-has-valid-mailbox-flag-description",
+    "translation": "If set to true, users with valid mailbox will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-has-valid-onedrive-flag-description",
+    "translation": "If set to true, users with valid onedrive will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-id-flag-description",
+    "translation": "Return the Object subtree for the passed in Protection Source id."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-datastores-flag-description",
+    "translation": "Set this parameter to true to also return kDatastore object types found in the Source in addition to their Object subtrees. By default, datastores are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-entity-permission-info-flag-description",
+    "translation": "If specified, then a list of entites with permissions assigned to them are returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-networks-flag-description",
+    "translation": "Set this parameter to true to also return kNetwork object types found in the Source in addition to their Object subtrees. By default, network objects are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-object-protection-info-flag-description",
+    "translation": "If specified, the object protection of entities(if any) will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-sfdc-fields-flag-description",
+    "translation": "Set this parameter to true to also return fields of the object found in the Source in addition to their Object subtrees. By default, Sfdc object fields are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-source-credentials-flag-description",
+    "translation": "If specified, then crednetial for the registered sources will be included. Credential is first encrypted with internal key and then reencrypted with user supplied 'encryption_key'."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-system-v-apps-flag-description",
+    "translation": "Set this parameter to true to also return system VApp object types found in the Source in addition to their Object subtrees. By default, VM folder objects are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-vm-folders-flag-description",
+    "translation": "Set this parameter to true to also return kVMFolder object types found in the Source in addition to their Object subtrees. By default, VM folder objects are not returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-is-security-group-flag-description",
+    "translation": "If set to true, Groups which are security enabled will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-node-id-flag-description",
+    "translation": "Specifies the entity id for the Node at any level within the Source entity hierarchy whose children are to be paginated."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-num-levels-flag-description",
+    "translation": "Specifies the expected number of levels from the root node to be returned in the entity hierarchy response."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-page-size-flag-description",
+    "translation": "Specifies the maximum number of entities to be returned within the page."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-prune-aggregation-info-flag-description",
+    "translation": "Specifies whether to prune the aggregation information about the number of entities protected/unprotected."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-prune-non-critical-info-flag-description",
+    "translation": "Specifies whether to prune non critical info within entities. Incase of VMs, virtual disk information will be pruned. Incase of Office365, metadata about user entities will be pruned. This can be used to limit the size of the response by caller."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-request-initiator-type-flag-description",
+    "translation": "Specifies the type of the request. Possible values are UIUser and UIAuto, which means the request is triggered by user or is an auto refresh request. Services like magneto will use this to determine the priority of the requests, so that it can more intelligently handle overload situations by prioritizing higher priority requests."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-sids-flag-description",
+    "translation": "Filter the object subtree for the sids given in the list."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request to the read replica cache. setting this to true ensures that the API request is served to the read replica. setting this to false will serve the request to the master."
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-recovery-create-command-long-description",
+    "translation": "Performs a Recovery."
+  },
+  {
+    "id": "backup-recovery-recovery-create-command-short-description",
+    "translation": "Performs a Recovery."
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-flag-description",
+    "translation": "Specifies the recovery options specific to Sql environment. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-recover-app-params-flag-description",
+    "translation": "Specifies the parameters to recover Sql databases. It can also be a path to a JSON file. The minimum length is 1 item."
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
+    "translation": "Specifies the type of recover action to be performed. Allowable values are: RecoverApps, CloneApps."
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-vlan-config-flag-description",
+    "translation": "Specifies VLAN Params associated with the recovered. If this is not specified, then the VLAN settings will be automatically selected from one of the below options: a. If VLANs are configured on IBM, then the VLAN host/VIP will be automatically based on the client's (e.g. ESXI host) IP address. b. If VLANs are not configured on IBM, then the partition hostname or VIPs will be used for Recovery. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-name-flag-description",
+    "translation": "Required. Specifies the name of the Recovery."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-download-file-and-folder-params-flag-description",
+    "translation": "Specifies the parameters to download files and folders. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-flag-description",
+    "translation": "Specifies the recovery options specific to Physical environment. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-mount-volume-params-flag-description",
+    "translation": "Specifies the parameters to mount Physical Volumes. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-objects-flag-description",
+    "translation": "Specifies the list of Recover Object parameters. For recovering files, specifies the object contains the file to recover. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recover-file-and-folder-params-flag-description",
+    "translation": "Specifies the parameters to perform a file and folder recovery. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recover-volume-params-flag-description",
+    "translation": "Specifies the parameters to recover Physical Volumes. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recovery-action-flag-description",
+    "translation": "Specifies the type of recover action to be performed. Allowable values are: RecoverPhysicalVolumes, InstantVolumeMount, RecoverFiles, RecoverSystem."
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-system-recovery-params-flag-description",
+    "translation": "Specifies the parameters to perform a system recovery. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-recovery-create-snapshot-environment-flag-description",
+    "translation": "Required. Specifies the type of environment of snapshots for which the Recovery has to be performed. Allowable values are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-recovery-create-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-command-long-description",
+    "translation": "Download files from the given download file recovery."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-command-short-description",
+    "translation": "Download files from the given download file recovery."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-file-type-flag-description",
+    "translation": "Specifies the downloaded type, i.e: error, success_files_list."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-id-flag-description",
+    "translation": "Required. Specifies the id of a Recovery. "
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-include-tenants-flag-description",
+    "translation": "Specifies if objects of all the organizations under the hierarchy of the logged in user's organization should be returned."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-length-flag-description",
+    "translation": "Specifies the length of bytes to download. This can not be greater than 8MB (8388608 byets)."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-source-name-flag-description",
+    "translation": "Specifies the name of the source on which restore is done."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-start-offset-flag-description",
+    "translation": "Specifies the start offset of file chunk to be downloaded."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-start-time-flag-description",
+    "translation": "Specifies the start time of restore task."
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-recovery-get-command-long-description",
+    "translation": "Get Recovery for a given id."
+  },
+  {
+    "id": "backup-recovery-recovery-get-command-short-description",
+    "translation": "Get Recovery for a given id."
+  },
+  {
+    "id": "backup-recovery-recovery-get-id-flag-description",
+    "translation": "Required. Specifies the id of a Recovery. "
+  },
+  {
+    "id": "backup-recovery-recovery-get-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-recovery-group-long-description",
+    "translation": "Commands for Recovery resource."
+  },
+  {
+    "id": "backup-recovery-recovery-group-short-description",
+    "translation": "Commands for Recovery resource."
+  },
+  {
+    "id": "backup-recovery-recovery-list-archival-target-type-flag-description",
+    "translation": "Specifies the snapshot's archival target type from which recovery has been performed. This parameter applies only if 'snapshotTargetType' is 'Archival'. Allowable list items are: Tape, Cloud, Nas."
+  },
+  {
+    "id": "backup-recovery-recovery-list-command-long-description",
+    "translation": "Lists the Recoveries."
+  },
+  {
+    "id": "backup-recovery-recovery-list-command-short-description",
+    "translation": "Lists the Recoveries."
+  },
+  {
+    "id": "backup-recovery-recovery-list-end-time-usecs-flag-description",
+    "translation": "Returns the recoveries which are started before the specific time. This value should be in Unix timestamp epoch in microseconds."
+  },
+  {
+    "id": "backup-recovery-recovery-list-ids-flag-description",
+    "translation": "Filter Recoveries for given ids. "
+  },
+  {
+    "id": "backup-recovery-recovery-list-recovery-actions-flag-description",
+    "translation": "Specifies the list of recovery actions to filter Recoveries. If empty, Recoveries related to all actions will be returned. Allowable list items are: RecoverVMs, RecoverFiles, InstantVolumeMount, RecoverVmDisks, RecoverVApps, RecoverVAppTemplates, UptierSnapshot, RecoverRDS, RecoverAurora, RecoverS3Buckets, RecoverRDSPostgres, RecoverAzureSQL, RecoverApps, CloneApps, RecoverNasVolume, RecoverPhysicalVolumes, RecoverSystem, RecoverExchangeDbs, CloneAppView, RecoverSanVolumes, RecoverSanGroup, RecoverMailbox, RecoverOneDrive, RecoverSharePoint, RecoverPublicFolders, RecoverMsGroup, RecoverMsTeam, ConvertToPst, DownloadChats, RecoverMailboxCSM, RecoverOneDriveCSM, RecoverSharePointCSM, RecoverNamespaces, RecoverObjects, RecoverSfdcObjects, RecoverSfdcOrg, RecoverSfdcRecords, DownloadFilesAndFolders, CloneVMs, CloneView, CloneRefreshApp, CloneVMsToView, ConvertAndDeployVMs, DeployVMs."
+  },
+  {
+    "id": "backup-recovery-recovery-list-return-only-child-recoveries-flag-description",
+    "translation": "Returns only child recoveries if passed as true. This filter should always be used along with 'ids' filter."
+  },
+  {
+    "id": "backup-recovery-recovery-list-snapshot-environments-flag-description",
+    "translation": "Specifies the list of snapshot environment types to filter Recoveries. If empty, Recoveries related to all environments will be returned. Allowable list items are: kPhysical, kSQL."
+  },
+  {
+    "id": "backup-recovery-recovery-list-snapshot-target-type-flag-description",
+    "translation": "Specifies the snapshot's target type from which recovery has been performed. Allowable list items are: Local, Archival, RpaasArchival, StorageArraySnapshot, Remote."
+  },
+  {
+    "id": "backup-recovery-recovery-list-start-time-usecs-flag-description",
+    "translation": "Returns the recoveries which are started after the specific time. This value should be in Unix timestamp epoch in microseconds."
+  },
+  {
+    "id": "backup-recovery-recovery-list-status-flag-description",
+    "translation": "Specifies the list of run status to filter Recoveries. If empty, Recoveries with all run status will be returned. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, LegalHold."
+  },
+  {
+    "id": "backup-recovery-recovery-list-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-restore-points-command-long-description",
+    "translation": "List Restore Points i.e. returns the snapshots in in a given time range."
+  },
+  {
+    "id": "backup-recovery-restore-points-command-short-description",
+    "translation": "List Restore Points in a given time range."
+  },
+  {
+    "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
+    "translation": "Required. Specifies the end time specified as a Unix epoch Timestamp in microseconds."
+  },
+  {
+    "id": "backup-recovery-restore-points-environment-flag-description",
+    "translation": "Required. Specifies the protection source environment type. Allowable values are: kVMware, kHyperV, kAzure, kGCP, kKVM, kAcropolis, kAWS, kPhysical, kGPFS, kElastifile, kNetapp, kGenericNas, kIsilon, kFlashBlade, kPure, kIbmFlashSystem, kSQL, kExchange, kAD, kOracle, kView, kRemoteAdapter, kO365, kKubernetes, kCassandra, kMongoDB, kCouchbase, kHdfs, kHive, kSAPHANA, kHBase, kUDA, kSfdc."
+  },
+  {
+    "id": "backup-recovery-restore-points-protection-group-ids-flag-description",
+    "translation": "Required. Specifies the jobs for which to get the full snapshot information."
+  },
+  {
+    "id": "backup-recovery-restore-points-source-id-flag-description",
+    "translation": "Specifies the id of the Protection Source which is to be restored."
+  },
+  {
+    "id": "backup-recovery-restore-points-start-time-usecs-flag-description",
+    "translation": "Required. Specifies the start time specified as a Unix epoch Timestamp in microseconds."
+  },
+  {
+    "id": "backup-recovery-restore-points-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-short-description",
+    "translation": "Manage IBM Backup Recovery API."
+  },
+  {
+    "id": "command-help-error",
+    "translation": "Error printing command help information."
+  },
+  {
+    "id": "commands-header-help-menu",
+    "translation": "COMMANDS"
+  },
+  {
+    "id": "config-command-long-description",
+    "translation": "Command for controlling/viewing persistent configuration of global options."
+  },
+  {
+    "id": "config-command-short-description",
+    "translation": "Control persistent configuration."
+  },
+  {
+    "id": "config-error",
+    "translation": "Could not configure the plug-in"
+  },
+  {
+    "id": "config-get-command-long-description",
+    "translation": "Get the currently set value for a specific option."
+  },
+  {
+    "id": "config-get-command-short-description",
+    "translation": "Print the currently set config value of an option."
+  },
+  {
+    "id": "config-get-subcommand-long-description",
+    "translation": "Get the currently set value for the '{{.NAME}}' option."
+  },
+  {
+    "id": "config-get-subcommand-read-error",
+    "translation": "Error reading value."
+  },
+  {
+    "id": "config-get-subcommand-short-description",
+    "translation": "Print the value currently set for '{{.NAME}}'"
+  },
+  {
+    "id": "config-list-command-long-description",
+    "translation": "List out all of the currently set config values."
+  },
+  {
+    "id": "config-list-command-short-description",
+    "translation": "Print the currently set config values."
+  },
+  {
+    "id": "config-list-read-error",
+    "translation": "Error reading '{{.NAME}}': it will not be displayed."
+  },
+  {
+    "id": "config-reading-deserialize-error",
+    "translation": "Error deserializing config value for '{{.NAME}}': it will not be used."
+  },
+  {
+    "id": "config-reading-read-error",
+    "translation": "Error reading config value for '{{.NAME}}': it will not be used."
+  },
+  {
+    "id": "config-set-command-long-description",
+    "translation": "Set a new config value for a specific option."
+  },
+  {
+    "id": "config-set-command-short-description",
+    "translation": "Set a config value for an option."
+  },
+  {
+    "id": "config-set-subcommand-long-description",
+    "translation": "Set a new value for the '{{.NAME}}' option."
+  },
+  {
+    "id": "config-set-subcommand-short-description",
+    "translation": "Set a value for '{{.NAME}}'"
+  },
+  {
+    "id": "config-subcommand-no-value-set",
+    "translation": "No value has been set. Use the 'set' command to set a value."
+  },
+  {
+    "id": "config-subcommand-set-error",
+    "translation": "Error setting config value."
+  },
+  {
+    "id": "config-subcommand-unset-error",
+    "translation": "Error unsetting config value."
+  },
+  {
+    "id": "config-unset-command-long-description",
+    "translation": "Unset the currently set value for a specific option."
+  },
+  {
+    "id": "config-unset-command-short-description",
+    "translation": "Unset the config value of an option."
+  },
+  {
+    "id": "config-unset-subcommand-long-description",
+    "translation": "Unset the currently set value for the '{{.NAME}}' option."
+  },
+  {
+    "id": "config-unset-subcommand-short-description",
+    "translation": "Unset the value for '{{.NAME}}'"
+  },
+  {
+    "id": "confirm-delete",
+    "translation": "Are you sure you want to delete?"
+  },
+  {
+    "id": "confirmation-error",
+    "translation": "Could not resolve confirmation."
+  },
+  {
+    "id": "credentials-error",
+    "translation": "Could not authenticate the plug-in.\nYou must either log in with 'ibmcloud login', export credentials as environment variables, or store them in a credentials file.\nFor more information, see https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#define-configuration-properties.\nError"
+  },
+  {
+    "id": "empty-error-response-message",
+    "translation": "Service returned an error response without content. See error info"
+  },
+  {
+    "id": "error-getting-query-param",
+    "translation": "Error retrieving the next page query parameter from the URL."
+  },
+  {
+    "id": "examples-header-help-menu",
+    "translation": "EXAMPLE"
+  },
+  {
+    "id": "extraneous-json-field",
+    "translation": "There is an unsupported field in JSON flag '{{.FLAG_NAME}}': '{{.FIELD_PATH}}'"
+  },
+  {
+    "id": "extraneous-json-fields",
+    "translation": "There are multiple unsupported fields in JSON flag '{{.FLAG_NAME}}': '{{.FIELD_PATH}}'"
+  },
+  {
+    "id": "file-closing-error",
+    "translation": "Error closing file '{{.FILENAME}}'"
+  },
+  {
+    "id": "file-conversion-error",
+    "translation": "interface conversion: file argument is not io.ReadCloser"
+  },
+  {
+    "id": "file-opening-error",
+    "translation": "Error opening file '{{.FILENAME}}'"
+  },
+  {
+    "id": "file-reading-error",
+    "translation": "Error reading file '{{.FILENAME}}'"
+  },
+  {
+    "id": "file-response-error",
+    "translation": "Error writing response to file '{{.FILENAME}}'"
+  },
+  {
+    "id": "final-usage-line-help-menu",
+    "translation": "Use \"ibmcloud {{.COMMAND_PATH}} service-command --help\" for more information about a command."
+  },
+  {
+    "id": "force-flag-description",
+    "translation": "Force the command to execute."
+  },
+  {
+    "id": "global-options-header-help-menu",
+    "translation": "GLOBAL OPTIONS"
+  },
+  {
+    "id": "internal-error",
+    "translation": "Internal error."
+  },
+  {
+    "id": "jmes-query-global-flag-description",
+    "translation": "Provide a JMESPath query to customize output."
+  },
+  {
+    "id": "jmespath-application-error",
+    "translation": "Error applying the JmesPath query to the result"
+  },
+  {
+    "id": "jmespath-compile-error",
+    "translation": "Error compiling the following JmesPath query: '{{.QUERY}}'"
+  },
+  {
+    "id": "jmespath-queries-assertion-error",
+    "translation": "Error setting the JMESPath queries. Argument type must be `JMESPathQueries` and not `{{.TYPE}}`."
+  },
+  {
+    "id": "json-conversion-error",
+    "translation": "Error converting response object to JSON"
+  },
+  {
+    "id": "json-parsing-error",
+    "translation": "Error parsing JSON flag '{{.FLAG_NAME}}'"
+  },
+  {
+    "id": "log-file-creation-error",
+    "translation": "An error occurred when creating log file '{{.PATH}}':\n{{.ERROR}}\n\n"
+  },
+  {
+    "id": "missing-flags-argument-error",
+    "translation": "flag needs an argument: {{.FLAG}}"
+  },
+  {
+    "id": "missing-required-flags-error",
+    "translation": "required flag(s) {{.FLAGS}} not set"
+  },
+  {
+    "id": "name-header-help-menu",
+    "translation": "NAME"
+  },
+  {
+    "id": "next-page-command-message",
+    "translation": "To retrieve the next page of results, run 'ibmcloud {{.ARGS}}'"
+  },
+  {
+    "id": "no-credentials",
+    "translation": "No credentials provided."
+  },
+  {
+    "id": "no-data-for-table",
+    "translation": "Nothing to show."
+  },
+  {
+    "id": "no-service-response-error",
+    "translation": "No information was returned from the service"
+  },
+  {
+    "id": "operation-metadata-assertion-error",
+    "translation": "Error setting the operation metadata. Argument type must be `OperationMetadata` and not `{{.TYPE}}`."
+  },
+  {
+    "id": "options-header-help-menu",
+    "translation": "OPTIONS"
+  },
+  {
+    "id": "output-file-confirmation",
+    "translation": "Output written to {{.FILENAME}}"
+  },
+  {
+    "id": "output-file-flag-description",
+    "translation": "Filename/path to write the resulting output to."
+  },
+  {
+    "id": "output-file-flag-prompt-message",
+    "translation": "Filename/path to write the resulting output to."
+  },
+  {
+    "id": "output-global-flag-description",
+    "translation": "Choose an output format - can be 'json', 'yaml', 'tui', or 'table'."
+  },
+  {
+    "id": "parsing-error",
+    "translation": "Error parsing flag '{{.FLAG_NAME}}' as '{{.TYPE}}'"
+  },
+  {
+    "id": "prompt-failed",
+    "translation": "Could not resolve the value."
+  },
+  {
+    "id": "quiet-global-flag-description",
+    "translation": "Suppresses verbose messages."
+  },
+  {
+    "id": "response-processing-error",
+    "translation": "Request could not be made, or response could not be handled. See error info"
+  },
+  {
+    "id": "root-command-error",
+    "translation": "Error executing command"
+  },
+  {
+    "id": "service-url-global-flag-description",
+    "translation": "Provide the base endpoint URL for the API."
+  },
+  {
+    "id": "show-help",
+    "translation": "Show help"
+  },
+  {
+    "id": "suggestions",
+    "translation": "Similar commands:\n\t{{.SUGGESTIONS}}\n"
+  },
+  {
+    "id": "truncated-table",
+    "translation": "The original result has been truncated to avoid exceeding the width of the window. ({{.TRUNCATED_COLUMNS}} columns hidden)"
+  },
+  {
+    "id": "tui-app-error",
+    "translation": "An error occurred when running  the TUI view. "
+  },
+  {
+    "id": "tui-button-cancel",
+    "translation": "Cancel"
+  },
+  {
+    "id": "tui-button-ok",
+    "translation": "OK"
+  },
+  {
+    "id": "tui-button-quit",
+    "translation": "Quit"
+  },
+  {
+    "id": "tui-button-save",
+    "translation": "Save"
+  },
+  {
+    "id": "tui-close",
+    "translation": "go back to the previous table"
+  },
+  {
+    "id": "tui-down",
+    "translation": "move down"
+  },
+  {
+    "id": "tui-end",
+    "translation": "go to end"
+  },
+  {
+    "id": "tui-end-key",
+    "translation": "end"
+  },
+  {
+    "id": "tui-enter-key",
+    "translation": "enter"
+  },
+  {
+    "id": "tui-esc-key",
+    "translation": "esc"
+  },
+  {
+    "id": "tui-exit-prompt",
+    "translation": "Do you want to quit the application?"
+  },
+  {
+    "id": "tui-header-path",
+    "translation": "Path:"
+  },
+  {
+    "id": "tui-help",
+    "translation": "show help"
+  },
+  {
+    "id": "tui-help-dialog-title",
+    "translation": "Help"
+  },
+  {
+    "id": "tui-home-key",
+    "translation": "home"
+  },
+  {
+    "id": "tui-left",
+    "translation": "move left"
+  },
+  {
+    "id": "tui-pagedown",
+    "translation": "move down by one page"
+  },
+  {
+    "id": "tui-pagedown-key",
+    "translation": "page down"
+  },
+  {
+    "id": "tui-pageup",
+    "translation": "move up by one page"
+  },
+  {
+    "id": "tui-pageup-key",
+    "translation": "page up"
+  },
+  {
+    "id": "tui-path",
+    "translation": "Path"
+  },
+  {
+    "id": "tui-quit",
+    "translation": "quit"
+  },
+  {
+    "id": "tui-right",
+    "translation": "move right"
+  },
+  {
+    "id": "tui-save-table-dialog-title",
+    "translation": "Save table"
+  },
+  {
+    "id": "tui-save-table-error",
+    "translation": "An error occurred when writing the table to the file '{{.PATH}}': {{.ERROR}}"
+  },
+  {
+    "id": "tui-save-table-long",
+    "translation": "write the current table to a file (JSON)"
+  },
+  {
+    "id": "tui-select-cell",
+    "translation": "select cell"
+  },
+  {
+    "id": "tui-start",
+    "translation": "go to start"
+  },
+  {
+    "id": "tui-up",
+    "translation": "move up"
+  },
+  {
+    "id": "unknown-flag-error",
+    "translation": "unknown flag: {{.FLAG}}"
+  },
+  {
+    "id": "unknown-shorthand-flag-error",
+    "translation": "unknown shorthand flag: {{.UNKNOWN_SHORTHAND}} in {{.GIVEN_SHORTHANDS}}"
+  },
+  {
+    "id": "unregistered-command",
+    "translation": "'{{.COMMAND}}' is not a registered command. See 'ibmcloud {{.NAMESPACE}} help'."
+  },
+  {
+    "id": "usage-header-help-menu",
+    "translation": "USAGE"
+  },
+  {
+    "id": "version-global-flag",
+    "translation": "Version of the plug-in."
+  },
+  {
+    "id": "yaml-conversion-error",
+    "translation": "Error converting the result to YAML"
+  }
+]
