@@ -17,10 +17,11 @@
 package backuprecoveryv1
 
 import (
+	translation "ibmcloud-backup-recovery-cli/i18n"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM/go-sdk-core/v5/core"
 	"github.com/spf13/cobra"
-	translation "ibmcloud-backup-recovery-cli/i18n"
 )
 
 func NewConfigCommandRunner(utils Utilities) *ConfigCommandRunner {
@@ -96,6 +97,7 @@ func (r *ConfigListCommandRunner) Run(cmd *cobra.Command, args []string) {
 	config := r.utils.GetPluginConfig()
 	configOptions := []string{
 		"service-url",
+		"connector-service-url",
 	}
 	table := terminal.NewTable(terminal.Output, configOptions)
 	tableData := make([]string, len(configOptions))
@@ -129,6 +131,7 @@ type ConfigGetCommandRunner struct {
 func GetConfigGetCommand(r *ConfigGetCommandRunner) *cobra.Command {
 	commands := []*cobra.Command{
 		NewConfigGetCommand(r.utils, "service-url"),
+		NewConfigGetCommand(r.utils, "connector-service-url"),
 	}
 
 	cmd := &cobra.Command{
@@ -151,8 +154,8 @@ func NewConfigGetCommand(utils Utilities, name string) *cobra.Command {
 		DisableFlagsInUseLine: true,
 		Run: func(cmd *cobra.Command, args []string) {
 			config := utils.GetPluginConfig()
-			if config.Exists(serviceName+ "-" +name) {
-				value, err := config.GetString(serviceName+ "-" +name)
+			if config.Exists(serviceName + "-" + name) {
+				value, err := config.GetString(serviceName + "-" + name)
 				utils.HandleError(err, translation.T("config-get-subcommand-read-error"))
 				utils.Print(value)
 			} else {
@@ -173,6 +176,7 @@ type ConfigUnsetCommandRunner struct {
 func GetConfigUnsetCommand(r *ConfigUnsetCommandRunner) *cobra.Command {
 	commands := []*cobra.Command{
 		NewConfigUnsetCommand(r.utils, "service-url"),
+		NewConfigUnsetCommand(r.utils, "connector-service-url"),
 	}
 
 	cmd := &cobra.Command{
@@ -195,8 +199,8 @@ func NewConfigUnsetCommand(utils Utilities, name string) *cobra.Command {
 		DisableFlagsInUseLine: true,
 		Run: func(cmd *cobra.Command, args []string) {
 			config := utils.GetPluginConfig()
-			if config.Exists(serviceName+ "-" +name) {
-				err := config.Erase(serviceName+ "-" +name)
+			if config.Exists(serviceName + "-" + name) {
+				err := config.Erase(serviceName + "-" + name)
 				utils.HandleError(err, translation.T("config-subcommand-unset-error"))
 				utils.Ok()
 			} else {
@@ -217,6 +221,7 @@ type ConfigSetCommandRunner struct {
 func GetConfigSetCommand(r *ConfigSetCommandRunner) *cobra.Command {
 	commands := []*cobra.Command{
 		NewConfigSetCommand(r.utils, "service-url"),
+		NewConfigSetCommand(r.utils, "connector-service-url"),
 	}
 
 	cmd := &cobra.Command{
@@ -240,7 +245,7 @@ func NewConfigSetCommand(utils Utilities, name string) *cobra.Command {
 		Args:                  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			config := utils.GetPluginConfig()
-			err := config.Set(serviceName+ "-" +name, args[0])
+			err := config.Set(serviceName+"-"+name, args[0])
 			utils.HandleError(err, translation.T("config-subcommand-set-error"))
 			utils.Ok()
 		},

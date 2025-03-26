@@ -21,6 +21,7 @@
 package backuprecoveryv1
 
 import (
+	"crypto/tls"
 	"errors"
 	translation "ibmcloud-backup-recovery-cli/i18n"
 	"ibmcloud-backup-recovery-cli/plugin/version"
@@ -37,6 +38,66 @@ import (
 )
 
 var serviceName string = "backup_recovery"
+
+func (r *BackupRecoveryV1CommandHelper) GetConnectorAuthenticatorAndURL() (core.Authenticator, string) {
+	authenticator := &core.NoAuthAuthenticator{}
+	// r.utils.HandleError(err, translation.T("credentials-error"))
+
+	serviceUrl := r.utils.GetServiceURL(backuprecoveryv1.GetServiceURLForRegion)
+
+	return authenticator, serviceUrl
+}
+
+func (r *BackupRecoveryV1CommandHelper) CreateConnectorServiceInstance(options backuprecoveryv1.BackupRecoveryV1ConnectorOptions) {
+	configurationErrorMessage := translation.T("config-error")
+
+	backupRecoveryConnector, backupRecoveryConnectorErr := backuprecoveryv1.NewBackupRecoveryV1Connector(&options)
+	r.utils.HandleError(backupRecoveryConnectorErr, configurationErrorMessage)
+
+	tr := &http.Transport{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
+	backupRecoveryConnector.Service.Client.Transport = tr
+
+	// the cli differs from the sdk on configuration priority
+	// ensure the correct priority is being used
+	configErr := r.utils.PostProcessServiceConfiguration(backupRecoveryConnector.Service, serviceName)
+	r.utils.HandleError(configErr, configurationErrorMessage)
+
+	config := r.utils.GetPluginConfig()
+	if r.ConnectorURL != "" {
+		configErr = backupRecoveryConnector.SetConnectorURL(r.ConnectorURL)
+		r.utils.HandleError(configErr, configurationErrorMessage)
+	} else if config.Exists(serviceName + "-connector-service-url") {
+		url, err := config.GetString(serviceName + "-connector-service-url")
+		if err != nil {
+			core.GetLogger().Warn(translation.T("config-reading-read-error", getConfigCmdNameMap("connector-service-url")))
+			core.GetLogger().Info(err.Error())
+		} else {
+			configErr = backupRecoveryConnector.SetConnectorURL(url)
+			r.utils.HandleError(configErr, configurationErrorMessage)
+		}
+	}
+
+	// set custom analytics header for the CLI
+	customHeaders := http.Header{}
+	customHeaders.Add("X-Original-User-Agent", "ibmcloud-backup-recovery-cli/"+version.GetPluginVersion().String())
+	backupRecoveryConnector.SetDefaultHeaders(customHeaders)
+
+	ConnectorServiceInstance = backupRecoveryConnector
+}
+
+func (r *BackupRecoveryV1CommandHelper) InitializeConnectorServiceInstance(parentFlags *pflag.FlagSet) {
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, parentFlags, serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	authenticator, serviceUrl := r.GetConnectorAuthenticatorAndURL()
+	options := backuprecoveryv1.BackupRecoveryV1ConnectorOptions{
+		Authenticator: authenticator,
+		// default to the contextual url, it may be overridden by an environment variable
+		ConnectorURL: serviceUrl,
+	}
+
+	r.CreateConnectorServiceInstance(options)
+}
 
 func (r *BackupRecoveryV1CommandHelper) GetAuthenticatorAndURL() (core.Authenticator, string) {
 	authenticator, err := r.utils.GetAuthenticator(serviceName)
@@ -404,10 +465,12 @@ func (r *ListProtectionSourcesCommandRunner) MakeRequest(OptionsModel backupreco
 
 	// Manually added code to display the desired result in text format.
 	//********************************************
-	r.utils.SetTableHeaderOrder([]string{
-		"protectionSources",
-	})
-	DetailedResponse.Result = map[string]interface{}{"protectionSources": DetailedResponse.Result}
+	if ResponseErr == nil {
+		r.utils.SetTableHeaderOrder([]string{
+			"protectionSources",
+		})
+		DetailedResponse.Result = map[string]interface{}{"protectionSources": DetailedResponse.Result}
+	}
 	//********************************************
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -7769,6 +7832,94 @@ func (r *PatchDataSourceConnectorCommandRunner) MakeRequest(OptionsModel backupr
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for CreateAccessToken command
+type CreateAccessTokenRequestSender struct{}
+
+func (s CreateAccessTokenRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ConnectorServiceInstance.CreateAccessToken(optionsModel.(*backuprecoveryv1.CreateAccessTokenOptions))
+}
+
+// Command Runner for CreateAccessToken command
+func NewCreateAccessTokenCommandRunner(utils Utilities, sender RequestSender) *CreateAccessTokenCommandRunner {
+	return &CreateAccessTokenCommandRunner{utils: utils, sender: sender}
+}
+
+type CreateAccessTokenCommandRunner struct {
+	Username      string
+	Password      string
+	Domain        string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: access-token-create, GetCreateAccessTokenCommand
+func GetCreateAccessTokenCommand(r *CreateAccessTokenCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "access-token-create [--username USERNAME] [--password PASSWORD] [--domain DOMAIN]",
+		Short:                 translation.T("backup-recovery-access-token-create-command-short-description"),
+		Long:                  translation.T("backup-recovery-access-token-create-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery access-token-create \
+    --username exampleString \
+    --password exampleString \
+    --domain exampleString`,
+	}
+
+	cmd.Flags().StringVarP(&r.Username, "username", "", "", translation.T("backup-recovery-access-token-create-username-flag-description"))
+	cmd.Flags().StringVarP(&r.Password, "password", "", "", translation.T("backup-recovery-access-token-create-password-flag-description"))
+	cmd.Flags().StringVarP(&r.Domain, "domain", "", "", translation.T("backup-recovery-access-token-create-domain-flag-description"))
+
+	return cmd
+}
+
+// Primary logic for running CreateAccessToken
+func (r *CreateAccessTokenCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeConnectorServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.CreateAccessTokenOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "username" {
+			OptionsModel.SetUsername(r.Username)
+		}
+		if flag.Name == "password" {
+			OptionsModel.SetPassword(r.Password)
+		}
+		if flag.Name == "domain" {
+			OptionsModel.SetDomain(r.Domain)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *CreateAccessTokenCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.CreateAccessTokenOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"accessToken",
+		"privileges",
+		"tokenType",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
 // RequestSender for DownloadAgent command
 type DownloadAgentRequestSender struct{}
 
@@ -7980,6 +8131,259 @@ func (r *GetConnectorMetadataCommandRunner) MakeRequest(OptionsModel backuprecov
 
 	r.utils.SetTableHeaderOrder([]string{
 		"connectorImageMetadata",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for GetDataSourceConnectorLogs command
+type GetDataSourceConnectorLogsRequestSender struct {
+}
+
+func (s GetDataSourceConnectorLogsRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ConnectorServiceInstance.GetDataSourceConnectorLogs(optionsModel.(*backuprecoveryv1.GetDataSourceConnectorLogsOptions))
+}
+
+// Command Runner for GetDataSourceConnectorLogs command
+func NewGetDataSourceConnectorLogsCommandRunner(utils Utilities, sender RequestSender) *GetDataSourceConnectorLogsCommandRunner {
+	return &GetDataSourceConnectorLogsCommandRunner{utils: utils, sender: sender}
+}
+
+type GetDataSourceConnectorLogsCommandRunner struct {
+	AccessToken   string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: data-source-connector-logs, GetGetDataSourceConnectorLogsCommand
+func GetGetDataSourceConnectorLogsCommand(r *GetDataSourceConnectorLogsCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "data-source-connector-logs",
+		Short:                 translation.T("backup-recovery-data-source-connector-logs-command-short-description"),
+		Long:                  translation.T("backup-recovery-data-source-connector-logs-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command": "data-source-connector-logs",
+		},
+		Example: `  ibmcloud backup-recovery data-source-connector-logs 
+		--access-token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoLXR5cGUiOiIxIiwiZG9tYWluIjoiTE9DQUwiLCJleHBpcmF0aW9uLXRpbWUiOiIxNzM4NjY0NTI2IiwiaW4tY2x1c3RlciI6dHJ1ZSwibG9jYWxlIjoiZW4tdXMiLCJyb2xlcyI6IkNPSEVTSVRZX0FETUlOIiwic2lkcy1oYXNoIjoidG9CT3FhSllHUVhOTEF6ZWN5TTh1S05vbXNMT1VnbFVQUjYwNTJkdmJIYyIsInVzZXItc2lkIjoiUy0xLTEwMC0yMS0xMDY3Mjc0Mi0zOTcxMDE1MS0xIiwidXNlcm5hbWUiOiJhZG1pbiJ9.CiW0yedyrx7GQeI9GxloKU-zcuHUDCt0jvcz6H2bGd0ABNUWxryX22xNzEzAYIjoU3qdaS1hF7ch9WzKU-Jnk3eh2wmn_Ezb8Qe_gmxmeXRxKqPGSnVYZdMREXQsPJYfbncyftr-iiOluPZ52UgzkcBS2MeRIur5UEYNCumZqoYDVXAxLbuEyBhIrWMPQMUAe2gym4QRd6U-zmtMoLwa6DlKyzJsV_75mR-B9Vg9Aq78_DjXTgX6Lbq_IJJHplL83Sd1vJhlMO92C1Zm8AF2n_PeyDeFbUtU6TfCS6BlqFAfFv1sxDjKLAoPqmNagvEB-w_HeW_dfjGLfNUzqc3JUQ`,
+	}
+	cmd.Flags().StringVarP(&r.AccessToken, "access-token", "", "", translation.T("backup-recovery-connector-logs-access-token-description"))
+	r.RequiredFlags = []string{
+		"access-token",
+	}
+	return cmd
+}
+
+// Primary logic for running GetDataSourceConnectorLogs
+func (r *GetDataSourceConnectorLogsCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeConnectorServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetDataSourceConnectorLogsOptions{}
+
+	flagSet := cmd.Flags()
+	var authenticator *core.BearerTokenAuthenticator
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "access-token" {
+			authenticator = &core.BearerTokenAuthenticator{BearerToken: r.AccessToken}
+			ConnectorServiceInstance.Service.Options.Authenticator = authenticator
+		}
+	})
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetDataSourceConnectorLogsCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetDataSourceConnectorLogsOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"connectorLogs",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for RegisterDataSourceConnector command
+type RegisterDataSourceConnectorRequestSender struct{}
+
+func (s RegisterDataSourceConnectorRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	res, err := ConnectorServiceInstance.RegisterDataSourceConnector(optionsModel.(*backuprecoveryv1.RegisterDataSourceConnectorOptions))
+	// RegisterDataSourceConnector returns an empty response body
+	return nil, res, err
+}
+
+// Command Runner for RegisterDataSourceConnector command
+func NewRegisterDataSourceConnectorCommandRunner(utils Utilities, sender RequestSender) *RegisterDataSourceConnectorCommandRunner {
+	return &RegisterDataSourceConnectorCommandRunner{utils: utils, sender: sender}
+}
+
+type RegisterDataSourceConnectorCommandRunner struct {
+	RegistrationToken string
+	AccessToken       string
+	ConnectorID       int64
+	RequiredFlags     []string
+	sender            RequestSender
+	utils             Utilities
+}
+
+// Command mapping: data-source-connector-register, GetRegisterDataSourceConnectorCommand
+func GetRegisterDataSourceConnectorCommand(r *RegisterDataSourceConnectorCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "data-source-connector-register --registration-token REGISTRATION-TOKEN [--connector-id CONNECTOR-ID]",
+		Short:                 translation.T("backup-recovery-data-source-connector-register-command-short-description"),
+		Long:                  translation.T("backup-recovery-data-source-connector-register-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command": "data-source-connector-register",
+		},
+		Example: `  ibmcloud backup-recovery data-source-connector-register \
+	--access-token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoLXR5cGUiOiIxIiwiZG9tYWluIjoiTE9DQUwiLCJleHBpcmF0aW9uLXRpbWUiOiIxNzM4NjY0NTI2IiwiaW4tY2x1c3RlciI6dHJ1ZSwibG9jYWxlIjoiZW4tdXMiLCJyb2xlcyI6IkNPSEVTSVRZX0FETUlOIiwic2lkcy1oYXNoIjoidG9CT3FhSllHUVhOTEF6ZWN5TTh1S05vbXNMT1VnbFVQUjYwNTJkdmJIYyIsInVzZXItc2lkIjoiUy0xLTEwMC0yMS0xMDY3Mjc0Mi0zOTcxMDE1MS0xIiwidXNlcm5hbWUiOiJhZG1pbiJ9.CiW0yedyrx7GQeI9GxloKU-zcuHUDCt0jvcz6H2bGd0ABNUWxryX22xNzEzAYIjoU3qdaS1hF7ch9WzKU-Jnk3eh2wmn_Ezb8Qe_gmxmeXRxKqPGSnVYZdMREXQsPJYfbncyftr-iiOluPZ52UgzkcBS2MeRIur5UEYNCumZqoYDVXAxLbuEyBhIrWMPQMUAe2gym4QRd6U-zmtMoLwa6DlKyzJsV_75mR-B9Vg9Aq78_DjXTgX6Lbq_IJJHplL83Sd1vJhlMO92C1Zm8AF2n_PeyDeFbUtU6TfCS6BlqFAfFv1sxDjKLAoPqmNagvEB-w_HeW_dfjGLfNUzqc3JUQ
+    --registration-token exampleString \
+    --connector-id 26`,
+	}
+
+	cmd.Flags().StringVarP(&r.RegistrationToken, "registration-token", "", "", translation.T("backup-recovery-data-source-connector-register-registration-token-flag-description"))
+	cmd.Flags().StringVarP(&r.AccessToken, "access-token", "", "", translation.T("backup-recovery-data-source-connector-register-access-token-flag-description"))
+	cmd.Flags().Int64VarP(&r.ConnectorID, "connector-id", "", 0, translation.T("backup-recovery-data-source-connector-register-connector-id-flag-description"))
+	r.RequiredFlags = []string{
+		"registration-token",
+		"access-token",
+	}
+
+	return cmd
+}
+
+// Primary logic for running RegisterDataSourceConnector
+func (r *RegisterDataSourceConnectorCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeConnectorServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.RegisterDataSourceConnectorOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	var authenticator *core.BearerTokenAuthenticator
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "registration-token" {
+			OptionsModel.SetRegistrationToken(r.RegistrationToken)
+		}
+		if flag.Name == "connector-id" {
+			OptionsModel.SetConnectorID(r.ConnectorID)
+		}
+		if flag.Name == "access-token" {
+			authenticator = &core.BearerTokenAuthenticator{BearerToken: r.AccessToken}
+			ConnectorServiceInstance.Service.Options.Authenticator = authenticator
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *RegisterDataSourceConnectorCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.RegisterDataSourceConnectorOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+	r.utils.ProcessEmptyResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for GetDataSourceConnectorStatus command
+type GetDataSourceConnectorStatusRequestSender struct{}
+
+func (s GetDataSourceConnectorStatusRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ConnectorServiceInstance.GetDataSourceConnectorStatus(optionsModel.(*backuprecoveryv1.GetDataSourceConnectorStatusOptions))
+}
+
+// Command Runner for GetDataSourceConnectorStatus command
+func NewGetDataSourceConnectorStatusCommandRunner(utils Utilities, sender RequestSender) *GetDataSourceConnectorStatusCommandRunner {
+	return &GetDataSourceConnectorStatusCommandRunner{utils: utils, sender: sender}
+}
+
+type GetDataSourceConnectorStatusCommandRunner struct {
+	AccessToken   string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: data-source-connector-status, GetGetDataSourceConnectorStatusCommand
+func GetGetDataSourceConnectorStatusCommand(r *GetDataSourceConnectorStatusCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "data-source-connector-status",
+		Short:                 translation.T("backup-recovery-data-source-connector-status-command-short-description"),
+		Long:                  translation.T("backup-recovery-data-source-connector-status-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command": "data-source-connector-status",
+		},
+		Example: `  ibmcloud backup-recovery data-source-connector-status
+		--access-token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoLXR5cGUiOiIxIiwiZG9tYWluIjoiTE9DQUwiLCJleHBpcmF0aW9uLXRpbWUiOiIxNzM4NjY0NTI2IiwiaW4tY2x1c3RlciI6dHJ1ZSwibG9jYWxlIjoiZW4tdXMiLCJyb2xlcyI6IkNPSEVTSVRZX0FETUlOIiwic2lkcy1oYXNoIjoidG9CT3FhSllHUVhOTEF6ZWN5TTh1S05vbXNMT1VnbFVQUjYwNTJkdmJIYyIsInVzZXItc2lkIjoiUy0xLTEwMC0yMS0xMDY3Mjc0Mi0zOTcxMDE1MS0xIiwidXNlcm5hbWUiOiJhZG1pbiJ9.CiW0yedyrx7GQeI9GxloKU-zcuHUDCt0jvcz6H2bGd0ABNUWxryX22xNzEzAYIjoU3qdaS1hF7ch9WzKU-Jnk3eh2wmn_Ezb8Qe_gmxmeXRxKqPGSnVYZdMREXQsPJYfbncyftr-iiOluPZ52UgzkcBS2MeRIur5UEYNCumZqoYDVXAxLbuEyBhIrWMPQMUAe2gym4QRd6U-zmtMoLwa6DlKyzJsV_75mR-B9Vg9Aq78_DjXTgX6Lbq_IJJHplL83Sd1vJhlMO92C1Zm8AF2n_PeyDeFbUtU6TfCS6BlqFAfFv1sxDjKLAoPqmNagvEB-w_HeW_dfjGLfNUzqc3JUQ
+		`,
+	}
+
+	cmd.Flags().StringVarP(&r.AccessToken, "access-token", "", "", translation.T("backup-recovery-connector-logs-access-token-description"))
+	r.RequiredFlags = []string{
+		"access-token",
+	}
+
+	return cmd
+}
+
+// Primary logic for running GetDataSourceConnectorStatus
+func (r *GetDataSourceConnectorStatusCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeConnectorServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetDataSourceConnectorStatusOptions{}
+
+	flagSet := cmd.Flags()
+	var authenticator *core.BearerTokenAuthenticator
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "access-token" {
+			authenticator = &core.BearerTokenAuthenticator{BearerToken: r.AccessToken}
+			ConnectorServiceInstance.Service.Options.Authenticator = authenticator
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetDataSourceConnectorStatusCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetDataSourceConnectorStatusOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"clusterConnectionStatus",
+		"isCertificateValid",
+		"registrationStatus",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -10806,6 +11210,1367 @@ func (r *SearchProtectedObjectsCommandRunner) MakeRequest(OptionsModel backuprec
 		"objects",
 		"metadata",
 		"numResults",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for GetUsers command
+type GetUsersRequestSender struct{}
+
+func (s GetUsersRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ConnectorServiceInstance.GetUsers(optionsModel.(*backuprecoveryv1.GetUsersOptions))
+}
+
+// Command Runner for GetUsers command
+func NewGetUsersCommandRunner(utils Utilities, sender RequestSender) *GetUsersCommandRunner {
+	return &GetUsersCommandRunner{utils: utils, sender: sender}
+}
+
+type GetUsersCommandRunner struct {
+	SessionName       string
+	TenantIds         string
+	AllUnderHierarchy bool
+	Usernames         string
+	EmailAddresses    string
+	Domain            string
+	PartialMatch      bool
+	RequiredFlags     []string
+	sender            RequestSender
+	utils             Utilities
+}
+
+// Command mapping: users, GetGetUsersCommand
+func GetGetUsersCommand(r *GetUsersCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "users --session-name SESSION-NAME [--tenant-ids TENANT-IDS] [--all-under-hierarchy=ALL-UNDER-HIERARCHY] [--usernames USERNAMES] [--email-addresses EMAIL-ADDRESSES] [--domain DOMAIN] [--partial-match=PARTIAL-MATCH]",
+		Short:                 translation.T("backup-recovery-users-command-short-description"),
+		Long:                  translation.T("backup-recovery-users-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery users \
+    --session-name MTczNjc0NzY1OHxEWDhFQVFMX2dBQUJFQUVRQUFELUFZWF9nQUFKQm5OMGNtbHVad3dLQUFoMWMyVnlibUZ0WlFaemRISnBibWNNQndBRllXUnRhVzRHYzNSeWFXNW5EQWNBQlhKdmJHVnpCbk4wY21sdVp3d1FBQTVEVDBoRlUwbFVXVjlCUkUxSlRnWnpkSEpwYm1jTUN3QUpjMmxrY3kxb1lYTm9Cbk4wY21sdVp3d3RBQ3RTYVV4ZmFqQmZOVGxxZFZJeWVIVlZhREJ2UVZGNlUxcEhTVWc1TlZVdFlVWTBjV1JNUjNaTk9VUTBCbk4wY21sdVp3d01BQXBwYmkxamJIVnpkR1Z5QkdKdmIyd0NBZ0FCQm5OMGNtbHVad3dMQUFsaGRYUm9MWFI1Y0dVR2MzUnlhVzVuREFNQUFURUdjM1J5YVc1bkRCRUFEMlY0Y0dseVlYUnBiMjR0ZEdsdFpRWnpkSEpwYm1jTURBQUtNVGN6Tmpnek5EQTFPQVp6ZEhKcGJtY01DZ0FJZFhObGNpMXphV1FHYzNSeWFXNW5EQ0FBSGxNdE1TMHhNREF0TWpFdE16YzRNVFkyTXpVdE1qUXhPRFk1TXpVdE1RWnpkSEpwYm1jTUNBQUdaRzl0WVdsdUJuTjBjbWx1Wnd3SEFBVk1UME5CVEFaemRISnBibWNNQ0FBR2JHOWpZV3hsQm5OMGNtbHVad3dIQUFWbGJpMTFjdz09fGXFZlPU_3Nl46_gPKAw619qs6Pl7PX453Y_lf5BvBBo \
+    --tenant-ids exampleString,anotherTestString \
+    --all-under-hierarchy=true \
+    --usernames exampleString,anotherTestString \
+    --email-addresses exampleString,anotherTestString \
+    --domain exampleString \
+    --partial-match=true`,
+	}
+
+	cmd.Flags().StringVarP(&r.SessionName, "session-name", "", "", translation.T("backup-recovery-users-session-name-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantIds, "tenant-ids", "", "", translation.T("backup-recovery-users-tenant-ids-flag-description"))
+	cmd.Flags().BoolVarP(&r.AllUnderHierarchy, "all-under-hierarchy", "", false, translation.T("backup-recovery-users-all-under-hierarchy-flag-description"))
+	cmd.Flags().StringVarP(&r.Usernames, "usernames", "", "", translation.T("backup-recovery-users-usernames-flag-description"))
+	cmd.Flags().StringVarP(&r.EmailAddresses, "email-addresses", "", "", translation.T("backup-recovery-users-email-addresses-flag-description"))
+	cmd.Flags().StringVarP(&r.Domain, "domain", "", "", translation.T("backup-recovery-users-domain-flag-description"))
+	cmd.Flags().BoolVarP(&r.PartialMatch, "partial-match", "", false, translation.T("backup-recovery-users-partial-match-flag-description"))
+	r.RequiredFlags = []string{
+		"session-name",
+	}
+
+	return cmd
+}
+
+// Primary logic for running GetUsers
+func (r *GetUsersCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeConnectorServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetUsersOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "session-name" {
+			OptionsModel.SetSessionName(r.SessionName)
+		}
+		if flag.Name == "tenant-ids" {
+			var TenantIds []string
+			err, msg := deserialize.List(r.TenantIds, "tenant-ids", "JSON", &TenantIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetTenantIds(TenantIds)
+		}
+		if flag.Name == "all-under-hierarchy" {
+			OptionsModel.SetAllUnderHierarchy(r.AllUnderHierarchy)
+		}
+		if flag.Name == "usernames" {
+			var Usernames []string
+			err, msg := deserialize.List(r.Usernames, "usernames", "JSON", &Usernames)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetUsernames(Usernames)
+		}
+		if flag.Name == "email-addresses" {
+			var EmailAddresses []string
+			err, msg := deserialize.List(r.EmailAddresses, "email-addresses", "JSON", &EmailAddresses)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetEmailAddresses(EmailAddresses)
+		}
+		if flag.Name == "domain" {
+			OptionsModel.SetDomain(r.Domain)
+		}
+		if flag.Name == "partial-match" {
+			OptionsModel.SetPartialMatch(r.PartialMatch)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetUsersCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetUsersOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	// Manually added code to display the desired result in text format.
+	//********************************************
+	if ResponseErr == nil {
+		r.utils.SetTableHeaderOrder([]string{
+			"users",
+		})
+		DetailedResponse.Result = map[string]interface{}{"users": DetailedResponse.Result}
+	}
+	//********************************************
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for UpdateUser command
+type UpdateUserRequestSender struct{}
+
+func (s UpdateUserRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ConnectorServiceInstance.UpdateUser(optionsModel.(*backuprecoveryv1.UpdateUserOptions))
+}
+
+// Command Runner for UpdateUser command
+func NewUpdateUserCommandRunner(utils Utilities, sender RequestSender) *UpdateUserCommandRunner {
+	return &UpdateUserCommandRunner{utils: utils, sender: sender}
+}
+
+type UpdateUserCommandRunner struct {
+	SessionName                              string
+	AdUserInfo                               string
+	AdditionalGroupNames                     string
+	AllowDsoModify                           bool
+	AuditLogSettings                         string
+	AuthenticationType                       string
+	ClusterIdentifiers                       string
+	CreatedTimeMsecs                         int64
+	CurrentPassword                          string
+	Description                              string
+	Domain                                   string
+	EffectiveTimeMsecs                       int64
+	EmailAddress                             string
+	ExpiredTimeMsecs                         int64
+	ForcePasswordChange                      bool
+	GoogleAccount                            string
+	IdpUserInfo                              string
+	IntercomMessengerToken                   string
+	IsAccountLocked                          bool
+	IsActive                                 bool
+	LastSuccessfulLoginTimeMsecs             int64
+	LastUpdatedTimeMsecs                     int64
+	MfaInfo                                  string
+	MfaMethods                               string
+	ObjectClass                              string
+	OrgMembership                            string
+	Password                                 string
+	Preferences                              string
+	PreviousLoginTimeMsecs                   int64
+	PrimaryGroupName                         string
+	PrivilegeIds                             string
+	Profiles                                 string
+	Restricted                               bool
+	Roles                                    string
+	S3AccessKeyID                            string
+	S3AccountID                              string
+	S3SecretKey                              string
+	SalesforceAccount                        string
+	Sid                                      string
+	SpogContext                              string
+	SubscriptionInfo                         string
+	TenantAccesses                           string
+	TenantID                                 string
+	Username                                 string
+	AdUserInfoGroupSids                      string
+	AdUserInfoGroups                         string
+	AdUserInfoIsFloatingUser                 bool
+	AuditLogSettingsReadLogging              bool
+	GoogleAccountAccountID                   string
+	GoogleAccountUserID                      string
+	IdpUserInfoGroupSids                     string
+	IdpUserInfoGroups                        string
+	IdpUserInfoIdpID                         int64
+	IdpUserInfoIsFloatingUser                bool
+	IdpUserInfoIssuerID                      string
+	IdpUserInfoUserID                        string
+	IdpUserInfoVendor                        string
+	MfaInfoIsUserExemptFromMfa               bool
+	PreferencesLocale                        string
+	SalesforceAccountAccountID               string
+	SalesforceAccountHeliosAccessGrantStatus string
+	SalesforceAccountIsDGaaSUser             bool
+	SalesforceAccountIsDMaaSUser             bool
+	SalesforceAccountIsDRaaSUser             bool
+	SalesforceAccountIsRPaaSUser             bool
+	SalesforceAccountIsSalesUser             bool
+	SalesforceAccountIsSupportUser           bool
+	SalesforceAccountUserID                  string
+	SpogContextPrimaryClusterID              int64
+	SpogContextPrimaryClusterUserSid         string
+	SpogContextPrimaryClusterUsername        string
+	SubscriptionInfoClassification           string
+	SubscriptionInfoDataProtect              string
+	SubscriptionInfoDataProtectAzure         string
+	SubscriptionInfoFortKnoxAzureCool        string
+	SubscriptionInfoFortKnoxAzureHot         string
+	SubscriptionInfoFortKnoxCold             string
+	SubscriptionInfoRansomware               string
+	SubscriptionInfoSiteContinuity           string
+	SubscriptionInfoThreatProtection         string
+	RequiredFlags                            []string
+	sender                                   RequestSender
+	utils                                    Utilities
+}
+
+// Command mapping: user-update, GetUpdateUserCommand
+func GetUpdateUserCommand(r *UpdateUserCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "user-update [command options]",
+		Short:                 translation.T("backup-recovery-user-update-command-short-description"),
+		Long:                  translation.T("backup-recovery-user-update-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery user-update \
+    --session-name MTczNjc0NzY1OHxEWDhFQVFMX2dBQUJFQUVRQUFELUFZWF9nQUFKQm5OMGNtbHVad3dLQUFoMWMyVnlibUZ0WlFaemRISnBibWNNQndBRllXUnRhVzRHYzNSeWFXNW5EQWNBQlhKdmJHVnpCbk4wY21sdVp3d1FBQTVEVDBoRlUwbFVXVjlCUkUxSlRnWnpkSEpwYm1jTUN3QUpjMmxrY3kxb1lYTm9Cbk4wY21sdVp3d3RBQ3RTYVV4ZmFqQmZOVGxxZFZJeWVIVlZhREJ2UVZGNlUxcEhTVWc1TlZVdFlVWTBjV1JNUjNaTk9VUTBCbk4wY21sdVp3d01BQXBwYmkxamJIVnpkR1Z5QkdKdmIyd0NBZ0FCQm5OMGNtbHVad3dMQUFsaGRYUm9MWFI1Y0dVR2MzUnlhVzVuREFNQUFURUdjM1J5YVc1bkRCRUFEMlY0Y0dseVlYUnBiMjR0ZEdsdFpRWnpkSEpwYm1jTURBQUtNVGN6Tmpnek5EQTFPQVp6ZEhKcGJtY01DZ0FJZFhObGNpMXphV1FHYzNSeWFXNW5EQ0FBSGxNdE1TMHhNREF0TWpFdE16YzRNVFkyTXpVdE1qUXhPRFk1TXpVdE1RWnpkSEpwYm1jTUNBQUdaRzl0WVdsdUJuTjBjbWx1Wnd3SEFBVk1UME5CVEFaemRISnBibWNNQ0FBR2JHOWpZV3hsQm5OMGNtbHVad3dIQUFWbGJpMTFjdz09fGXFZlPU_3Nl46_gPKAw619qs6Pl7PX453Y_lf5BvBBo \
+    --ad-user-info '{"groupSids": ["exampleString","anotherTestString"], "groups": ["exampleString","anotherTestString"], "isFloatingUser": true}' \
+    --additional-group-names exampleString,anotherTestString \
+    --allow-dso-modify=true \
+    --audit-log-settings '{"readLogging": true}' \
+    --authentication-type kAuthLocal \
+    --cluster-identifiers '[{"clusterId": 26, "clusterIncarnationId": 26}]' \
+    --created-time-msecs 26 \
+    --current-password exampleString \
+    --description exampleString \
+    --domain exampleString \
+    --effective-time-msecs 26 \
+    --email-address exampleString \
+    --expired-time-msecs 26 \
+    --force-password-change=true \
+    --google-account '{"accountId": "exampleString", "userId": "exampleString"}' \
+    --idp-user-info '{"groupSids": ["exampleString","anotherTestString"], "groups": ["exampleString","anotherTestString"], "idpId": 26, "isFloatingUser": true, "issuerId": "exampleString", "userId": "exampleString", "vendor": "exampleString"}' \
+    --intercom-messenger-token exampleString \
+    --is-account-locked=true \
+    --is-active=true \
+    --last-successful-login-time-msecs 26 \
+    --last-updated-time-msecs 26 \
+    --mfa-info '{"isUserExemptFromMfa": true}' \
+    --mfa-methods exampleString,anotherTestString \
+    --object-class exampleString \
+    --org-membership '[{"bifrostEnabled": true, "isManagedOnHelios": true, "name": "exampleString", "restricted": true, "roles": ["exampleString","anotherTestString"], "tenantId": "exampleString"}]' \
+    --password exampleString \
+    --preferences '{"locale": "exampleString"}' \
+    --previous-login-time-msecs 26 \
+    --primary-group-name exampleString \
+    --privilege-ids kPrincipalView,kPrincipalModify,kAppLaunch,kAppsManagement,kOrganizationView,kOrganizationModify,kOrganizationImpersonate,kCloneView,kCloneModify,kClusterView,kClusterModify,kClusterCreate,kClusterSupport,kClusterUpgrade,kClusterRemoteView,kClusterRemoteModify,kClusterExternalTargetView,kClusterExternalTargetModify,kClusterAudit,kAlertView,kAlertModify,kVlanView,kVlanModify,kHybridExtenderView,kHybridExtenderDownload,kAdLdapView,kAdLdapModify,kSchedulerView,kSchedulerModify,kProtectionView,kProtectionModify,kProtectionJobOperate,kProtectionSourceModify,kProtectionPolicyView,kProtectionPolicyModify,kRestoreView,kRestoreModify,kRestoreDownload,kRemoteRestore,kStorageView,kStorageModify,kStorageDomainView,kStorageDomainModify,kAnalyticsView,kAnalyticsModify,kReportsView,kMcmModify,kDataSecurity,kSmbBackup,kSmbRestore,kSmbTakeOwnership,kSmbAuditing,kMcmUnregister,kMcmUpgrade,kMcmModifySuperAdmin,kMcmViewSuperAdmin,kMcmModifyCohesityAdmin,kMcmViewCohesityAdmin,kObjectSearch,kFileDatalockExpiryTimeDecrease \
+    --profiles '[{"clusterIdentifiers": [{"clusterId": 26, "clusterIncarnationId": 26}], "isActive": true, "isDeleted": true, "regionIds": ["exampleString","anotherTestString"], "tenantId": "exampleString", "tenantName": "exampleString", "tenantType": "Dmaas"}]' \
+    --restricted=true \
+    --roles exampleString,anotherTestString \
+    --s3-access-key-id exampleString \
+    --s3-account-id exampleString \
+    --s3-secret-key exampleString \
+    --salesforce-account '{"accountId": "exampleString", "heliosAccessGrantStatus": "exampleString", "isDGaaSUser": true, "isDMaaSUser": true, "isDRaaSUser": true, "isRPaaSUser": true, "isSalesUser": true, "isSupportUser": true, "userId": "exampleString"}' \
+    --sid exampleString \
+    --spog-context '{"PrimaryClusterId": 26, "PrimaryClusterUserSid": "exampleString", "PrimaryClusterUsername": "exampleString"}' \
+    --subscription-info '{"classification": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "startDate": "exampleString"}, "dataProtect": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "isAwsSubscription": true, "isCohesitySubscription": true, "quantity": 26, "startDate": "exampleString", "tiering": {"backendTiering": true, "frontendTiering": true, "maxRetention": 26}}, "dataProtectAzure": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "exampleString", "tiering": {"backendTiering": true, "frontendTiering": true, "maxRetention": 26}}, "fortKnoxAzureCool": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "exampleString"}, "fortKnoxAzureHot": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "exampleString"}, "fortKnoxCold": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "exampleString"}, "ransomware": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "exampleString"}, "siteContinuity": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "startDate": "exampleString"}, "threatProtection": {"endDate": "exampleString", "isActive": true, "isFreeTrial": true, "startDate": "exampleString"}}' \
+    --tenant-accesses '[{"clusterIdentifiers": [{"clusterId": 26, "clusterIncarnationId": 26}], "createdTimeMsecs": 26, "effectiveTimeMsecs": 26, "expiredTimeMsecs": 26, "isAccessActive": true, "isActive": true, "isDeleted": true, "lastUpdatedTimeMsecs": 26, "roles": ["exampleString","anotherTestString"], "tenantId": "exampleString", "tenantName": "exampleString", "tenantType": "Dmaas"}]' \
+    --tenant-id exampleString \
+    --username exampleString`,
+	}
+
+	cmd.Flags().StringVarP(&r.SessionName, "session-name", "", "", translation.T("backup-recovery-user-update-session-name-flag-description"))
+	cmd.Flags().StringVarP(&r.AdUserInfo, "ad-user-info", "", "", translation.T("backup-recovery-user-update-ad-user-info-flag-description"))
+	cmd.Flags().StringVarP(&r.AdditionalGroupNames, "additional-group-names", "", "", translation.T("backup-recovery-user-update-additional-group-names-flag-description"))
+	cmd.Flags().BoolVarP(&r.AllowDsoModify, "allow-dso-modify", "", false, translation.T("backup-recovery-user-update-allow-dso-modify-flag-description"))
+	cmd.Flags().StringVarP(&r.AuditLogSettings, "audit-log-settings", "", "", translation.T("backup-recovery-user-update-audit-log-settings-flag-description"))
+	cmd.Flags().StringVarP(&r.AuthenticationType, "authentication-type", "", "", translation.T("backup-recovery-user-update-authentication-type-flag-description"))
+	cmd.Flags().StringVarP(&r.ClusterIdentifiers, "cluster-identifiers", "", "", translation.T("backup-recovery-user-update-cluster-identifiers-flag-description"))
+	cmd.Flags().Int64VarP(&r.CreatedTimeMsecs, "created-time-msecs", "", 0, translation.T("backup-recovery-user-update-created-time-msecs-flag-description"))
+	cmd.Flags().StringVarP(&r.CurrentPassword, "current-password", "", "", translation.T("backup-recovery-user-update-current-password-flag-description"))
+	cmd.Flags().StringVarP(&r.Description, "description", "", "", translation.T("backup-recovery-user-update-description-flag-description"))
+	cmd.Flags().StringVarP(&r.Domain, "domain", "", "", translation.T("backup-recovery-user-update-domain-flag-description"))
+	cmd.Flags().Int64VarP(&r.EffectiveTimeMsecs, "effective-time-msecs", "", 0, translation.T("backup-recovery-user-update-effective-time-msecs-flag-description"))
+	cmd.Flags().StringVarP(&r.EmailAddress, "email-address", "", "", translation.T("backup-recovery-user-update-email-address-flag-description"))
+	cmd.Flags().Int64VarP(&r.ExpiredTimeMsecs, "expired-time-msecs", "", 0, translation.T("backup-recovery-user-update-expired-time-msecs-flag-description"))
+	cmd.Flags().BoolVarP(&r.ForcePasswordChange, "force-password-change", "", false, translation.T("backup-recovery-user-update-force-password-change-flag-description"))
+	cmd.Flags().StringVarP(&r.GoogleAccount, "google-account", "", "", translation.T("backup-recovery-user-update-google-account-flag-description"))
+	cmd.Flags().StringVarP(&r.IdpUserInfo, "idp-user-info", "", "", translation.T("backup-recovery-user-update-idp-user-info-flag-description"))
+	cmd.Flags().StringVarP(&r.IntercomMessengerToken, "intercom-messenger-token", "", "", translation.T("backup-recovery-user-update-intercom-messenger-token-flag-description"))
+	cmd.Flags().BoolVarP(&r.IsAccountLocked, "is-account-locked", "", false, translation.T("backup-recovery-user-update-is-account-locked-flag-description"))
+	cmd.Flags().BoolVarP(&r.IsActive, "is-active", "", false, translation.T("backup-recovery-user-update-is-active-flag-description"))
+	cmd.Flags().Int64VarP(&r.LastSuccessfulLoginTimeMsecs, "last-successful-login-time-msecs", "", 0, translation.T("backup-recovery-user-update-last-successful-login-time-msecs-flag-description"))
+	cmd.Flags().Int64VarP(&r.LastUpdatedTimeMsecs, "last-updated-time-msecs", "", 0, translation.T("backup-recovery-user-update-last-updated-time-msecs-flag-description"))
+	cmd.Flags().StringVarP(&r.MfaInfo, "mfa-info", "", "", translation.T("backup-recovery-user-update-mfa-info-flag-description"))
+	cmd.Flags().StringVarP(&r.MfaMethods, "mfa-methods", "", "", translation.T("backup-recovery-user-update-mfa-methods-flag-description"))
+	cmd.Flags().StringVarP(&r.ObjectClass, "object-class", "", "", translation.T("backup-recovery-user-update-object-class-flag-description"))
+	cmd.Flags().StringVarP(&r.OrgMembership, "org-membership", "", "", translation.T("backup-recovery-user-update-org-membership-flag-description"))
+	cmd.Flags().StringVarP(&r.Password, "password", "", "", translation.T("backup-recovery-user-update-password-flag-description"))
+	cmd.Flags().StringVarP(&r.Preferences, "preferences", "", "", translation.T("backup-recovery-user-update-preferences-flag-description"))
+	cmd.Flags().Int64VarP(&r.PreviousLoginTimeMsecs, "previous-login-time-msecs", "", 0, translation.T("backup-recovery-user-update-previous-login-time-msecs-flag-description"))
+	cmd.Flags().StringVarP(&r.PrimaryGroupName, "primary-group-name", "", "", translation.T("backup-recovery-user-update-primary-group-name-flag-description"))
+	cmd.Flags().StringVarP(&r.PrivilegeIds, "privilege-ids", "", "", translation.T("backup-recovery-user-update-privilege-ids-flag-description"))
+	cmd.Flags().StringVarP(&r.Profiles, "profiles", "", "", translation.T("backup-recovery-user-update-profiles-flag-description"))
+	cmd.Flags().BoolVarP(&r.Restricted, "restricted", "", false, translation.T("backup-recovery-user-update-restricted-flag-description"))
+	cmd.Flags().StringVarP(&r.Roles, "roles", "", "", translation.T("backup-recovery-user-update-roles-flag-description"))
+	cmd.Flags().StringVarP(&r.S3AccessKeyID, "s3-access-key-id", "", "", translation.T("backup-recovery-user-update-s3-access-key-id-flag-description"))
+	cmd.Flags().StringVarP(&r.S3AccountID, "s3-account-id", "", "", translation.T("backup-recovery-user-update-s3-account-id-flag-description"))
+	cmd.Flags().StringVarP(&r.S3SecretKey, "s3-secret-key", "", "", translation.T("backup-recovery-user-update-s3-secret-key-flag-description"))
+	cmd.Flags().StringVarP(&r.SalesforceAccount, "salesforce-account", "", "", translation.T("backup-recovery-user-update-salesforce-account-flag-description"))
+	cmd.Flags().StringVarP(&r.Sid, "sid", "", "", translation.T("backup-recovery-user-update-sid-flag-description"))
+	cmd.Flags().StringVarP(&r.SpogContext, "spog-context", "", "", translation.T("backup-recovery-user-update-spog-context-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfo, "subscription-info", "", "", translation.T("backup-recovery-user-update-subscription-info-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantAccesses, "tenant-accesses", "", "", translation.T("backup-recovery-user-update-tenant-accesses-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantID, "tenant-id", "", "", translation.T("backup-recovery-user-update-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.Username, "username", "", "", translation.T("backup-recovery-user-update-username-flag-description"))
+	cmd.Flags().StringVarP(&r.AdUserInfoGroupSids, "ad-user-info-group-sids", "", "", translation.T("backup-recovery-user-update-ad-user-info-group-sids-flag-description"))
+	cmd.Flags().StringVarP(&r.AdUserInfoGroups, "ad-user-info-groups", "", "", translation.T("backup-recovery-user-update-ad-user-info-groups-flag-description"))
+	cmd.Flags().BoolVarP(&r.AdUserInfoIsFloatingUser, "ad-user-info-is-floating-user", "", false, translation.T("backup-recovery-user-update-ad-user-info-is-floating-user-flag-description"))
+	cmd.Flags().BoolVarP(&r.AuditLogSettingsReadLogging, "audit-log-settings-read-logging", "", false, translation.T("backup-recovery-user-update-audit-log-settings-read-logging-flag-description"))
+	cmd.Flags().StringVarP(&r.GoogleAccountAccountID, "google-account-account-id", "", "", translation.T("backup-recovery-user-update-google-account-account-id-flag-description"))
+	cmd.Flags().StringVarP(&r.GoogleAccountUserID, "google-account-user-id", "", "", translation.T("backup-recovery-user-update-google-account-user-id-flag-description"))
+	cmd.Flags().StringVarP(&r.IdpUserInfoGroupSids, "idp-user-info-group-sids", "", "", translation.T("backup-recovery-user-update-idp-user-info-group-sids-flag-description"))
+	cmd.Flags().StringVarP(&r.IdpUserInfoGroups, "idp-user-info-groups", "", "", translation.T("backup-recovery-user-update-idp-user-info-groups-flag-description"))
+	cmd.Flags().Int64VarP(&r.IdpUserInfoIdpID, "idp-user-info-idp-id", "", 0, translation.T("backup-recovery-user-update-idp-user-info-idp-id-flag-description"))
+	cmd.Flags().BoolVarP(&r.IdpUserInfoIsFloatingUser, "idp-user-info-is-floating-user", "", false, translation.T("backup-recovery-user-update-idp-user-info-is-floating-user-flag-description"))
+	cmd.Flags().StringVarP(&r.IdpUserInfoIssuerID, "idp-user-info-issuer-id", "", "", translation.T("backup-recovery-user-update-idp-user-info-issuer-id-flag-description"))
+	cmd.Flags().StringVarP(&r.IdpUserInfoUserID, "idp-user-info-user-id", "", "", translation.T("backup-recovery-user-update-idp-user-info-user-id-flag-description"))
+	cmd.Flags().StringVarP(&r.IdpUserInfoVendor, "idp-user-info-vendor", "", "", translation.T("backup-recovery-user-update-idp-user-info-vendor-flag-description"))
+	cmd.Flags().BoolVarP(&r.MfaInfoIsUserExemptFromMfa, "mfa-info-is-user-exempt-from-mfa", "", false, translation.T("backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description"))
+	cmd.Flags().StringVarP(&r.PreferencesLocale, "preferences-locale", "", "", translation.T("backup-recovery-user-update-preferences-locale-flag-description"))
+	cmd.Flags().StringVarP(&r.SalesforceAccountAccountID, "salesforce-account-account-id", "", "", translation.T("backup-recovery-user-update-salesforce-account-account-id-flag-description"))
+	cmd.Flags().StringVarP(&r.SalesforceAccountHeliosAccessGrantStatus, "salesforce-account-helios-access-grant-status", "", "", translation.T("backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description"))
+	cmd.Flags().BoolVarP(&r.SalesforceAccountIsDGaaSUser, "salesforce-account-is-d-gaa-s-user", "", false, translation.T("backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description"))
+	cmd.Flags().BoolVarP(&r.SalesforceAccountIsDMaaSUser, "salesforce-account-is-d-maa-s-user", "", false, translation.T("backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description"))
+	cmd.Flags().BoolVarP(&r.SalesforceAccountIsDRaaSUser, "salesforce-account-is-d-raa-s-user", "", false, translation.T("backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description"))
+	cmd.Flags().BoolVarP(&r.SalesforceAccountIsRPaaSUser, "salesforce-account-is-r-paa-s-user", "", false, translation.T("backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description"))
+	cmd.Flags().BoolVarP(&r.SalesforceAccountIsSalesUser, "salesforce-account-is-sales-user", "", false, translation.T("backup-recovery-user-update-salesforce-account-is-sales-user-flag-description"))
+	cmd.Flags().BoolVarP(&r.SalesforceAccountIsSupportUser, "salesforce-account-is-support-user", "", false, translation.T("backup-recovery-user-update-salesforce-account-is-support-user-flag-description"))
+	cmd.Flags().StringVarP(&r.SalesforceAccountUserID, "salesforce-account-user-id", "", "", translation.T("backup-recovery-user-update-salesforce-account-user-id-flag-description"))
+	cmd.Flags().Int64VarP(&r.SpogContextPrimaryClusterID, "spog-context-primary-cluster-id", "", 0, translation.T("backup-recovery-user-update-spog-context-primary-cluster-id-flag-description"))
+	cmd.Flags().StringVarP(&r.SpogContextPrimaryClusterUserSid, "spog-context-primary-cluster-user-sid", "", "", translation.T("backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description"))
+	cmd.Flags().StringVarP(&r.SpogContextPrimaryClusterUsername, "spog-context-primary-cluster-username", "", "", translation.T("backup-recovery-user-update-spog-context-primary-cluster-username-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoClassification, "subscription-info-classification", "", "", translation.T("backup-recovery-user-update-subscription-info-classification-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoDataProtect, "subscription-info-data-protect", "", "", translation.T("backup-recovery-user-update-subscription-info-data-protect-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoDataProtectAzure, "subscription-info-data-protect-azure", "", "", translation.T("backup-recovery-user-update-subscription-info-data-protect-azure-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoFortKnoxAzureCool, "subscription-info-fort-knox-azure-cool", "", "", translation.T("backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoFortKnoxAzureHot, "subscription-info-fort-knox-azure-hot", "", "", translation.T("backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoFortKnoxCold, "subscription-info-fort-knox-cold", "", "", translation.T("backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoRansomware, "subscription-info-ransomware", "", "", translation.T("backup-recovery-user-update-subscription-info-ransomware-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoSiteContinuity, "subscription-info-site-continuity", "", "", translation.T("backup-recovery-user-update-subscription-info-site-continuity-flag-description"))
+	cmd.Flags().StringVarP(&r.SubscriptionInfoThreatProtection, "subscription-info-threat-protection", "", "", translation.T("backup-recovery-user-update-subscription-info-threat-protection-flag-description"))
+	r.RequiredFlags = []string{
+		"session-name",
+	}
+
+	return cmd
+}
+
+// Primary logic for running UpdateUser
+func (r *UpdateUserCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeConnectorServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.UpdateUserOptions{}
+	AdUserInfoHelper := &backuprecoveryv1.AdUserInfo{}
+	AuditLogSettingsHelper := &backuprecoveryv1.AuditLogSettings{}
+	GoogleAccountHelper := &backuprecoveryv1.GoogleAccountInfo{}
+	IdpUserInfoHelper := &backuprecoveryv1.IdpUserInfo{}
+	MfaInfoHelper := &backuprecoveryv1.MfaInfo{}
+	PreferencesHelper := &backuprecoveryv1.UsersPreferences{}
+	SalesforceAccountHelper := &backuprecoveryv1.SalesforceAccountInfo{}
+	SpogContextHelper := &backuprecoveryv1.SpogContext{}
+	SubscriptionInfoHelper := &backuprecoveryv1.SubscriptionInfo{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "session-name" {
+			OptionsModel.SetSessionName(r.SessionName)
+		}
+		if flag.Name == "ad-user-info" {
+			var AdUserInfo *backuprecoveryv1.AdUserInfo
+			err, msg := deserialize.Model(
+				r.AdUserInfo,
+				"ad-user-info",
+				"AdUserInfo",
+				backuprecoveryv1.UnmarshalAdUserInfo,
+				&AdUserInfo,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetAdUserInfo(AdUserInfo)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.AdUserInfo, `{"fields":["groups","isFloatingUser","groupSids"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "ad-user-info",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "ad-user-info",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "ad-user-info",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "additional-group-names" {
+			var AdditionalGroupNames []string
+			err, msg := deserialize.List(r.AdditionalGroupNames, "additional-group-names", "JSON", &AdditionalGroupNames)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetAdditionalGroupNames(AdditionalGroupNames)
+		}
+		if flag.Name == "allow-dso-modify" {
+			OptionsModel.SetAllowDsoModify(r.AllowDsoModify)
+		}
+		if flag.Name == "audit-log-settings" {
+			var AuditLogSettings *backuprecoveryv1.AuditLogSettings
+			err, msg := deserialize.Model(
+				r.AuditLogSettings,
+				"audit-log-settings",
+				"AuditLogSettings",
+				backuprecoveryv1.UnmarshalAuditLogSettings,
+				&AuditLogSettings,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetAuditLogSettings(AuditLogSettings)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.AuditLogSettings, `{"fields":["readLogging"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "audit-log-settings",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "audit-log-settings",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "audit-log-settings",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "authentication-type" {
+			OptionsModel.SetAuthenticationType(r.AuthenticationType)
+		}
+		if flag.Name == "cluster-identifiers" {
+			var ClusterIdentifiers []backuprecoveryv1.UserClusterIdentifier
+			err, msg := deserialize.ModelSlice(
+				r.ClusterIdentifiers,
+				"cluster-identifiers",
+				"UserClusterIdentifier",
+				backuprecoveryv1.UnmarshalUserClusterIdentifier,
+				&ClusterIdentifiers,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetClusterIdentifiers(ClusterIdentifiers)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.ClusterIdentifiers, `{"fields":["clusterId","clusterIncarnationId"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "cluster-identifiers",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "cluster-identifiers",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "cluster-identifiers",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "created-time-msecs" {
+			OptionsModel.SetCreatedTimeMsecs(r.CreatedTimeMsecs)
+		}
+		if flag.Name == "current-password" {
+			OptionsModel.SetCurrentPassword(r.CurrentPassword)
+		}
+		if flag.Name == "description" {
+			OptionsModel.SetDescription(r.Description)
+		}
+		if flag.Name == "domain" {
+			OptionsModel.SetDomain(r.Domain)
+		}
+		if flag.Name == "effective-time-msecs" {
+			OptionsModel.SetEffectiveTimeMsecs(r.EffectiveTimeMsecs)
+		}
+		if flag.Name == "email-address" {
+			OptionsModel.SetEmailAddress(r.EmailAddress)
+		}
+		if flag.Name == "expired-time-msecs" {
+			OptionsModel.SetExpiredTimeMsecs(r.ExpiredTimeMsecs)
+		}
+		if flag.Name == "force-password-change" {
+			OptionsModel.SetForcePasswordChange(r.ForcePasswordChange)
+		}
+		if flag.Name == "google-account" {
+			var GoogleAccount *backuprecoveryv1.GoogleAccountInfo
+			err, msg := deserialize.Model(
+				r.GoogleAccount,
+				"google-account",
+				"GoogleAccountInfo",
+				backuprecoveryv1.UnmarshalGoogleAccountInfo,
+				&GoogleAccount,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetGoogleAccount(GoogleAccount)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.GoogleAccount, `{"fields":["accountId","userId"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "google-account",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "google-account",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "google-account",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "idp-user-info" {
+			var IdpUserInfo *backuprecoveryv1.IdpUserInfo
+			err, msg := deserialize.Model(
+				r.IdpUserInfo,
+				"idp-user-info",
+				"IdpUserInfo",
+				backuprecoveryv1.UnmarshalIdpUserInfo,
+				&IdpUserInfo,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetIdpUserInfo(IdpUserInfo)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.IdpUserInfo, `{"fields":["issuerId","idpId","vendor","groups","isFloatingUser","userId","groupSids"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "idp-user-info",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "idp-user-info",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "idp-user-info",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "intercom-messenger-token" {
+			OptionsModel.SetIntercomMessengerToken(r.IntercomMessengerToken)
+		}
+		if flag.Name == "is-account-locked" {
+			OptionsModel.SetIsAccountLocked(r.IsAccountLocked)
+		}
+		if flag.Name == "is-active" {
+			OptionsModel.SetIsActive(r.IsActive)
+		}
+		if flag.Name == "last-successful-login-time-msecs" {
+			OptionsModel.SetLastSuccessfulLoginTimeMsecs(r.LastSuccessfulLoginTimeMsecs)
+		}
+		if flag.Name == "last-updated-time-msecs" {
+			OptionsModel.SetLastUpdatedTimeMsecs(r.LastUpdatedTimeMsecs)
+		}
+		if flag.Name == "mfa-info" {
+			var MfaInfo *backuprecoveryv1.MfaInfo
+			err, msg := deserialize.Model(
+				r.MfaInfo,
+				"mfa-info",
+				"MfaInfo",
+				backuprecoveryv1.UnmarshalMfaInfo,
+				&MfaInfo,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetMfaInfo(MfaInfo)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.MfaInfo, `{"fields":["isUserExemptFromMfa"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "mfa-info",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "mfa-info",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "mfa-info",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "mfa-methods" {
+			var MfaMethods []string
+			err, msg := deserialize.List(r.MfaMethods, "mfa-methods", "JSON", &MfaMethods)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetMfaMethods(MfaMethods)
+		}
+		if flag.Name == "object-class" {
+			OptionsModel.SetObjectClass(r.ObjectClass)
+		}
+		if flag.Name == "org-membership" {
+			var OrgMembership []backuprecoveryv1.TenantConfig
+			err, msg := deserialize.ModelSlice(
+				r.OrgMembership,
+				"org-membership",
+				"TenantConfig",
+				backuprecoveryv1.UnmarshalTenantConfig,
+				&OrgMembership,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetOrgMembership(OrgMembership)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.OrgMembership, `{"fields":["restricted","roles","name","tenantId","isManagedOnHelios","bifrostEnabled"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "org-membership",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "org-membership",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "org-membership",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "password" {
+			OptionsModel.SetPassword(r.Password)
+		}
+		if flag.Name == "preferences" {
+			var Preferences *backuprecoveryv1.UsersPreferences
+			err, msg := deserialize.Model(
+				r.Preferences,
+				"preferences",
+				"UsersPreferences",
+				backuprecoveryv1.UnmarshalUsersPreferences,
+				&Preferences,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetPreferences(Preferences)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.Preferences, `{"fields":["locale"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "preferences",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "preferences",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "preferences",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "previous-login-time-msecs" {
+			OptionsModel.SetPreviousLoginTimeMsecs(r.PreviousLoginTimeMsecs)
+		}
+		if flag.Name == "primary-group-name" {
+			OptionsModel.SetPrimaryGroupName(r.PrimaryGroupName)
+		}
+		if flag.Name == "privilege-ids" {
+			var PrivilegeIds []string
+			err, msg := deserialize.List(r.PrivilegeIds, "privilege-ids", "JSON", &PrivilegeIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetPrivilegeIds(PrivilegeIds)
+		}
+		if flag.Name == "profiles" {
+			var Profiles []backuprecoveryv1.UserProfile
+			err, msg := deserialize.ModelSlice(
+				r.Profiles,
+				"profiles",
+				"UserProfile",
+				backuprecoveryv1.UnmarshalUserProfile,
+				&Profiles,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetProfiles(Profiles)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.Profiles, `{"schemas":{"UserClusterIdentifier":["clusterId","clusterIncarnationId"]},"fields":["tenantType","clusterIdentifiers#UserClusterIdentifier","isDeleted","tenantName","tenantId","regionIds","isActive"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "profiles",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "profiles",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "profiles",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "restricted" {
+			OptionsModel.SetRestricted(r.Restricted)
+		}
+		if flag.Name == "roles" {
+			var Roles []string
+			err, msg := deserialize.List(r.Roles, "roles", "JSON", &Roles)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetRoles(Roles)
+		}
+		if flag.Name == "s3-access-key-id" {
+			OptionsModel.SetS3AccessKeyID(r.S3AccessKeyID)
+		}
+		if flag.Name == "s3-account-id" {
+			OptionsModel.SetS3AccountID(r.S3AccountID)
+		}
+		if flag.Name == "s3-secret-key" {
+			OptionsModel.SetS3SecretKey(r.S3SecretKey)
+		}
+		if flag.Name == "salesforce-account" {
+			var SalesforceAccount *backuprecoveryv1.SalesforceAccountInfo
+			err, msg := deserialize.Model(
+				r.SalesforceAccount,
+				"salesforce-account",
+				"SalesforceAccountInfo",
+				backuprecoveryv1.UnmarshalSalesforceAccountInfo,
+				&SalesforceAccount,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetSalesforceAccount(SalesforceAccount)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SalesforceAccount, `{"fields":["accountId","heliosAccessGrantStatus","isDRaaSUser","isDMaaSUser","isRPaaSUser","isDGaaSUser","isSalesUser","isSupportUser","userId"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "salesforce-account",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "salesforce-account",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "salesforce-account",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "sid" {
+			OptionsModel.SetSid(r.Sid)
+		}
+		if flag.Name == "spog-context" {
+			var SpogContext *backuprecoveryv1.SpogContext
+			err, msg := deserialize.Model(
+				r.SpogContext,
+				"spog-context",
+				"SpogContext",
+				backuprecoveryv1.UnmarshalSpogContext,
+				&SpogContext,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetSpogContext(SpogContext)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SpogContext, `{"fields":["PrimaryClusterUsername","PrimaryClusterId","PrimaryClusterUserSid"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "spog-context",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "spog-context",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "spog-context",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info" {
+			var SubscriptionInfo *backuprecoveryv1.SubscriptionInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfo,
+				"subscription-info",
+				"SubscriptionInfo",
+				backuprecoveryv1.UnmarshalSubscriptionInfo,
+				&SubscriptionInfo,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetSubscriptionInfo(SubscriptionInfo)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfo, `{"schemas":{"DataProtectAzureInfo":["endDate","isActive","isFreeTrial","quantity","startDate","tiering#TieringInfo"],"FortKnoxInfo":["endDate","isActive","isFreeTrial","quantity","startDate"],"DataProtectInfo":["endDate","isActive","isFreeTrial","isAwsSubscription","isCohesitySubscription","quantity","startDate","tiering#TieringInfo"],"ClassificationInfo":["endDate","isActive","isFreeTrial","startDate"],"TieringInfo":["backendTiering","frontendTiering","maxRetention"]},"fields":["ransomware#FortKnoxInfo","fortKnoxAzureHot#FortKnoxInfo","dataProtectAzure#DataProtectAzureInfo","classification#ClassificationInfo","fortKnoxCold#FortKnoxInfo","threatProtection#ClassificationInfo","siteContinuity#ClassificationInfo","fortKnoxAzureCool#FortKnoxInfo","dataProtect#DataProtectInfo"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "tenant-accesses" {
+			var TenantAccesses []backuprecoveryv1.TenantAccesses
+			err, msg := deserialize.ModelSlice(
+				r.TenantAccesses,
+				"tenant-accesses",
+				"TenantAccesses",
+				backuprecoveryv1.UnmarshalTenantAccesses,
+				&TenantAccesses,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetTenantAccesses(TenantAccesses)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.TenantAccesses, `{"schemas":{"UserClusterIdentifier":["clusterId","clusterIncarnationId"]},"fields":["tenantType","clusterIdentifiers#UserClusterIdentifier","isDeleted","lastUpdatedTimeMsecs","tenantName","roles","expiredTimeMsecs","tenantId","isAccessActive","createdTimeMsecs","isActive","effectiveTimeMsecs"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "tenant-accesses",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "tenant-accesses",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "tenant-accesses",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "tenant-id" {
+			OptionsModel.SetTenantID(r.TenantID)
+		}
+		if flag.Name == "username" {
+			OptionsModel.SetUsername(r.Username)
+		}
+		if flag.Name == "ad-user-info-group-sids" {
+			var AdUserInfoGroupSids []string
+			err, msg := deserialize.List(r.AdUserInfoGroupSids, "ad-user-info-group-sids", "JSON", &AdUserInfoGroupSids)
+			r.utils.HandleError(err, msg)
+			AdUserInfoHelper.GroupSids = AdUserInfoGroupSids
+		}
+		if flag.Name == "ad-user-info-groups" {
+			var AdUserInfoGroups []string
+			err, msg := deserialize.List(r.AdUserInfoGroups, "ad-user-info-groups", "JSON", &AdUserInfoGroups)
+			r.utils.HandleError(err, msg)
+			AdUserInfoHelper.Groups = AdUserInfoGroups
+		}
+		if flag.Name == "ad-user-info-is-floating-user" {
+			AdUserInfoHelper.IsFloatingUser = core.BoolPtr(r.AdUserInfoIsFloatingUser)
+		}
+		if flag.Name == "audit-log-settings-read-logging" {
+			AuditLogSettingsHelper.ReadLogging = core.BoolPtr(r.AuditLogSettingsReadLogging)
+		}
+		if flag.Name == "google-account-account-id" {
+			GoogleAccountHelper.AccountID = core.StringPtr(r.GoogleAccountAccountID)
+		}
+		if flag.Name == "google-account-user-id" {
+			GoogleAccountHelper.UserID = core.StringPtr(r.GoogleAccountUserID)
+		}
+		if flag.Name == "idp-user-info-group-sids" {
+			var IdpUserInfoGroupSids []string
+			err, msg := deserialize.List(r.IdpUserInfoGroupSids, "idp-user-info-group-sids", "JSON", &IdpUserInfoGroupSids)
+			r.utils.HandleError(err, msg)
+			IdpUserInfoHelper.GroupSids = IdpUserInfoGroupSids
+		}
+		if flag.Name == "idp-user-info-groups" {
+			var IdpUserInfoGroups []string
+			err, msg := deserialize.List(r.IdpUserInfoGroups, "idp-user-info-groups", "JSON", &IdpUserInfoGroups)
+			r.utils.HandleError(err, msg)
+			IdpUserInfoHelper.Groups = IdpUserInfoGroups
+		}
+		if flag.Name == "idp-user-info-idp-id" {
+			IdpUserInfoHelper.IdpID = core.Int64Ptr(r.IdpUserInfoIdpID)
+		}
+		if flag.Name == "idp-user-info-is-floating-user" {
+			IdpUserInfoHelper.IsFloatingUser = core.BoolPtr(r.IdpUserInfoIsFloatingUser)
+		}
+		if flag.Name == "idp-user-info-issuer-id" {
+			IdpUserInfoHelper.IssuerID = core.StringPtr(r.IdpUserInfoIssuerID)
+		}
+		if flag.Name == "idp-user-info-user-id" {
+			IdpUserInfoHelper.UserID = core.StringPtr(r.IdpUserInfoUserID)
+		}
+		if flag.Name == "idp-user-info-vendor" {
+			IdpUserInfoHelper.Vendor = core.StringPtr(r.IdpUserInfoVendor)
+		}
+		if flag.Name == "mfa-info-is-user-exempt-from-mfa" {
+			MfaInfoHelper.IsUserExemptFromMfa = core.BoolPtr(r.MfaInfoIsUserExemptFromMfa)
+		}
+		if flag.Name == "preferences-locale" {
+			PreferencesHelper.Locale = core.StringPtr(r.PreferencesLocale)
+		}
+		if flag.Name == "salesforce-account-account-id" {
+			SalesforceAccountHelper.AccountID = core.StringPtr(r.SalesforceAccountAccountID)
+		}
+		if flag.Name == "salesforce-account-helios-access-grant-status" {
+			SalesforceAccountHelper.HeliosAccessGrantStatus = core.StringPtr(r.SalesforceAccountHeliosAccessGrantStatus)
+		}
+		if flag.Name == "salesforce-account-is-d-gaa-s-user" {
+			SalesforceAccountHelper.IsDGaaSUser = core.BoolPtr(r.SalesforceAccountIsDGaaSUser)
+		}
+		if flag.Name == "salesforce-account-is-d-maa-s-user" {
+			SalesforceAccountHelper.IsDMaaSUser = core.BoolPtr(r.SalesforceAccountIsDMaaSUser)
+		}
+		if flag.Name == "salesforce-account-is-d-raa-s-user" {
+			SalesforceAccountHelper.IsDRaaSUser = core.BoolPtr(r.SalesforceAccountIsDRaaSUser)
+		}
+		if flag.Name == "salesforce-account-is-r-paa-s-user" {
+			SalesforceAccountHelper.IsRPaaSUser = core.BoolPtr(r.SalesforceAccountIsRPaaSUser)
+		}
+		if flag.Name == "salesforce-account-is-sales-user" {
+			SalesforceAccountHelper.IsSalesUser = core.BoolPtr(r.SalesforceAccountIsSalesUser)
+		}
+		if flag.Name == "salesforce-account-is-support-user" {
+			SalesforceAccountHelper.IsSupportUser = core.BoolPtr(r.SalesforceAccountIsSupportUser)
+		}
+		if flag.Name == "salesforce-account-user-id" {
+			SalesforceAccountHelper.UserID = core.StringPtr(r.SalesforceAccountUserID)
+		}
+		if flag.Name == "spog-context-primary-cluster-id" {
+			SpogContextHelper.PrimaryClusterID = core.Int64Ptr(r.SpogContextPrimaryClusterID)
+		}
+		if flag.Name == "spog-context-primary-cluster-user-sid" {
+			SpogContextHelper.PrimaryClusterUserSid = core.StringPtr(r.SpogContextPrimaryClusterUserSid)
+		}
+		if flag.Name == "spog-context-primary-cluster-username" {
+			SpogContextHelper.PrimaryClusterUsername = core.StringPtr(r.SpogContextPrimaryClusterUsername)
+		}
+		if flag.Name == "subscription-info-classification" {
+			var SubscriptionInfoClassification *backuprecoveryv1.ClassificationInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoClassification,
+				"subscription-info-classification",
+				"ClassificationInfo",
+				backuprecoveryv1.UnmarshalClassificationInfo,
+				&SubscriptionInfoClassification,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.Classification = SubscriptionInfoClassification
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoClassification, `{"fields":["endDate","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-classification",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-classification",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-classification",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-data-protect" {
+			var SubscriptionInfoDataProtect *backuprecoveryv1.DataProtectInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoDataProtect,
+				"subscription-info-data-protect",
+				"DataProtectInfo",
+				backuprecoveryv1.UnmarshalDataProtectInfo,
+				&SubscriptionInfoDataProtect,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.DataProtect = SubscriptionInfoDataProtect
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoDataProtect, `{"schemas":{"TieringInfo":["backendTiering","frontendTiering","maxRetention"]},"fields":["isCohesitySubscription","quantity","endDate","tiering#TieringInfo","isFreeTrial","isActive","startDate","isAwsSubscription"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-data-protect",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-data-protect",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-data-protect",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-data-protect-azure" {
+			var SubscriptionInfoDataProtectAzure *backuprecoveryv1.DataProtectAzureInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoDataProtectAzure,
+				"subscription-info-data-protect-azure",
+				"DataProtectAzureInfo",
+				backuprecoveryv1.UnmarshalDataProtectAzureInfo,
+				&SubscriptionInfoDataProtectAzure,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.DataProtectAzure = SubscriptionInfoDataProtectAzure
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoDataProtectAzure, `{"schemas":{"TieringInfo":["backendTiering","frontendTiering","maxRetention"]},"fields":["quantity","endDate","tiering#TieringInfo","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-data-protect-azure",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-data-protect-azure",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-data-protect-azure",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-fort-knox-azure-cool" {
+			var SubscriptionInfoFortKnoxAzureCool *backuprecoveryv1.FortKnoxInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoFortKnoxAzureCool,
+				"subscription-info-fort-knox-azure-cool",
+				"FortKnoxInfo",
+				backuprecoveryv1.UnmarshalFortKnoxInfo,
+				&SubscriptionInfoFortKnoxAzureCool,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.FortKnoxAzureCool = SubscriptionInfoFortKnoxAzureCool
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoFortKnoxAzureCool, `{"fields":["quantity","endDate","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-fort-knox-azure-cool",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-fort-knox-azure-cool",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-fort-knox-azure-cool",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-fort-knox-azure-hot" {
+			var SubscriptionInfoFortKnoxAzureHot *backuprecoveryv1.FortKnoxInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoFortKnoxAzureHot,
+				"subscription-info-fort-knox-azure-hot",
+				"FortKnoxInfo",
+				backuprecoveryv1.UnmarshalFortKnoxInfo,
+				&SubscriptionInfoFortKnoxAzureHot,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.FortKnoxAzureHot = SubscriptionInfoFortKnoxAzureHot
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoFortKnoxAzureHot, `{"fields":["quantity","endDate","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-fort-knox-azure-hot",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-fort-knox-azure-hot",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-fort-knox-azure-hot",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-fort-knox-cold" {
+			var SubscriptionInfoFortKnoxCold *backuprecoveryv1.FortKnoxInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoFortKnoxCold,
+				"subscription-info-fort-knox-cold",
+				"FortKnoxInfo",
+				backuprecoveryv1.UnmarshalFortKnoxInfo,
+				&SubscriptionInfoFortKnoxCold,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.FortKnoxCold = SubscriptionInfoFortKnoxCold
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoFortKnoxCold, `{"fields":["quantity","endDate","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-fort-knox-cold",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-fort-knox-cold",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-fort-knox-cold",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-ransomware" {
+			var SubscriptionInfoRansomware *backuprecoveryv1.FortKnoxInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoRansomware,
+				"subscription-info-ransomware",
+				"FortKnoxInfo",
+				backuprecoveryv1.UnmarshalFortKnoxInfo,
+				&SubscriptionInfoRansomware,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.Ransomware = SubscriptionInfoRansomware
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoRansomware, `{"fields":["quantity","endDate","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-ransomware",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-ransomware",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-ransomware",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-site-continuity" {
+			var SubscriptionInfoSiteContinuity *backuprecoveryv1.ClassificationInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoSiteContinuity,
+				"subscription-info-site-continuity",
+				"ClassificationInfo",
+				backuprecoveryv1.UnmarshalClassificationInfo,
+				&SubscriptionInfoSiteContinuity,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.SiteContinuity = SubscriptionInfoSiteContinuity
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoSiteContinuity, `{"fields":["endDate","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-site-continuity",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-site-continuity",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-site-continuity",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "subscription-info-threat-protection" {
+			var SubscriptionInfoThreatProtection *backuprecoveryv1.ClassificationInfo
+			err, msg := deserialize.Model(
+				r.SubscriptionInfoThreatProtection,
+				"subscription-info-threat-protection",
+				"ClassificationInfo",
+				backuprecoveryv1.UnmarshalClassificationInfo,
+				&SubscriptionInfoThreatProtection,
+			)
+			r.utils.HandleError(err, msg)
+			SubscriptionInfoHelper.ThreatProtection = SubscriptionInfoThreatProtection
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SubscriptionInfoThreatProtection, `{"fields":["endDate","isFreeTrial","isActive","startDate"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "subscription-info-threat-protection",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-threat-protection",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "subscription-info-threat-protection",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+	})
+
+	if !reflect.ValueOf(*AdUserInfoHelper).IsZero() {
+		if OptionsModel.AdUserInfo == nil {
+			OptionsModel.SetAdUserInfo(AdUserInfoHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "AdUserInfo",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*AuditLogSettingsHelper).IsZero() {
+		if OptionsModel.AuditLogSettings == nil {
+			OptionsModel.SetAuditLogSettings(AuditLogSettingsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "AuditLogSettings",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*GoogleAccountHelper).IsZero() {
+		if OptionsModel.GoogleAccount == nil {
+			OptionsModel.SetGoogleAccount(GoogleAccountHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "GoogleAccount",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*IdpUserInfoHelper).IsZero() {
+		if OptionsModel.IdpUserInfo == nil {
+			OptionsModel.SetIdpUserInfo(IdpUserInfoHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "IdpUserInfo",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*MfaInfoHelper).IsZero() {
+		if OptionsModel.MfaInfo == nil {
+			OptionsModel.SetMfaInfo(MfaInfoHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "MfaInfo",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*PreferencesHelper).IsZero() {
+		if OptionsModel.Preferences == nil {
+			OptionsModel.SetPreferences(PreferencesHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "Preferences",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*SalesforceAccountHelper).IsZero() {
+		if OptionsModel.SalesforceAccount == nil {
+			OptionsModel.SetSalesforceAccount(SalesforceAccountHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "SalesforceAccount",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*SpogContextHelper).IsZero() {
+		if OptionsModel.SpogContext == nil {
+			OptionsModel.SetSpogContext(SpogContextHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "SpogContext",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*SubscriptionInfoHelper).IsZero() {
+		if OptionsModel.SubscriptionInfo == nil {
+			OptionsModel.SetSubscriptionInfo(SubscriptionInfoHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "SubscriptionInfo",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *UpdateUserCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.UpdateUserOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPUpdate,
+	})
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"adUserInfo",
+		"additionalGroupNames",
+		"allowDsoModify",
+		"auditLogSettings",
+		"authenticationType",
+		"clusterIdentifiers",
+		"createdTimeMsecs",
+		"currentPassword",
+		"description",
+		"domain",
+		"effectiveTimeMsecs",
+		"emailAddress",
+		"expiredTimeMsecs",
+		"forcePasswordChange",
+		"googleAccount",
+		"groupRoles",
+		"idpUserInfo",
+		"intercomMessengerToken",
+		"isAccountLocked",
+		"isAccountMfaEnabled",
+		"isActive",
+		"isClusterMfaEnabled",
+		"lastSuccessfulLoginTimeMsecs",
+		"lastUpdatedTimeMsecs",
+		"mfaInfo",
+		"mfaMethods",
+		"objectClass",
+		"orgMembership",
+		"password",
+		"preferences",
+		"previousLoginTimeMsecs",
+		"primaryGroupName",
+		"privilegeIds",
+		"profiles",
+		"restricted",
+		"roles",
+		"s3AccessKeyId",
+		"s3AccountId",
+		"s3SecretKey",
+		"salesforceAccount",
+		"sid",
+		"spogContext",
+		"subscriptionInfo",
+		"tenantAccesses",
+		"tenantId",
+		"username",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)

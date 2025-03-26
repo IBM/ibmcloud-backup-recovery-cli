@@ -19,12 +19,13 @@ package backuprecoveryv1_test
 import (
 	"encoding/base64"
 	"encoding/json"
+	"ibmcloud-backup-recovery-cli/plugin/version"
+	"ibmcloud-backup-recovery-cli/testing_utilities"
+
 	"github.com/IBM/go-sdk-core/v5/core"
 	"github.com/IBM/ibm-backup-recovery-sdk-go/backuprecoveryv1"
 	"github.com/go-openapi/strfmt"
 	. "github.com/onsi/gomega"
-	"ibmcloud-backup-recovery-cli/plugin/version"
-	"ibmcloud-backup-recovery-cli/testing_utilities"
 )
 
 // Fake senders for ListProtectionSources
@@ -34,7 +35,7 @@ func (f ListProtectionSourcesMockSender) Send(optionsModel interface{}) (interfa
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.ListProtectionSourcesOptions)
 	Expect(ok).To(Equal(true))
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
-	Expect(createdOptions.ExcludeOffice365Types).To(Equal([]string{"kDomain","kOutlook","kMailbox","kUsers","kUser","kGroups","kGroup","kSites","kSite"}))
+	Expect(createdOptions.ExcludeOffice365Types).To(Equal([]string{"kDomain", "kOutlook", "kMailbox", "kUsers", "kUser", "kGroups", "kGroup", "kSites", "kSite"}))
 	Expect(createdOptions.GetTeamsChannels).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.AfterCursorEntityID).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.BeforeCursorEntityID).To(Equal(core.Int64Ptr(int64(26))))
@@ -45,15 +46,15 @@ func (f ListProtectionSourcesMockSender) Send(optionsModel interface{}) (interfa
 	Expect(createdOptions.IsSecurityGroup).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.ID).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.NumLevels).To(Equal(core.Float64Ptr(float64(72.5))))
-	Expect(createdOptions.ExcludeTypes).To(Equal([]string{"kVCenter","kFolder","kDatacenter","kComputeResource","kClusterComputeResource","kResourcePool","kDatastore","kHostSystem","kVirtualMachine","kVirtualApp","kStandaloneHost","kStoragePod","kNetwork","kDistributedVirtualPortgroup","kTagCategory","kTag"}))
-	Expect(createdOptions.ExcludeAwsTypes).To(Equal([]string{"kEC2Instance","kRDSInstance","kAuroraCluster","kS3Bucket","kTag","kRDSTag","kAuroraTag","kS3Tag"}))
+	Expect(createdOptions.ExcludeTypes).To(Equal([]string{"kVCenter", "kFolder", "kDatacenter", "kComputeResource", "kClusterComputeResource", "kResourcePool", "kDatastore", "kHostSystem", "kVirtualMachine", "kVirtualApp", "kStandaloneHost", "kStoragePod", "kNetwork", "kDistributedVirtualPortgroup", "kTagCategory", "kTag"}))
+	Expect(createdOptions.ExcludeAwsTypes).To(Equal([]string{"kEC2Instance", "kRDSInstance", "kAuroraCluster", "kS3Bucket", "kTag", "kRDSTag", "kAuroraTag", "kS3Tag"}))
 	Expect(createdOptions.ExcludeKubernetesTypes).To(Equal([]string{"kService"}))
 	Expect(createdOptions.IncludeDatastores).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IncludeNetworks).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IncludeVMFolders).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IncludeSfdcFields).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IncludeSystemVApps).To(Equal(core.BoolPtr(true)))
-	Expect(createdOptions.Environments).To(Equal([]string{"kVMware","kHyperV","kSQL","kView","kPuppeteer","kPhysical","kPure","kNimble","kAzure","kNetapp","kAgent","kGenericNas","kAcropolis","kPhysicalFiles","kIsilon","kGPFS","kKVM","kAWS","kExchange","kHyperVVSS","kOracle","kGCP","kFlashBlade","kAWSNative","kO365","kO365Outlook","kHyperFlex","kGCPNative","kAzureNative","kKubernetes","kElastifile","kAD","kRDSSnapshotManager","kCassandra","kMongoDB","kCouchbase","kHdfs","kHBase","kUDA","KSfdc","kAwsS3"}))
+	Expect(createdOptions.Environments).To(Equal([]string{"kVMware", "kHyperV", "kSQL", "kView", "kPuppeteer", "kPhysical", "kPure", "kNimble", "kAzure", "kNetapp", "kAgent", "kGenericNas", "kAcropolis", "kPhysicalFiles", "kIsilon", "kGPFS", "kKVM", "kAWS", "kExchange", "kHyperVVSS", "kOracle", "kGCP", "kFlashBlade", "kAWSNative", "kO365", "kO365Outlook", "kHyperFlex", "kGCPNative", "kAzureNative", "kKubernetes", "kElastifile", "kAD", "kRDSSnapshotManager", "kCassandra", "kMongoDB", "kCouchbase", "kHdfs", "kHBase", "kUDA", "KSfdc", "kAwsS3"}))
 	Expect(createdOptions.Environment).To(Equal(core.StringPtr("kPhysical")))
 	Expect(createdOptions.IncludeEntityPermissionInfo).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.Sids).To(Equal([]string{"sid1"}))
@@ -73,6 +74,7 @@ type ListProtectionSourcesErrorSender struct{}
 func (f ListProtectionSourcesErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetSourceRegistrations
 type GetSourceRegistrationsMockSender struct{}
 
@@ -80,7 +82,7 @@ func (f GetSourceRegistrationsMockSender) Send(optionsModel interface{}) (interf
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.GetSourceRegistrationsOptions)
 	Expect(ok).To(Equal(true))
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
-	Expect(createdOptions.Ids).To(Equal([]int64{int64(38),int64(39)}))
+	Expect(createdOptions.Ids).To(Equal([]int64{int64(38), int64(39)}))
 	Expect(createdOptions.IncludeSourceCredentials).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.EncryptionKey).To(Equal(core.StringPtr("encryptionKey")))
 	Expect(createdOptions.UseCachedData).To(Equal(core.BoolPtr(true)))
@@ -94,6 +96,7 @@ type GetSourceRegistrationsErrorSender struct{}
 func (f GetSourceRegistrationsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for RegisterProtectionSource
 type RegisterProtectionSourceMockSender struct{}
 
@@ -116,7 +119,7 @@ func (f RegisterProtectionSourceMockSender) Send(optionsModel interface{}) (inte
 	physicalSourceRegistrationParamsModel.ForceRegister = core.BoolPtr(true)
 	physicalSourceRegistrationParamsModel.HostType = core.StringPtr("kLinux")
 	physicalSourceRegistrationParamsModel.PhysicalType = core.StringPtr("kGroup")
-	physicalSourceRegistrationParamsModel.Applications = []string{"kSQL","kOracle"}
+	physicalSourceRegistrationParamsModel.Applications = []string{"kSQL", "kOracle"}
 
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.RegisterProtectionSourceOptions)
 	Expect(ok).To(Equal(true))
@@ -139,6 +142,7 @@ type RegisterProtectionSourceErrorSender struct{}
 func (f RegisterProtectionSourceErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetProtectionSourceRegistration
 type GetProtectionSourceRegistrationMockSender struct{}
 
@@ -156,6 +160,7 @@ type GetProtectionSourceRegistrationErrorSender struct{}
 func (f GetProtectionSourceRegistrationErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for UpdateProtectionSourceRegistration
 type UpdateProtectionSourceRegistrationMockSender struct{}
 
@@ -178,7 +183,7 @@ func (f UpdateProtectionSourceRegistrationMockSender) Send(optionsModel interfac
 	physicalSourceRegistrationParamsModel.ForceRegister = core.BoolPtr(true)
 	physicalSourceRegistrationParamsModel.HostType = core.StringPtr("kLinux")
 	physicalSourceRegistrationParamsModel.PhysicalType = core.StringPtr("kGroup")
-	physicalSourceRegistrationParamsModel.Applications = []string{"kSQL","kOracle"}
+	physicalSourceRegistrationParamsModel.Applications = []string{"kSQL", "kOracle"}
 
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.UpdateProtectionSourceRegistrationOptions)
 	Expect(ok).To(Equal(true))
@@ -203,6 +208,7 @@ type UpdateProtectionSourceRegistrationErrorSender struct{}
 func (f UpdateProtectionSourceRegistrationErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for PatchProtectionSourceRegistration
 type PatchProtectionSourceRegistrationMockSender struct{}
 
@@ -220,6 +226,7 @@ type PatchProtectionSourceRegistrationErrorSender struct{}
 func (f PatchProtectionSourceRegistrationErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for DeleteProtectionSourceRegistration
 type DeleteProtectionSourceRegistrationMockSender struct{}
 
@@ -236,6 +243,7 @@ type DeleteProtectionSourceRegistrationErrorSender struct{}
 func (f DeleteProtectionSourceRegistrationErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for RefreshProtectionSourceByID
 type RefreshProtectionSourceByIDMockSender struct{}
 
@@ -252,6 +260,7 @@ type RefreshProtectionSourceByIDErrorSender struct{}
 func (f RefreshProtectionSourceByIDErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetUpgradeTasks
 type GetUpgradeTasksMockSender struct{}
 
@@ -259,7 +268,7 @@ func (f GetUpgradeTasksMockSender) Send(optionsModel interface{}) (interface{}, 
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.GetUpgradeTasksOptions)
 	Expect(ok).To(Equal(true))
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
-	Expect(createdOptions.Ids).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.Ids).To(Equal([]int64{int64(26), int64(27)}))
 	return testing_utilities.GetMockSuccessResponse()
 }
 
@@ -268,6 +277,7 @@ type GetUpgradeTasksErrorSender struct{}
 func (f GetUpgradeTasksErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for CreateUpgradeTask
 type CreateUpgradeTaskMockSender struct{}
 
@@ -275,7 +285,7 @@ func (f CreateUpgradeTaskMockSender) Send(optionsModel interface{}) (interface{}
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.CreateUpgradeTaskOptions)
 	Expect(ok).To(Equal(true))
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
-	Expect(createdOptions.AgentIDs).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.AgentIDs).To(Equal([]int64{int64(26), int64(27)}))
 	Expect(createdOptions.Description).To(Equal(core.StringPtr("Upgrade task")))
 	Expect(createdOptions.Name).To(Equal(core.StringPtr("create-upgrade-task")))
 	Expect(createdOptions.RetryTaskID).To(Equal(core.Int64Ptr(int64(26))))
@@ -289,6 +299,7 @@ type CreateUpgradeTaskErrorSender struct{}
 func (f CreateUpgradeTaskErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetProtectionPolicies
 type GetProtectionPoliciesMockSender struct{}
 
@@ -299,7 +310,7 @@ func (f GetProtectionPoliciesMockSender) Send(optionsModel interface{}) (interfa
 	Expect(createdOptions.RequestInitiatorType).To(Equal(core.StringPtr("UIUser")))
 	Expect(createdOptions.Ids).To(Equal([]string{"policyId1"}))
 	Expect(createdOptions.PolicyNames).To(Equal([]string{"policyName1"}))
-	Expect(createdOptions.Types).To(Equal([]string{"Regular","Internal"}))
+	Expect(createdOptions.Types).To(Equal([]string{"Regular", "Internal"}))
 	Expect(createdOptions.ExcludeLinkedPolicies).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IncludeReplicatedPolicies).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IncludeStats).To(Equal(core.BoolPtr(true)))
@@ -311,6 +322,7 @@ type GetProtectionPoliciesErrorSender struct{}
 func (f GetProtectionPoliciesErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for CreateProtectionPolicy
 type CreateProtectionPolicyMockSender struct{}
 
@@ -329,11 +341,11 @@ func (f CreateProtectionPolicyMockSender) Send(optionsModel interface{}) (interf
 
 	// Construct an instance of the WeekSchedule model
 	weekScheduleModel := new(backuprecoveryv1.WeekSchedule)
-	weekScheduleModel.DayOfWeek = []string{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"}
+	weekScheduleModel.DayOfWeek = []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 
 	// Construct an instance of the MonthSchedule model
 	monthScheduleModel := new(backuprecoveryv1.MonthSchedule)
-	monthScheduleModel.DayOfWeek = []string{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"}
+	monthScheduleModel.DayOfWeek = []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 	monthScheduleModel.WeekOfMonth = core.StringPtr("First")
 	monthScheduleModel.DayOfMonth = core.Int64Ptr(int64(10))
 
@@ -704,6 +716,7 @@ type CreateProtectionPolicyErrorSender struct{}
 func (f CreateProtectionPolicyErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetProtectionPolicyByID
 type GetProtectionPolicyByIDMockSender struct{}
 
@@ -721,6 +734,7 @@ type GetProtectionPolicyByIDErrorSender struct{}
 func (f GetProtectionPolicyByIDErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for UpdateProtectionPolicy
 type UpdateProtectionPolicyMockSender struct{}
 
@@ -739,11 +753,11 @@ func (f UpdateProtectionPolicyMockSender) Send(optionsModel interface{}) (interf
 
 	// Construct an instance of the WeekSchedule model
 	weekScheduleModel := new(backuprecoveryv1.WeekSchedule)
-	weekScheduleModel.DayOfWeek = []string{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"}
+	weekScheduleModel.DayOfWeek = []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 
 	// Construct an instance of the MonthSchedule model
 	monthScheduleModel := new(backuprecoveryv1.MonthSchedule)
-	monthScheduleModel.DayOfWeek = []string{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"}
+	monthScheduleModel.DayOfWeek = []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 	monthScheduleModel.WeekOfMonth = core.StringPtr("First")
 	monthScheduleModel.DayOfMonth = core.Int64Ptr(int64(10))
 
@@ -1115,6 +1129,7 @@ type UpdateProtectionPolicyErrorSender struct{}
 func (f UpdateProtectionPolicyErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for DeleteProtectionPolicy
 type DeleteProtectionPolicyMockSender struct{}
 
@@ -1131,6 +1146,7 @@ type DeleteProtectionPolicyErrorSender struct{}
 func (f DeleteProtectionPolicyErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetProtectionGroups
 type GetProtectionGroupsMockSender struct{}
 
@@ -1143,21 +1159,21 @@ func (f GetProtectionGroupsMockSender) Send(optionsModel interface{}) (interface
 	Expect(createdOptions.Names).To(Equal([]string{"policyName1"}))
 	Expect(createdOptions.PolicyIds).To(Equal([]string{"policyId1"}))
 	Expect(createdOptions.IncludeGroupsWithDatalockOnly).To(Equal(core.BoolPtr(true)))
-	Expect(createdOptions.Environments).To(Equal([]string{"kPhysical","kSQL"}))
+	Expect(createdOptions.Environments).To(Equal([]string{"kPhysical", "kSQL"}))
 	Expect(createdOptions.IsActive).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IsDeleted).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IsPaused).To(Equal(core.BoolPtr(true)))
-	Expect(createdOptions.LastRunLocalBackupStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
-	Expect(createdOptions.LastRunReplicationStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
-	Expect(createdOptions.LastRunArchivalStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
-	Expect(createdOptions.LastRunCloudSpinStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
-	Expect(createdOptions.LastRunAnyStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
+	Expect(createdOptions.LastRunLocalBackupStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
+	Expect(createdOptions.LastRunReplicationStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
+	Expect(createdOptions.LastRunArchivalStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
+	Expect(createdOptions.LastRunCloudSpinStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
+	Expect(createdOptions.LastRunAnyStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
 	Expect(createdOptions.IsLastRunSlaViolated).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IncludeLastRunInfo).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.PruneExcludedSourceIds).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.PruneSourceIds).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.UseCachedData).To(Equal(core.BoolPtr(true)))
-	Expect(createdOptions.SourceIds).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.SourceIds).To(Equal([]int64{int64(26), int64(27)}))
 	return testing_utilities.GetMockSuccessResponse()
 }
 
@@ -1166,6 +1182,7 @@ type GetProtectionGroupsErrorSender struct{}
 func (f GetProtectionGroupsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for CreateProtectionGroup
 type CreateProtectionGroupMockSender struct{}
 
@@ -1184,7 +1201,7 @@ func (f CreateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 
 	// Construct an instance of the ProtectionGroupAlertingPolicy model
 	protectionGroupAlertingPolicyModel := new(backuprecoveryv1.ProtectionGroupAlertingPolicy)
-	protectionGroupAlertingPolicyModel.BackupRunStatus = []string{"kSuccess","kFailure","kSlaViolation","kWarning"}
+	protectionGroupAlertingPolicyModel.BackupRunStatus = []string{"kSuccess", "kFailure", "kSlaViolation", "kWarning"}
 	protectionGroupAlertingPolicyModel.AlertTargets = []backuprecoveryv1.AlertTarget{*alertTargetModel}
 	protectionGroupAlertingPolicyModel.RaiseObjectLevelFailureAlert = core.BoolPtr(true)
 	protectionGroupAlertingPolicyModel.RaiseObjectLevelFailureAlertAfterLastAttempt = core.BoolPtr(true)
@@ -1205,7 +1222,7 @@ func (f CreateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 	physicalVolumeProtectionGroupObjectParamsModel.ID = core.Int64Ptr(int64(3))
 	physicalVolumeProtectionGroupObjectParamsModel.VolumeGuids = []string{"volumeGuid1"}
 	physicalVolumeProtectionGroupObjectParamsModel.EnableSystemBackup = core.BoolPtr(true)
-	physicalVolumeProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalVolumeProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 
 	// Construct an instance of the IndexingPolicy model
 	indexingPolicyModel := new(backuprecoveryv1.IndexingPolicy)
@@ -1242,8 +1259,8 @@ func (f CreateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 	physicalVolumeProtectionGroupParamsModel.ContinueOnQuiesceFailure = core.BoolPtr(true)
 	physicalVolumeProtectionGroupParamsModel.IncrementalBackupAfterRestart = core.BoolPtr(true)
 	physicalVolumeProtectionGroupParamsModel.PrePostScript = prePostScriptParamsModel
-	physicalVolumeProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26),int64(27)}
-	physicalVolumeProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalVolumeProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26), int64(27)}
+	physicalVolumeProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 	physicalVolumeProtectionGroupParamsModel.CobmrBackup = core.BoolPtr(true)
 
 	// Construct an instance of the PhysicalFileBackupPathParams model
@@ -1254,7 +1271,7 @@ func (f CreateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 
 	// Construct an instance of the PhysicalFileProtectionGroupObjectParams model
 	physicalFileProtectionGroupObjectParamsModel := new(backuprecoveryv1.PhysicalFileProtectionGroupObjectParams)
-	physicalFileProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalFileProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 	physicalFileProtectionGroupObjectParamsModel.ID = core.Int64Ptr(int64(2))
 	physicalFileProtectionGroupObjectParamsModel.FilePaths = []backuprecoveryv1.PhysicalFileBackupPathParams{*physicalFileBackupPathParamsModel}
 	physicalFileProtectionGroupObjectParamsModel.UsesPathLevelSkipNestedVolumeSetting = core.BoolPtr(true)
@@ -1269,7 +1286,7 @@ func (f CreateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 
 	// Construct an instance of the PhysicalFileProtectionGroupParams model
 	physicalFileProtectionGroupParamsModel := new(backuprecoveryv1.PhysicalFileProtectionGroupParams)
-	physicalFileProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalFileProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 	physicalFileProtectionGroupParamsModel.Objects = []backuprecoveryv1.PhysicalFileProtectionGroupObjectParams{*physicalFileProtectionGroupObjectParamsModel}
 	physicalFileProtectionGroupParamsModel.IndexingPolicy = indexingPolicyModel
 	physicalFileProtectionGroupParamsModel.PerformSourceSideDeduplication = core.BoolPtr(true)
@@ -1279,10 +1296,10 @@ func (f CreateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 	physicalFileProtectionGroupParamsModel.ContinueOnQuiesceFailure = core.BoolPtr(true)
 	physicalFileProtectionGroupParamsModel.CobmrBackup = core.BoolPtr(true)
 	physicalFileProtectionGroupParamsModel.PrePostScript = prePostScriptParamsModel
-	physicalFileProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26),int64(27)}
+	physicalFileProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26), int64(27)}
 	physicalFileProtectionGroupParamsModel.GlobalExcludePaths = []string{"~/dir1"}
 	physicalFileProtectionGroupParamsModel.GlobalExcludeFS = []string{"~/dir2"}
-	physicalFileProtectionGroupParamsModel.IgnorableErrors = []string{"kEOF","kNonExistent"}
+	physicalFileProtectionGroupParamsModel.IgnorableErrors = []string{"kEOF", "kNonExistent"}
 	physicalFileProtectionGroupParamsModel.AllowParallelRuns = core.BoolPtr(true)
 
 	// Construct an instance of the PhysicalProtectionGroupParams model
@@ -1413,6 +1430,7 @@ type CreateProtectionGroupErrorSender struct{}
 func (f CreateProtectionGroupErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetProtectionGroupByID
 type GetProtectionGroupByIDMockSender struct{}
 
@@ -1433,6 +1451,7 @@ type GetProtectionGroupByIDErrorSender struct{}
 func (f GetProtectionGroupByIDErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for UpdateProtectionGroup
 type UpdateProtectionGroupMockSender struct{}
 
@@ -1451,7 +1470,7 @@ func (f UpdateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 
 	// Construct an instance of the ProtectionGroupAlertingPolicy model
 	protectionGroupAlertingPolicyModel := new(backuprecoveryv1.ProtectionGroupAlertingPolicy)
-	protectionGroupAlertingPolicyModel.BackupRunStatus = []string{"kSuccess","kFailure","kSlaViolation","kWarning"}
+	protectionGroupAlertingPolicyModel.BackupRunStatus = []string{"kSuccess", "kFailure", "kSlaViolation", "kWarning"}
 	protectionGroupAlertingPolicyModel.AlertTargets = []backuprecoveryv1.AlertTarget{*alertTargetModel}
 	protectionGroupAlertingPolicyModel.RaiseObjectLevelFailureAlert = core.BoolPtr(true)
 	protectionGroupAlertingPolicyModel.RaiseObjectLevelFailureAlertAfterLastAttempt = core.BoolPtr(true)
@@ -1472,7 +1491,7 @@ func (f UpdateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 	physicalVolumeProtectionGroupObjectParamsModel.ID = core.Int64Ptr(int64(3))
 	physicalVolumeProtectionGroupObjectParamsModel.VolumeGuids = []string{"volumeGuid1"}
 	physicalVolumeProtectionGroupObjectParamsModel.EnableSystemBackup = core.BoolPtr(true)
-	physicalVolumeProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalVolumeProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 
 	// Construct an instance of the IndexingPolicy model
 	indexingPolicyModel := new(backuprecoveryv1.IndexingPolicy)
@@ -1509,8 +1528,8 @@ func (f UpdateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 	physicalVolumeProtectionGroupParamsModel.ContinueOnQuiesceFailure = core.BoolPtr(true)
 	physicalVolumeProtectionGroupParamsModel.IncrementalBackupAfterRestart = core.BoolPtr(true)
 	physicalVolumeProtectionGroupParamsModel.PrePostScript = prePostScriptParamsModel
-	physicalVolumeProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26),int64(27)}
-	physicalVolumeProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalVolumeProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26), int64(27)}
+	physicalVolumeProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 	physicalVolumeProtectionGroupParamsModel.CobmrBackup = core.BoolPtr(true)
 
 	// Construct an instance of the PhysicalFileBackupPathParams model
@@ -1521,7 +1540,7 @@ func (f UpdateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 
 	// Construct an instance of the PhysicalFileProtectionGroupObjectParams model
 	physicalFileProtectionGroupObjectParamsModel := new(backuprecoveryv1.PhysicalFileProtectionGroupObjectParams)
-	physicalFileProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalFileProtectionGroupObjectParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 	physicalFileProtectionGroupObjectParamsModel.ID = core.Int64Ptr(int64(2))
 	physicalFileProtectionGroupObjectParamsModel.FilePaths = []backuprecoveryv1.PhysicalFileBackupPathParams{*physicalFileBackupPathParamsModel}
 	physicalFileProtectionGroupObjectParamsModel.UsesPathLevelSkipNestedVolumeSetting = core.BoolPtr(true)
@@ -1536,7 +1555,7 @@ func (f UpdateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 
 	// Construct an instance of the PhysicalFileProtectionGroupParams model
 	physicalFileProtectionGroupParamsModel := new(backuprecoveryv1.PhysicalFileProtectionGroupParams)
-	physicalFileProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1","writerName2"}
+	physicalFileProtectionGroupParamsModel.ExcludedVssWriters = []string{"writerName1", "writerName2"}
 	physicalFileProtectionGroupParamsModel.Objects = []backuprecoveryv1.PhysicalFileProtectionGroupObjectParams{*physicalFileProtectionGroupObjectParamsModel}
 	physicalFileProtectionGroupParamsModel.IndexingPolicy = indexingPolicyModel
 	physicalFileProtectionGroupParamsModel.PerformSourceSideDeduplication = core.BoolPtr(true)
@@ -1546,10 +1565,10 @@ func (f UpdateProtectionGroupMockSender) Send(optionsModel interface{}) (interfa
 	physicalFileProtectionGroupParamsModel.ContinueOnQuiesceFailure = core.BoolPtr(true)
 	physicalFileProtectionGroupParamsModel.CobmrBackup = core.BoolPtr(true)
 	physicalFileProtectionGroupParamsModel.PrePostScript = prePostScriptParamsModel
-	physicalFileProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26),int64(27)}
+	physicalFileProtectionGroupParamsModel.DedupExclusionSourceIds = []int64{int64(26), int64(27)}
 	physicalFileProtectionGroupParamsModel.GlobalExcludePaths = []string{"~/dir1"}
 	physicalFileProtectionGroupParamsModel.GlobalExcludeFS = []string{"~/dir2"}
-	physicalFileProtectionGroupParamsModel.IgnorableErrors = []string{"kEOF","kNonExistent"}
+	physicalFileProtectionGroupParamsModel.IgnorableErrors = []string{"kEOF", "kNonExistent"}
 	physicalFileProtectionGroupParamsModel.AllowParallelRuns = core.BoolPtr(true)
 
 	// Construct an instance of the PhysicalProtectionGroupParams model
@@ -1681,6 +1700,7 @@ type UpdateProtectionGroupErrorSender struct{}
 func (f UpdateProtectionGroupErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for DeleteProtectionGroup
 type DeleteProtectionGroupMockSender struct{}
 
@@ -1698,6 +1718,7 @@ type DeleteProtectionGroupErrorSender struct{}
 func (f DeleteProtectionGroupErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetProtectionGroupRuns
 type GetProtectionGroupRunsMockSender struct{}
 
@@ -1710,18 +1731,18 @@ func (f GetProtectionGroupRunsMockSender) Send(optionsModel interface{}) (interf
 	Expect(createdOptions.RunID).To(Equal(core.StringPtr("11:111")))
 	Expect(createdOptions.StartTimeUsecs).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.EndTimeUsecs).To(Equal(core.Int64Ptr(int64(26))))
-	Expect(createdOptions.RunTypes).To(Equal([]string{"kAll","kHydrateCDP","kSystem","kStorageArraySnapshot","kIncremental","kFull","kLog"}))
+	Expect(createdOptions.RunTypes).To(Equal([]string{"kAll", "kHydrateCDP", "kSystem", "kStorageArraySnapshot", "kIncremental", "kFull", "kLog"}))
 	Expect(createdOptions.IncludeObjectDetails).To(Equal(core.BoolPtr(true)))
-	Expect(createdOptions.LocalBackupRunStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
-	Expect(createdOptions.ReplicationRunStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
-	Expect(createdOptions.ArchivalRunStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
-	Expect(createdOptions.CloudSpinRunStatus).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","Paused"}))
+	Expect(createdOptions.LocalBackupRunStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
+	Expect(createdOptions.ReplicationRunStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
+	Expect(createdOptions.ArchivalRunStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
+	Expect(createdOptions.CloudSpinRunStatus).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "Paused"}))
 	Expect(createdOptions.NumRuns).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.ExcludeNonRestorableRuns).To(Equal(core.BoolPtr(false)))
 	Expect(createdOptions.RunTags).To(Equal([]string{"tag1"}))
 	Expect(createdOptions.UseCachedData).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.FilterByEndTime).To(Equal(core.BoolPtr(true)))
-	Expect(createdOptions.SnapshotTargetTypes).To(Equal([]string{"Local","Archival","RpaasArchival","StorageArraySnapshot","Remote"}))
+	Expect(createdOptions.SnapshotTargetTypes).To(Equal([]string{"Local", "Archival", "RpaasArchival", "StorageArraySnapshot", "Remote"}))
 	Expect(createdOptions.OnlyReturnSuccessfulCopyRun).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.FilterByCopyTaskEndTime).To(Equal(core.BoolPtr(true)))
 	return testing_utilities.GetMockSuccessResponse()
@@ -1732,6 +1753,7 @@ type GetProtectionGroupRunsErrorSender struct{}
 func (f GetProtectionGroupRunsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for UpdateProtectionGroupRun
 type UpdateProtectionGroupRunMockSender struct{}
 
@@ -1819,6 +1841,7 @@ type UpdateProtectionGroupRunErrorSender struct{}
 func (f UpdateProtectionGroupRunErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for CreateProtectionGroupRun
 type CreateProtectionGroupRunMockSender struct{}
 
@@ -1830,7 +1853,7 @@ func (f CreateProtectionGroupRunMockSender) Send(optionsModel interface{}) (inte
 	// Construct an instance of the RunObject model
 	runObjectModel := new(backuprecoveryv1.RunObject)
 	runObjectModel.ID = core.Int64Ptr(int64(4))
-	runObjectModel.AppIds = []int64{int64(26),int64(27)}
+	runObjectModel.AppIds = []int64{int64(26), int64(27)}
 	runObjectModel.PhysicalParams = runObjectPhysicalParamsModel
 
 	// Construct an instance of the DataLockConfig model
@@ -1897,6 +1920,7 @@ type CreateProtectionGroupRunErrorSender struct{}
 func (f CreateProtectionGroupRunErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for PerformActionOnProtectionGroupRun
 type PerformActionOnProtectionGroupRunMockSender struct{}
 
@@ -1913,7 +1937,7 @@ func (f PerformActionOnProtectionGroupRunMockSender) Send(optionsModel interface
 	cancelProtectionGroupRunRequestModel := new(backuprecoveryv1.CancelProtectionGroupRunRequest)
 	cancelProtectionGroupRunRequestModel.RunID = core.StringPtr("11:111")
 	cancelProtectionGroupRunRequestModel.LocalTaskID = core.StringPtr("123:456:789")
-	cancelProtectionGroupRunRequestModel.ObjectIds = []int64{int64(26),int64(27)}
+	cancelProtectionGroupRunRequestModel.ObjectIds = []int64{int64(26), int64(27)}
 	cancelProtectionGroupRunRequestModel.ReplicationTaskID = []string{"123:456:789"}
 	cancelProtectionGroupRunRequestModel.ArchivalTaskID = []string{"123:456:789"}
 	cancelProtectionGroupRunRequestModel.CloudSpinTaskID = []string{"123:456:789"}
@@ -1934,6 +1958,7 @@ type PerformActionOnProtectionGroupRunErrorSender struct{}
 func (f PerformActionOnProtectionGroupRunErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetRecoveries
 type GetRecoveriesMockSender struct{}
 
@@ -1945,11 +1970,11 @@ func (f GetRecoveriesMockSender) Send(optionsModel interface{}) (interface{}, *c
 	Expect(createdOptions.ReturnOnlyChildRecoveries).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.StartTimeUsecs).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.EndTimeUsecs).To(Equal(core.Int64Ptr(int64(26))))
-	Expect(createdOptions.SnapshotTargetType).To(Equal([]string{"Local","Archival","RpaasArchival","StorageArraySnapshot","Remote"}))
-	Expect(createdOptions.ArchivalTargetType).To(Equal([]string{"Tape","Cloud","Nas"}))
-	Expect(createdOptions.SnapshotEnvironments).To(Equal([]string{"kPhysical","kSQL"}))
-	Expect(createdOptions.Status).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","LegalHold"}))
-	Expect(createdOptions.RecoveryActions).To(Equal([]string{"RecoverVMs","RecoverFiles","InstantVolumeMount","RecoverVmDisks","RecoverVApps","RecoverVAppTemplates","UptierSnapshot","RecoverRDS","RecoverAurora","RecoverS3Buckets","RecoverRDSPostgres","RecoverAzureSQL","RecoverApps","CloneApps","RecoverNasVolume","RecoverPhysicalVolumes","RecoverSystem","RecoverExchangeDbs","CloneAppView","RecoverSanVolumes","RecoverSanGroup","RecoverMailbox","RecoverOneDrive","RecoverSharePoint","RecoverPublicFolders","RecoverMsGroup","RecoverMsTeam","ConvertToPst","DownloadChats","RecoverMailboxCSM","RecoverOneDriveCSM","RecoverSharePointCSM","RecoverNamespaces","RecoverObjects","RecoverSfdcObjects","RecoverSfdcOrg","RecoverSfdcRecords","DownloadFilesAndFolders","CloneVMs","CloneView","CloneRefreshApp","CloneVMsToView","ConvertAndDeployVMs","DeployVMs"}))
+	Expect(createdOptions.SnapshotTargetType).To(Equal([]string{"Local", "Archival", "RpaasArchival", "StorageArraySnapshot", "Remote"}))
+	Expect(createdOptions.ArchivalTargetType).To(Equal([]string{"Tape", "Cloud", "Nas"}))
+	Expect(createdOptions.SnapshotEnvironments).To(Equal([]string{"kPhysical", "kSQL"}))
+	Expect(createdOptions.Status).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "LegalHold"}))
+	Expect(createdOptions.RecoveryActions).To(Equal([]string{"RecoverVMs", "RecoverFiles", "InstantVolumeMount", "RecoverVmDisks", "RecoverVApps", "RecoverVAppTemplates", "UptierSnapshot", "RecoverRDS", "RecoverAurora", "RecoverS3Buckets", "RecoverRDSPostgres", "RecoverAzureSQL", "RecoverApps", "CloneApps", "RecoverNasVolume", "RecoverPhysicalVolumes", "RecoverSystem", "RecoverExchangeDbs", "CloneAppView", "RecoverSanVolumes", "RecoverSanGroup", "RecoverMailbox", "RecoverOneDrive", "RecoverSharePoint", "RecoverPublicFolders", "RecoverMsGroup", "RecoverMsTeam", "ConvertToPst", "DownloadChats", "RecoverMailboxCSM", "RecoverOneDriveCSM", "RecoverSharePointCSM", "RecoverNamespaces", "RecoverObjects", "RecoverSfdcObjects", "RecoverSfdcOrg", "RecoverSfdcRecords", "DownloadFilesAndFolders", "CloneVMs", "CloneView", "CloneRefreshApp", "CloneVMsToView", "ConvertAndDeployVMs", "DeployVMs"}))
 	return testing_utilities.GetMockSuccessResponse()
 }
 
@@ -1958,6 +1983,7 @@ type GetRecoveriesErrorSender struct{}
 func (f GetRecoveriesErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for CreateRecovery
 type CreateRecoveryMockSender struct{}
 
@@ -2197,6 +2223,7 @@ type CreateRecoveryErrorSender struct{}
 func (f CreateRecoveryErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetRecoveryByID
 type GetRecoveryByIDMockSender struct{}
 
@@ -2213,6 +2240,7 @@ type GetRecoveryByIDErrorSender struct{}
 func (f GetRecoveryByIDErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for DownloadFilesFromRecovery
 type DownloadFilesFromRecoveryMockSender struct{}
 
@@ -2235,6 +2263,7 @@ type DownloadFilesFromRecoveryErrorSender struct{}
 func (f DownloadFilesFromRecoveryErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetDataSourceConnections
 type GetDataSourceConnectionsMockSender struct{}
 
@@ -2242,8 +2271,8 @@ func (f GetDataSourceConnectionsMockSender) Send(optionsModel interface{}) (inte
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.GetDataSourceConnectionsOptions)
 	Expect(ok).To(Equal(true))
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
-	Expect(createdOptions.ConnectionIds).To(Equal([]string{"connectionId1","connectionId2"}))
-	Expect(createdOptions.ConnectionNames).To(Equal([]string{"connectionName1","connectionName2"}))
+	Expect(createdOptions.ConnectionIds).To(Equal([]string{"connectionId1", "connectionId2"}))
+	Expect(createdOptions.ConnectionNames).To(Equal([]string{"connectionName1", "connectionName2"}))
 	return testing_utilities.GetMockSuccessResponse()
 }
 
@@ -2252,6 +2281,7 @@ type GetDataSourceConnectionsErrorSender struct{}
 func (f GetDataSourceConnectionsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for CreateDataSourceConnection
 type CreateDataSourceConnectionMockSender struct{}
 
@@ -2268,6 +2298,7 @@ type CreateDataSourceConnectionErrorSender struct{}
 func (f CreateDataSourceConnectionErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for DeleteDataSourceConnection
 type DeleteDataSourceConnectionMockSender struct{}
 
@@ -2284,6 +2315,7 @@ type DeleteDataSourceConnectionErrorSender struct{}
 func (f DeleteDataSourceConnectionErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for PatchDataSourceConnection
 type PatchDataSourceConnectionMockSender struct{}
 
@@ -2301,6 +2333,7 @@ type PatchDataSourceConnectionErrorSender struct{}
 func (f PatchDataSourceConnectionErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GenerateDataSourceConnectionRegistrationToken
 type GenerateDataSourceConnectionRegistrationTokenMockSender struct{}
 
@@ -2317,6 +2350,7 @@ type GenerateDataSourceConnectionRegistrationTokenErrorSender struct{}
 func (f GenerateDataSourceConnectionRegistrationTokenErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetDataSourceConnectors
 type GetDataSourceConnectorsMockSender struct{}
 
@@ -2324,8 +2358,8 @@ func (f GetDataSourceConnectorsMockSender) Send(optionsModel interface{}) (inter
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.GetDataSourceConnectorsOptions)
 	Expect(ok).To(Equal(true))
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
-	Expect(createdOptions.ConnectorIds).To(Equal([]string{"connectorId1","connectorId2"}))
-	Expect(createdOptions.ConnectorNames).To(Equal([]string{"connectionName1","connectionName2"}))
+	Expect(createdOptions.ConnectorIds).To(Equal([]string{"connectorId1", "connectorId2"}))
+	Expect(createdOptions.ConnectorNames).To(Equal([]string{"connectionName1", "connectionName2"}))
 	Expect(createdOptions.ConnectionID).To(Equal(core.StringPtr("testString")))
 	return testing_utilities.GetMockSuccessResponse()
 }
@@ -2335,6 +2369,7 @@ type GetDataSourceConnectorsErrorSender struct{}
 func (f GetDataSourceConnectorsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for DeleteDataSourceConnector
 type DeleteDataSourceConnectorMockSender struct{}
 
@@ -2351,6 +2386,7 @@ type DeleteDataSourceConnectorErrorSender struct{}
 func (f DeleteDataSourceConnectorErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for PatchDataSourceConnector
 type PatchDataSourceConnectorMockSender struct{}
 
@@ -2368,6 +2404,25 @@ type PatchDataSourceConnectorErrorSender struct{}
 func (f PatchDataSourceConnectorErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
+// Fake senders for CreateAccessToken
+type CreateAccessTokenMockSender struct{}
+
+func (f CreateAccessTokenMockSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	createdOptions, ok := optionsModel.(*backuprecoveryv1.CreateAccessTokenOptions)
+	Expect(ok).To(Equal(true))
+	Expect(createdOptions.Username).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.Password).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.Domain).To(Equal(core.StringPtr("testString")))
+	return testing_utilities.GetMockSuccessResponse()
+}
+
+type CreateAccessTokenErrorSender struct{}
+
+func (f CreateAccessTokenErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return testing_utilities.GetMockErrorResponse()
+}
+
 // Fake senders for DownloadAgent
 type DownloadAgentMockSender struct{}
 
@@ -2389,6 +2444,7 @@ type DownloadAgentErrorSender struct{}
 func (f DownloadAgentErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetConnectorMetadata
 type GetConnectorMetadataMockSender struct{}
 
@@ -2404,6 +2460,54 @@ type GetConnectorMetadataErrorSender struct{}
 func (f GetConnectorMetadataErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
+// Fake senders for GetDataSourceConnectorLogs
+type GetDataSourceConnectorLogsMockSender struct{}
+
+func (f GetDataSourceConnectorLogsMockSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	_, ok := optionsModel.(*backuprecoveryv1.GetDataSourceConnectorLogsOptions)
+	Expect(ok).To(Equal(true))
+	return testing_utilities.GetMockSuccessResponse()
+}
+
+type GetDataSourceConnectorLogsErrorSender struct{}
+
+func (f GetDataSourceConnectorLogsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return testing_utilities.GetMockErrorResponse()
+}
+
+// Fake senders for RegisterDataSourceConnector
+type RegisterDataSourceConnectorMockSender struct{}
+
+func (f RegisterDataSourceConnectorMockSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	createdOptions, ok := optionsModel.(*backuprecoveryv1.RegisterDataSourceConnectorOptions)
+	Expect(ok).To(Equal(true))
+	Expect(createdOptions.RegistrationToken).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.ConnectorID).To(Equal(core.Int64Ptr(int64(26))))
+	return testing_utilities.GetMockSuccessResponse()
+}
+
+type RegisterDataSourceConnectorErrorSender struct{}
+
+func (f RegisterDataSourceConnectorErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return testing_utilities.GetMockErrorResponse()
+}
+
+// Fake senders for GetDataSourceConnectorStatus
+type GetDataSourceConnectorStatusMockSender struct{}
+
+func (f GetDataSourceConnectorStatusMockSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	_, ok := optionsModel.(*backuprecoveryv1.GetDataSourceConnectorStatusOptions)
+	Expect(ok).To(Equal(true))
+	return testing_utilities.GetMockSuccessResponse()
+}
+
+type GetDataSourceConnectorStatusErrorSender struct{}
+
+func (f GetDataSourceConnectorStatusErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return testing_utilities.GetMockErrorResponse()
+}
+
 // Fake senders for GetObjectSnapshots
 type GetObjectSnapshotsMockSender struct{}
 
@@ -2416,12 +2520,12 @@ func (f GetObjectSnapshotsMockSender) Send(optionsModel interface{}) (interface{
 	Expect(createdOptions.ToTimeUsecs).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.RunStartFromTimeUsecs).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.RunStartToTimeUsecs).To(Equal(core.Int64Ptr(int64(26))))
-	Expect(createdOptions.SnapshotActions).To(Equal([]string{"RecoverVMs","RecoverFiles","InstantVolumeMount","RecoverVmDisks","MountVolumes","RecoverVApps","RecoverRDS","RecoverAurora","RecoverS3Buckets","RecoverApps","RecoverNasVolume","RecoverPhysicalVolumes","RecoverSystem","RecoverSanVolumes","RecoverNamespaces","RecoverObjects","DownloadFilesAndFolders","RecoverPublicFolders","RecoverVAppTemplates","RecoverMailbox","RecoverOneDrive","RecoverMsTeam","RecoverMsGroup","RecoverSharePoint","ConvertToPst","RecoverSfdcRecords","RecoverAzureSQL","DownloadChats","RecoverRDSPostgres","RecoverMailboxCSM","RecoverOneDriveCSM","RecoverSharePointCSM"}))
-	Expect(createdOptions.RunTypes).To(Equal([]string{"kRegular","kFull","kLog","kSystem","kHydrateCDP","kStorageArraySnapshot"}))
+	Expect(createdOptions.SnapshotActions).To(Equal([]string{"RecoverVMs", "RecoverFiles", "InstantVolumeMount", "RecoverVmDisks", "MountVolumes", "RecoverVApps", "RecoverRDS", "RecoverAurora", "RecoverS3Buckets", "RecoverApps", "RecoverNasVolume", "RecoverPhysicalVolumes", "RecoverSystem", "RecoverSanVolumes", "RecoverNamespaces", "RecoverObjects", "DownloadFilesAndFolders", "RecoverPublicFolders", "RecoverVAppTemplates", "RecoverMailbox", "RecoverOneDrive", "RecoverMsTeam", "RecoverMsGroup", "RecoverSharePoint", "ConvertToPst", "RecoverSfdcRecords", "RecoverAzureSQL", "DownloadChats", "RecoverRDSPostgres", "RecoverMailboxCSM", "RecoverOneDriveCSM", "RecoverSharePointCSM"}))
+	Expect(createdOptions.RunTypes).To(Equal([]string{"kRegular", "kFull", "kLog", "kSystem", "kHydrateCDP", "kStorageArraySnapshot"}))
 	Expect(createdOptions.ProtectionGroupIds).To(Equal([]string{"protectionGroupId1"}))
-	Expect(createdOptions.RunInstanceIds).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.RunInstanceIds).To(Equal([]int64{int64(26), int64(27)}))
 	Expect(createdOptions.RegionIds).To(Equal([]string{"regionId1"}))
-	Expect(createdOptions.ObjectActionKeys).To(Equal([]string{"kVMware","kHyperV","kVCD","kAzure","kGCP","kKVM","kAcropolis","kAWS","kAWSNative","kAwsS3","kAWSSnapshotManager","kRDSSnapshotManager","kAuroraSnapshotManager","kAwsRDSPostgresBackup","kAwsRDSPostgres","kAwsAuroraPostgres","kAzureNative","kAzureSQL","kAzureSnapshotManager","kPhysical","kPhysicalFiles","kGPFS","kElastifile","kNetapp","kGenericNas","kIsilon","kFlashBlade","kPure","kIbmFlashSystem","kSQL","kExchange","kAD","kOracle","kView","kRemoteAdapter","kO365","kO365PublicFolders","kO365Teams","kO365Group","kO365Exchange","kO365OneDrive","kO365Sharepoint","kKubernetes","kCassandra","kMongoDB","kCouchbase","kHdfs","kHive","kHBase","kSAPHANA","kUDA","kSfdc","kO365ExchangeCSM","kO365OneDriveCSM","kO365SharepointCSM"}))
+	Expect(createdOptions.ObjectActionKeys).To(Equal([]string{"kVMware", "kHyperV", "kVCD", "kAzure", "kGCP", "kKVM", "kAcropolis", "kAWS", "kAWSNative", "kAwsS3", "kAWSSnapshotManager", "kRDSSnapshotManager", "kAuroraSnapshotManager", "kAwsRDSPostgresBackup", "kAwsRDSPostgres", "kAwsAuroraPostgres", "kAzureNative", "kAzureSQL", "kAzureSnapshotManager", "kPhysical", "kPhysicalFiles", "kGPFS", "kElastifile", "kNetapp", "kGenericNas", "kIsilon", "kFlashBlade", "kPure", "kIbmFlashSystem", "kSQL", "kExchange", "kAD", "kOracle", "kView", "kRemoteAdapter", "kO365", "kO365PublicFolders", "kO365Teams", "kO365Group", "kO365Exchange", "kO365OneDrive", "kO365Sharepoint", "kKubernetes", "kCassandra", "kMongoDB", "kCouchbase", "kHdfs", "kHive", "kHBase", "kSAPHANA", "kUDA", "kSfdc", "kO365ExchangeCSM", "kO365OneDriveCSM", "kO365SharepointCSM"}))
 	return testing_utilities.GetMockSuccessResponse()
 }
 
@@ -2430,6 +2534,7 @@ type GetObjectSnapshotsErrorSender struct{}
 func (f GetObjectSnapshotsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for CreateDownloadFilesAndFoldersRecovery
 type CreateDownloadFilesAndFoldersRecoveryMockSender struct{}
 
@@ -2469,6 +2574,7 @@ type CreateDownloadFilesAndFoldersRecoveryErrorSender struct{}
 func (f CreateDownloadFilesAndFoldersRecoveryErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for GetRestorePointsInTimeRange
 type GetRestorePointsInTimeRangeMockSender struct{}
 
@@ -2489,6 +2595,7 @@ type GetRestorePointsInTimeRangeErrorSender struct{}
 func (f GetRestorePointsInTimeRangeErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for DownloadIndexedFile
 type DownloadIndexedFileMockSender struct{}
 
@@ -2510,26 +2617,27 @@ type DownloadIndexedFileErrorSender struct{}
 func (f DownloadIndexedFileErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for SearchIndexedObjects
 type SearchIndexedObjectsMockSender struct{}
 
 func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	// Construct an instance of the CassandraOnPremSearchParams model
 	cassandraOnPremSearchParamsModel := new(backuprecoveryv1.CassandraOnPremSearchParams)
-	cassandraOnPremSearchParamsModel.CassandraObjectTypes = []string{"CassandraKeyspaces","CassandraTables"}
+	cassandraOnPremSearchParamsModel.CassandraObjectTypes = []string{"CassandraKeyspaces", "CassandraTables"}
 	cassandraOnPremSearchParamsModel.SearchString = core.StringPtr("searchString")
-	cassandraOnPremSearchParamsModel.SourceIds = []int64{int64(26),int64(27)}
+	cassandraOnPremSearchParamsModel.SourceIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the CouchBaseOnPremSearchParams model
 	couchBaseOnPremSearchParamsModel := new(backuprecoveryv1.CouchBaseOnPremSearchParams)
 	couchBaseOnPremSearchParamsModel.CouchbaseObjectTypes = []string{"CouchbaseBuckets"}
 	couchBaseOnPremSearchParamsModel.SearchString = core.StringPtr("searchString")
-	couchBaseOnPremSearchParamsModel.SourceIds = []int64{int64(26),int64(27)}
+	couchBaseOnPremSearchParamsModel.SourceIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the O365SearchEmailsRequestParams model
 	o365SearchEmailsRequestParamsModel := new(backuprecoveryv1.O365SearchEmailsRequestParams)
-	o365SearchEmailsRequestParamsModel.DomainIds = []int64{int64(26),int64(27)}
-	o365SearchEmailsRequestParamsModel.MailboxIds = []int64{int64(26),int64(27)}
+	o365SearchEmailsRequestParamsModel.DomainIds = []int64{int64(26), int64(27)}
+	o365SearchEmailsRequestParamsModel.MailboxIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the SearchEmailRequestParams model
 	searchEmailRequestParamsModel := new(backuprecoveryv1.SearchEmailRequestParams)
@@ -2555,8 +2663,8 @@ func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interfac
 	searchEmailRequestParamsModel.RecipientAddresses = []string{"recipient@domain.com"}
 	searchEmailRequestParamsModel.SenderAddress = core.StringPtr("sender@domain.com")
 	searchEmailRequestParamsModel.SourceEnvironment = core.StringPtr("kO365")
-	searchEmailRequestParamsModel.TaskStatusTypes = []string{"NotStarted","InProgress","Completed","WaitingOnOthers","Deferred"}
-	searchEmailRequestParamsModel.Types = []string{"Email","Folder","Calendar","Contact","Task","Note"}
+	searchEmailRequestParamsModel.TaskStatusTypes = []string{"NotStarted", "InProgress", "Completed", "WaitingOnOthers", "Deferred"}
+	searchEmailRequestParamsModel.Types = []string{"Email", "Folder", "Calendar", "Contact", "Task", "Note"}
 	searchEmailRequestParamsModel.O365Params = o365SearchEmailsRequestParamsModel
 
 	// Construct an instance of the SearchExchangeObjectsRequestParams model
@@ -2566,34 +2674,34 @@ func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interfac
 	// Construct an instance of the SearchFileRequestParams model
 	searchFileRequestParamsModel := new(backuprecoveryv1.SearchFileRequestParams)
 	searchFileRequestParamsModel.SearchString = core.StringPtr("searchString")
-	searchFileRequestParamsModel.Types = []string{"File","Directory","Symlink"}
-	searchFileRequestParamsModel.SourceEnvironments = []string{"kVMware","kHyperV","kSQL","kView","kRemoteAdapter","kPhysical","kPhysicalFiles","kPure","kIbmFlashSystem","kAzure","kNetapp","kGenericNas","kAcropolis","kIsilon","kGPFS","kKVM","kAWS","kExchange","kOracle","kGCP","kFlashBlade","kO365","kHyperFlex","kKubernetes","kElastifile","kSAPHANA","kUDA","kSfdc"}
-	searchFileRequestParamsModel.SourceIds = []int64{int64(26),int64(27)}
-	searchFileRequestParamsModel.ObjectIds = []int64{int64(26),int64(27)}
+	searchFileRequestParamsModel.Types = []string{"File", "Directory", "Symlink"}
+	searchFileRequestParamsModel.SourceEnvironments = []string{"kVMware", "kHyperV", "kSQL", "kView", "kRemoteAdapter", "kPhysical", "kPhysicalFiles", "kPure", "kIbmFlashSystem", "kAzure", "kNetapp", "kGenericNas", "kAcropolis", "kIsilon", "kGPFS", "kKVM", "kAWS", "kExchange", "kOracle", "kGCP", "kFlashBlade", "kO365", "kHyperFlex", "kKubernetes", "kElastifile", "kSAPHANA", "kUDA", "kSfdc"}
+	searchFileRequestParamsModel.SourceIds = []int64{int64(26), int64(27)}
+	searchFileRequestParamsModel.ObjectIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the HbaseOnPremSearchParams model
 	hbaseOnPremSearchParamsModel := new(backuprecoveryv1.HbaseOnPremSearchParams)
-	hbaseOnPremSearchParamsModel.HbaseObjectTypes = []string{"HbaseNamespaces","HbaseTables"}
+	hbaseOnPremSearchParamsModel.HbaseObjectTypes = []string{"HbaseNamespaces", "HbaseTables"}
 	hbaseOnPremSearchParamsModel.SearchString = core.StringPtr("searchString")
-	hbaseOnPremSearchParamsModel.SourceIds = []int64{int64(26),int64(27)}
+	hbaseOnPremSearchParamsModel.SourceIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the HDFSOnPremSearchParams model
 	hdfsOnPremSearchParamsModel := new(backuprecoveryv1.HDFSOnPremSearchParams)
-	hdfsOnPremSearchParamsModel.HdfsTypes = []string{"HDFSFolders","HDFSFiles"}
+	hdfsOnPremSearchParamsModel.HdfsTypes = []string{"HDFSFolders", "HDFSFiles"}
 	hdfsOnPremSearchParamsModel.SearchString = core.StringPtr("searchString")
-	hdfsOnPremSearchParamsModel.SourceIds = []int64{int64(26),int64(27)}
+	hdfsOnPremSearchParamsModel.SourceIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the HiveOnPremSearchParams model
 	hiveOnPremSearchParamsModel := new(backuprecoveryv1.HiveOnPremSearchParams)
-	hiveOnPremSearchParamsModel.HiveObjectTypes = []string{"HiveDatabases","HiveTables","HivePartitions"}
+	hiveOnPremSearchParamsModel.HiveObjectTypes = []string{"HiveDatabases", "HiveTables", "HivePartitions"}
 	hiveOnPremSearchParamsModel.SearchString = core.StringPtr("searchString")
-	hiveOnPremSearchParamsModel.SourceIds = []int64{int64(26),int64(27)}
+	hiveOnPremSearchParamsModel.SourceIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the MongoDbOnPremSearchParams model
 	mongoDbOnPremSearchParamsModel := new(backuprecoveryv1.MongoDbOnPremSearchParams)
-	mongoDbOnPremSearchParamsModel.MongoDBObjectTypes = []string{"MongoDatabases","MongoCollections"}
+	mongoDbOnPremSearchParamsModel.MongoDBObjectTypes = []string{"MongoDatabases", "MongoCollections"}
 	mongoDbOnPremSearchParamsModel.SearchString = core.StringPtr("searchString")
-	mongoDbOnPremSearchParamsModel.SourceIds = []int64{int64(26),int64(27)}
+	mongoDbOnPremSearchParamsModel.SourceIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the SearchEmailRequestParamsBase model
 	searchEmailRequestParamsBaseModel := new(backuprecoveryv1.SearchEmailRequestParamsBase)
@@ -2619,20 +2727,20 @@ func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interfac
 	searchEmailRequestParamsBaseModel.RecipientAddresses = []string{"recipient@domain.com"}
 	searchEmailRequestParamsBaseModel.SenderAddress = core.StringPtr("sender@domain.com")
 	searchEmailRequestParamsBaseModel.SourceEnvironment = core.StringPtr("kO365")
-	searchEmailRequestParamsBaseModel.TaskStatusTypes = []string{"NotStarted","InProgress","Completed","WaitingOnOthers","Deferred"}
-	searchEmailRequestParamsBaseModel.Types = []string{"Email","Folder","Calendar","Contact","Task","Note"}
+	searchEmailRequestParamsBaseModel.TaskStatusTypes = []string{"NotStarted", "InProgress", "Completed", "WaitingOnOthers", "Deferred"}
+	searchEmailRequestParamsBaseModel.Types = []string{"Email", "Folder", "Calendar", "Contact", "Task", "Note"}
 
 	// Construct an instance of the O365SearchRequestParams model
 	o365SearchRequestParamsModel := new(backuprecoveryv1.O365SearchRequestParams)
-	o365SearchRequestParamsModel.DomainIds = []int64{int64(26),int64(27)}
-	o365SearchRequestParamsModel.GroupIds = []int64{int64(26),int64(27)}
-	o365SearchRequestParamsModel.SiteIds = []int64{int64(26),int64(27)}
-	o365SearchRequestParamsModel.TeamsIds = []int64{int64(26),int64(27)}
-	o365SearchRequestParamsModel.UserIds = []int64{int64(26),int64(27)}
+	o365SearchRequestParamsModel.DomainIds = []int64{int64(26), int64(27)}
+	o365SearchRequestParamsModel.GroupIds = []int64{int64(26), int64(27)}
+	o365SearchRequestParamsModel.SiteIds = []int64{int64(26), int64(27)}
+	o365SearchRequestParamsModel.TeamsIds = []int64{int64(26), int64(27)}
+	o365SearchRequestParamsModel.UserIds = []int64{int64(26), int64(27)}
 
 	// Construct an instance of the SearchDocumentLibraryRequestParams model
 	searchDocumentLibraryRequestParamsModel := new(backuprecoveryv1.SearchDocumentLibraryRequestParams)
-	searchDocumentLibraryRequestParamsModel.CategoryTypes = []string{"Document","Excel","Powerpoint","Image","OneNote"}
+	searchDocumentLibraryRequestParamsModel.CategoryTypes = []string{"Document", "Excel", "Powerpoint", "Image", "OneNote"}
 	searchDocumentLibraryRequestParamsModel.CreationEndTimeSecs = core.Int64Ptr(int64(26))
 	searchDocumentLibraryRequestParamsModel.CreationStartTimeSecs = core.Int64Ptr(int64(26))
 	searchDocumentLibraryRequestParamsModel.IncludeFiles = core.BoolPtr(true)
@@ -2659,7 +2767,7 @@ func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interfac
 
 	// Construct an instance of the SearchMsTeamsRequestParams model
 	searchMsTeamsRequestParamsModel := new(backuprecoveryv1.SearchMsTeamsRequestParams)
-	searchMsTeamsRequestParamsModel.CategoryTypes = []string{"Document","Excel","Powerpoint","Image","OneNote"}
+	searchMsTeamsRequestParamsModel.CategoryTypes = []string{"Document", "Excel", "Powerpoint", "Image", "OneNote"}
 	searchMsTeamsRequestParamsModel.ChannelNames = []string{"channelName1"}
 	searchMsTeamsRequestParamsModel.ChannelParams = o365TeamsChannelsSearchRequestParamsModel
 	searchMsTeamsRequestParamsModel.CreationEndTimeSecs = core.Int64Ptr(int64(26))
@@ -2669,12 +2777,12 @@ func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interfac
 	searchMsTeamsRequestParamsModel.SearchString = core.StringPtr("searchString")
 	searchMsTeamsRequestParamsModel.SizeBytesLowerLimit = core.Int64Ptr(int64(26))
 	searchMsTeamsRequestParamsModel.SizeBytesUpperLimit = core.Int64Ptr(int64(26))
-	searchMsTeamsRequestParamsModel.Types = []string{"Channel","Chat","Conversation","File","Folder"}
+	searchMsTeamsRequestParamsModel.Types = []string{"Channel", "Chat", "Conversation", "File", "Folder"}
 
 	// Construct an instance of the SearchPublicFolderRequestParams model
 	searchPublicFolderRequestParamsModel := new(backuprecoveryv1.SearchPublicFolderRequestParams)
 	searchPublicFolderRequestParamsModel.SearchString = core.StringPtr("searchString")
-	searchPublicFolderRequestParamsModel.Types = []string{"Calendar","Contact","Post","Folder","Task","Journal","Note"}
+	searchPublicFolderRequestParamsModel.Types = []string{"Calendar", "Contact", "Post", "Folder", "Task", "Journal", "Note"}
 	searchPublicFolderRequestParamsModel.HasAttachment = core.BoolPtr(true)
 	searchPublicFolderRequestParamsModel.SenderAddress = core.StringPtr("sender@domain.com")
 	searchPublicFolderRequestParamsModel.RecipientAddresses = []string{"recipient@domain.com"}
@@ -2685,7 +2793,7 @@ func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interfac
 
 	// Construct an instance of the SearchSfdcRecordsRequestParams model
 	searchSfdcRecordsRequestParamsModel := new(backuprecoveryv1.SearchSfdcRecordsRequestParams)
-	searchSfdcRecordsRequestParamsModel.MutationTypes = []string{"All","Added","Removed","Changed"}
+	searchSfdcRecordsRequestParamsModel.MutationTypes = []string{"All", "Added", "Removed", "Changed"}
 	searchSfdcRecordsRequestParamsModel.ObjectName = core.StringPtr("objectName")
 	searchSfdcRecordsRequestParamsModel.QueryString = core.StringPtr("queryString")
 	searchSfdcRecordsRequestParamsModel.SnapshotID = core.StringPtr("snapshotId")
@@ -2693,18 +2801,18 @@ func (f SearchIndexedObjectsMockSender) Send(optionsModel interface{}) (interfac
 	// Construct an instance of the UdaOnPremSearchParams model
 	udaOnPremSearchParamsModel := new(backuprecoveryv1.UdaOnPremSearchParams)
 	udaOnPremSearchParamsModel.SearchString = core.StringPtr("searchString")
-	udaOnPremSearchParamsModel.SourceIds = []int64{int64(26),int64(27)}
+	udaOnPremSearchParamsModel.SourceIds = []int64{int64(26), int64(27)}
 
 	createdOptions, ok := optionsModel.(*backuprecoveryv1.SearchIndexedObjectsOptions)
 	Expect(ok).To(Equal(true))
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
 	Expect(createdOptions.ObjectType).To(Equal(core.StringPtr("Emails")))
 	Expect(createdOptions.ProtectionGroupIds).To(Equal([]string{"protectionGroupId1"}))
-	Expect(createdOptions.StorageDomainIds).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.StorageDomainIds).To(Equal([]int64{int64(26), int64(27)}))
 	Expect(createdOptions.TenantID).To(Equal(core.StringPtr("tenantId")))
 	Expect(createdOptions.IncludeTenants).To(Equal(core.BoolPtr(false)))
-	Expect(createdOptions.Tags).To(Equal([]string{"123:456:ABC-123","123:456:ABC-456"}))
-	Expect(createdOptions.SnapshotTags).To(Equal([]string{"123:456:DEF-123","123:456:DEF-456"}))
+	Expect(createdOptions.Tags).To(Equal([]string{"123:456:ABC-123", "123:456:ABC-456"}))
+	Expect(createdOptions.SnapshotTags).To(Equal([]string{"123:456:DEF-123", "123:456:DEF-456"}))
 	Expect(createdOptions.MustHaveTagIds).To(Equal([]string{"123:456:ABC-123"}))
 	Expect(createdOptions.MightHaveTagIds).To(Equal([]string{"123:456:ABC-456"}))
 	Expect(createdOptions.MustHaveSnapshotTagIds).To(Equal([]string{"123:456:DEF-123"}))
@@ -2736,6 +2844,7 @@ type SearchIndexedObjectsErrorSender struct{}
 func (f SearchIndexedObjectsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for SearchObjects
 type SearchObjectsMockSender struct{}
 
@@ -2745,16 +2854,16 @@ func (f SearchObjectsMockSender) Send(optionsModel interface{}) (interface{}, *c
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
 	Expect(createdOptions.RequestInitiatorType).To(Equal(core.StringPtr("UIUser")))
 	Expect(createdOptions.SearchString).To(Equal(core.StringPtr("searchString")))
-	Expect(createdOptions.Environments).To(Equal([]string{"kPhysical","kSQL"}))
-	Expect(createdOptions.ProtectionTypes).To(Equal([]string{"kAgent","kNative","kSnapshotManager","kRDSSnapshotManager","kAuroraSnapshotManager","kAwsS3","kAwsRDSPostgresBackup","kAwsAuroraPostgres","kAwsRDSPostgres","kAzureSQL","kFile","kVolume"}))
+	Expect(createdOptions.Environments).To(Equal([]string{"kPhysical", "kSQL"}))
+	Expect(createdOptions.ProtectionTypes).To(Equal([]string{"kAgent", "kNative", "kSnapshotManager", "kRDSSnapshotManager", "kAuroraSnapshotManager", "kAwsS3", "kAwsRDSPostgresBackup", "kAwsAuroraPostgres", "kAwsRDSPostgres", "kAzureSQL", "kFile", "kVolume"}))
 	Expect(createdOptions.ProtectionGroupIds).To(Equal([]string{"protectionGroupId1"}))
-	Expect(createdOptions.ObjectIds).To(Equal([]int64{int64(26),int64(27)}))
-	Expect(createdOptions.OsTypes).To(Equal([]string{"kLinux","kWindows"}))
-	Expect(createdOptions.SourceIds).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.ObjectIds).To(Equal([]int64{int64(26), int64(27)}))
+	Expect(createdOptions.OsTypes).To(Equal([]string{"kLinux", "kWindows"}))
+	Expect(createdOptions.SourceIds).To(Equal([]int64{int64(26), int64(27)}))
 	Expect(createdOptions.SourceUUIDs).To(Equal([]string{"sourceUuid1"}))
 	Expect(createdOptions.IsProtected).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.IsDeleted).To(Equal(core.BoolPtr(true)))
-	Expect(createdOptions.LastRunStatusList).To(Equal([]string{"Accepted","Running","Canceled","Canceling","Failed","Missed","Succeeded","SucceededWithWarning","OnHold","Finalizing","Skipped","LegalHold"}))
+	Expect(createdOptions.LastRunStatusList).To(Equal([]string{"Accepted", "Running", "Canceled", "Canceling", "Failed", "Missed", "Succeeded", "SucceededWithWarning", "OnHold", "Finalizing", "Skipped", "LegalHold"}))
 	Expect(createdOptions.ClusterIdentifiers).To(Equal([]string{"clusterIdentifier1"}))
 	Expect(createdOptions.IncludeDeletedObjects).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.PaginationCookie).To(Equal(core.StringPtr("paginationCookie")))
@@ -2765,9 +2874,9 @@ func (f SearchObjectsMockSender) Send(optionsModel interface{}) (interface{}, *c
 	Expect(createdOptions.MightHaveSnapshotTagIds).To(Equal([]string{"123:456:DEF-456"}))
 	Expect(createdOptions.TagSearchName).To(Equal(core.StringPtr("tagName")))
 	Expect(createdOptions.TagNames).To(Equal([]string{"tag1"}))
-	Expect(createdOptions.TagTypes).To(Equal([]string{"System","Custom","ThirdParty"}))
+	Expect(createdOptions.TagTypes).To(Equal([]string{"System", "Custom", "ThirdParty"}))
 	Expect(createdOptions.TagCategories).To(Equal([]string{"Security"}))
-	Expect(createdOptions.TagSubCategories).To(Equal([]string{"Classification","Threats","Anomalies","Dspm"}))
+	Expect(createdOptions.TagSubCategories).To(Equal([]string{"Classification", "Threats", "Anomalies", "Dspm"}))
 	Expect(createdOptions.IncludeHeliosTagInfoForObjects).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.ExternalFilters).To(Equal([]string{"filter1"}))
 	return testing_utilities.GetMockSuccessResponse()
@@ -2778,6 +2887,7 @@ type SearchObjectsErrorSender struct{}
 func (f SearchObjectsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
+
 // Fake senders for SearchProtectedObjects
 type SearchProtectedObjectsMockSender struct{}
 
@@ -2787,17 +2897,17 @@ func (f SearchProtectedObjectsMockSender) Send(optionsModel interface{}) (interf
 	Expect(createdOptions.XIBMTenantID).To(Equal(core.StringPtr("tenantId")))
 	Expect(createdOptions.RequestInitiatorType).To(Equal(core.StringPtr("UIUser")))
 	Expect(createdOptions.SearchString).To(Equal(core.StringPtr("searchString")))
-	Expect(createdOptions.Environments).To(Equal([]string{"kPhysical","kSQL"}))
-	Expect(createdOptions.SnapshotActions).To(Equal([]string{"RecoverVMs","RecoverFiles","InstantVolumeMount","RecoverVmDisks","MountVolumes","RecoverVApps","RecoverRDS","RecoverAurora","RecoverS3Buckets","RecoverApps","RecoverNasVolume","RecoverPhysicalVolumes","RecoverSystem","RecoverSanVolumes","RecoverNamespaces","RecoverObjects","DownloadFilesAndFolders","RecoverPublicFolders","RecoverVAppTemplates","RecoverMailbox","RecoverOneDrive","RecoverMsTeam","RecoverMsGroup","RecoverSharePoint","ConvertToPst","RecoverSfdcRecords","RecoverAzureSQL","DownloadChats","RecoverRDSPostgres","RecoverMailboxCSM","RecoverOneDriveCSM","RecoverSharePointCSM"}))
+	Expect(createdOptions.Environments).To(Equal([]string{"kPhysical", "kSQL"}))
+	Expect(createdOptions.SnapshotActions).To(Equal([]string{"RecoverVMs", "RecoverFiles", "InstantVolumeMount", "RecoverVmDisks", "MountVolumes", "RecoverVApps", "RecoverRDS", "RecoverAurora", "RecoverS3Buckets", "RecoverApps", "RecoverNasVolume", "RecoverPhysicalVolumes", "RecoverSystem", "RecoverSanVolumes", "RecoverNamespaces", "RecoverObjects", "DownloadFilesAndFolders", "RecoverPublicFolders", "RecoverVAppTemplates", "RecoverMailbox", "RecoverOneDrive", "RecoverMsTeam", "RecoverMsGroup", "RecoverSharePoint", "ConvertToPst", "RecoverSfdcRecords", "RecoverAzureSQL", "DownloadChats", "RecoverRDSPostgres", "RecoverMailboxCSM", "RecoverOneDriveCSM", "RecoverSharePointCSM"}))
 	Expect(createdOptions.ObjectActionKey).To(Equal(core.StringPtr("kPhysical")))
 	Expect(createdOptions.ProtectionGroupIds).To(Equal([]string{"protectionGroupId1"}))
-	Expect(createdOptions.ObjectIds).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.ObjectIds).To(Equal([]int64{int64(26), int64(27)}))
 	Expect(createdOptions.SubResultSize).To(Equal(core.Int64Ptr(int64(38))))
 	Expect(createdOptions.FilterSnapshotFromUsecs).To(Equal(core.Int64Ptr(int64(26))))
 	Expect(createdOptions.FilterSnapshotToUsecs).To(Equal(core.Int64Ptr(int64(26))))
-	Expect(createdOptions.OsTypes).To(Equal([]string{"kLinux","kWindows"}))
-	Expect(createdOptions.SourceIds).To(Equal([]int64{int64(26),int64(27)}))
-	Expect(createdOptions.RunInstanceIds).To(Equal([]int64{int64(26),int64(27)}))
+	Expect(createdOptions.OsTypes).To(Equal([]string{"kLinux", "kWindows"}))
+	Expect(createdOptions.SourceIds).To(Equal([]int64{int64(26), int64(27)}))
+	Expect(createdOptions.RunInstanceIds).To(Equal([]int64{int64(26), int64(27)}))
 	Expect(createdOptions.CdpProtectedOnly).To(Equal(core.BoolPtr(true)))
 	Expect(createdOptions.UseCachedData).To(Equal(core.BoolPtr(true)))
 	return testing_utilities.GetMockSuccessResponse()
@@ -2806,6 +2916,230 @@ func (f SearchProtectedObjectsMockSender) Send(optionsModel interface{}) (interf
 type SearchProtectedObjectsErrorSender struct{}
 
 func (f SearchProtectedObjectsErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return testing_utilities.GetMockErrorResponse()
+}
+
+// Fake senders for GetUsers
+type GetUsersMockSender struct{}
+
+func (f GetUsersMockSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	createdOptions, ok := optionsModel.(*backuprecoveryv1.GetUsersOptions)
+	Expect(ok).To(Equal(true))
+	Expect(createdOptions.SessionName).To(Equal(core.StringPtr("MTczNjc0NzY1OHxEWDhFQVFMX2dBQUJFQUVRQUFELUFZWF9nQUFKQm5OMGNtbHVad3dLQUFoMWMyVnlibUZ0WlFaemRISnBibWNNQndBRllXUnRhVzRHYzNSeWFXNW5EQWNBQlhKdmJHVnpCbk4wY21sdVp3d1FBQTVEVDBoRlUwbFVXVjlCUkUxSlRnWnpkSEpwYm1jTUN3QUpjMmxrY3kxb1lYTm9Cbk4wY21sdVp3d3RBQ3RTYVV4ZmFqQmZOVGxxZFZJeWVIVlZhREJ2UVZGNlUxcEhTVWc1TlZVdFlVWTBjV1JNUjNaTk9VUTBCbk4wY21sdVp3d01BQXBwYmkxamJIVnpkR1Z5QkdKdmIyd0NBZ0FCQm5OMGNtbHVad3dMQUFsaGRYUm9MWFI1Y0dVR2MzUnlhVzVuREFNQUFURUdjM1J5YVc1bkRCRUFEMlY0Y0dseVlYUnBiMjR0ZEdsdFpRWnpkSEpwYm1jTURBQUtNVGN6Tmpnek5EQTFPQVp6ZEhKcGJtY01DZ0FJZFhObGNpMXphV1FHYzNSeWFXNW5EQ0FBSGxNdE1TMHhNREF0TWpFdE16YzRNVFkyTXpVdE1qUXhPRFk1TXpVdE1RWnpkSEpwYm1jTUNBQUdaRzl0WVdsdUJuTjBjbWx1Wnd3SEFBVk1UME5CVEFaemRISnBibWNNQ0FBR2JHOWpZV3hsQm5OMGNtbHVad3dIQUFWbGJpMTFjdz09fGXFZlPU_3Nl46_gPKAw619qs6Pl7PX453Y_lf5BvBBo")))
+	Expect(createdOptions.TenantIds).To(Equal([]string{"testString", "anotherTestString"}))
+	Expect(createdOptions.AllUnderHierarchy).To(Equal(core.BoolPtr(true)))
+	Expect(createdOptions.Usernames).To(Equal([]string{"testString", "anotherTestString"}))
+	Expect(createdOptions.EmailAddresses).To(Equal([]string{"testString", "anotherTestString"}))
+	Expect(createdOptions.Domain).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.PartialMatch).To(Equal(core.BoolPtr(true)))
+	return testing_utilities.GetMockSuccessResponse()
+}
+
+type GetUsersErrorSender struct{}
+
+func (f GetUsersErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return testing_utilities.GetMockErrorResponse()
+}
+
+// Fake senders for UpdateUser
+type UpdateUserMockSender struct{}
+
+func (f UpdateUserMockSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	// Construct an instance of the AdUserInfo model
+	adUserInfoModel := new(backuprecoveryv1.AdUserInfo)
+	adUserInfoModel.GroupSids = []string{"testString", "anotherTestString"}
+	adUserInfoModel.Groups = []string{"testString", "anotherTestString"}
+	adUserInfoModel.IsFloatingUser = core.BoolPtr(true)
+
+	// Construct an instance of the AuditLogSettings model
+	auditLogSettingsModel := new(backuprecoveryv1.AuditLogSettings)
+	auditLogSettingsModel.ReadLogging = core.BoolPtr(true)
+
+	// Construct an instance of the UserClusterIdentifier model
+	userClusterIdentifierModel := new(backuprecoveryv1.UserClusterIdentifier)
+	userClusterIdentifierModel.ClusterID = core.Int64Ptr(int64(26))
+	userClusterIdentifierModel.ClusterIncarnationID = core.Int64Ptr(int64(26))
+
+	// Construct an instance of the GoogleAccountInfo model
+	googleAccountInfoModel := new(backuprecoveryv1.GoogleAccountInfo)
+	googleAccountInfoModel.AccountID = core.StringPtr("testString")
+	googleAccountInfoModel.UserID = core.StringPtr("testString")
+
+	// Construct an instance of the IdpUserInfo model
+	idpUserInfoModel := new(backuprecoveryv1.IdpUserInfo)
+	idpUserInfoModel.GroupSids = []string{"testString", "anotherTestString"}
+	idpUserInfoModel.Groups = []string{"testString", "anotherTestString"}
+	idpUserInfoModel.IdpID = core.Int64Ptr(int64(26))
+	idpUserInfoModel.IsFloatingUser = core.BoolPtr(true)
+	idpUserInfoModel.IssuerID = core.StringPtr("testString")
+	idpUserInfoModel.UserID = core.StringPtr("testString")
+	idpUserInfoModel.Vendor = core.StringPtr("testString")
+
+	// Construct an instance of the MfaInfo model
+	mfaInfoModel := new(backuprecoveryv1.MfaInfo)
+	mfaInfoModel.IsUserExemptFromMfa = core.BoolPtr(true)
+
+	// Construct an instance of the TenantConfig model
+	tenantConfigModel := new(backuprecoveryv1.TenantConfig)
+	tenantConfigModel.BifrostEnabled = core.BoolPtr(true)
+	tenantConfigModel.IsManagedOnHelios = core.BoolPtr(true)
+	tenantConfigModel.Name = core.StringPtr("testString")
+	tenantConfigModel.Restricted = core.BoolPtr(true)
+	tenantConfigModel.Roles = []string{"testString", "anotherTestString"}
+	tenantConfigModel.TenantID = core.StringPtr("testString")
+
+	// Construct an instance of the UsersPreferences model
+	usersPreferencesModel := new(backuprecoveryv1.UsersPreferences)
+	usersPreferencesModel.Locale = core.StringPtr("testString")
+
+	// Construct an instance of the UserProfile model
+	userProfileModel := new(backuprecoveryv1.UserProfile)
+	userProfileModel.ClusterIdentifiers = []backuprecoveryv1.UserClusterIdentifier{*userClusterIdentifierModel}
+	userProfileModel.IsActive = core.BoolPtr(true)
+	userProfileModel.IsDeleted = core.BoolPtr(true)
+	userProfileModel.RegionIds = []string{"testString", "anotherTestString"}
+	userProfileModel.TenantID = core.StringPtr("testString")
+	userProfileModel.TenantName = core.StringPtr("testString")
+	userProfileModel.TenantType = core.StringPtr("Dmaas")
+
+	// Construct an instance of the SalesforceAccountInfo model
+	salesforceAccountInfoModel := new(backuprecoveryv1.SalesforceAccountInfo)
+	salesforceAccountInfoModel.AccountID = core.StringPtr("testString")
+	salesforceAccountInfoModel.HeliosAccessGrantStatus = core.StringPtr("testString")
+	salesforceAccountInfoModel.IsDGaaSUser = core.BoolPtr(true)
+	salesforceAccountInfoModel.IsDMaaSUser = core.BoolPtr(true)
+	salesforceAccountInfoModel.IsDRaaSUser = core.BoolPtr(true)
+	salesforceAccountInfoModel.IsRPaaSUser = core.BoolPtr(true)
+	salesforceAccountInfoModel.IsSalesUser = core.BoolPtr(true)
+	salesforceAccountInfoModel.IsSupportUser = core.BoolPtr(true)
+	salesforceAccountInfoModel.UserID = core.StringPtr("testString")
+
+	// Construct an instance of the SpogContext model
+	spogContextModel := new(backuprecoveryv1.SpogContext)
+	spogContextModel.PrimaryClusterID = core.Int64Ptr(int64(26))
+	spogContextModel.PrimaryClusterUserSid = core.StringPtr("testString")
+	spogContextModel.PrimaryClusterUsername = core.StringPtr("testString")
+
+	// Construct an instance of the ClassificationInfo model
+	classificationInfoModel := new(backuprecoveryv1.ClassificationInfo)
+	classificationInfoModel.EndDate = core.StringPtr("testString")
+	classificationInfoModel.IsActive = core.BoolPtr(true)
+	classificationInfoModel.IsFreeTrial = core.BoolPtr(true)
+	classificationInfoModel.StartDate = core.StringPtr("testString")
+
+	// Construct an instance of the TieringInfo model
+	tieringInfoModel := new(backuprecoveryv1.TieringInfo)
+	tieringInfoModel.BackendTiering = core.BoolPtr(true)
+	tieringInfoModel.FrontendTiering = core.BoolPtr(true)
+	tieringInfoModel.MaxRetention = core.Int64Ptr(int64(26))
+
+	// Construct an instance of the DataProtectInfo model
+	dataProtectInfoModel := new(backuprecoveryv1.DataProtectInfo)
+	dataProtectInfoModel.EndDate = core.StringPtr("testString")
+	dataProtectInfoModel.IsActive = core.BoolPtr(true)
+	dataProtectInfoModel.IsFreeTrial = core.BoolPtr(true)
+	dataProtectInfoModel.IsAwsSubscription = core.BoolPtr(true)
+	dataProtectInfoModel.IsCohesitySubscription = core.BoolPtr(true)
+	dataProtectInfoModel.Quantity = core.Int64Ptr(int64(26))
+	dataProtectInfoModel.StartDate = core.StringPtr("testString")
+	dataProtectInfoModel.Tiering = tieringInfoModel
+
+	// Construct an instance of the DataProtectAzureInfo model
+	dataProtectAzureInfoModel := new(backuprecoveryv1.DataProtectAzureInfo)
+	dataProtectAzureInfoModel.EndDate = core.StringPtr("testString")
+	dataProtectAzureInfoModel.IsActive = core.BoolPtr(true)
+	dataProtectAzureInfoModel.IsFreeTrial = core.BoolPtr(true)
+	dataProtectAzureInfoModel.Quantity = core.Int64Ptr(int64(26))
+	dataProtectAzureInfoModel.StartDate = core.StringPtr("testString")
+	dataProtectAzureInfoModel.Tiering = tieringInfoModel
+
+	// Construct an instance of the FortKnoxInfo model
+	fortKnoxInfoModel := new(backuprecoveryv1.FortKnoxInfo)
+	fortKnoxInfoModel.EndDate = core.StringPtr("testString")
+	fortKnoxInfoModel.IsActive = core.BoolPtr(true)
+	fortKnoxInfoModel.IsFreeTrial = core.BoolPtr(true)
+	fortKnoxInfoModel.Quantity = core.Int64Ptr(int64(26))
+	fortKnoxInfoModel.StartDate = core.StringPtr("testString")
+
+	// Construct an instance of the SubscriptionInfo model
+	subscriptionInfoModel := new(backuprecoveryv1.SubscriptionInfo)
+	subscriptionInfoModel.Classification = classificationInfoModel
+	subscriptionInfoModel.DataProtect = dataProtectInfoModel
+	subscriptionInfoModel.DataProtectAzure = dataProtectAzureInfoModel
+	subscriptionInfoModel.FortKnoxAzureCool = fortKnoxInfoModel
+	subscriptionInfoModel.FortKnoxAzureHot = fortKnoxInfoModel
+	subscriptionInfoModel.FortKnoxCold = fortKnoxInfoModel
+	subscriptionInfoModel.Ransomware = fortKnoxInfoModel
+	subscriptionInfoModel.SiteContinuity = classificationInfoModel
+	subscriptionInfoModel.ThreatProtection = classificationInfoModel
+
+	// Construct an instance of the TenantAccesses model
+	tenantAccessesModel := new(backuprecoveryv1.TenantAccesses)
+	tenantAccessesModel.ClusterIdentifiers = []backuprecoveryv1.UserClusterIdentifier{*userClusterIdentifierModel}
+	tenantAccessesModel.CreatedTimeMsecs = core.Int64Ptr(int64(26))
+	tenantAccessesModel.EffectiveTimeMsecs = core.Int64Ptr(int64(26))
+	tenantAccessesModel.ExpiredTimeMsecs = core.Int64Ptr(int64(26))
+	tenantAccessesModel.IsAccessActive = core.BoolPtr(true)
+	tenantAccessesModel.IsActive = core.BoolPtr(true)
+	tenantAccessesModel.IsDeleted = core.BoolPtr(true)
+	tenantAccessesModel.LastUpdatedTimeMsecs = core.Int64Ptr(int64(26))
+	tenantAccessesModel.Roles = []string{"testString", "anotherTestString"}
+	tenantAccessesModel.TenantID = core.StringPtr("testString")
+	tenantAccessesModel.TenantName = core.StringPtr("testString")
+	tenantAccessesModel.TenantType = core.StringPtr("Dmaas")
+
+	createdOptions, ok := optionsModel.(*backuprecoveryv1.UpdateUserOptions)
+	Expect(ok).To(Equal(true))
+	Expect(createdOptions.SessionName).To(Equal(core.StringPtr("MTczNjc0NzY1OHxEWDhFQVFMX2dBQUJFQUVRQUFELUFZWF9nQUFKQm5OMGNtbHVad3dLQUFoMWMyVnlibUZ0WlFaemRISnBibWNNQndBRllXUnRhVzRHYzNSeWFXNW5EQWNBQlhKdmJHVnpCbk4wY21sdVp3d1FBQTVEVDBoRlUwbFVXVjlCUkUxSlRnWnpkSEpwYm1jTUN3QUpjMmxrY3kxb1lYTm9Cbk4wY21sdVp3d3RBQ3RTYVV4ZmFqQmZOVGxxZFZJeWVIVlZhREJ2UVZGNlUxcEhTVWc1TlZVdFlVWTBjV1JNUjNaTk9VUTBCbk4wY21sdVp3d01BQXBwYmkxamJIVnpkR1Z5QkdKdmIyd0NBZ0FCQm5OMGNtbHVad3dMQUFsaGRYUm9MWFI1Y0dVR2MzUnlhVzVuREFNQUFURUdjM1J5YVc1bkRCRUFEMlY0Y0dseVlYUnBiMjR0ZEdsdFpRWnpkSEpwYm1jTURBQUtNVGN6Tmpnek5EQTFPQVp6ZEhKcGJtY01DZ0FJZFhObGNpMXphV1FHYzNSeWFXNW5EQ0FBSGxNdE1TMHhNREF0TWpFdE16YzRNVFkyTXpVdE1qUXhPRFk1TXpVdE1RWnpkSEpwYm1jTUNBQUdaRzl0WVdsdUJuTjBjbWx1Wnd3SEFBVk1UME5CVEFaemRISnBibWNNQ0FBR2JHOWpZV3hsQm5OMGNtbHVad3dIQUFWbGJpMTFjdz09fGXFZlPU_3Nl46_gPKAw619qs6Pl7PX453Y_lf5BvBBo")))
+	Expect(ResolveModel(createdOptions.AdUserInfo)).To(Equal(ResolveModel(adUserInfoModel)))
+	Expect(createdOptions.AdditionalGroupNames).To(Equal([]string{"testString", "anotherTestString"}))
+	Expect(createdOptions.AllowDsoModify).To(Equal(core.BoolPtr(true)))
+	Expect(ResolveModel(createdOptions.AuditLogSettings)).To(Equal(ResolveModel(auditLogSettingsModel)))
+	Expect(createdOptions.AuthenticationType).To(Equal(core.StringPtr("kAuthLocal")))
+	Expect(ResolveModel(createdOptions.ClusterIdentifiers)).To(Equal(ResolveModel([]backuprecoveryv1.UserClusterIdentifier{*userClusterIdentifierModel})))
+	Expect(createdOptions.CreatedTimeMsecs).To(Equal(core.Int64Ptr(int64(26))))
+	Expect(createdOptions.CurrentPassword).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.Description).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.Domain).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.EffectiveTimeMsecs).To(Equal(core.Int64Ptr(int64(26))))
+	Expect(createdOptions.EmailAddress).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.ExpiredTimeMsecs).To(Equal(core.Int64Ptr(int64(26))))
+	Expect(createdOptions.ForcePasswordChange).To(Equal(core.BoolPtr(true)))
+	Expect(ResolveModel(createdOptions.GoogleAccount)).To(Equal(ResolveModel(googleAccountInfoModel)))
+	Expect(ResolveModel(createdOptions.IdpUserInfo)).To(Equal(ResolveModel(idpUserInfoModel)))
+	Expect(createdOptions.IntercomMessengerToken).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.IsAccountLocked).To(Equal(core.BoolPtr(true)))
+	Expect(createdOptions.IsActive).To(Equal(core.BoolPtr(true)))
+	Expect(createdOptions.LastSuccessfulLoginTimeMsecs).To(Equal(core.Int64Ptr(int64(26))))
+	Expect(createdOptions.LastUpdatedTimeMsecs).To(Equal(core.Int64Ptr(int64(26))))
+	Expect(ResolveModel(createdOptions.MfaInfo)).To(Equal(ResolveModel(mfaInfoModel)))
+	Expect(createdOptions.MfaMethods).To(Equal([]string{"testString", "anotherTestString"}))
+	Expect(createdOptions.ObjectClass).To(Equal(core.StringPtr("testString")))
+	Expect(ResolveModel(createdOptions.OrgMembership)).To(Equal(ResolveModel([]backuprecoveryv1.TenantConfig{*tenantConfigModel})))
+	Expect(createdOptions.Password).To(Equal(core.StringPtr("testString")))
+	Expect(ResolveModel(createdOptions.Preferences)).To(Equal(ResolveModel(usersPreferencesModel)))
+	Expect(createdOptions.PreviousLoginTimeMsecs).To(Equal(core.Int64Ptr(int64(26))))
+	Expect(createdOptions.PrimaryGroupName).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.PrivilegeIds).To(Equal([]string{"kPrincipalView", "kPrincipalModify", "kAppLaunch", "kAppsManagement", "kOrganizationView", "kOrganizationModify", "kOrganizationImpersonate", "kCloneView", "kCloneModify", "kClusterView", "kClusterModify", "kClusterCreate", "kClusterSupport", "kClusterUpgrade", "kClusterRemoteView", "kClusterRemoteModify", "kClusterExternalTargetView", "kClusterExternalTargetModify", "kClusterAudit", "kAlertView", "kAlertModify", "kVlanView", "kVlanModify", "kHybridExtenderView", "kHybridExtenderDownload", "kAdLdapView", "kAdLdapModify", "kSchedulerView", "kSchedulerModify", "kProtectionView", "kProtectionModify", "kProtectionJobOperate", "kProtectionSourceModify", "kProtectionPolicyView", "kProtectionPolicyModify", "kRestoreView", "kRestoreModify", "kRestoreDownload", "kRemoteRestore", "kStorageView", "kStorageModify", "kStorageDomainView", "kStorageDomainModify", "kAnalyticsView", "kAnalyticsModify", "kReportsView", "kMcmModify", "kDataSecurity", "kSmbBackup", "kSmbRestore", "kSmbTakeOwnership", "kSmbAuditing", "kMcmUnregister", "kMcmUpgrade", "kMcmModifySuperAdmin", "kMcmViewSuperAdmin", "kMcmModifyCohesityAdmin", "kMcmViewCohesityAdmin", "kObjectSearch", "kFileDatalockExpiryTimeDecrease"}))
+	Expect(ResolveModel(createdOptions.Profiles)).To(Equal(ResolveModel([]backuprecoveryv1.UserProfile{*userProfileModel})))
+	Expect(createdOptions.Restricted).To(Equal(core.BoolPtr(true)))
+	Expect(createdOptions.Roles).To(Equal([]string{"testString", "anotherTestString"}))
+	Expect(createdOptions.S3AccessKeyID).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.S3AccountID).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.S3SecretKey).To(Equal(core.StringPtr("testString")))
+	Expect(ResolveModel(createdOptions.SalesforceAccount)).To(Equal(ResolveModel(salesforceAccountInfoModel)))
+	Expect(createdOptions.Sid).To(Equal(core.StringPtr("testString")))
+	Expect(ResolveModel(createdOptions.SpogContext)).To(Equal(ResolveModel(spogContextModel)))
+	Expect(ResolveModel(createdOptions.SubscriptionInfo)).To(Equal(ResolveModel(subscriptionInfoModel)))
+	Expect(ResolveModel(createdOptions.TenantAccesses)).To(Equal(ResolveModel([]backuprecoveryv1.TenantAccesses{*tenantAccessesModel})))
+	Expect(createdOptions.TenantID).To(Equal(core.StringPtr("testString")))
+	Expect(createdOptions.Username).To(Equal(core.StringPtr("testString")))
+	return testing_utilities.GetMockSuccessResponse()
+}
+
+type UpdateUserErrorSender struct{}
+
+func (f UpdateUserErrorSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
 	return testing_utilities.GetMockErrorResponse()
 }
 
@@ -2870,5 +3204,5 @@ func ResolveModel(model interface{}) interface{} {
 
 func CheckAnalyticsHeader(serviceInstance *backuprecoveryv1.BackupRecoveryV1) {
 	header := serviceInstance.Service.DefaultHeaders.Get("X-Original-User-Agent")
-	Expect(header).To(Equal("ibmcloud-backup-recovery-cli/"+version.GetPluginVersion().String()))
+	Expect(header).To(Equal("ibmcloud-backup-recovery-cli/" + version.GetPluginVersion().String()))
 }

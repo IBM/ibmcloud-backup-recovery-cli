@@ -17,12 +17,13 @@
 package backuprecoveryv1_test
 
 import (
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
-	"github.com/spf13/cobra"
 	"ibmcloud-backup-recovery-cli/plugin/commands/backuprecoveryv1"
 	"ibmcloud-backup-recovery-cli/testing_utilities"
 	"os"
+
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/spf13/cobra"
 )
 
 var positiveFakeUtils = testing_utilities.NewPositiveTestUtilities()
@@ -62,7 +63,7 @@ var _ = AfterSuite(func() {
 var _ = Describe("BackupRecoveryV1", func() {
 	// ensure the service instance is newly created during each test
 	BeforeEach(func() {
-	  backuprecoveryv1.ServiceInstance = nil
+		backuprecoveryv1.ServiceInstance = nil
 	})
 
 	Describe("ListProtectionSources", func() {
@@ -2233,6 +2234,41 @@ var _ = Describe("BackupRecoveryV1", func() {
 		})
 	})
 
+	Describe("CreateAccessToken", func() {
+		// put together mock arguments
+		Username := `--username=testString`
+		Password := `--password=testString`
+		Domain := `--domain=testString`
+
+		args := []string{
+			Username,
+			Password,
+			Domain,
+		}
+
+		It("Puts together CreateAccessToken options model", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewCreateAccessTokenCommandRunner(positiveFakeUtils, CreateAccessTokenMockSender{})
+			command := backuprecoveryv1.GetCreateAccessTokenCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+
+		It("Tests error handling for CreateAccessToken", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewCreateAccessTokenCommandRunner(negativeFakeUtils, CreateAccessTokenErrorSender{})
+			command := backuprecoveryv1.GetCreateAccessTokenCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+	})
+
 	Describe("DownloadAgent", func() {
 		// put together mock arguments
 		XIBMTenantID := `--xibm-tenant-id=tenantId`
@@ -2322,6 +2358,95 @@ var _ = Describe("BackupRecoveryV1", func() {
 			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
 			runner := backuprecoveryv1.NewGetConnectorMetadataCommandRunner(negativeFakeUtils, GetConnectorMetadataErrorSender{})
 			command := backuprecoveryv1.GetGetConnectorMetadataCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+	})
+
+	Describe("GetDataSourceConnectorLogs", func() {
+		// put together mock arguments
+
+		args := []string{}
+
+		It("Puts together GetDataSourceConnectorLogs options model", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewGetDataSourceConnectorLogsCommandRunner(positiveFakeUtils, GetDataSourceConnectorLogsMockSender{})
+			command := backuprecoveryv1.GetGetDataSourceConnectorLogsCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+
+		It("Tests error handling for GetDataSourceConnectorLogs", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewGetDataSourceConnectorLogsCommandRunner(negativeFakeUtils, GetDataSourceConnectorLogsErrorSender{})
+			command := backuprecoveryv1.GetGetDataSourceConnectorLogsCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+	})
+
+	Describe("RegisterDataSourceConnector", func() {
+		// put together mock arguments
+		RegistrationToken := `--registration-token=testString`
+		ConnectorID := `--connector-id=26`
+
+		args := []string{
+			RegistrationToken,
+			ConnectorID,
+		}
+
+		It("Puts together RegisterDataSourceConnector options model", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewRegisterDataSourceConnectorCommandRunner(positiveFakeUtils, RegisterDataSourceConnectorMockSender{})
+			command := backuprecoveryv1.GetRegisterDataSourceConnectorCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+
+		It("Tests error handling for RegisterDataSourceConnector", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewRegisterDataSourceConnectorCommandRunner(negativeFakeUtils, RegisterDataSourceConnectorErrorSender{})
+			command := backuprecoveryv1.GetRegisterDataSourceConnectorCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+	})
+
+	Describe("GetDataSourceConnectorStatus", func() {
+		// put together mock arguments
+
+		args := []string{}
+
+		It("Puts together GetDataSourceConnectorStatus options model", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewGetDataSourceConnectorStatusCommandRunner(positiveFakeUtils, GetDataSourceConnectorStatusMockSender{})
+			command := backuprecoveryv1.GetGetDataSourceConnectorStatusCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+
+		It("Tests error handling for GetDataSourceConnectorStatus", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewGetDataSourceConnectorStatusCommandRunner(negativeFakeUtils, GetDataSourceConnectorStatusErrorSender{})
+			command := backuprecoveryv1.GetGetDataSourceConnectorStatusCommand(runner)
 
 			command.SetArgs(args)
 
@@ -2952,6 +3077,336 @@ var _ = Describe("BackupRecoveryV1", func() {
 		})
 	})
 
+	Describe("GetUsers", func() {
+		// put together mock arguments
+		SessionName := `--session-name=MTczNjc0NzY1OHxEWDhFQVFMX2dBQUJFQUVRQUFELUFZWF9nQUFKQm5OMGNtbHVad3dLQUFoMWMyVnlibUZ0WlFaemRISnBibWNNQndBRllXUnRhVzRHYzNSeWFXNW5EQWNBQlhKdmJHVnpCbk4wY21sdVp3d1FBQTVEVDBoRlUwbFVXVjlCUkUxSlRnWnpkSEpwYm1jTUN3QUpjMmxrY3kxb1lYTm9Cbk4wY21sdVp3d3RBQ3RTYVV4ZmFqQmZOVGxxZFZJeWVIVlZhREJ2UVZGNlUxcEhTVWc1TlZVdFlVWTBjV1JNUjNaTk9VUTBCbk4wY21sdVp3d01BQXBwYmkxamJIVnpkR1Z5QkdKdmIyd0NBZ0FCQm5OMGNtbHVad3dMQUFsaGRYUm9MWFI1Y0dVR2MzUnlhVzVuREFNQUFURUdjM1J5YVc1bkRCRUFEMlY0Y0dseVlYUnBiMjR0ZEdsdFpRWnpkSEpwYm1jTURBQUtNVGN6Tmpnek5EQTFPQVp6ZEhKcGJtY01DZ0FJZFhObGNpMXphV1FHYzNSeWFXNW5EQ0FBSGxNdE1TMHhNREF0TWpFdE16YzRNVFkyTXpVdE1qUXhPRFk1TXpVdE1RWnpkSEpwYm1jTUNBQUdaRzl0WVdsdUJuTjBjbWx1Wnd3SEFBVk1UME5CVEFaemRISnBibWNNQ0FBR2JHOWpZV3hsQm5OMGNtbHVad3dIQUFWbGJpMTFjdz09fGXFZlPU_3Nl46_gPKAw619qs6Pl7PX453Y_lf5BvBBo`
+		TenantIds := `--tenant-ids=testString,anotherTestString`
+		AllUnderHierarchy := `--all-under-hierarchy=true`
+		Usernames := `--usernames=testString,anotherTestString`
+		EmailAddresses := `--email-addresses=testString,anotherTestString`
+		Domain := `--domain=testString`
+		PartialMatch := `--partial-match=true`
+
+		args := []string{
+			SessionName,
+			TenantIds,
+			AllUnderHierarchy,
+			Usernames,
+			EmailAddresses,
+			Domain,
+			PartialMatch,
+		}
+
+		It("Puts together GetUsers options model", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewGetUsersCommandRunner(positiveFakeUtils, GetUsersMockSender{})
+			command := backuprecoveryv1.GetGetUsersCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+
+		It("Tests error handling for GetUsers", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewGetUsersCommandRunner(negativeFakeUtils, GetUsersErrorSender{})
+			command := backuprecoveryv1.GetGetUsersCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+	})
+
+	Describe("UpdateUser", func() {
+		// put together mock arguments
+		SessionName := `--session-name=MTczNjc0NzY1OHxEWDhFQVFMX2dBQUJFQUVRQUFELUFZWF9nQUFKQm5OMGNtbHVad3dLQUFoMWMyVnlibUZ0WlFaemRISnBibWNNQndBRllXUnRhVzRHYzNSeWFXNW5EQWNBQlhKdmJHVnpCbk4wY21sdVp3d1FBQTVEVDBoRlUwbFVXVjlCUkUxSlRnWnpkSEpwYm1jTUN3QUpjMmxrY3kxb1lYTm9Cbk4wY21sdVp3d3RBQ3RTYVV4ZmFqQmZOVGxxZFZJeWVIVlZhREJ2UVZGNlUxcEhTVWc1TlZVdFlVWTBjV1JNUjNaTk9VUTBCbk4wY21sdVp3d01BQXBwYmkxamJIVnpkR1Z5QkdKdmIyd0NBZ0FCQm5OMGNtbHVad3dMQUFsaGRYUm9MWFI1Y0dVR2MzUnlhVzVuREFNQUFURUdjM1J5YVc1bkRCRUFEMlY0Y0dseVlYUnBiMjR0ZEdsdFpRWnpkSEpwYm1jTURBQUtNVGN6Tmpnek5EQTFPQVp6ZEhKcGJtY01DZ0FJZFhObGNpMXphV1FHYzNSeWFXNW5EQ0FBSGxNdE1TMHhNREF0TWpFdE16YzRNVFkyTXpVdE1qUXhPRFk1TXpVdE1RWnpkSEpwYm1jTUNBQUdaRzl0WVdsdUJuTjBjbWx1Wnd3SEFBVk1UME5CVEFaemRISnBibWNNQ0FBR2JHOWpZV3hsQm5OMGNtbHVad3dIQUFWbGJpMTFjdz09fGXFZlPU_3Nl46_gPKAw619qs6Pl7PX453Y_lf5BvBBo`
+		AdUserInfo := `--ad-user-info={"groupSids": ["testString","anotherTestString"], "groups": ["testString","anotherTestString"], "isFloatingUser": true}`
+		AdditionalGroupNames := `--additional-group-names=testString,anotherTestString`
+		AllowDsoModify := `--allow-dso-modify=true`
+		AuditLogSettings := `--audit-log-settings={"readLogging": true}`
+		AuthenticationType := `--authentication-type=kAuthLocal`
+		ClusterIdentifiers := `--cluster-identifiers=[{"clusterId": 26, "clusterIncarnationId": 26}]`
+		CreatedTimeMsecs := `--created-time-msecs=26`
+		CurrentPassword := `--current-password=testString`
+		Description := `--description=testString`
+		Domain := `--domain=testString`
+		EffectiveTimeMsecs := `--effective-time-msecs=26`
+		EmailAddress := `--email-address=testString`
+		ExpiredTimeMsecs := `--expired-time-msecs=26`
+		ForcePasswordChange := `--force-password-change=true`
+		GoogleAccount := `--google-account={"accountId": "testString", "userId": "testString"}`
+		IdpUserInfo := `--idp-user-info={"groupSids": ["testString","anotherTestString"], "groups": ["testString","anotherTestString"], "idpId": 26, "isFloatingUser": true, "issuerId": "testString", "userId": "testString", "vendor": "testString"}`
+		IntercomMessengerToken := `--intercom-messenger-token=testString`
+		IsAccountLocked := `--is-account-locked=true`
+		IsActive := `--is-active=true`
+		LastSuccessfulLoginTimeMsecs := `--last-successful-login-time-msecs=26`
+		LastUpdatedTimeMsecs := `--last-updated-time-msecs=26`
+		MfaInfo := `--mfa-info={"isUserExemptFromMfa": true}`
+		MfaMethods := `--mfa-methods=testString,anotherTestString`
+		ObjectClass := `--object-class=testString`
+		OrgMembership := `--org-membership=[{"bifrostEnabled": true, "isManagedOnHelios": true, "name": "testString", "restricted": true, "roles": ["testString","anotherTestString"], "tenantId": "testString"}]`
+		Password := `--password=testString`
+		Preferences := `--preferences={"locale": "testString"}`
+		PreviousLoginTimeMsecs := `--previous-login-time-msecs=26`
+		PrimaryGroupName := `--primary-group-name=testString`
+		PrivilegeIds := `--privilege-ids=kPrincipalView,kPrincipalModify,kAppLaunch,kAppsManagement,kOrganizationView,kOrganizationModify,kOrganizationImpersonate,kCloneView,kCloneModify,kClusterView,kClusterModify,kClusterCreate,kClusterSupport,kClusterUpgrade,kClusterRemoteView,kClusterRemoteModify,kClusterExternalTargetView,kClusterExternalTargetModify,kClusterAudit,kAlertView,kAlertModify,kVlanView,kVlanModify,kHybridExtenderView,kHybridExtenderDownload,kAdLdapView,kAdLdapModify,kSchedulerView,kSchedulerModify,kProtectionView,kProtectionModify,kProtectionJobOperate,kProtectionSourceModify,kProtectionPolicyView,kProtectionPolicyModify,kRestoreView,kRestoreModify,kRestoreDownload,kRemoteRestore,kStorageView,kStorageModify,kStorageDomainView,kStorageDomainModify,kAnalyticsView,kAnalyticsModify,kReportsView,kMcmModify,kDataSecurity,kSmbBackup,kSmbRestore,kSmbTakeOwnership,kSmbAuditing,kMcmUnregister,kMcmUpgrade,kMcmModifySuperAdmin,kMcmViewSuperAdmin,kMcmModifyCohesityAdmin,kMcmViewCohesityAdmin,kObjectSearch,kFileDatalockExpiryTimeDecrease`
+		Profiles := `--profiles=[{"clusterIdentifiers": [{"clusterId": 26, "clusterIncarnationId": 26}], "isActive": true, "isDeleted": true, "regionIds": ["testString","anotherTestString"], "tenantId": "testString", "tenantName": "testString", "tenantType": "Dmaas"}]`
+		Restricted := `--restricted=true`
+		Roles := `--roles=testString,anotherTestString`
+		S3AccessKeyID := `--s3-access-key-id=testString`
+		S3AccountID := `--s3-account-id=testString`
+		S3SecretKey := `--s3-secret-key=testString`
+		SalesforceAccount := `--salesforce-account={"accountId": "testString", "heliosAccessGrantStatus": "testString", "isDGaaSUser": true, "isDMaaSUser": true, "isDRaaSUser": true, "isRPaaSUser": true, "isSalesUser": true, "isSupportUser": true, "userId": "testString"}`
+		Sid := `--sid=testString`
+		SpogContext := `--spog-context={"PrimaryClusterId": 26, "PrimaryClusterUserSid": "testString", "PrimaryClusterUsername": "testString"}`
+		SubscriptionInfo := `--subscription-info={"classification": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "startDate": "testString"}, "dataProtect": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "isAwsSubscription": true, "isCohesitySubscription": true, "quantity": 26, "startDate": "testString", "tiering": {"backendTiering": true, "frontendTiering": true, "maxRetention": 26}}, "dataProtectAzure": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString", "tiering": {"backendTiering": true, "frontendTiering": true, "maxRetention": 26}}, "fortKnoxAzureCool": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "fortKnoxAzureHot": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "fortKnoxCold": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "ransomware": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "siteContinuity": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "startDate": "testString"}, "threatProtection": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "startDate": "testString"}}`
+		TenantAccesses := `--tenant-accesses=[{"clusterIdentifiers": [{"clusterId": 26, "clusterIncarnationId": 26}], "createdTimeMsecs": 26, "effectiveTimeMsecs": 26, "expiredTimeMsecs": 26, "isAccessActive": true, "isActive": true, "isDeleted": true, "lastUpdatedTimeMsecs": 26, "roles": ["testString","anotherTestString"], "tenantId": "testString", "tenantName": "testString", "tenantType": "Dmaas"}]`
+		TenantID := `--tenant-id=testString`
+		Username := `--username=testString`
+
+		args := []string{
+			SessionName,
+			AdUserInfo,
+			AdditionalGroupNames,
+			AllowDsoModify,
+			AuditLogSettings,
+			AuthenticationType,
+			ClusterIdentifiers,
+			CreatedTimeMsecs,
+			CurrentPassword,
+			Description,
+			Domain,
+			EffectiveTimeMsecs,
+			EmailAddress,
+			ExpiredTimeMsecs,
+			ForcePasswordChange,
+			GoogleAccount,
+			IdpUserInfo,
+			IntercomMessengerToken,
+			IsAccountLocked,
+			IsActive,
+			LastSuccessfulLoginTimeMsecs,
+			LastUpdatedTimeMsecs,
+			MfaInfo,
+			MfaMethods,
+			ObjectClass,
+			OrgMembership,
+			Password,
+			Preferences,
+			PreviousLoginTimeMsecs,
+			PrimaryGroupName,
+			PrivilegeIds,
+			Profiles,
+			Restricted,
+			Roles,
+			S3AccessKeyID,
+			S3AccountID,
+			S3SecretKey,
+			SalesforceAccount,
+			Sid,
+			SpogContext,
+			SubscriptionInfo,
+			TenantAccesses,
+			TenantID,
+			Username,
+		}
+
+		It("Puts together UpdateUser options model", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewUpdateUserCommandRunner(positiveFakeUtils, UpdateUserMockSender{})
+			command := backuprecoveryv1.GetUpdateUserCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+
+		It("Reads JSON strings from a file when argument starts with @ symbol", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewUpdateUserCommandRunner(positiveFakeUtils, UpdateUserMockSender{})
+			command := backuprecoveryv1.GetUpdateUserCommand(runner)
+
+			// Set up files for all arguments that support reading a JSON string from a file.
+			defer GinkgoRecover()
+			AdUserInfoContents := []byte(`{"groupSids": ["testString","anotherTestString"], "groups": ["testString","anotherTestString"], "isFloatingUser": true}`)
+			AdUserInfoFileErr := os.WriteFile("tempdir/ad-user-info.json", AdUserInfoContents, 0644)
+			if AdUserInfoFileErr != nil {
+				Fail(AdUserInfoFileErr.Error())
+			}
+			AuditLogSettingsContents := []byte(`{"readLogging": true}`)
+			AuditLogSettingsFileErr := os.WriteFile("tempdir/audit-log-settings.json", AuditLogSettingsContents, 0644)
+			if AuditLogSettingsFileErr != nil {
+				Fail(AuditLogSettingsFileErr.Error())
+			}
+			ClusterIdentifiersContents := []byte(`[{"clusterId": 26, "clusterIncarnationId": 26}]`)
+			ClusterIdentifiersFileErr := os.WriteFile("tempdir/cluster-identifiers.json", ClusterIdentifiersContents, 0644)
+			if ClusterIdentifiersFileErr != nil {
+				Fail(ClusterIdentifiersFileErr.Error())
+			}
+			GoogleAccountContents := []byte(`{"accountId": "testString", "userId": "testString"}`)
+			GoogleAccountFileErr := os.WriteFile("tempdir/google-account.json", GoogleAccountContents, 0644)
+			if GoogleAccountFileErr != nil {
+				Fail(GoogleAccountFileErr.Error())
+			}
+			IdpUserInfoContents := []byte(`{"groupSids": ["testString","anotherTestString"], "groups": ["testString","anotherTestString"], "idpId": 26, "isFloatingUser": true, "issuerId": "testString", "userId": "testString", "vendor": "testString"}`)
+			IdpUserInfoFileErr := os.WriteFile("tempdir/idp-user-info.json", IdpUserInfoContents, 0644)
+			if IdpUserInfoFileErr != nil {
+				Fail(IdpUserInfoFileErr.Error())
+			}
+			MfaInfoContents := []byte(`{"isUserExemptFromMfa": true}`)
+			MfaInfoFileErr := os.WriteFile("tempdir/mfa-info.json", MfaInfoContents, 0644)
+			if MfaInfoFileErr != nil {
+				Fail(MfaInfoFileErr.Error())
+			}
+			OrgMembershipContents := []byte(`[{"bifrostEnabled": true, "isManagedOnHelios": true, "name": "testString", "restricted": true, "roles": ["testString","anotherTestString"], "tenantId": "testString"}]`)
+			OrgMembershipFileErr := os.WriteFile("tempdir/org-membership.json", OrgMembershipContents, 0644)
+			if OrgMembershipFileErr != nil {
+				Fail(OrgMembershipFileErr.Error())
+			}
+			PreferencesContents := []byte(`{"locale": "testString"}`)
+			PreferencesFileErr := os.WriteFile("tempdir/preferences.json", PreferencesContents, 0644)
+			if PreferencesFileErr != nil {
+				Fail(PreferencesFileErr.Error())
+			}
+			ProfilesContents := []byte(`[{"clusterIdentifiers": [{"clusterId": 26, "clusterIncarnationId": 26}], "isActive": true, "isDeleted": true, "regionIds": ["testString","anotherTestString"], "tenantId": "testString", "tenantName": "testString", "tenantType": "Dmaas"}]`)
+			ProfilesFileErr := os.WriteFile("tempdir/profiles.json", ProfilesContents, 0644)
+			if ProfilesFileErr != nil {
+				Fail(ProfilesFileErr.Error())
+			}
+			SalesforceAccountContents := []byte(`{"accountId": "testString", "heliosAccessGrantStatus": "testString", "isDGaaSUser": true, "isDMaaSUser": true, "isDRaaSUser": true, "isRPaaSUser": true, "isSalesUser": true, "isSupportUser": true, "userId": "testString"}`)
+			SalesforceAccountFileErr := os.WriteFile("tempdir/salesforce-account.json", SalesforceAccountContents, 0644)
+			if SalesforceAccountFileErr != nil {
+				Fail(SalesforceAccountFileErr.Error())
+			}
+			SpogContextContents := []byte(`{"PrimaryClusterId": 26, "PrimaryClusterUserSid": "testString", "PrimaryClusterUsername": "testString"}`)
+			SpogContextFileErr := os.WriteFile("tempdir/spog-context.json", SpogContextContents, 0644)
+			if SpogContextFileErr != nil {
+				Fail(SpogContextFileErr.Error())
+			}
+			SubscriptionInfoContents := []byte(`{"classification": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "startDate": "testString"}, "dataProtect": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "isAwsSubscription": true, "isCohesitySubscription": true, "quantity": 26, "startDate": "testString", "tiering": {"backendTiering": true, "frontendTiering": true, "maxRetention": 26}}, "dataProtectAzure": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString", "tiering": {"backendTiering": true, "frontendTiering": true, "maxRetention": 26}}, "fortKnoxAzureCool": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "fortKnoxAzureHot": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "fortKnoxCold": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "ransomware": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "quantity": 26, "startDate": "testString"}, "siteContinuity": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "startDate": "testString"}, "threatProtection": {"endDate": "testString", "isActive": true, "isFreeTrial": true, "startDate": "testString"}}`)
+			SubscriptionInfoFileErr := os.WriteFile("tempdir/subscription-info.json", SubscriptionInfoContents, 0644)
+			if SubscriptionInfoFileErr != nil {
+				Fail(SubscriptionInfoFileErr.Error())
+			}
+			TenantAccessesContents := []byte(`[{"clusterIdentifiers": [{"clusterId": 26, "clusterIncarnationId": 26}], "createdTimeMsecs": 26, "effectiveTimeMsecs": 26, "expiredTimeMsecs": 26, "isAccessActive": true, "isActive": true, "isDeleted": true, "lastUpdatedTimeMsecs": 26, "roles": ["testString","anotherTestString"], "tenantId": "testString", "tenantName": "testString", "tenantType": "Dmaas"}]`)
+			TenantAccessesFileErr := os.WriteFile("tempdir/tenant-accesses.json", TenantAccessesContents, 0644)
+			if TenantAccessesFileErr != nil {
+				Fail(TenantAccessesFileErr.Error())
+			}
+
+			SessionName := `--session-name=MTczNjc0NzY1OHxEWDhFQVFMX2dBQUJFQUVRQUFELUFZWF9nQUFKQm5OMGNtbHVad3dLQUFoMWMyVnlibUZ0WlFaemRISnBibWNNQndBRllXUnRhVzRHYzNSeWFXNW5EQWNBQlhKdmJHVnpCbk4wY21sdVp3d1FBQTVEVDBoRlUwbFVXVjlCUkUxSlRnWnpkSEpwYm1jTUN3QUpjMmxrY3kxb1lYTm9Cbk4wY21sdVp3d3RBQ3RTYVV4ZmFqQmZOVGxxZFZJeWVIVlZhREJ2UVZGNlUxcEhTVWc1TlZVdFlVWTBjV1JNUjNaTk9VUTBCbk4wY21sdVp3d01BQXBwYmkxamJIVnpkR1Z5QkdKdmIyd0NBZ0FCQm5OMGNtbHVad3dMQUFsaGRYUm9MWFI1Y0dVR2MzUnlhVzVuREFNQUFURUdjM1J5YVc1bkRCRUFEMlY0Y0dseVlYUnBiMjR0ZEdsdFpRWnpkSEpwYm1jTURBQUtNVGN6Tmpnek5EQTFPQVp6ZEhKcGJtY01DZ0FJZFhObGNpMXphV1FHYzNSeWFXNW5EQ0FBSGxNdE1TMHhNREF0TWpFdE16YzRNVFkyTXpVdE1qUXhPRFk1TXpVdE1RWnpkSEpwYm1jTUNBQUdaRzl0WVdsdUJuTjBjbWx1Wnd3SEFBVk1UME5CVEFaemRISnBibWNNQ0FBR2JHOWpZV3hsQm5OMGNtbHVad3dIQUFWbGJpMTFjdz09fGXFZlPU_3Nl46_gPKAw619qs6Pl7PX453Y_lf5BvBBo`
+			AdUserInfo := `--ad-user-info=@tempdir/ad-user-info.json`
+			AdditionalGroupNames := `--additional-group-names=testString,anotherTestString`
+			AllowDsoModify := `--allow-dso-modify=true`
+			AuditLogSettings := `--audit-log-settings=@tempdir/audit-log-settings.json`
+			AuthenticationType := `--authentication-type=kAuthLocal`
+			ClusterIdentifiers := `--cluster-identifiers=@tempdir/cluster-identifiers.json`
+			CreatedTimeMsecs := `--created-time-msecs=26`
+			CurrentPassword := `--current-password=testString`
+			Description := `--description=testString`
+			Domain := `--domain=testString`
+			EffectiveTimeMsecs := `--effective-time-msecs=26`
+			EmailAddress := `--email-address=testString`
+			ExpiredTimeMsecs := `--expired-time-msecs=26`
+			ForcePasswordChange := `--force-password-change=true`
+			GoogleAccount := `--google-account=@tempdir/google-account.json`
+			IdpUserInfo := `--idp-user-info=@tempdir/idp-user-info.json`
+			IntercomMessengerToken := `--intercom-messenger-token=testString`
+			IsAccountLocked := `--is-account-locked=true`
+			IsActive := `--is-active=true`
+			LastSuccessfulLoginTimeMsecs := `--last-successful-login-time-msecs=26`
+			LastUpdatedTimeMsecs := `--last-updated-time-msecs=26`
+			MfaInfo := `--mfa-info=@tempdir/mfa-info.json`
+			MfaMethods := `--mfa-methods=testString,anotherTestString`
+			ObjectClass := `--object-class=testString`
+			OrgMembership := `--org-membership=@tempdir/org-membership.json`
+			Password := `--password=testString`
+			Preferences := `--preferences=@tempdir/preferences.json`
+			PreviousLoginTimeMsecs := `--previous-login-time-msecs=26`
+			PrimaryGroupName := `--primary-group-name=testString`
+			PrivilegeIds := `--privilege-ids=kPrincipalView,kPrincipalModify,kAppLaunch,kAppsManagement,kOrganizationView,kOrganizationModify,kOrganizationImpersonate,kCloneView,kCloneModify,kClusterView,kClusterModify,kClusterCreate,kClusterSupport,kClusterUpgrade,kClusterRemoteView,kClusterRemoteModify,kClusterExternalTargetView,kClusterExternalTargetModify,kClusterAudit,kAlertView,kAlertModify,kVlanView,kVlanModify,kHybridExtenderView,kHybridExtenderDownload,kAdLdapView,kAdLdapModify,kSchedulerView,kSchedulerModify,kProtectionView,kProtectionModify,kProtectionJobOperate,kProtectionSourceModify,kProtectionPolicyView,kProtectionPolicyModify,kRestoreView,kRestoreModify,kRestoreDownload,kRemoteRestore,kStorageView,kStorageModify,kStorageDomainView,kStorageDomainModify,kAnalyticsView,kAnalyticsModify,kReportsView,kMcmModify,kDataSecurity,kSmbBackup,kSmbRestore,kSmbTakeOwnership,kSmbAuditing,kMcmUnregister,kMcmUpgrade,kMcmModifySuperAdmin,kMcmViewSuperAdmin,kMcmModifyCohesityAdmin,kMcmViewCohesityAdmin,kObjectSearch,kFileDatalockExpiryTimeDecrease`
+			Profiles := `--profiles=@tempdir/profiles.json`
+			Restricted := `--restricted=true`
+			Roles := `--roles=testString,anotherTestString`
+			S3AccessKeyID := `--s3-access-key-id=testString`
+			S3AccountID := `--s3-account-id=testString`
+			S3SecretKey := `--s3-secret-key=testString`
+			SalesforceAccount := `--salesforce-account=@tempdir/salesforce-account.json`
+			Sid := `--sid=testString`
+			SpogContext := `--spog-context=@tempdir/spog-context.json`
+			SubscriptionInfo := `--subscription-info=@tempdir/subscription-info.json`
+			TenantAccesses := `--tenant-accesses=@tempdir/tenant-accesses.json`
+			TenantID := `--tenant-id=testString`
+			Username := `--username=testString`
+
+			argsWithFiles := []string{
+				SessionName,
+				AdUserInfo,
+				AdditionalGroupNames,
+				AllowDsoModify,
+				AuditLogSettings,
+				AuthenticationType,
+				ClusterIdentifiers,
+				CreatedTimeMsecs,
+				CurrentPassword,
+				Description,
+				Domain,
+				EffectiveTimeMsecs,
+				EmailAddress,
+				ExpiredTimeMsecs,
+				ForcePasswordChange,
+				GoogleAccount,
+				IdpUserInfo,
+				IntercomMessengerToken,
+				IsAccountLocked,
+				IsActive,
+				LastSuccessfulLoginTimeMsecs,
+				LastUpdatedTimeMsecs,
+				MfaInfo,
+				MfaMethods,
+				ObjectClass,
+				OrgMembership,
+				Password,
+				Preferences,
+				PreviousLoginTimeMsecs,
+				PrimaryGroupName,
+				PrivilegeIds,
+				Profiles,
+				Restricted,
+				Roles,
+				S3AccessKeyID,
+				S3AccountID,
+				S3SecretKey,
+				SalesforceAccount,
+				Sid,
+				SpogContext,
+				SubscriptionInfo,
+				TenantAccesses,
+				TenantID,
+				Username,
+			}
+			command.SetArgs(argsWithFiles)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+
+		It("Tests error handling for UpdateUser", func() {
+			backuprecoveryv1.Service = &testing_utilities.TestServiceCommandHelper{}
+			runner := backuprecoveryv1.NewUpdateUserCommandRunner(negativeFakeUtils, UpdateUserErrorSender{})
+			command := backuprecoveryv1.GetUpdateUserCommand(runner)
+
+			command.SetArgs(args)
+
+			_, err := command.ExecuteC()
+			Expect(err).To(BeNil())
+		})
+	})
+
 	// Test the Service Command Getter
 	It("Gets the parent command for BackupRecoveryV1", func() {
 		backuprecoveryv1.InitializeService(positiveFakeUtils)
@@ -2983,6 +3438,7 @@ var _ = Describe("BackupRecoveryV1", func() {
 		backuprecoveryv1.InitializeService(positiveFakeUtils)
 		// set the url in the environment to verify that the flag overrides this value
 		os.Setenv("BACKUP_RECOVERY_URL", "override-this.com/api")
+		os.Setenv("BACKUP_RECOVERY_CONNECTOR_URL", "override-this.com/api")
 
 		// put together mock arguments
 		ServiceURL := "--service-url=https://ibm.cloud.com/my-api"

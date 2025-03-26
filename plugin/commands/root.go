@@ -18,14 +18,15 @@ package commands
 
 import (
 	"errors"
-	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
-	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
-	"github.com/spf13/cobra"
 	translation "ibmcloud-backup-recovery-cli/i18n"
 	"ibmcloud-backup-recovery-cli/plugin/commands/backuprecoveryv1"
 	"ibmcloud-backup-recovery-cli/plugin/version"
 	"ibmcloud-backup-recovery-cli/utils"
 	"strings"
+
+	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
+	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
+	"github.com/spf13/cobra"
 )
 
 var u *utils.Utils
@@ -235,9 +236,9 @@ func GetNamespaceAndCommandMetadata(rootNamespace string) (n []plugin.Namespace,
 	// define root namespace metadata
 	n = []plugin.Namespace{
 		{
-			Name: rootNamespace,
+			Name:        rootNamespace,
 			Description: translation.T("backup-recovery-short-description"),
-			Aliases: pluginAliases,
+			Aliases:     pluginAliases,
 		},
 	}
 

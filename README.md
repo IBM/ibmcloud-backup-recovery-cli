@@ -41,24 +41,30 @@ USAGE:
   ibmcloud backup-recovery [command] [options]
 
 COMMANDS:
-  agent-download             Download agent.
-  agent-upgrade-task         Commands for AgentUpgradeTask resource.
-  config                     Control persistent configuration.
-  connector-metadata-get     Get information about the available connectors.
-  data-source-connection     Commands for DataSourceConnection resource.
-  data-source-connector      Commands for DataSourceConnector resource.
-  download-recovery-create   Create a download files and folders recovery.
-  indexed-file-download      Download an indexed file.
-  indexed-objects-search     List indexed objects.
-  object-snapshots-list      List the snapshots for a given object.
-  objects-search             List Objects.
-  protected-objects-search   List Protected Objects.
-  protection-group           Commands for ProtectionGroup resource.
-  protection-group-run       Commands for ProtectionGroupRun resource.
-  protection-policy          Commands for ProtectionPolicy resource.
-  protection-source          Commands for ProtectionSource resource.
-  recovery                   Commands for Recovery resource.
-  restore-points             List Restore Points in a given time range.
+  agent-download                  Download agent.
+  agent-upgrade-task              Commands for AgentUpgradeTask resource.
+  config                          Control persistent configuration.
+  connector-metadata-get          Get information about the available connectors.
+  access-token-create             Get connector access token.
+  data-source-connection          Commands for DataSourceConnection resource.
+  data-source-connector           Commands for DataSourceConnector resource.
+  data-source-connector-logs      Get connector logs.
+  data-source-connector-register  Register connector.
+  data-source-connector-status    Get connector status.
+  download-recovery-create        Create a download files and folders recovery.
+  indexed-file-download           Download an indexed file.
+  indexed-objects-search          List indexed objects.
+  object-snapshots-list           List the snapshots for a given object.
+  objects-search                  List Objects.
+  protected-objects-search        List Protected Objects.
+  protection-group                Commands for ProtectionGroup resource.
+  protection-group-run            Commands for ProtectionGroupRun resource.
+  protection-policy               Commands for ProtectionPolicy resource.
+  protection-source               Commands for ProtectionSource resource.
+  recovery                        Commands for Recovery resource.
+  restore-points                  List Restore Points in a given time range.
+  user-update                     Update connector user.
+  users                           Get connector users.
 
 OPTIONS:
   -h, --help      Show help

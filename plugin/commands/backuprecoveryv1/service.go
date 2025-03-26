@@ -17,14 +17,15 @@
 package backuprecoveryv1
 
 import (
+	translation "ibmcloud-backup-recovery-cli/i18n"
+	"io"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/go-sdk-core/v5/core"
 	"github.com/IBM/ibm-backup-recovery-sdk-go/backuprecoveryv1"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
-	translation "ibmcloud-backup-recovery-cli/i18n"
-	"io"
 )
 
 type Utilities interface {
@@ -65,28 +66,31 @@ type Utilities interface {
 }
 
 var ServiceInstance *backuprecoveryv1.BackupRecoveryV1
+var ConnectorServiceInstance *backuprecoveryv1.BackupRecoveryV1Connector
 
 type BackupRecoveryV1CommandHelper struct {
-	ServiceURL string
+	ServiceURL    string
+	ConnectorURL  string
 	RequiredFlags []string
-	utils Utilities
+	utils         Utilities
 }
 
 type ServiceCommandHelper interface {
 	InitializeServiceInstance(*pflag.FlagSet)
+	InitializeConnectorServiceInstance(*pflag.FlagSet)
 }
 
 var Service ServiceCommandHelper
 
 var serviceErrors = map[string]string{
-	"badURL": translation.T("backup-recovery-bad-url-error-message"),
+	"badURL":          translation.T("backup-recovery-bad-url-error-message"),
+	"badConnectorURL": translation.T("backup-recovery-bad-connector-url-error-message"),
 }
 
 // add a function to return the super-command
 func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 	InitializeService(utils)
 	localService := Service.(*BackupRecoveryV1CommandHelper) // convert variable for local use
-
 	serviceCommands := []*cobra.Command{
 		GetProtectionSourceGroup(utils),
 		GetAgentUpgradeTaskGroup(utils),
@@ -96,8 +100,12 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 		GetRecoveryGroup(utils),
 		GetDataSourceConnectionGroup(utils),
 		GetDataSourceConnectorGroup(utils),
+		GetCreateAccessTokenCommand(NewCreateAccessTokenCommandRunner(utils, CreateAccessTokenRequestSender{})),
 		GetDownloadAgentCommand(NewDownloadAgentCommandRunner(utils, DownloadAgentRequestSender{})),
 		GetGetConnectorMetadataCommand(NewGetConnectorMetadataCommandRunner(utils, GetConnectorMetadataRequestSender{})),
+		GetGetDataSourceConnectorLogsCommand(NewGetDataSourceConnectorLogsCommandRunner(utils, GetDataSourceConnectorLogsRequestSender{})),
+		GetRegisterDataSourceConnectorCommand(NewRegisterDataSourceConnectorCommandRunner(utils, RegisterDataSourceConnectorRequestSender{})),
+		GetGetDataSourceConnectorStatusCommand(NewGetDataSourceConnectorStatusCommandRunner(utils, GetDataSourceConnectorStatusRequestSender{})),
 		GetGetObjectSnapshotsCommand(NewGetObjectSnapshotsCommandRunner(utils, GetObjectSnapshotsRequestSender{})),
 		GetCreateDownloadFilesAndFoldersRecoveryCommand(NewCreateDownloadFilesAndFoldersRecoveryCommandRunner(utils, CreateDownloadFilesAndFoldersRecoveryRequestSender{})),
 		GetGetRestorePointsInTimeRangeCommand(NewGetRestorePointsInTimeRangeCommandRunner(utils, GetRestorePointsInTimeRangeRequestSender{})),
@@ -105,13 +113,15 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 		GetSearchIndexedObjectsCommand(NewSearchIndexedObjectsCommandRunner(utils, SearchIndexedObjectsRequestSender{})),
 		GetSearchObjectsCommand(NewSearchObjectsCommandRunner(utils, SearchObjectsRequestSender{})),
 		GetSearchProtectedObjectsCommand(NewSearchProtectedObjectsCommandRunner(utils, SearchProtectedObjectsRequestSender{})),
+		GetGetUsersCommand(NewGetUsersCommandRunner(utils, GetUsersRequestSender{})),
+		GetUpdateUserCommand(NewUpdateUserCommandRunner(utils, UpdateUserRequestSender{})),
 		GetConfigCommand(NewConfigCommandRunner(utils)),
 	}
 
 	backupRecoveryCommand := &cobra.Command{
-		Use: "backup-recovery [command] [options]",
-		Short: translation.T("backup-recovery-short-description"),
-		Long: translation.T("backup-recovery-long-description"),
+		Use:                   "backup-recovery [command] [options]",
+		Short:                 translation.T("backup-recovery-short-description"),
+		Long:                  translation.T("backup-recovery-long-description"),
 		DisableFlagsInUseLine: true,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			// ignore the error passed here - it just checks for a faulty implementation of the quiet flag
@@ -127,10 +137,10 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 	backupRecoveryCommand.PersistentFlags().StringVar(utils.ExposeOutputFormatVar(), "output", "table", translation.T("output-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().StringVarP(utils.ExposeJMESQueryVar(), "jmes-query", "j", "", translation.T("jmes-query-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ServiceURL, "service-url", "", translation.T("service-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ConnectorURL, "connector-service-url", "", translation.T("connector-service-url-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().BoolP("quiet", "q", false, translation.T("quiet-global-flag-description"))
 
 	backupRecoveryCommand.AddCommand(serviceCommands...)
-
 	return backupRecoveryCommand
 }
 
