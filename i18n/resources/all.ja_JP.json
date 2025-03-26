@@ -1,0 +1,3290 @@
+[
+  {
+    "id": "additional-help-topics-header-help-menu",
+    "translation": "追加ヘルプ・トピック"
+  },
+  {
+    "id": "aliases-header-help-menu",
+    "translation": "別名"
+  },
+  {
+    "id": "backup-recovery-agent-download-command-long-description",
+    "translation": "異なるホスト用のダウンロード・エージェント。"
+  },
+  {
+    "id": "backup-recovery-agent-download-command-short-description",
+    "translation": "ダウンロード・エージェント"
+  },
+  {
+    "id": "backup-recovery-agent-download-linux-params-flag-description",
+    "translation": "Linux エージェントのパラメータ。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-agent-download-linux-params-package-type-flag-description",
+    "translation": "インストーラーのタイプを指定します。 使用可能な値は、kScript、kRPM、kSuseRPM、kDEB、kPowerPCRPM です。"
+  },
+  {
+    "id": "backup-recovery-agent-download-platform-flag-description",
+    "translation": "必須。 エージェントをダウンロードするプラットフォームを指定します。 使用可能な値は、kWindows、kLinux です。"
+  },
+  {
+    "id": "backup-recovery-agent-download-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-agent-ids-flag-description",
+    "translation": "タスクでアップグレードするエージェント ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-command-long-description",
+    "translation": "スケジュール・ベースのエージェント・アップグレード・タスクを作成します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-command-short-description",
+    "translation": "アップグレード・タスクを作成します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-description-flag-description",
+    "translation": "タスクの説明を指定します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-name-flag-description",
+    "translation": "タスクの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-retry-task-id-flag-description",
+    "translation": "再試行が必要なタスクを指定します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-schedule-end-time-usecs-flag-description",
+    "translation": "アップグレード・タスクが実行を開始するまでの時間を Unix エポック・タイムスタンプ (マイクロ秒単位) で指定します。 これが指定されない場合、タスクは scheduleTimeUsecs の後いつでも開始されます。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-schedule-time-usecs-flag-description",
+    "translation": "ユーザーが指定したタスクの開始時刻を Unix エポック・タイムスタンプ (マイクロ秒単位) で指定します。 スケジュールが指定されていない場合、エージェントは直ちにアップグレードされます。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-group-long-description",
+    "translation": "AgentUpgradeTask リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-group-short-description",
+    "translation": "AgentUpgradeTask リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-command-long-description",
+    "translation": "エージェントのアップグレード・タスクのリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-command-short-description",
+    "translation": "アップグレード・タスクを取得します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-ids-flag-description",
+    "translation": "フェッチするタスクの ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-bad-url-error-message",
+    "translation": "無効な URL: BACKUP_RECOVERY_URL 環境変数または資格情報ファイルのキーでベース URL を設定します。"
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-command-long-description",
+    "translation": "利用可能なコネクタに関する情報を取得します。"
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-command-short-description",
+    "translation": "利用可能なコネクタに関する情報を取得します。"
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-command-long-description",
+    "translation": "ソースの登録と保護、ファイラー・サービスへのアクセスなどに使用できるデータ・ソース接続を作成します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-command-short-description",
+    "translation": "データ・ソース接続を作成します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-connection-name-flag-description",
+    "translation": "必須。 作成する接続の名前を指定します。 特定のテナントについて、異なる接続が同じ名前を持つことはできません。 しかし、2つ (またはそれ以上) の異なるテナントが、それぞれ同じ名前の接続を持つことができます。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-xibm-tenant-id-flag-description",
+    "translation": "クラスタにアクセスしているテナントの ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-command-long-description",
+    "translation": "ID を使用してデータ・ソース接続を削除します。 接続を削除する後、その中にあるコネクタはクラスタに接続できなくなります。 接続の削除は、その接続を使用しているソースがないことを確認した後にのみ行います。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-command-short-description",
+    "translation": "要求パスの ID で指定されたデータ・ソース接続を削除します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-connection-id-flag-description",
+    "translation": "必須。 接続の ID を指定し、その接続に属するコネクタをフェッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-group-long-description",
+    "translation": "DataSourceConnection リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-group-short-description",
+    "translation": "DataSourceConnection リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-command-long-description",
+    "translation": "指定されたすべてのデータ・ソース接続を取得します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-command-short-description",
+    "translation": "データ・ソースの接続を取得します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-connection-ids-flag-description",
+    "translation": "フェッチする接続の固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-connection-names-flag-description",
+    "translation": "フェッチする接続の名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-command-long-description",
+    "translation": "要求パスの ID で指定されたデータ・ソース接続をパッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-command-short-description",
+    "translation": "ID を使用してデータ・ソース接続をパッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-connection-id-flag-description",
+    "translation": "必須。 接続の ID を指定し、その接続に属するコネクタをフェッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-connection-name-flag-description",
+    "translation": "必須。 パッチを当てる接続の新しい名前。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-command-long-description",
+    "translation": "要求パスの ID で指定されたデータ・ソース接続に対してコネクタを登録するためのトークンを生成します。 トークンが有効である限り、同じトークンを使用して複数のコネクタを登録できます。 トークンの有効期限が切れたら (通常は 1 日以内)、この API を再度叩いて別のトークンを生成することができます。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-command-short-description",
+    "translation": "データ・ソース接続の登録トークンを生成します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-connection-id-flag-description",
+    "translation": "必須。 接続の ID を指定し、その接続に属するコネクタをフェッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-command-long-description",
+    "translation": "要求パスの ID で指定されたデータ・ソース・コネクタを削除します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-command-short-description",
+    "translation": "ID を使用したデータ・ソース・ コネクタを削除します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
+    "translation": "必須。 削除するコネクタの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-group-long-description",
+    "translation": "DataSourceConnector リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-group-short-description",
+    "translation": "DataSourceConnector リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-command-long-description",
+    "translation": "指定されたすべてのデータ・ソース・ コネクタを取得します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-command-short-description",
+    "translation": "データ・ソース・ コネクタを取得します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connection-id-flag-description",
+    "translation": "接続の ID を指定し、その接続に属するコネクタをフェッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connector-ids-flag-description",
+    "translation": "フェッチするコネクタの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connector-names-flag-description",
+    "translation": "フェッチするコネクタの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-command-long-description",
+    "translation": "要求パスの ID で指定されたデータ・ソース・ コネクタをパッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-command-short-description",
+    "translation": "ID を使用したデータ・ソース・ コネクタをパッチします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-connector-id-flag-description",
+    "translation": "必須。 削除するコネクタの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
+    "translation": "コネクタの名前。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-command-long-description",
+    "translation": "ダウンロード・ファイルとフォルダの復旧を作成します。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-command-short-description",
+    "translation": "ダウンロード・ァイルとフォルダの復旧を作成します。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-documents-flag-description",
+    "translation": "項目 ID を使ってダウンロードするドキュメントのリストを指定します。 filesAndFolders またはドキュメントのうち 1 つだけを使用する必要があります。 現在、ドキュメントでサポートされているのはファイルのみです。 JSONファイルへのパスを指定することもできます。 最小長は1項目です。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-files-and-folders-flag-description",
+    "translation": "必須。 ダウンロードするファイルとフォルダのリストを指定します。 JSONファイルへのパスを指定することもできます。 最小長は1項目です。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-glacier-retrieval-type-flag-description",
+    "translation": "Glacier ベースのクラウド・スナップショットからファイルまたはフォルダをリストアまたはダウンロードする際に、Glacier 検索タイプを指定します。 使用可能な値は、kStandard、kExpeditedNoPCU、kExpeditedWithPCU です。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-name-flag-description",
+    "translation": "必須。 復旧タスクの名前を指定します。 このフィールドは必ず設定し、固有な名前でなければなりません。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-flag-description",
+    "translation": "保護されたオブジェクトの共通スナップショット・パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-point-in-time-usecs-flag-description",
+    "translation": "タイムスタンプを指定する (単位はマイクロ秒。 エポックから) 過去のある時点までリカバリーします。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-protection-group-id-flag-description",
+    "translation": "オブジェクト・スナップショットの保護グループ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-protection-group-name-flag-description",
+    "translation": "オブジェクト・スナップショットの保護グループ名を指定します。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-recover-from-standby-flag-description",
+    "translation": "このオブジェクトでスタンバイ・リストアが有効になっている場合、ユーザがスタンバイ・リストアを実行したいことを指定します。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-snapshot-id-flag-description",
+    "translation": "スナップショット ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-parent-recovery-id-flag-description",
+    "translation": "現在の復旧が別の親復旧操作によってトリガーされた子タスクである場合、このフィールドは親復旧の ID を指定します。 "
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-command-long-description",
+    "translation": "スナップショットからインデックス付きファイルをダウンロードします。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-command-short-description",
+    "translation": "インデックス付きファイルをダウンロードします。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-file-path-flag-description",
+    "translation": "ダウンロードするファイルのパスを指定します。 パスが指定されておらず、スナップショット環境が kVMWare の場合、VMware 用の VMX ファイルがダウンロードされます。 その他のスナップショット環境では、このフィールドを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-length-flag-description",
+    "translation": "ダウンロードするバイト数を指定します。 これは 8MB (8388608 バイト) を超えることはできません。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-nvram-file-flag-description",
+    "translation": "VMware 用の NVRAM ファイルをダウンロードするかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-retry-attempt-flag-description",
+    "translation": "保護実行がこのファイルを作成するために試行した回数を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-snapshots-id-flag-description",
+    "translation": "必須。 ダウンロード元のスナップショット ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-start-offset-flag-description",
+    "translation": "ダウンロードするファイル・チャンクの開始オフセットを指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-cassandra-object-types-flag-description",
+    "translation": "検索する 一つ以上の Cassandra オブジェクト・タイプを指定します。 許可されるリスト項目は、CassandraKeyspaces、CassandraTables です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-flag-description",
+    "translation": "クラスター上の Cassandra を検索するために必要なパラメーター。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-search-string-flag-description",
+    "translation": "Cassandra オブジェクトを検索する検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-command-long-description",
+    "translation": "ファイルやフォルダ、電子メール、メールボックスなど、すべてのインデックス付きオブジェクトを一覧表示し、 保護されたオブジェクトから、指定された検索条件とフィルタ条件に一致するもの。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-command-short-description",
+    "translation": "インデックス付きオブジェクトをリストします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-couchbase-object-types-flag-description",
+    "translation": "検索する Couchbase オブジェクト・タイプを指定します。 Couchbase の場合は、「CouchbaseBuckets」にのみ設定できます。 許可されるリスト項目は、CouchbaseBuckets です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-flag-description",
+    "translation": "クラスタ上で CouchBase を検索するために必要なパラメータ。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-search-string-flag-description",
+    "translation": "Couchbase オブジェクトを検索する検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-count-flag-description",
+    "translation": "指定されたページネーション・クッキーに対してフェッチされるインデックス付きオブジェクトの数を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-attendees-addresses-flag-description",
+    "translation": "指定した電子メール・アドレスを出席者として持つカレンダー項目をフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-bcc-recipient-addresses-flag-description",
+    "translation": "BCC で指定した電子メール・アドレスに送信されるメールをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-cc-recipient-addresses-flag-description",
+    "translation": "CC に指定した電子メール・アドレスに送信されるメールをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-created-end-time-secs-flag-description",
+    "translation": "電子メール/項目の作成時刻が指定した値より小さい場合、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-created-start-time-secs-flag-description",
+    "translation": "電子メール/項目の作成時刻が指定した値以上である場合、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-due-date-end-time-secs-flag-description",
+    "translation": "電子メール/項目の最終更新時刻が指定した値より小さい場合、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-due-date-start-time-secs-flag-description",
+    "translation": "電子メール/項目の最終更新時刻が指定した値以上である場合、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-email-address-flag-description",
+    "translation": "電子メール・アドレスに指定した文字列が含まれるコンタクト項目をフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-email-subject-flag-description",
+    "translation": "件名に指定したテキストを含む電子メールをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-first-name-flag-description",
+    "translation": "名前に指定したテキストを含む連絡先をフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-flag-description",
+    "translation": "電子メールおよび電子メール・フォルダを検索するための要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-folder-names-flag-description",
+    "translation": "指定したフォルダに分類された電子メールをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-has-attachment-flag-description",
+    "translation": "添付ファイルのある電子メールをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-modified-end-time-secs-flag-description",
+    "translation": "電子メール/項目の最終更新時刻が指定した値より小さい場合、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-modified-start-time-secs-flag-description",
+    "translation": "電子メール/項目の最終更新時刻が指定した値以上である場合、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-name-flag-description",
+    "translation": "姓に指定した文字列を含む連絡先をフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-middle-name-flag-description",
+    "translation": "ミドルネームに指定した文字列を含む連絡先をフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-o365-params-flag-description",
+    "translation": "O365 環境に特定の電子メール検索要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-organizer-address-flag-description",
+    "translation": "指定したユーザーの電子メール・アドレスで編成されたカレンダー項目をフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-received-end-time-secs-flag-description",
+    "translation": "電子メールの受信時刻が指定した値より小さい場合、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-received-start-time-secs-flag-description",
+    "translation": "電子メールの受信時刻が指定した値以上である場合、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-recipient-addresses-flag-description",
+    "translation": "指定した電子メール・アドレスに送信されるメールをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-sender-address-flag-description",
+    "translation": "指定したユーザの電子メール・アドレスから受信したメールをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-source-environment-flag-description",
+    "translation": "ソース環境を指定します。 使用可能な値は、kO365 です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-task-status-types-flag-description",
+    "translation": "タスク項目のステータス・タイプのリストを指定します。 指定されたタイプ内のステータスを持つタスク項目が返されます。 使用可能なリスト項目は、NotStarted、InProgress、Completed、WaitingOnOthers、Deferred です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-types-flag-description",
+    "translation": "メールボックス項目タイプのリストを指定します。 指定されたタイプの項目のみが返されます。 許可されるリスト項目は、電子メール、フォルダ、カレンダー、連絡先、タスク、ノートです。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-exchange-params-flag-description",
+    "translation": "Exchange メールボックスの検索に特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-exchange-params-search-string-flag-description",
+    "translation": "Exchange オブジェクトを検索する検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-flag-description",
+    "translation": "ファイルとファイル・フォルダを検索するための要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-object-ids-flag-description",
+    "translation": "オブジェクト ID のリストを指定します。 これらのオブジェクトで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-search-string-flag-description",
+    "translation": "ファイルを絞り込む検索文字列を指定します。 ユーザーは、すべてのファイル名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-source-environments-flag-description",
+    "translation": "ソース環境のリストを指定します。 これらのタイプのソースからのファイルのみが返されます。 許可されるリスト項目は、kVMware、kHyperV、kSQL、kView、kRemoteAdapter、kPhysical、kPhysicalFiles、kPure、kIbmFlashSystem、kAzure、kNetapp、kGenericNas、kAcropolis、kIsilon、kGPFS、kKVM、kAWS、kExchange、kOracle、kGCP、kFlashBlade、kO365、kHyperFlex、kKubernetes、kElastifile、kSAPHANA、kUDA、kSfdc です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-types-flag-description",
+    "translation": "ファイルタイプのリストを指定ます。 指定されたタイプのファイルのみが返されます。 使用可能なリスト項目は、ファイル、ディレクトリ、シンボリックリンクです。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-flag-description",
+    "translation": "クラスタ上の Hbase を検索するために必要なパラメータ。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-hbase-object-types-flag-description",
+    "translation": "検索する 一つ以上の Hbase オブジェクト・タイプを指定します。 使用可能なリスト項目は、HbaseNamespaces、HbaseTables です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-search-string-flag-description",
+    "translation": "Hbase オブジェクトを検索するための検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-flag-description",
+    "translation": "クラスタ上の HDFS を検索するのに必要なパラメータ。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-hdfs-types-flag-description",
+    "translation": "検索するタイプをフォルダかファイル、またはその両方に指定します。 許可されるリスト項目は、HDFSFolders、HDFSFiles です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-search-string-flag-description",
+    "translation": "HDFS フォルダとファイルを検索するための検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-flag-description",
+    "translation": "クラスタ上の Hive を検索するために必要なパラメータ。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-hive-object-types-flag-description",
+    "translation": "検索する 一つ以上の Hive オブジェ ク ト・タイプを指定します。 許可されるリスト項目は、HiveDatabases、HiveTables、HivePartitions です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-search-string-flag-description",
+    "translation": "Hive オブジェクトを検索する検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-include-tenants-flag-description",
+    "translation": "true の場合、応答には、現在のユーザが見る権限を持っているすべてのテナントに属するオブジェクトが含まれます。 デフォルト値はフォールスです。 デフォルト値は false です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-might-have-snapshot-tag-ids-flag-description",
+    "translation": "スナップショット・タグのリストを指定します。ドキュメント内に 1 つ以上存在する可能性があります。 これらは OR で結合され、結果の抽出条件はクエリの残りの部分と AND で結合されます。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-might-have-tag-ids-flag-description",
+    "translation": "タグのリストを指定します。ドキュメント内に 1 つ以上存在する可能性があります。 これらは OR で結合され、結果の抽出条件はクエリの残りの部分と AND で結合されます。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-flag-description",
+    "translation": "クラスタ上の Mongo DB を検索するのに必要なパラメータ。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-mongo-db-object-types-flag-description",
+    "translation": "検索する 一つ以上の MongoDB オブジェ ク ト・タイプを指定します。 許可されるリスト項目は、MongoDatabases、MongoCollections です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-search-string-flag-description",
+    "translation": "MongoDB オブジェクトを検索する検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-flag-description",
+    "translation": "グループ項目を検索するための要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-mailbox-params-flag-description",
+    "translation": "メールボックス・項目とフォルダを検索するためのリクエスト・パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-o365-params-flag-description",
+    "translation": "インデックス付き項目を検索するための O365 特定のパラメータ検索要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-site-params-flag-description",
+    "translation": "ドキュメント・ライブラリ内のファイル/フォルダを検索するための要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-category-types-flag-description",
+    "translation": "チームのファイル・タイプのリストを指定します。 指定されたタイプの項目のみが返されます。 使用可能なリスト項目は、ドキュメント、エクセル、パワーポイント、画像、OneNote です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-names-flag-description",
+    "translation": "ファイルの検索時にフィルタリングするチャンネル名のリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-params-flag-description",
+    "translation": "Microsoft365 チームのチャンネルに関連するリクエスト・パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-creation-end-time-secs-flag-description",
+    "translation": "項目が作成されたとき、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-creation-start-time-secs-flag-description",
+    "translation": "項目が作成されたとき、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-flag-description",
+    "translation": "チーム項目を検索するためのリクエスト・パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-o365-params-flag-description",
+    "translation": "インデックス付き項目を検索するための O365 特定のパラメータ検索要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-owner-names-flag-description",
+    "translation": "項目の所有者をフィルタリングするための所有者の電子メール ID のリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-search-string-flag-description",
+    "translation": "項目を絞り込むための検索文字列を指定します。 ユーザーは、すべての項目名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-size-bytes-lower-limit-flag-description",
+    "translation": "項目の最小サイズをバイト単位で指定する。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-size-bytes-upper-limit-flag-description",
+    "translation": "項目の最大サイズをバイト単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-types-flag-description",
+    "translation": "チーム項目タイプのリストを指定します。 指定されたタイプの項目のみが返されます。 許可されるリスト項目は、チャンネル、チャット、会話、ファイル、フォルダです。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-must-have-snapshot-tag-ids-flag-description",
+    "translation": "ドキュメント内にすべて存在しなければならないスナップショット・タグを指定します。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-must-have-tag-ids-flag-description",
+    "translation": "ドキュメント内にすべて存在しなければならないタグを指定します。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-object-type-flag-description",
+    "translation": "必須。 検索するオブジェクト・タイプを指定します。 使用可能な値は、電子メール、ファイル、CassandraObjects、CouchbaseObjects、HbaseObjects、HiveObjects、MongoObjects、HDFSObjects、ExchangeObjects、PublicFolders、GroupsObjects、TeamsObjects、SharepointObjects、OneDriveObjects、UdaObjects、SfdcRecords です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-category-types-flag-description",
+    "translation": "ドキュメント・ライブラリタイプのリストを指定します。 指定されたタイプの項目のみが返されます。 使用可能なリスト項目は、ドキュメント、エクセル、パワーポイント、画像、OneNote です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-creation-end-time-secs-flag-description",
+    "translation": "ファイル/フォルダが作成されたとき、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-creation-start-time-secs-flag-description",
+    "translation": "ファイル/フォルダが作成されたとき、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-flag-description",
+    "translation": "ドキュメント・ライブラリ内のファイル/フォルダを検索するための要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-include-files-flag-description",
+    "translation": "応答にファイルを含めるかどうかを指定します。 デフォルトは true です。 デフォルト値は true です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-include-folders-flag-description",
+    "translation": "応答にフォルダを含めるかどうかを指定します。 デフォルトは true です。 デフォルト値は true です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-o365-params-flag-description",
+    "translation": "インデックス付き項目を検索するための O365 特定のパラメータ検索要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-owner-names-flag-description",
+    "translation": "ファイル/フォルダの所有者をフィルタリングするための所有者名のリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-search-string-flag-description",
+    "translation": "ファイル/フォルダをフィルタリングするための検索文字列を指定します。 ユーザーは、すべての項目名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-size-bytes-lower-limit-flag-description",
+    "translation": "ファイルの最小サイズをバイト単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-size-bytes-upper-limit-flag-description",
+    "translation": "ファイルの最大サイズをバイト単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-pagination-cookie-flag-description",
+    "translation": "応答の後続部分をフェッチできるページネーション・クッキーを指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-protection-group-ids-flag-description",
+    "translation": "インデックス付きオブジェクトをフィルタリングする保護グループ ID のリストを指定します。 指定された場合、指定された保護グループ ID でインデックスされたオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-bcc-recipient-addresses-flag-description",
+    "translation": "BCC で指定した電子メール・アドレスに送信されるパブリック・フォルダ項目をフィルタリングします。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-cc-recipient-addresses-flag-description",
+    "translation": "CC で指定した電子メール・アドレスに送信されるパブリック・フォルダ項目をフィルタリングします。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-flag-description",
+    "translation": "パブリック・フォルダ項目を検索するための要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-has-attachment-flag-description",
+    "translation": "添付ファイルを持つパブリック・フォルダ項目をフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-received-end-time-secs-flag-description",
+    "translation": "公開フォルダの項目の受信時刻が指定した値より小さい場合、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-received-start-time-secs-flag-description",
+    "translation": "公開フォルダの項目の受信時刻が指定値以上である場合、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-recipient-addresses-flag-description",
+    "translation": "指定したメールアドレスに送信されるパブリック・フォルダ項目をフィルタリングします。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-search-string-flag-description",
+    "translation": "項目を絞り込むための検索文字列を指定します。 ユーザーは、すべての項目名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-sender-address-flag-description",
+    "translation": "指定したユーザーのメールアドレスから受信したパブリック・フォルダ項目をフィルタリングします。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-types-flag-description",
+    "translation": "パブリック・フォルダ項目タイプのリストを指定します。 指定されたタイプの項目のみが返されます。 使用可能なリスト項目は、カレンダー、連絡先、ポスト、フォルダ、タスク、ジャーナル、ノートです。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-flag-description",
+    "translation": "Salesforce レコードの検索に特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-mutation-types-flag-description",
+    "translation": "オブジェクトの変異タイプのリストを指定します。 使用可能なリスト項目は、すべて、追加、削除、変更です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-object-name-flag-description",
+    "translation": "オブジェクトの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-query-string-flag-description",
+    "translation": "レコードを検索するクエリー文字列を指定します。 クエリー文字列は、「AND」または「OR」句で結合された 1 つまたは複数の句にすることができます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-snapshot-id-flag-description",
+    "translation": "オブジェクトのスナップショットの ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-category-types-flag-description",
+    "translation": "ドキュメント・ライブラリタイプのリストを指定します。 指定されたタイプの項目のみが返されます。 使用可能なリスト項目は、ドキュメント、エクセル、パワーポイント、画像、OneNote です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-creation-end-time-secs-flag-description",
+    "translation": "ファイル/フォルダが作成されたとき、Unix タイムスタンプ・エポックの終了時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-creation-start-time-secs-flag-description",
+    "translation": "ファイル/フォルダが作成されたとき、Unix タイムスタンプ・エポックの開始時刻を秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-flag-description",
+    "translation": "ドキュメント・ライブラリ内のファイル/フォルダを検索するための要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-include-files-flag-description",
+    "translation": "応答にファイルを含めるかどうかを指定します。 デフォルトは true です。 デフォルト値は true です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-include-folders-flag-description",
+    "translation": "応答にフォルダを含めるかどうかを指定します。 デフォルトは true です。 デフォルト値は true です。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-o365-params-flag-description",
+    "translation": "インデックス付き項目を検索するための O365 特定のパラメータ検索要求パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-owner-names-flag-description",
+    "translation": "ファイル/フォルダの所有者をフィルタリングするための所有者名のリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-search-string-flag-description",
+    "translation": "ファイル/フォルダをフィルタリングするための検索文字列を指定します。 ユーザーは、すべての項目名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-size-bytes-lower-limit-flag-description",
+    "translation": "ファイルの最小サイズをバイト単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-size-bytes-upper-limit-flag-description",
+    "translation": "ファイルの最大サイズをバイト単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-snapshot-tags-flag-description",
+    "translation": "「このフィールドは非推奨です。 mightHaveSnapshotTagIds. を使用してください」。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-storage-domain-ids-flag-description",
+    "translation": "保護グループが指定されたストレージ・ドメインの Cohesity ビューにデータを書き込んでいるインデックス付きオブジェクトをフィルタリングするストレージ・ドメインの ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-tags-flag-description",
+    "translation": "「このフィールドは非推奨です。 mightHaveTagIds. を使用してください」。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-tenant-id-flag-description",
+    "translation": "TenantId には、オブジェクトを返すテナントの ID が含まれます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-flag-description",
+    "translation": "ユニバーサル・データ・アダプタ・オブジェクトの検索に必要なパラメータ。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-search-string-flag-description",
+    "translation": "ユニバーサル・データ・アダプタ・オブジェクトを検索するための検索文字列を指定します。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-source-ids-flag-description",
+    "translation": "ソース ID のリストを指定します。 これらのソースで見つかったファイルのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-use-cached-data-flag-description",
+    "translation": "リード・レプリカ・キャッシュから GET 要求を処理できるかどうかを指定します。 リード・レプリカとプライマリー・データ・ソースの間には 15 秒のラグがあります。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-long-description",
+    "translation": "バックアップ復旧サービスの構成に使用する REST API。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-command-long-description",
+    "translation": "指定されたオブジェクトのスナップショットをリストします。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-command-short-description",
+    "translation": "指定されたオブジェクトのスナップショットをリストします。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-from-time-usecs-flag-description",
+    "translation": "この値より後に取得されたオブジェクトのスナップショットをフィルタリングするためのタイムスタンプを Unix タイム・エポックでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-id-flag-description",
+    "translation": "必須。 オブジェクトの id を指定します。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-object-action-keys-flag-description",
+    "translation": "オブジェクトの保護を固有に表す ObjectActionKey でフィルタリングします。 オブジェクトは複数の方法で保護することができますが、ObjectActionKey の特定の組み合わせに対しては 1 回です。 指定された場合、与えられたアクションキーにマッチするスナップショットのみが、対応するオブジェクトに対して返されます。 許可されるリスト項目は、kVMware、kHyperV、kVCD、kAzure、kGCP、kKVM、kAcropolis、kAWS、kAWSNative、kAwsS3、kAWSSnapshotManager,kRDSSnapshotManager、kAuroraSnapshotManager、kAwsRDSPostgresBackup、kAwsRDSPostgres、kAwsAuroraPostgres、kAzureNative、kAzureSQL、kAzureSnapshotManager、kPhysical、 kPhysicalFiles、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPur、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kO365PublicFolders、kO365Teams、kO365Group、kO365Exchange、kO365OneDrive、kO365Sharepoint、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kHBase、kSAPHANA、kUDA、kSfdc、kO365ExchangeCSM、kO365OneDriveCSM、kO365SharepointCSM です。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-protection-group-ids-flag-description",
+    "translation": "指定された場合、指定された保護グループ ID に属する、指定されたオブジェクト ID のスナップショットのみを返します。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-region-ids-flag-description",
+    "translation": "地域 ID のリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-instance-ids-flag-description",
+    "translation": "ランインスタンス ID のリストでフィルタリングします。 指定された場合、これらの保護実行によって作成されたスナップショットのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-start-from-time-usecs-flag-description",
+    "translation": "この値より後に実行されたオブジェクトのスナップショットをフィルタリングするためのタイムスタンプを Unix タイム・エポックでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-start-to-time-usecs-flag-description",
+    "translation": "この値より前に実行されたオブジェクトのスナップショットをフィルタリングするためのタイムスタンプを Unix タイム・エポックでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-types-flag-description",
+    "translation": "実行タイプでフィルタリングします。 指定したタイプに一致する保護実行のみが返されます。 デフォルトでは、このフィールドを使用して明示的にクエリしない限り、CDP ハイドレーション・スナップショットは含まれません。 許可されるリスト項目は、kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot です。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-snapshot-actions-flag-description",
+    "translation": "復旧アクションのリストを指定します。 これらのアクションに適用されるスナップショットのみが返されます。 許可されるリスト項目は、RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM です。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-to-time-usecs-flag-description",
+    "translation": "この値より前に取得されたオブジェクトのスナップショットをフィルタリングするためのタイムスタンプを Unix タイム・エポックでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-objects-search-cluster-identifiers-flag-description",
+    "translation": "クラスタ識別子のリストを指定します。 フォーマットは clusterId:clusterIncarnationId です。 これらの識別子を持つクラスターからのレコードのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-command-long-description",
+    "translation": "オブジェクトをリストします。"
+  },
+  {
+    "id": "backup-recovery-objects-search-command-short-description",
+    "translation": "リスト・オブジェクト。"
+  },
+  {
+    "id": "backup-recovery-objects-search-count-flag-description",
+    "translation": "指定されたページネーションクッキーに対してフェッチされるオブジェクトの数を指定します。"
+  },
+  {
+    "id": "backup-recovery-objects-search-environments-flag-description",
+    "translation": "オブジェクトをフィルタリングする環境タイプを指定します。 許可されるリスト項目は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-external-filters-flag-description",
+    "translation": "検索結果をフィルタリングするためのキーと値のペアを指定します。 各フィルターは「key:value」の形式です。 フィルター「externalFilters:k1:v1&externalFilters:k2:v2&externalFilters:k2:v3」 は、各ドキュメントがクエリ (k1=v1) AND (k2=v2 OR k2 = v3) に一致するドキュメントを返します。 許可されるキー: - vmBiosUuid - graphUuid - arn - instanceId - bucketName - azureId."
+  },
+  {
+    "id": "backup-recovery-objects-search-include-deleted-objects-flag-description",
+    "translation": "削除されたオブジェクトを応答に含めるかどうかを指定します。 これらのオブジェクトは保護することはできないが、復旧することはできます。 このフィールドは非推奨です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-include-helios-tag-info-for-objects-flag-description",
+    "translation": "応答にオブジェクトのヘリオス・タグ情報を含めるかどうかを指定します。 デフォルト値はフォールスです。"
+  },
+  {
+    "id": "backup-recovery-objects-search-is-deleted-flag-description",
+    "translation": "true に設定すると、少なくとも 1 つのクラスタで削除されたオブジェクトが返されます。 設定されていない、または false に設定されている場合は、少なくとも 1 つのクラスタに登録されているオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-is-protected-flag-description",
+    "translation": "オブジェクトの保護ステータスを指定します。 true に設定すると、保護されたオブジェクトのみが返されます。 false に設定すると、保護されていないオブジェクトのみが返されます。 指定しない場合は、すべてのオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-last-run-status-list-flag-description",
+    "translation": "オブジェクトの最後の保護実行のステータスのリストを指定します。 これらの最終実行ステータスを持つオブジェクトのみが返されます。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、不在、成功、SucceededWithWarning、OnHold、ファイナライズ中、スキップ、LegalHold です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-might-have-snapshot-tag-ids-flag-description",
+    "translation": "スナップショット・タグのリストを指定します。ドキュメント内に 1 つ以上存在する可能性があります。 これらは OR で結合され、結果の抽出条件はクエリの残りの部分と AND で結合されます。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-might-have-tag-ids-flag-description",
+    "translation": "タグのリストを指定します。ドキュメント内に 1 つ以上存在する可能性があります。 これらは OR で結合され、結果の抽出条件はクエリの残りの部分と AND で結合されます。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-must-have-snapshot-tag-ids-flag-description",
+    "translation": "ドキュメント内にすべて存在しなければならないスナップショット・タグを指定します。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-must-have-tag-ids-flag-description",
+    "translation": "ドキュメント内にすべて存在しなければならないタグを指定します。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-object-ids-flag-description",
+    "translation": "フィルタリングするオブジェクト ID のリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-objects-search-os-types-flag-description",
+    "translation": "オブジェクトをフィルタリングするオペレーティング・システムのタイプを指定します。 許可されるリスト項目は、kLinux、kWindows です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-pagination-cookie-flag-description",
+    "translation": "応答の後続部分をフェッチできるページネーション・クッキーを指定します。"
+  },
+  {
+    "id": "backup-recovery-objects-search-protection-group-ids-flag-description",
+    "translation": "オブジェクトをフィルタする保護グループ ID のリストを指定します。 指定された場合、指定された保護グループ ID によって保護されたオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-protection-types-flag-description",
+    "translation": "オブジェクトをフィルタリングする保護タイプを指定します。 許可されるリスト項目は、kAgent、kNative、kSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsS3、kAwsRDSPostgresBackup、kAwsAuroraPostgres、kAwsRDSPostgres、kAzureSQL、kFile、kVolume です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-search-string-flag-description",
+    "translation": "オブジェクトをフィルタリングするための検索文字列を指定します この検索文字列はオブジェクト名に適用されます。 ユーザーは、すべてのオブジェクト名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。 例えば、vm1 とvm2 がオブジェクトの名前である場合、ユーザーは vm* を指定してオブジェクトをリストすることができます。 指定されない場合は、他のフィルタリング条件に一致するすべてのオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-source-ids-flag-description",
+    "translation": "オブジェクトをフィルタリングする保護ソース・オブジェクト ID のリストを指定します。 指定された場合、それらのソースに存在するオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-source-uuids-flag-description",
+    "translation": "オブジェクトをフィルタリングするための保護ソース・オブジェクト uuid のリストを指定します。 指定された場合、それらのソースに存在するオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-categories-flag-description",
+    "translation": "オブジェクトとスナップショットをフィルタリングするタグ・カテゴリーを指定します。 許可されるリスト項目は、セキュリティです。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-names-flag-description",
+    "translation": "タグ付けされたオブジェクトとスナップショットをフィルタリングするためのタグ名を指定します。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-search-name-flag-description",
+    "translation": "タグ付けされたオブジェクトとスナップショットをフィルタリングするためのタグ名を指定します。 ユーザーは、すべてのオブジェクトのタグ名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-sub-categories-flag-description",
+    "translation": "オブジェクトとスナップショットをフィルタリングするタグのサブカテゴリを指定します。 許可されるリスト項目は、分類、脅威、異常、Dspm です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-types-flag-description",
+    "translation": "タグ付けされたオブジェクトとスナップショットをフィルタリングするためのタグ名を指定します。 許可されるリスト項目は、システム、カスタム、ThirdParty です。"
+  },
+  {
+    "id": "backup-recovery-objects-search-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-cdp-protected-only-flag-description",
+    "translation": "CDP で保護されたオブジェクトのみを返すかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-command-long-description",
+    "translation": "指定されたクエリ・パラメータでフィルタリングされた、登録されたソースからの保護されたオブジェクトと対応する詳細情報をリストします。 検索パターンやフィルター・パラメーターが指定されていない場合、現在見つかっているすべての保護されたオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-command-short-description",
+    "translation": "保護されたオブジェクトをリストします。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-environments-flag-description",
+    "translation": "オブジェクトをフィルタリングする環境タイプを指定します。 許可されるリスト項目は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-filter-snapshot-from-usecs-flag-description",
+    "translation": "この値より後にオブジェクトに成功したスナップショットがある場合にオブジェクトをフィルタリングするためのタイムスタンプを Unix タイム・エポックでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-filter-snapshot-to-usecs-flag-description",
+    "translation": "この値より前にオブジェクトに成功したスナップショットがある場合にオブジェクトをフィルタリングするためのタイムスタンプを Unix タイム・エポックでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-object-action-key-flag-description",
+    "translation": "オブジェクトの保護を固有に表す ObjectActionKey でフィルタリングします。 オブジェクトは複数の方法で保護することができますが、ObjectActionKey の特定の組み合わせに対しては 1 回です。 指定された場合、objectActionKey に一致する最新のスナップショット情報は、対応するオブジェクトのものです。 使用可能な値は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-object-ids-flag-description",
+    "translation": "フィルタリングするオブジェクト ID のリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-os-types-flag-description",
+    "translation": "オブジェクトをフィルタリングするオペレーティング・システムのタイプを指定します。 許可されるリスト項目は、kLinux、kWindows です。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-protection-group-ids-flag-description",
+    "translation": "オブジェクトをフィルタする保護グループ ID のリストを指定します。 指定された場合、指定された保護グループ ID によって保護されたオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-run-instance-ids-flag-description",
+    "translation": "実行インスタンス ID のリストを指定します。 指定された場合、指定された実行 ID に属するオブジェクトのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-search-string-flag-description",
+    "translation": "オブジェクトをフィルタリングするための検索文字列を指定します この検索文字列は、オブジェクト名と保護グループ名に適用されます。 ユーザーは、すべてのオブジェクトとその保護グループ名がプレフィックス文字列と一致する文字列の接尾辞としてワイルドカード文字「*」を指定することができます。 例えば、vm1 とvm2 がオブジェクトの名前である場合、ユーザーは vm* を指定してオブジェクトをリストすることができます。 指定しない場合、保護グループを持つすべてのオブジェクトが返され、他のフィルタリング条件に一致します。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-snapshot-actions-flag-description",
+    "translation": "復旧アクションのリストを指定します。 これらのアクションに適用されるスナップショットのみが返されます。 許可されるリスト項目は、RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM です。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-source-ids-flag-description",
+    "translation": "オブジェクトをフィルタリングする保護ソース・オブジェクト ID のリストを指定します。 指定された場合、それらのソースに存在するオブジェクトが返されます。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-sub-result-size-flag-description",
+    "translation": "1 つのサブ結果に対してフェッチするオブジェクトのサイズを指定します。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
+    "translation": "GET 要求をリード・レプリカ・キャッシュ・キャッシュに送るかどうかを指定します。 リード・レプリカとプライマリー・データ・ソースの間には 15 秒のラグがあります。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-abort-in-blackouts-flag-description",
+    "translation": "ポリシーで指定されたブラックアウト期間が開始した場合に、現在実行中のジョブを中断するかどうかを指定します。 選択したポリシーに少なくとも 1 つのブラックアウト期間がある場合にのみ利用可能です。 デフォルト値はフォールスです。 「pauseInBlackouts」が true に設定されている場合、このフィールドを true に設定すべきではありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-advanced-configs-flag-description",
+    "translation": "保護ジョブの拡張構成を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-alert-targets-flag-description",
+    "translation": "アラートを受信するターゲットのリストを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-backup-run-status-flag-description",
+    "translation": "ユーザーがアラートを受信する実行ステータスを指定します。 許可されるリスト項目は、kSuccess、kFailure、kSlaViolation、kWarning です。 最小長は1項目です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-flag-description",
+    "translation": "保護グループのステータスをユーザーに警告するポリシーを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
+    "translation": "各バックアップ試行後に、バックアップの失敗に対してオブジェクト・レベルのアラートを発生させるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-after-last-attempt-flag-description",
+    "translation": "最後のバックアップ試行後に、バックアップの失敗に対してオブジェクト・レベルのアラートを発生させるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-flag-description",
+    "translation": "バックアップの実行後に、バックアップの失敗に対してオブジェクト・レベルのアラートを発生させるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-command-long-description",
+    "translation": "保護グループを作成します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-command-short-description",
+    "translation": "保護グループを作成します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-description-flag-description",
+    "translation": "保護グループの説明を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-end-time-usecs-flag-description",
+    "translation": "この保護グループの終了時間をマイクロ秒単位で指定します。 これが指定されていない場合、保護グループは終了しません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-environment-flag-description",
+    "translation": "必須。 保護グループの環境タイプを指定します。 使用可能な値は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-is-paused-flag-description",
+    "translation": "保護グループを一時停止するかどうかを指定します。 一時停止中の保護グループでは、新しい実行はスケジュールされません。 アクティブ実行があれば、影響はありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-last-modified-timestamp-usecs-flag-description",
+    "translation": "この保護グループが最後に更新された時刻を指定します。 これが PUT 要求に渡された場合、バックエンドは渡されたタイムスタンプが保護グループが実際に最後に変更された時刻と一致することを検証します。 2 つのタイムスタンプが一致しない場合、要求は不整合エラーで拒否されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-file-protection-type-params-flag-description",
+    "translation": "ファイル・ベースの MSSQL 保護グループを作成するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-flag-description",
+    "translation": "MSSQL 保護グループに特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-native-protection-type-params-flag-description",
+    "translation": "ネイティブ・ベースの MSSQL 保護グループを作成するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-protection-type-flag-description",
+    "translation": "MSSQL 保護グループのタイプを指定します。 使用可能な値は、kFile、kVolume、kNative です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-volume-protection-type-params-flag-description",
+    "translation": "ボリューム・ベースの MSSQL 保護グループを作成するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-name-flag-description",
+    "translation": "必須。 保護グループの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-pause-in-blackouts-flag-description",
+    "translation": "ポリシーで指定されたブラックアウト期間が開始した場合に、現在実行中のジョブを一時停止するかどうかを指定します。 選択したポリシーに少なくとも 1 つのブラックアウト期間がある場合にのみ利用可能です。 デフォルト値はフォールスです。 「abortInBlackouts」が true として送信された場合、このフィールドは true に設定されるべきではありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-file-protection-type-params-flag-description",
+    "translation": "物理関連の保護グループに特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-protection-type-flag-description",
+    "translation": "物理保護グループのタイプを指定します。 使用可能な値は、kFile、kVolume です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-volume-protection-type-params-flag-description",
+    "translation": "ボリューム・ベースの物理保護グループに特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-policy-id-flag-description",
+    "translation": "必須。 保護グループに関連付けられた保護ポリシーの固有の ID を指定します。 このポリシーでは、保護スケジュール、優先度、SLA などの再試行設定が提供されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-priority-flag-description",
+    "translation": "保護グループの優先順位を指定します。 使用可能な値は、kLow、kMedium、kHigh です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-qos-policy-flag-description",
+    "translation": "保護グループを HDD または SSD のどちらに書き込むかを指定します。 使用可能な値は、kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-sla-flag-description",
+    "translation": "この保護グループの SLA パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-flag-description",
+    "translation": "時刻を指定します。 スケジューリングのために使用されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-hour-flag-description",
+    "translation": "一日の時間 (0-23) を指定します。 最大値は 23 です。 最小値は 0です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-minute-flag-description",
+    "translation": "時間の分 (0-59) を指定します。 最大値は 59 です。 最小値は 0です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-time-zone-flag-description",
+    "translation": "ユーザーのタイムゾーンを指定します。 指定がない場合、デフォルト値はアメリカ/ロサンゼルスとみなされます。 デフォルト値はアメリカ/ロサンゼルスです。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-command-long-description",
+    "translation": "保護グループが削除された場合、成功を返します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-command-short-description",
+    "translation": "保護グループを削除します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-delete-snapshots-flag-description",
+    "translation": "保護グループが削除されたときに、保護グループによって生成されたスナップショットも削除するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-id-flag-description",
+    "translation": "必須。 保護グループの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-command-long-description",
+    "translation": "指定されたグループ ID に対応する保護グループを返します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-command-short-description",
+    "translation": "シングル保護グループに関する詳細をリストします。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-id-flag-description",
+    "translation": "必須。 保護グループの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-include-last-run-info-flag-description",
+    "translation": "true の場合、応答には最後の実行情報が含まれます。 false または指定されていない場合、最後の実行情報は返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-prune-excluded-source-ids-flag-description",
+    "translation": "True の場合、このフィールドを含むグループには、除外されたソース ID のリストは応答に含まれません。 これは、除外されたソース ID がユーザによって必要とされない場合、パフォーマンスを向上させるために true に設定できます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-prune-source-ids-flag-description",
+    "translation": "True の場合、応答には指定されたグループ内のソース ID のリストを除外します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-group-long-description",
+    "translation": "ProtectionGroup リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-group-group-short-description",
+    "translation": "ProtectionGroup リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-command-long-description",
+    "translation": "保護グループのリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-command-short-description",
+    "translation": "保護グループのリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-environments-flag-description",
+    "translation": "「kVMware」、「kView」、などの環境タイプでフィルタリングします。 指定した環境タイプを保護する保護グループのみが返されます。 許可されるリスト項目は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-ids-flag-description",
+    "translation": "保護グループ ID のリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-include-groups-with-datalock-only-flag-description",
+    "translation": "データロックのある保護グループのみを返すかどうか。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-include-last-run-info-flag-description",
+    "translation": "true の場合、応答には最後の実行情報が含まれます。 false または指定されていない場合、最後の実行情報は返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-active-flag-description",
+    "translation": "非アクティブまたはアクティブな保護グループでフィルタします。 設定されていない場合、すべての非アクティブおよびアクティブな保護グループが返されます。 true の場合、アクティブな保護グループのみが返されます。 False の場合、非アクティブな保護グループのみが返されます。 レプリケーション・スケジュールを使用してプライマリ・クラスタに保護グループを作成すると、クラスタはリモート・クラスタに保護グループの非アクティブ・コピーを作成します。 また、アクティブで実行中の保護グループが非アクティブになると、保護グループは非アクティブになります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-deleted-flag-description",
+    "translation": "true の場合、削除されたがスナップショットが関連付けられている保護グループのみを返します。 false の場合、削除され、スナップショットが関連付けられている保護グループを除く、すべての保護グループを返します。 すべてのスナップショットとともに削除された保護グループは、これらのいずれの場合も返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-last-run-sla-violated-flag-description",
+    "translation": "true の場合、最後に実行した SLA に違反した保護グループを返します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-paused-flag-description",
+    "translation": "一時停止または一時停止していない保護グループでフィルタリングします。設定されていない場合、すべての一時停止および一時停止していない保護グループが返されます。 true の場合、一時停止した保護グループのみが返されます。 False の場合、一時停止していない保護グループのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-any-status-flag-description",
+    "translation": "最後の任意の実行ステータスでフィルタリングします。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-archival-status-flag-description",
+    "translation": "最後のクラウド・アーカイブの実行ステータスでフィルタリングします。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-cloud-spin-status-flag-description",
+    "translation": "最後のクラウドスピンの実行ステータスでフィルタリングします。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-local-backup-status-flag-description",
+    "translation": "最後のローカル・バックアップの実行ステータスでフィルタリングします。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-replication-status-flag-description",
+    "translation": "最後のリモート・レプリケーションの実行ステータスでフィルタリングします。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-names-flag-description",
+    "translation": "保護グループ名のリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-policy-ids-flag-description",
+    "translation": "保護グループに関連付けられているポリシー ID でフィルタリングします。 指定されたポリシー ID に関連付けられた保護グループのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-prune-excluded-source-ids-flag-description",
+    "translation": "True の場合、このフィールドを含むグループには、除外されたソース ID のリストは応答に含まれません。 これは、除外されたソース ID がユーザによって必要とされない場合、パフォーマンスを向上させるために true に設定できます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-prune-source-ids-flag-description",
+    "translation": "True の場合、応答には指定されたグループ内のソース ID のリストを除外します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-source-ids-flag-description",
+    "translation": "保護グループに関連付けられているソース ID でフィルタリングします。 指定されたソース ID に関連付けられた保護グループのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-use-cached-data-flag-description",
+    "translation": "リード・レプリカ・キャッシュから GET 要求を処理できるかどうかを指定します。 リード・レプリカとプライマリー・データ・ソースの間には 15 秒のラグがあります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-command-long-description",
+    "translation": "新しい保護実行を作成します。 これは、保護ポリシーで指定されたスケジュールと保持を無視して、オンデマンドで保護グループの実行を開始するために使用できます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-command-short-description",
+    "translation": "新しい保護実行を作成します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-id-flag-description",
+    "translation": "必須。 保護グループの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-objects-flag-description",
+    "translation": "この保護グループの実行によって保護されるオブジェクトのリストを指定します。 これらは、保護階層におけるリーフ・オブジェクトでも非リーフ・オブジェクトです。 これは、保護グループのオブジェクトのサブセットを保護する必要がある場合にのみ指定する必要があります。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-run-type-flag-description",
+    "translation": "必須。 保護実行のタイプ 「kRegular」 はインクリメンタル (CBT) バックアップを示します。 CBT (サポートされている場合) を利用した増分バックアップは、対象の保護オブジェクトをキャプチャします。 kRegular スケジュールの最初の実行は、すべてのブロックをキャプチャします。 「kFull」はフル (CBT なし) バックアップを示します。 ターゲット保護オブジェクトの完全なバックアップ (すべてのブロック) は常にキャプチャされ、変更ブロック追跡 (CBT) は利用されません。 「kLog」はデータベース・ログのバックアップを示します。 データベースのトランザクション・ログを取得し、特定の時点にロール・バックできるようにします。 「kSystem」はシステム・ボリュームのバックアップを示します。 ベア・メタル復旧用のイメージを作成します。 使用可能な値は、kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-archivals-flag-description",
+    "translation": "アーカイブ対象設定のリストを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-cloud-replications-flag-description",
+    "translation": "クラウド・レプリケーション・ターゲット構成のリストを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-flag-description",
+    "translation": "レプリケーションとアーカイブのターゲットを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-replications-flag-description",
+    "translation": "レプリケーション・ターゲット構成のリストを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-use-policy-defaults-flag-description",
+    "translation": "デフォルトのポリシー設定を使用するかどうかを指定します。 true を指定した場合は、「レプリケーション」と「アーカイブ」は指定しないでください。 真値の場合、ポリシーで設定された複製ターゲットが内部的に追加されます。 デフォルト値は false です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-group-long-description",
+    "translation": "ProtectionGroupRun リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-group-short-description",
+    "translation": "ProtectionGroupRun リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-archival-run-status-flag-description",
+    "translation": "アーカイブ・ステータスのリストを指定すると、ステータスに一致する実行が返されます。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-cloud-spin-run-status-flag-description",
+    "translation": "クラウド・スピンのステータスのリストを指定すると、ステータスに一致する実行が返されます。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-command-long-description",
+    "translation": "特定の保護グループの実行を取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-command-short-description",
+    "translation": "保護グループの実行のリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-end-time-usecs-flag-description",
+    "translation": "時間範囲フィルタの終了時間。 終了時刻を Unix エポック・タイムスタンプ (マイクロ秒単位) で指定し、この時刻より前に実行されていた実行のみが返されます。 デフォルトは現在時刻です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-exclude-non-restorable-runs-flag-description",
+    "translation": "復元不可能なランを除外するかどうかを指定します。 実行は、少なくとも 1 つのオブジェクト・スナップショット (ローカル・スナップショットまたはアーカイブ・スナップショットのいずれか) があり、それが削除されていないか、有効期限が切れていない場合にのみ、復元可能なものとして扱われます。 デフォルト値はフォールスです。 デフォルト値は false です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-filter-by-copy-task-end-time-flag-description",
+    "translation": "true の場合、与えられた時間範囲内に完了した copyTask の実行の詳細が返されます。 filterByEndTime と filterByCopyTaskEndTime のどちらか一方のみを設定できます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-filter-by-end-time-flag-description",
+    "translation": "true の場合、バックアップ終了時刻が指定された時間範囲内にある実行が返されます。 そうでない場合は、開始時刻が時間範囲内にある実行が返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-id-flag-description",
+    "translation": "必須。 保護グループの固有の ID を指定します。 "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-include-object-details-flag-description",
+    "translation": "結果に各保護実行のオブジェクトの詳細が含まれるかどうかを指定します。 true に設定すると、保護されたオブジェクトの詳細が返されます。 false に設定されているか、指定されていない場合、詳細は返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-local-backup-run-status-flag-description",
+    "translation": "ローカルのバックアップ・ステータスのリストを指定すると、ステータスに一致する実行が返されます。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-num-runs-flag-description",
+    "translation": "最大実行回数を指定します。 指定がない場合、最大で 100 回の実行が返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-only-return-successful-copy-run-flag-description",
+    "translation": "成功したコピーランだけが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-replication-run-status-flag-description",
+    "translation": "レプリケーション・ステータスのリストを指定すると、ステータスに一致する実行が返されます。<br>「実行中」は、実行がまだ実行中であることを示します。<br>「キャンセル済み」は、実行がキャンセルされたことを示します。<br>「キャンセル中」は、実行がキャンセル中であることを示します。<br>「失敗」は、実行が失敗したことを示します。<br>「見逃した」は、前の実行がまだ実行されていたため、スケジュールされた時間に実行を実行できなかったことを示します。<br>「成功」は、実行が正常に終了したことを示します。<br>「SucceededWithWarning」は、実行は正常に終了したが、いくつかの警告メッセージがあったことを示します。<br>「一時停止」は、進行中のランが一時停止されたことを示します。<br>「スキップ」は、実行がスキップされたことを示します。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、見逃した、成功、SucceededWithWarning,OnHold、ファイナライズ中、スキップ、一時停止です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-id-flag-description",
+    "translation": "保護実行 ID を指定します。 "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-tags-flag-description",
+    "translation": "保護実行のタグのリストを指定します。 これが指定された場合、これらのタグに一致する実行のみが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-types-flag-description",
+    "translation": "実行タイプでフィルタリングします。 指定されたタイプに一致する保護実行のみが返されます。 許可されるリスト項目は、kAll、kHydrateCDP、kSystem、kStorageArraySnapshot、kIncremental、kFull、kLog です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-snapshot-target-types-flag-description",
+    "translation": "フィルタリングされるべきスナップショットのターゲット・タイプを指定します。 許可されるリスト項目は、ローカル、アーカイブ、RpaasArchival、StorageArraySnapshot、リモートです。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-start-time-usecs-flag-description",
+    "translation": "時間範囲フィルタの開始時間。 開始時刻をUnix エポック・タイムスタンプ (マイクロ秒単位) で指定すると、この時刻以降に実行されたものだけが返されます。 デフォルトでは endTimeUsecs から 1 時間を引いた値になります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-use-cached-data-flag-description",
+    "translation": "リード・レプリカ・キャッシュから GET 要求を処理できるかどうかを指定します。 リード・レプリカとプライマリー・データ・ソースの間には 15 秒のラグがあります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-action-flag-description",
+    "translation": "必須。 保護実行に実行されるアクションのタイプを指定します。 使用可能な値は、一時停止、再開、キャンセルです。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-cancel-params-flag-description",
+    "translation": "保護実行のキャンセル・アクション・パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-command-long-description",
+    "translation": "保護グループの実行でさまざまなアクションを実行します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-command-short-description",
+    "translation": "保護グループ実行のアクション。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-id-flag-description",
+    "translation": "必須。 保護グループの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-pause-params-flag-description",
+    "translation": "保護実行の一時停止アクション・パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-resume-params-flag-description",
+    "translation": "保護実行のレジューム・アクション・パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-command-long-description",
+    "translation": "特定の保護グループの更新を実行します。 ユーザーは以下のアクションを実行できます。1. ローカル、レプリケーション、アーカイブ・スナップショットの保持期間を延長または短縮します。 2. この実行で失敗したコピー・スナップショットの再同期操作を実行できます。 3. 新しいレプリケーションおよびアーカイブ・スナップショット・ターゲットを実行に追加します。 4. スナップショットの法的保留を追加または削除します。 DSO ロールを持つユーザーのみがこの操作を実行できます。 5. この実行の一部として作成されたスナップショットを削除します。 6. ユーザーが有効期限内にスナップショットを手動で削除できない場合、既存のスナップショットにデータロックを適用します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-command-short-description",
+    "translation": "特定の保護グループの更新を実行します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-id-flag-description",
+    "translation": "必須。 保護グループの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-update-protection-group-run-params-flag-description",
+    "translation": "必須。 null JSONファイルへのパスを指定することもできます。 最小長は1項目です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-abort-in-blackouts-flag-description",
+    "translation": "ポリシーで指定されたブラックアウト期間が開始した場合に、現在実行中のジョブを中断するかどうかを指定します。 選択したポリシーに少なくとも 1 つのブラックアウト期間がある場合にのみ利用可能です。 デフォルト値はフォールスです。 「pauseInBlackouts」が true に設定されている場合、このフィールドを true に設定すべきではありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-advanced-configs-flag-description",
+    "translation": "保護ジョブの拡張構成を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-alert-targets-flag-description",
+    "translation": "アラートを受信するターゲットのリストを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-backup-run-status-flag-description",
+    "translation": "ユーザーがアラートを受信する実行ステータスを指定します。 許可されるリスト項目は、kSuccess、kFailure、kSlaViolation、kWarning です。 最小長は1項目です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-flag-description",
+    "translation": "保護グループのステータスをユーザーに警告するポリシーを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
+    "translation": "各バックアップ試行後に、バックアップの失敗に対してオブジェクト・レベルのアラートを発生させるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-after-last-attempt-flag-description",
+    "translation": "最後のバックアップ試行後に、バックアップの失敗に対してオブジェクト・レベルのアラートを発生させるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-flag-description",
+    "translation": "バックアップの実行後に、バックアップの失敗に対してオブジェクト・レベルのアラートを発生させるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-command-long-description",
+    "translation": "指定した保護グループを更新します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-command-short-description",
+    "translation": "保護グループを更新します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-description-flag-description",
+    "translation": "保護グループの説明を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-end-time-usecs-flag-description",
+    "translation": "この保護グループの終了時間をマイクロ秒単位で指定します。 これが指定されていない場合、保護グループは終了しません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-environment-flag-description",
+    "translation": "必須。 保護グループの環境タイプを指定します。 使用可能な値は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-id-flag-description",
+    "translation": "必須。 保護グループの ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-is-paused-flag-description",
+    "translation": "保護グループを一時停止するかどうかを指定します。 一時停止中の保護グループでは、新しい実行はスケジュールされません。 アクティブ実行があれば、影響はありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-last-modified-timestamp-usecs-flag-description",
+    "translation": "この保護グループが最後に更新された時刻を指定します。 これが PUT 要求に渡された場合、バックエンドは渡されたタイムスタンプが保護グループが実際に最後に変更された時刻と一致することを検証します。 2 つのタイムスタンプが一致しない場合、要求は不整合エラーで拒否されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-file-protection-type-params-flag-description",
+    "translation": "ファイル・ベースの MSSQL 保護グループを作成するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-flag-description",
+    "translation": "MSSQL 保護グループに特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-native-protection-type-params-flag-description",
+    "translation": "ネイティブ・ベースの MSSQL 保護グループを作成するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-protection-type-flag-description",
+    "translation": "MSSQL 保護グループのタイプを指定します。 使用可能な値は、kFile、kVolume、kNative です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-volume-protection-type-params-flag-description",
+    "translation": "ボリューム・ベースの MSSQL 保護グループを作成するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-name-flag-description",
+    "translation": "必須。 保護グループの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-pause-in-blackouts-flag-description",
+    "translation": "ポリシーで指定されたブラックアウト期間が開始した場合に、現在実行中のジョブを一時停止するかどうかを指定します。 選択したポリシーに少なくとも 1 つのブラックアウト期間がある場合にのみ利用可能です。 デフォルト値はフォールスです。 「abortInBlackouts」が true として送信された場合、このフィールドは true に設定されるべきではありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-file-protection-type-params-flag-description",
+    "translation": "物理関連の保護グループに特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-protection-type-flag-description",
+    "translation": "物理保護グループのタイプを指定します。 使用可能な値は、kFile、kVolume です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-volume-protection-type-params-flag-description",
+    "translation": "ボリューム・ベースの物理保護グループに特定のパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-policy-id-flag-description",
+    "translation": "必須。 保護グループに関連付けられた保護ポリシーの固有の ID を指定します。 このポリシーでは、保護スケジュール、優先度、SLA などの再試行設定が提供されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-priority-flag-description",
+    "translation": "保護グループの優先順位を指定します。 使用可能な値は、kLow、kMedium、kHigh です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-qos-policy-flag-description",
+    "translation": "保護グループを HDD または SSD のどちらに書き込むかを指定します。 使用可能な値は、kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-sla-flag-description",
+    "translation": "この保護グループの SLA パラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-flag-description",
+    "translation": "時刻を指定します。 スケジューリングのために使用されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-hour-flag-description",
+    "translation": "一日の時間 (0-23) を指定します。 最大値は 23 です。 最小値は 0です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-minute-flag-description",
+    "translation": "時間の分 (0-59) を指定します。 最大値は 59 です。 最小値は 0です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-time-zone-flag-description",
+    "translation": "ユーザーのタイムゾーンを指定します。 指定がない場合、デフォルト値はアメリカ/ロサンゼルスとみなされます。 デフォルト値はアメリカ/ロサンゼルスです。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-bmr-flag-description",
+    "translation": "物理的なソース保護の場合の BMR スケジュールを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-cdp-flag-description",
+    "translation": "保護グループの CDP (継続的なデータ保護) バックアップ設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-flag-description",
+    "translation": "保護ポリシーのバックアップ・スケジュールと保持を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-log-flag-description",
+    "translation": "保護グループのログ・バックアップ設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-regular-flag-description",
+    "translation": "インクリメンタルとフル・ポリシー設定と、共通の保持ポリシー設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-run-timeouts-flag-description",
+    "translation": "異なる実行タイプ (kFull、 kRegular など) のバックアップ・タイムアウトを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-storage-array-snapshot-flag-description",
+    "translation": "保護グループのストレージ・スナップショット管理バックアップ設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-blackout-window-flag-description",
+    "translation": "ブラックアウト・ウィンドウのリスト。 指定された場合、このフィールドは新しいグループ実行が開始されないブラックアウト期間を定義します。 グループ実行がスケジュールされているがまだ実行されておらず、ブラックアウト期間が開始する場合、動作はポリシー・フィールドAbortInBlackoutPeriod に依存します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-cascaded-targets-config-flag-description",
+    "translation": "カスケード・レプリケーションの構成を指定します。 カスケード・レプリケーションを使用すると、レプリケーション・クラスター (Rx) はスナップショットのコピーをさらに別のターゲットにレプリケートし、アーカイブすることができます。 保護グループが作成されるカスケード構成を作成することをお勧めします。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-command-long-description",
+    "translation": "保護ポリシーを作成し、新しく作成されたポリシー・オブジェクトを返します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-command-short-description",
+    "translation": "保護ポリシーを作成します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-data-lock-flag-description",
+    "translation": "このフィールドは非推奨です。 バックアップ保持の DataLockConfig を使用してください。 使用可能な値は、コンプライアンス、管理です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-description-flag-description",
+    "translation": "保護ポリシーの説明を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-extended-retention-flag-description",
+    "translation": "バックアップ・スナップショットに適用される追加の保持ポリシーを指定します。 バックアップ・スナップショットは、それに適用されるすべての保持ポリシーの最大値である時間まで保持されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-is-cbs-enabled-flag-description",
+    "translation": "カレンダー・ベースのスケジュールがクライアントでサポートされている場合は true を指定します。 この機能のデフォルト値は false と見なされます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-last-modification-time-usecs-flag-description",
+    "translation": "このポリシーが最後に更新された時刻を指定します。 これが PUT 要求に渡された場合、バックエンドは渡されたタイムスタンプがポリシーが実際に最後に変更された時刻と一致することを検証します。 2 つのタイムスタンプが一致しない場合、要求は不整合エラーで拒否されます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-name-flag-description",
+    "translation": "必須。 保護ポリシーの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-archival-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-cloud-spin-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-flag-description",
+    "translation": "保護ポリシーのレプリケーション、アーカイブ、クラウド・スピンのターゲットを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-onprem-deploy-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-replication-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-rpaas-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-flag-description",
+    "translation": "保護グループの実行が失敗した場合の保護ポリシーの再試行オプション。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-retries-flag-description",
+    "translation": "保護グループの実行が失敗するまでにスナップショットのキャプチャを再試行する回数を指定します。 最小値は 0です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-retry-interval-mins-flag-description",
+    "translation": "失敗した保護グループを再試行するまでの分数を指定します。 最小値は 1 です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-template-id-flag-description",
+    "translation": "ポリシーがリンクされる親ポリシー・テンプレート ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-version-flag-description",
+    "translation": "現在のポリシーのバージョンを指定します。 ポリシーのバージョンは、オプションで新機能をサポートするためにインクリメントされ、リリース間で差分が発生します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-command-long-description",
+    "translation": "指定されたポリシー ID に基づいて保護ポリシーを削除します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-command-short-description",
+    "translation": "保護ポリシーを削除します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-id-flag-description",
+    "translation": "必須。 削除する保護ポリシーの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-command-long-description",
+    "translation": "指定されたポリシー ID に基づいて保護ポリシーの詳細を返します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-command-short-description",
+    "translation": "1 つのプロテクション・ポリシーの詳細をリストします。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-id-flag-description",
+    "translation": "必須。 返す保護ポリシーの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-group-long-description",
+    "translation": "ProtectionPolicy リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-group-short-description",
+    "translation": "ProtectionPolicy リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-command-long-description",
+    "translation": "フィルタリング・クエリ・パラメータに基づく保護ポリシーをリストします。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-command-short-description",
+    "translation": "提供されたフィルタリング・パラメータに基づいて保護ポリシーをリストします。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-exclude-linked-policies-flag-description",
+    "translation": "excludeLinkedPolicies を true に設定すると、クラスタ上で作成されたローカル・ポリシーのみが返されます。 その結果、ポリシー・テンプレートから作成されたすべてのリンク・ポリシーが除外されます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-ids-flag-description",
+    "translation": "ポリシー ID のリストでポリシーをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-include-replicated-policies-flag-description",
+    "translation": "includeReplicatedPolicies が true に設定されている場合、応答には複製されたポリシーも含まれます。 デフォルトでは、レプリケーション・ポリシーは応答に含まれません。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-include-stats-flag-description",
+    "translation": "includeStats が true に設定されている場合、応答は保護グループとオブジェクトの数を返します。 デフォルトでは、プロテクション統計は応答に含まれません。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-policy-names-flag-description",
+    "translation": "ポリシー名のリストでポリシーをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-types-flag-description",
+    "translation": "タイプは、返されるポリシーのポリシー・タイプを指定します。 許可されるリスト項目は、レギュラー、インターナルです。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-bmr-flag-description",
+    "translation": "物理的なソース保護の場合の BMR スケジュールを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-cdp-flag-description",
+    "translation": "保護グループの CDP (継続的なデータ保護) バックアップ設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-flag-description",
+    "translation": "保護ポリシーのバックアップ・スケジュールと保持を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-log-flag-description",
+    "translation": "保護グループのログ・バックアップ設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-regular-flag-description",
+    "translation": "インクリメンタルとフル・ポリシー設定と、共通の保持ポリシー設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-run-timeouts-flag-description",
+    "translation": "異なる実行タイプ (kFull、 kRegular など) のバックアップ・タイムアウトを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-storage-array-snapshot-flag-description",
+    "translation": "保護グループのストレージ・スナップショット管理バックアップ設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-blackout-window-flag-description",
+    "translation": "ブラックアウト・ウィンドウのリスト。 指定された場合、このフィールドは新しいグループ実行が開始されないブラックアウト期間を定義します。 グループ実行がスケジュールされているがまだ実行されておらず、ブラックアウト期間が開始する場合、動作はポリシー・フィールドAbortInBlackoutPeriod に依存します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-cascaded-targets-config-flag-description",
+    "translation": "カスケード・レプリケーションの構成を指定します。 カスケード・レプリケーションを使用すると、レプリケーション・クラスター (Rx) はスナップショットのコピーをさらに別のターゲットにレプリケートし、アーカイブすることができます。 保護グループが作成されるカスケード構成を作成することをお勧めします。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-command-long-description",
+    "translation": "既存の保護ポリシーの更新要求を指定します。 更新に成功すると、更新されたポリシー・オブジェクトを返します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-command-short-description",
+    "translation": "保護ポリシーの更新"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-data-lock-flag-description",
+    "translation": "このフィールドは非推奨です。 バックアップ保持の DataLockConfig を使用してください。 使用可能な値は、コンプライアンス、管理です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-description-flag-description",
+    "translation": "保護ポリシーの説明を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-extended-retention-flag-description",
+    "translation": "バックアップ・スナップショットに適用される追加の保持ポリシーを指定します。 バックアップ・スナップショットは、それに適用されるすべての保持ポリシーの最大値である時間まで保持されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-id-flag-description",
+    "translation": "必須。 更新する保護ポリシーの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-is-cbs-enabled-flag-description",
+    "translation": "カレンダー・ベースのスケジュールがクライアントでサポートされている場合は true を指定します。 この機能のデフォルト値は false と見なされます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-last-modification-time-usecs-flag-description",
+    "translation": "このポリシーが最後に更新された時刻を指定します。 これが PUT 要求に渡された場合、バックエンドは渡されたタイムスタンプがポリシーが実際に最後に変更された時刻と一致することを検証します。 2 つのタイムスタンプが一致しない場合、要求は不整合エラーで拒否されます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-name-flag-description",
+    "translation": "必須。 保護ポリシーの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-archival-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-cloud-spin-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-flag-description",
+    "translation": "保護ポリシーのレプリケーション、アーカイブ、クラウド・スピンのターゲットを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-onprem-deploy-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-replication-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-rpaas-targets-flag-description",
+    "translation": "null JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-flag-description",
+    "translation": "保護グループの実行が失敗した場合の保護ポリシーの再試行オプション。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-retries-flag-description",
+    "translation": "保護グループの実行が失敗するまでにスナップショットのキャプチャを再試行する回数を指定します。 最小値は 0です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-retry-interval-mins-flag-description",
+    "translation": "失敗した保護グループを再試行するまでの分数を指定します。 最小値は 1 です。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-template-id-flag-description",
+    "translation": "ポリシーがリンクされる親ポリシー・テンプレート ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-version-flag-description",
+    "translation": "現在のポリシーのバージョンを指定します。 ポリシーのバージョンは、オプションで新機能をサポートするためにインクリメントされ、リリース間で差分が発生します。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-group-long-description",
+    "translation": "ProtectionSource リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-source-group-short-description",
+    "translation": "ProtectionSource リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-after-cursor-entity-id-flag-description",
+    "translation": "項目を返す始点となるエンティティ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy は、ログインしているユーザーの組織の階層下にあるすべてのテナントのオブジェクトを返すかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-before-cursor-entity-id-flag-description",
+    "translation": "項目を返すまでのエンティティ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-command-long-description",
+    "translation": "パラメータを指定しない場合は、コヘリティー・クラスタに登録されているすべての保護ソースが返されます。 さらに、各ソースから収集されたオブジェクト・サブツリーが返されます。 例えば、コヘリティー・クラスタはソース VMware vCenter サーバーを問い合わせ、vCenter サーバー上のインベントリ・ツリーをミラーリングする階層オブジェクト・サブツリーを作成します。 オブジェクト・ツリーのコンテンツは、「protectionSource」の「nodes」階層として返されます。 パラメータを指定すると、返される結果が変わることがあります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-command-short-description",
+    "translation": "保護ソースのリスト。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-encryption-key-flag-description",
+    "translation": "ソース・クレデンシャルの暗号化に使用するキー。 include_source_credentials が true に設定されている場合、このキーを指定しなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-environment-flag-description",
+    "translation": "このフィールドは非推奨です。 代わりに環境を使用してください。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-environments-flag-description",
+    "translation": "「kVMware」、「kSQL」、「kView」「kPhysical」、「kPuppeteer」、「kPure」、「kNetapp」、「kGenericNas」、「kHyperV」、「kAcropolis」、また「kAzure」など、渡された環境タイプに一致する保護ソースのみを返します。 例えば、このパラメータを「kVMware」に設定すると、「kVMware」(VMware vCenterサーバー) 環境で見つかったソース (およびそのオブジェクトのサブツリー) のみが返されます。 許可されるリスト項目は、kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3 です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-aws-types-flag-description",
+    "translation": "「kEC2Instance」、「kRDSInstance」、「kAuroraCluster」、「kTag」、「kAuroraTag」、「kRDSTag」、kS3Bucket、kS3Tag のような、渡された型にマッチする AWS のためにフィルタリングされるオブジェ ク ト・タイプを指定します。 たとえば、ec2 インスタンスを返さないようにするには、このパラメータを「kEC2Instance」に設定します。 許可されるリスト項目は、kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-kubernetes-types-flag-description",
+    "translation": "「kService」のような渡されたタイプに一致する Kubernetes 用にフィルタリングされるオブジェ ク ト・タイプを指定します。 例えば、サービスを返さないようにするには、このパラメータを「kService」に設定します。 許可されるリスト項目は、kService です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-office365-types-flag-description",
+    "translation": "「kDomain」、「kOutlook」、「kMailbox」、など、渡されたタイプに一致する Office 365 のフィルタリング対象オブジェ ク ト・タイプを指定します。 例えば、メールボックス・オブジェクトを返さないようにするには、このパラメータを「kMailbox」に設定します。 許可されるリスト項目は、kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-types-flag-description",
+    "translation": "「kVCenter」、「kFolder」、「kDatacenter」、「kComputeResource」、「kResourcePool」、「kDatastore」、「kHostSystem」、「kVirtualMachine」、などの渡された型に一致するオブジェ ク ト・タイプ (およびそのサブツリー) をフィルタリングします。 例えば、リソース・プール・オブジェクトを返さないようにするには、このパラメータを「kResourcePool」に設定します。 許可されるリスト項目は、kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-get-teams-channels-flag-description",
+    "translation": "ポリシー ID のリストでポリシーをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-has-valid-mailbox-flag-description",
+    "translation": "true に設定すると、有効なメールボックスを持つユーザが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-has-valid-onedrive-flag-description",
+    "translation": "true に設定すると、onedrive が有効なユーザが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-id-flag-description",
+    "translation": "渡された保護ソース ID のオブジェクト・サブツリーを返します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-datastores-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソース内で見つかった kDatastore オブジェクト・タイプも返します。 デフォルトでは、データストアは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-entity-permission-info-flag-description",
+    "translation": "指定された場合、パーミッションが割り当てられたエンタイトのリストが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-networks-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソース内で見つかった kNetwork オブジェクト・タイプも返します。 デフォルトでは、ネットワーク・オブジェクトは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-object-protection-info-flag-description",
+    "translation": "指定された場合、エンティティのオブジェクト保護 (存在する場合) が返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-sfdc-fields-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソースで見つかったオブジェクトのフィールドも返されます。 デフォルトでは、Sfdc オブジェクト・フィールドは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-source-credentials-flag-description",
+    "translation": "指定された場合、登録されたソースのクレドネットが含まれます。 クレデンシャルは、まず内部鍵で暗号化され、次にユーザが提供する「encryption_key」で再暗 号化されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-system-v-apps-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソース内で見つかったシステム VApp オブジェクト・タイプも返されます。 デフォルトでは、VM フォルダー・オブジェクトは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-vm-folders-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソースで見つかった kVMFolder オブジェクト・タイプも返します。 デフォルトでは、VM フォルダー・オブジェクトは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-is-security-group-flag-description",
+    "translation": "true に設定すると、セキュリティが有効なグループが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-node-id-flag-description",
+    "translation": "子ノードがページ分割されるソース・エンティティ階層内の任意のレベルにあるノードのエンティティ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-num-levels-flag-description",
+    "translation": "エンティティ階層応答で返される、ルート・ノードからの期待されるレベル数を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-page-size-flag-description",
+    "translation": "ページ内で返すエンティティの最大数を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-prune-aggregation-info-flag-description",
+    "translation": "保護されている/保護されていないエンティティの数に関する集計情報を除去するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-prune-non-critical-info-flag-description",
+    "translation": "エンティティ内の重要でない情報を除去するかどうかを指定します。 VM の場合、仮想ディスク情報は削除されます。 Office365 の場合、ユーザー・エンティティのメタデータは削除されます。 これは、呼び出し元による応答のサイズを制限するために使用できます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-request-initiator-type-flag-description",
+    "translation": "要求のタイプを指定します。 可能な値は UIUser と UIAuto で、これは要求がユーザーによってトリガーされるか、自動リフレッシュ要求であることを意味します。 magneto のようなサービスは、要求の優先順位を決定するためにこれを使用し、優先順位の高い要求を優先することで、過負荷の状況をよりスマートに処理できるようにします。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-sids-flag-description",
+    "translation": "リストで指定された sid のオブジェクト・サブツリーにフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-use-cached-data-flag-description",
+    "translation": "GET 要求をリード・レプリカ・キャッシュに送るかどうかを指定します。 これを true に設定すると、API 要求がリード・レプリカに提供されるようになります。 これを false に設定すると、要求はマスターに送られます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-command-long-description",
+    "translation": "保護ソースをリフレッシュします。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-command-short-description",
+    "translation": "保護ソースをリフレッシュします。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-id-flag-description",
+    "translation": "必須。 保護ソースの ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-advanced-configs-flag-description",
+    "translation": "保護ソースの拡張構成を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-command-long-description",
+    "translation": "保護ソースを登録します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-command-short-description",
+    "translation": "保護ソースを登録します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connection-id-flag-description",
+    "translation": "このソースが到達可能な接続の ID を指定します。 これは、テナント・ユーザーによって登録されるソースにのみ設定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connections-flag-description",
+    "translation": "ソースの接続リストを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connector-group-id-flag-description",
+    "translation": "コネクタ・グループのコネクタ・グループ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-data-source-connection-id-flag-description",
+    "translation": "このソースが到達可能な接続の ID を指定します。 これは、テナント・ユーザーによって登録されるソースにのみ設定する必要があります。 また、これは connectionId の「文字列」であります。 このプロパティは、JS が精度を維持する最大値である 2^53 - 1 を超える ID 値に対応するために追加されました。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-encryption-key-flag-description",
+    "translation": "ユーザがクレデンシャルを暗号化したキーを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-environment-flag-description",
+    "translation": "必須。 保護ソ ースの環境タイプを指定 し ます。 使用可能な値は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-is-internal-encrypted-flag-description",
+    "translation": "資格情報を内部キーで暗号化するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-name-flag-description",
+    "translation": "このソースのユーザー指定名。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-applications-flag-description",
+    "translation": "物理ソースに登録するアプリケーションのリストを指定します。 許可されるリスト項目は、kSQL、kOracle です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-endpoint-flag-description",
+    "translation": "物理ホストのエンドポイント IP アドレス、URL、またはホスト名を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-flag-description",
+    "translation": "物理サーバを登録するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-force-register-flag-description",
+    "translation": "物理ホストで動作するエージェントは、他のクラスタの一部として既に登録されている場合、登録に失敗します。 このオプションを true に設定すると、エージェントは現在のクラスタに強制的に登録されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-host-type-flag-description",
+    "translation": "ホストのタイプを指定します。 使用可能な値は、kLinux、kWindows です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-physical-type-flag-description",
+    "translation": "物理サーバーのタイプを指定します。 使用可能な値は、kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-command-long-description",
+    "translation": "保護ソース登録を削除します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-command-short-description",
+    "translation": "保護ソース登録を削除します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-id-flag-description",
+    "translation": "必須。 保護ソース登録の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-command-long-description",
+    "translation": "保護ソース登録を取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-command-short-description",
+    "translation": "保護ソース登録を取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-id-flag-description",
+    "translation": "必須。 保護ソース登録の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-command-long-description",
+    "translation": "保護ソースをパッチします。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-command-short-description",
+    "translation": "保護ソースをパッチします。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-environment-flag-description",
+    "translation": "必須。 パッチを適用する保護ソースの環境タイプを指定します。 現在サポートされている環境は kCassandra のみです。 使用可能な値は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-id-flag-description",
+    "translation": "必須。 保護ソース登録の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-advanced-configs-flag-description",
+    "translation": "保護ソースの拡張構成を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-command-long-description",
+    "translation": "保護ソース登録を更新します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-command-short-description",
+    "translation": "保護ソース登録を更新します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connection-id-flag-description",
+    "translation": "このソースが到達可能な接続の ID を指定します。 これは、テナント・ユーザーによって登録されるソースにのみ設定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connections-flag-description",
+    "translation": "ソースの接続リストを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connector-group-id-flag-description",
+    "translation": "コネクタ・グループのコネクタ・グループ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-data-source-connection-id-flag-description",
+    "translation": "このソースが到達可能な接続の ID を指定します。 これは、テナント・ユーザーによって登録されるソースにのみ設定する必要があります。 また、これは connectionId の「文字列」であります。 このプロパティは、JS が精度を維持する最大値である 2^53 - 1 を超える ID 値に対応するために追加されました。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-encryption-key-flag-description",
+    "translation": "ユーザがクレデンシャルを暗号化したキーを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-environment-flag-description",
+    "translation": "必須。 保護ソ ースの環境タイプを指定 し ます。 使用可能な値は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-id-flag-description",
+    "translation": "必須。 保護ソース登録の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-is-internal-encrypted-flag-description",
+    "translation": "資格情報を内部キーで暗号化するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-last-modified-timestamp-usecs-flag-description",
+    "translation": "オブジェクトの試行終了時刻を Unix エポック・タイムスタンプ (マイクロ秒単位) で指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-name-flag-description",
+    "translation": "このソースのユーザー指定名。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-applications-flag-description",
+    "translation": "物理ソースに登録するアプリケーションのリストを指定します。 許可されるリスト項目は、kSQL、kOracle です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-endpoint-flag-description",
+    "translation": "物理ホストのエンドポイント IP アドレス、URL、またはホスト名を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-flag-description",
+    "translation": "物理サーバを登録するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-force-register-flag-description",
+    "translation": "物理ホストで動作するエージェントは、他のクラスタの一部として既に登録されている場合、登録に失敗します。 このオプションを true に設定すると、エージェントは現在のクラスタに強制的に登録されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-host-type-flag-description",
+    "translation": "ホストのタイプを指定します。 使用可能な値は、kLinux、kWindows です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-physical-type-flag-description",
+    "translation": "物理サーバーのタイプを指定します。 使用可能な値は、kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster です。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-command-long-description",
+    "translation": "保護ソース登録のリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-command-short-description",
+    "translation": "保護ソース登録のリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-encryption-key-flag-description",
+    "translation": "ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-ids-flag-description",
+    "translation": "Ids は、返すソース登録 ID のリストを指定します。 空のままにすると、デフォルトですべてのソース登録が返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-ignore-tenant-migration-in-progress-check-flag-description",
+    "translation": "true の場合、テナント移行チェックは無視されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-include-external-metadata-flag-description",
+    "translation": "True の場合、登録されたソースのメンテナンス・モード構成などの外部エンティティ・ メタデータが含まれます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-include-source-credentials-flag-description",
+    "translation": "True の場合、登録されたソースの暗号化されたクレジッ トネットが含まれます。 クレデンシャルは、まず内部鍵で暗号化され、次にユーザが提供する暗号化鍵で再暗 号化されます。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-use-cached-data-flag-description",
+    "translation": "リード・レプリカ・キャッシュから GET 要求を処理できるかどうかを指定します。 リード・レプリカとプライマリー・データ・ソースの間には 15 秒のラグがあります。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-group-long-description",
+    "translation": "ProtectionSources リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-group-short-description",
+    "translation": "ProtectionSources リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-after-cursor-entity-id-flag-description",
+    "translation": "項目を返す始点となるエンティティ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy は、ログインしているユーザーの組織の階層下にあるすべてのテナントのオブジェクトを返すかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-before-cursor-entity-id-flag-description",
+    "translation": "項目を返すまでのエンティティ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-command-long-description",
+    "translation": "パラメータを指定しない場合は、コヘリティー・クラスタに登録されているすべての保護ソースが返されます。 さらに、各ソースから収集されたオブジェクト・サブツリーが返されます。 例えば、コヘリティー・クラスタはソース VMware vCenter サーバーを問い合わせ、vCenter サーバー上のインベントリ・ツリーをミラーリングする階層オブジェクト・サブツリーを作成します。 オブジェクト・ツリーのコンテンツは、「protectionSource」の「nodes」階層として返されます。 パラメータを指定すると、返される結果が変わることがあります。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-command-short-description",
+    "translation": "保護ソースのリスト。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-encryption-key-flag-description",
+    "translation": "ソース・クレデンシャルの暗号化に使用するキー。 include_source_credentials が true に設定されている場合、このキーを指定しなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-environment-flag-description",
+    "translation": "このフィールドは非推奨です。 代わりに環境を使用してください。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-environments-flag-description",
+    "translation": "「kVMware」、「kSQL」、「kView」「kPhysical」、「kPuppeteer」、「kPure」、「kNetapp」、「kGenericNas」、「kHyperV」、「kAcropolis」、また「kAzure」など、渡された環境タイプに一致する保護ソースのみを返します。 例えば、このパラメータを「kVMware」に設定すると、「kVMware」(VMware vCenterサーバー) 環境で見つかったソース (およびそのオブジェクトのサブツリー) のみが返されます。 許可されるリスト項目は、kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3 です。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-aws-types-flag-description",
+    "translation": "「kEC2Instance」、「kRDSInstance」、「kAuroraCluster」、「kTag」、「kAuroraTag」、「kRDSTag」、kS3Bucket、kS3Tag のような、渡された型にマッチする AWS のためにフィルタリングされるオブジェ ク ト・タイプを指定します。 たとえば、ec2 インスタンスを返さないようにするには、このパラメータを「kEC2Instance」に設定します。 許可されるリスト項目は、kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag です。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-kubernetes-types-flag-description",
+    "translation": "「kService」のような渡されたタイプに一致する Kubernetes 用にフィルタリングされるオブジェ ク ト・タイプを指定します。 例えば、サービスを返さないようにするには、このパラメータを「kService」に設定します。 許可されるリスト項目は、kService です。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-office365-types-flag-description",
+    "translation": "「kDomain」、「kOutlook」、「kMailbox」、など、渡されたタイプに一致する Office 365 のフィルタリング対象オブジェ ク ト・タイプを指定します。 例えば、メールボックス・オブジェクトを返さないようにするには、このパラメータを「kMailbox」に設定します。 許可されるリスト項目は、kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite です。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-types-flag-description",
+    "translation": "「kVCenter」、「kFolder」、「kDatacenter」、「kComputeResource」、「kResourcePool」、「kDatastore」、「kHostSystem」、「kVirtualMachine」、などの渡された型に一致するオブジェ ク ト・タイプ (およびそのサブツリー) をフィルタリングします。 例えば、リソース・プール・オブジェクトを返さないようにするには、このパラメータを「kResourcePool」に設定します。 許可されるリスト項目は、kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag です。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-get-teams-channels-flag-description",
+    "translation": "ポリシー ID のリストでポリシーをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-has-valid-mailbox-flag-description",
+    "translation": "true に設定すると、有効なメールボックスを持つユーザが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-has-valid-onedrive-flag-description",
+    "translation": "true に設定すると、onedrive が有効なユーザが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-id-flag-description",
+    "translation": "渡された保護ソース ID のオブジェクト・サブツリーを返します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-datastores-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソース内で見つかった kDatastore オブジェクト・タイプも返します。 デフォルトでは、データストアは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-entity-permission-info-flag-description",
+    "translation": "指定された場合、パーミッションが割り当てられたエンタイトのリストが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-networks-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソース内で見つかった kNetwork オブジェクト・タイプも返します。 デフォルトでは、ネットワーク・オブジェクトは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-object-protection-info-flag-description",
+    "translation": "指定された場合、エンティティのオブジェクト保護 (存在する場合) が返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-sfdc-fields-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソースで見つかったオブジェクトのフィールドも返されます。 デフォルトでは、Sfdc オブジェクト・フィールドは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-source-credentials-flag-description",
+    "translation": "指定された場合、登録されたソースのクレドネットが含まれます。 クレデンシャルは、まず内部鍵で暗号化され、次にユーザが提供する「encryption_key」で再暗 号化されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-system-v-apps-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソース内で見つかったシステム VApp オブジェクト・タイプも返されます。 デフォルトでは、VM フォルダー・オブジェクトは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-vm-folders-flag-description",
+    "translation": "このパラメータを true に設定すると、オブジェクト・サブツリーに加えて、ソースで見つかった kVMFolder オブジェクト・タイプも返します。 デフォルトでは、VM フォルダー・オブジェクトは返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-is-security-group-flag-description",
+    "translation": "true に設定すると、セキュリティが有効なグループが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-node-id-flag-description",
+    "translation": "子ノードがページ分割されるソース・エンティティ階層内の任意のレベルにあるノードのエンティティ ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-num-levels-flag-description",
+    "translation": "エンティティ階層応答で返される、ルート・ノードからの期待されるレベル数を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-page-size-flag-description",
+    "translation": "ページ内で返すエンティティの最大数を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-prune-aggregation-info-flag-description",
+    "translation": "保護されている/保護されていないエンティティの数に関する集計情報を除去するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-prune-non-critical-info-flag-description",
+    "translation": "エンティティ内の重要でない情報を除去するかどうかを指定します。 VM の場合、仮想ディスク情報は削除されます。 Office365 の場合、ユーザー・エンティティのメタデータは削除されます。 これは、呼び出し元による応答のサイズを制限するために使用できます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-request-initiator-type-flag-description",
+    "translation": "要求のタイプを指定します。 可能な値は UIUser と UIAuto で、これは要求がユーザーによってトリガーされるか、自動リフレッシュ要求であることを意味します。 magneto のようなサービスは、要求の優先順位を決定するためにこれを使用し、優先順位の高い要求を優先することで、過負荷の状況をよりスマートに処理できるようにします。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-sids-flag-description",
+    "translation": "リストで指定された sid のオブジェクト・サブツリーにフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-use-cached-data-flag-description",
+    "translation": "GET 要求をリード・レプリカ・キャッシュに送るかどうかを指定します。 これを true に設定すると、API 要求がリード・レプリカに提供されるようになります。 これを false に設定すると、要求はマスターに送られます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-command-long-description",
+    "translation": "復旧を実行します。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-command-short-description",
+    "translation": "復旧を実行します。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-flag-description",
+    "translation": "Sql 環境に固有の復旧オプションを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-recover-app-params-flag-description",
+    "translation": "Sql データベースを復旧するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。 最小長は1項目です。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
+    "translation": "実行する復旧アクションのタイプを指定します。 使用可能な値は、RecoverApps、CloneApps です。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-vlan-config-flag-description",
+    "translation": "復旧に関連する VLAN パラメータを指定します。 これが指定されていない場合、VLAN 設定は以下のオプションの中から自動的に選択されます。a. IBM で VLAN が設定されている場合、VLAN ホスト/VIP はクライアント (ESXI ホストなど) の IP アドレスに基づいて自動的に設定されます。 b. IBM で VLAN が設定されていない場合、パーティション・ホスト名または VIP が復旧に使用されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-name-flag-description",
+    "translation": "必須。 復旧の名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-download-file-and-folder-params-flag-description",
+    "translation": "ファイルやフォルダをダウンロードするためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-flag-description",
+    "translation": "物理環境に固有の復旧オプションを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-mount-volume-params-flag-description",
+    "translation": "物理ボリュームをマウントするためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-objects-flag-description",
+    "translation": "復旧オブジェクト・パラメータのリストを指定します。 ファイルを復旧する場合は、復旧するファイルを含むオブジェクトを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recover-file-and-folder-params-flag-description",
+    "translation": "ファイルとフォルダの復旧を実行するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recover-volume-params-flag-description",
+    "translation": "物理ボリュームを復旧するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recovery-action-flag-description",
+    "translation": "実行する復旧アクションのタイプを指定します。 使用可能な値は、RecoverPhysicalVolumes、InstantVolumeMount、RecoverFiles、RecoverSystem です。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-system-recovery-params-flag-description",
+    "translation": "システム復旧を実行するためのパラメータを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-snapshot-environment-flag-description",
+    "translation": "必須。 復旧を実行するスナップショットの環境の種類を指定します。 使用可能な値は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-command-long-description",
+    "translation": "指定されたダウンロード・ファイルの復旧からファイルをダウンロードします。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-command-short-description",
+    "translation": "指定されたダウンロード・ファイルの復旧からファイルをダウンロードします。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-file-type-flag-description",
+    "translation": "ダウンロードされたファイルのタイプを指定します (例えば: エラー、success_files_list)。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-id-flag-description",
+    "translation": "必須。 復旧の ID を指定します。 "
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-include-tenants-flag-description",
+    "translation": "ログインしているユーザーの組織の階層下にあるすべての組織のオブジェクトを返すかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-length-flag-description",
+    "translation": "ダウンロードするバイト数を指定します。 これは 8MB (8388608 バイト) を超えることはできません。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-source-name-flag-description",
+    "translation": "リストアするソースの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-start-offset-flag-description",
+    "translation": "ダウンロードするファイル・チャンクの開始オフセットを指定します。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-start-time-flag-description",
+    "translation": "リストア・タスクの開始時間を指定します。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-recovery-get-command-long-description",
+    "translation": "指定された ID の復旧を取得します。"
+  },
+  {
+    "id": "backup-recovery-recovery-get-command-short-description",
+    "translation": "指定された ID の復旧を取得します。"
+  },
+  {
+    "id": "backup-recovery-recovery-get-id-flag-description",
+    "translation": "必須。 復旧の ID を指定します。 "
+  },
+  {
+    "id": "backup-recovery-recovery-get-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-recovery-group-long-description",
+    "translation": "復旧リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-recovery-group-short-description",
+    "translation": "復旧リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-archival-target-type-flag-description",
+    "translation": "復旧が実行されたスナップショットのアーカイブ・ターゲット・タイプを指定します。 このパラメータは、「snapshotTargetType」が「Archival」の場合にのみ適用されます。 許可されるリスト項目は、テープ、クラウド、ナスです。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-command-long-description",
+    "translation": "復旧をリストします。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-command-short-description",
+    "translation": "復旧をリストします。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-end-time-usecs-flag-description",
+    "translation": "特定時刻以前に開始された復旧を返します。 この値は、Unix タイムスタンプ・エポックでマイクロ秒単位がなければなりません。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-ids-flag-description",
+    "translation": "指定された ID の復旧をフィルタリングします。 "
+  },
+  {
+    "id": "backup-recovery-recovery-list-recovery-actions-flag-description",
+    "translation": "復旧をフィルタリングする復旧アクションのリストを指定します。 空の場合、すべてのアクションに関連する復旧が返されます。 許可されるリスト項目は、RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、RecoverVApps、RecoverVAppTemplates、UptierSnapshot、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverRDSPostgres、RecoverAzureSQL、RecoverApps、CloneApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverExchangeDbs、CloneAppView、RecoverSanVolumes、RecoverSanGroup、RecoverMailbox、RecoverOneDrive、RecoverSharePoint、RecoverPublicFolders、RecoverMsGroup、RecoverMsTeam、ConvertToPst、DownloadChats、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM、RecoverNamespaces、RecoverObjects、RecoverSfdcObjects、RecoverSfdcOrg、RecoverSfdcRecords、DownloadFilesAndFolders、CloneVMs、CloneView、CloneRefreshApp、CloneVMsToView、ConvertAndDeployVMs、DeployVMs です。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-return-only-child-recoveries-flag-description",
+    "translation": "true を指定すると、子復旧のみを返します。 このフィルターは、常に「ids」フィルターとともに使用してください。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-snapshot-environments-flag-description",
+    "translation": "復旧をフィルタリングするスナップショット環境タイプのリストを指定します。 空の場合、すべての環境に関連する復旧が返されます。 許可されるリスト項目は、kPhysical、kSQL です。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-snapshot-target-type-flag-description",
+    "translation": "復旧が実行されたスナップショットのターゲット・タイプを指定します。 許可されるリスト項目は、ローカル、アーカイブ、RpaasArchival、StorageArraySnapshot、リモートです。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-start-time-usecs-flag-description",
+    "translation": "特定時間以降に開始された復旧を返します。 この値は、Unix タイムスタンプ・エポックでマイクロ秒単位がなければなりません。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-status-flag-description",
+    "translation": "復旧をフィルタリングする実行ステータスのリストを指定します。 空の場合、すべての実行ステータスの復旧が返されます。 許可されるリスト項目は、同意済み、実行中、キャンセル済み、キャンセル中、失敗した、不在、成功、SucceededWithWarning、OnHold、ファイナライズ中、スキップ、LegalHold です。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-restore-points-command-long-description",
+    "translation": "リストア・ポイントを一覧表示する、つまり、特定の時間範囲内のスナップショットを返します。"
+  },
+  {
+    "id": "backup-recovery-restore-points-command-short-description",
+    "translation": "指定した時間範囲内のリストア・ポイント。"
+  },
+  {
+    "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
+    "translation": "必須。 終了時刻を Unix エポック・タイムスタンプでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-restore-points-environment-flag-description",
+    "translation": "必須。 保護ソース環境タイプを指定します。 使用可能な値は、kVMware、kHyperV、kAzure、kGCP、kKVM、kAcropolis、kAWS、kPhysical、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPure、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kSAPHANA、kHBase、kUDA、kSfdc です。"
+  },
+  {
+    "id": "backup-recovery-restore-points-protection-group-ids-flag-description",
+    "translation": "必須。 フル・スナップショット情報を取得するジョブを指定します。"
+  },
+  {
+    "id": "backup-recovery-restore-points-source-id-flag-description",
+    "translation": "リストアする保護ソースの ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-restore-points-start-time-usecs-flag-description",
+    "translation": "必須。 開始時刻を Unix エポック・タイムスタンプでマイクロ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-restore-points-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-short-description",
+    "translation": "IBM バックアップ復旧 API を管理します。"
+  },
+  {
+    "id": "command-help-error",
+    "translation": "コマンド・ヘルプ情報の印刷中にエラーが発生しました。"
+  },
+  {
+    "id": "commands-header-help-menu",
+    "translation": "COMMANDS"
+  },
+  {
+    "id": "config-command-long-description",
+    "translation": "グローバル・オプションの永続構成を制御/表示するためのコマンド。"
+  },
+  {
+    "id": "config-command-short-description",
+    "translation": "永続構成を制御します。"
+  },
+  {
+    "id": "config-error",
+    "translation": "プラグインを構成できませんでした"
+  },
+  {
+    "id": "config-get-command-long-description",
+    "translation": "特定のオプションに対して現在設定されている値を取得します。"
+  },
+  {
+    "id": "config-get-command-short-description",
+    "translation": "オプションの現在設定されている構成値を出力します。"
+  },
+  {
+    "id": "config-get-subcommand-long-description",
+    "translation": "「{{.NAME}}」オプションに現在設定されている値を取得します。"
+  },
+  {
+    "id": "config-get-subcommand-read-error",
+    "translation": "値の読み取り中にエラーが発生しました。"
+  },
+  {
+    "id": "config-get-subcommand-short-description",
+    "translation": "「{{.NAME}}」に現在設定されている値を印刷します"
+  },
+  {
+    "id": "config-list-command-long-description",
+    "translation": "現在設定されているすべての構成値をリストします。"
+  },
+  {
+    "id": "config-list-command-short-description",
+    "translation": "現在設定されている構成値を出力します。"
+  },
+  {
+    "id": "config-list-read-error",
+    "translation": "「{{.NAME}}」の読み取り中にエラーが発生しました。表示されません。"
+  },
+  {
+    "id": "config-reading-deserialize-error",
+    "translation": "「{{.NAME}}」の構成値のデシリアライズ中にエラーが発生しました。これは使用されません。"
+  },
+  {
+    "id": "config-reading-read-error",
+    "translation": "「{{.NAME}}」の構成値の読み取り中にエラーが発生しました。これは使用されません。"
+  },
+  {
+    "id": "config-set-command-long-description",
+    "translation": "特定のオプションの新しい構成値を設定します。"
+  },
+  {
+    "id": "config-set-command-short-description",
+    "translation": "オプションの構成値を設定します。"
+  },
+  {
+    "id": "config-set-subcommand-long-description",
+    "translation": "「{{.NAME}}」オプションに新しい値を設定してください。"
+  },
+  {
+    "id": "config-set-subcommand-short-description",
+    "translation": "「{{.NAME}}」の値を設定します"
+  },
+  {
+    "id": "config-subcommand-no-value-set",
+    "translation": "値が設定されていません。 値を設定するには、「set」コマンドを使用します。"
+  },
+  {
+    "id": "config-subcommand-set-error",
+    "translation": "構成値の設定でエラーが発生しました。"
+  },
+  {
+    "id": "config-subcommand-unset-error",
+    "translation": "構成値の設定解除中にエラーが発生しました。"
+  },
+  {
+    "id": "config-unset-command-long-description",
+    "translation": "特定のオプションに対して現在設定されている値を設定解除します。"
+  },
+  {
+    "id": "config-unset-command-short-description",
+    "translation": "オプションの構成値を設定解除します。"
+  },
+  {
+    "id": "config-unset-subcommand-long-description",
+    "translation": "「{{.NAME}}」オプションの現在設定されている値を設定解除してください。"
+  },
+  {
+    "id": "config-unset-subcommand-short-description",
+    "translation": "「{{.NAME}}」の値を設定解除します"
+  },
+  {
+    "id": "confirm-delete",
+    "translation": "削除してもよろしいですか?"
+  },
+  {
+    "id": "confirmation-error",
+    "translation": "確認できませんでした"
+  },
+  {
+    "id": "credentials-error",
+    "translation": "プラグインを認証できません。\n「ibmcloud login」を使用してログインするか、資格情報を環境変数としてエクスポートするか、もしくは資格情報ファイルを保存してください。\n詳しくは、https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#define-configuration-properties を参照してください。\nエラー"
+  },
+  {
+    "id": "empty-error-response-message",
+    "translation": "サービスが内容のないエラー応答を返しました。 エラー情報を参照"
+  },
+  {
+    "id": "error-getting-query-param",
+    "translation": "URLから次のページ照会パラメーターを取得中にエラーが発生しました。"
+  },
+  {
+    "id": "examples-header-help-menu",
+    "translation": "例"
+  },
+  {
+    "id": "extraneous-json-field",
+    "translation": "JSON フラグにサポートされないフィールドがあります。「{{.FLAG_NAME}}」: 「{{.FIELD_PATH}}」"
+  },
+  {
+    "id": "extraneous-json-fields",
+    "translation": "JSON フラグに複数のサポートされないフィールドがあります。「{{.FLAG_NAME}}」: 「{{.FIELD_PATH}}」"
+  },
+  {
+    "id": "file-closing-error",
+    "translation": "ファイル「{{.FILENAME}}」のクローズエラー"
+  },
+  {
+    "id": "file-conversion-error",
+    "translation": "インターフェース変換：ファイル引数がio.ReadCloserではありません"
+  },
+  {
+    "id": "file-opening-error",
+    "translation": "ファイル '{{.FILENAME}}' を開くときにエラーが発生しました"
+  },
+  {
+    "id": "file-reading-error",
+    "translation": "ファイル '{{.FILENAME}}' の読み取り中にエラーが発生しました"
+  },
+  {
+    "id": "file-response-error",
+    "translation": "ファイル '{{.FILENAME}}' への応答の書き込み中にエラーが発生しました"
+  },
+  {
+    "id": "final-usage-line-help-menu",
+    "translation": "コマンドについて詳しくは、「ibmcloud {{.COMMAND_PATH}} service-command --help」を使用してください。"
+  },
+  {
+    "id": "force-flag-description",
+    "translation": "コマンドを強制的に実行します。"
+  },
+  {
+    "id": "global-options-header-help-menu",
+    "translation": "グローバル・オプション"
+  },
+  {
+    "id": "internal-error",
+    "translation": "内部エラー。"
+  },
+  {
+    "id": "jmes-query-global-flag-description",
+    "translation": "出力をカスタマイズするにはJMESPathクエリーを指定します。"
+  },
+  {
+    "id": "jmespath-application-error",
+    "translation": "JmesPathクエリーを結果に適用中にエラーが発生しました"
+  },
+  {
+    "id": "jmespath-compile-error",
+    "translation": "JmesPath照会:「{{.QUERY}}」のコンパイル中にエラーが発生しました。"
+  },
+  {
+    "id": "jmespath-queries-assertion-error",
+    "translation": "JMESPath クエリの設定エラー。 引数のタイプは「JMESPathQueries」でなければならず、「{{.TYPE}}」ではありません。"
+  },
+  {
+    "id": "json-conversion-error",
+    "translation": "回答オブジェクトをJSONに変換中にエラーが発生しました"
+  },
+  {
+    "id": "json-parsing-error",
+    "translation": "JSON フラグ「{{.FLAG_NAME}}」の構文解析中にエラーが発生しました"
+  },
+  {
+    "id": "log-file-creation-error",
+    "translation": "ログ・ファイル「{{.PATH}}」の作成中にエラーが発生しました。\n{{.ERROR}}\n\n"
+  },
+  {
+    "id": "missing-flags-argument-error",
+    "translation": "フラグには引数が必要です: {{.FLAG}}"
+  },
+  {
+    "id": "missing-required-flags-error",
+    "translation": "必須フラグ {{.FLAGS}} が設定されていません"
+  },
+  {
+    "id": "name-header-help-menu",
+    "translation": "名前"
+  },
+  {
+    "id": "next-page-command-message",
+    "translation": "結果の次のページを取得するには、「ibmcloud {{.ARGS}}」を実行します。"
+  },
+  {
+    "id": "no-credentials",
+    "translation": "提供された資格情報がありません。"
+  },
+  {
+    "id": "no-data-for-table",
+    "translation": "表示するものがありません。"
+  },
+  {
+    "id": "no-service-response-error",
+    "translation": "サービスから情報は返されなかった"
+  },
+  {
+    "id": "operation-metadata-assertion-error",
+    "translation": "操作メタデータの設定エラー。 引数のタイプは「OperationMetadata」でなければならず、「{{.TYPE}}」ではありません。"
+  },
+  {
+    "id": "options-header-help-menu",
+    "translation": "オプション"
+  },
+  {
+    "id": "output-file-confirmation",
+    "translation": "{{.FILENAME}} に書き込まれる出力"
+  },
+  {
+    "id": "output-file-flag-description",
+    "translation": "結果出力を書き込むファイル名/パス。"
+  },
+  {
+    "id": "output-file-flag-prompt-message",
+    "translation": "結果出力を書き込むファイル名/パス。"
+  },
+  {
+    "id": "output-global-flag-description",
+    "translation": "出力フォーマットを選択します。「json」、「yaml」、「tui」、または「table」を選択できます。"
+  },
+  {
+    "id": "parsing-error",
+    "translation": "フラグ '{{.FLAG_NAME}}' を '{{.TYPE}}' として構文解析中にエラーが発生しました"
+  },
+  {
+    "id": "prompt-failed",
+    "translation": "バリューを解決できませんでした。"
+  },
+  {
+    "id": "quiet-global-flag-description",
+    "translation": "冗長メッセージを抑制します。"
+  },
+  {
+    "id": "response-processing-error",
+    "translation": "要求を行えなかったか、応答を処理できませんでした。 エラー情報を参照"
+  },
+  {
+    "id": "root-command-error",
+    "translation": "コマンドの実行中にエラーが発生しました"
+  },
+  {
+    "id": "service-url-global-flag-description",
+    "translation": "APIの基本エンドポイント URL を指定します。"
+  },
+  {
+    "id": "show-help",
+    "translation": "ヘルプの表示"
+  },
+  {
+    "id": "suggestions",
+    "translation": "類似のコマンド: \n{{.SUGGESTIONS}}\n"
+  },
+  {
+    "id": "truncated-table",
+    "translation": "元の結果は、ウィンドウの幅を超えないように切り捨てられました。({{.TRUNCATED_COLUMNS}} 列は非表示)"
+  },
+  {
+    "id": "tui-app-error",
+    "translation": "TUIビューの実行中にエラーが発生しました。 "
+  },
+  {
+    "id": "tui-button-cancel",
+    "translation": "キャンセル"
+  },
+  {
+    "id": "tui-button-ok",
+    "translation": "OK"
+  },
+  {
+    "id": "tui-button-quit",
+    "translation": "終了"
+  },
+  {
+    "id": "tui-button-save",
+    "translation": "保存"
+  },
+  {
+    "id": "tui-close",
+    "translation": "前のテーブルに戻る"
+  },
+  {
+    "id": "tui-down",
+    "translation": "下へ移動"
+  },
+  {
+    "id": "tui-end",
+    "translation": "最後に移動"
+  },
+  {
+    "id": "tui-end-key",
+    "translation": "終了"
+  },
+  {
+    "id": "tui-enter-key",
+    "translation": "入力"
+  },
+  {
+    "id": "tui-esc-key",
+    "translation": "esc"
+  },
+  {
+    "id": "tui-exit-prompt",
+    "translation": "アプリケーションを終了しますか?"
+  },
+  {
+    "id": "tui-header-path",
+    "translation": "パス:"
+  },
+  {
+    "id": "tui-help",
+    "translation": "ヘルプの表示"
+  },
+  {
+    "id": "tui-help-dialog-title",
+    "translation": "ヘルプ"
+  },
+  {
+    "id": "tui-home-key",
+    "translation": "ホーム"
+  },
+  {
+    "id": "tui-left",
+    "translation": "左へ移動"
+  },
+  {
+    "id": "tui-pagedown",
+    "translation": "1ページ下がる"
+  },
+  {
+    "id": "tui-pagedown-key",
+    "translation": "ページダウン"
+  },
+  {
+    "id": "tui-pageup",
+    "translation": "1ページ上がる"
+  },
+  {
+    "id": "tui-pageup-key",
+    "translation": "ページアップ"
+  },
+  {
+    "id": "tui-path",
+    "translation": "パス"
+  },
+  {
+    "id": "tui-quit",
+    "translation": "quit"
+  },
+  {
+    "id": "tui-right",
+    "translation": "右へ移動"
+  },
+  {
+    "id": "tui-save-table-dialog-title",
+    "translation": "表の保存"
+  },
+  {
+    "id": "tui-save-table-error",
+    "translation": "表をファイル「{{.PATH}}」に書き込み中にエラーが発生しました: {{.ERROR}}"
+  },
+  {
+    "id": "tui-save-table-long",
+    "translation": "現在の表をファイル(JSON)に書き込む"
+  },
+  {
+    "id": "tui-select-cell",
+    "translation": "セルの選択"
+  },
+  {
+    "id": "tui-start",
+    "translation": "開始する"
+  },
+  {
+    "id": "tui-up",
+    "translation": "上へ移動"
+  },
+  {
+    "id": "unknown-flag-error",
+    "translation": "不明なフラグ: {{.FLAG}}"
+  },
+  {
+    "id": "unknown-shorthand-flag-error",
+    "translation": "不明な省略表現フラグ: {{.GIVEN_SHORTHANDS}} の {{.UNKNOWN_SHORTHAND}}"
+  },
+  {
+    "id": "unregistered-command",
+    "translation": "'{{.COMMAND}}' は登録済みコマンドではありません。 「ibmcloud {{.NAMESPACE}} help」を参照してください。"
+  },
+  {
+    "id": "usage-header-help-menu",
+    "translation": "USAGE"
+  },
+  {
+    "id": "version-global-flag",
+    "translation": "プラグ・インのバージョン。"
+  },
+  {
+    "id": "yaml-conversion-error",
+    "translation": "結果をYAMLに変換中にエラーが発生しました"
+  }
+]

@@ -1,0 +1,3290 @@
+[
+  {
+    "id": "additional-help-topics-header-help-menu",
+    "translation": "其他說明主題"
+  },
+  {
+    "id": "aliases-header-help-menu",
+    "translation": "別名"
+  },
+  {
+    "id": "backup-recovery-agent-download-command-long-description",
+    "translation": "下載不同主機的代理程式。"
+  },
+  {
+    "id": "backup-recovery-agent-download-command-short-description",
+    "translation": "下載代理程式。"
+  },
+  {
+    "id": "backup-recovery-agent-download-linux-params-flag-description",
+    "translation": "Linux 代理程式參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-agent-download-linux-params-package-type-flag-description",
+    "translation": "指定安裝程式的類型。 允許的值為：kScript、kRPM、kSuseRPM、kDEB、kPowerPCRPM。"
+  },
+  {
+    "id": "backup-recovery-agent-download-platform-flag-description",
+    "translation": "必要。 指定需要下載代理程式的平台。 允許的值為：kWindows、kLinux。"
+  },
+  {
+    "id": "backup-recovery-agent-download-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-agent-ids-flag-description",
+    "translation": "指定作業中要升級的代理程式 ID。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-command-long-description",
+    "translation": "建立以排程為基礎的代理程式升級作業。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-command-short-description",
+    "translation": "建立升級作業。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-description-flag-description",
+    "translation": "指定作業的說明。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-name-flag-description",
+    "translation": "指定作業的名稱。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-retry-task-id-flag-description",
+    "translation": "指定需要重試的作業。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-schedule-end-time-usecs-flag-description",
+    "translation": "使用 Unix Epoch 時間戳記的形式（以微秒為單位），指定升級作業應開始執行的最晚時間。 如果未指定，作業會在 scheduleTimeUsecs 之後的任何時間開始。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-schedule-time-usecs-flag-description",
+    "translation": "使用 Unix Epoch 時間戳記的形式（以微秒為單位），指定由使用者指定的作業開始時間戳記。 如果未指定排程，代理程式會立即升級。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-create-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-group-long-description",
+    "translation": "AgentUpgradeTask 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-group-short-description",
+    "translation": "AgentUpgradeTask 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-command-long-description",
+    "translation": "取得代理程式升級作業的清單。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-command-short-description",
+    "translation": "取得升級作業。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-ids-flag-description",
+    "translation": "指定要提取的作業 ID。"
+  },
+  {
+    "id": "backup-recovery-agent-upgrade-task-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-bad-url-error-message",
+    "translation": "URL 無效：使用 BACKUP_RECOVERY_URL 環境變數或認證檔中的金鑰來設定基本 URL。"
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-command-long-description",
+    "translation": "取得可用連接器的相關資訊。"
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-command-short-description",
+    "translation": "取得可用連接器的相關資訊。"
+  },
+  {
+    "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-command-long-description",
+    "translation": "建立資料來源連線，這可用來註冊和保護來源、存取檔案管理器服務等。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-command-short-description",
+    "translation": "建立資料來源連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-connection-name-flag-description",
+    "translation": "必要。 指定正在建立的連線名稱。 對於給定租戶，不同連線的名稱不能相同。 但是，兩個（或更多）個不同的租戶可以各自有一個相同名稱的連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-create-xibm-tenant-id-flag-description",
+    "translation": "存取叢集的租戶 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-command-long-description",
+    "translation": "使用 ID 刪除資料來源連線。 刪除連線後，其中的任何連接器將無法連接到叢集。 應該只有在確定沒有來源正在使用連線後才能刪除該連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-command-short-description",
+    "translation": "刪除要求路徑中的 ID 所指定的資料來源連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-connection-id-flag-description",
+    "translation": "必要。 指定要提取、連接器所屬的連線 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-delete-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-group-long-description",
+    "translation": "DataSourceConnection 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-group-short-description",
+    "translation": "DataSourceConnection 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-command-long-description",
+    "translation": "取得所有指定的資料來源連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-command-short-description",
+    "translation": "取得資料來源連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-connection-ids-flag-description",
+    "translation": "指定要提取之連線的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-connection-names-flag-description",
+    "translation": "指定要提取之連線的名稱。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-command-long-description",
+    "translation": "修補要求路徑中的 ID 所指定的資料來源連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-command-short-description",
+    "translation": "使用 ID 來修補資料來源連線。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-connection-id-flag-description",
+    "translation": "必要。 指定要提取、連接器所屬的連線 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-connection-name-flag-description",
+    "translation": "必要。 正在修補之連線的新名稱。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-patch-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-command-long-description",
+    "translation": "產生記號，以針對要求路徑中之 ID 指定的資料來源連線註冊連接器。 只要記號有效，相同記號就可以用來註冊多個連接器。 記號過期之後（通常在一天內），就可以再次執行此 API 來產生另一個記號。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-command-short-description",
+    "translation": "為資料來源連線產生註冊記號。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-connection-id-flag-description",
+    "translation": "必要。 指定要提取、連接器所屬的連線 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connection-registration-token-generate-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-command-long-description",
+    "translation": "刪除要求路徑中的 ID 所指定的資料來源連接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-command-short-description",
+    "translation": "使用 ID 刪除資料來源連接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
+    "translation": "必要。 指定要刪除之連接器的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-delete-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-group-long-description",
+    "translation": "DataSourceConnector 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-group-short-description",
+    "translation": "DataSourceConnector 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-command-long-description",
+    "translation": "取得所有指定的資料來源連接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-command-short-description",
+    "translation": "取得資料來源連接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connection-id-flag-description",
+    "translation": "指定要提取、連接器所屬的連線 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connector-ids-flag-description",
+    "translation": "指定要提取之連接器的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-connector-names-flag-description",
+    "translation": "指定要提取之連接器的名稱。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-command-long-description",
+    "translation": "修補要求路徑中的 ID 所指定的資料來源連接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-command-short-description",
+    "translation": "使用 ID 來修補資料來源連接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-connector-id-flag-description",
+    "translation": "必要。 指定要刪除之連接器的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
+    "translation": "連接器的名稱。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-command-long-description",
+    "translation": "建立下載檔案和資料夾回復。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-command-short-description",
+    "translation": "建立下載檔案和資料夾回復。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-documents-flag-description",
+    "translation": "使用項目 ID 指定要下載的文件清單。 只能使用 filesAndFolders 或文件之一。 目前文件僅支援檔案。 它也可以是 JSON 檔案的路徑。 長度下限為 1 個項目。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-files-and-folders-flag-description",
+    "translation": "必要。 指定要下載之檔案和資料夾的清單。 它也可以是 JSON 檔案的路徑。 長度下限為 1 個項目。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-glacier-retrieval-type-flag-description",
+    "translation": "指定從以 Glacier 為基礎的雲端 Snapshot 還原或下載檔案或資料夾時的 Glacier 擷取類型。 允許的值為：kStandard、kExpeditedNoPCU、kExpeditedWithPCU。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-name-flag-description",
+    "translation": "必要。 指定回復作業的名稱。 此欄位必須設定並且必須是唯一的名稱。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-flag-description",
+    "translation": "指定受保護物件的常用 Snapshot 參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-point-in-time-usecs-flag-description",
+    "translation": "指定時間戳記（以微秒為單位， 從 Epoch 起算），以便回復到過去的某個時間點。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-protection-group-id-flag-description",
+    "translation": "指定物件 Snapshot 的保護群組 ID。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-protection-group-name-flag-description",
+    "translation": "指定物件 Snapsho 的保護群組名稱。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-recover-from-standby-flag-description",
+    "translation": "指定使用者想要執行待命還原（如果已為此物件啟用）。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-object-snapshot-id-flag-description",
+    "translation": "指定 Snapsho ID。"
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-parent-recovery-id-flag-description",
+    "translation": "如果目前回復是透過另一個母項回復作業觸發的子項作業，則此欄位會指定母項回復的 ID。 "
+  },
+  {
+    "id": "backup-recovery-download-recovery-create-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-command-long-description",
+    "translation": "從 Snapsho 下載檢索檔。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-command-short-description",
+    "translation": "下載檢索檔。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-file-path-flag-description",
+    "translation": "指定要下載之檔案的路徑。 如果未指定路徑且 Snapsho 環境為 kVMWare，則會下載 VMware 的 VMX 檔案。 對於其他 Snapsho 環境，必須指定此欄位。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-length-flag-description",
+    "translation": "指定要下載的位元組長度。 此值不能大於 8MB （8388608 個位元組）。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-nvram-file-flag-description",
+    "translation": "指定是否應下載 VMware 的 NVRAM 檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-retry-attempt-flag-description",
+    "translation": "指定保護執行建立此檔案的嘗試次數。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-snapshots-id-flag-description",
+    "translation": "必要。 指定要從中下載的 Snapsho ID。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-start-offset-flag-description",
+    "translation": "指定要下載之檔案區塊的開始偏移量。"
+  },
+  {
+    "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-cassandra-object-types-flag-description",
+    "translation": "指定要搜尋的一種或多種 Cassandra 物件類型。 允許的清單項目為：CassandraKeyspaces、CassandraTables。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-flag-description",
+    "translation": "在叢集上搜尋 Cassandra 所需的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-search-string-flag-description",
+    "translation": "指定用來搜尋 Cassandra 物件的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-cassandra-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-command-long-description",
+    "translation": "列出所有檢索物件，例如檔案和資料夾、電子郵件、信箱等， 且其與受保護物件中指定的搜尋和過濾準則相符。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-command-short-description",
+    "translation": "列出檢索物件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-couchbase-object-types-flag-description",
+    "translation": "指定要搜尋的 Couchbase 物件類型。 對於 Couchbase，它只能設定為 'CouchbaseBuckets'。 允許的清單項目為：CouchbaseBuckets。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-flag-description",
+    "translation": "在叢集上搜尋 CouchBase 所需的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-search-string-flag-description",
+    "translation": "指定用來搜尋 Couchbase 物件的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-couchbase-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-count-flag-description",
+    "translation": "指定要為指定分頁 cookie 提取的檢索物件數量。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-attendees-addresses-flag-description",
+    "translation": "過濾已將電子郵件位址指定為與會者的行事曆項目。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-bcc-recipient-addresses-flag-description",
+    "translation": "過濾已用密件副本傳送到指定電子郵件位址的電子郵件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-cc-recipient-addresses-flag-description",
+    "translation": "過濾已用副本傳送到指定電子郵件位址的電子郵件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-created-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定結束時間，其中電子郵件/項目的建立時間小於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-created-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定開始時間，其中電子郵件/項目的建立時間大於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-due-date-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定結束時間，其中電子郵件/項目的前次修改時間小於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-due-date-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定開始時間，其中電子郵件/項目的前次修改時間大於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-email-address-flag-description",
+    "translation": "過濾在電子郵件位址中具有指定文字的聯絡人項目。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-email-subject-flag-description",
+    "translation": "過濾在主旨中具有指定文字的電子郵件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-first-name-flag-description",
+    "translation": "過濾在名字中具有指定文字的聯絡人。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-flag-description",
+    "translation": "指定用來搜尋電子郵件和電子郵件資料夾的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-folder-names-flag-description",
+    "translation": "過濾分類到指定資料夾的電子郵件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-has-attachment-flag-description",
+    "translation": "過濾帶有附件的電子郵件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-modified-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定結束時間，其中電子郵件/項目的前次修改時間小於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-modified-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定開始時間，其中電子郵件/項目的前次修改時間大於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-last-name-flag-description",
+    "translation": "過濾在姓氏中具有指定文字的聯絡人。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-middle-name-flag-description",
+    "translation": "過濾在中間名中具有指定文字的聯絡人。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-o365-params-flag-description",
+    "translation": "指定 O365 環境特有的電子郵件搜尋要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-organizer-address-flag-description",
+    "translation": "過濾依所指定使用者電子郵件位址組織的行事曆項目。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-received-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定結束時間，其中電子郵件的接收時間小於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-received-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定開始時間，其中電子郵件的接收時間大於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-recipient-addresses-flag-description",
+    "translation": "過濾傳送到指定電子郵件位址的電子郵件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-sender-address-flag-description",
+    "translation": "過濾從指定使用者電子郵件位址收到的電子郵件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-source-environment-flag-description",
+    "translation": "指定來源環境。 允許的值為：kO365。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-task-status-types-flag-description",
+    "translation": "指定作業項目狀態類型的清單。 會傳回具有給定類型內狀態的作業項目。 允許的清單項目為：NotStarted、InProgress、Completed、WaitingOnOthers、Deferred。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-email-params-types-flag-description",
+    "translation": "指定信箱項目類型的清單。 僅會傳回給定類型內的項目。 允許的清單項目為：Email、Folder、Calendar、Contact、Task、Note。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-exchange-params-flag-description",
+    "translation": "指定搜尋 Exchange 信箱特有的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-exchange-params-search-string-flag-description",
+    "translation": "指定用來搜尋 Exchange 物件的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-flag-description",
+    "translation": "指定用來搜尋檔案和檔案資料夾的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-object-ids-flag-description",
+    "translation": "指定物件 ID 清單。 僅會傳回在這些物件中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-search-string-flag-description",
+    "translation": "指定用來過濾檔案的搜尋字串。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有檔案名稱會與字首字串相符。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-source-environments-flag-description",
+    "translation": "指定來源環境的清單。 僅會傳回來自這些類型來源的檔案。 允許的清單項目為：kVMware、kHyperV、kSQL、kView、kRemoteAdapter、kPhysical、kPhysicalFiles、kPure、kIbmFlashSystem、kAzure、kNetapp、kGenericNas、kAcropolis、kIsilon、kGPFS、kKVM、kAWS、kExchange、kOracle、kGCP、kFlashBlade、kO365、kHyperFlex、kKubernetes、kElastifile、kSAPHANA、kUDA、kSfdc。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-file-params-types-flag-description",
+    "translation": "指定檔案類型的清單。 僅會傳回給定類型內的檔案。 允許的清單項目為：File、Directory、Symlink。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-flag-description",
+    "translation": "在叢集上搜尋 Hbase 所需的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-hbase-object-types-flag-description",
+    "translation": "指定要搜尋的一種或多種 Hbase 物件類型。 允許的清單項目為：HbaseNamespaces、HbaseTables。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-search-string-flag-description",
+    "translation": "指定用來搜尋 Hbase 物件的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hbase-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-flag-description",
+    "translation": "在叢集上搜尋 HDFS 所需的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-hdfs-types-flag-description",
+    "translation": "將類型指定為要搜尋的資料夾或/和檔案。 允許的清單項目為：HDFSFolders、HDFSFiles。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-search-string-flag-description",
+    "translation": "指定用來搜尋 HDFS 資料夾和檔案的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hdfs-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-flag-description",
+    "translation": "在叢集上搜尋 Hive 所需的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-hive-object-types-flag-description",
+    "translation": "指定要搜尋的一種或多種 Hive 物件類型。 允許的清單項目為：HiveDatabases、HiveTables、HivePartitions。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-search-string-flag-description",
+    "translation": "指定用來搜尋 Hive 物件的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-hive-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-include-tenants-flag-description",
+    "translation": "如果為 true，則回應將包含屬於目前使用者有權查看之所有租戶的物件。 預設值為 false。 預設值為 false。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-might-have-snapshot-tag-ids-flag-description",
+    "translation": "指定 Snapshot 標籤清單，其中一個或多個可能出現在文件中。 這些會使用 OR 運算連在一起，然後產生的準則會與查詢的其餘部分進行 AND 運算。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-might-have-tag-ids-flag-description",
+    "translation": "指定標籤清單，其中一個或多個可能出現在文件中。 這些會使用 OR 運算連在一起，然後產生的準則會與查詢的其餘部分進行 AND 運算。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-flag-description",
+    "translation": "在叢集上搜尋 Mongo DB 所需的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-mongo-db-object-types-flag-description",
+    "translation": "指定要搜尋的一種或多種 MongoDB 物件類型。 允許的清單項目為：MongoDatabases、MongoCollections。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-search-string-flag-description",
+    "translation": "指定用來搜尋 MongoDB 物件的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-mongodb-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-flag-description",
+    "translation": "指定用來搜尋群組項目的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-mailbox-params-flag-description",
+    "translation": "指定用來搜尋信箱項目和資料夾的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-o365-params-flag-description",
+    "translation": "指定 O365 特定參數搜尋要求參數以搜尋檢索項目。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-groups-params-site-params-flag-description",
+    "translation": "指定用來在文件庫中搜尋檔案/資料夾的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-category-types-flag-description",
+    "translation": "指定團隊檔案類型的清單。 僅會傳回給定類型內的項目。 允許的清單項目為：Document、Excel、Powerpoint、Image、OneNote。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-names-flag-description",
+    "translation": "指定在搜尋檔案時要過濾的頻道名稱清單。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-params-flag-description",
+    "translation": "指定與 Microsoft365 團隊頻道相關的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-creation-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位），指定建立項目時的結束時間。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-creation-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位），指定建立項目時的開始時間。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-flag-description",
+    "translation": "指定用來搜尋團隊項目的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-o365-params-flag-description",
+    "translation": "指定 O365 特定參數搜尋要求參數以搜尋檢索項目。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-owner-names-flag-description",
+    "translation": "指定要依項目擁有者進行過濾的擁有者電子郵件 ID 清單。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-search-string-flag-description",
+    "translation": "指定用來過濾項目的搜尋字串。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有項目名稱會與字首字串相符。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-size-bytes-lower-limit-flag-description",
+    "translation": "指定項目的大小下限（以位元組為單位）。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-size-bytes-upper-limit-flag-description",
+    "translation": "指定項目的大小上限（以位元組為單位）。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-ms-teams-params-types-flag-description",
+    "translation": "指定團隊項目類型的清單。 僅會傳回給定類型內的項目。 允許的清單項目為：Channel、Chat、Conversation、File、Folder。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-must-have-snapshot-tag-ids-flag-description",
+    "translation": "指定文件中必須全部存在的 Snapshot 標籤。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-must-have-tag-ids-flag-description",
+    "translation": "指定文件中必須全部存在的標籤。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-object-type-flag-description",
+    "translation": "必要。 指定要搜尋的物件類型。 允許的清單項目為：Emails、Files、CassandraObjects、CouchbaseObjects、HbaseObjects、HiveObjects、MongoObjects、HDFSObjects、ExchangeObjects、PublicFolders、GroupsObjects、TeamsObjects、SharepointObjects、OneDriveObjects、UdaObjects、SfdcRecords。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-category-types-flag-description",
+    "translation": "指定文件庫類型的清單。 僅會傳回給定類型內的項目。 允許的清單項目為：Document、Excel、Powerpoint、Image、OneNote。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-creation-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位），指定建立檔案/資料夾時的結束時間。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-creation-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位），指定建立檔案/資料夾時的開始時間。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-flag-description",
+    "translation": "指定用來在文件庫中搜尋檔案/資料夾的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-include-files-flag-description",
+    "translation": "指定是否在回應中包含檔案。 預設值為 true。 預設值為 true。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-include-folders-flag-description",
+    "translation": "指定是否在回應中包含資料夾。 預設值為 true。 預設值為 true。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-o365-params-flag-description",
+    "translation": "指定 O365 特定參數搜尋要求參數以搜尋檢索項目。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-owner-names-flag-description",
+    "translation": "指定要依檔案/資料夾擁有者進行過濾的擁有者名稱清單。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-search-string-flag-description",
+    "translation": "指定用來過濾檔案/資料夾的搜尋字串。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有項目名稱會與字首字串相符。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-size-bytes-lower-limit-flag-description",
+    "translation": "指定檔案的大小下限（以位元組為單位）。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-one-drive-params-size-bytes-upper-limit-flag-description",
+    "translation": "指定檔案的大小上限（以位元組為單位）。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-pagination-cookie-flag-description",
+    "translation": "指定分頁 cookie，透過該 cookie 可以提取回應的後續部分。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-protection-group-ids-flag-description",
+    "translation": "指定用來過濾檢索物件的保護群組 ID 清單。 如果指定，則會傳回以指定保護群組 ID 檢索的物件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-bcc-recipient-addresses-flag-description",
+    "translation": "過濾已用密件副本傳送到指定電子郵件位址的公用資料夾項目。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-cc-recipient-addresses-flag-description",
+    "translation": "過濾已用副本傳送到指定電子郵件位址的公用資料夾項目。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-flag-description",
+    "translation": "指定用來搜尋公用資料夾項目的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-has-attachment-flag-description",
+    "translation": "過濾帶有附件的公用資料夾項目。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-received-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定結束時間，其中公用資料夾項目的接收時間小於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-received-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位）指定開始時間，其中公用資料夾項目的接收時間大於指定的值。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-recipient-addresses-flag-description",
+    "translation": "過濾已傳送到指定電子郵件位址的公用資料夾項目。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-search-string-flag-description",
+    "translation": "指定用來過濾項目的搜尋字串。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有項目名稱會與字首字串相符。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-sender-address-flag-description",
+    "translation": "過濾從指定使用者電子郵件位址收到的公用資料夾項目。 "
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-public-folder-params-types-flag-description",
+    "translation": "指定公用資料夾項目類型的清單。 僅會傳回給定類型內的項目。 允許的清單項目為：Calendar、Contact、Post、Folder、Task、Journal、Note。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-flag-description",
+    "translation": "指定特定於搜尋 Salesforce 記錄的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-mutation-types-flag-description",
+    "translation": "指定物件突變類型的清單。 允許的清單項目為：All、Added、Removed、Changed。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-object-name-flag-description",
+    "translation": "指定物件的名稱。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-query-string-flag-description",
+    "translation": "指定用來搜尋記錄的查詢字串。 查詢字串可以是一個或多個透過 'AND' 或 'OR' 子句結合在一起的子句。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sfdc-params-snapshot-id-flag-description",
+    "translation": "指定物件 Snapshot 的 ID。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-category-types-flag-description",
+    "translation": "指定文件庫類型的清單。 僅會傳回給定類型內的項目。 允許的清單項目為：Document、Excel、Powerpoint、Image、OneNote。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-creation-end-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位），指定建立檔案/資料夾時的結束時間。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-creation-start-time-secs-flag-description",
+    "translation": "使用 Unix 時間戳記 Epoch（以秒為單位），指定建立檔案/資料夾時的開始時間。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-flag-description",
+    "translation": "指定用來在文件庫中搜尋檔案/資料夾的要求參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-include-files-flag-description",
+    "translation": "指定是否在回應中包含檔案。 預設值為 true。 預設值為 true。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-include-folders-flag-description",
+    "translation": "指定是否在回應中包含資料夾。 預設值為 true。 預設值為 true。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-o365-params-flag-description",
+    "translation": "指定 O365 特定參數搜尋要求參數以搜尋檢索項目。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-owner-names-flag-description",
+    "translation": "指定要依檔案/資料夾擁有者進行過濾的擁有者名稱清單。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-search-string-flag-description",
+    "translation": "指定用來過濾檔案/資料夾的搜尋字串。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有項目名稱會與字首字串相符。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-size-bytes-lower-limit-flag-description",
+    "translation": "指定檔案的大小下限（以位元組為單位）。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-sharepoint-params-size-bytes-upper-limit-flag-description",
+    "translation": "指定檔案的大小上限（以位元組為單位）。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-snapshot-tags-flag-description",
+    "translation": "\"此欄位已淘汰。 請使用 mightHaveSnapshotTagIds。\""
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-storage-domain-ids-flag-description",
+    "translation": "指定儲存體網域 ID 以過濾保護群組將資料寫入指定儲存體網域上之一致性檢視的檢索物件。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-tags-flag-description",
+    "translation": "\"此欄位已淘汰。 請使用 mightHaveTagIds。\""
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-tenant-id-flag-description",
+    "translation": "TenantId 包含要為其傳回物件的租戶 ID。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-flag-description",
+    "translation": "搜尋通用資料配接器物件所需的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-search-string-flag-description",
+    "translation": "指定用來搜尋通用資料配接器物件的搜尋字串。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-uda-params-source-ids-flag-description",
+    "translation": "指定來源 ID 清單。 僅會傳回在這些來源中找到的檔案。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-use-cached-data-flag-description",
+    "translation": "指定我們是否可以從讀取抄本快取記憶體處理 GET 要求。 讀取抄本與主要資料來源之間有 15 秒的落後。"
+  },
+  {
+    "id": "backup-recovery-indexed-objects-search-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-long-description",
+    "translation": "用來配置備份回復服務。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-command-long-description",
+    "translation": "列出給定物件的 Snapshot。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-command-short-description",
+    "translation": "列出給定物件的 Snapshot。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-from-time-usecs-flag-description",
+    "translation": "使用 Unix 時間 Epoch（以微秒為單位），指定用來過濾在此值後擷取之物件 Snapshot 的時間戳記。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-id-flag-description",
+    "translation": "必要。 指定物件的 ID。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-object-action-keys-flag-description",
+    "translation": "以 ObjectActionKey 過濾，這會唯一地代表物件的保護。 可以透過多種方式保護物件，但對於給定的 ObjectActionKey 組合最多只能保護一次。 指定後，只會針對對應物件傳回與給定動作索引鍵相符的 Snapshot。 允許的清單項目為：kVMware、kHyperV、kVCD、kAzure、kGCP、kKVM、kAcropolis、kAWS、kAWSNative、kAwsS3、kAWSSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsRDSPostgresBackup、kAwsRDSPostgres、kAwsAuroraPostgres、kAzureNative、kAzureSQL、kAzureSnapshotManager、kPhysical、kPhysicalFiles、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPure、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kO365PublicFolders、kO365Teams、kO365Group、kO365Exchange、kO365OneDrive、kO365Sharepoint、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kHBase、kSAPHANA、kUDA、kSfdc、kO365ExchangeCSM、kO365OneDriveCSM、kO365SharepointCSM。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-protection-group-ids-flag-description",
+    "translation": "如果指定，這只會傳回指定物件 ID 的 Snapshot，該物件 ID 屬於所提供的保護群組 ID。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-region-ids-flag-description",
+    "translation": "依區域 ID 清單進行過濾。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-instance-ids-flag-description",
+    "translation": "依執行實例 ID 清單進行過濾。 如果指定，僅會傳回這些保護執行所建立的 Snapshot。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-start-from-time-usecs-flag-description",
+    "translation": "使用 Unix 時間 Epoch（以微秒為單位），指定用來過濾在此值後執行之物件 Snapshot 的時間戳記。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-start-to-time-usecs-flag-description",
+    "translation": "使用 Unix 時間 Epoch（以微秒為單位），指定用來過濾在此值前執行之物件 Snapshot 的時間戳記。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-run-types-flag-description",
+    "translation": "依執行類型進行過濾。 僅會傳回與指定類型相符的保護執作。 依預設，除非使用此欄位明確查詢，否則不會包含 CDP 原樣儲存資料 Snapshot。 允許的清單項目為：kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-snapshot-actions-flag-description",
+    "translation": "指定回復動作的清單。 僅會傳回適用於這些動作的 Snapshot。 允許的清單項目為：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-to-time-usecs-flag-description",
+    "translation": "使用 Unix 時間 Epoch（以微秒為單位），指定用來過濾在此值前擷取之物件 Snapshot 的時間戳記。"
+  },
+  {
+    "id": "backup-recovery-object-snapshots-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-objects-search-cluster-identifiers-flag-description",
+    "translation": "指定叢集 ID 清單。 格式為 clusterId:clusterIncarnationId。 僅會傳回具有這些 ID 之叢集中的記錄。"
+  },
+  {
+    "id": "backup-recovery-objects-search-command-long-description",
+    "translation": "列出物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-command-short-description",
+    "translation": "列出物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-count-flag-description",
+    "translation": "指定要為指定分頁 cookie 提取的物件數量。"
+  },
+  {
+    "id": "backup-recovery-objects-search-environments-flag-description",
+    "translation": "指定用來過濾物件的環境類型。 允許的清單項目為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-objects-search-external-filters-flag-description",
+    "translation": "指定用來過濾搜尋結果的鍵值配對。 每個過濾器的形式為 'key:value'。 過濾器 'externalFilters:k1:v1&externalFilters:k2:v2&externalFilters:k2:v3' 會傳回符合查詢 (k1=v1) AND (k2=v2 OR k2 = v3) 的所有文件。 允許的金鑰： - vmBiosUuid - graphUuid - arn - instanceId - bucketName - azureId。"
+  },
+  {
+    "id": "backup-recovery-objects-search-include-deleted-objects-flag-description",
+    "translation": "指定是否在回應中包含已刪除的物件。 這些物件無法受到保護，但可以回復。 此欄位已淘汰。"
+  },
+  {
+    "id": "backup-recovery-objects-search-include-helios-tag-info-for-objects-flag-description",
+    "translation": "指定是否在回應中包含物件的 helios 標籤資訊。 預設值為 false。"
+  },
+  {
+    "id": "backup-recovery-objects-search-is-deleted-flag-description",
+    "translation": "如果設定為 true，則會傳回在至少一個叢集上刪除的物件。 如果未設定或設定為 false，則會傳回在至少一個叢集上註冊的物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-is-protected-flag-description",
+    "translation": "指定物件的保護狀態。 如果設定為 true，則僅會傳回受保護的物件。 如果設定為 false，則僅會傳回未受保護的物件。 如果未指定，則會傳回所有物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-last-run-status-list-flag-description",
+    "translation": "指定物件前次保護執行的狀態清單。 僅會傳回具有這些前次執行狀態的物件。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、LegalHold。"
+  },
+  {
+    "id": "backup-recovery-objects-search-might-have-snapshot-tag-ids-flag-description",
+    "translation": "指定 Snapshot 標籤清單，其中一個或多個可能出現在文件中。 這些會使用 OR 運算連在一起，然後產生的準則會與查詢的其餘部分進行 AND 運算。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-might-have-tag-ids-flag-description",
+    "translation": "指定標籤清單，其中一個或多個可能出現在文件中。 這些會使用 OR 運算連在一起，然後產生的準則會與查詢的其餘部分進行 AND 運算。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-must-have-snapshot-tag-ids-flag-description",
+    "translation": "指定文件中必須全部存在的 Snapshot 標籤。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-must-have-tag-ids-flag-description",
+    "translation": "指定文件中必須全部存在的標籤。 "
+  },
+  {
+    "id": "backup-recovery-objects-search-object-ids-flag-description",
+    "translation": "指定要過濾的物件 ID 清單。"
+  },
+  {
+    "id": "backup-recovery-objects-search-os-types-flag-description",
+    "translation": "指定用來過濾物件的作業系統類型。 允許的清單項目為：kLinux、kWindows。"
+  },
+  {
+    "id": "backup-recovery-objects-search-pagination-cookie-flag-description",
+    "translation": "指定分頁 cookie，透過該 cookie 可以提取回應的後續部分。"
+  },
+  {
+    "id": "backup-recovery-objects-search-protection-group-ids-flag-description",
+    "translation": "指定用來過濾物件的保護群組 ID 清單。 如果指定，則會傳回以指定保護群組 ID 保護的物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-protection-types-flag-description",
+    "translation": "指定用來過濾物件的保護類型。 允許的清單項目為：kAgent、kNative、kSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsS3、kAwsRDSPostgresBackup、kAwsAuroraPostgres、kAwsRDSPostgres、kAzureSQL、kFile、kVolume。"
+  },
+  {
+    "id": "backup-recovery-objects-search-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-objects-search-search-string-flag-description",
+    "translation": "指定用來過濾物件的搜尋字串。 此搜尋字串將適用於物件名稱。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有物件名稱會與字首字串相符。 例如，如果 vm1 和 vm2 是物件的名稱，使用者可以指定 vm* 來列出物件。 如果未指定，則會傳回符合其他過濾準則的所有物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-source-ids-flag-description",
+    "translation": "指定用來過濾物件的保護來源物件 ID 清單。 如果指定，則會傳回存在於這些來源中的物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-source-uuids-flag-description",
+    "translation": "指定用來過濾物件的保護來源物件 UUID 清單。 如果指定，則會傳回存在於這些來源中的物件。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-categories-flag-description",
+    "translation": "指定用來過濾物件和 Snapshot 的標籤種類。 允許的清單項目為：Security。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-names-flag-description",
+    "translation": "指定用來過濾標記之物件和 Snapshot 的標籤名稱。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-search-name-flag-description",
+    "translation": "指定用來過濾標記之物件和 Snapshot 的標籤名稱。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有物件的標籤名稱會與字首字串相符。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-sub-categories-flag-description",
+    "translation": "指定用來過濾物件和 Snapshot 的標籤子種類。 允許的清單項目為：Classification、Threats、Anomalies、Dspm。"
+  },
+  {
+    "id": "backup-recovery-objects-search-tag-types-flag-description",
+    "translation": "指定用來過濾標記之物件和 Snapshot 的標籤名稱。 允許的清單項目為：System、Custom、ThirdParty。"
+  },
+  {
+    "id": "backup-recovery-objects-search-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-cdp-protected-only-flag-description",
+    "translation": "指定是否僅傳回 CDP 保護物件。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-command-long-description",
+    "translation": "列出以指定查詢參數過濾的註冊來源中的受保護物件和對應詳細資訊。 如果未指定搜尋型樣或過濾器參數，則會傳回目前找到的所有受保護物件。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-command-short-description",
+    "translation": "列出受保護物件。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-environments-flag-description",
+    "translation": "指定用來過濾物件的環境類型。 允許的清單項目為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-filter-snapshot-from-usecs-flag-description",
+    "translation": "使用 Unix 時間 Epoch（以微秒為單位），指定用來過濾在此值後有成功 Snapshot 之物件的時間戳記。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-filter-snapshot-to-usecs-flag-description",
+    "translation": "使用 Unix 時間 Epoch（以微秒為單位），指定用來過濾在此值前有成功 Snapshot 之物件的時間戳記。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-object-action-key-flag-description",
+    "translation": "依 ObjectActionKey 進行過濾，這會唯一地代表物件的保護。 可以透過多種方式保護物件，但對於給定的 ObjectActionKey 組合最多只能保護一次。 指定後，與 objectActionKey 相符的最新 Snapshot 資訊適用於對應物件。 允許的值為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-object-ids-flag-description",
+    "translation": "指定要過濾的物件 ID 清單。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-os-types-flag-description",
+    "translation": "指定用來過濾物件的作業系統類型。 允許的清單項目為：kLinux、kWindows。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-protection-group-ids-flag-description",
+    "translation": "指定用來過濾物件的保護群組 ID 清單。 如果指定，則會傳回以指定保護群組 ID 保護的物件。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-run-instance-ids-flag-description",
+    "translation": "指定執行實例 ID 的清單。 如果指定，則僅會傳回屬於所提供執行 ID 的物件。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-search-string-flag-description",
+    "translation": "指定用來過濾物件的搜尋字串。 此搜尋字串將適用於物件名稱和保護群組名稱。 使用者可以指定萬用字元 '*' 作為字串的字尾，字串中所有物件及其保護群組名稱會與字首字串相符。 例如，如果 vm1 和 vm2 是物件的名稱，使用者可以指定 vm* 來列出物件。 如果未指定，則會傳回保護群組符合其他過濾準則的所有物件。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-snapshot-actions-flag-description",
+    "translation": "指定回復動作的清單。 僅會傳回適用於這些動作的 Snapshot。 允許的清單項目為：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-source-ids-flag-description",
+    "translation": "指定用來過濾物件的保護來源物件 ID 清單。 如果指定，則會傳回存在於這些來源中的物件。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-sub-result-size-flag-description",
+    "translation": "指定要為單一子結果提取之物件的大小。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
+    "translation": "指定我們是否可以對讀取抄本快取記憶體處理 GET 要求。 讀取抄本與主要資料來源之間有 15 秒的落後。"
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-abort-in-blackouts-flag-description",
+    "translation": "指定如果原則指定的中斷期間開始，目前正在執行的工作是否應該中止。 僅當所選原則至少有一個中斷期間時才可用。 預設值為 false。 如果 'pauseInBlackouts' 設為 true，則此欄位不應設為 true。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-advanced-configs-flag-description",
+    "translation": "指定保護工作的進階配置。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-alert-targets-flag-description",
+    "translation": "指定接收警示的目標清單。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-backup-run-status-flag-description",
+    "translation": "指定使用者希望接收警示的執作狀態。 允許的清單項目為：kSuccess、kFailure、kSlaViolation、kWarning。 長度下限為 1 個項目。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-flag-description",
+    "translation": "指定用於警示使用者保護群組狀態的原則。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
+    "translation": "指定每次備份嘗試後是否針對備份失敗引發物件層次警示。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-after-last-attempt-flag-description",
+    "translation": "指定前次備份嘗試後是否針對備份失敗引發物件層次警示。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-flag-description",
+    "translation": "指定備份執行後是否針對備份失敗引發物件層次警示。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-command-long-description",
+    "translation": "建立保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-command-short-description",
+    "translation": "建立保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-description-flag-description",
+    "translation": "指定保護群組的說明。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-end-time-usecs-flag-description",
+    "translation": "指定此保護群組的結束時間（以微秒為單位）。 如果未指定，則不會結束保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-environment-flag-description",
+    "translation": "必要。 指定保護群組的環境類型。 允許的值為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-is-paused-flag-description",
+    "translation": "指定保護群組是否已暫停。 不會為暫停的保護群組排定新的執行。 作用中執行（如果有）不受影響。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-last-modified-timestamp-usecs-flag-description",
+    "translation": "指定此保護群組前次更新的時間。 如果這傳入 PUT 要求中，則後端會驗證傳入的時間戳記是否與保護群組前次實際修改的時間相符。 如果兩個時間戳記不符，則會拒絕要求並發生陳舊錯誤。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-file-protection-type-params-flag-description",
+    "translation": "指定參數以建立以檔案為基礎的 MSSQL 保護群組。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-flag-description",
+    "translation": "指定 MSSQL 保護群組特定的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-native-protection-type-params-flag-description",
+    "translation": "指定參數以建立以原生為基礎的 MSSQL 保護群組。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-protection-type-flag-description",
+    "translation": "指定 MSSQL 保護群組類型。 允許的值為：kFile、kVolume、kNative。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-volume-protection-type-params-flag-description",
+    "translation": "指定參數以建立以磁區為基礎的 MSSQL 保護群組。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-name-flag-description",
+    "translation": "必要。 指定保護群組的名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-pause-in-blackouts-flag-description",
+    "translation": "指定如果原則指定的中斷期間開始，目前正在執行的工作是否應該暫停。 僅當所選原則至少有一個中斷期間時才可用。 預設值為 false。 如果 'abortInBlackouts' 設為 true，則此欄位不應設為 true。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-file-protection-type-params-flag-description",
+    "translation": "指定實體相關保護群組特定的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-protection-type-flag-description",
+    "translation": "指定實體保護群組類型。 允許的值為：kFile、kVolume。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-physical-params-volume-protection-type-params-flag-description",
+    "translation": "指定以磁區為基礎之實體保護群組特定的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-policy-id-flag-description",
+    "translation": "必要。 指定與保護群組相關聯之保護原則的唯一 ID。 原則提供重試設定保護排程、優先順序、SLA 等。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-priority-flag-description",
+    "translation": "指定保護群組的優先順序。 允許的值為：kLow、kMedium、kHigh。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-qos-policy-flag-description",
+    "translation": "指定保護群組會寫入 HDD 還是 SSD。 允許的值為：kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-sla-flag-description",
+    "translation": "指定此保護群組的 SLA 參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-flag-description",
+    "translation": "指定一天中的時間。 用於排程目的。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-hour-flag-description",
+    "translation": "指定一天中的小時 (0-23)。 最大值為 23。 最小值為 0。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-minute-flag-description",
+    "translation": "指定一小時中的分鐘 (0-59)。 最大值為 59。 最小值為 0。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-start-time-time-zone-flag-description",
+    "translation": "指定使用者的時區。 如果未指定，則預設值會假設為 America/Los_Angeles。 預設值為 America/Los_Angeles。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-command-long-description",
+    "translation": "如果刪除保護群組，則傳回成功。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-command-short-description",
+    "translation": "刪除保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-delete-snapshots-flag-description",
+    "translation": "指定刪除保護群組時是否也應刪除由保護群組產生的 Snapshot。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-id-flag-description",
+    "translation": "必要。 指定保護群組的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-group-delete-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-command-long-description",
+    "translation": "傳回對應到指定群組 ID 的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-command-short-description",
+    "translation": "列出有關單一保護群組的詳細資料。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-id-flag-description",
+    "translation": "必要。 指定保護群組的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-include-last-run-info-flag-description",
+    "translation": "如果為 true，則回應將包含前次執行資訊。 如果為 false 或未指定，則不會傳回前次執行資訊。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-prune-excluded-source-ids-flag-description",
+    "translation": "如果為 true，則回應不會包括包含此欄位之群組中的已排除來源 ID 的清單。 如果使用者不需要已排除來源 ID，可以將這設為 true 以提高效能。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-prune-source-ids-flag-description",
+    "translation": "如果為 true，則回應會排除指定群組內的來源 ID 清單。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-protection-group-get-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-group-long-description",
+    "translation": "ProtectionGroup 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-group-group-short-description",
+    "translation": "ProtectionGroup 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-command-long-description",
+    "translation": "取得保護群組清單。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-command-short-description",
+    "translation": "取得保護群組清單。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-environments-flag-description",
+    "translation": "依環境類型過濾，例如 'kVMware'、'kView' 等。 僅會傳回保護指定環境類型的保護群組。 允許的清單項目為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-ids-flag-description",
+    "translation": "依保護群組 ID 清單進行過濾。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-include-groups-with-datalock-only-flag-description",
+    "translation": "是否僅傳回具有資料鎖定的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-include-last-run-info-flag-description",
+    "translation": "如果為 true，則回應將包含前次執行資訊。 如果為 false 或未指定，則不會傳回前次執行資訊。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-active-flag-description",
+    "translation": "依非作用中或作用中保護群組進行過濾。 如果未設定，則會傳回所有非作用中和作用中保護群組。 如果為 true，則僅會傳回作用中保護群組。 如果為 false，則僅會傳回非作用中保護群組。 當您在具有抄寫排程的主要叢集上建立保護群組時，叢集會在遠端叢集上建立保護群組的非作用中副本。 此外，當作用中且正在執作的保護群組遭到停用時，保護群組會變為非作用中狀態。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-deleted-flag-description",
+    "translation": "如果為 true，則僅會傳回已刪除但仍具有相關聯 Snapshot 的保護群組。 如果為 false，則會傳回除了已刪除但仍具有相關聯 Snapshot 的保護群組以外的所有保護群組。 對於這兩種情況，都不會傳回與其所有 Snapshot 一起刪除的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-last-run-sla-violated-flag-description",
+    "translation": "如果為 true，則會傳回違反了前次執行 SLA 的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-is-paused-flag-description",
+    "translation": "依據已暫停或未暫停的保護群組進行過濾，如果未設定，則會傳回所有已暫停和未暫停的保護群組。 如果為 true，則僅會傳回已暫停的保護群組。 如果為 false，則僅會傳回未暫停的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-any-status-flag-description",
+    "translation": "依前次任何執行狀態進行過濾。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-archival-status-flag-description",
+    "translation": "依前次雲端保存執行狀態進行過濾。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-cloud-spin-status-flag-description",
+    "translation": "依前次雲端旋轉執行狀態進行過濾。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-local-backup-status-flag-description",
+    "translation": "依前次本端備份執行狀態進行過濾。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-last-run-replication-status-flag-description",
+    "translation": "依前次遠端抄寫執行狀態進行過濾。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-names-flag-description",
+    "translation": "依保護群組名稱清單進行過濾。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-policy-ids-flag-description",
+    "translation": "依與保護群組相關聯的原則 ID 進行過濾。 僅會傳回與指定原則 ID 相關聯的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-prune-excluded-source-ids-flag-description",
+    "translation": "如果為 true，則回應不會包括包含此欄位之群組中的已排除來源 ID 的清單。 如果使用者不需要已排除來源 ID，可以將這設為 true 以提高效能。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-prune-source-ids-flag-description",
+    "translation": "如果為 true，則回應會排除指定群組內的來源 ID 清單。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-source-ids-flag-description",
+    "translation": "依與保護群組相關聯的來源 ID 進行過濾。 僅會傳回與指定來源 ID 相關聯的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-use-cached-data-flag-description",
+    "translation": "指定我們是否可以從讀取抄本快取記憶體處理 GET 要求。 讀取抄本與主要資料來源之間有 15 秒的落後。"
+  },
+  {
+    "id": "backup-recovery-protection-group-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-command-long-description",
+    "translation": "建立新的保護執行。 這可用於視需要啟動保護群組的執行，並忽略保護原則中指定的排程和保留。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-command-short-description",
+    "translation": "建立新的保護執行。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-id-flag-description",
+    "translation": "必要。 指定保護群組的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-objects-flag-description",
+    "translation": "指定要受此保護群組執行保護的物件清單。 這些可以是保護階層中的葉節點物件或非葉節點物件。 僅當需要保護來自保護群組的一部分物件時才必須指定此項目。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-run-type-flag-description",
+    "translation": "必要。 保護執行的類型。 'kRegular' 表示增量 (CBT) 備份。 會為目標保護物件擷取利用 CBT（如果支援）的增量備份。 kRegular 排程的初次執行會擷取所有區塊。 'kFull' 表示完整（無 CBT）備份。 一律會擷取目標保護物件的完整備份（所有區塊），並且不會使用變更區塊追蹤 (CBT)。 'kLog' 表示資料庫日誌備份。 擷取資料庫交易日誌以允許回復到特定時間點。 'kSystem' 表示系統磁區備份。 它會產生用於裸機回復的映像檔。 允許的值為：kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-archivals-flag-description",
+    "translation": "指定保存目標配置的清單。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-cloud-replications-flag-description",
+    "translation": "指定雲端抄寫目標配置的清單。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-flag-description",
+    "translation": "指定抄寫和保存目標。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-replications-flag-description",
+    "translation": "指定抄寫目標配置的清單。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-targets-config-use-policy-defaults-flag-description",
+    "translation": "指定是否使用預設原則設定。 如果指定為 true，則不應指定 'replications' 和 'archihvals'。 如果是 true 值，則會在內部新增原則中配置的抄寫目標。 預設值為 false。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-create-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-group-long-description",
+    "translation": "ProtectionGroupRun 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-group-short-description",
+    "translation": "ProtectionGroupRun 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-archival-run-status-flag-description",
+    "translation": "指定保存狀態的清單，會傳回符合該狀態的執行。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-cloud-spin-run-status-flag-description",
+    "translation": "指定雲端旋轉狀態的清單，會傳回符合該狀態的執行。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-command-long-description",
+    "translation": "取得特定保護群組的執行。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-command-short-description",
+    "translation": "取得保護群組的執行清單。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-end-time-usecs-flag-description",
+    "translation": "時間範圍過濾器的結束時間。 使用 Unix Epoch 時間戳記（以微秒為單位）指定結束時間，只會傳回在此時間前執行的執行作業。 預設是現行時間。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-exclude-non-restorable-runs-flag-description",
+    "translation": "指定是否排除不可還原的執行。 只有當至少有一個未刪除或過期的物件 Snapshot（可以是本端或保存 Snapshot）時，執行才會被視為可還原。 預設值為 false。 預設值為 false。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-filter-by-copy-task-end-time-flag-description",
+    "translation": "如果為 true，則會傳回在給定時間範圍內完成之任何 copyTask 的執行詳細資料。 只能設定 filterByEndTime 和 filterByCopyTaskEndTime 其中一者。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-filter-by-end-time-flag-description",
+    "translation": "如果為 true，則會傳回備份結束時間在指定時間範圍內的執行。 否則，會傳回開始時間在該時間範圍內的執行。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-id-flag-description",
+    "translation": "必要。 指定保護群組的唯一 ID。 "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-include-object-details-flag-description",
+    "translation": "指定結果是否包含每次保護執行的物件詳細資料。 如果設定為 true，會傳回受保護物件的詳細資料。 如果設定為 false 或未指定，則不會傳回詳細資料。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-local-backup-run-status-flag-description",
+    "translation": "指定本端備份狀態清單，將會傳回符合狀態的執行。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-num-runs-flag-description",
+    "translation": "指定執行數上限。 如果未指定，最多會傳回 100 次執行。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-only-return-successful-copy-run-flag-description",
+    "translation": "僅會傳回成功的複製執行。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-replication-run-status-flag-description",
+    "translation": "指定抄寫狀態清單，將會傳回與狀態相符的執行。<br> 'Running' 表示執行仍在執行中。<br> 'Canceled' 表示執行已取消。<br> 'Canceling' 表示執行正在取消中。<br> 'Failed' 表示執行失敗。<br> 'Missed' 表示執行無法在排定時間進行，因為先前的執行仍在進行中。<br> 'Succeeded' 表示執行已順利完成。<br> 'SucceededWithWarning' 表示執行已順利完成，但有一些警告訊息。<br> 'Paused' 表示正在進行的執行已暫停。<br> 'Skipped' 表示執行被跳過。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、Paused。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-id-flag-description",
+    "translation": "指定保護執行 ID。 "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-tags-flag-description",
+    "translation": "指定保護執行的標籤清單。 如果指定了此項，則僅會傳回與這些標籤相符的執行。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-run-types-flag-description",
+    "translation": "依執行類型進行過濾。 僅傳回與指定類型相符的保護執作。 允許的清單項目為：kAll、kHydrateCDP、kSystem、kStorageArraySnapshot、kIncremental、kFull、kLog。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-snapshot-target-types-flag-description",
+    "translation": "指定應過濾的 Snapshot 目標類型。 允許的清單項目為：Local、Archival、RpaasArchival、StorageArraySnapshot、Remote。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-start-time-usecs-flag-description",
+    "translation": "時間範圍過濾器的開始時間。 使用 Unix Epoch 時間戳記（以微秒為單位）指定開始時間，僅會傳回在此時間後執行的執行作業。 依預設是 endTimeUsecs 減去一小時。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-use-cached-data-flag-description",
+    "translation": "指定我們是否可以從讀取抄本快取記憶體處理 GET 要求。 讀取抄本與主要資料來源之間有 15 秒的落後。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-action-flag-description",
+    "translation": "必要。 指定將對保護執行執行的動作類型。 允許的值為：Pause、Resume、Cancel。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-cancel-params-flag-description",
+    "translation": "指定保護執行的取消動作參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-command-long-description",
+    "translation": "對保護群組執行執行各種動作。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-command-short-description",
+    "translation": "對保護群組執行的動作。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-id-flag-description",
+    "translation": "必要。 指定保護群組的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-pause-params-flag-description",
+    "translation": "指定保護執行的 pause 動作參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-resume-params-flag-description",
+    "translation": "指定保護執行的 resume 動作參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-perform-action-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-command-long-description",
+    "translation": "更新特定保護群組的執行。 使用者可以執行下列動作：1. 延長或減少本端、抄寫和保存 Snapshot 的保留。 2. 可以對本次執行中失敗的複製 Snapshot 嘗試執行重新同步作業。 3. 將新的抄寫和保存 Snapshot 目標新增到執行。 4. 新增或移除對 Snapshot 的合法保留。 只有具有 DSO 角色的使用者才能執行此作業。 5. 刪除作為此執行一部分建立的 Snapshot。 6. 對現有 Snapshot 套用資料鎖定，使用者無法在到期時間之前手動刪除 Snapshot。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-command-short-description",
+    "translation": "更新特定保護群組的執行。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-id-flag-description",
+    "translation": "必要。 指定保護群組的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-update-protection-group-run-params-flag-description",
+    "translation": "必要。 null 它也可以是 JSON 檔案的路徑。 長度下限為 1 個項目。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-abort-in-blackouts-flag-description",
+    "translation": "指定如果原則指定的中斷期間開始，目前正在執行的工作是否應該中止。 僅當所選原則至少有一個中斷期間時才可用。 預設值為 false。 如果 'pauseInBlackouts' 設為 true，則此欄位不應設為 true。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-advanced-configs-flag-description",
+    "translation": "指定保護工作的進階配置。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-alert-targets-flag-description",
+    "translation": "指定接收警示的目標清單。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-backup-run-status-flag-description",
+    "translation": "指定使用者希望接收警示的執作狀態。 允許的清單項目為：kSuccess、kFailure、kSlaViolation、kWarning。 長度下限為 1 個項目。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-flag-description",
+    "translation": "指定用於警示使用者保護群組狀態的原則。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
+    "translation": "指定每次備份嘗試後是否針對備份失敗引發物件層次警示。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-after-last-attempt-flag-description",
+    "translation": "指定前次備份嘗試後是否針對備份失敗引發物件層次警示。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-flag-description",
+    "translation": "指定備份執行後是否針對備份失敗引發物件層次警示。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-command-long-description",
+    "translation": "更新指定的保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-command-short-description",
+    "translation": "更新保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-description-flag-description",
+    "translation": "指定保護群組的說明。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-end-time-usecs-flag-description",
+    "translation": "指定此保護群組的結束時間（以微秒為單位）。 如果未指定，則不會結束保護群組。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-environment-flag-description",
+    "translation": "必要。 指定保護群組的環境類型。 允許的值為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-id-flag-description",
+    "translation": "必要。 指定保護群組的 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-is-paused-flag-description",
+    "translation": "指定保護群組是否已暫停。 不會為暫停的保護群組排定新的執行。 作用中執行（如果有）不受影響。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-last-modified-timestamp-usecs-flag-description",
+    "translation": "指定此保護群組前次更新的時間。 如果這傳入 PUT 要求中，則後端會驗證傳入的時間戳記是否與保護群組前次實際修改的時間相符。 如果兩個時間戳記不符，則會拒絕要求並發生陳舊錯誤。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-file-protection-type-params-flag-description",
+    "translation": "指定參數以建立以檔案為基礎的 MSSQL 保護群組。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-flag-description",
+    "translation": "指定 MSSQL 保護群組特定的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-native-protection-type-params-flag-description",
+    "translation": "指定參數以建立以原生為基礎的 MSSQL 保護群組。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-protection-type-flag-description",
+    "translation": "指定 MSSQL 保護群組類型。 允許的值為：kFile、kVolume、kNative。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-mssql-params-volume-protection-type-params-flag-description",
+    "translation": "指定參數以建立以磁區為基礎的 MSSQL 保護群組。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-name-flag-description",
+    "translation": "必要。 指定保護群組的名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-pause-in-blackouts-flag-description",
+    "translation": "指定如果原則指定的中斷期間開始，目前正在執行的工作是否應該暫停。 僅當所選原則至少有一個中斷期間時才可用。 預設值為 false。 如果 'abortInBlackouts' 設為 true，則此欄位不應設為 true。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-file-protection-type-params-flag-description",
+    "translation": "指定實體相關保護群組特定的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-protection-type-flag-description",
+    "translation": "指定實體保護群組類型。 允許的值為：kFile、kVolume。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-physical-params-volume-protection-type-params-flag-description",
+    "translation": "指定以磁區為基礎之實體保護群組特定的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-policy-id-flag-description",
+    "translation": "必要。 指定與保護群組相關聯之保護原則的唯一 ID。 原則提供重試設定保護排程、優先順序、SLA 等。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-priority-flag-description",
+    "translation": "指定保護群組的優先順序。 允許的值為：kLow、kMedium、kHigh。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-qos-policy-flag-description",
+    "translation": "指定保護群組會寫入 HDD 還是 SSD。 允許的值為：kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-sla-flag-description",
+    "translation": "指定此保護群組的 SLA 參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-flag-description",
+    "translation": "指定一天中的時間。 用於排程目的。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-hour-flag-description",
+    "translation": "指定一天中的小時 (0-23)。 最大值為 23。 最小值為 0。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-minute-flag-description",
+    "translation": "指定一小時中的分鐘 (0-59)。 最大值為 59。 最小值為 0。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-start-time-time-zone-flag-description",
+    "translation": "指定使用者的時區。 如果未指定，則預設值會假設為 America/Los_Angeles。 預設值為 America/Los_Angeles。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-bmr-flag-description",
+    "translation": "指定實體來源保護情況下的 BMR 排程。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-cdp-flag-description",
+    "translation": "指定保護群組的 CDP（連續資料保護）備份設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-flag-description",
+    "translation": "指定保護原則的備份排程和保留。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-log-flag-description",
+    "translation": "指定保護群組的日誌備份設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-regular-flag-description",
+    "translation": "指定遞增和完整原則設定以及共同的保留原則設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-run-timeouts-flag-description",
+    "translation": "指定不同執行類型（kFull、kRegular 等）的備份逾時值。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-backup-policy-storage-array-snapshot-flag-description",
+    "translation": "指定保護群組的儲存體 Snapshot 管理備份設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-blackout-window-flag-description",
+    "translation": "中斷時間範圍的清單。 如果指定，此欄位會定義不開始新群組執行的中斷期間。 如果群組執行已排定但尚未執行且中斷期間開始，則行為會取決於原則欄位 AbortInBlackoutPeriod。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-cascaded-targets-config-flag-description",
+    "translation": "指定階式抄寫的配置。 使用階式抄寫時，抄寫叢集 (Rx) 可以將 Snapshot 副本進一步複製和保存到更多目標。 建議在將建立保護群組的地方建立階式配置。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-command-long-description",
+    "translation": "建立保護原則並傳回新建立的原則物件。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-command-short-description",
+    "translation": "建立保護原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-data-lock-flag-description",
+    "translation": "此欄位現在已淘汰。 請在備份保留中使用 DataLockConfig。 允許的值為：Compliance、Administrative。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-description-flag-description",
+    "translation": "指定保護原則的說明。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-extended-retention-flag-description",
+    "translation": "指定應套用到備份 Snapshot 的其他保留原則。 備份 Snapshot 的最長保留時間是其所有適用保留原則的最長時間。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-is-cbs-enabled-flag-description",
+    "translation": "如果用戶端支援以行事曆為基礎的排程，則指定 true。 此特性的預設值假設為 false。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-last-modification-time-usecs-flag-description",
+    "translation": "指定前次更新此原則的時間。 如果這傳入 PUT 要求中，則後端會驗證傳入的時間戳記是否與原則前次實際修改的時間相符。 如果兩個時間戳記不符，則會拒絕要求並發生陳舊錯誤。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-name-flag-description",
+    "translation": "必要。 指定保護原則的名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-archival-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-cloud-spin-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-flag-description",
+    "translation": "指定保護原則的抄寫、保存和雲端旋轉目標。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-onprem-deploy-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-replication-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-remote-target-policy-rpaas-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-flag-description",
+    "translation": "當保護群組執行失敗時的保護原則重試選項。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-retries-flag-description",
+    "translation": "指定在保護群組執行失敗之前重試擷取 Snapshot 的次數。 最小值為 0。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-retry-options-retry-interval-mins-flag-description",
+    "translation": "指定重試失敗的保護群組前的分鐘數。 最小值為 1。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-template-id-flag-description",
+    "translation": "指定原則連結到的母項原則範本 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-version-flag-description",
+    "translation": "指定現行原則版本。 原則版本會遞增，以選擇性地支援新特性並區分不同版本。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-create-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-command-long-description",
+    "translation": "根據給定原則 ID 刪除保護原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-command-short-description",
+    "translation": "刪除保護原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-id-flag-description",
+    "translation": "必要。 指定要刪除之保護原則的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-delete-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-command-long-description",
+    "translation": "根據提供的原則 ID 傳回保護原則詳細資料。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-command-short-description",
+    "translation": "列出有關單一保護原則的詳細資料。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-id-flag-description",
+    "translation": "必要。 指定要傳回之保護原則的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-get-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-group-long-description",
+    "translation": "ProtectionPolicy 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-group-short-description",
+    "translation": "ProtectionPolicy 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-command-long-description",
+    "translation": "根據過濾查詢參數列出保護原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-command-short-description",
+    "translation": "根據提供的過濾參數列出保護原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-exclude-linked-policies-flag-description",
+    "translation": "如果 excludeLinkedPolicies 設定為 true，則僅會傳回在叢集上建立的本端原則。 結果將排除從原則範本建立的所有連結原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-ids-flag-description",
+    "translation": "依原則 ID 清單過濾原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-include-replicated-policies-flag-description",
+    "translation": "如果 includeReplicatedPolicies 設定為 true，則回應也會包含複製的原則。 預設情況下，抄寫原則不包含在回應中。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-include-stats-flag-description",
+    "translation": "如果 includeStats 設定為 true，則回應會傳回保護群組和物件的數量。 預設情況下，保護統計資訊不包含在回應中。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-policy-names-flag-description",
+    "translation": "依原則名稱清單過濾原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-types-flag-description",
+    "translation": "Types 指定要傳回之原則的原則類型。 允許的清單項目為：Regular、Internal。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-bmr-flag-description",
+    "translation": "指定實體來源保護情況下的 BMR 排程。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-cdp-flag-description",
+    "translation": "指定保護群組的 CDP（連續資料保護）備份設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-flag-description",
+    "translation": "指定保護原則的備份排程和保留。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-log-flag-description",
+    "translation": "指定保護群組的日誌備份設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-regular-flag-description",
+    "translation": "指定遞增和完整原則設定以及共同的保留原則設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-run-timeouts-flag-description",
+    "translation": "指定不同執行類型（kFull、kRegular 等）的備份逾時值。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-backup-policy-storage-array-snapshot-flag-description",
+    "translation": "指定保護群組的儲存體 Snapshot 管理備份設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-blackout-window-flag-description",
+    "translation": "中斷時間範圍的清單。 如果指定，此欄位會定義不開始新群組執行的中斷期間。 如果群組執行已排定但尚未執行且中斷期間開始，則行為會取決於原則欄位 AbortInBlackoutPeriod。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-cascaded-targets-config-flag-description",
+    "translation": "指定階式抄寫的配置。 使用階式抄寫時，抄寫叢集 (Rx) 可以將 Snapshot 副本進一步複製和保存到更多目標。 建議在將建立保護群組的地方建立階式配置。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-command-long-description",
+    "translation": "指定更新現有保護原則的要求。 成功更新後，傳回更新後的原則物件。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-command-short-description",
+    "translation": "更新保護原則。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-data-lock-flag-description",
+    "translation": "此欄位現在已淘汰。 請在備份保留中使用 DataLockConfig。 允許的值為：Compliance、Administrative。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-description-flag-description",
+    "translation": "指定保護原則的說明。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-extended-retention-flag-description",
+    "translation": "指定應套用到備份 Snapshot 的其他保留原則。 備份 Snapshot 的最長保留時間是其所有適用保留原則的最長時間。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-id-flag-description",
+    "translation": "必要。 指定要更新之保護原則的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-is-cbs-enabled-flag-description",
+    "translation": "如果用戶端支援以行事曆為基礎的排程，則指定 true。 此特性的預設值假設為 false。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-last-modification-time-usecs-flag-description",
+    "translation": "指定前次更新此原則的時間。 如果這傳入 PUT 要求中，則後端會驗證傳入的時間戳記是否與原則前次實際修改的時間相符。 如果兩個時間戳記不符，則會拒絕要求並發生陳舊錯誤。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-name-flag-description",
+    "translation": "必要。 指定保護原則的名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-archival-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-cloud-spin-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-flag-description",
+    "translation": "指定保護原則的抄寫、保存和雲端旋轉目標。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-onprem-deploy-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-replication-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-remote-target-policy-rpaas-targets-flag-description",
+    "translation": "null 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-flag-description",
+    "translation": "當保護群組執行失敗時的保護原則重試選項。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-retries-flag-description",
+    "translation": "指定在保護群組執行失敗之前重試擷取 Snapshot 的次數。 最小值為 0。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-retry-options-retry-interval-mins-flag-description",
+    "translation": "指定重試失敗的保護群組前的分鐘數。 最小值為 1。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-template-id-flag-description",
+    "translation": "指定原則連結到的母項原則範本 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-version-flag-description",
+    "translation": "指定現行原則版本。 原則版本會遞增，以選擇性地支援新特性並區分不同版本。"
+  },
+  {
+    "id": "backup-recovery-protection-policy-update-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-group-long-description",
+    "translation": "ProtectionSource 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-source-group-short-description",
+    "translation": "ProtectionSource 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-after-cursor-entity-id-flag-description",
+    "translation": "指定要傳回項目的起始實體 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy 指定是否應傳回已登入使用者之組織階層下的所有租戶物件。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-before-cursor-entity-id-flag-description",
+    "translation": "指定要傳回項目的結束實體 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-command-long-description",
+    "translation": "如果未指定任何參數，則會傳回在 Cohesity Cluster 上註冊的所有保護來源。 此外，也會傳回從每個來源收集的物件子樹狀結構。 例如，Cohesity Cluster 會詢問來源 VMware vCenter Server 並建立鏡映 vCenter Server 上庫存樹狀結構的階層物件子樹狀結構。 物件樹狀結構的內容會以 \"protectionSource\" 的 \"nodes\" 階層傳回。 指定參數可以改變傳回的結果。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-command-short-description",
+    "translation": "列出保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-encryption-key-flag-description",
+    "translation": "用於加密來源認證的金鑰。 如果 include_source_credentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-environment-flag-description",
+    "translation": "此欄位已淘汰。 請改用環境。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-environments-flag-description",
+    "translation": "僅傳回與傳入環境類型相符的保護來源，例如 'kVMware'、'kSQL'、'kView'、'kPhysical'、'kPuppeteer'、'kPure'、'kNetapp'、'kGenericNas'、'kHyperV'、'kAcropolis' 或 'kAzure'。 例如，將此參數設為 'kVMware'，僅傳回在 'kVMware' (VMware vCenter Server) 環境中找到的來源（及其物件子樹狀結構）。 允許的清單項目為：kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-aws-types-flag-description",
+    "translation": "指定要為 AWS 過濾掉、與傳入類型相符的物件類型，例如 'kEC2Instance'、'kRDSInstance'、'kAuroraCluster'、'kTag'、'kAuroraTag'、'kRDSTag'、kS3Bucket、kS3Tag。 例如，將此參數設為 'kEC2Instance' 以排除傳回 ec2 實例。 允許的清單項目為：kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-kubernetes-types-flag-description",
+    "translation": "指定要為 Kubernetes 過濾掉、與傳入類型相符的物件類型，例如 'kService'。 例如，將此參數設為 'kService' 以排除傳回服務。 允許的清單項目為：kService。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-office365-types-flag-description",
+    "translation": "指定要為 Office 365 過濾掉、與傳入類型相符的物件類型，例如 'kDomain'、'kOutlook'、 'kMailbox' 等等。 例如，將此參數設為 'kMailbox' 以排除傳回信箱物件。 允許的清單項目為：kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-exclude-types-flag-description",
+    "translation": "過濾掉與傳入類型相符的物件類型（及其子樹狀結構），例如 'kVCenter'、'kFolder'、'kDatacenter'、'kComputeResource'、'kResourcePool'、'kDatastore'、'kHostSystem'、'kVirtualMachine' 等等。 例如，將此參數設為 'kResourcePool' 以排除傳回資源儲存區物件。 允許的清單項目為：kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-get-teams-channels-flag-description",
+    "translation": "依原則 ID 清單過濾原則。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-has-valid-mailbox-flag-description",
+    "translation": "如果設定為 true，會傳回具有有效信箱的使用者。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-has-valid-onedrive-flag-description",
+    "translation": "如果設定為 true，會傳回具有有效 onedrive 的使用者。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-id-flag-description",
+    "translation": "傳回傳入之保護來源 ID 的物件子樹狀結構。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-datastores-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的 kDatastore 物件類型。 預設情況下，不會傳回資料儲存庫。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-entity-permission-info-flag-description",
+    "translation": "如果指定，則會傳回已指派許可權的實體清單。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-networks-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的 kNetwork 物件類型。 預設情況下，不會傳回網路物件。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-object-protection-info-flag-description",
+    "translation": "如果指定，會傳回實體的物件保護（如果有）。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-sfdc-fields-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到之物件的欄位。 預設情況下，不會傳回 Sfdc 物件欄位。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-source-credentials-flag-description",
+    "translation": "如果指定，則會包含註冊來源的認證。 認證首先使用內部金鑰加密，然後使用使用者提供的 'encryption_key' 重新加密。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-system-v-apps-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的系統 VApp 物件類型。 預設情況下，不會傳回 VM 資料夾物件。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-include-vm-folders-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的 kVMFolder 物件類型。 預設情況下，不會傳回 VM 資料夾物件。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-is-security-group-flag-description",
+    "translation": "如果設定為 true，會傳回啟用安全性的群組。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-node-id-flag-description",
+    "translation": "指定來源實體階層內，要對其子項進行分頁之任何層次節點的實體 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-num-levels-flag-description",
+    "translation": "指定要在實體階層回應中傳回、從根節點起算的預期層次數。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-page-size-flag-description",
+    "translation": "指定頁面內要傳回的實體數上限。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-prune-aggregation-info-flag-description",
+    "translation": "指定是否刪改受保護/不受保護的實體數量相關彙總資訊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-prune-non-critical-info-flag-description",
+    "translation": "指定是否刪改實體內的非關鍵資訊。 若為虛擬機器，虛擬磁碟資訊會遭到刪改。 若為 Office365，有關使用者實體的 meta 資料會遭到刪改。 這可供呼叫者用來限制回應的大小。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-request-initiator-type-flag-description",
+    "translation": "指定要求的類型。 可能的值為 UIUser 和 UIAuto，這表示要求是由使用者觸發還是自動重新整理。 像 Magneto 這樣的服務會用它來決定要求的優先順序，以便能透過優先處理優先順序較高的要求，更聰明地處理超載情況。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-sids-flag-description",
+    "translation": "過濾物件子樹狀結構以尋找清單中給定的 SID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-use-cached-data-flag-description",
+    "translation": "指定我們是否可以向讀取抄本快取記憶體處理 GET 要求。 將這設為 true 可確保向讀取抄本處理 API 要求。 將其設為 false 會將要求傳送給主伺服器。"
+  },
+  {
+    "id": "backup-recovery-protection-source-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-command-long-description",
+    "translation": "重新整理保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-command-short-description",
+    "translation": "重新整理保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-id-flag-description",
+    "translation": "必要。 指定保護來源的 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-refresh-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-advanced-configs-flag-description",
+    "translation": "指定保護來源的進階配置。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-command-long-description",
+    "translation": "註冊保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-command-short-description",
+    "translation": "註冊保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connection-id-flag-description",
+    "translation": "指定可存取此來源的連線 ID。 這應該只針對租戶使用者正在註冊的來源設定。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connections-flag-description",
+    "translation": "指定來源的連線清單。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-connector-group-id-flag-description",
+    "translation": "指定連接器群組的連接器群組 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-data-source-connection-id-flag-description",
+    "translation": "指定可存取此來源的連線 ID。 這應該只針對租戶使用者正在註冊的來源設定。 另外，這是 connectionId 的「字串」。 新增此內容是為了適應超過 2^53 - 1 的 ID 值，這是 JS 能維持精準度的最大值。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-encryption-key-flag-description",
+    "translation": "指定使用者加密認證時使用的金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-environment-flag-description",
+    "translation": "必要。 指定保護來源的環境類型。 允許的值為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-is-internal-encrypted-flag-description",
+    "translation": "指定認證是否由內部金鑰加密。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-name-flag-description",
+    "translation": "此來源的使用者指定名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-applications-flag-description",
+    "translation": "指定要向實體來源註冊的應用程式清單。 允許的清單項目為：kSQL、kOracle。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-endpoint-flag-description",
+    "translation": "指定實體主機的端點 IP 位址、URL 或主機名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-flag-description",
+    "translation": "指定用來註冊實體伺服器的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-force-register-flag-description",
+    "translation": "如果實體主機上執行的代理程式已註冊為另一個叢集的一部分，則代理程式註冊會失敗。 透過將此選項設為 true，可以強制代理程式向目前叢集註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-host-type-flag-description",
+    "translation": "指定主機的類型。 允許的值為：kLinux、kWindows。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-physical-params-physical-type-flag-description",
+    "translation": "指定實體伺服器的類型。 允許的值為：kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-command-long-description",
+    "translation": "刪除保護來源註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-command-short-description",
+    "translation": "刪除保護來源註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-id-flag-description",
+    "translation": "必要。 指定保護來源註冊的 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-delete-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-command-long-description",
+    "translation": "取得保護來源註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-command-short-description",
+    "translation": "取得保護來源註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-id-flag-description",
+    "translation": "必要。 指定保護來源註冊的 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-get-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-command-long-description",
+    "translation": "修補保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-command-short-description",
+    "translation": "修補保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-environment-flag-description",
+    "translation": "必要。 指定要修補之保護來源的環境類型。 目前唯一支援的環境是 kCassandra。 允許的值為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-id-flag-description",
+    "translation": "必要。 指定保護來源註冊的 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-patch-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-advanced-configs-flag-description",
+    "translation": "指定保護來源的進階配置。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-command-long-description",
+    "translation": "更新保護來源註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-command-short-description",
+    "translation": "更新保護來源註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connection-id-flag-description",
+    "translation": "指定可存取此來源的連線 ID。 這應該只針對租戶使用者正在註冊的來源設定。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connections-flag-description",
+    "translation": "指定來源的連線清單。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-connector-group-id-flag-description",
+    "translation": "指定連接器群組的連接器群組 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-data-source-connection-id-flag-description",
+    "translation": "指定可存取此來源的連線 ID。 這應該只針對租戶使用者正在註冊的來源設定。 另外，這是 connectionId 的「字串」。 新增此內容是為了適應超過 2^53 - 1 的 ID 值，這是 JS 能維持精準度的最大值。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-encryption-key-flag-description",
+    "translation": "指定使用者加密認證時使用的金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-environment-flag-description",
+    "translation": "必要。 指定保護來源的環境類型。 允許的值為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-id-flag-description",
+    "translation": "必要。 指定保護來源註冊的 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-is-internal-encrypted-flag-description",
+    "translation": "指定認證是否由內部金鑰加密。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-last-modified-timestamp-usecs-flag-description",
+    "translation": "使用物件的 Unix Epoch 時間戳記（以微秒為單位），指定嘗試的結束時間。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-name-flag-description",
+    "translation": "此來源的使用者指定名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-applications-flag-description",
+    "translation": "指定要向實體來源註冊的應用程式清單。 允許的清單項目為：kSQL、kOracle。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-endpoint-flag-description",
+    "translation": "指定實體主機的端點 IP 位址、URL 或主機名稱。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-flag-description",
+    "translation": "指定用來註冊實體伺服器的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-force-register-flag-description",
+    "translation": "如果實體主機上執行的代理程式已註冊為另一個叢集的一部分，則代理程式註冊會失敗。 透過將此選項設為 true，可以強制代理程式向目前叢集註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-host-type-flag-description",
+    "translation": "指定主機的類型。 允許的值為：kLinux、kWindows。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-physical-params-physical-type-flag-description",
+    "translation": "指定實體伺服器的類型。 允許的值為：kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-command-long-description",
+    "translation": "取得保護來源註冊清單。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-command-short-description",
+    "translation": "取得保護來源註冊清單。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-encryption-key-flag-description",
+    "translation": "指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-ids-flag-description",
+    "translation": "Ids 指定要傳回的來源註冊 ID 清單。 如果留空，則預設傳回每個來源註冊。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-ignore-tenant-migration-in-progress-check-flag-description",
+    "translation": "如果為 true，則會忽略租戶移轉檢查。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-include-external-metadata-flag-description",
+    "translation": "如果為 true，則會包含外部實體 meta 資料，例如註冊來源的維護模式配置。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-include-source-credentials-flag-description",
+    "translation": "如果為 true，則會包含註冊來源的加密認證。 認證首先使用內部金鑰加密，然後使用使用者提供的加密金鑰重新加密。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-use-cached-data-flag-description",
+    "translation": "指定我們是否可以從讀取抄本快取記憶體處理 GET 要求。 讀取抄本與主要資料來源之間有 15 秒的落後。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registrations-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-group-long-description",
+    "translation": "ProtectionSources 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-group-short-description",
+    "translation": "ProtectionSources 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-after-cursor-entity-id-flag-description",
+    "translation": "指定要傳回項目的起始實體 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy 指定是否應傳回已登入使用者之組織階層下的所有租戶物件。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-before-cursor-entity-id-flag-description",
+    "translation": "指定要傳回項目的結束實體 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-command-long-description",
+    "translation": "如果未指定任何參數，則會傳回在 Cohesity Cluster 上註冊的所有保護來源。 此外，也會傳回從每個來源收集的物件子樹狀結構。 例如，Cohesity Cluster 會詢問來源 VMware vCenter Server 並建立鏡映 vCenter Server 上庫存樹狀結構的階層物件子樹狀結構。 物件樹狀結構的內容會以 \"protectionSource\" 的 \"nodes\" 階層傳回。 指定參數可以改變傳回的結果。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-command-short-description",
+    "translation": "列出保護來源。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-encryption-key-flag-description",
+    "translation": "用於加密來源認證的金鑰。 如果 include_source_credentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-environment-flag-description",
+    "translation": "此欄位已淘汰。 請改用環境。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-environments-flag-description",
+    "translation": "僅傳回與傳入環境類型相符的保護來源，例如 'kVMware'、'kSQL'、'kView'、'kPhysical'、'kPuppeteer'、'kPure'、'kNetapp'、'kGenericNas'、'kHyperV'、'kAcropolis' 或 'kAzure'。 例如，將此參數設為 'kVMware'，僅傳回在 'kVMware' (VMware vCenter Server) 環境中找到的來源（及其物件子樹狀結構）。 允許的清單項目為：kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-aws-types-flag-description",
+    "translation": "指定要為 AWS 過濾掉、與傳入類型相符的物件類型，例如 'kEC2Instance'、'kRDSInstance'、'kAuroraCluster'、'kTag'、'kAuroraTag'、'kRDSTag'、kS3Bucket、kS3Tag。 例如，將此參數設為 'kEC2Instance' 以排除傳回 ec2 實例。 允許的清單項目為：kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-kubernetes-types-flag-description",
+    "translation": "指定要為 Kubernetes 過濾掉、與傳入類型相符的物件類型，例如 'kService'。 例如，將此參數設為 'kService' 以排除傳回服務。 允許的清單項目為：kService。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-office365-types-flag-description",
+    "translation": "指定要為 Office 365 過濾掉、與傳入類型相符的物件類型，例如 'kDomain'、'kOutlook'、 'kMailbox' 等等。 例如，將此參數設為 'kMailbox' 以排除傳回信箱物件。 允許的清單項目為：kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-exclude-types-flag-description",
+    "translation": "過濾掉與傳入類型相符的物件類型（及其子樹狀結構），例如 'kVCenter'、'kFolder'、'kDatacenter'、'kComputeResource'、'kResourcePool'、'kDatastore'、'kHostSystem'、'kVirtualMachine' 等等。 例如，將此參數設為 'kResourcePool' 以排除傳回資源儲存區物件。 允許的清單項目為：kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-get-teams-channels-flag-description",
+    "translation": "依原則 ID 清單過濾原則。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-has-valid-mailbox-flag-description",
+    "translation": "如果設定為 true，會傳回具有有效信箱的使用者。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-has-valid-onedrive-flag-description",
+    "translation": "如果設定為 true，會傳回具有有效 onedrive 的使用者。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-id-flag-description",
+    "translation": "傳回傳入之保護來源 ID 的物件子樹狀結構。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-datastores-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的 kDatastore 物件類型。 預設情況下，不會傳回資料儲存庫。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-entity-permission-info-flag-description",
+    "translation": "如果指定，則會傳回已指派許可權的實體清單。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-networks-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的 kNetwork 物件類型。 預設情況下，不會傳回網路物件。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-object-protection-info-flag-description",
+    "translation": "如果指定，會傳回實體的物件保護（如果有）。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-sfdc-fields-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到之物件的欄位。 預設情況下，不會傳回 Sfdc 物件欄位。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-source-credentials-flag-description",
+    "translation": "如果指定，則會包含註冊來源的認證。 認證首先使用內部金鑰加密，然後使用使用者提供的 'encryption_key' 重新加密。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-system-v-apps-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的系統 VApp 物件類型。 預設情況下，不會傳回 VM 資料夾物件。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-include-vm-folders-flag-description",
+    "translation": "將此參數設為 true，除了物件子樹狀結構之外，也會傳回在來源中找到的 kVMFolder 物件類型。 預設情況下，不會傳回 VM 資料夾物件。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-is-security-group-flag-description",
+    "translation": "如果設定為 true，會傳回啟用安全性的群組。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-node-id-flag-description",
+    "translation": "指定來源實體階層內，要對其子項進行分頁之任何層次節點的實體 ID。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-num-levels-flag-description",
+    "translation": "指定要在實體階層回應中傳回、從根節點起算的預期層次數。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-page-size-flag-description",
+    "translation": "指定頁面內要傳回的實體數上限。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-prune-aggregation-info-flag-description",
+    "translation": "指定是否刪改受保護/不受保護的實體數量相關彙總資訊。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-prune-non-critical-info-flag-description",
+    "translation": "指定是否刪改實體內的非關鍵資訊。 若為虛擬機器，虛擬磁碟資訊會遭到刪改。 若為 Office365，有關使用者實體的 meta 資料會遭到刪改。 這可供呼叫者用來限制回應的大小。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-request-initiator-type-flag-description",
+    "translation": "指定要求的類型。 可能的值為 UIUser 和 UIAuto，這表示要求是由使用者觸發還是自動重新整理。 像 Magneto 這樣的服務會用它來決定要求的優先順序，以便能透過優先處理優先順序較高的要求，更聰明地處理超載情況。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-sids-flag-description",
+    "translation": "過濾物件子樹狀結構以尋找清單中給定的 SID。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-use-cached-data-flag-description",
+    "translation": "指定我們是否可以向讀取抄本快取記憶體處理 GET 要求。 將這設為 true 可確保向讀取抄本處理 API 要求。 將其設為 false 會將要求傳送給主伺服器。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-command-long-description",
+    "translation": "執行回復。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-command-short-description",
+    "translation": "執行回復。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-flag-description",
+    "translation": "指定 Sql 環境特定的回復選項。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-recover-app-params-flag-description",
+    "translation": "指定用來回復 SQL 資料庫的參數。 它也可以是 JSON 檔案的路徑。 長度下限為 1 個項目。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
+    "translation": "指定要執行之回復動作的類型。 允許的值為：RecoverApps、CloneApps。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-mssql-params-vlan-config-flag-description",
+    "translation": "指定與回復相關聯的 VLAN 參數。 如果未指定，則會自動從下列選項之一選取 VLAN 設定：a. 如果在 IBM 上配置了 VLAN，VLAN 主機/VIP 會自動以用戶端（例如 ESXI 主機）的 IP 位址為基礎。 b. 如果 IBM 上未配置 VLAN，則會使用分割區主機名稱或 VIP 來進行回復。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-name-flag-description",
+    "translation": "必要。 指定回復的名稱。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-download-file-and-folder-params-flag-description",
+    "translation": "指定用來下載檔案和資料夾的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-flag-description",
+    "translation": "指定實體環境特定的回復選項。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-mount-volume-params-flag-description",
+    "translation": "指定用來裝載實體磁區的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-objects-flag-description",
+    "translation": "指定回復物件參數的清單。 針對回復檔案，指定包含要回復之檔案的物件。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recover-file-and-folder-params-flag-description",
+    "translation": "指定用來執行檔案和資料夾回復的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recover-volume-params-flag-description",
+    "translation": "指定用來回復實體磁區的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-recovery-action-flag-description",
+    "translation": "指定要執行之回復動作的類型。 允許的值為：RecoverPhysicalVolumes、InstantVolumeMount、RecoverFiles、RecoverSystem。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-physical-params-system-recovery-params-flag-description",
+    "translation": "指定用來執行系統回復的參數。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-request-initiator-type-flag-description",
+    "translation": "指定來自 UI 的要求類型，用於 Magneto 等服務確定要求的優先順序。 允許的值為：UIUser、UIAuto、Helios。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-snapshot-environment-flag-description",
+    "translation": "必要。 指定必須為其執行回復之 Snapshot 的環境類型。 允許的值為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-command-long-description",
+    "translation": "從給定的下載檔案回復下載檔案。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-command-short-description",
+    "translation": "從給定的下載檔案回復下載檔案。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-file-type-flag-description",
+    "translation": "指定下載的類型，即：error、success_files_list。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-id-flag-description",
+    "translation": "必要。 指定回復的 ID。 "
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-include-tenants-flag-description",
+    "translation": "指定是否應傳回已登入使用者之組織階層下所有組織的物件。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-length-flag-description",
+    "translation": "指定要下載的位元組長度。 此值不能大於 8MB （8388608 個位元組）。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-source-name-flag-description",
+    "translation": "指定在其上完成還原的來源名稱。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-start-offset-flag-description",
+    "translation": "指定要下載之檔案區塊的開始偏移量。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-start-time-flag-description",
+    "translation": "指定還原作業的開始時間。"
+  },
+  {
+    "id": "backup-recovery-recovery-files-download-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-recovery-get-command-long-description",
+    "translation": "取得給定 ID 的回復。"
+  },
+  {
+    "id": "backup-recovery-recovery-get-command-short-description",
+    "translation": "取得給定 ID 的回復。"
+  },
+  {
+    "id": "backup-recovery-recovery-get-id-flag-description",
+    "translation": "必要。 指定回復的 ID。 "
+  },
+  {
+    "id": "backup-recovery-recovery-get-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-recovery-group-long-description",
+    "translation": "Recovery 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-recovery-group-short-description",
+    "translation": "Recovery 資源的指令。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-archival-target-type-flag-description",
+    "translation": "指定已執行回復的 Snapshot 保存目標類型。 只有當 'snapshotTargetType' 為 'Archival' 時，此參數才適用。 允許的清單項目為：Tape、Cloud、NAS。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-command-long-description",
+    "translation": "列出回復。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-command-short-description",
+    "translation": "列出回復。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-end-time-usecs-flag-description",
+    "translation": "傳回在特定時間之前開始的回復。 此值應該使用 Unix 時間戳記 Epoch（以微秒為單位）。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-ids-flag-description",
+    "translation": "過濾給定 ID 的回復。 "
+  },
+  {
+    "id": "backup-recovery-recovery-list-recovery-actions-flag-description",
+    "translation": "指定用來過濾回復的回復動作清單。 如果空白，會傳回與所有動作相關的回復。 允許的清單項目為：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、RecoverVApps、RecoverVAppTemplates、UptierSnapshot、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverRDSPostgres、RecoverAzureSQL、RecoverApps、CloneApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverExchangeDbs、CloneAppView、RecoverSanVolumes、RecoverSanGroup、RecoverMailbox、RecoverOneDrive、RecoverSharePoint、RecoverPublicFolders、RecoverMsGroup、RecoverMsTeam、ConvertToPst、DownloadChats、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM、RecoverNamespaces、RecoverObjects、RecoverSfdcObjects、RecoverSfdcOrg、RecoverSfdcRecords、DownloadFilesAndFolders、CloneVMs、CloneView、CloneRefreshApp、CloneVMsToView、ConvertAndDeployVMs、DeployVMs。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-return-only-child-recoveries-flag-description",
+    "translation": "如果傳遞為 true，則僅會傳回子項回復。 此過濾器應一律與 'ids' 過濾器一起使用。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-snapshot-environments-flag-description",
+    "translation": "指定用來過濾回復的 Snapshot 環境類型清單。 如果空白，會傳回與所有環境相關的回復。 允許的清單項目為：kPhysical、kSQL。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-snapshot-target-type-flag-description",
+    "translation": "指定已執行回復的 Snapshot 目標類型。 允許的清單項目為：Local、Archival、RpaasArchival、StorageArraySnapshot、Remote。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-start-time-usecs-flag-description",
+    "translation": "傳回在特定時間之後開始的回復。 此值應該使用 Unix 時間戳記 Epoch（以微秒為單位）。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-status-flag-description",
+    "translation": "指定用來過濾回復的執行狀態清單。 如果空白，會傳回具有所有執行狀態的回復。 允許的清單項目為：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、LegalHold。"
+  },
+  {
+    "id": "backup-recovery-recovery-list-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-restore-points-command-long-description",
+    "translation": "列出還原點，亦即傳回給定時間範圍內的 Snapshot。"
+  },
+  {
+    "id": "backup-recovery-restore-points-command-short-description",
+    "translation": "列出給定時間範圍內的還原點。"
+  },
+  {
+    "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
+    "translation": "必要。 使用 Unix Epoch 時間戳記（以微秒為單位），指定結束時間。"
+  },
+  {
+    "id": "backup-recovery-restore-points-environment-flag-description",
+    "translation": "必要。 指定保護來源環境類型。 允許的值為：kVMware、kHyperV、kAzure、kGCP、kKVM、kAcropolis、kAWS、kPhysical、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPure、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kSAPHANA、kHBase、kUDA、kSfdc。"
+  },
+  {
+    "id": "backup-recovery-restore-points-protection-group-ids-flag-description",
+    "translation": "必要。 指定要取得其完整 Snapshot 資訊的工作。"
+  },
+  {
+    "id": "backup-recovery-restore-points-source-id-flag-description",
+    "translation": "指定要還原之保護來源的 ID。"
+  },
+  {
+    "id": "backup-recovery-restore-points-start-time-usecs-flag-description",
+    "translation": "必要。 使用 Unix Epoch 時間戳記（以微秒為單位），指定開始時間。"
+  },
+  {
+    "id": "backup-recovery-restore-points-xibm-tenant-id-flag-description",
+    "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-short-description",
+    "translation": "管理 IBM 備份回復 API。"
+  },
+  {
+    "id": "command-help-error",
+    "translation": "列印指令說明資訊時發生錯誤。"
+  },
+  {
+    "id": "commands-header-help-menu",
+    "translation": "指令"
+  },
+  {
+    "id": "config-command-long-description",
+    "translation": "用於控制/檢視廣域選項的持續性配置的指令。"
+  },
+  {
+    "id": "config-command-short-description",
+    "translation": "控制持續性配置。"
+  },
+  {
+    "id": "config-error",
+    "translation": "無法配置外掛程式"
+  },
+  {
+    "id": "config-get-command-long-description",
+    "translation": "取得特定選項的目前設定值。"
+  },
+  {
+    "id": "config-get-command-short-description",
+    "translation": "列印選項目前設定的配置值。"
+  },
+  {
+    "id": "config-get-subcommand-long-description",
+    "translation": "取得 '{{.NAME}}' 選項目前設定的值。"
+  },
+  {
+    "id": "config-get-subcommand-read-error",
+    "translation": "讀取值時發生錯誤。"
+  },
+  {
+    "id": "config-get-subcommand-short-description",
+    "translation": "列印目前為 '{{.NAME}}' 設定的值"
+  },
+  {
+    "id": "config-list-command-long-description",
+    "translation": "列出所有目前設定的配置值。"
+  },
+  {
+    "id": "config-list-command-short-description",
+    "translation": "列印目前設定的配置值。"
+  },
+  {
+    "id": "config-list-read-error",
+    "translation": "讀取 '{{.NAME}}' 時發生錯誤：將不會顯示它。"
+  },
+  {
+    "id": "config-reading-deserialize-error",
+    "translation": "將 '{{.NAME}}' 的配置值解除序列化時發生錯誤：將不會使用它。"
+  },
+  {
+    "id": "config-reading-read-error",
+    "translation": "讀取 '{{.NAME}}' 的配置值時發生錯誤：將不會使用它。"
+  },
+  {
+    "id": "config-set-command-long-description",
+    "translation": "設定特定選項的新配置值。"
+  },
+  {
+    "id": "config-set-command-short-description",
+    "translation": "設定選項的配置值。"
+  },
+  {
+    "id": "config-set-subcommand-long-description",
+    "translation": "設定 '{{.NAME}}' 選項的新值。"
+  },
+  {
+    "id": "config-set-subcommand-short-description",
+    "translation": "設定 '{{.NAME}}' 的值"
+  },
+  {
+    "id": "config-subcommand-no-value-set",
+    "translation": "未設定任何值。 請使用 'set' 指令來設定值。"
+  },
+  {
+    "id": "config-subcommand-set-error",
+    "translation": "設定配置值時發生錯誤。"
+  },
+  {
+    "id": "config-subcommand-unset-error",
+    "translation": "取消設定配置值時發生錯誤。"
+  },
+  {
+    "id": "config-unset-command-long-description",
+    "translation": "取消設定特定選項目前設定的值。"
+  },
+  {
+    "id": "config-unset-command-short-description",
+    "translation": "取消設定選項的配置值。"
+  },
+  {
+    "id": "config-unset-subcommand-long-description",
+    "translation": "取消設定 '{{.NAME}}' 選項目前設定的值。"
+  },
+  {
+    "id": "config-unset-subcommand-short-description",
+    "translation": "取消設定 '{{.NAME}}' 的值"
+  },
+  {
+    "id": "confirm-delete",
+    "translation": "您確定要刪除嗎？"
+  },
+  {
+    "id": "confirmation-error",
+    "translation": "無法解析確認。"
+  },
+  {
+    "id": "credentials-error",
+    "translation": "無法鑑別外掛程式。\n您必須使用 'ibmcloud login' 登入，將認證匯出為環境變數，或將它們儲存在認證檔中。\n如需相關資訊，請參閱 https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#define-configuration-properties。\n錯誤"
+  },
+  {
+    "id": "empty-error-response-message",
+    "translation": "服務傳回了沒有內容的錯誤回應。 請參閱錯誤資訊"
+  },
+  {
+    "id": "error-getting-query-param",
+    "translation": "從 URL 擷取下一頁查詢參數時發生錯誤。"
+  },
+  {
+    "id": "examples-header-help-menu",
+    "translation": "範例"
+  },
+  {
+    "id": "extraneous-json-field",
+    "translation": "JSON 旗標 '{{.FLAG_NAME}}' 中有不受支援的欄位：'{{.FIELD_PATH}}'"
+  },
+  {
+    "id": "extraneous-json-fields",
+    "translation": "JSON 旗標 '{{.FLAG_NAME}}' 中有多個不受支援的欄位：'{{.FIELD_PATH}}'"
+  },
+  {
+    "id": "file-closing-error",
+    "translation": "關閉檔案 '{{.FILENAME}}' 時發生錯誤"
+  },
+  {
+    "id": "file-conversion-error",
+    "translation": "介面轉換：檔案引數不是 io.ReadCloser"
+  },
+  {
+    "id": "file-opening-error",
+    "translation": "開啟檔案 '{{.FILENAME}}' 時發生錯誤"
+  },
+  {
+    "id": "file-reading-error",
+    "translation": "讀取檔案 '{{.FILENAME}}' 時發生錯誤"
+  },
+  {
+    "id": "file-response-error",
+    "translation": "將回應寫入檔案 '{{.FILENAME}}' 時發生錯誤"
+  },
+  {
+    "id": "final-usage-line-help-menu",
+    "translation": "如需指令的相關資訊，請使用 \"ibmcloud {{.COMMAND_PATH}} service-command --help\"。"
+  },
+  {
+    "id": "force-flag-description",
+    "translation": "強制指令執行。"
+  },
+  {
+    "id": "global-options-header-help-menu",
+    "translation": "廣域選項"
+  },
+  {
+    "id": "internal-error",
+    "translation": "內部錯誤。"
+  },
+  {
+    "id": "jmes-query-global-flag-description",
+    "translation": "提供 JMESPath 查詢以自訂輸出。"
+  },
+  {
+    "id": "jmespath-application-error",
+    "translation": "將 JmesPath 查詢套用至結果時發生錯誤"
+  },
+  {
+    "id": "jmespath-compile-error",
+    "translation": "編譯下列 JmesPath 查詢時發生錯誤：'{{.QUERY}}'"
+  },
+  {
+    "id": "jmespath-queries-assertion-error",
+    "translation": "設定 JMESPath 查詢時發生錯誤。 引數類型必須是 `JMESPathQueries`，而不得為 `{{.TYPE}}`。"
+  },
+  {
+    "id": "json-conversion-error",
+    "translation": "將回應物件轉換為 JSON 時發生錯誤"
+  },
+  {
+    "id": "json-parsing-error",
+    "translation": "剖析 JSON 旗標 '{{.FLAG_NAME}}' 時發生錯誤"
+  },
+  {
+    "id": "log-file-creation-error",
+    "translation": "建立日誌檔 '{{.PATH}}' 時發生錯誤：\n{{.ERROR}}\n\n"
+  },
+  {
+    "id": "missing-flags-argument-error",
+    "translation": "旗標需要引數：{{.FLAG}}"
+  },
+  {
+    "id": "missing-required-flags-error",
+    "translation": "未設定必要旗標 {{.FLAGS}}"
+  },
+  {
+    "id": "name-header-help-menu",
+    "translation": "名稱"
+  },
+  {
+    "id": "next-page-command-message",
+    "translation": "若要擷取下一頁結果，請執行 'ibmcloud {{.ARGS}}'"
+  },
+  {
+    "id": "no-credentials",
+    "translation": "未提供認證。"
+  },
+  {
+    "id": "no-data-for-table",
+    "translation": "沒有可顯示的項目"
+  },
+  {
+    "id": "no-service-response-error",
+    "translation": "服務未傳回任何資訊"
+  },
+  {
+    "id": "operation-metadata-assertion-error",
+    "translation": "設定作業 meta 資料時發生錯誤。 引數類型必須是 `OperationMetadata`，而不得為 `{{.TYPE}}`。"
+  },
+  {
+    "id": "options-header-help-menu",
+    "translation": "選項"
+  },
+  {
+    "id": "output-file-confirmation",
+    "translation": "寫入 {{.FILENAME}} 的輸出"
+  },
+  {
+    "id": "output-file-flag-description",
+    "translation": "要將所產生的輸出寫入至其中的檔名/路徑。"
+  },
+  {
+    "id": "output-file-flag-prompt-message",
+    "translation": "要將所產生的輸出寫入至其中的檔名/路徑。"
+  },
+  {
+    "id": "output-global-flag-description",
+    "translation": "選擇輸出格式 - 可以是 'json'、'yaml'、'tui' 或 'table'。"
+  },
+  {
+    "id": "parsing-error",
+    "translation": "將旗標 '{{.FLAG_NAME}}' 剖析為 '{{.TYPE}}' 時發生錯誤"
+  },
+  {
+    "id": "prompt-failed",
+    "translation": "無法解析值。"
+  },
+  {
+    "id": "quiet-global-flag-description",
+    "translation": "抑制詳細訊息。"
+  },
+  {
+    "id": "response-processing-error",
+    "translation": "無法發出要求，或無法處理回應。 請參閱錯誤資訊"
+  },
+  {
+    "id": "root-command-error",
+    "translation": "執行指令時發生錯誤"
+  },
+  {
+    "id": "service-url-global-flag-description",
+    "translation": "提供 API 的基本端點 URL。"
+  },
+  {
+    "id": "show-help",
+    "translation": "顯示說明"
+  },
+  {
+    "id": "suggestions",
+    "translation": "類似指令：\n {{.SUGGESTIONS}}\n"
+  },
+  {
+    "id": "truncated-table",
+    "translation": "已截斷原始結果，以避免超出視窗的寬度。（隱藏{{.TRUNCATED_COLUMNS}} 個直欄）"
+  },
+  {
+    "id": "tui-app-error",
+    "translation": "執行 TUI 視圖時發生錯誤。 "
+  },
+  {
+    "id": "tui-button-cancel",
+    "translation": "取消"
+  },
+  {
+    "id": "tui-button-ok",
+    "translation": "確定"
+  },
+  {
+    "id": "tui-button-quit",
+    "translation": "退出"
+  },
+  {
+    "id": "tui-button-save",
+    "translation": "儲存"
+  },
+  {
+    "id": "tui-close",
+    "translation": "回上一個表格"
+  },
+  {
+    "id": "tui-down",
+    "translation": "下移"
+  },
+  {
+    "id": "tui-end",
+    "translation": "跳至結尾"
+  },
+  {
+    "id": "tui-end-key",
+    "translation": "結束"
+  },
+  {
+    "id": "tui-enter-key",
+    "translation": "輸入"
+  },
+  {
+    "id": "tui-esc-key",
+    "translation": "Esc 鍵"
+  },
+  {
+    "id": "tui-exit-prompt",
+    "translation": "您想退出應用程式嗎？"
+  },
+  {
+    "id": "tui-header-path",
+    "translation": "路徑："
+  },
+  {
+    "id": "tui-help",
+    "translation": "顯示說明"
+  },
+  {
+    "id": "tui-help-dialog-title",
+    "translation": "說明"
+  },
+  {
+    "id": "tui-home-key",
+    "translation": "首頁"
+  },
+  {
+    "id": "tui-left",
+    "translation": "左移"
+  },
+  {
+    "id": "tui-pagedown",
+    "translation": "下移一頁"
+  },
+  {
+    "id": "tui-pagedown-key",
+    "translation": "下一頁"
+  },
+  {
+    "id": "tui-pageup",
+    "translation": "上移一頁"
+  },
+  {
+    "id": "tui-pageup-key",
+    "translation": "上一頁"
+  },
+  {
+    "id": "tui-path",
+    "translation": "路徑"
+  },
+  {
+    "id": "tui-quit",
+    "translation": "退出"
+  },
+  {
+    "id": "tui-right",
+    "translation": "右移"
+  },
+  {
+    "id": "tui-save-table-dialog-title",
+    "translation": "儲存表格"
+  },
+  {
+    "id": "tui-save-table-error",
+    "translation": "將表格寫入檔案 '{{.PATH}}' 時發生錯誤：{{.ERROR}}"
+  },
+  {
+    "id": "tui-save-table-long",
+    "translation": "將現行表格寫入檔案 (JSON)"
+  },
+  {
+    "id": "tui-select-cell",
+    "translation": "選取資料格"
+  },
+  {
+    "id": "tui-start",
+    "translation": "開始"
+  },
+  {
+    "id": "tui-up",
+    "translation": "上移"
+  },
+  {
+    "id": "unknown-flag-error",
+    "translation": "不明旗標：{{.FLAG}}"
+  },
+  {
+    "id": "unknown-shorthand-flag-error",
+    "translation": "{{.GIVEN_SHORTHANDS}} 中的不明速記旗標：{{.UNKNOWN_SHORTHAND}}"
+  },
+  {
+    "id": "unregistered-command",
+    "translation": "'{{.COMMAND}}' 不是已登錄的指令。 請參閱 'ibmcloud {{.NAMESPACE}} help'。"
+  },
+  {
+    "id": "usage-header-help-menu",
+    "translation": "使用情形"
+  },
+  {
+    "id": "version-global-flag",
+    "translation": "外掛程式的版本。"
+  },
+  {
+    "id": "yaml-conversion-error",
+    "translation": "將結果轉換為 YAML 時發生錯誤"
+  }
+]

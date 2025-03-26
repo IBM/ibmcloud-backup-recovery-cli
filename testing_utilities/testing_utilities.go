@@ -18,23 +18,24 @@ package testing_utilities
 
 import (
 	"errors"
+	"io"
+	"strings"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	fakeTerm "github.com/IBM-Cloud/ibm-cloud-cli-sdk/testhelpers/terminal"
 	"github.com/IBM/go-sdk-core/v5/core"
 	. "github.com/onsi/gomega"
 	"github.com/spf13/pflag"
-	"io"
-	"strings"
 )
 
 var ConfirmRunningCommandCalled bool
 
 const (
 	MockSuccessResponse = "SuccessfulResponse"
-	MockErrorResponse = "ErrorResponse"
-	MockErrorMessage = "ErrorMessage"
-	MockFileContents = "This is a mock file"
+	MockErrorResponse   = "ErrorResponse"
+	MockErrorMessage    = "ErrorMessage"
+	MockFileContents    = "This is a mock file"
 )
 
 // Returns a response with a mock string as the response body
@@ -67,16 +68,18 @@ func GetMockFileResponse() (interface{}, *core.DetailedResponse, error) {
 // Provide a stub for the InitializeServiceInstance function so that unit tests for
 // individual commands do not need to provide mock values for all of the global
 // parameters in addtion to their own parameters.
-type TestServiceCommandHelper struct {}
-func (t *TestServiceCommandHelper) InitializeServiceInstance(f *pflag.FlagSet) {}
+type TestServiceCommandHelper struct{}
+
+func (t *TestServiceCommandHelper) InitializeServiceInstance(f *pflag.FlagSet)          {}
+func (t *TestServiceCommandHelper) InitializeConnectorServiceInstance(f *pflag.FlagSet) {}
 
 // Positive Test Utilities
 type PositiveTestUtilities struct {
 	ExpectedJmespath string
-	OutputFormat string
-	JMESQuery string
-	FakeUI *fakeTerm.FakeUI
-	LastThingSaid string
+	OutputFormat     string
+	JMESQuery        string
+	FakeUI           *fakeTerm.FakeUI
+	LastThingSaid    string
 }
 
 func NewPositiveTestUtilities() *PositiveTestUtilities {
@@ -95,7 +98,7 @@ func (u *PositiveTestUtilities) ConfirmRunningCommand() {
 	ConfirmRunningCommandCalled = true
 }
 
-func (u *PositiveTestUtilities) GetServiceURL(getURL func(string) (string, error)) (string) { return "" }
+func (u *PositiveTestUtilities) GetServiceURL(getURL func(string) (string, error)) string { return "" }
 
 func (u *PositiveTestUtilities) ProcessResponse(res *core.DetailedResponse, err error) {
 	Expect(err).To(BeNil())
@@ -230,8 +233,8 @@ func (u *PositiveTestUtilities) ValidateJSON(input, fields string) ([]string, er
 // Negative Test Utilities
 type NegativeTestUtilities struct {
 	ExpectedJmespath string
-	OutputFormat string
-	JMESQuery string
+	OutputFormat     string
+	JMESQuery        string
 }
 
 func NewNegativeTestUtilities() *NegativeTestUtilities {
@@ -249,7 +252,7 @@ func (u *NegativeTestUtilities) ConfirmRunningCommand() {
 	ConfirmRunningCommandCalled = true
 }
 
-func (u *NegativeTestUtilities) GetServiceURL(getURL func(string) (string, error)) (string) { return "" }
+func (u *NegativeTestUtilities) GetServiceURL(getURL func(string) (string, error)) string { return "" }
 
 func (u *NegativeTestUtilities) ProcessResponse(res *core.DetailedResponse, err error) {
 	Expect(err.Error()).To(Equal(MockErrorMessage))
