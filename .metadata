@@ -1,0 +1,15 @@
+{
+  "service": "backup-recovery",
+  "production_code": "Yes",
+  "security_sensitive": "No",
+  "ip_sensitive": "No",
+  "others": {
+    "owner_squad": "BRS SRE",
+    "description": "CLI Plugin for backup and recovery"
+  },
+  "production_branches": [
+    "main",
+    "staging"
+  ],
+  "production_code_end": ""
+}
