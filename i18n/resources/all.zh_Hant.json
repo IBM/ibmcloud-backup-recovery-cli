@@ -96,6 +96,10 @@
     "translation": "URL 無效：使用 BACKUP_RECOVERY_URL 環境變數或認證檔中的金鑰來設定基本 URL。"
   },
   {
+    "id": "backup-recovery-bad-connector-url-error-message",
+    "translation": "無效的連接器 URL：請使用 BACKUP_RECOVERY_CONNECTOR_URL 環境變數或認證檔案中的金鑰來設定連接器 URL。"
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "取得可用連接器的相關資訊。"
   },
@@ -106,6 +110,38 @@
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
     "translation": "必要。 指定用於加密來源認證的金鑰。 如果 includeSourceCredentials 設定為 true，則必須指定此金鑰。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
+    "translation": "列出資料來源連接器日誌。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
+    "translation": "列出與資料來源連接器建立和登錄相對應的日誌。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-short-description",
+    "translation": "登錄資料來源連接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-long-description",
+    "translation": "使用提供的登錄記號在叢集中登錄資料來源連接器。 使用者必須透過呼叫相關的 '/data-source-connections' API，來取得用於登錄此連接器的資料來源連線的登錄記號。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
+    "translation": "必要。 登錄記號。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
+    "translation": "用於登錄的連接器 ID。 屬於同一租戶的兩個連接器保證有不同的 ID。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
+    "translation": "列出資料來源連接器的狀態。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
+    "translation": "列出資料來源連接器的狀態，包括登錄以及叢集連線狀態。"
   },
   {
     "id": "backup-recovery-data-source-connection-create-command-long-description",
@@ -205,11 +241,11 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
-    "translation": "刪除要求路徑中的 ID 所指定的資料來源連接器。"
+    "translation": "刪除要求路徑中由 ID 指定的資料來源連接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-short-description",
-    "translation": "使用 ID 刪除資料來源連接器。"
+    "translation": "使用其 ID 刪除資料來源連接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
@@ -266,6 +302,26 @@
   {
     "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
     "translation": "連接器的名稱。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-short-description",
+    "translation": "建立存取記號。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-long-description",
+    "translation": "在進行其他 REST API 要求之前，您的 REST 用戶端必須使用有效的 Cohesity 使用者名稱和密碼來要求存取記號。 此 POST 要求會在 Cohesity 叢集產生的回應中傳回存取記號和類型。 對其他 Cohesity REST API 作業的後續要求，必須在 HTTP 標頭的 'Authorization' 中指定傳回的存取記號和類型，格式如下：- Authorization:- token_type access_token。產生的記號 24 小時有效。 如果使用過期的記號進行要求，則會傳回「記號過期」的錯誤訊息。 在您的 REST 用戶端中新增程式碼，以檢查此錯誤，並在重新發出要求之前，要求另一個存取記號。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-username-flag-description",
+    "translation": "指定 Cohesity 使用者的登入名稱。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-password-flag-description",
+    "translation": "指定 Cohesity 使用者帳戶的密碼。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-domain-flag-description",
+    "translation": "指定使用者登入的網域。 對於本端使用者，網域為 LOCAL。 對於 LDAP/AD 使用者，網域將會對映到 LDAP 連線字串。 使用者是由使用者名稱與網域的組合來唯一識別。 LOCAL 是預設網域。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
@@ -1134,6 +1190,378 @@
   {
     "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
     "translation": "指定我們是否可以對讀取抄本快取記憶體處理 GET 要求。 讀取抄本與主要資料來源之間有 15 秒的落後。"
+  },
+  {
+    "id": "backup-recovery-users-command-short-description",
+    "translation": "取得使用者。"
+  },
+  {
+    "id": "backup-recovery-users-command-long-description",
+    "translation": "如果未指定參數，則會傳回目前 Cohesity Cluster 上的所有使用者。 指定參數可過濾出傳回的結果。"
+  },
+  {
+    "id": "backup-recovery-users-session-name-flag-description",
+    "translation": "必要。 從連接器登入 API 接收到的階段作業 Cookie。"
+  },
+  {
+    "id": "backup-recovery-connector-logs-access-token-description",
+    "translation": "必要。 從連接器接收到的存取記號。"
+  },
+  {
+    "id": "backup-recovery-connector-status-access-token-description",
+    "translation": "必要。 從連接器接收到的存取記號。"
+  },
+  {
+    "id": "backup-recovery-users-tenant-ids-flag-description",
+    "translation": "TenantIds 包含要傳回物件的租戶 ID。"
+  },
+  {
+    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy 指定是否要傳回登入使用者所屬組織階層下所有租戶的物件。TenantIds 包含要傳回物件的租戶 ID。"
+  },
+  {
+    "id": "backup-recovery-users-usernames-flag-description",
+    "translation": "可選擇指定一個使用者名稱清單進行過濾。 將傳回所有包含使用者名稱的使用者。"
+  },
+  {
+    "id": "backup-recovery-users-email-addresses-flag-description",
+    "translation": "可選擇指定一個電子郵件位址清單進行過濾。"
+  },
+  {
+    "id": "backup-recovery-users-domain-flag-description",
+    "translation": "可選擇指定一個網域進行過濾。 如果未指定網域，將會搜尋 Cohesity Cluster 上的所有使用者。 如果已指定網域，則只會搜尋與該網域相關的 Cohesity Cluster 上的使用者。"
+  },
+  {
+    "id": "backup-recovery-users-partial-match-flag-description",
+    "translation": "可選擇是否啟用局部相符。 如果設定，則會傳回所有名稱包含 Usernames 的使用者。 如果設定為 false，則只會傳回名稱與 Usernames 完全相同的使用者。 預設情況下，此參數設定為 true。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-short-description",
+    "translation": "更新使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-long-description",
+    "translation": "傳回在 Cohesity Cluster 上被更新的使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-session-name-flag-description",
+    "translation": "必要。 從連接器接收到的存取記號。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-flag-description",
+    "translation": "指定使用 Active Directory 登入的 AD 使用者資訊。 此資訊不會儲存在叢集中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-additional-group-names-flag-description",
+    "translation": "指定此使用者可能隸屬的其他群組名稱。"
+  },
+  {
+    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
+    "translation": "指定資料安全使用者是否可由管理者使用者進行修改。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
+    "translation": "AuditLogSettings 指定具有審計日誌配置的結構。 以這樣的方式進行這些設定：當 bb 不存在時，叢集預設值為零。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-authentication-type-flag-description",
+    "translation": "指定使用者的鑑別類型。 'kAuthLocal' 表示已鑑別的使用者是本端使用者。 'kAuthAd' 表示已鑑別的使用者是 Active Directory 使用者。 'kAuthSalesforce' 表示已鑑別的使用者是 Salesforce 使用者。 'kAuthGoogle' 表示已鑑別的使用者是 Google 使用者。 'kAuthSso' 表示已鑑別的使用者是 SSO 使用者。 容許值為：kAuthLocal、kAuthAd、kAuthSalesforce、kAuthGoogle、kAuthSso。"
+  },
+  {
+    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
+    "translation": "指定此使用者可存取的叢集清單。 如果未指定此項，將授與所有叢集存取權。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
+    "translation": "指定使用者帳戶在 Cohesity Cluster 上建立的 EPOCH 時間（以毫秒為單位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-current-password-flag-description",
+    "translation": "更新密碼時，指定目前的密碼。"
+  },
+  {
+    "id": "backup-recovery-user-update-description-flag-description",
+    "translation": "指定使用者的說明。"
+  },
+  {
+    "id": "backup-recovery-user-update-domain-flag-description",
+    "translation": "指定 Active Directory 上的完整網域名稱 (FQDN) 或指定 LOCAL 以代表 Cohesity Cluster 上的預設 LOCAL 網域。 使用者的唯一識別方式是使用者名稱和網域的組合。"
+  },
+  {
+    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
+    "translation": "指定使用者生效的 EPOCH 時間（以毫秒為單位）。 在此之前，使用者無法登入。"
+  },
+  {
+    "id": "backup-recovery-user-update-email-address-flag-description",
+    "translation": "指定使用者的電子郵件位址。"
+  },
+  {
+    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
+    "translation": "指定使用者過期的 EPOCH 時間（以毫秒為單位）。 之後，使用者無法登入。"
+  },
+  {
+    "id": "backup-recovery-user-update-force-password-change-flag-description",
+    "translation": "指定是否強制使用者變更密碼。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-flag-description",
+    "translation": "Helios BaaS 使用者的 Google 帳戶資訊。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-flag-description",
+    "translation": "指定使用 IdP 登入的 IdP 使用者資訊。 此資訊不會儲存在叢集中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
+    "translation": "指定用於 Intercom 身分驗證的 Messenger 記號。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-account-locked-flag-description",
+    "translation": "指定使用者帳戶是否被鎖定。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-active-flag-description",
+    "translation": "IsActive 指定使用者是否在作用中，或是否已遭到客戶停用。 預設行為為 'true'。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
+    "translation": "指定使用者上次成功登入的 EPOCH 時間（以毫秒為單位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
+    "translation": "指定使用者帳戶在 Cohesity Cluster 上最後一次被修改的 EPOCH 時間（以毫秒為單位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-flag-description",
+    "translation": "指定有關 MFA 的資訊。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-methods-flag-description",
+    "translation": "指定在叢集上啟用的 MFA 方法。"
+  },
+  {
+    "id": "backup-recovery-user-update-object-class-flag-description",
+    "translation": "指定使用者的物件類別，可以是「使用者」或「群組」。"
+  },
+  {
+    "id": "backup-recovery-user-update-org-membership-flag-description",
+    "translation": "OrgMembership 包含此使用者可切換至的所有 tenantIds 的清單。 只有在建立階段作業使用者時，才會即時填入此欄位。 我們會從指派給使用者的各種群組中探索 tenantIds。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-password-flag-description",
+    "translation": "指定此使用者的密碼。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-flag-description",
+    "translation": "指定此使用者的喜好設定。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
+    "translation": "指定前一個使用者登入的 EPOCH 時間（以毫秒為單位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-primary-group-name-flag-description",
+    "translation": "指定該使用者的主要群組名稱。"
+  },
+  {
+    "id": "backup-recovery-user-update-privilege-ids-flag-description",
+    "translation": "指定角色的 Cohesity 權限。 這將根據角色中所有權限的聯集來填入。 唯一權限 ID 值的類型。 以下所有列舉值，皆對 Cohesity 中所有唯一定義的權限指定了一個值。 容許的清單項目有：kPrincipalView、kPrincipalModify、kAppLaunch、kAppsManagement、kOrganizationView、kOrganizationModify、kOrganizationImpersonate、kCloneView、kCloneModify、kClusterView、kClusterModify、kClusterCreate、kClusterSupport、kClusterUpgrade、kClusterRemoteView、kClusterRemoteModify、kClusterExternalTargetView、kClusterExternalTargetModify、kClusterAudit、kAlertView、kAlertModify、kVlanView、kVlanModify、kHybridExtenderView、kHybridExtenderDownload、kAdLdapView、kAdLdapModify、kSchedulerView、kSchedulerModify、kProtectionView、kProtectionModify、kProtectionJobOperate、kProtectionSourceModify、kProtectionPolicyView、kProtectionPolicyModify、kRestoreView、kRestoreModify、kRestoreDownload、kRemoteRestore、kStorageView、kStorageModify、kStorageDomainView、kStorageDomainModify、kAnalyticsView、kAnalyticsModify、kReportsView、kMcmModify、kDataSecurity、kSmbBackup、kSmbRestore、kSmbTakeOwnership、kSmbAuditing、kMcmUnregister、kMcmUpgrade、kMcmModifySuperAdmin、kMcmViewSuperAdmin、kMcmModifyCohesityAdmin、kMcmViewCohesityAdmin、kObjectSearch、kFileDatalockExpiryTimeDecrease。"
+  },
+  {
+    "id": "backup-recovery-user-update-profiles-flag-description",
+    "translation": "指定使用者設定檔。 附註：目前用於 Helios。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-restricted-flag-description",
+    "translation": "使用者是否為受限制的使用者。 受限制的使用者只能檢視其有權限檢視的物件。"
+  },
+  {
+    "id": "backup-recovery-user-update-roles-flag-description",
+    "translation": "指定要與使用者關聯的 Cohesity 角色，例如 'Admin'、'Ops' 或 'View'。 Cohesity 角色決定此使用者在 Cohesity Cluster 上的權限。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
+    "translation": "指定 S3 帳戶存取金鑰 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-account-id-flag-description",
+    "translation": "指定 S3 帳戶的 Canonical 使用者 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
+    "translation": "指定 S3 帳戶秘密金鑰。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-flag-description",
+    "translation": "Helios 使用者的 Salesforce 帳戶資訊。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-sid-flag-description",
+    "translation": "指定使用者的唯一安全 ID (SID)。 此欄位在修改使用者時為必要項目。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-flag-description",
+    "translation": "SpogContext 指定正在此叢集上執行動作的使用者與叢集的所有相關資訊。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-flag-description",
+    "translation": "延伸此項以包含 Helios、DRaaS 和 DSaaS。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
+    "translation": "指定 MCM 使用者的租戶存取。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-id-flag-description",
+    "translation": "指定使用者的有效租戶 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-username-flag-description",
+    "translation": "指定使用者的登入名稱。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
+    "translation": "指定群組的 SID。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
+    "translation": "指定此使用者所屬的群組。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
+    "translation": "指定此使用者是否為浮動使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
+    "translation": "ReadLogging 指定是否需要擷取讀取日誌。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
+    "translation": "由 Google 指派的帳戶 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
+    "translation": "指定由 Google 指派的使用者 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
+    "translation": "指定群組的 SID。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
+    "translation": "指定使用者所屬的 Idp 群組。 由於使用者可能未在叢集上登錄，我們可能必須擷取 idp 群組的成員資格。 如此一來，如果稍後在叢集上建立群組，使用者也能立即存取該群組的 tenantIds。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
+    "translation": "指定由叢集指派給 IdP 的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
+    "translation": "指定此使用者是否為浮動使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
+    "translation": "指定供應商為此叢集指派的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
+    "translation": "指定供應商為此使用者指派的唯一 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
+    "translation": "指定提供 IdP 服務的供應商。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
+    "translation": "指定該使用者是否停用 MFA。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-locale-flag-description",
+    "translation": "Locale 代表使用者的語言設定。 使用 Scribe 中儲存的使用者喜好設定，為使用者填入所需資料。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
+    "translation": "指定由 Salesforce 指派的帳戶 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
+    "translation": "指定 helios 存取的狀態。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
+    "translation": "指定使用者是否為 DGaaS 授權使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
+    "translation": "指定使用者是否為 DMaaS 授權使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
+    "translation": "指定使用者是否為 DRaaS 授權使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
+    "translation": "指定使用者是否為 RPaaS 授權使用者。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
+    "translation": "指定使用者是否為 Cohesity 的銷售人員。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
+    "translation": "指定使用者是否為 Cohesity 的支援人員。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
+    "translation": "指定由 Salesforce 指派的使用者 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
+    "translation": "指定透過 SPOG 存取此叢集的遠端叢集 ID。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
+    "translation": "指定透過 SPOG 存取此叢集的使用者之 SID。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
+    "translation": "指定透過 SPOG 存取此叢集的使用者名稱。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
+    "translation": "ClassificationInfo 保留有關 Datahawk 分類訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
+    "translation": "DMaaSSubscriptionInfo 保留有關 Data Protect 訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
+    "translation": "ClassificationInfo 保留有關 Datahawk 分類訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
+    "translation": "FortKnoxInfo 保留有關 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
+    "translation": "FortKnoxInfo 保留有關 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
+    "translation": "FortKnoxInfo 保留有關 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
+    "translation": "RansomwareInfo 保留有關 FortKnox/FortKnoxFreeTrial 訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
+    "translation": "SiteContinuityInfo 保留有關網站連續性訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
+    "translation": "ThreatProtectionInfo 保留有關 Datahawk ThreatProtection 訂閱的資訊，例如它是否處於作用中。 它也可以是 JSON 檔案的路徑。"
   },
   {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
@@ -2825,7 +3253,7 @@
   },
   {
     "id": "backup-recovery-restore-points-command-short-description",
-    "translation": "列出給定時間範圍內的還原點。"
+    "translation": "列出在給定時間範圍內的還原點。"
   },
   {
     "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
@@ -3130,6 +3558,10 @@
   {
     "id": "service-url-global-flag-description",
     "translation": "提供 API 的基本端點 URL。"
+  },
+  {
+    "id": "connector-service-url-global-flag-description",
+    "translation": "提供 API 的連接器端點 URL。"
   },
   {
     "id": "show-help",

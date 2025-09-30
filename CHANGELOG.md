@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.0.2
+
+### Content
+
+#### Defects
+
+* Internal fixes and improvements
+
 ## 1.0.1
 
 ### Content
@@ -14,4 +22,4 @@
 
 #### Features
 
-* Initial release ([Limited Availability](./README.md#note))
+* Initial release

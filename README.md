@@ -1,7 +1,6 @@
 # IBM Cloud Backup Recovery CLI Plug-in
 
-**Note:**  
-IBM Cloud Backup and Recovery is the Limited Availability (LA) offering in the present release and is currently not available under the "General Availability (GA)". Only after the GA release, it will be available through the "IBM Global Catalog" for delivery and consumption from all available Data Center Region/Zones. For more details or questions about products, sales, or support, visit [IBM HELP](https://www.ibm.com/contact/global).
+This CLI plug-in for IBM Cloud Backup and Recovery enables customers to leverage a managed service that provides backup solutions for various customer workloads running on IBM Cloud.
 
 ## Summary
 
@@ -11,6 +10,10 @@ This repository contains the source for the Backup Recovery CLI plug-in.
 
 - Have an [IBM Cloud Account](https://cloud.ibm.com).
 - Have [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started) installed.
+
+## Getting Started
+
+Get started with IBM Cloud Backup and Recovery [here](https://cloud.ibm.com/docs/backup-recovery?topic=backup-recovery-getting-started-backup-recovery).
 
 ## Installation
 
@@ -41,30 +44,30 @@ USAGE:
   ibmcloud backup-recovery [command] [options]
 
 COMMANDS:
-  agent-download                  Download agent.
-  agent-upgrade-task              Commands for AgentUpgradeTask resource.
-  config                          Control persistent configuration.
-  connector-metadata-get          Get information about the available connectors.
-  access-token-create             Get connector access token.
-  data-source-connection          Commands for DataSourceConnection resource.
-  data-source-connector           Commands for DataSourceConnector resource.
-  data-source-connector-logs      Get connector logs.
-  data-source-connector-register  Register connector.
-  data-source-connector-status    Get connector status.
-  download-recovery-create        Create a download files and folders recovery.
-  indexed-file-download           Download an indexed file.
-  indexed-objects-search          List indexed objects.
-  object-snapshots-list           List the snapshots for a given object.
-  objects-search                  List Objects.
-  protected-objects-search        List Protected Objects.
-  protection-group                Commands for ProtectionGroup resource.
-  protection-group-run            Commands for ProtectionGroupRun resource.
-  protection-policy               Commands for ProtectionPolicy resource.
-  protection-source               Commands for ProtectionSource resource.
-  recovery                        Commands for Recovery resource.
-  restore-points                  List Restore Points in a given time range.
-  user-update                     Update connector user.
-  users                           Get connector users.
+  access-token-create              Create access token.
+  agent-download                   Download agent.
+  agent-upgrade-task               Commands for AgentUpgradeTask resource.
+  config                           Control persistent configuration.
+  connector-metadata-get           Get information about the available connectors.
+  data-source-connection           Commands for DataSourceConnection resource.
+  data-source-connector            Commands for DataSourceConnector resource.
+  data-source-connector-logs       Lists the data source connector logs.
+  data-source-connector-register   Register a data source connector.
+  data-source-connector-status     Lists the data source connector status.
+  download-recovery-create         Create a download files and folders recovery.
+  indexed-file-download            Download an indexed file.
+  indexed-objects-search           List indexed objects.
+  object-snapshots-list            List the snapshots for a given object.
+  objects-search                   List objects.
+  protected-objects-search         List protected objects.
+  protection-group                 Commands for ProtectionGroup resource.
+  protection-group-run             Commands for ProtectionGroupRun resource.
+  protection-policy                Commands for ProtectionPolicy resource.
+  protection-source                Commands for ProtectionSource resource.
+  recovery                         Commands for Recovery resource.
+  restore-points                   List restore points in a given time range.
+  user-update                      Update user.
+  users                            Get users.
 
 OPTIONS:
   -h, --help      Show help

@@ -96,6 +96,10 @@
     "translation": "URL non valide : Définissez l'URL de base à l'aide de la variable d'environnement BACKUP_RECOVERY_URL ou d'un fichier d'informations d'identification."
   },
   {
+    "id": "backup-recovery-bad-connector-url-error-message",
+    "translation": "URL  de connecteur non valide : définissez l'URL du connecteur avec la variable d'environnement BACKUP_RECOVERY_CONNECTOR_URL ou dans un fichier d'informations d'identification."
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "Obtenir des informations sur les connecteurs disponibles."
   },
@@ -106,6 +110,38 @@
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
     "translation": "Obligatoire. Spécifie la clé à utiliser pour chiffrer les données d'identification source. Si la valeur de includeSourceCredentials est définie à true, cette clé doit être spécifiée."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
+    "translation": "Liste les journaux du connecteur de source de données."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
+    "translation": "Liste les journaux liés à la création et à l'enregistrement du connecteur de source de données."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-short-description",
+    "translation": "Enregistrer un connecteur de source de données."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-long-description",
+    "translation": "Enregistrez un connecteur de source de données dans un cluster en utilisant le jeton d'enregistrement fourni. Le jeton d'enregistrement de la connexion à la source de données avec laquelle ce connecteur doit être enregistré doit être obtenu par l'utilisateur en appelant les API '/data-source-connections' correspondantes."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
+    "translation": "Obligatoire. Le jeton d'enregistrement."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
+    "translation": "L'ID du connecteur à utiliser pour l'enregistrement. Deux connecteurs appartenant au même locataire sont garantis d'avoir des IDs différents."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
+    "translation": "Indique le statut du connecteur de source de données."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
+    "translation": "Liste le statut du connecteur de la source de données, y compris celui de l'enregistrement et de la connectivité du cluster."
   },
   {
     "id": "backup-recovery-data-source-connection-create-command-long-description",
@@ -205,7 +241,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
-    "translation": "Supprime le connecteur de source de données spécifié par l'ID dans le chemin d'accès à la requête."
+    "translation": "Supprimez le connecteur de source de données spécifié par l'ID dans le chemin d'accès de la requête."
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-short-description",
@@ -266,6 +302,26 @@
   {
     "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
     "translation": "Nom du connecteur."
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-short-description",
+    "translation": "Créer un jeton d'accès."
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-long-description",
+    "translation": "Avant de faire d'exécuter d'autres requêtes API REST, votre client REST doit effectuer une demande de jeton d'accès avec un nom d'utilisateur et un mot de passe Cohesity valides. Cette demande POST retourne un jeton d'accès et un type dans la réponse générée par le cluster Cohesity. Les requêtes ultérieures vers d’autres opérations de l’API REST Cohesity doivent spécifier le jeton d’accès et le type retournés en définissant ‘Authorization’ dans l’en-tête HTTP selon le format\nAuthorization: token_type access_token Le jeton généré est valide pendant 24 heures. Si une demande est effectuée avec un jeton expiré, le message d'erreur 'Jeton expiré' est retourné. Ajoutez du code à votre client REST pour rechercher  cette erreur et demander un autre jeton d'accès avant de réémettre la requête."
+  },
+  {
+    "id": "backup-recovery-access-token-create-username-flag-description",
+    "translation": "Spécifie le nom de connexion de l'utilisateur Cohesity."
+  },
+  {
+    "id": "backup-recovery-access-token-create-password-flag-description",
+    "translation": "Spécifie le mot de passe du compte utilisateur Cohesity."
+  },
+  {
+    "id": "backup-recovery-access-token-create-domain-flag-description",
+    "translation": "Spécifie le domaine auquel l'utilisateur se connecte. Pour un utilisateur local, le domaine est LOCAL. Pour les utilisateurs LDAP/AD, le domaine sera associé à une chaîne de connexion LDAP. Un utilisateur est identifié de façon unique par la combinaison de son nom d'utilisateur et de son domaine. LOCAL est le domaine par défaut."
   },
   {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
@@ -957,7 +1013,7 @@
   },
   {
     "id": "backup-recovery-objects-search-command-short-description",
-    "translation": "Liste d'objets."
+    "translation": "Lister les objets."
   },
   {
     "id": "backup-recovery-objects-search-count-flag-description",
@@ -977,7 +1033,7 @@
   },
   {
     "id": "backup-recovery-objects-search-include-helios-tag-info-for-objects-flag-description",
-    "translation": "précise s'il convient d'inclure dans la réponse des informations sur les balises helios pour les objets. La valeur par défaut est false."
+    "translation": "Indique s'il faut inclure des informations sur les balises helios pour les objets dans la réponse. La valeur par défaut est false."
   },
   {
     "id": "backup-recovery-objects-search-is-deleted-flag-description",
@@ -1134,6 +1190,378 @@
   {
     "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
     "translation": "Indique si la requête GET peut être transmise au cache de la réplique de lecture. Il y a un décalage de 15 secondes entre la réplique de lecture et la source de données principale."
+  },
+  {
+    "id": "backup-recovery-users-command-short-description",
+    "translation": "Obtenir des utilisateurs."
+  },
+  {
+    "id": "backup-recovery-users-command-long-description",
+    "translation": "Si aucun paramètre n'est spécifié, tous les utilisateurs actuellement présents dans e cluster Cohesity sont retournés. La spécification de paramètres permet de filtrer les résultats renvoyés."
+  },
+  {
+    "id": "backup-recovery-users-session-name-flag-description",
+    "translation": "Obligatoire. cookie de session reçu de l'API de connexion du connecteur."
+  },
+  {
+    "id": "backup-recovery-connector-logs-access-token-description",
+    "translation": "Obligatoire. Jeton d'accès reçu du connecteur."
+  },
+  {
+    "id": "backup-recovery-connector-status-access-token-description",
+    "translation": "Obligatoire. Jeton d'accès reçu du connecteur."
+  },
+  {
+    "id": "backup-recovery-users-tenant-ids-flag-description",
+    "translation": "TenantIds contient les ID des locataires pour lesquels des objets doivent être renvoyés."
+  },
+  {
+    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy indique si les objets de tous les locataires sous la hiérarchie de l'organisation de l'utilisateur connecté doivent être retournés. TenantIds contient les ID des locataires pour lesquels les objets doivent être renvoyés."
+  },
+  {
+    "id": "backup-recovery-users-usernames-flag-description",
+    "translation": "Il est possible de spécifier une liste de noms d'utilisateur en fonction desquels le filtrage doit être effectué. Tous les utilisateurs dont le nom d'utilisateur est inclus sont renvoyés."
+  },
+  {
+    "id": "backup-recovery-users-email-addresses-flag-description",
+    "translation": "Vous pouvez également spécifier une liste d'adresses e-mail pour le filtrage."
+  },
+  {
+    "id": "backup-recovery-users-domain-flag-description",
+    "translation": "Vous pouvez également spécifier un domaine pour le filtrage. Si aucun domaine n'est spécifié, la recherche porte sur tous les utilisateurs du cluster Cohesity. Si un domaine est spécifié, elle porte uniquement sur les utilisateurs du Cohesity Cluster associés au domaine."
+  },
+  {
+    "id": "backup-recovery-users-partial-match-flag-description",
+    "translation": "Il est possible de spécifier si la correspondance partielle doit être activée. Si cette option est activée, tous les utilisateurs dont le nom contient \"Usernames\" seront renvoyés. Si cette valeur est false, seuls les utilisateurs ayant exactement le même nom que Usernames sont renvoyés. Par défaut, ce paramètre a la valeur true."
+  },
+  {
+    "id": "backup-recovery-user-update-command-short-description",
+    "translation": "Mettre à jour l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-command-long-description",
+    "translation": "Renvoie l'utilisateur qui a été mis à jour dans le cluster Cohesity."
+  },
+  {
+    "id": "backup-recovery-user-update-session-name-flag-description",
+    "translation": "Obligatoire. Jeton d'accès reçu du connecteur."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-flag-description",
+    "translation": "Spécifie les informations d'un utilisateur AD connecté via un annuaire actif. Ces informations ne sont pas stockées dans le cluster. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-additional-group-names-flag-description",
+    "translation": "Spécifie les noms des groupes supplémentaires auxquels l'utilisateur peut appartenir."
+  },
+  {
+    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
+    "translation": "Spécifie si l'utilisateur chargé de la sécurité des données peut être modifié par les administrateurs."
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
+    "translation": "AuditLogSettings spécifie la structure avec la configuration du journal d'audit. Définissez ces paramètres de manière à ce que les valeurs zéro soient les valeurs par défaut du cluster lorsque bb n'est pas présent. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-authentication-type-flag-description",
+    "translation": "Spécifie le type d'authentification de l'utilisateur. 'kAuthLocal' implique que l'utilisateur authentifié est un utilisateur local. 'kAuthAd' implique que l'utilisateur authentifié est un utilisateur Active Directory. 'kAuthSalesforce' implique que l'utilisateur authentifié est un utilisateur Salesforce. 'kAuthGoogle' implique que l'utilisateur authentifié est un utilisateur Google. 'kAuthSso' implique que l'utilisateur authentifié est un utilisateur SSO. Les valeurs autorisées sont kAuthLocal, kAuthAd, kAuthSalesforce, kAuthGoogle, kAuthSso."
+  },
+  {
+    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
+    "translation": "Spécifie la liste des clusters auxquels l'utilisateur a accès. Si aucune liste n'est spécifiée, l'accès à tous les clusters est accordé. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
+    "translation": "Spécifie l'heure epoch en millisecondes à laquelle le compte utilisateur a été créé sur le cluster Cohesity."
+  },
+  {
+    "id": "backup-recovery-user-update-current-password-flag-description",
+    "translation": "Spécifie le mot de passe actuel lors de la mise à jour du mot de passe."
+  },
+  {
+    "id": "backup-recovery-user-update-description-flag-description",
+    "translation": "Spécifie une description de l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-domain-flag-description",
+    "translation": "Spécifie le nom de domaine complet (FQDN) d'un domaine Active Directory ou LOCAL pour le domaine LOCAL par défaut sur le cluster Cohesity. Un utilisateur est identifié de manière unique par la combinaison du nom d'utilisateur et du domaine."
+  },
+  {
+    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
+    "translation": "Spécifie l'heure epoch en millisecondes à laquelle l'utilisateur devient actif. Jusqu'à ce moment-là, l'utilisateur ne peut pas se connecter."
+  },
+  {
+    "id": "backup-recovery-user-update-email-address-flag-description",
+    "translation": "Indique l'adresse électronique de l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
+    "translation": "Spécifie l'heure en millisecondes à laquelle l'utilisateur expire. Ensuite, l'utilisateur ne peut plus se connecter."
+  },
+  {
+    "id": "backup-recovery-user-update-force-password-change-flag-description",
+    "translation": "Indique s'il faut forcer l'utilisateur à changer son mot de passe."
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-flag-description",
+    "translation": "Informations Google sur le compte d’un utilisateur Helios BaaS. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-flag-description",
+    "translation": "Spécifie les informations d'un utilisateur IdP qui s'est connecté à l'aide d'un IdP. Ces informations ne sont pas stockées dans le cluster. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
+    "translation": "Spécifie le jeton Messenger pour la vérification d’identité Intercom."
+  },
+  {
+    "id": "backup-recovery-user-update-is-account-locked-flag-description",
+    "translation": "Indique si le compte utilisateur est verrouillé."
+  },
+  {
+    "id": "backup-recovery-user-update-is-active-flag-description",
+    "translation": "IsActive indique si un utilisateur est actif ou s'il a été désactivé par le client. Le comportement par défaut est \"true\"."
+  },
+  {
+    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
+    "translation": "Spécifie l'heure, en millisecondes, à laquelle l'utilisateur s'est connecté pour la dernière fois."
+  },
+  {
+    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
+    "translation": "Spécifie l'heure, en millisecondes, à laquelle le compte utilisateur a été modifié pour la dernière fois dans le cluster Cohesity."
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-flag-description",
+    "translation": "Spécifie les informations sur MFA. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-methods-flag-description",
+    "translation": "Spécifie les méthodes MFA activées dans le cluster."
+  },
+  {
+    "id": "backup-recovery-user-update-object-class-flag-description",
+    "translation": "Spécifie la classe d'objet de l'utilisateur, qui peut être soit un utilisateur, soit un groupe."
+  },
+  {
+    "id": "backup-recovery-user-update-org-membership-flag-description",
+    "translation": "OrgMembership contient la liste de tous les tenantIds disponibles que l'utilisateur peut sélectionner. Ce champ n'est rempli à la volée que lors de la création de l'utilisateur de session. Nous découvrons les tenantIds des différents groupes attribués aux utilisateurs. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-password-flag-description",
+    "translation": "Spécifie le mot de passe de l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-flag-description",
+    "translation": "Spécifie les préférences de l'utilisateur. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
+    "translation": "Spécifie l'heure en millisecondes de la connexion précédente de l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-primary-group-name-flag-description",
+    "translation": "Spécifie le nom du groupe principal de l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-privilege-ids-flag-description",
+    "translation": "Spécifie les privilèges Cohesity des rôles. Ils seront remplis en fonction de l'union de tous les privilèges dans les rôles. Type des valeurs d'ID de privilège uniques. Toutes les valeurs enum ci-dessous spécifient une valeur pour chaque privilège défini de manière unique dans Cohesity. Les éléments de liste autorisés sont les suivants : kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease."
+  },
+  {
+    "id": "backup-recovery-user-update-profiles-flag-description",
+    "translation": "Spécifie les profils d'utilisateur. REMARQUE  : actuellement utilisé pour Helios. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-restricted-flag-description",
+    "translation": "Indique si l'utilisateur est un utilisateur avec des restrictions. Un utilisateur restreint ne peut visualiser que les objets pour lesquels il dispose d'autorisations."
+  },
+  {
+    "id": "backup-recovery-user-update-roles-flag-description",
+    "translation": "Spécifie les rôles Cohesity à associer à l'utilisateur, tels que \"Admin\", \"Ops\" ou \"View\". Les rôles Cohesity déterminent les privilèges de l'utilisateur sur le cluster Cohesity."
+  },
+  {
+    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
+    "translation": "Spécifie l'ID de la clé d'accès du compte S3."
+  },
+  {
+    "id": "backup-recovery-user-update-s3-account-id-flag-description",
+    "translation": "Spécifie l'ID d'utilisateur canonique du compte S3."
+  },
+  {
+    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
+    "translation": "Spécifie la clé secrète du compte S3."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-flag-description",
+    "translation": "Informations sur le compte Salesforce d'un utilisateur d'Helios. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-sid-flag-description",
+    "translation": "Spécifie l'ID de sécurité unique (SID) de l'utilisateur. Ce champ est obligatoire pour modifier l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-flag-description",
+    "translation": "SpogContext spécifie toutes les informations concernant l'utilisateur et le cluster qui effectue une action sur ce cluster. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-flag-description",
+    "translation": "L'étend pour inclure DRaaS et DSaaS. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
+    "translation": "Précise l'accès du locataire pour l'utilisateur MCM. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-id-flag-description",
+    "translation": "Spécifie l'ID de locataire effectif de l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-username-flag-description",
+    "translation": "Spécifie le nom de connexion de l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
+    "translation": "Spécifie les SID des groupes."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
+    "translation": "Spécifie les groupes auxquels l'utilisateur appartient."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
+    "translation": "Indique si l'utilisateur est itinérant ou non."
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
+    "translation": "ReadLogging spécifie si les journaux de lecture doivent être capturés."
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
+    "translation": "Spécifie l'ID de compte attribué par Google."
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
+    "translation": "Spécifie l'ID utilisateur attribué par Google."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
+    "translation": "Spécifie les SID des groupes."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
+    "translation": "Spécifie les groupes IdP auxquels l'utilisateur appartient. Comme l'utilisateur peut ne pas être enregistré dans le cluster, il peut être nécessaire de capturer l'appartenance au groupe idp. Ainsi, si un groupe est créé ultérieurement dans le cluster, les utilisateurs auront instantanément accès aux tenantIds de ce groupe également."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
+    "translation": "Spécifie l'ID unique attribué par le cluster à l'IdP."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
+    "translation": "Indique s'il s'agit d'un utilisateur itinérant."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
+    "translation": "Spécifie l'ID unique attribué par le fournisseur au cluster."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
+    "translation": "Spécifie l'ID unique attribué par le fournisseur à l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
+    "translation": "Spécifie le fournisseur du service IdP."
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
+    "translation": "Indique si l'authentification MFA est désactivée pour l'utilisateur."
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-locale-flag-description",
+    "translation": "Locale reflète les paramètres linguistiques de l'utilisateur. Remplir en utilisant les préférences de l'utilisateur stockées dans Scribe pour l'utilisateur lorsque cela est nécessaire."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
+    "translation": "Spécifie l'ID de compte attribué par Salesforce."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
+    "translation": "Spécifie l'état de l'accès à Helios."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
+    "translation": "Indique si l'utilisateur est un utilisateur sous licence DGaaS."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
+    "translation": "Indique si l'utilisateur est un utilisateur sous licence DMaaS."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
+    "translation": "Indique si l'utilisateur est un utilisateur sous licence DRaaS."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
+    "translation": "Indique si l'utilisateur est un utilisateur sous licence RPaaS."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
+    "translation": "Indique si l'utilisateur est une personne Sales de Cohesity."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
+    "translation": "Indique si l'utilisateur est une personne du support Cohesity."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
+    "translation": "Spécifie l'ID utilisateur attribué par Salesforce."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
+    "translation": "Spécifie l'ID du cluster distant qui accède au cluster via SPOG."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
+    "translation": "Spécifie le SID de l'utilisateur qui accède au cluster via SPOG."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
+    "translation": "Spécifie le nom d'utilisateur de la personne qui accède au cluster via SPOG."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
+    "translation": "ClassificationInfo contient des informations sur l'abonnement à la classification Datahawk, telles que son statut d'activité. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
+    "translation": "DMaaSSubscriptionInfo contient des informations sur l'abonnement à Data Protect, notamment s'il est actif ou non. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
+    "translation": "ClassificationInfo contient des informations sur l'abonnement à la classification Datahawk, telles que son statut d'activité. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
+    "translation": "FortKnoxInfo contient des informations sur l'abonnement Fortknox Azure ou Azure FreeTrial ou AwsCold ou AwsCold FreeTrial, notamment s'il est actif. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
+    "translation": "FortKnoxInfo contient des informations sur l'abonnement Fortknox Azure ou Azure FreeTrial ou AwsCold ou AwsCold FreeTrial, notamment s'il est actif. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
+    "translation": "FortKnoxInfo contient des informations sur l'abonnement Fortknox Azure ou Azure FreeTrial ou AwsCold ou AwsCold FreeTrial, notamment s'il est actif. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
+    "translation": "RansomwareInfo contient des informations sur l'abonnement FortKnox/FortKnoxFreeTrial, notamment s'il est actif. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
+    "translation": "SiteContinuityInfo contient des informations sur l'abonnement Site Continuity, notamment, s'il est actif. Il peut également s'agir d'un chemin vers un fichier JSON."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
+    "translation": "ThreatProtectionInfo contient des informations sur l'abonnement ThreatProtection de Datahawk, notamment, s'il est actif. Il peut également s'agir d'un chemin vers un fichier JSON."
   },
   {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
@@ -2825,7 +3253,7 @@
   },
   {
     "id": "backup-recovery-restore-points-command-short-description",
-    "translation": "Liste des points de restauration dans un intervalle de temps donné."
+    "translation": "Liste des points de restauration dans une plage de temps donnée."
   },
   {
     "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
@@ -3130,6 +3558,10 @@
   {
     "id": "service-url-global-flag-description",
     "translation": "Indiquer l'URL de noeud final de base pour l'API."
+  },
+  {
+    "id": "connector-service-url-global-flag-description",
+    "translation": "Fournissez l'URL du point de terminaison du connecteur pour l'API."
   },
   {
     "id": "show-help",

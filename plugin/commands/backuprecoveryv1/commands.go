@@ -8160,8 +8160,8 @@ type GetDataSourceConnectorLogsCommandRunner struct {
 func GetGetDataSourceConnectorLogsCommand(r *GetDataSourceConnectorLogsCommandRunner) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:                   "data-source-connector-logs",
-		Short:                 translation.T("backup-recovery-data-source-connector-logs-command-short-description"),
-		Long:                  translation.T("backup-recovery-data-source-connector-logs-command-long-description"),
+		Short:                 translation.T("backup-recovery-data-source-connector-logs-list-command-short-description"),
+		Long:                  translation.T("backup-recovery-data-source-connector-logs-list-command-long-description"),
 		Run:                   r.Run,
 		DisableFlagsInUseLine: true,
 		Annotations: map[string]string{
@@ -8329,8 +8329,8 @@ type GetDataSourceConnectorStatusCommandRunner struct {
 func GetGetDataSourceConnectorStatusCommand(r *GetDataSourceConnectorStatusCommandRunner) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:                   "data-source-connector-status",
-		Short:                 translation.T("backup-recovery-data-source-connector-status-command-short-description"),
-		Long:                  translation.T("backup-recovery-data-source-connector-status-command-long-description"),
+		Short:                 translation.T("backup-recovery-data-source-connector-status-list-command-short-description"),
+		Long:                  translation.T("backup-recovery-data-source-connector-status-list-command-long-description"),
 		Run:                   r.Run,
 		DisableFlagsInUseLine: true,
 		Annotations: map[string]string{
@@ -8341,7 +8341,7 @@ func GetGetDataSourceConnectorStatusCommand(r *GetDataSourceConnectorStatusComma
 		`,
 	}
 
-	cmd.Flags().StringVarP(&r.AccessToken, "access-token", "", "", translation.T("backup-recovery-connector-logs-access-token-description"))
+	cmd.Flags().StringVarP(&r.AccessToken, "access-token", "", "", translation.T("backup-recovery-connector-status-access-token-description"))
 	r.RequiredFlags = []string{
 		"access-token",
 	}

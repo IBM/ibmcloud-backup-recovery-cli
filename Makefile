@@ -1,4 +1,4 @@
-# Makefile to build the project
+# Makefile to build the project.
 GO=go
 LINT=golangci-lint
 GOSEC=gosec

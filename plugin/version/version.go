@@ -9,7 +9,7 @@ const PluginMajorVersion = 1
 const PluginMinorVersion = 0
 
 // plugin build version
-const PluginBuildVersion = 1
+const PluginBuildVersion = 2
 
 var pluginVersion = plugin.VersionType{
 	Major: PluginMajorVersion,
