@@ -113,7 +113,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
-    "translation": "Lists the data-source connector logs."
+    "translation": "Lists the data source connector logs."
   },
   {
     "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
@@ -121,11 +121,11 @@
   },
   {
     "id": "backup-recovery-data-source-connector-register-command-short-description",
-    "translation": "Register a data-source connector."
+    "translation": "Register a data source connector."
   },
   {
     "id": "backup-recovery-data-source-connector-register-command-long-description",
-    "translation": "Register a data-source connector with a cluster using the supplied registration token. The registration token for the data-source connection with which this connector is to be registered has to be obtained by the user by invoking the relevant '/data-source-connections' APIs."
+    "translation": "Register a data source connector with a cluster using the supplied registration token. The registration token for the data-source connection with which this connector is to be registered has to be obtained by the user by invoking the relevant '/data-source-connections' APIs."
   },
   {
     "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
@@ -137,11 +137,11 @@
   },
 {
     "id": "backup-recovery-data-source-connector-status-list-command-short-description",
-    "translation": "Lists the data-source connector status."
+    "translation": "Lists the data source connector status."
   },
   {
     "id": "backup-recovery-data-source-connector-status-list-command-long-description",
-    "translation": "Lists the data-source connector status, which includes registration as well as cluster-connectivity status."
+    "translation": "Lists the data source connector status, which includes registration as well as cluster-connectivity status."
   },
   {
     "id": "backup-recovery-data-source-connection-create-command-long-description",
@@ -241,11 +241,11 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
-    "translation": "Delete the data-source connector specified by the ID in the request path."
+    "translation": "Delete the data source connector specified by the ID in the request path."
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-short-description",
-    "translation": "Delete a data-source connector using its ID."
+    "translation": "Delete a data source connector using its ID."
   },
   {
     "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
@@ -305,7 +305,7 @@
   },
   {
     "id": "backup-recovery-access-token-create-command-short-description",
-    "translation": "Create Access Token."
+    "translation": "Create access token."
   },
   {
     "id": "backup-recovery-access-token-create-command-long-description",
@@ -1013,7 +1013,7 @@
   },
   {
     "id": "backup-recovery-objects-search-command-short-description",
-    "translation": "List Objects."
+    "translation": "List objects."
   },
   {
     "id": "backup-recovery-objects-search-count-flag-description",
@@ -1033,7 +1033,7 @@
   },
   {
     "id": "backup-recovery-objects-search-include-helios-tag-info-for-objects-flag-description",
-    "translation": "pecifies whether to include helios tags information for objects in response. Default value is false."
+    "translation": "Specifies whether to include helios tags information for objects in response. Default value is false."
   },
   {
     "id": "backup-recovery-objects-search-is-deleted-flag-description",
@@ -1133,7 +1133,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-command-short-description",
-    "translation": "List Protected Objects."
+    "translation": "List protected objects."
   },
   {
     "id": "backup-recovery-protected-objects-search-environments-flag-description",
@@ -1193,7 +1193,7 @@
   },
   {
     "id": "backup-recovery-users-command-short-description",
-    "translation": "Get Users."
+    "translation": "Get users."
   },
   {
     "id": "backup-recovery-users-command-long-description",
@@ -1201,6 +1201,14 @@
   },
   {
     "id": "backup-recovery-users-session-name-flag-description",
+    "translation": "Required. session cookie that is received from the connector login API."
+  },
+  {
+    "id": "backup-recovery-connector-logs-access-token-description",
+    "translation": "Required. Access-token that is received from the connector."
+  },
+  {
+    "id": "backup-recovery-connector-status-access-token-description",
     "translation": "Required. Access-token that is received from the connector."
   },
   {
@@ -1229,7 +1237,7 @@
   },
   {
     "id": "backup-recovery-user-update-command-short-description",
-    "translation": "Update User."
+    "translation": "Update user."
   },
   {
     "id": "backup-recovery-user-update-command-long-description",
@@ -3245,7 +3253,7 @@
   },
   {
     "id": "backup-recovery-restore-points-command-short-description",
-    "translation": "List Restore Points in a given time range."
+    "translation": "List restore points in a given time range."
   },
   {
     "id": "backup-recovery-restore-points-end-time-usecs-flag-description",

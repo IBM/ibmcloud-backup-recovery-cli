@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,15 +18,16 @@ package main_test
 
 import (
 	"fmt"
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
-	. "github.com/onsi/gomega/gexec"
 	"ibmcloud-backup-recovery-cli/testing_utilities"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"os/exec"
+
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	. "github.com/onsi/gomega/gexec"
 )
 
 const credentialErrMsg = "Could not authenticate the plug-in.\nYou must either log in with 'ibmcloud login', export credentials as environment variables, or store them in a credentials file.\nFor more information, see https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#define-configuration-properties.\nError"
@@ -80,7 +81,6 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				return nil, err
 			}
 
-
 			// Launch a separate thread which will send each input
 			// into the subprocess. It's important to close the
 			// `stdin` inside at the end of this block and not outside.
@@ -101,7 +101,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source list` command", func() {
 		var (
-			operationPath = "/irisservices/api/v1/public/protectionSources"
+			operationPath   = "/irisservices/api/v1/public/protectionSources"
 			requestCallback func(*http.Request)
 		)
 
@@ -293,7 +293,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -364,7 +364,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source registrations-list` command", func() {
 		var (
-			operationPath = "/data-protect/sources/registrations"
+			operationPath   = "/data-protect/sources/registrations"
 			requestCallback func(*http.Request)
 		)
 
@@ -481,7 +481,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -527,7 +527,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source register` command", func() {
 		var (
-			operationPath = "/data-protect/sources/registrations"
+			operationPath   = "/data-protect/sources/registrations"
 			requestCallback func(*http.Request)
 		)
 
@@ -705,7 +705,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -755,7 +755,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source registration-get` command", func() {
 		var (
-			operationPath = "/data-protect/sources/registrations/26"
+			operationPath   = "/data-protect/sources/registrations/26"
 			requestCallback func(*http.Request)
 		)
 
@@ -860,7 +860,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -902,7 +902,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source registration-update` command", func() {
 		var (
-			operationPath = "/data-protect/sources/registrations/26"
+			operationPath   = "/data-protect/sources/registrations/26"
 			requestCallback func(*http.Request)
 		)
 
@@ -1090,7 +1090,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -1142,7 +1142,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source registration-patch` command", func() {
 		var (
-			operationPath = "/data-protect/sources/registrations/26"
+			operationPath   = "/data-protect/sources/registrations/26"
 			requestCallback func(*http.Request)
 		)
 
@@ -1247,7 +1247,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -1289,7 +1289,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source registration-delete` command", func() {
 		var (
-			operationPath = "/data-protect/sources/registrations/26"
+			operationPath   = "/data-protect/sources/registrations/26"
 			requestCallback func(*http.Request)
 		)
 
@@ -1391,7 +1391,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -1434,7 +1434,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-source refresh` command", func() {
 		var (
-			operationPath = "/data-protect/sources/26/refresh"
+			operationPath   = "/data-protect/sources/26/refresh"
 			requestCallback func(*http.Request)
 		)
 
@@ -1533,7 +1533,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -1574,7 +1574,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `agent-upgrade-task list` command", func() {
 		var (
-			operationPath = "/data-protect/agents/upgrade-tasks"
+			operationPath   = "/data-protect/agents/upgrade-tasks"
 			requestCallback func(*http.Request)
 		)
 
@@ -1676,7 +1676,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -1717,7 +1717,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `agent-upgrade-task create` command", func() {
 		var (
-			operationPath = "/data-protect/agents/upgrade-tasks"
+			operationPath   = "/data-protect/agents/upgrade-tasks"
 			requestCallback func(*http.Request)
 		)
 
@@ -1834,7 +1834,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -1880,7 +1880,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-policy list` command", func() {
 		var (
-			operationPath = "/data-protect/policies"
+			operationPath   = "/data-protect/policies"
 			requestCallback func(*http.Request)
 		)
 
@@ -2000,7 +2000,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -2047,7 +2047,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-policy create` command", func() {
 		var (
-			operationPath = "/data-protect/policies"
+			operationPath   = "/data-protect/policies"
 			requestCallback func(*http.Request)
 		)
 
@@ -2240,7 +2240,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -2293,7 +2293,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-policy get` command", func() {
 		var (
-			operationPath = "/data-protect/policies/testString"
+			operationPath   = "/data-protect/policies/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -2398,7 +2398,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -2440,7 +2440,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-policy update` command", func() {
 		var (
-			operationPath = "/data-protect/policies/testString"
+			operationPath   = "/data-protect/policies/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -2638,7 +2638,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -2692,7 +2692,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-policy delete` command", func() {
 		var (
-			operationPath = "/data-protect/policies/testString"
+			operationPath   = "/data-protect/policies/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -2794,7 +2794,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -2837,7 +2837,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group list` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups"
+			operationPath   = "/data-protect/protection-groups"
 			requestCallback func(*http.Request)
 		)
 
@@ -2996,7 +2996,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -3056,7 +3056,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group create` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups"
+			operationPath   = "/data-protect/protection-groups"
 			requestCallback func(*http.Request)
 		)
 
@@ -3269,7 +3269,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -3326,7 +3326,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group get` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups/testString"
+			operationPath   = "/data-protect/protection-groups/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -3440,7 +3440,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -3485,7 +3485,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group update` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups/testString"
+			operationPath   = "/data-protect/protection-groups/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -3703,7 +3703,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -3761,7 +3761,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group delete` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups/testString"
+			operationPath   = "/data-protect/protection-groups/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -3866,7 +3866,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -3910,7 +3910,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group-run list` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups/testString/runs"
+			operationPath   = "/data-protect/protection-groups/testString/runs"
 			requestCallback func(*http.Request)
 		)
 
@@ -4066,7 +4066,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -4125,7 +4125,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group-run update` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups/testString/runs"
+			operationPath   = "/data-protect/protection-groups/testString/runs"
 			requestCallback func(*http.Request)
 		)
 
@@ -4263,7 +4263,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -4305,7 +4305,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group-run create` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups/runId/runs"
+			operationPath   = "/data-protect/protection-groups/runId/runs"
 			requestCallback func(*http.Request)
 		)
 
@@ -4453,7 +4453,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -4497,7 +4497,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protection-group-run perform-action` command", func() {
 		var (
-			operationPath = "/data-protect/protection-groups/runId/runs/actions"
+			operationPath   = "/data-protect/protection-groups/runId/runs/actions"
 			requestCallback func(*http.Request)
 		)
 
@@ -4650,7 +4650,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -4695,7 +4695,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `recovery list` command", func() {
 		var (
-			operationPath = "/data-protect/recoveries"
+			operationPath   = "/data-protect/recoveries"
 			requestCallback func(*http.Request)
 		)
 
@@ -4821,7 +4821,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -4870,7 +4870,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `recovery create` command", func() {
 		var (
-			operationPath = "/data-protect/recoveries"
+			operationPath   = "/data-protect/recoveries"
 			requestCallback func(*http.Request)
 		)
 
@@ -5023,7 +5023,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -5068,7 +5068,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `recovery get` command", func() {
 		var (
-			operationPath = "/data-protect/recoveries/testString"
+			operationPath   = "/data-protect/recoveries/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -5170,7 +5170,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -5211,7 +5211,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `recovery files-download` command", func() {
 		var (
-			operationPath = "/data-protect/recoveries/testString/download-files"
+			operationPath   = "/data-protect/recoveries/testString/download-files"
 			requestCallback func(*http.Request)
 		)
 
@@ -5328,7 +5328,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -5375,7 +5375,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connection list` command", func() {
 		var (
-			operationPath = "/data-source-connections"
+			operationPath   = "/data-source-connections"
 			requestCallback func(*http.Request)
 		)
 
@@ -5480,7 +5480,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -5522,7 +5522,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connection create` command", func() {
 		var (
-			operationPath = "/data-source-connections"
+			operationPath   = "/data-source-connections"
 			requestCallback func(*http.Request)
 		)
 
@@ -5624,7 +5624,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -5665,7 +5665,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connection delete` command", func() {
 		var (
-			operationPath = "/data-source-connections/testString"
+			operationPath   = "/data-source-connections/testString"
 			requestCallback func(*http.Request)
 		)
 
@@ -5767,7 +5767,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -5810,7 +5810,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connection patch` command", func() {
 		var (
-			operationPath = "/data-source-connections/connectionId"
+			operationPath   = "/data-source-connections/connectionId"
 			requestCallback func(*http.Request)
 		)
 
@@ -5915,7 +5915,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -5957,7 +5957,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connection registration-token-generate` command", func() {
 		var (
-			operationPath = "/data-source-connections/testString/registrationToken"
+			operationPath   = "/data-source-connections/testString/registrationToken"
 			requestCallback func(*http.Request)
 		)
 
@@ -6059,7 +6059,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -6100,7 +6100,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connector list` command", func() {
 		var (
-			operationPath = "/data-source-connectors"
+			operationPath   = "/data-source-connectors"
 			requestCallback func(*http.Request)
 		)
 
@@ -6208,7 +6208,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -6251,7 +6251,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connector delete` command", func() {
 		var (
-			operationPath = "/data-source-connectors/connectorId"
+			operationPath   = "/data-source-connectors/connectorId"
 			requestCallback func(*http.Request)
 		)
 
@@ -6353,7 +6353,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -6396,7 +6396,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `data-source-connector patch` command", func() {
 		var (
-			operationPath = "/data-source-connectors/connectorID"
+			operationPath   = "/data-source-connectors/connectorID"
 			requestCallback func(*http.Request)
 		)
 
@@ -6501,7 +6501,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -6543,7 +6543,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `agent-download` command", func() {
 		var (
-			operationPath = "/data-protect/agents/download"
+			operationPath   = "/data-protect/agents/download"
 			requestCallback func(*http.Request)
 		)
 
@@ -6660,7 +6660,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -6701,7 +6701,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `connector-metadata-get` command", func() {
 		var (
-			operationPath = "/data-source-connectors/metadata"
+			operationPath   = "/data-source-connectors/metadata"
 			requestCallback func(*http.Request)
 		)
 
@@ -6797,7 +6797,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -6835,7 +6835,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `object-snapshots-list` command", func() {
 		var (
-			operationPath = "/data-protect/objects/26/snapshots"
+			operationPath   = "/data-protect/objects/26/snapshots"
 			requestCallback func(*http.Request)
 		)
 
@@ -6964,7 +6964,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -7013,7 +7013,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `download-recovery-create` command", func() {
 		var (
-			operationPath = "/data-protect/recoveries/download-files-folders"
+			operationPath   = "/data-protect/recoveries/download-files-folders"
 			requestCallback func(*http.Request)
 		)
 
@@ -7166,7 +7166,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -7210,7 +7210,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `restore-points` command", func() {
 		var (
-			operationPath = "/data-protect/snapshots/restore-points"
+			operationPath   = "/data-protect/snapshots/restore-points"
 			requestCallback func(*http.Request)
 		)
 
@@ -7321,7 +7321,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -7364,7 +7364,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `indexed-file-download` command", func() {
 		var (
-			operationPath = "/data-protect/snapshots/snapshotId1/download-file"
+			operationPath   = "/data-protect/snapshots/snapshotId1/download-file"
 			requestCallback func(*http.Request)
 		)
 
@@ -7475,7 +7475,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -7519,7 +7519,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `indexed-objects-search` command", func() {
 		var (
-			operationPath = "/data-protect/search/indexed-objects"
+			operationPath   = "/data-protect/search/indexed-objects"
 			requestCallback func(*http.Request)
 		)
 
@@ -7792,7 +7792,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -7860,7 +7860,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `objects-search` command", func() {
 		var (
-			operationPath = "/data-protect/search/objects"
+			operationPath   = "/data-protect/search/objects"
 			requestCallback func(*http.Request)
 		)
 
@@ -8037,7 +8037,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 
@@ -8102,7 +8102,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 
 	Describe("Run the `protected-objects-search` command", func() {
 		var (
-			operationPath = "/data-protect/search/protected-objects"
+			operationPath   = "/data-protect/search/protected-objects"
 			requestCallback func(*http.Request)
 		)
 
@@ -8243,7 +8243,7 @@ var _ = Describe("backup-recovery CLI plug-in", func() {
 				}
 
 				// Use the default authentication method to trigger an error.
-				testEnvironment = []string{"BACKUP_RECOVERY_URL="+testServer.URL}
+				testEnvironment = []string{"BACKUP_RECOVERY_URL=" + testServer.URL}
 
 				session, err := runCmd(args, nil)
 

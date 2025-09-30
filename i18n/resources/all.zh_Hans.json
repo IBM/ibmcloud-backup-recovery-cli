@@ -96,6 +96,10 @@
     "translation": "URL 无效：使用 BACKUP_RECOVERY_URL 环境变量或凭证文件中的密钥设置基本 URL。"
   },
   {
+    "id": "backup-recovery-bad-connector-url-error-message",
+    "translation": "连接器 URL 无效：使用 BACKUP_RECOVERY_CONNECTOR_URL 环境变量或凭证文件中的密钥设置连接器 URL。"
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "获取有关可用连接器的信息。"
   },
@@ -106,6 +110,38 @@
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
     "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
+    "translation": "列出数据源连接器日志。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
+    "translation": "列出与数据源连接器的创建和注册相对应的日志。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-short-description",
+    "translation": "注册数据源连接器。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-long-description",
+    "translation": "使用提供的注册令牌，向集群注册数据源连接器。 用户必须通过调用相关的 '/data-source-connections' API，获取用于注册该连接器的数据源连接的注册令牌。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
+    "translation": "必需。 注册令牌。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
+    "translation": "用于注册的连接器标识。 保证属于同一租户的两个连接器具有不同的标识。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
+    "translation": "列出数据源连接器的状态。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
+    "translation": "列出数据源连接器的状态，包括注册状态和集群连接状态。"
   },
   {
     "id": "backup-recovery-data-source-connection-create-command-long-description",
@@ -205,11 +241,11 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
-    "translation": "删除请求路径中的 ID 指定的数据源连接器。"
+    "translation": "删除请求路径中由该标识指定的数据源连接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-short-description",
-    "translation": "使用 ID 删除数据源连接器。"
+    "translation": "删除使用其标识的数据源连接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
@@ -266,6 +302,26 @@
   {
     "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
     "translation": "连接器名称。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-short-description",
+    "translation": "创建访问令牌。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-long-description",
+    "translation": "在做出其他 REST API 请求之前，您的 REST 客户端必须使用有效的 Cohesity 用户名和密码，提出访问令牌请求。 此 POST 请求会返回由 Cohesity 集群生成的响应中的访问令牌和类型。 对其他 Cohesity REST API 操作的后续请求，必须在 HTTP 头中通过设置 'Authorization'，指定返回的访问令牌和类型，格式如下：Authorization: token_type access_token 生成的令牌有效期为 24 小时。 如果使用已到期的令牌进行请求，则会返回“令牌已到期”的错误信息。 在您的 REST 客户端中添加代码，检查是否出现此错误，并在重新发出请求之前，请求另一个访问令牌。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-username-flag-description",
+    "translation": "指定 Cohesity 用户的登录名。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-password-flag-description",
+    "translation": "指定 Cohesity 用户账户的密码。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-domain-flag-description",
+    "translation": "指定用户正在登录的域。 本地用户的域是 LOCAL。 对于 LDAP/AD 用户，域将映射到 LDAP 连接字符串。 用户通过用户名和域的组合进行唯一标识。 LOCAL 是默认域。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
@@ -1134,6 +1190,378 @@
   {
     "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
     "translation": "指定我们是否能从读取副本缓存中处理 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
+  },
+  {
+    "id": "backup-recovery-users-command-short-description",
+    "translation": "获取用户。"
+  },
+  {
+    "id": "backup-recovery-users-command-long-description",
+    "translation": "如果未指定任何参数，则会返回当前 Cohesity 集群上的所有用户。 指定参数可以过滤返回的结果。"
+  },
+  {
+    "id": "backup-recovery-users-session-name-flag-description",
+    "translation": "必需。 从连接器登录 API 接收到的会话 cookie。"
+  },
+  {
+    "id": "backup-recovery-connector-logs-access-token-description",
+    "translation": "必需。 从连接器接收到的访问令牌。"
+  },
+  {
+    "id": "backup-recovery-connector-status-access-token-description",
+    "translation": "必需。 从连接器接收到的访问令牌。"
+  },
+  {
+    "id": "backup-recovery-users-tenant-ids-flag-description",
+    "translation": "TenantIds 包含需要返回对象的租户标识。"
+  },
+  {
+    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy 指定是否应返回登录用户所在组织层次结构下所有租户的对象。TenantIds 包含要返回对象的租户标识。"
+  },
+  {
+    "id": "backup-recovery-users-usernames-flag-description",
+    "translation": "可选择指定用户名列表进行过滤。 将返回包含用户名的所有用户。"
+  },
+  {
+    "id": "backup-recovery-users-email-addresses-flag-description",
+    "translation": "可选择指定电子邮件地址列表进行过滤。"
+  },
+  {
+    "id": "backup-recovery-users-domain-flag-description",
+    "translation": "可选择指定域进行过滤。 如果未指定域，则会搜索 Cohesity 集群上的所有用户。 如果指定了域，则仅搜索与该域相关的 Cohesity 集群上的用户。"
+  },
+  {
+    "id": "backup-recovery-users-partial-match-flag-description",
+    "translation": "可选择指定是否启用部分匹配。 如果进行了设置，则将返回名称中包含用户名的所有用户。 如果设置为 false，则仅返回名称与用户名完全相同的用户。 默认情况下，此参数设置为 true。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-short-description",
+    "translation": "更新用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-long-description",
+    "translation": "返回在 Cohesity 集群上被更新的用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-session-name-flag-description",
+    "translation": "必需。 从连接器接收到的访问令牌。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-flag-description",
+    "translation": "指定使用活动目录登录的 AD 用户信息。 这些信息不会被存储在集群中。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-additional-group-names-flag-description",
+    "translation": "指定该用户可能所属的其他组名称。"
+  },
+  {
+    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
+    "translation": "指定管理员用户是否能够修改数据安全用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
+    "translation": "AuditLogSettings 指定了带有审计日志配置的结构。 在进行这些设置时，当 bb 不存在时，集群默认值应为零。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-authentication-type-flag-description",
+    "translation": "指定用户的身份验证类型。 'kAuthLocal' 表示经过身份验证的用户是本地用户。 'kAuthAd' 表示经过身份验证的用户是 Active Directory 用户。 'kAuthSalesforce' 表示经过身份验证的用户是 Salesforce 用户。 'kAuthGoogle' 表示经过身份验证的用户是 Google 用户。 'kAuthSso' 表示经过身份验证的用户是 SSO 用户。 允许值为：kAuthLocal, kAuthAd, kAuthSalesforce, kAuthGoogle, kAuthSso。"
+  },
+  {
+    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
+    "translation": "指定此用户可访问的集群列表。 如果未指定，则将授予对所有集群的访问权限。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
+    "translation": "指定用户账户在 Cohesity 集群上创建的戳记时间（以毫秒为单位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-current-password-flag-description",
+    "translation": "更新密码时需指定当前密码。"
+  },
+  {
+    "id": "backup-recovery-user-update-description-flag-description",
+    "translation": "指定关于用户的描述。"
+  },
+  {
+    "id": "backup-recovery-user-update-domain-flag-description",
+    "translation": "指定 Active Directory 的完全限定域名 (FQDN) 或 Cohesity 集群上默认 LOCAL 域的 LOCAL。 用户通过用户名和域的组合进行唯一标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
+    "translation": "指定用户生效的戳记时间（以毫秒为单位）。 在此之前，用户无法登录。"
+  },
+  {
+    "id": "backup-recovery-user-update-email-address-flag-description",
+    "translation": "指定此用户的电子邮件地址。"
+  },
+  {
+    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
+    "translation": "指定用户过期的戳记时间（以毫秒为单位）。 之后，用户将无法登录。"
+  },
+  {
+    "id": "backup-recovery-user-update-force-password-change-flag-description",
+    "translation": "指定是否要求用户强制更改密码。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-flag-description",
+    "translation": "Helios BaaS 用户的 Google 账户信息。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-flag-description",
+    "translation": "指定使用 IdP 登录的 IdP 用户信息。 这些信息不会被存储在集群中。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
+    "translation": "指定用于 Intercom 身份验证的 Messenger 令牌。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-account-locked-flag-description",
+    "translation": "指定用户账户是否已被锁定。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-active-flag-description",
+    "translation": "IsActive 指定用户是否处于活跃状态，或已被客户停用。 默认行为是 'true'。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
+    "translation": "指定用户上次成功登录的戳记时间（以毫秒为单位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
+    "translation": "指定用户账户在 Cohesity 集群上最后一次修改的戳记时间（以毫秒为单位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-flag-description",
+    "translation": "指定有关 MFA 的信息。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-methods-flag-description",
+    "translation": "指定在集群上启用的 MFA 方法。"
+  },
+  {
+    "id": "backup-recovery-user-update-object-class-flag-description",
+    "translation": "指定用户的对象类别，可以是用户或群组。"
+  },
+  {
+    "id": "backup-recovery-user-update-org-membership-flag-description",
+    "translation": "OrgMembership 包含该用户可切换到的所有可用 tenantIds 的列表。 只有在创建会话用户时，该字段才会动态填入。 我们从分配给用户的不同组中，找到了 tenantIds。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-password-flag-description",
+    "translation": "指定此用户的密码。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-flag-description",
+    "translation": "指定此用户的偏好。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
+    "translation": "指定用户上次登录的戳记时间（以毫秒为单位）。"
+  },
+  {
+    "id": "backup-recovery-user-update-primary-group-name-flag-description",
+    "translation": "指定此用户的主组名称。"
+  },
+  {
+    "id": "backup-recovery-user-update-privilege-ids-flag-description",
+    "translation": "指定来自角色的 Cohesity 权限。 这将根据角色中所有权限的并集填充。 输入唯一特权标识值。 以下所有枚举值均为 Cohesity 中所有唯一定义的权限指定了一个值。 允许的列表项目有：kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease。"
+  },
+  {
+    "id": "backup-recovery-user-update-profiles-flag-description",
+    "translation": "指定用户档案。 注：- 目前用于 Helios。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-restricted-flag-description",
+    "translation": "用户是否为受限用户。 受限用户只能查看他有权限的对象。"
+  },
+  {
+    "id": "backup-recovery-user-update-roles-flag-description",
+    "translation": "指定要与用户关联的 Cohesity 角色，例如 'Admin'、'Ops' 或 'View'。 Cohesity 角色决定该用户在 Cohesity 集群上的权限。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
+    "translation": "指定 S3 账户访问密钥标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-account-id-flag-description",
+    "translation": "指定 S3 账户规范用户标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
+    "translation": "指定 S3 账户密钥。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-flag-description",
+    "translation": "Helios 用户的 Salesforce 账户信息。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-sid-flag-description",
+    "translation": "指定用户的唯一安全标识 (SID)。 修改用户时，该字段为必填项。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-flag-description",
+    "translation": "SpogContext 指定执行在此集群执行操作的用户和集群的所有相关信息。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-flag-description",
+    "translation": "将其扩展到包括 Helios、DRaaS 和 DSaaS。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
+    "translation": "指定 MCM 用户的租户访问权限。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-id-flag-description",
+    "translation": "指定用户的有效租户标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-username-flag-description",
+    "translation": "指定用户的登录名。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
+    "translation": "指定组的 SID。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
+    "translation": "指定此用户所属的组。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
+    "translation": "指定此用户是否为浮动用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
+    "translation": "ReadLogging 指定是否需要记录读取日志。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
+    "translation": "指定由 Google 分配的账户标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
+    "translation": "指定由 Google 分配的用户标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
+    "translation": "指定组的 SID。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
+    "translation": "指定用户所属的 Idp 组。 由于用户可能没有在集群上注册，我们可能需要获取 idp 组的成员身份。 这样，如果以后在集群上创建了一个组，用户也能立即访问该组中的 tenantIds。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
+    "translation": "指定集群为 IdP 分配的唯一标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
+    "translation": "指定此用户是否为浮动用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
+    "translation": "指定供应商为此集群分配的唯一标识符。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
+    "translation": "指定供应商为用户分配的唯一标识符。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
+    "translation": "指定提供 IdP 服务的供应商。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
+    "translation": "指定用户的 MFA 是否已禁用。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-locale-flag-description",
+    "translation": "语言环境反映用户的语言设置。 根据需要，使用 Scribe 中存储的用户偏好为用户填充。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
+    "translation": "指定由 Salesforce 分配的账户标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
+    "translation": "指定 Helios 访问的状态。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
+    "translation": "指定用户是否为 DGaaS 获得许可授权的用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
+    "translation": "指定用户是否为 DMaaS 获得许可授权的用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
+    "translation": "指定用户是否为 DRaaS 获得许可授权的用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
+    "translation": "指定用户是否为 RPaaS 获得许可授权的用户。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
+    "translation": "指定用户是否为 Cohesity 的销售人员。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
+    "translation": "指定用户是否为 Cohesity 的支持人员。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
+    "translation": "指定 Salesforce 分配的用户标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
+    "translation": "指定通过 SPOG 访问此集群的远程集群的标识。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
+    "translation": "指定通过 SPOG 访问此集群的用户的 SID。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
+    "translation": "指定通过 SPOG 访问此集群的用户的用户名。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
+    "translation": "ClassificationInfo 保存有关 Datahawk 分类订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
+    "translation": "DMaaSSubscriptionInfo 保存有关数据保护订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
+    "translation": "ClassificationInfo 保存有关 Datahawk 分类订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
+    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
+    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
+    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
+    "translation": "RansomwareInfo 保存有关 FortKnox/FortKnoxFreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
+    "translation": "SiteContinuityInfo 保存有关网站连续订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
+    "translation": "ThreatProtectionInfo 保存有关 Datahawk ThreatProtection 订阅的信息，例如它是否处于活动状态。 也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
@@ -2825,7 +3253,7 @@
   },
   {
     "id": "backup-recovery-restore-points-command-short-description",
-    "translation": "列出给定时间范围内的还原点。"
+    "translation": "列出指定时间范围内的还原点。"
   },
   {
     "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
@@ -3130,6 +3558,10 @@
   {
     "id": "service-url-global-flag-description",
     "translation": "提供 API 的基本端点 URL 。"
+  },
+  {
+    "id": "connector-service-url-global-flag-description",
+    "translation": "提供 API 的连接器端点 URL。"
   },
   {
     "id": "show-help",

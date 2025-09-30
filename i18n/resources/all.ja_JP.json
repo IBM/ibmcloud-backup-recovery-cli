@@ -96,6 +96,10 @@
     "translation": "無効な URL: BACKUP_RECOVERY_URL 環境変数または資格情報ファイルのキーでベース URL を設定します。"
   },
   {
+    "id": "backup-recovery-bad-connector-url-error-message",
+    "translation": "無効なコネクターURL: BACKUP_RECOVERY_CONNECTOR_URL環境変数または資格情報ファイルのキーを使用してコネクターURLを設定します。"
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "利用可能なコネクタに関する情報を取得します。"
   },
@@ -106,6 +110,38 @@
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
     "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
+    "translation": "データ・ソース・コネクターのログを一覧表示します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
+    "translation": "データ・ソース・コネクターの作成と登録に対応するログを一覧表示します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-short-description",
+    "translation": "データ・ソース・コネクターを登録します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-long-description",
+    "translation": "提供された登録トークンを使用して、データ・ソース・コネクターをクラスターに登録します。 このコネクターを登録するデータ・ソース接続の登録トークンは、関連する「/data-source-connections」のAPIを呼び出してユーザーが取得する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
+    "translation": "必須。 登録トークン。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
+    "translation": "登録に使用するコネクターのID。 同じテナントに属する2つのコネクターは、異なるIDを持つことが保証されます。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
+    "translation": "データ・ソース・コネクターのステータスを一覧表示します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
+    "translation": "登録とクラスター接続ステータスを含むデータ・ソース・コネクターのステータスを一覧表示します。"
   },
   {
     "id": "backup-recovery-data-source-connection-create-command-long-description",
@@ -205,11 +241,11 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
-    "translation": "要求パスの ID で指定されたデータ・ソース・コネクタを削除します。"
+    "translation": "リクエスト・パス内のIDで指定されたデータ・ソース・コネクターを削除します。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-short-description",
-    "translation": "ID を使用したデータ・ソース・ コネクタを削除します。"
+    "translation": "IDを使用してデータ・ソース・コネクターを削除します。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
@@ -266,6 +302,26 @@
   {
     "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
     "translation": "コネクタの名前。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-short-description",
+    "translation": "アクセス・トークンを作成します。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-long-description",
+    "translation": "他のREST APIリクエストを行う前に、RESTのお客様は有効なCohesityユーザー名とパスワードを使用してアクセス・トークン・リクエストを行う必要があります。 このPOST要求は、アクセス・トークンと、Cohesityクラスターによって生成された応答のタイプを返します。 他の Cohesity REST API操作への後続のリクエストでは、「- Authorization:- token_type access_token」の形式でhttpヘッダーに「Authorization」を設定して、返されるアクセス・トークンとタイプを指定する必要があります。生成されたトークンは24時間有効です。 期限切れのトークンを使用してリクエストが行われた場合、「トークンの有効期限が切れています」というエラー メッセージが返されます。 このエラーをチェックし、リクエストを再発行する前に別のアクセス・トークンを要求するコードをRESTのお客様に追加します。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-username-flag-description",
+    "translation": "Cohesityユーザーのログイン名を指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-password-flag-description",
+    "translation": "Cohesityユーザー・アカウントのパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-domain-flag-description",
+    "translation": "ユーザーがログインするドメインを指定します。 ローカル・ユーザーの場合、ドメインはLOCALです。 LDAP/ADユーザーの場合、ドメインはLDAP接続文字列にマップされます。 ユーザーは、ユーザー名とドメインの組み合わせによって一意に識別されます。 LOCALはデフォルトのドメインです。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
@@ -957,7 +1013,7 @@
   },
   {
     "id": "backup-recovery-objects-search-command-short-description",
-    "translation": "リスト・オブジェクト。"
+    "translation": "オブジェクトをリストします。"
   },
   {
     "id": "backup-recovery-objects-search-count-flag-description",
@@ -1134,6 +1190,378 @@
   {
     "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
     "translation": "GET 要求をリード・レプリカ・キャッシュ・キャッシュに送るかどうかを指定します。 リード・レプリカとプライマリー・データ・ソースの間には 15 秒のラグがあります。"
+  },
+  {
+    "id": "backup-recovery-users-command-short-description",
+    "translation": "ユーザーを獲得します。"
+  },
+  {
+    "id": "backup-recovery-users-command-long-description",
+    "translation": "パラメーターを指定しない場合は、現在Cohesityクラスター上にあるすべてのユーザーが返されます。 パラメーターを指定すると、返される結果がフィルタリングされます。"
+  },
+  {
+    "id": "backup-recovery-users-session-name-flag-description",
+    "translation": "必須。 コネクター・ログインAPIから受信されるセッション・クッキー。"
+  },
+  {
+    "id": "backup-recovery-connector-logs-access-token-description",
+    "translation": "必須。 コネクターから受信したアクセス・トークン。"
+  },
+  {
+    "id": "backup-recovery-connector-status-access-token-description",
+    "translation": "必須。 コネクターから受信したアクセス・トークン。"
+  },
+  {
+    "id": "backup-recovery-users-tenant-ids-flag-description",
+    "translation": "TenantIdsには、オブジェクトを返すテナントのIDが含まれます。"
+  },
+  {
+    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchyは、ログインしているユーザーの組織の階層下にあるすべてのテナントのオブジェクトを返すかどうかを指定します。returned.TenantIdsには、オブジェクトを返すテナントのIDが含まれます。"
+  },
+  {
+    "id": "backup-recovery-users-usernames-flag-description",
+    "translation": "必要に応じて、フィルタリングするユーザー名のリストを指定します。 ユーザー名を含めすべてのユーザーが返されます。"
+  },
+  {
+    "id": "backup-recovery-users-email-addresses-flag-description",
+    "translation": "オプションで、フィルタリングする電子メール・アドレスのリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-users-domain-flag-description",
+    "translation": "オプションで、フィルタリングするドメインを指定します。 ドメインが指定されていない場合は、Cohesityクラスター上のすべてのユーザーが検索されます。 ドメインが指定されている場合は、そのドメインに関連付けられているCohesityクラスター上のユーザーのみが検索されます。"
+  },
+  {
+    "id": "backup-recovery-users-partial-match-flag-description",
+    "translation": "オプションで部分一致を有効にするかどうかを指定します。 設定されている場合、名前にユーザー名が含まれるすべてのユーザーが返されます。 falseに設定すると、ユーザー名とまったく同じ名前を持つユーザーのみが返されます。 デフォルトでは、このパラメーターはtrueに設定されています。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-short-description",
+    "translation": "ユーザーを更新します。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-long-description",
+    "translation": "Cohesityクラスターで更新されたユーザーを返します。"
+  },
+  {
+    "id": "backup-recovery-user-update-session-name-flag-description",
+    "translation": "必須。 コネクターから受信したアクセス・トークン。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-flag-description",
+    "translation": "アクティブ・ディレクトリーを使用してログインしたADユーザーの情報を指定します。 この情報はクラスターに保存されていません。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-additional-group-names-flag-description",
+    "translation": "このユーザーが所属できる追加のグループの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
+    "translation": "管理ユーザーがデータ・セキュリティー・ユーザーを変更できるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
+    "translation": "AuditLogSettingsは、監査ログ構成を持つ構造体を指定します。 これらの設定を、bbが存在しない場合にゼロ値がクラスターのデフォルトとなるように設定してください。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-authentication-type-flag-description",
+    "translation": "ユーザーの認証タイプを指定します。 'kAuthLocal'は、認証されたユーザーがローカル・ユーザーであることを意味します。 'kAuthAd'は、認証されたユーザーがActive Directoryのユーザーであることを意味します。 'kAuthSalesforce'は、認証されたユーザーがSalesforceのユーザーであることを意味します。 'kAuthGoogle'は、認証されたユーザーがGoogleのユーザーであることを意味します。 'kAuthSso'は、認証されたユーザーがSSOのユーザーであることを意味します。 許容値は以下の通りです: kAuthLocal, kAuthAd, kAuthSalesforce, kAuthGoogle, kAuthSso."
+  },
+  {
+    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
+    "translation": "このユーザーがアクセスできるクラスターのリストを指定します。 指定しない場合は、すべてのクラスターにアクセスが許可されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
+    "translation": "ユーザー・アカウントがCohesityクラスターで作成された時点のエポック時間をミリ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-current-password-flag-description",
+    "translation": "パスワードの更新時に現在のパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-description-flag-description",
+    "translation": "ユーザーについての説明を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-domain-flag-description",
+    "translation": "Cohesityクラスター上のデフォルトのLOCALドメインのActive DirectoryまたはLOCALの完全修飾ドメイン・ネーム(FQDN)を指定します。 ユーザーは、ユーザー名とドメインの組み合わせによって一意に識別されます。"
+  },
+  {
+    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
+    "translation": "ユーザーが有効になるエポック時間をミリ秒単位で指定します。 それまでは、ユーザーはログインすることができません。"
+  },
+  {
+    "id": "backup-recovery-user-update-email-address-flag-description",
+    "translation": "ユーザーの E メール・アドレスを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
+    "translation": "ユーザーが期限切れになるエポック時間をミリ秒単位で指定します。 その後、ユーザーはログインできなくなります。"
+  },
+  {
+    "id": "backup-recovery-user-update-force-password-change-flag-description",
+    "translation": "ユーザーにパスワード変更を強制するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-flag-description",
+    "translation": "HeliosBaaSユーザーのGoogleアカウント情報。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-flag-description",
+    "translation": "IdPを使用してログインしたIdPユーザーの情報を指定します。 この情報はクラスターに保存されていません。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
+    "translation": "インターコムの身元確認用のメッセンジャー・トークンを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-account-locked-flag-description",
+    "translation": "ユーザー・アカウントがロックされているかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-active-flag-description",
+    "translation": "IsActiveは、ユーザーがアクティブであるか否か、または顧客によって無効化されているかを指定します。 デフォルトの動作は「true」です。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
+    "translation": "ユーザーが最後に正常にログインした時のエポック時間をミリ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
+    "translation": "ユーザー アカウントがCohesityクラスターで最後に変更されたときのエポック時間をミリ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-flag-description",
+    "translation": "MFAに関する情報を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-methods-flag-description",
+    "translation": "クラスターで有効化されたMFAメソッドを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-object-class-flag-description",
+    "translation": "ユーザーまたはグループのいずれかのオブジェクト・クラスを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-org-membership-flag-description",
+    "translation": "OrgMembershipには、このユーザーが切り替え可能なすべてのtenantIdsのリストが含まれています。 セッション・ユーザーを作成するときにのみ、このフィールドは即座に入力されます。 ユーザーに割り当てられた様々なグループからtenantIdsを検出します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-password-flag-description",
+    "translation": "このユーザーのパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-flag-description",
+    "translation": "このユーザーの好みを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
+    "translation": "前回のユーザー・ログインのエポック時間をミリ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-primary-group-name-flag-description",
+    "translation": "このユーザーのプライマリー・グループの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-privilege-ids-flag-description",
+    "translation": "Cohesityの特権をロールから指定します。 これは、ロール内のすべての特権の結合に基づいて入力されます。 固有の特権ID値のタイプ。 以下のすべての列挙値は、Cohesityで一意に定義されたすべての特権の値を指定します。 許容されるリスト項目は以下のとおり: kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease。"
+  },
+  {
+    "id": "backup-recovery-user-update-profiles-flag-description",
+    "translation": "ユーザー・プロファイルを指定します。 注: 現在、ヘリオスに使用されています。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-restricted-flag-description",
+    "translation": "ユーザーが制限されたユーザーかどうか。 制限されたユーザーは、自分に権限があるオブジェクトしか閲覧できません。"
+  },
+  {
+    "id": "backup-recovery-user-update-roles-flag-description",
+    "translation": "ユーザーと関連付けるCohesityのロールを「Admin」、「Ops」、「View」などとして指定します。 Cohesityのロールは、このユーザーがCohesityクラスターで持つ特権を決定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
+    "translation": "S3アカウント・アクセス・キーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-account-id-flag-description",
+    "translation": "S3アカウントの正規ユーザーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
+    "translation": "S3アカウントの秘密鍵を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-flag-description",
+    "translation": "ヘリオス・ユーザーのSalesforceアカウント情報。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-sid-flag-description",
+    "translation": "ユーザーの固有のセキュリティーID(SID)を指定します。 ユーザーを変更する際、このフィールドは必須です。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-flag-description",
+    "translation": "SpogContextは、このクラスターでアクションを実行しているユーザーとクラスターに関するすべての情報を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-flag-description",
+    "translation": "これを拡張して、Helios、DRaaS、DSaaSを追加します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
+    "translation": "MCMユーザーのテナント・アクセスを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-id-flag-description",
+    "translation": "ユーザーの有効なテナントIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-username-flag-description",
+    "translation": "ユーザーのログイン名を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
+    "translation": "グループのSIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
+    "translation": "このユーザーが所属するグループを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
+    "translation": "フローティング・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
+    "translation": "ReadLoggingは、読み取りログをキャプチャーする必要があるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
+    "translation": "Googleによって割り当てられたアカウントIDを指定してください。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
+    "translation": "Googleによって割り当てられたユーザーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
+    "translation": "グループのSIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
+    "translation": "ユーザーが所属するIdpグループを指定します。 ユーザーがクラスターに登録されていない可能性があるため、IDPグループのメンバーシップを取得する必要がある場合があります。 こうすることで、後でクラスター上にグループが作成されても、ユーザーはそのグループのtenantIdsにも即座にアクセスできるようになります。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
+    "translation": "IdPに対してクラスターによって割り当てられた固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
+    "translation": "これがフローティング・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
+    "translation": "このクラスターに対してベンダーによって割り当てられた固有IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
+    "translation": "ベンダーによってユーザーに割り当てられた固有IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
+    "translation": "IdPサービスを提供するベンダーを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
+    "translation": "ユーザーでMFAが無効になっているかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-locale-flag-description",
+    "translation": "ロケールはユーザーの言語設定を反映します。 必要に応じて、Scribeに保存されているユーザー設定を使用して入力します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
+    "translation": "Salesforceによって割り当てられたアカウントIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
+    "translation": "ヘリオスのアクセス状況を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
+    "translation": "ユーザーがDGaaSのライセンス取得済みのユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
+    "translation": "ユーザーがDMaaSのライセンス取得済みのユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
+    "translation": "ユーザーがDRaaSのライセンス取得済みのユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
+    "translation": "ユーザーがRPaaSのライセンス取得済みのユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
+    "translation": "ユーザーがCohesityの営業担当者であるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
+    "translation": "ユーザーがCohesityのサポート担当者であるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
+    "translation": "Salesforceによって割り当てられたユーザーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
+    "translation": "SPOG経由でこのクラスターにアクセスしているリモート・クラスターのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
+    "translation": "SPOG経由でこのクラスターにアクセスしているユーザーのSIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
+    "translation": "SPOG経由でこのクラスターにアクセスしているユーザーのユーザー名を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
+    "translation": "ClassificationInfoは、Datahawk Classificationサブスクリプションがアクティブであるかどうかなどの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
+    "translation": "DMaaSSubscriptionInfoは、アクティブかどうかなど、データ・プロテクト・サブスクリプションに関する情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
+    "translation": "ClassificationInfoは、Datahawk Classificationサブスクリプションがアクティブであるかどうかなどの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
+    "translation": "FortKnoxInfoは、Fortknox AzureやAzure FreeTrial、AwsCold、AwsCold FreeTrialのサブスクリプションがアクティブかどうかなどの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
+    "translation": "FortKnoxInfoは、Fortknox AzureやAzure FreeTrial、AwsCold、AwsCold FreeTrialのサブスクリプションがアクティブかどうかなどの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
+    "translation": "FortKnoxInfoは、Fortknox AzureやAzure FreeTrial、AwsCold、AwsCold FreeTrialのサブスクリプションがアクティブかどうかなどの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
+    "translation": "RansomwareInfoは、FortKnox/FortKnoxFreeTrialのサブスクリプションがアクティブかどうかなどの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
+    "translation": "SiteContinuityInfoは、アクティブかどうかなど、サイト継続サブスクリプションに関する情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
+    "translation": "ThreatProtectionInfoは、アクティブかどうかなど、Datahawk ThreatProtectionのサブスクリプションに関する情報を保持します。 JSONファイルへのパスを指定することもできます。"
   },
   {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
@@ -2825,7 +3253,7 @@
   },
   {
     "id": "backup-recovery-restore-points-command-short-description",
-    "translation": "指定した時間範囲内のリストア・ポイント。"
+    "translation": "指定された時間範囲内のリストア・ポイントを一覧表示します。"
   },
   {
     "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
@@ -3130,6 +3558,10 @@
   {
     "id": "service-url-global-flag-description",
     "translation": "APIの基本エンドポイント URL を指定します。"
+  },
+  {
+    "id": "connector-service-url-global-flag-description",
+    "translation": "APIのコネクター・エンドポイントURLを提供してください。"
   },
   {
     "id": "show-help",
