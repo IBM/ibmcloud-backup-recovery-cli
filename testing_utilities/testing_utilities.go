@@ -70,8 +70,10 @@ func GetMockFileResponse() (interface{}, *core.DetailedResponse, error) {
 // parameters in addtion to their own parameters.
 type TestServiceCommandHelper struct{}
 
-func (t *TestServiceCommandHelper) InitializeServiceInstance(f *pflag.FlagSet)          {}
-func (t *TestServiceCommandHelper) InitializeConnectorServiceInstance(f *pflag.FlagSet) {}
+func (t *TestServiceCommandHelper) InitializeServiceInstance(f *pflag.FlagSet)                    {}
+func (t *TestServiceCommandHelper) InitializeConnectorServiceInstance(f *pflag.FlagSet)           {}
+func (t *TestServiceCommandHelper) InitializeManagementReportingServiceInstance(f *pflag.FlagSet) {}
+func (t *TestServiceCommandHelper) InitializeManagementSreServiceInstance(f *pflag.FlagSet)       {}
 
 // Positive Test Utilities
 type PositiveTestUtilities struct {

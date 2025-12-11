@@ -57,6 +57,7 @@ COMMANDS:
   download-recovery-create         Create a download files and folders recovery.
   indexed-file-download            Download an indexed file.
   indexed-objects-search           List indexed objects.
+  management-console               Commands for Backup Recovery Management resource.
   object-snapshots-list            List the snapshots for a given object.
   objects-search                   List objects.
   protected-objects-search         List protected objects.
@@ -64,6 +65,7 @@ COMMANDS:
   protection-group-run             Commands for ProtectionGroupRun resource.
   protection-policy                Commands for ProtectionPolicy resource.
   protection-source                Commands for ProtectionSource resource.
+  provider-instances               List Provider Instances.
   recovery                         Commands for Recovery resource.
   restore-points                   List restore points in a given time range.
   user-update                      Update user.
