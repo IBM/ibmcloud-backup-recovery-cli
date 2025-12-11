@@ -67,24 +67,39 @@ type Utilities interface {
 
 var ServiceInstance *backuprecoveryv1.BackupRecoveryV1
 var ConnectorServiceInstance *backuprecoveryv1.BackupRecoveryV1Connector
+var ManagementConsoleServiceInstance *backuprecoveryv1.BackupRecoveryManagementReportingApiV1
+var ManagementConsoleSreServiceInstance *backuprecoveryv1.BackupRecoveryManagementSreApiV1
 
 type BackupRecoveryV1CommandHelper struct {
-	ServiceURL    string
-	ConnectorURL  string
-	RequiredFlags []string
-	utils         Utilities
+	ServiceURL                            string
+	ConnectorURL                          string
+	ManagementConsoleReportingUrl         string
+	ManagementConsoleSreUrl               string
+	ManagementConsoleSreAuthenticationUrl string
+	ManagementConsoleSreUsername          string
+	ManagementConsoleSrePassword          string
+	ManagementConsoleSreApikey            string
+	RequiredFlags                         []string
+	utils                                 Utilities
 }
 
 type ServiceCommandHelper interface {
 	InitializeServiceInstance(*pflag.FlagSet)
 	InitializeConnectorServiceInstance(*pflag.FlagSet)
+	InitializeManagementReportingServiceInstance(*pflag.FlagSet)
+	InitializeManagementSreServiceInstance(*pflag.FlagSet)
 }
 
 var Service ServiceCommandHelper
 
 var serviceErrors = map[string]string{
-	"badURL":          translation.T("backup-recovery-bad-url-error-message"),
-	"badConnectorURL": translation.T("backup-recovery-bad-connector-url-error-message"),
+	"badURL":                          translation.T("backup-recovery-bad-url-error-message"),
+	"badConnectorURL":                 translation.T("backup-recovery-bad-connector-url-error-message"),
+	"badManagementConsoleURL":         translation.T("backup-recovery-bad-management-console-reporting-url-error-message"),
+	"badManagementConsoleSreURL":      translation.T("backup-recovery-bad-management-console-sre-url-error-message"),
+	"badManagementConsoleSreUsername": translation.T("backup-recovery-bad-management-console-sre-username-error-message"),
+	"badManagementConsoleSreAuthUrl":  translation.T("backup-recovery-bad-management-console-sre-authentication-url-error-message"),
+	"badManagementConsoleSrePassword": translation.T("backup-recovery-bad-management-console-sre-password-error-message"),
 }
 
 // add a function to return the super-command
@@ -98,6 +113,12 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 		GetProtectionGroupGroup(utils),
 		GetProtectionGroupRunGroup(utils),
 		GetRecoveryGroup(utils),
+		GetManagementConsoleGroup(utils),
+		GetClusterUpgradeGroup(utils),
+		GetAlertsGroup(utils),
+		GetGetProviderInstancesCommand(NewGetProviderInstancesCommandRunner(utils, GetProviderInstancesRequestSender{})),
+		GetManagementConsoleAlertsGroup(utils),
+		GetClusterGroup(utils),
 		GetDataSourceConnectionGroup(utils),
 		GetDataSourceConnectorGroup(utils),
 		GetCreateAccessTokenCommand(NewCreateAccessTokenCommandRunner(utils, CreateAccessTokenRequestSender{})),
@@ -133,11 +154,18 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 		},
 	}
 
+	backupRecoveryCommand.Flags().StringVar(&localService.ServiceURL, "service-url", "", translation.T("service-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ConnectorURL, "connector-service-url", "", translation.T("connector-service-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleReportingUrl, "management-reporting-service-url", "", translation.T("management-reporting-service-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreUrl, "management-sre-service-url", "", translation.T("management-sre-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreAuthenticationUrl, "management-sre-service-authentication-url", "", translation.T("management-sre-service-authentication-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSrePassword, "management-sre-service-password", "", translation.T("management-sre-service-password-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreUsername, "management-sre-service-username", "", translation.T("management-sre-service-username-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreApikey, "management-sre-service-apikey", "", translation.T("management-sre-service-apikey-global-flag-description"))
+
 	// these flags pertain to all commands
 	backupRecoveryCommand.PersistentFlags().StringVar(utils.ExposeOutputFormatVar(), "output", "table", translation.T("output-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().StringVarP(utils.ExposeJMESQueryVar(), "jmes-query", "j", "", translation.T("jmes-query-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ServiceURL, "service-url", "", translation.T("service-url-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ConnectorURL, "connector-service-url", "", translation.T("connector-service-url-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().BoolP("quiet", "q", false, translation.T("quiet-global-flag-description"))
 
 	backupRecoveryCommand.AddCommand(serviceCommands...)

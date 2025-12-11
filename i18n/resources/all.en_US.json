@@ -100,6 +100,14 @@
     "translation": "Invalid Connector URL: Set the connector URL with the BACKUP_RECOVERY_CONNECTOR_URL environment variable or key in a credentials file."
   },
   {
+    "id": "backup-recovery-bad-management-console-reporting-url-error-message",
+    "translation": "Invalid URL: Set the management console reporting URL with the BACKUP_RECOVERY_MANAGEMENT_REPORTING_URL environment variable or key in a credentials file."
+  },
+  {
+    "id": "backup-recovery-bad-management-console-sre-url-error-message",
+    "translation": "Invalid backup recovery manager SRE URL: Set the connector URL with the BACKUP_RECOVERY_CONNECTOR_URL environment variable or key in a credentials file."
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "Get information about the available connectors."
   },
@@ -357,7 +365,7 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-object-point-in-time-usecs-flag-description",
-    "translation": "Specifies the timestamp (in microseconds. from epoch) for recovering to a point-in-time in the past."
+    "translation": "Specifies the timestamp in microseconds (from epoch) for recovering to a point-in-time in the past."
   },
   {
     "id": "backup-recovery-download-recovery-create-object-protection-group-id-flag-description",
@@ -1305,7 +1313,7 @@
   },
   {
     "id": "backup-recovery-user-update-google-account-flag-description",
-    "translation": "Google Account Information of a Helios BaaS user. It can also be a path to a JSON file."
+    "translation": "Google Account Information of a Management Console BRS user. It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-user-update-idp-user-info-flag-description",
@@ -1369,7 +1377,7 @@
   },
   {
     "id": "backup-recovery-user-update-profiles-flag-description",
-    "translation": "Specifies the user profiles. NOTE:- Currently used for Helios. It can also be a path to a JSON file."
+    "translation": "Specifies the user profiles. NOTE:- Currently used for Management Console. It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-user-update-restricted-flag-description",
@@ -1393,7 +1401,7 @@
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-flag-description",
-    "translation": "Salesforce Account Information of a Helios user. It can also be a path to a JSON file."
+    "translation": "Salesforce Account Information of a Management Console user. It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-user-update-sid-flag-description",
@@ -1485,7 +1493,7 @@
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
-    "translation": "Specifies the status of helios access."
+    "translation": "Specifies the status of management console access."
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
@@ -1661,7 +1669,7 @@
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-protection-type-flag-description",
@@ -1809,23 +1817,23 @@
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-any-status-flag-description",
-    "translation": "Filter by last any run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Filter by last any run status. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-archival-status-flag-description",
-    "translation": "Filter by last cloud archival run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Filter by last cloud archival run status. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-cloud-spin-status-flag-description",
-    "translation": "Filter by last cloud spin run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Filter by last cloud spin run status. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-local-backup-status-flag-description",
-    "translation": "Filter by last local backup run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Filter by last local backup run status. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-replication-status-flag-description",
-    "translation": "Filter by last remote replication run status.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Filter by last remote replication run status. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-list-names-flag-description",
@@ -1913,11 +1921,11 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-archival-run-status-flag-description",
-    "translation": "Specifies a list of archival status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Specifies a list of archival status, runs matching the status will be returned. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-run-list-cloud-spin-run-status-flag-description",
-    "translation": "Specifies a list of cloud spin status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Specifies a list of cloud spin status, runs matching the status will be returned. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-run-list-command-long-description",
@@ -1953,7 +1961,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-local-backup-run-status-flag-description",
-    "translation": "Specifies a list of local backup status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Specifies a list of local backup status, runs matching the status will be returned. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-run-list-num-runs-flag-description",
@@ -1965,7 +1973,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-replication-run-status-flag-description",
-    "translation": "Specifies a list of replication status, runs matching the status will be returned.<br> 'Running' indicates that the run is still running.<br> 'Canceled' indicates that the run has been canceled.<br> 'Canceling' indicates that the run is in the process of being canceled.<br> 'Failed' indicates that the run has failed.<br> 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening.<br> 'Succeeded' indicates that the run has finished successfully.<br> 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages.<br> 'Paused' indicates that the ongoing run has been paused.<br> 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
+    "translation": "Specifies a list of replication status, runs matching the status will be returned. 'Running' indicates that the run is still running. 'Canceled' indicates that the run has been canceled. 'Canceling' indicates that the run is in the process of being canceled. 'Failed' indicates that the run has failed. 'Missed' indicates that the run was unable to take place at the scheduled time because the previous run was still happening. 'Succeeded' indicates that the run has finished successfully. 'SucceededWithWarning' indicates that the run finished successfully, but there were some warning messages. 'Paused' indicates that the ongoing run has been paused. 'Skipped' indicates that the run was skipped. Allowable list items are: Accepted, Running, Canceled, Canceling, Failed, Missed, Succeeded, SucceededWithWarning, OnHold, Finalizing, Skipped, Paused."
   },
   {
     "id": "backup-recovery-protection-group-run-list-request-initiator-type-flag-description",
@@ -2045,7 +2053,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-update-update-protection-group-run-params-flag-description",
-    "translation": "Required. null It can also be a path to a JSON file. The minimum length is 1 item."
+    "translation": "Required. It can also be a path to a JSON file. The minimum length is 1 item."
   },
   {
     "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
@@ -2149,7 +2157,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-protection-type-flag-description",
@@ -2265,11 +2273,11 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-archival-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-cloud-spin-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-flag-description",
@@ -2277,15 +2285,15 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-onprem-deploy-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-replication-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-rpaas-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-create-retry-options-flag-description",
@@ -2469,11 +2477,11 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-archival-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-cloud-spin-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-flag-description",
@@ -2481,15 +2489,15 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-onprem-deploy-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-replication-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-rpaas-targets-flag-description",
-    "translation": "null It can also be a path to a JSON file."
+    "translation": "It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-policy-update-retry-options-flag-description",
@@ -3080,6 +3088,22 @@
     "translation": "Specifies the parameters to recover Sql databases. It can also be a path to a JSON file. The minimum length is 1 item."
   },
   {
+    "id": "backup-recovery-management-console-group-short-description",
+    "translation": "Commands for Backup Recovery Management resource."
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-short-description",
+    "translation": "List Provider Instances."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-command-short-description",
+    "translation": "Data source connector logs."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-command-short-description",
+    "translation": "Data source connector status."
+  },
+  {
     "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
     "translation": "Specifies the type of recover action to be performed. Allowable values are: RecoverApps, CloneApps."
   },
@@ -3563,6 +3587,732 @@
     "id": "connector-service-url-global-flag-description",
     "translation": "Provide the connector endpoint URL for the API."
   },
+  {
+    "id": "backup-recovery-management-console-components-group-short-description",
+    "translation": "Commands for Management Console components."
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-long-description",
+    "translation": "Commands for Management Console components."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-short-description",
+    "translation": "List Report Components."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-long-description",
+    "translation": "Fetches list of all report components accessible by logged in user."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-ids-flag-description",
+    "translation": "Specifies the ids of the report component to fetch."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-short-description",
+    "translation": "Fetch a Report Component by id."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-long-description",
+    "translation": "Get information about a Report component."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-id-flag-description",
+    "translation": "Required. Specifies the id of the report component."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-short-description",
+    "translation": "Fetch Preview of a component."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-long-description",
+    "translation": "Get preview for a component specified by Id."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-id-flag-description",
+    "translation": "Required. Specifies the id of the component."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-filters-flag-description",
+    "translation": "Specifies list of global filters that are applicable to given components in the report. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-flag-description",
+    "translation": "Specifies the parameters to limit the resulting dataset. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-sort-flag-description",
+    "translation": "Specifies the sorting (ordering) parameters to be applied to the resulting data. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-timezone-flag-description",
+    "translation": "Specifies timezone of the user. If nil, defaults to UTC. The time specified should be a location name in the IANA Time Zone database, for example, 'America/Los_Angeles'."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-from-flag-description",
+    "translation": "Specifies the offset to which resulting data will be skipped before applying the size parameter. For example if dataset size is 10 objects, from=2 and size=5, then from 10 objects only 5 objects are returned starting from offset 2 i.e., 2 to 7. If not specified, then none of the objects are skipped."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-size-flag-description",
+    "translation": "Specifies the number of objects to be returned from the offset specified. The minimum value is 1."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-short-description",
+    "translation": "Commands for Management Console resources."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-long-description",
+    "translation": "Commands for Management Console resources."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-short-description",
+    "translation": "Get resources."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-long-description",
+    "translation": "Get different kinds of resources available which are discovered on Management Console. These values can be used for filtering options."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-resource-type-flag-description",
+    "translation": "Required. Specifies the type of the resource. Allowable values are: Policies, ProtectionGroups, RegisteredSources, MessageCodeMappings."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-short-description",
+    "translation": "Commands for Management Console reports."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-long-description",
+    "translation": "Commands for Management Console reports."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-short-description",
+    "translation": "List properties of a report type."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-long-description",
+    "translation": "Fetches list of properties of a report type."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-report-type-flag-description",
+    "translation": "Required. Specifies the report type. Allowable values are: Failures, ProtectedUnprotectedObjects, ProtectedObjects, ProtectionActivity, ProtectionGroupSummary, ProtectionRuns, ProtectionRunsTrend, Recovery."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-short-description",
+    "translation": "List Reports."
+  },
+  {
+    "id": "management-reporting-service-url-global-flag-description",
+    "translation": "Provide the management console reporting endpoint URL for the API."
+  },
+  {
+    "id": "management-sre-url-global-flag-description",
+    "translation": "Provide the management console SRE endpoint URL for the API."
+  },
+  {
+    "id": "management-sre-service-authentication-url-global-flag-description",
+    "translation": "Provide the management console SRE authentication endpoint URL."
+  },
+  {
+    "id": "management-sre-service-password-global-flag-description",
+    "translation": "Provide the management console SRE password."
+  },
+  {
+    "id": "management-sre-service-username-global-flag-description",
+    "translation": "Provide the management console SRE username."
+  },
+  {
+    "id": "management-sre-service-apikey-global-flag-description",
+    "translation": "Provide the management console SRE apikey."
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-short-description",
+    "translation": "Commands for ProviderInstances resource."
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-long-description",
+    "translation": "Commands for ProviderInstances resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-short-description",
+    "translation": "List Provider Instances."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-long-description",
+    "translation": "List all the Provider Instances with details. The API returns the detailed listing of provider instances. The providers are responsible for managing the life cycle of instances and this API only intends to provide metadata information about the instances."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-instance-ids-flag-description",
+    "translation": "List of Provider Instance IDs to filter on."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-regions-flag-description",
+    "translation": "List of regions to filter Provider Instances on."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-include-service-instance-status-flag-description",
+    "translation": "Bool flag to check whether to include other details like cluster details and software version along with status for the service instances. The default value is false."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-long-description",
+    "translation": "Fetches list of all reports accessible by logged in user."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-ids-flag-description",
+    "translation": "Specifies the ids of reports to fetch."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-user-context-flag-description",
+    "translation": "Specifies the user context to filter reports. Allowable values are: IBMBaaS."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-short-description",
+    "translation": "Fetch a Report."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-long-description",
+    "translation": "Get a report for a given id."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-id-flag-description",
+    "translation": "Required. Specifies the id of the report."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-short-description",
+    "translation": "Fetch a Report Preview."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-long-description",
+    "translation": "Get preview of a configured report."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-id-flag-description",
+    "translation": "Required. Specifies the id of the report."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-component-ids-flag-description",
+    "translation": "Specifies list of components ids to be evaluated for the given report. If not specified, then all the components are evaluated."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-filters-flag-description",
+    "translation": "Specifies list of global filters that are applicable to given components in the report. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-timezone-flag-description",
+    "translation": "Specifies timezone of the user. If nil, defaults to UTC. The time specified should be a location name in the IANA Time Zone database, for example, 'America/Los_Angeles'."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-short-description",
+    "translation": "Export a Report."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-long-description",
+    "translation": "Export a configured report."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-id-flag-description",
+    "translation": "Required. Specifies the id of the report."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-async-flag-description",
+    "translation": "Specifies if the report should be generated asynchronously."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-filters-flag-description",
+    "translation": "Specifies list of global filters that are applicable to given components in the report. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-layout-flag-description",
+    "translation": "The layout of the report which needs to be exported."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-report-format-flag-description",
+    "translation": "The format in which the report needs to be exported. Allowable values are: XLS, CSV."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-timezone-flag-description",
+    "translation": "Specifies timezone of the user. If nil, defaults to UTC. The time specified should be a location name in the IANA Time Zone database, for example, 'America/Los_Angeles'."
+  },
+
+  {
+    "id": "backup-recovery-management-sre-api-short-description",
+    "translation": "Manage IBM REST API."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-long-description",
+    "translation": "IBM API provides a RESTful interface to access the various data management operations on IBM cluster and Management Console."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-bad-url-error-message",
+    "translation": "Invalid URL: Set the base URL with the BACKUP_RECOVERY_MANAGEMENT_SRE_URL environment variable or key in a credentials file."
+  },
+  {
+    "id": "mutually-exclusive-fields",
+    "translation": "The {{.FLAG_NAME}} option is mutually exclusive with its individually settable sub-field options."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-short-description",
+    "translation": "Commands for ClusterUpgrade resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-long-description",
+    "translation": "Commands for ClusterUpgrade resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-short-description",
+    "translation": "Fetch upgrade info."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-long-description",
+    "translation": "Get progress details and logs for a cluster upgrade. Logs will in json string format."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-cluster-identifiers-flag-description",
+    "translation": "Fetch upgrade progress details for a list of cluster identifiers in format clusterId:clusterIncarnationId."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-short-description",
+    "translation": "Updates scheduled cluster upgrades."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-long-description",
+    "translation": "Updates scheduled cluster upgrades."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-auth-headers-flag-description",
+    "translation": "Specifies the optional headers for upgrade request. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-clusters-flag-description",
+    "translation": "Array for clusters to be upgraded. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "Specifies the difference of time between two cluster's upgrade."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-package-url-flag-description",
+    "translation": "Specifies URL from which package can be downloaded. Note: This option is only supported in Multi-Cluster Manager (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-flag-description",
+    "translation": "Specifies the parameters for patch upgrade request. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-target-version-flag-description",
+    "translation": "Specifies target version to which clusters are to be upgraded."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "Specifies the time in msecs at which the cluster has to be upgraded."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-type-flag-description",
+    "translation": "Specifies the type of upgrade to be performed on a cluster. The default value is Upgrade. Allowable values are: Upgrade, Patch, UpgradePatch."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "Specifies the optional headers for the patch cluster request. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "Specify if pre check results can be ignored. The default value is false."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-package-url-flag-description",
+    "translation": "Specifies URL from which patch package can be downloaded. Note: This option is only supported in Multi-Cluster Manager (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-target-version-flag-description",
+    "translation": "Specifies target patch version to which clusters are to be upgraded."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-short-description",
+    "translation": "Initiates instant and scheduled cluster upgrade."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-long-description",
+    "translation": "Initiates instant and scheduled cluster upgrade."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-auth-headers-flag-description",
+    "translation": "Specifies the optional headers for upgrade request. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-clusters-flag-description",
+    "translation": "Array for clusters to be upgraded. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "Specifies the difference of time between two cluster's upgrade."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-package-url-flag-description",
+    "translation": "Specifies URL from which package can be downloaded. Note: This option is only supported in Multi-Cluster Manager (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-flag-description",
+    "translation": "Specifies the parameters for patch upgrade request. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-target-version-flag-description",
+    "translation": "Specifies target version to which clusters are to be upgraded."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "Specifies the time in msecs at which the cluster has to be upgraded."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-type-flag-description",
+    "translation": "Specifies the type of upgrade to be performed on a cluster. The default value is Upgrade. Allowable values are: Upgrade, Patch, UpgradePatch."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "Specifies the optional headers for the patch cluster request. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "Specify if pre check results can be ignored. The default value is false."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-package-url-flag-description",
+    "translation": "Specifies URL from which patch package can be downloaded. Note: This option is only supported in Multi-Cluster Manager (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-target-version-flag-description",
+    "translation": "Specifies target patch version to which clusters are to be upgraded."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-short-description",
+    "translation": "Cancels scheduled cluster upgrades."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-long-description",
+    "translation": "Cancels scheduled cluster upgrades."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-cluster-identifiers-flag-description",
+    "translation": "Specifies the list of cluster identifiers. The format is clusterId:clusterIncarnationId. "
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-short-description",
+    "translation": "Commands for Alerts resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-long-description",
+    "translation": "Commands for Alerts resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-short-description",
+    "translation": "Get alerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-long-description",
+    "translation": "Get alerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-ids-flag-description",
+    "translation": "Filter by list of alert ids."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-types-flag-description",
+    "translation": "Filter by list of alert types."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
+    "translation": "Filter by list of alert categories. Allowable list items are: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-states-flag-description",
+    "translation": "Filter by list of alert states. Allowable list items are: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-severities-flag-description",
+    "translation": "Filter by list of alert severity types. Allowable list items are: kCritical, kWarning, kInfo."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-type-buckets-flag-description",
+    "translation": "Filter by list of alert type buckets. Allowable list items are: kHardware, kSoftware, kDataService, kMaintenance."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-start-time-usecs-flag-description",
+    "translation": "Specifies start time Unix epoch time in microseconds to filter alerts by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-end-time-usecs-flag-description",
+    "translation": "Specifies end time Unix epoch time in microseconds to filter alerts by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-max-alerts-flag-description",
+    "translation": "Specifies maximum number of alerts to return.The default value is 100 and maximum allowed value is 1000."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-key-flag-description",
+    "translation": "Specifies name of the property to filter alerts by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-value-flag-description",
+    "translation": "Specifies value of the property to filter alerts by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-name-flag-description",
+    "translation": "Specifies name of alert to filter alerts by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-resolution-ids-flag-description",
+    "translation": "Specifies alert resolution ids to filter alerts by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-tenant-ids-flag-description",
+    "translation": "Filter by tenant ids."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-all-under-hierarchy-flag-description",
+    "translation": "Filter by objects of all the tenants under the hierarchy of the logged in user's organization."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-x-scope-identifier-flag-description",
+    "translation": "This field uniquely represents a service        instance. Please specify the values as \"service-instance-id: <value>\"."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-short-description",
+    "translation": "Get alerts summary."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-long-description",
+    "translation": "Get alerts summary grouped by category."
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-long-description",
+    "translation": "List all the Provider Instances with details. The API returns the detailed listing of provider instances. The providers are responsible for managing the life cycle of instances and this API only intends to provide metadata information about the instances."
+  },
+  {
+    "id": "backup-recovery-provider-instances-instance-ids-flag-description",
+    "translation": "List of Provider Instance IDs to filter on."
+  },
+  {
+    "id": "backup-recovery-provider-instances-regions-flag-description",
+    "translation": "List of regions to filter Provider Instances on."
+  },
+  {
+    "id": "backup-recovery-provider-instances-include-service-instance-status-flag-description",
+    "translation": "Bool flag to check whether to include other details like cluster details and software version along with status for the service instances. The default value is false."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "Filter by start time. Specify the start time as a Unix epoch Timestamp (in microseconds). By default it is current time minus a day."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "Filter by end time. Specify the end time as a Unix epoch Timestamp (in microseconds). By default it is current time."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-include-tenants-flag-description",
+    "translation": "IncludeTenants specifies if alerts of all the tenants under the hierarchy of the logged in user's organization should be used to compute summary."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-tenant-ids-flag-description",
+    "translation": "TenantIds contains ids of the tenants for which alerts are to be used to compute summary."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-states-list-flag-description",
+    "translation": "Specifies list of alert states to filter alerts by. If not specified, only open alerts will be used to get summary. Allowable list items are: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
+    "translation": "This field uniquely represents a service        instance. Please specify the values as \"service-instance-id: <value>\"."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-short-description",
+    "translation": "Commands for ManagementAlerts resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-long-description",
+    "translation": "Commands for ManagementAlerts resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-short-description",
+    "translation": "Get alerts summary on Management Console."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-long-description",
+    "translation": "Get alerts summary grouped by category."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-cluster-identifiers-flag-description",
+    "translation": "Specifies the list of cluster identifiers. Format is clusterId:clusterIncarnationId."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "Filter by start time. Specify the start time as a Unix epoch Timestamp (in microseconds). By default it is current time minus a day."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "Filter by end time. Specify the end time as a Unix epoch Timestamp (in microseconds). By default it is current time."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-states-list-flag-description",
+    "translation": "Specifies list of alert states to filter alerts by. If not specified, only open alerts will be used to get summary. Allowable list items are: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-short-description",
+    "translation": "Get list of management console alerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-long-description",
+    "translation": "Get the list of management console alerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-id-list-flag-description",
+    "translation": "Filter by list of alert ids."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-state-list-flag-description",
+    "translation": "Filter by list of alert states."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-list-flag-description",
+    "translation": "Filter by list of alert types."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-severity-list-flag-description",
+    "translation": "Filter by list of alert severity types. Allowable list items are: kCritical, kWarning, kInfo."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-region-ids-flag-description",
+    "translation": "Filter by list of region ids."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-cluster-identifiers-flag-description",
+    "translation": "Filter by list of cluster ids."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-start-date-usecs-flag-description",
+    "translation": "Specifies the start time of the alerts to be returned. All the alerts returned are raised after the specified start time. This value should be in Unix timestamp epoch in microseconds."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-end-date-usecs-flag-description",
+    "translation": "Specifies the end time of the alerts to be returned. All the alerts returned are raised before the specified end time. This value should be in Unix timestamp epoch in microseconds."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-max-alerts-flag-description",
+    "translation": "Specifies maximum number of alerts to return."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-category-list-flag-description",
+    "translation": "Filter by list of alert categories. Allowable list items are: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-tenant-ids-flag-description",
+    "translation": "Filter by tenant ids."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-bucket-list-flag-description",
+    "translation": "Filter by list of alert type buckets. Allowable list items are: kHardware, kSoftware, kDataService, kMaintenance."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-key-list-flag-description",
+    "translation": "Specifies list of the alert property keys to query."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-value-list-flag-description",
+    "translation": "Specifies list of the alert property value, multiple values for one key should be joined by '|'."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-name-flag-description",
+    "translation": "Specifies name of alert to filter alerts by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-service-instance-ids-flag-description",
+    "translation": "Specifies services instance ids to filter alerts for IBM customers."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-short-description",
+    "translation": "List the Alert Resolutions in BRS system."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-long-description",
+    "translation": "Returns the Management Console Alert Resolution objects found in IBM system that match the filter criteria from given parameters. If no filter parameters are specified, MaxResolutions Alert Resolution objects are returned. Each object provides details about the Alert Resolution info and the resolved alert info."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-max-resolutions-flag-description",
+    "translation": "Required. Specifies the max number of Resolutions to be returned, from the latest created to the earliest created."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-name-flag-description",
+    "translation": "Specifies Alert Resolution Name to query."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-id-flag-description",
+    "translation": "Specifies Alert Resolution id to query."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-short-description",
+    "translation": "Compute the stats on active alerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-long-description",
+    "translation": "Compute the stats on active alerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-start-time-usecs-flag-description",
+    "translation": "Required. Specifies the start time Unix time epoch in microseconds from which the active alerts stats are computed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-end-time-usecs-flag-description",
+    "translation": "Required. Specifies the end time Unix time epoch in microseconds to which the active alerts stats are computed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-cluster-ids-flag-description",
+    "translation": "Specifies the list of cluster IDs."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-service-instance-ids-flag-description",
+    "translation": "Specifies list of service instance ids to filter alert stats by."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-region-ids-flag-description",
+    "translation": "Filter by a list of region ids."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-exclude-stats-by-cluster-flag-description",
+    "translation": "Specifies if stats of active alerts per cluster needs to be excluded. If set to false (default value), stats of active alerts per cluster is included in the response. If set to true, only aggregated stats summary will be present in the response."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-alert-source-flag-description",
+    "translation": "Specifies a list of alert origination source. If not specified, all alerts from all the sources are considered in the response. Allowable values are: kCluster, kHelios."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-tenant-ids-flag-description",
+    "translation": "Specifies a list of tenants."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-short-description",
+    "translation": "Commands for Cluster resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-long-description",
+    "translation": "Commands for Cluster resource."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-short-description",
+    "translation": "Fetch compatible clusters for release version."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-long-description",
+    "translation": "Get list of clusters that are compatible for an upgrade to the specified release version."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-release-version-flag-description",
+    "translation": ""
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-short-description",
+    "translation": "Clusters information with upgrade details."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-long-description",
+    "translation": "Get clusters information and their upgrade details."
+  },
+  
   {
     "id": "show-help",
     "translation": "Show help"

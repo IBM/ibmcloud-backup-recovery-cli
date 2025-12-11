@@ -154,10 +154,16 @@ func Init() {
 
 		// Hide flags that have no effect when running the URL command.
 		if isURLCommand(cmd) || isHelpCommandOrFlag(userSuppliedCommand) {
-			_ = cmd.Flags().MarkHidden("jmes-query")            // There is nothing to be queried.
-			_ = cmd.Flags().MarkHidden("service-url")           // The Resource Controller service is used.
-			_ = cmd.Flags().MarkHidden("connector-service-url") // The Resource Controller service is used.
-			_ = cmd.Flags().MarkHidden("output")                // We always print a single string.
+			_ = cmd.Flags().MarkHidden("jmes-query")                                // There is nothing to be queried.
+			_ = cmd.Flags().MarkHidden("service-url")                               // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("connector-service-url")                     // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("management-reporting-service-url")          // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("management-sre-service-apikey")             // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("management-sre-service-authentication-url") // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("management-sre-service-password")           // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("management-sre-service-url")                // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("management-sre-service-username")           // The Resource Controller service is used.
+			_ = cmd.Flags().MarkHidden("output")                                    // We always print a single string.
 		}
 
 		// if the user entered a valid namespace without a Run command

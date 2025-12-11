@@ -52,23 +52,23 @@ func GetConfigCommand(r *ConfigCommandRunner) *cobra.Command {
 	// the global parameters for the service command don't actually apply here, so
 	// the help output is more clear when it is removed from the template
 	cmd.SetUsageTemplate(`{{printHeader "name-header-help-menu"}}:
-  {{.Name}} - {{.Long}}
-
-{{printHeader "usage-header-help-menu"}}:
-  ibmcloud {{.UseLine}}{{if gt (len .Aliases) 0}}
-
-{{printHeader "aliases-header-help-menu"}}:
-  {{.NameAndAliases}}{{end}}{{if .HasExample}}
-
-{{printHeader "examples-header-help-menu"}}:
-{{.Example}}{{end}}{{if .HasAvailableSubCommands}}
-
-{{printHeader "commands-header-help-menu"}}:{{$nameAndAliasPadding := (getNameAndAliasPadding .Commands)}}{{range .Commands}}{{if .IsAvailableCommand}}
-  {{rpad .NameAndAliases $nameAndAliasPadding }} {{.Short}}{{end}}{{end}}{{end}}{{if .HasAvailableLocalFlags}}
-
-{{printHeader "options-header-help-menu"}}:
-{{.LocalFlags.FlagUsages | trimTrailingWhitespaces}}{{end}}{{if .HasAvailableInheritedFlags}}{{end}}
-`)
+   {{.Name}} - {{.Long}}
+ 
+ {{printHeader "usage-header-help-menu"}}:
+   ibmcloud {{.UseLine}}{{if gt (len .Aliases) 0}}
+ 
+ {{printHeader "aliases-header-help-menu"}}:
+   {{.NameAndAliases}}{{end}}{{if .HasExample}}
+ 
+ {{printHeader "examples-header-help-menu"}}:
+ {{.Example}}{{end}}{{if .HasAvailableSubCommands}}
+ 
+ {{printHeader "commands-header-help-menu"}}:{{$nameAndAliasPadding := (getNameAndAliasPadding .Commands)}}{{range .Commands}}{{if .IsAvailableCommand}}
+   {{rpad .NameAndAliases $nameAndAliasPadding }} {{.Short}}{{end}}{{end}}{{end}}{{if .HasAvailableLocalFlags}}
+ 
+ {{printHeader "options-header-help-menu"}}:
+ {{.LocalFlags.FlagUsages | trimTrailingWhitespaces}}{{end}}{{if .HasAvailableInheritedFlags}}{{end}}
+ `)
 
 	return cmd
 }
@@ -98,6 +98,12 @@ func (r *ConfigListCommandRunner) Run(cmd *cobra.Command, args []string) {
 	configOptions := []string{
 		"service-url",
 		"connector-service-url",
+		"management-reporting-service-url",
+		"management-sre-service-url",
+		"management-sre-service-apikey",
+		"management-sre-service-authentication-url",
+		"management-sre-service-password",
+		"management-sre-service-username",
 	}
 	table := terminal.NewTable(terminal.Output, configOptions)
 	tableData := make([]string, len(configOptions))
@@ -132,6 +138,12 @@ func GetConfigGetCommand(r *ConfigGetCommandRunner) *cobra.Command {
 	commands := []*cobra.Command{
 		NewConfigGetCommand(r.utils, "service-url"),
 		NewConfigGetCommand(r.utils, "connector-service-url"),
+		NewConfigGetCommand(r.utils, "management-reporting-service-url"),
+		NewConfigGetCommand(r.utils, "management-sre-service-url"),
+		NewConfigGetCommand(r.utils, "management-sre-service-authentication-url"),
+		NewConfigGetCommand(r.utils, "management-sre-service-password"),
+		NewConfigGetCommand(r.utils, "management-sre-service-username"),
+		NewConfigGetCommand(r.utils, "management-sre-service-apikey"),
 	}
 
 	cmd := &cobra.Command{
@@ -177,6 +189,12 @@ func GetConfigUnsetCommand(r *ConfigUnsetCommandRunner) *cobra.Command {
 	commands := []*cobra.Command{
 		NewConfigUnsetCommand(r.utils, "service-url"),
 		NewConfigUnsetCommand(r.utils, "connector-service-url"),
+		NewConfigUnsetCommand(r.utils, "management-reporting-service-url"),
+		NewConfigUnsetCommand(r.utils, "management-sre-service-url"),
+		NewConfigUnsetCommand(r.utils, "management-sre-service-authentication-url"),
+		NewConfigUnsetCommand(r.utils, "management-sre-service-password"),
+		NewConfigUnsetCommand(r.utils, "management-sre-service-username"),
+		NewConfigUnsetCommand(r.utils, "management-sre-service-apikey"),
 	}
 
 	cmd := &cobra.Command{
@@ -222,6 +240,12 @@ func GetConfigSetCommand(r *ConfigSetCommandRunner) *cobra.Command {
 	commands := []*cobra.Command{
 		NewConfigSetCommand(r.utils, "service-url"),
 		NewConfigSetCommand(r.utils, "connector-service-url"),
+		NewConfigSetCommand(r.utils, "management-reporting-service-url"),
+		NewConfigSetCommand(r.utils, "management-sre-service-url"),
+		NewConfigSetCommand(r.utils, "management-sre-service-authentication-url"),
+		NewConfigSetCommand(r.utils, "management-sre-service-password"),
+		NewConfigSetCommand(r.utils, "management-sre-service-username"),
+		NewConfigSetCommand(r.utils, "management-sre-service-apikey"),
 	}
 
 	cmd := &cobra.Command{

@@ -9,31 +9,31 @@
   },
   {
     "id": "backup-recovery-agent-download-command-long-description",
-    "translation": "为不同的主机下载代理程序。"
+    "translation": "为不同的主机下载代理。"
   },
   {
     "id": "backup-recovery-agent-download-command-short-description",
-    "translation": "下载代理程序。"
+    "translation": "下载代理。"
   },
   {
     "id": "backup-recovery-agent-download-linux-params-flag-description",
-    "translation": "Linux 代理程序参数。 也可以是 JSON 文件的路径。"
+    "translation": "Linux 代理参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-agent-download-linux-params-package-type-flag-description",
-    "translation": "指定安装程序类型。 允许的值有：kScript、kRPM、kSuseRPM、kDEB 和 kPowerPCRPM。"
+    "translation": "指定安装程序类型。 允许的值为：kScript、kRPM、kSuseRPM、kDEB、kPowerPCRPM。"
   },
   {
     "id": "backup-recovery-agent-download-platform-flag-description",
-    "translation": "必需。 指定需要下载代理程序的平台。 允许的值为：kWindows、kLinux。"
+    "translation": "必需。 指定需要下载代理的平台。 允许的值为：kWindows、kLinux。"
   },
   {
     "id": "backup-recovery-agent-download-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-agent-ids-flag-description",
-    "translation": "指定任务中要升级的代理 ID。"
+    "translation": "指定任务中要升级的代理标识。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-command-long-description",
@@ -65,15 +65,15 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-group-long-description",
-    "translation": "AgentUpgradeTask 资源的命令。"
+    "translation": "用于 AgentUpgradeTask 资源的命令。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-group-short-description",
-    "translation": "AgentUpgradeTask 资源的命令。"
+    "translation": "用于 AgentUpgradeTask 资源的命令。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-list-command-long-description",
@@ -85,11 +85,11 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-list-ids-flag-description",
-    "translation": "指定要获取的任务 ID。"
+    "translation": "指定要获取的任务标识。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-bad-url-error-message",
@@ -98,6 +98,14 @@
   {
     "id": "backup-recovery-bad-connector-url-error-message",
     "translation": "连接器 URL 无效：使用 BACKUP_RECOVERY_CONNECTOR_URL 环境变量或凭证文件中的密钥设置连接器 URL。"
+  },
+  {
+    "id": "backup-recovery-bad-management-console-reporting-url-error-message",
+    "translation": "无效 URL：请通过 BACKUP_RECOVERY_MANAGEMENT_REPORTING_URL 环境变量或凭据文件中的密钥，设置管理控制台报表 URL。"
+  },
+  {
+    "id": "backup-recovery-bad-management-console-sre-url-error-message",
+    "translation": "无效的备份恢复管理器 SRE URL：请通过 BACKUP_RECOVERY_CONNECTOR_URL 环境变量或凭据文件中的密钥，设置连接器 URL。"
   },
   {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
@@ -109,7 +117,7 @@
   },
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
@@ -153,35 +161,35 @@
   },
   {
     "id": "backup-recovery-data-source-connection-create-connection-name-flag-description",
-    "translation": "必需。 指定正在创建的连接名称。 对于某个租户，不同的连接不能使用相同的名称。 但是，两个（或更多）不同的租户可以各自拥有一个同名连接。"
+    "translation": "必需。 指定正在创建的连接的名称。 对于给定租户，不同的连接不能使用相同的名称。 但是，两个（或更多）不同的租户可以各自拥有一个同名连接。"
   },
   {
     "id": "backup-recovery-data-source-connection-create-xibm-tenant-id-flag-description",
-    "translation": "访问集群的租户的 ID。"
+    "translation": "访问集群的租户的标识。"
   },
   {
     "id": "backup-recovery-data-source-connection-delete-command-long-description",
-    "translation": "使用 ID 删除数据源连接。 删除连接后，其中的任何连接器都无法连接到集群。 只有在确保没有源正在使用连接后，才能删除该连接。"
+    "translation": "使用其标识删除数据源连接。 删除连接后，其中的任何连接器都无法连接到集群。 只有在确保没有源正在使用连接后，才能删除该连接。"
   },
   {
     "id": "backup-recovery-data-source-connection-delete-command-short-description",
-    "translation": "删除请求路径中的 ID 指定的数据源连接。"
+    "translation": "删除请求路径中的标识指定的数据源连接。"
   },
   {
     "id": "backup-recovery-data-source-connection-delete-connection-id-flag-description",
-    "translation": "必需。 指定要获取的连接器所属连接的 ID。"
+    "translation": "必需。 指定要获取的连接器所属连接的标识。"
   },
   {
     "id": "backup-recovery-data-source-connection-delete-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-data-source-connection-group-long-description",
-    "translation": "DataSourceConnection 资源的命令。"
+    "translation": "用于 DataSourceConnection 资源的命令。"
   },
   {
     "id": "backup-recovery-data-source-connection-group-short-description",
-    "translation": "DataSourceConnection 资源的命令。"
+    "translation": "用于 DataSourceConnection 资源的命令。"
   },
   {
     "id": "backup-recovery-data-source-connection-list-command-long-description",
@@ -193,27 +201,27 @@
   },
   {
     "id": "backup-recovery-data-source-connection-list-connection-ids-flag-description",
-    "translation": "指定要获取的连接的唯一 ID。"
+    "translation": "指定要获取的连接的唯一标识。"
   },
   {
     "id": "backup-recovery-data-source-connection-list-connection-names-flag-description",
-    "translation": "指定要获取的连接名称。"
+    "translation": "指定要获取的连接的名称。"
   },
   {
     "id": "backup-recovery-data-source-connection-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-data-source-connection-patch-command-long-description",
-    "translation": "删除请求路径中的 ID 指定的数据源连接。"
+    "translation": "修补请求路径中的标识指定的数据源连接。"
   },
   {
     "id": "backup-recovery-data-source-connection-patch-command-short-description",
-    "translation": "使用 ID 修补数据源连接。"
+    "translation": "使用其标识修补数据源连接。"
   },
   {
     "id": "backup-recovery-data-source-connection-patch-connection-id-flag-description",
-    "translation": "必需。 指定要获取的连接器所属连接的 ID。"
+    "translation": "必需。 指定要获取的连接器所属连接的标识。"
   },
   {
     "id": "backup-recovery-data-source-connection-patch-connection-name-flag-description",
@@ -221,11 +229,11 @@
   },
   {
     "id": "backup-recovery-data-source-connection-patch-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-command-long-description",
-    "translation": "生成令牌，以便针对请求路径中的 ID 指定的数据源连接注册连接器。 只要令牌有效，同一令牌便可用于注册多个连接器。 一旦令牌过期（通常是一天后），就可以再次访问该 API 来生成另一个令牌。"
+    "translation": "生成令牌，以针对请求路径中的标识指定的数据源连接注册连接器。 只要令牌有效，同一令牌便可用于注册多个连接器。 一旦令牌过期（通常是一天后），就可以再次访问该 API 来生成另一个令牌。"
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-command-short-description",
@@ -233,35 +241,35 @@
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-connection-id-flag-description",
-    "translation": "必需。 指定要获取的连接器所属连接的 ID。"
+    "translation": "必需。 指定要获取的连接器所属连接的标识。"
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
-    "translation": "删除请求路径中由该标识指定的数据源连接器。"
+    "translation": "删除请求路径中的标识指定的数据源连接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-short-description",
-    "translation": "删除使用其标识的数据源连接器。"
+    "translation": "使用其标识删除数据源连接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
-    "translation": "必需。 指定要删除的连接器的唯一 ID。"
+    "translation": "必需。 指定要删除的连接器的唯一标识。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-data-source-connector-group-long-description",
-    "translation": "DataSourceConnector 资源的命令。"
+    "translation": "用于 DataSourceConnector 资源的命令。"
   },
   {
     "id": "backup-recovery-data-source-connector-group-short-description",
-    "translation": "DataSourceConnector 资源的命令。"
+    "translation": "用于 DataSourceConnector 资源的命令。"
   },
   {
     "id": "backup-recovery-data-source-connector-list-command-long-description",
@@ -273,31 +281,31 @@
   },
   {
     "id": "backup-recovery-data-source-connector-list-connection-id-flag-description",
-    "translation": "指定要获取的连接器所属连接的 ID。"
+    "translation": "指定要获取的连接器所属连接的标识。"
   },
   {
     "id": "backup-recovery-data-source-connector-list-connector-ids-flag-description",
-    "translation": "指定要获取的连接器的唯一 ID。"
+    "translation": "指定要获取的连接器的唯一标识。"
   },
   {
     "id": "backup-recovery-data-source-connector-list-connector-names-flag-description",
-    "translation": "指定要获取的连接器名称。"
+    "translation": "指定要获取的连接器的名称。"
   },
   {
     "id": "backup-recovery-data-source-connector-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-command-long-description",
-    "translation": "修补请求路径中的 ID 指定的数据源连接器。"
+    "translation": "修补请求路径中的标识指定的数据源连接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-command-short-description",
-    "translation": "使用 ID 修补数据源连接器。"
+    "translation": "使用其标识修补数据源连接器。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-connector-id-flag-description",
-    "translation": "必需。 指定要删除的连接器的唯一 ID。"
+    "translation": "必需。 指定要删除的连接器的唯一标识。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-connector-name-flag-description",
@@ -309,7 +317,7 @@
   },
   {
     "id": "backup-recovery-access-token-create-command-long-description",
-    "translation": "在做出其他 REST API 请求之前，您的 REST 客户端必须使用有效的 Cohesity 用户名和密码，提出访问令牌请求。 此 POST 请求会返回由 Cohesity 集群生成的响应中的访问令牌和类型。 对其他 Cohesity REST API 操作的后续请求，必须在 HTTP 头中通过设置 'Authorization'，指定返回的访问令牌和类型，格式如下：Authorization: token_type access_token 生成的令牌有效期为 24 小时。 如果使用已到期的令牌进行请求，则会返回“令牌已到期”的错误信息。 在您的 REST 客户端中添加代码，检查是否出现此错误，并在重新发出请求之前，请求另一个访问令牌。"
+    "translation": "在发出其他 REST API 请求之前，您的 REST 客户端必须使用有效的 Cohesity 用户名和密码发出访问令牌请求。 此 POST 请求会返回由 Cohesity 集群生成的响应中的访问令牌和类型。 对其他 Cohesity REST API 操作的后续请求必须通过在 HTTP 头中设置“Authorization”来指定返回的访问令牌和类型，格式如下：- Authorization:- token_type access_token 生成的令牌有效期为 24 小时。 如果使用已到期的令牌发出请求，则会返回“令牌已到期”的错误信息。 在您的 REST 客户端中添加代码，检查是否出现此错误，并在重新发出请求之前，请求另一个访问令牌。"
   },
   {
     "id": "backup-recovery-access-token-create-username-flag-description",
@@ -317,15 +325,15 @@
   },
   {
     "id": "backup-recovery-access-token-create-password-flag-description",
-    "translation": "指定 Cohesity 用户账户的密码。"
+    "translation": "指定 Cohesity 用户帐户的密码。"
   },
   {
     "id": "backup-recovery-access-token-create-domain-flag-description",
-    "translation": "指定用户正在登录的域。 本地用户的域是 LOCAL。 对于 LDAP/AD 用户，域将映射到 LDAP 连接字符串。 用户通过用户名和域的组合进行唯一标识。 LOCAL 是默认域。"
+    "translation": "指定用户正在登录的域。 本地用户的域是 LOCAL。 对于 LDAP/AD 用户，域将映射到 LDAP 连接字符串。 用户由用户名和域的组合唯一标识。 LOCAL 是缺省域。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-download-recovery-create-command-long-description",
@@ -337,15 +345,15 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-documents-flag-description",
-    "translation": "使用项目 ID 指定要下载的文档列表。 只能使用 filesAndFolders或文档中的一种。 目前，文档只支持文件。 也可以是 JSON 文件的路径。 最小长度为 1 项。"
+    "translation": "使用项目标识指定要下载的文档列表。 只应使用 filesAndFolders或文档中的一种。 目前，文档只支持文件。 它也可以是 JSON 文件的路径。 最小长度为 1 项。"
   },
   {
     "id": "backup-recovery-download-recovery-create-files-and-folders-flag-description",
-    "translation": "必需。 指定要下载的文件和文件夹列表。 也可以是 JSON 文件的路径。 最小长度为 1 项。"
+    "translation": "必需。 指定要下载的文件和文件夹列表。 它也可以是 JSON 文件的路径。 最小长度为 1 项。"
   },
   {
     "id": "backup-recovery-download-recovery-create-glacier-retrieval-type-flag-description",
-    "translation": "从基于 Glacier 的云快照恢复或下传文件或文件夹时，指定 Glacier 检索类型。 允许的值为：kStandard、kExpeditedNoPCU、kExpeditedWithPCU。"
+    "translation": "指定从基于 Glacier 的云快照复原或下载文件或文件夹时的 Glacier 检索类型。 允许的值为：kStandard、kExpeditedNoPCU、kExpeditedWithPCU。"
   },
   {
     "id": "backup-recovery-download-recovery-create-name-flag-description",
@@ -353,15 +361,15 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-object-flag-description",
-    "translation": "指定受保护对象的常用快照参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定受保护对象的常用快照参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-download-recovery-create-object-point-in-time-usecs-flag-description",
-    "translation": "指定时间戳（以微秒为单位， 从纪元开始），用于恢复到过去的某个时间点。"
+    "translation": "指定用于恢复到过去某个时间点的时间戳，该时间戳单位应为微秒（自纪元时间起）。"
   },
   {
     "id": "backup-recovery-download-recovery-create-object-protection-group-id-flag-description",
-    "translation": "指定对象快照的保护组 ID。"
+    "translation": "指定对象快照的保护组标识。"
   },
   {
     "id": "backup-recovery-download-recovery-create-object-protection-group-name-flag-description",
@@ -369,19 +377,19 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-object-recover-from-standby-flag-description",
-    "translation": "如果此对象启用了待机还原，则指定用户希望执行待机还原。"
+    "translation": "指定用户想要执行待机复原，前提是此对象启用了此功能。"
   },
   {
     "id": "backup-recovery-download-recovery-create-object-snapshot-id-flag-description",
-    "translation": "指定快照 ID。"
+    "translation": "指定快照标识。"
   },
   {
     "id": "backup-recovery-download-recovery-create-parent-recovery-id-flag-description",
-    "translation": "如果当前恢复是通过另一父恢复操作触发的子任务，则此字段将指定父恢复的 ID。 "
+    "translation": "如果当前恢复是通过另一父恢复操作触发的子任务，则此字段将指定父恢复的标识。 "
   },
   {
     "id": "backup-recovery-download-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-indexed-file-download-command-long-description",
@@ -405,11 +413,11 @@
   },
   {
     "id": "backup-recovery-indexed-file-download-retry-attempt-flag-description",
-    "translation": "指定保护运行尝试创建该文件的次数。"
+    "translation": "指定保护运行创建此文件所尝试的次数。"
   },
   {
     "id": "backup-recovery-indexed-file-download-snapshots-id-flag-description",
-    "translation": "必需。 指定要从中进行下载的快照 ID。"
+    "translation": "必需。 指定要从中进行下载的快照标识。"
   },
   {
     "id": "backup-recovery-indexed-file-download-start-offset-flag-description",
@@ -417,7 +425,7 @@
   },
   {
     "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-cassandra-params-cassandra-object-types-flag-description",
@@ -425,7 +433,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-cassandra-params-flag-description",
-    "translation": "在集群上搜索 Cassandra 所需的参数。 也可以是 JSON 文件的路径。"
+    "translation": "在集群上搜索 Cassandra 所需的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-cassandra-params-search-string-flag-description",
@@ -433,11 +441,11 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-cassandra-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-command-long-description",
-    "translation": "列出受保护对象中符合指定搜索和筛选条件的所有索引对象， 如文件和文件夹、电子邮件、邮箱等。"
+    "translation": "列出受保护对象中符合指定搜索和过滤条件的所有索引对象， 如文件和文件夹、电子邮件、邮箱等。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-command-short-description",
@@ -449,7 +457,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-couchbase-params-flag-description",
-    "translation": "在集群上搜索 CouchBase 所需的参数。 也可以是 JSON 文件的路径。"
+    "translation": "在集群上搜索 CouchBase 所需的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-couchbase-params-search-string-flag-description",
@@ -457,7 +465,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-couchbase-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-count-flag-description",
@@ -465,15 +473,15 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-attendees-addresses-flag-description",
-    "translation": "筛选指定电子邮件地址为出席者的日历项。"
+    "translation": "过滤指定电子邮件地址为出席者的日历项。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-bcc-recipient-addresses-flag-description",
-    "translation": "筛选发送到 BCC 中指定电子邮件地址的电子邮件。"
+    "translation": "过滤发送到 BCC 中指定电子邮件地址的电子邮件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-cc-recipient-addresses-flag-description",
-    "translation": "筛选发送到 CC 中指定电子邮件地址的电子邮件。"
+    "translation": "过滤发送到 CC 中指定电子邮件地址的电子邮件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-created-end-time-secs-flag-description",
@@ -493,27 +501,27 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-email-address-flag-description",
-    "translation": "筛选电子邮件地址中包含指定文本的联系人项。"
+    "translation": "过滤电子邮件地址中包含指定文本的联系人项。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-email-subject-flag-description",
-    "translation": "筛选主题中包含指定文本的电子邮件。"
+    "translation": "过滤主题中包含指定文本的电子邮件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-first-name-flag-description",
-    "translation": "筛选姓名中包含指定文本的联系人。"
+    "translation": "过滤名字中包含指定文本的联系人。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-flag-description",
-    "translation": "指定搜索电子邮件和电子邮件文件夹的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定搜索电子邮件和电子邮件文件夹的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-folder-names-flag-description",
-    "translation": "筛选归类到指定文件夹的电子邮件。"
+    "translation": "过滤归类到指定文件夹的电子邮件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-has-attachment-flag-description",
-    "translation": "筛选带有附件的电子邮件。"
+    "translation": "过滤带有附件的电子邮件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-last-modified-end-time-secs-flag-description",
@@ -525,19 +533,19 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-last-name-flag-description",
-    "translation": "筛选姓氏中包含指定文本的联系人。"
+    "translation": "过滤姓氏中包含指定文本的联系人。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-middle-name-flag-description",
-    "translation": "筛选中间名中包含指定文本的联系人。"
+    "translation": "过滤中间名中包含指定文本的联系人。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-o365-params-flag-description",
-    "translation": "指定 O365 环境特定的电子邮件搜索请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定 O365 环境特定的电子邮件搜索请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-organizer-address-flag-description",
-    "translation": "筛选按指定用户的电子邮件地址整理的日历项。"
+    "translation": "过滤按指定用户的电子邮件地址整理的日历项。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-received-end-time-secs-flag-description",
@@ -549,27 +557,27 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-recipient-addresses-flag-description",
-    "translation": "筛选发送到指定电子邮件地址的电子邮件。"
+    "translation": "过滤发送到指定电子邮件地址的电子邮件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-sender-address-flag-description",
-    "translation": "筛选从指定用户的电子邮件地址接收的电子邮件。"
+    "translation": "过滤从指定用户的电子邮件地址接收的电子邮件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-source-environment-flag-description",
-    "translation": "指定源环境。 允许值的为：kO365。"
+    "translation": "指定源环境。 允许的值为：kO365。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-task-status-types-flag-description",
-    "translation": "指定任务项状态类型列表。 将返回状态符合给定类型的任务项。 允许的列表项有 NotStarted、InProgress、 Completed、WaitingOnOthers、Deferred。"
+    "translation": "指定任务项状态类型列表。 将返回状态符合给定类型的任务项。 允许的列表项有 NotStarted、InProgress、Completed、WaitingOnOthers、Deferred。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-email-params-types-flag-description",
-    "translation": "指定邮箱项类型列表。 只返回给定类型中的项。 允许的列表项有：电子邮件、文件夹、日历、联系人、任务、备注。"
+    "translation": "指定邮箱项类型列表。 只返回给定类型中的项。 允许的列表项为：Email、Folder、Calendar、Contact、Task、Note。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-exchange-params-flag-description",
-    "translation": "指定搜索 Exchange 邮箱的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定搜索 Exchange 邮箱的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-exchange-params-search-string-flag-description",
@@ -577,35 +585,35 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-file-params-flag-description",
-    "translation": "指定用于搜索文件和文件夹的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索文件和文件夹的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-file-params-object-ids-flag-description",
-    "translation": "指定对象 ID 列表。 只返回在这些对象中找到的文件。"
+    "translation": "指定对象标识列表。 只返回在这些对象中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-file-params-search-string-flag-description",
-    "translation": "指定用于筛选文件的搜索字符串。 用户可以指定通配符“*”作为字符串的后缀，其中带有该前缀字符串的所有文件名均匹配。"
+    "translation": "指定用于过滤文件的搜索字符串。 用户可以指定通配符“*”作为字符串的后缀，其中带有该前缀字符串的所有文件名均匹配。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-file-params-source-environments-flag-description",
-    "translation": "指定源环境列表。 仅返回这些源类型的文件。 允许的列表项包括：kVMware、kHyperV、kSQL、kView、kRemoteAdapter、kPhysical、kPhysicalFiles、kPure、kIbmFlashSystem、kAzure、kNetapp、kGenericNas、kAcropolis、kIsilon、kGPFS、kKVM、kAWS、kExchange、kOracle、kGCP、kFlashBlade、kO365、 kHyperFlex、kKubernetes、kElastifile、kSAPHANA、kUDA、kSfdc。"
+    "translation": "指定源环境列表。 仅返回这些源类型的文件。 允许的列表项为：kVMware、kHyperV、kSQL、kView、kRemoteAdapter、kPhysical、kPhysicalFiles、kPure、kIbmFlashSystem、kAzure、kNetapp、kGenericNas、kAcropolis、kIsilon、kGPFS、kKVM、kAWS、kExchange、kOracle、kGCP、kFlashBlade、kO365、kHyperFlex、kKubernetes、kElastifile、kSAPHANA、kUDA、kSfdc。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-file-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-file-params-types-flag-description",
-    "translation": "指定文件类型列表。 只返回给定类型中的文件。 允许的列表项包括：文件、目录、Symlink。"
+    "translation": "指定文件类型列表。 只返回给定类型中的文件。 允许的列表项为：File、Directory、Symlink。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hbase-params-flag-description",
-    "translation": "在集群上搜索 Hbase 所需的参数。 也可以是 JSON 文件的路径。"
+    "translation": "在集群上搜索 Hbase 所需的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hbase-params-hbase-object-types-flag-description",
-    "translation": "指定要搜索的一个或多个 Hbase 对象类型。 允许的列表项包括：HbaseNamespaces、HbaseTables。"
+    "translation": "指定要搜索的一个或多个 Hbase 对象类型。 允许的列表项为：HbaseNamespaces、HbaseTables。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hbase-params-search-string-flag-description",
@@ -613,15 +621,15 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-hbase-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hdfs-params-flag-description",
-    "translation": "在集群上搜索 HDFS 所需的参数。 也可以是 JSON 文件的路径。"
+    "translation": "在集群上搜索 HDFS 所需的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hdfs-params-hdfs-types-flag-description",
-    "translation": "将类型指定为要搜索的文件夹和/或文件。 允许的列表项包括：HDFSFolders、HDFSFiles。"
+    "translation": "将类型指定为要搜索的文件夹和/或文件。 允许的列表项为：HDFSFolders、HDFSFiles。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hdfs-params-search-string-flag-description",
@@ -629,15 +637,15 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-hdfs-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hive-params-flag-description",
-    "translation": "在集群上搜索 Hive 所需的参数。 也可以是 JSON 文件的路径。"
+    "translation": "在集群上搜索 Hive 所需的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hive-params-hive-object-types-flag-description",
-    "translation": "指定要搜索的一个或多个 Hive 对象类型。 允许的列表项包括：HiveDatabases、HiveTables、HivePartitions。"
+    "translation": "指定要搜索的一个或多个 Hive 对象类型。 允许的列表项为：HiveDatabases、HiveTables、HivePartitions。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-hive-params-search-string-flag-description",
@@ -645,7 +653,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-hive-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-include-tenants-flag-description",
@@ -661,11 +669,11 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-mongodb-params-flag-description",
-    "translation": "在集群上搜索 Mongo DB所需的参数。 也可以是 JSON 文件的路径。"
+    "translation": "在集群上搜索 Mongo DB所需的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-mongodb-params-mongo-db-object-types-flag-description",
-    "translation": "指定要搜索的一个或多个 MongoDB 对象类型。 允许的列表项包括：MongoDatabases、MongoCollections。"
+    "translation": "指定要搜索的一个或多个 MongoDB 对象类型。 允许的列表项为：MongoDatabases、MongoCollections。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-mongodb-params-search-string-flag-description",
@@ -673,35 +681,35 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-mongodb-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-groups-params-flag-description",
-    "translation": "指定用于搜索组项目的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索组项目的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-groups-params-mailbox-params-flag-description",
-    "translation": "指定用于搜索邮箱项和文件夹的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索邮箱项和文件夹的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-groups-params-o365-params-flag-description",
-    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-groups-params-site-params-flag-description",
-    "translation": "指定用于搜索文档库中文件/文件夹的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索文档库中文件/文件夹的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-category-types-flag-description",
-    "translation": "指定团队文件类型列表。 只返回给定类型中的项。 允许的列表项包括：文档、Excel、Powerpoint、图像、OneNote。"
+    "translation": "指定团队文件类型列表。 只返回给定类型中的项。 允许的列表项为：Document、Excel、Powerpoint、Image、OneNote。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-names-flag-description",
-    "translation": "指定搜索文件时要筛选的通道名称列表。"
+    "translation": "指定搜索文件时要过滤的通道名称列表。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-channel-params-flag-description",
-    "translation": "指定与 Microsoft365 团队通道相关的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定与 Microsoft365 团队通道相关的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-creation-end-time-secs-flag-description",
@@ -713,19 +721,19 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-flag-description",
-    "translation": "指定用于搜索团队项的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索团队项的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-o365-params-flag-description",
-    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-owner-names-flag-description",
-    "translation": "指定所有者电子邮件 ID 列表，用于筛选项的所有者。"
+    "translation": "指定所有者电子邮件标识列表，用于过滤项目的所有者。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-search-string-flag-description",
-    "translation": "指定用于筛选项的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
+    "translation": "指定用于过滤项目的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-size-bytes-lower-limit-flag-description",
@@ -737,7 +745,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-ms-teams-params-types-flag-description",
-    "translation": "指定团队项类型列表。 只返回给定类型中的项。 允许的列表项包括：频道、聊天、对话、文件、文件夹。"
+    "translation": "指定团队项类型列表。 只返回给定类型中的项。 允许的列表项为：Channel、Chat、Conversation、File、Folder。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-must-have-snapshot-tag-ids-flag-description",
@@ -749,11 +757,11 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-object-type-flag-description",
-    "translation": "必需。 指定要搜索的对象类型。 允许的值包括：Emails、Files、CassandraObjects、CouchbaseObjects、HbaseObjects、HiveObjects、MongoObjects、 HDFSObjects、ExchangeObjects、PublicFolders、GroupsObjects、TeamsObjects、SharepointObjects、OneDriveObjects、UdaObjects、SfdcRecords。"
+    "translation": "必需。 指定要搜索的对象类型。 允许的值为：Emails、Files、CassandraObjects、CouchbaseObjects、HbaseObjects、HiveObjects、MongoObjects、HDFSObjects、ExchangeObjects、PublicFolders、GroupsObjects、TeamsObjects、SharepointObjects、OneDriveObjects、UdaObjects、SfdcRecords。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-category-types-flag-description",
-    "translation": "指定文档库类型列表。 只返回给定类型中的项。 允许的列表项包括：文档、Excel、Powerpoint、图像、OneNote。"
+    "translation": "指定文档库类型列表。 只返回给定类型中的项。 允许的列表项为：Document、Excel、Powerpoint、Image、OneNote。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-creation-end-time-secs-flag-description",
@@ -765,7 +773,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-flag-description",
-    "translation": "指定用于搜索文档库中文件/文件夹的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索文档库中文件/文件夹的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-include-files-flag-description",
@@ -777,15 +785,15 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-o365-params-flag-description",
-    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-owner-names-flag-description",
-    "translation": "指定所有者名称列表，以筛选文件/文件夹的所有者。"
+    "translation": "指定所有者名称列表，以过滤文件/文件夹的所有者。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-search-string-flag-description",
-    "translation": "指定用于筛选文件/文件夹的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
+    "translation": "指定用于过滤文件/文件夹的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-one-drive-params-size-bytes-lower-limit-flag-description",
@@ -801,23 +809,23 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-protection-group-ids-flag-description",
-    "translation": "指定保护组 ID 列表，以筛选索引对象。 如果指定，将返回以指定保护组 ID 为索引的对象。"
+    "translation": "指定保护组标识列表，以过滤索引对象。 如果指定，将返回以指定保护组标识为索引的对象。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-bcc-recipient-addresses-flag-description",
-    "translation": "筛选发送到 BCC 中指定电子邮件地址的公共文件夹项。 "
+    "translation": "过滤发送到 BCC 中指定电子邮件地址的公共文件夹项。 "
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-cc-recipient-addresses-flag-description",
-    "translation": "筛选发送到 CC 中指定电子邮件地址的公共文件夹项。 "
+    "translation": "过滤发送到 CC 中指定电子邮件地址的公共文件夹项。 "
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-flag-description",
-    "translation": "指定用于搜索公共文件夹项的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索公共文件夹项的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-has-attachment-flag-description",
-    "translation": "筛选带有附加的公共文件夹项。"
+    "translation": "过滤带有附加的公共文件夹项。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-received-end-time-secs-flag-description",
@@ -829,27 +837,27 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-recipient-addresses-flag-description",
-    "translation": "筛选发送到指定电子邮件地址的公共文件夹项。 "
+    "translation": "过滤发送到指定电子邮件地址的公共文件夹项。 "
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-search-string-flag-description",
-    "translation": "指定用于筛选项的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
+    "translation": "指定用于过滤项目的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-sender-address-flag-description",
-    "translation": "筛选从指定用户的电子邮件地址接收的公共文件夹项。 "
+    "translation": "过滤从指定用户的电子邮件地址接收的公共文件夹项。 "
   },
   {
     "id": "backup-recovery-indexed-objects-search-public-folder-params-types-flag-description",
-    "translation": "指定公共文件夹项类型的列表。 只返回给定类型中的项。 允许的列表项包括：日历、联系人、帖子、文件夹、任务、日志、备注。"
+    "translation": "指定公共文件夹项类型的列表。 只返回给定类型中的项。 允许的列表项为：Calendar、Contact、Post、Folder、Task、Journal、Note。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sfdc-params-flag-description",
-    "translation": "指定搜索 Salesforce 记录的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定搜索 Salesforce 记录的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sfdc-params-mutation-types-flag-description",
-    "translation": "指定对象的突变类型列表。 允许的列表项包括：全部、已添加、已删除、已更改。"
+    "translation": "指定对象的突变类型列表。 允许的列表项为：All、Added、Removed、Changed。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sfdc-params-object-name-flag-description",
@@ -861,11 +869,11 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-sfdc-params-snapshot-id-flag-description",
-    "translation": "指定对象快照的 ID。"
+    "translation": "指定对象快照的标识。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-category-types-flag-description",
-    "translation": "指定文档库类型列表。 只返回给定类型中的项。 允许的列表项包括：文档、Excel、Powerpoint、图像、OneNote。"
+    "translation": "指定文档库类型列表。 只返回给定类型中的项。 允许的列表项为：Document、Excel、Powerpoint、Image、OneNote。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-creation-end-time-secs-flag-description",
@@ -877,7 +885,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-flag-description",
-    "translation": "指定用于搜索文档库中文件/文件夹的请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索文档库中文件/文件夹的请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-include-files-flag-description",
@@ -889,15 +897,15 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-o365-params-flag-description",
-    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于搜索索引项的 O365 特定参数搜索请求参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-owner-names-flag-description",
-    "translation": "指定所有者名称列表，以筛选文件/文件夹的所有者。"
+    "translation": "指定所有者名称列表，以过滤文件/文件夹的所有者。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-search-string-flag-description",
-    "translation": "指定用于筛选文件/文件夹的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
+    "translation": "指定用于过滤文件/文件夹的搜索字符串。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有项名称均匹配。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-sharepoint-params-size-bytes-lower-limit-flag-description",
@@ -913,7 +921,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-storage-domain-ids-flag-description",
-    "translation": "指定存储域 ID，以筛选保护组将数据写入指定存储域上的 Cohesity 视图的索引对象。"
+    "translation": "指定存储域 ID，以过滤保护组将数据写入指定存储域上的 Cohesity 视图的索引对象。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-tags-flag-description",
@@ -921,11 +929,11 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-tenant-id-flag-description",
-    "translation": "TenantId 包含要返回对象的租户 ID。"
+    "translation": "TenantId 包含要返回对象的租户标识。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-uda-params-flag-description",
-    "translation": "搜索通用数据适配器对象所需的参数。 也可以是 JSON 文件的路径。"
+    "translation": "搜索通用数据适配器对象所需的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-uda-params-search-string-flag-description",
@@ -933,15 +941,15 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-uda-params-source-ids-flag-description",
-    "translation": "指定源 ID 列表。 只返回在这些源中找到的文件。"
+    "translation": "指定源标识列表。 只返回在这些源中找到的文件。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-use-cached-data-flag-description",
-    "translation": "指定我们是否能从读取副本缓存中处理 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
+    "translation": "指定我们是否可以处理来自读取副本缓存的 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-long-description",
@@ -957,51 +965,51 @@
   },
   {
     "id": "backup-recovery-object-snapshots-list-from-time-usecs-flag-description",
-    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于筛选在此值之后拍摄的对象快照。"
+    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于过滤在此值之后拍摄的对象快照。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-id-flag-description",
-    "translation": "必需。 指定对象的 ID。"
+    "translation": "必需。 指定对象的标识。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-object-action-keys-flag-description",
-    "translation": "按 ObjectActionKey  筛选， 该筛选条件唯一表示了对象的保护。 一个对象可通过多种方式受到保护，但对于指定的 ObjectActionKey 组合，最多只能受到一次保护。 指定后，相应对象只返回与给定操作关键字匹配的快照。 允许的列表项包括：kVMware、kHyperV、kVCD、kAzure、kGCP、kKVM、kAcropolis、kAWS、kAWSNative、kAwsS3、kAWSSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsRDSPostgresBackup、kAwsRDSPostgres、kAwsAuroraPostgres、kAzureNative、kAzureSQL、kAzureSnapshotManager、kPhysical、kPhysicalFiles、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPure、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kO365PublicFolders、kO365Teams、kO365Group、kO365Exchange、kO365OneDrive、kO365Sharepoint、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kHBase、kSAPHANA、kUDA、kSfdc、kO365ExchangeCSM、kO365OneDriveCSM、kO365SharepointCSM。"
+    "translation": "按 ObjectActionKey  过滤，该过滤条件唯一表示了对象的保护。 一个对象可通过多种方式受到保护，但对于指定的 ObjectActionKey 组合，最多只能受到一次保护。 指定后，相应对象只返回与给定操作关键字匹配的快照。 允许的列表项为：kVMware、kHyperV、kVCD、kAzure、kGCP、kKVM、kAcropolis、kAWS、kAWSNative、kAwsS3、kAWSSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsRDSPostgresBackup、kAwsRDSPostgres、kAwsAuroraPostgres、kAzureNative、kAzureSQL、kAzureSnapshotManager、kPhysical、kPhysicalFiles、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPure、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kO365PublicFolders、kO365Teams、kO365Group、kO365Exchange、kO365OneDrive、kO365Sharepoint、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kHBase、kSAPHANA、kUDA、kSfdc、kO365ExchangeCSM、kO365OneDriveCSM、kO365SharepointCSM。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-protection-group-ids-flag-description",
-    "translation": "如果指定，则仅返回指定对象 ID 的快照，这些快照属于提供的保护组 ID。"
+    "translation": "如果指定，则仅返回指定对象标识的快照，这些快照属于提供的保护组标识。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-region-ids-flag-description",
-    "translation": "根据区域 ID 列表进行筛选。"
+    "translation": "按区域标识列表过滤。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-run-instance-ids-flag-description",
-    "translation": "根据运行实例 ID 列表进行筛选。 如果指定，将只返回这些保护运行所创建的快照。"
+    "translation": "按运行实例标识列表过滤。 如果指定，将只返回这些保护运行所创建的快照。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-run-start-from-time-usecs-flag-description",
-    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于筛选在此值之后运行的对象快照。"
+    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于过滤在此值之后运行的对象快照。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-run-start-to-time-usecs-flag-description",
-    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于筛选在此值之前运行的对象快照。"
+    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于过滤在此值之前运行的对象快照。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-run-types-flag-description",
-    "translation": "按运行类型筛选。 只返回符合指定类型的保护运行。 默认情况下，不包括 CDP 水合快照，除非使用此字段明确查询。 允许的列表项包括：kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot。"
+    "translation": "按运行类型过滤。 只返回符合指定类型的保护运行。 缺省情况下，不包括 CDP 水合快照，除非使用此字段明确查询。 允许的列表项为：kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-snapshot-actions-flag-description",
-    "translation": "指定恢复操作列表。 只返回适用于这些操作的快照。 允许的列表项包括：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM。"
+    "translation": "指定恢复操作列表。 只返回适用于这些操作的快照。 允许的列表项为：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-to-time-usecs-flag-description",
-    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于筛选在此值之前拍摄的对象快照。"
+    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于过滤在此值之前拍摄的对象快照。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-objects-search-cluster-identifiers-flag-description",
@@ -1021,15 +1029,15 @@
   },
   {
     "id": "backup-recovery-objects-search-environments-flag-description",
-    "translation": "指定用于筛选对象的环境类型。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "指定用于过滤对象的环境类型。 允许的列表项为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-objects-search-external-filters-flag-description",
-    "translation": "指定用于筛选搜索结果的键值对。 每个筛选器的形式均为“key:value”。 筛选器”externalFilters:k1:v1&externalFilters:k2:v2&externalFilters:k2:v3“会返回文档，其中每个文档都符合查询条件 (k1=v1) AND (k2=v2 OR k2 = v3)。 允许的键：- vmBiosUuid - graphUuid - arn - instanceId - bucketName - azureId。"
+    "translation": "指定用于过滤搜索结果的键值对。 每个过滤器的形式均为“key:value”。 过滤器”externalFilters:k1:v1&externalFilters:k2:v2&externalFilters:k2:v3“会返回文档，其中每个文档都符合查询条件 (k1=v1) AND (k2=v2 OR k2 = v3)。 允许的键：- vmBiosUuid - graphUuid - arn - instanceId - bucketName - azureId。"
   },
   {
     "id": "backup-recovery-objects-search-include-deleted-objects-flag-description",
-    "translation": "指定是否在响应中包含已删除的对象。 这些对象无法保护，但可以恢复。 不推荐使用此字段。"
+    "translation": "指定是否在响应中包含已删除的对象。 这些对象无法保护，但可以恢复。 此字段已弃用。"
   },
   {
     "id": "backup-recovery-objects-search-include-helios-tag-info-for-objects-flag-description",
@@ -1045,7 +1053,7 @@
   },
   {
     "id": "backup-recovery-objects-search-last-run-status-list-flag-description",
-    "translation": "指定对象上次运行保护时的状态列表。 仅返回最后运行状态为这些的对象。 允许的项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、LegalHold。"
+    "translation": "指定对象上次运行保护时的状态列表。 仅返回最后运行状态为这些的对象。 允许的列表项为：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、LegalHold。"
   },
   {
     "id": "backup-recovery-objects-search-might-have-snapshot-tag-ids-flag-description",
@@ -1065,11 +1073,11 @@
   },
   {
     "id": "backup-recovery-objects-search-object-ids-flag-description",
-    "translation": "指定要筛选的对象 ID 列表。"
+    "translation": "指定要过滤的对象标识列表。"
   },
   {
     "id": "backup-recovery-objects-search-os-types-flag-description",
-    "translation": "指定筛选对象所在的操作系统类型。 允许的列表项包括：kLinux、kWindows。"
+    "translation": "指定过滤对象所在的操作系统类型。 允许的列表项为：kLinux、kWindows。"
   },
   {
     "id": "backup-recovery-objects-search-pagination-cookie-flag-description",
@@ -1077,51 +1085,51 @@
   },
   {
     "id": "backup-recovery-objects-search-protection-group-ids-flag-description",
-    "translation": "指定保护组 ID 列表，以筛选对象。 如果指定，将返回指定保护组 ID 所保护的对象。"
+    "translation": "指定保护组标识列表，以过滤对象。 如果指定，将返回指定保护组标识所保护的对象。"
   },
   {
     "id": "backup-recovery-objects-search-protection-types-flag-description",
-    "translation": "指定用于筛选对象的保护类型。 允许的列表项包括：kAgent、kNative、kSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsS3、kAwsRDSPostgresBackup、kAwsAuroraPostgres、kAwsRDSPostgres、kAzureSQL、kFile、kVolume。"
+    "translation": "指定用于过滤对象的保护类型。 允许的列表项为：kAgent、kNative、kSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsS3、kAwsRDSPostgresBackup、kAwsAuroraPostgres、kAwsRDSPostgres、kAzureSQL、kFile、kVolume。"
   },
   {
     "id": "backup-recovery-objects-search-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-objects-search-search-string-flag-description",
-    "translation": "指定用于筛选对象的搜索字符串。 该搜索字符串将适用于 ObjectName。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有对象名称均匹配。 例如，如果 vm1 和 vm2 是对象的名称，用户可以指定 vm* 来列出对象。 如果未指定，则将返回符合其他筛选条件的所有对象。"
+    "translation": "指定用于过滤对象的搜索字符串。 该搜索字符串将适用于 ObjectName。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有对象名称均匹配。 例如，如果 vm1 和 vm2 是对象的名称，用户可以指定 vm* 来列出对象。 如果未指定，则将返回符合其他过滤条件的所有对象。"
   },
   {
     "id": "backup-recovery-objects-search-source-ids-flag-description",
-    "translation": "指定保护源对象 ID 列表，以筛选对象。 如果指定，将返回这些源中存在的对象。"
+    "translation": "指定保护源对象标识列表，以过滤对象。 如果指定，将返回这些源中存在的对象。"
   },
   {
     "id": "backup-recovery-objects-search-source-uuids-flag-description",
-    "translation": "指定保护源对象 UUID 列表，以筛选对象。 如果指定，将返回这些源中存在的对象。"
+    "translation": "指定保护源对象 UUID 列表，以过滤对象。 如果指定，将返回这些源中存在的对象。"
   },
   {
     "id": "backup-recovery-objects-search-tag-categories-flag-description",
-    "translation": "指定用于筛选对象和快照的标记类别。 允许的列表项包括：Security。"
+    "translation": "指定用于过滤对象和快照的标记类别。 允许的列表项为：Security。"
   },
   {
     "id": "backup-recovery-objects-search-tag-names-flag-description",
-    "translation": "指定用于筛选标记对象和快照的标记名称。"
+    "translation": "指定用于过滤标记对象和快照的标记名称。"
   },
   {
     "id": "backup-recovery-objects-search-tag-search-name-flag-description",
-    "translation": "指定用于筛选标记对象和快照的标记名称。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有对象标记名称均匹配。"
+    "translation": "指定用于过滤标记对象和快照的标记名称。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有对象标记名称均匹配。"
   },
   {
     "id": "backup-recovery-objects-search-tag-sub-categories-flag-description",
-    "translation": "指定用于筛选对象和快照的标记子类别。 允许的列表项包括：Classification、Threats、Anomalies、Dspm。"
+    "translation": "指定用于过滤对象和快照的标记子类别。 允许的列表项为：Classification、Threats、Anomalies、Dspm。"
   },
   {
     "id": "backup-recovery-objects-search-tag-types-flag-description",
-    "translation": "指定用于筛选标记对象和快照的标记名称。 允许的列表项包括：System、Custom、ThirdParty。"
+    "translation": "指定用于过滤标记对象和快照的标记名称。 允许的列表项为：System、Custom、ThirdParty。"
   },
   {
     "id": "backup-recovery-objects-search-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protected-objects-search-cdp-protected-only-flag-description",
@@ -1129,7 +1137,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-command-long-description",
-    "translation": "列出已注册源中根据指定的查询参数筛选的受保护对象和相应的详细信息。 如果没有指定搜索模式或筛选参数，则会返回当前找到的所有受保护对象。"
+    "translation": "列出已注册源中根据指定的查询参数过滤的受保护对象和相应的详细信息。 如果没有指定搜索模式或过滤参数，则会返回当前找到的所有受保护对象。"
   },
   {
     "id": "backup-recovery-protected-objects-search-command-short-description",
@@ -1137,51 +1145,51 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-environments-flag-description",
-    "translation": "指定用于筛选对象的环境类型。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "指定用于过滤对象的环境类型。 允许的列表项为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protected-objects-search-filter-snapshot-from-usecs-flag-description",
-    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于筛选在该值后具有成功快照的对象。"
+    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于过滤在该值后具有成功快照的对象。"
   },
   {
     "id": "backup-recovery-protected-objects-search-filter-snapshot-to-usecs-flag-description",
-    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于筛选在该值前具有成功快照的对象。"
+    "translation": "以微秒为单位指定 Unix 时间纪元的时间戳，用于过滤在该值前具有成功快照的对象。"
   },
   {
     "id": "backup-recovery-protected-objects-search-object-action-key-flag-description",
-    "translation": "按 ObjectActionKey  筛选， 该筛选条件唯一表示了对象的保护。 一个对象可通过多种方式受到保护，但对于指定的 ObjectActionKey 组合，最多只能受到一次保护。 指定后，与 objectActionKey 匹配的最新快照信息将用于相应对象。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "按 ObjectActionKey  过滤，该过滤条件唯一表示了对象的保护。 一个对象可通过多种方式受到保护，但对于指定的 ObjectActionKey 组合，最多只能受到一次保护。 指定后，与 objectActionKey 匹配的最新快照信息将用于相应对象。 允许的值为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protected-objects-search-object-ids-flag-description",
-    "translation": "指定要筛选的对象 ID 列表。"
+    "translation": "指定要过滤的对象标识列表。"
   },
   {
     "id": "backup-recovery-protected-objects-search-os-types-flag-description",
-    "translation": "指定筛选对象所在的操作系统类型。 允许的列表项包括：kLinux、kWindows。"
+    "translation": "指定过滤对象所在的操作系统类型。 允许的列表项为：kLinux、kWindows。"
   },
   {
     "id": "backup-recovery-protected-objects-search-protection-group-ids-flag-description",
-    "translation": "指定保护组 ID 列表，以筛选对象。 如果指定，将返回指定保护组 ID 所保护的对象。"
+    "translation": "指定保护组标识列表，以过滤对象。 如果指定，将返回指定保护组标识所保护的对象。"
   },
   {
     "id": "backup-recovery-protected-objects-search-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-protected-objects-search-run-instance-ids-flag-description",
-    "translation": "指定运行实例 ID 列表。 如果指定，将只返回属于所提供运行 ID 的对象。"
+    "translation": "指定运行实例标识列表。 如果指定，将只返回属于所提供运行标识的对象。"
   },
   {
     "id": "backup-recovery-protected-objects-search-search-string-flag-description",
-    "translation": "指定用于筛选对象的搜索字符串。 该搜索字符串适用于对象名称和保护组名称。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有对象及其保护组名称均匹配。 例如，如果 vm1 和 vm2 是对象的名称，用户可以指定 vm* 来列出对象。 如果未指定，则将返回符合其他筛选条件的所有对象及保护组。"
+    "translation": "指定用于过滤对象的搜索字符串。 该搜索字符串适用于对象名称和保护组名称。 用户可以指定通配符\"*\"作为字符串的后缀，其中带有该前缀字符串的所有对象及其保护组名称均匹配。 例如，如果 vm1 和 vm2 是对象的名称，用户可以指定 vm* 来列出对象。 如果未指定，则将返回符合其他过滤条件的所有对象及保护组。"
   },
   {
     "id": "backup-recovery-protected-objects-search-snapshot-actions-flag-description",
-    "translation": "指定恢复操作列表。 只返回适用于这些操作的快照。 允许的列表项包括：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM。"
+    "translation": "指定恢复操作列表。 只返回适用于这些操作的快照。 允许的列表项为：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、MountVolumes、RecoverVApps、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverSanVolumes、RecoverNamespaces、RecoverObjects、DownloadFilesAndFolders、RecoverPublicFolders、RecoverVAppTemplates、RecoverMailbox、RecoverOneDrive、RecoverMsTeam、RecoverMsGroup、RecoverSharePoint、ConvertToPst、RecoverSfdcRecords、RecoverAzureSQL、DownloadChats、RecoverRDSPostgres、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM。"
   },
   {
     "id": "backup-recovery-protected-objects-search-source-ids-flag-description",
-    "translation": "指定保护源对象 ID 列表，以筛选对象。 如果指定，将返回这些源中存在的对象。"
+    "translation": "指定保护源对象标识列表，以过滤对象。 如果指定，将返回这些源中存在的对象。"
   },
   {
     "id": "backup-recovery-protected-objects-search-sub-result-size-flag-description",
@@ -1189,7 +1197,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-use-cached-data-flag-description",
-    "translation": "指定我们是否能从读取副本缓存中处理 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
+    "translation": "指定我们是否可以向读取副本缓存提供 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
   },
   {
     "id": "backup-recovery-users-command-short-description",
@@ -1217,23 +1225,23 @@
   },
   {
     "id": "backup-recovery-users-all-under-hierarchy-flag-description",
-    "translation": "AllUnderHierarchy 指定是否应返回登录用户所在组织层次结构下所有租户的对象。TenantIds 包含要返回对象的租户标识。"
+    "translation": "AllUnderHierarchy 指定是否应返回登录用户的组织层次结构下所有租户的对象。TenantIds 包含要返回对象的租户标识。"
   },
   {
     "id": "backup-recovery-users-usernames-flag-description",
-    "translation": "可选择指定用户名列表进行过滤。 将返回包含用户名的所有用户。"
+    "translation": "可选择指定用户名列表作为过滤依据。 将返回包含用户名的所有用户。"
   },
   {
     "id": "backup-recovery-users-email-addresses-flag-description",
-    "translation": "可选择指定电子邮件地址列表进行过滤。"
+    "translation": "可选择指定电子邮件地址列表作为过滤依据。"
   },
   {
     "id": "backup-recovery-users-domain-flag-description",
-    "translation": "可选择指定域进行过滤。 如果未指定域，则会搜索 Cohesity 集群上的所有用户。 如果指定了域，则仅搜索与该域相关的 Cohesity 集群上的用户。"
+    "translation": "可选择指定域作为过滤依据。 如果未指定域，则会搜索 Cohesity 集群上的所有用户。 如果指定了域，则仅搜索与该域关联的 Cohesity 集群上的用户。"
   },
   {
     "id": "backup-recovery-users-partial-match-flag-description",
-    "translation": "可选择指定是否启用部分匹配。 如果进行了设置，则将返回名称中包含用户名的所有用户。 如果设置为 false，则仅返回名称与用户名完全相同的用户。 默认情况下，此参数设置为 true。"
+    "translation": "可选择指定是否启用部分匹配。 如果进行了设置，则将返回名称中包含用户名的所有用户。 如果设置为 false，则仅返回名称与用户名完全相同的用户。 缺省情况下，此参数设置为 true。"
   },
   {
     "id": "backup-recovery-user-update-command-short-description",
@@ -1249,7 +1257,7 @@
   },
   {
     "id": "backup-recovery-user-update-ad-user-info-flag-description",
-    "translation": "指定使用活动目录登录的 AD 用户信息。 这些信息不会被存储在集群中。 也可以是 JSON 文件的路径。"
+    "translation": "指定使用活动目录登录的 AD 用户信息。 这些信息不会被存储在集群中。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-additional-group-names-flag-description",
@@ -1261,19 +1269,19 @@
   },
   {
     "id": "backup-recovery-user-update-audit-log-settings-flag-description",
-    "translation": "AuditLogSettings 指定了带有审计日志配置的结构。 在进行这些设置时，当 bb 不存在时，集群默认值应为零。 也可以是 JSON 文件的路径。"
+    "translation": "AuditLogSettings 指定了带有审计日志配置的结构。 在进行这些设置时，当 bb 不存在时，集群缺省值应为零。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-authentication-type-flag-description",
-    "translation": "指定用户的身份验证类型。 'kAuthLocal' 表示经过身份验证的用户是本地用户。 'kAuthAd' 表示经过身份验证的用户是 Active Directory 用户。 'kAuthSalesforce' 表示经过身份验证的用户是 Salesforce 用户。 'kAuthGoogle' 表示经过身份验证的用户是 Google 用户。 'kAuthSso' 表示经过身份验证的用户是 SSO 用户。 允许值为：kAuthLocal, kAuthAd, kAuthSalesforce, kAuthGoogle, kAuthSso。"
+    "translation": "指定用户的身份验证类型。 'kAuthLocal' 表示经过身份验证的用户是本地用户。 'kAuthAd' 表示经过身份验证的用户是 Active Directory 用户。 'kAuthSalesforce' 表示经过身份验证的用户是 Salesforce 用户。 'kAuthGoogle' 表示经过身份验证的用户是 Google 用户。 'kAuthSso' 表示经过身份验证的用户是 SSO 用户。 允许的值为：kAuthLocal, kAuthAd, kAuthSalesforce, kAuthGoogle, kAuthSso。"
   },
   {
     "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
-    "translation": "指定此用户可访问的集群列表。 如果未指定，则将授予对所有集群的访问权限。 也可以是 JSON 文件的路径。"
+    "translation": "指定此用户可访问的集群列表。 如果未指定，则将授予对所有集群的访问权限。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-created-time-msecs-flag-description",
-    "translation": "指定用户账户在 Cohesity 集群上创建的戳记时间（以毫秒为单位）。"
+    "translation": "指定用户帐户在 Cohesity 集群上创建的戳记时间（以毫秒为单位）。"
   },
   {
     "id": "backup-recovery-user-update-current-password-flag-description",
@@ -1285,7 +1293,7 @@
   },
   {
     "id": "backup-recovery-user-update-domain-flag-description",
-    "translation": "指定 Active Directory 的完全限定域名 (FQDN) 或 Cohesity 集群上默认 LOCAL 域的 LOCAL。 用户通过用户名和域的组合进行唯一标识。"
+    "translation": "指定 Active Directory 的完全限定域名 (FQDN) 或 Cohesity 集群上缺省 LOCAL 域的 LOCAL。 用户通过用户名和域的组合进行唯一标识。"
   },
   {
     "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
@@ -1305,11 +1313,11 @@
   },
   {
     "id": "backup-recovery-user-update-google-account-flag-description",
-    "translation": "Helios BaaS 用户的 Google 账户信息。 也可以是 JSON 文件的路径。"
+    "translation": "Google 管理控制台 BRS 用户的账户信息。 也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-idp-user-info-flag-description",
-    "translation": "指定使用 IdP 登录的 IdP 用户信息。 这些信息不会被存储在集群中。 也可以是 JSON 文件的路径。"
+    "translation": "指定使用 IdP 登录的 IdP 用户信息。 这些信息不会被存储在集群中。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
@@ -1317,11 +1325,11 @@
   },
   {
     "id": "backup-recovery-user-update-is-account-locked-flag-description",
-    "translation": "指定用户账户是否已被锁定。"
+    "translation": "指定用户帐户是否已被锁定。"
   },
   {
     "id": "backup-recovery-user-update-is-active-flag-description",
-    "translation": "IsActive 指定用户是否处于活跃状态，或已被客户停用。 默认行为是 'true'。"
+    "translation": "IsActive 指定用户是否处于活跃状态，或已被客户停用。 缺省行为是 'true'。"
   },
   {
     "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
@@ -1329,11 +1337,11 @@
   },
   {
     "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
-    "translation": "指定用户账户在 Cohesity 集群上最后一次修改的戳记时间（以毫秒为单位）。"
+    "translation": "指定用户帐户在 Cohesity 集群上最后一次修改的戳记时间（以毫秒为单位）。"
   },
   {
     "id": "backup-recovery-user-update-mfa-info-flag-description",
-    "translation": "指定有关 MFA 的信息。 也可以是 JSON 文件的路径。"
+    "translation": "指定有关 MFA 的信息。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-mfa-methods-flag-description",
@@ -1345,7 +1353,7 @@
   },
   {
     "id": "backup-recovery-user-update-org-membership-flag-description",
-    "translation": "OrgMembership 包含该用户可切换到的所有可用 tenantIds 的列表。 只有在创建会话用户时，该字段才会动态填入。 我们从分配给用户的不同组中，找到了 tenantIds。 也可以是 JSON 文件的路径。"
+    "translation": "OrgMembership 包含该用户可切换到的所有可用 tenantIds 的列表。 只有在创建会话用户时，该字段才会动态填入。 我们从分配给用户的不同组中，找到了 tenantIds。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-password-flag-description",
@@ -1353,7 +1361,7 @@
   },
   {
     "id": "backup-recovery-user-update-preferences-flag-description",
-    "translation": "指定此用户的偏好。 也可以是 JSON 文件的路径。"
+    "translation": "指定此用户的偏好。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
@@ -1365,11 +1373,11 @@
   },
   {
     "id": "backup-recovery-user-update-privilege-ids-flag-description",
-    "translation": "指定来自角色的 Cohesity 权限。 这将根据角色中所有权限的并集填充。 输入唯一特权标识值。 以下所有枚举值均为 Cohesity 中所有唯一定义的权限指定了一个值。 允许的列表项目有：kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease。"
+    "translation": "指定来自角色的 Cohesity 权限。 这将根据角色中所有权限的并集填充。 输入唯一特权标识值。 以下所有枚举值均为 Cohesity 中所有唯一定义的权限指定了一个值。 允许的列表项为：kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease。"
   },
   {
     "id": "backup-recovery-user-update-profiles-flag-description",
-    "translation": "指定用户档案。 注：- 目前用于 Helios。 也可以是 JSON 文件的路径。"
+    "translation": "指定用户档案。 注意：当前用于管理控制台。 也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-restricted-flag-description",
@@ -1381,19 +1389,19 @@
   },
   {
     "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
-    "translation": "指定 S3 账户访问密钥标识。"
+    "translation": "指定 S3 帐户访问密钥标识。"
   },
   {
     "id": "backup-recovery-user-update-s3-account-id-flag-description",
-    "translation": "指定 S3 账户规范用户标识。"
+    "translation": "指定 S3 帐户规范用户标识。"
   },
   {
     "id": "backup-recovery-user-update-s3-secret-key-flag-description",
-    "translation": "指定 S3 账户密钥。"
+    "translation": "指定 S3 帐户密钥。"
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-flag-description",
-    "translation": "Helios 用户的 Salesforce 账户信息。 也可以是 JSON 文件的路径。"
+    "translation": "管理控制台用户的 Salesforce 账户信息。 也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-sid-flag-description",
@@ -1401,15 +1409,15 @@
   },
   {
     "id": "backup-recovery-user-update-spog-context-flag-description",
-    "translation": "SpogContext 指定执行在此集群执行操作的用户和集群的所有相关信息。 也可以是 JSON 文件的路径。"
+    "translation": "SpogContext 指定执行在此集群执行操作的用户和集群的所有相关信息。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-flag-description",
-    "translation": "将其扩展到包括 Helios、DRaaS 和 DSaaS。 也可以是 JSON 文件的路径。"
+    "translation": "将其扩展到包括 Helios、DRaaS 和 DSaaS。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-tenant-accesses-flag-description",
-    "translation": "指定 MCM 用户的租户访问权限。 也可以是 JSON 文件的路径。"
+    "translation": "指定 MCM 用户的租户访问权限。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-tenant-id-flag-description",
@@ -1437,7 +1445,7 @@
   },
   {
     "id": "backup-recovery-user-update-google-account-account-id-flag-description",
-    "translation": "指定由 Google 分配的账户标识。"
+    "translation": "指定由 Google 分配的帐户标识。"
   },
   {
     "id": "backup-recovery-user-update-google-account-user-id-flag-description",
@@ -1481,11 +1489,11 @@
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
-    "translation": "指定由 Salesforce 分配的账户标识。"
+    "translation": "指定由 Salesforce 分配的帐户标识。"
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
-    "translation": "指定 Helios 访问的状态。"
+    "translation": "指定管理控制台访问的状态。"
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
@@ -1529,43 +1537,43 @@
   },
   {
     "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
-    "translation": "ClassificationInfo 保存有关 Datahawk 分类订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "ClassificationInfo 保存有关 Datahawk 分类订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
-    "translation": "DMaaSSubscriptionInfo 保存有关数据保护订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "DMaaSSubscriptionInfo 保存有关数据保护订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
-    "translation": "ClassificationInfo 保存有关 Datahawk 分类订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "ClassificationInfo 保存有关 Datahawk 分类订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
-    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
-    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
-    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "FortKnoxInfo 保存有关 Fortknox Azure 或 Azure FreeTrial 或 AwsCold 或 AwsCold FreeTrial 订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
-    "translation": "RansomwareInfo 保存有关 FortKnox/FortKnoxFreeTrial 订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "RansomwareInfo 保存有关 FortKnox/FortKnoxFreeTrial 订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
-    "translation": "SiteContinuityInfo 保存有关网站连续订阅的信息，例如订阅是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "SiteContinuityInfo 保存有关网站连续订阅的信息，例如订阅是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
-    "translation": "ThreatProtectionInfo 保存有关 Datahawk ThreatProtection 订阅的信息，例如它是否处于活动状态。 也可以是 JSON 文件的路径。"
+    "translation": "ThreatProtectionInfo 保存有关 Datahawk ThreatProtection 订阅的信息，例如它是否处于活动状态。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-create-abort-in-blackouts-flag-description",
@@ -1573,19 +1581,19 @@
   },
   {
     "id": "backup-recovery-protection-group-create-advanced-configs-flag-description",
-    "translation": "指定保护作业的高级配置。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护作业的高级配置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-alert-policy-alert-targets-flag-description",
-    "translation": "指定接收警报的目标列表。 也可以是 JSON 文件的路径。"
+    "translation": "指定接收警报的目标列表。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-alert-policy-backup-run-status-flag-description",
-    "translation": "指定用户希望接收警报的运行状态。 允许的列表项包括：kSuccess、kFailure、kSlaViolation、kWarning。 最小长度为 1 项。"
+    "translation": "指定用户希望接收警报的运行状态。 允许的列表项为：kSuccess、kFailure、kSlaViolation、kWarning。 最小长度为 1 项。"
   },
   {
     "id": "backup-recovery-protection-group-create-alert-policy-flag-description",
-    "translation": "指定提醒用户注意保护组状态的策略。 也可以是 JSON 文件的路径。"
+    "translation": "指定提醒用户注意保护组状态的策略。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
@@ -1617,7 +1625,7 @@
   },
   {
     "id": "backup-recovery-protection-group-create-environment-flag-description",
-    "translation": "必需。 指定保护组的环境类型。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "必需。 指定保护组的环境类型。 允许的值为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protection-group-create-is-paused-flag-description",
@@ -1629,23 +1637,23 @@
   },
   {
     "id": "backup-recovery-protection-group-create-mssql-params-file-protection-type-params-flag-description",
-    "translation": "指定参数以创建基于文件的 MSSQL 保护组。 也可以是 JSON 文件的路径。"
+    "translation": "指定参数以创建基于文件的 MSSQL 保护组。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-mssql-params-flag-description",
-    "translation": "指定 MSSQL 保护组的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定 MSSQL 保护组的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-mssql-params-native-protection-type-params-flag-description",
-    "translation": "指定参数以创建基于本机的 MSSQL 保护组。 也可以是 JSON 文件的路径。"
+    "translation": "指定参数以创建基于本机的 MSSQL 保护组。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-mssql-params-protection-type-flag-description",
-    "translation": "指定 MSSQL 保护组类型。 允许值为：kFile、kVolume、kNative。"
+    "translation": "指定 MSSQL 保护组类型。 允许的值为：kFile、kVolume、kNative。"
   },
   {
     "id": "backup-recovery-protection-group-create-mssql-params-volume-protection-type-params-flag-description",
-    "translation": "指定用于创建基于卷的 MSSQL 保护组的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于创建基于卷的 MSSQL 保护组的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-name-flag-description",
@@ -1657,23 +1665,23 @@
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-file-protection-type-params-flag-description",
-    "translation": "指定物理相关保护组的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定物理相关保护组的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-protection-type-flag-description",
-    "translation": "指定物理保护组类型。 允许值为：kFile、kVolume。"
+    "translation": "指定物理保护组类型。 允许的值为：kFile、kVolume。"
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-volume-protection-type-params-flag-description",
-    "translation": "指定基于卷的物理保护组的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定基于卷的物理保护组的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-policy-id-flag-description",
-    "translation": "必需。 指定与保护组关联的保护策略的唯一 ID。 策略提供重试设置保护计划、优先级、SLA 等。"
+    "translation": "必需。 指定与保护组关联的保护策略的唯一标识。 策略提供重试设置保护计划、优先级、SLA 等。"
   },
   {
     "id": "backup-recovery-protection-group-create-priority-flag-description",
@@ -1681,15 +1689,15 @@
   },
   {
     "id": "backup-recovery-protection-group-create-qos-policy-flag-description",
-    "translation": "指定保护组将写入 HDD 还是 SSD。 允许的值包括：kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll。"
+    "translation": "指定保护组将写入 HDD 还是 SSD。 允许的值为：kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll。"
   },
   {
     "id": "backup-recovery-protection-group-create-sla-flag-description",
-    "translation": "指定此保护组的 SLA 参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定此保护组的 SLA 参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-start-time-flag-description",
-    "translation": "指定一天中的时间。 用于日程安排。 也可以是 JSON 文件的路径。"
+    "translation": "指定一天中的时间。 用于日程安排。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-create-start-time-hour-flag-description",
@@ -1701,11 +1709,11 @@
   },
   {
     "id": "backup-recovery-protection-group-create-start-time-time-zone-flag-description",
-    "translation": "指定用户的时区。 如果未指定，则默认值假定为 America/Los_Angeles。 默认值为 America/Los_Angeles。"
+    "translation": "指定用户的时区。 如果未指定，则缺省值假定为 America/Los_Angeles。 缺省值为 America/Los_Angeles。"
   },
   {
     "id": "backup-recovery-protection-group-create-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-delete-command-long-description",
@@ -1721,15 +1729,15 @@
   },
   {
     "id": "backup-recovery-protection-group-delete-id-flag-description",
-    "translation": "必需。 指定保护组的唯一 ID。"
+    "translation": "必需。 指定保护组的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-group-delete-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-get-command-long-description",
-    "translation": "返回与指定组 ID 相对应的保护组。"
+    "translation": "返回与指定组标识相对应的保护组。"
   },
   {
     "id": "backup-recovery-protection-group-get-command-short-description",
@@ -1737,7 +1745,7 @@
   },
   {
     "id": "backup-recovery-protection-group-get-id-flag-description",
-    "translation": "必需。 指定保护组的唯一 ID。"
+    "translation": "必需。 指定保护组的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-group-get-include-last-run-info-flag-description",
@@ -1745,27 +1753,27 @@
   },
   {
     "id": "backup-recovery-protection-group-get-prune-excluded-source-ids-flag-description",
-    "translation": "如果为 true，则响应将不包括包含此字段的组中已排除源 ID 的列表。 如果用户不需要已排除的源 ID，则可将此设置为 true，以提高性能。"
+    "translation": "如果为 true，则响应将不包括包含此字段的组中已排除源标识的列表。 如果用户不需要已排除的源标识，则可将此设置为 true，以提高性能。"
   },
   {
     "id": "backup-recovery-protection-group-get-prune-source-ids-flag-description",
-    "translation": "如果为 true，响应将排除指定组内的源 ID 列表。"
+    "translation": "如果为 true，响应将排除指定组内的源标识列表。"
   },
   {
     "id": "backup-recovery-protection-group-get-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-protection-group-get-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-group-long-description",
-    "translation": "ProtectionGroup 资源的命令。"
+    "translation": "用于 ProtectionGroup 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-group-group-short-description",
-    "translation": "ProtectionGroup 资源的命令。"
+    "translation": "用于 ProtectionGroup 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-group-list-command-long-description",
@@ -1777,11 +1785,11 @@
   },
   {
     "id": "backup-recovery-protection-group-list-environments-flag-description",
-    "translation": "依据”kVMware“、”kView“等环境类型进行筛选。 只返回保护指定环境类型的保护组。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "按“kVMware“、”kView“等环境类型进行过滤。 只返回保护指定环境类型的保护组。 允许的列表项为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protection-group-list-ids-flag-description",
-    "translation": "依据保护组 ID 列表进行筛选。"
+    "translation": "按保护组标识列表过滤。"
   },
   {
     "id": "backup-recovery-protection-group-list-include-groups-with-datalock-only-flag-description",
@@ -1793,7 +1801,7 @@
   },
   {
     "id": "backup-recovery-protection-group-list-is-active-flag-description",
-    "translation": "按非活动或活动保护组筛选。 如果未设置，则返回所有非活动和活动保护组。 如果为 true，则只返回活动保护组。 如果为 false，则只返回非活动保护组。 在具有复制计划的主集群上创建保护组时，集群会在远程集群上创建该保护组的非活动副本。 此外，当停用活动和运行中的保护组时，保护组将变为非活动状态。"
+    "translation": "按非活动或活动保护组过滤。 如果未设置，则返回所有非活动和活动保护组。 如果为 true，则只返回活动保护组。 如果为 false，则只返回非活动保护组。 在具有复制计划的主集群上创建保护组时，集群会在远程集群上创建该保护组的非活动副本。 此外，当停用活动和运行中的保护组时，保护组将变为非活动状态。"
   },
   {
     "id": "backup-recovery-protection-group-list-is-deleted-flag-description",
@@ -1805,59 +1813,59 @@
   },
   {
     "id": "backup-recovery-protection-group-list-is-paused-flag-description",
-    "translation": "根据已暂停或未暂停的保护组进行筛选，如果未设置，则返回所有已暂停和未暂停的保护组。 如果为 true，则只返回已暂停的保护组。 如果为 false，则只返回未暂停的保护组。"
+    "translation": "按已暂停或未暂停的保护组进行过滤，如果未设置，则返回所有已暂停和未暂停的保护组。 如果为 true，则只返回已暂停的保护组。 如果为 false，则只返回未暂停的保护组。"
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-any-status-flag-description",
-    "translation": "依据上次任意运行状态进行筛选。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "依据上次任意运行状态进行筛选。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-archival-status-flag-description",
-    "translation": "依据上次云存档运行状态进行筛选。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "依据上次云存档运行状态进行筛选。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-cloud-spin-status-flag-description",
-    "translation": "依据上次云旋转运行状态进行筛选。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "依据上次云旋转运行状态进行筛选。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-local-backup-status-flag-description",
-    "translation": "根据上次本地备份运行状态进行筛选。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "根据上次本地备份运行状态进行筛选。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-replication-status-flag-description",
-    "translation": "依据上次远程复制运行状态进行筛选。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "依据上次远程复制运行状态进行筛选。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-list-names-flag-description",
-    "translation": "依据保护组名称列表进行筛选。"
+    "translation": "按保护组名称列表过滤。"
   },
   {
     "id": "backup-recovery-protection-group-list-policy-ids-flag-description",
-    "translation": "依据与保护组相关联的策略 ID 进行筛选。 只返回与指定策略 ID 相关联的保护组。"
+    "translation": "按与保护组关联的策略标识进行过滤。 只返回与指定策略标识相关联的保护组。"
   },
   {
     "id": "backup-recovery-protection-group-list-prune-excluded-source-ids-flag-description",
-    "translation": "如果为 true，则响应将不包括包含此字段的组中已排除源 ID 的列表。 如果用户不需要已排除的源 ID，则可将此设置为 true，以提高性能。"
+    "translation": "如果为 true，则响应将不包括包含此字段的组中已排除源标识的列表。 如果用户不需要已排除的源标识，则可将此设置为 true，以提高性能。"
   },
   {
     "id": "backup-recovery-protection-group-list-prune-source-ids-flag-description",
-    "translation": "如果为 true，响应将排除指定组内的源 ID 列表。"
+    "translation": "如果为 true，响应将排除指定组内的源标识列表。"
   },
   {
     "id": "backup-recovery-protection-group-list-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-protection-group-list-source-ids-flag-description",
-    "translation": "根据与保护组相关联的源 ID 进行筛选。 只返回与指定源 ID 相关联的保护组。"
+    "translation": "按与保护组关联的源标识进行过滤。 只返回与指定源标识相关联的保护组。"
   },
   {
     "id": "backup-recovery-protection-group-list-use-cached-data-flag-description",
-    "translation": "指定我们是否能从读取副本缓存中处理 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
+    "translation": "指定我们是否可以处理来自读取副本缓存的 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
   },
   {
     "id": "backup-recovery-protection-group-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-command-long-description",
@@ -1869,55 +1877,55 @@
   },
   {
     "id": "backup-recovery-protection-group-run-create-id-flag-description",
-    "translation": "必需。 指定保护组的唯一 ID。"
+    "translation": "必需。 指定保护组的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-objects-flag-description",
-    "translation": "指定受此保护组运行保护的对象列表。 这些对象可以是保护层次结构中的叶对象或非叶对象。 仅当保护组中的一个对象子集需要保护时，才必须指定此项。 也可以是 JSON 文件的路径。"
+    "translation": "指定受此保护组运行保护的对象列表。 这些对象可以是保护层次结构中的叶对象或非叶对象。 仅当保护组中的一个对象子集需要保护时，才必须指定此项。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-run-type-flag-description",
-    "translation": "必需。 保护运行类型。 ”kRegular“表示增量 (CBT) 备份。 对于目标保护对象，捕获利用 CBT（如果支持）的增量备份。 kRegular 计划的首次运行会捕获所有块。 ”kFull“表示完整备份（无 CBT）。 始终捕获目标保护对象的完整备份（所有块），且不使用更改块跟踪 (CBT)。 ”kLog“表示数据库日志备份。 捕获数据库事务日志，以便回滚到特定时间点。 ”kSystem“表示系统卷备份。 它可生成用于裸机恢复的映像。 允许的值包括：kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot。"
+    "translation": "必需。 保护运行类型。 ”kRegular“表示增量 (CBT) 备份。 对于目标保护对象，捕获利用 CBT（如果支持）的增量备份。 kRegular 计划的首次运行会捕获所有块。 ”kFull“表示完整备份（无 CBT）。 始终捕获目标保护对象的完整备份（所有块），且不使用更改块跟踪 (CBT)。 ”kLog“表示数据库日志备份。 捕获数据库事务日志，以便回滚到特定时间点。 ”kSystem“表示系统卷备份。 它可生成用于裸机恢复的映像。 允许的值为：kRegular、kFull、kLog、kSystem、kHydrateCDP、kStorageArraySnapshot。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-targets-config-archivals-flag-description",
-    "translation": "指定存档目标配置列表。 也可以是 JSON 文件的路径。"
+    "translation": "指定存档目标配置列表。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-targets-config-cloud-replications-flag-description",
-    "translation": "指定云复制目标配置列表。 也可以是 JSON 文件的路径。"
+    "translation": "指定云复制目标配置列表。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-targets-config-flag-description",
-    "translation": "指定复制和存档目标。 也可以是 JSON 文件的路径。"
+    "translation": "指定复制和存档目标。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-targets-config-replications-flag-description",
-    "translation": "指定复制目标配置列表。 也可以是 JSON 文件的路径。"
+    "translation": "指定复制目标配置列表。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-targets-config-use-policy-defaults-flag-description",
-    "translation": "指定是否使用默认策略设置。 如果指定为 true，则不应指定”replications“和”arcihvals“。 如果值为 true，则将在内部添加策略中配置的复制目标。 缺省值为 false。"
+    "translation": "指定是否使用缺省策略设置。 如果指定为 true，则不应指定”replications“和”arcihvals“。 如果值为 true，则将在内部添加策略中配置的复制目标。 缺省值为 false。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-run-group-long-description",
-    "translation": "ProtectionGroupRun 资源的命令。"
+    "translation": "用于 ProtectionGroupRun 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-group-run-group-short-description",
-    "translation": "ProtectionGroupRun 资源的命令。"
+    "translation": "用于 ProtectionGroupRun 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-archival-run-status-flag-description",
-    "translation": "指定存档状态列表，并将返回与状态匹配的运行。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "指定存档状态列表，并将返回与状态匹配的运行。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-cloud-spin-run-status-flag-description",
-    "translation": "指定云旋转状态列表，将返回与该状态匹配的运行。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "指定云旋转状态列表，将返回与该状态匹配的运行。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-command-long-description",
@@ -1929,7 +1937,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-end-time-usecs-flag-description",
-    "translation": "时间范围筛选器的结束时间。 将结束时间指定为 Unix 纪元时间戳（以微秒为单位），将仅返回在此时间之前执行的运行。 默认为当前时间。"
+    "translation": "时间范围过滤器的结束时间。 将结束时间指定为 Unix 纪元时间戳（以微秒为单位），将仅返回在此时间之前执行的运行。 缺省情况下，该时间为当前时间。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-exclude-non-restorable-runs-flag-description",
@@ -1953,7 +1961,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-local-backup-run-status-flag-description",
-    "translation": "指定本地备份状态列表，将返回与该状态匹配的运行。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "指定本地备份状态列表，将返回与该状态匹配的运行。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-num-runs-flag-description",
@@ -1965,15 +1973,15 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-replication-run-status-flag-description",
-    "translation": "指定复制状态列表，将返回与状态匹配的运行。<br>”Running“表示本运行仍在进行中。<br>”Canceled“表示运行已被取消。<br>”Canceling“表示本运行正在取消过程中。<br>”Failed“表示运行失败。<br>”Missed“表示由于前一运行仍在进行，本运行无法在计划时间进行。<br>”Succeeded“表示运行已成功完成。<br>”SucceededWithWarning“表示运行已成功完成，但出现一些警告信息。<br>”Paused“表示正在进行的运行已暂停。<br>”Skipped“表示跳过本运行。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
+    "translation": "指定复制状态列表，将返回与状态匹配的运行。 “运行中”表示作业仍在进行中。 “已取消”表示该作业已被取消。 “取消中”表示该作业正在取消过程中。 “已失败”表示该作业已失败。 “未执行”表示该作业因前一次作业仍在进行中，未能按预定时间启动。 “已成功”表示该作业已成功完成。 'SucceededWithWarning' 表示该作业已成功完成，但产生了部分警告信息。 “已暂停”表示正在进行的作业已被暂停。 “已跳过”表示该作业已被跳过。 允许的列表项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、Paused。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-run-id-flag-description",
-    "translation": "指定保护运行 ID。 "
+    "translation": "指定保护运行标识。 "
   },
   {
     "id": "backup-recovery-protection-group-run-list-run-tags-flag-description",
@@ -1981,31 +1989,31 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-run-types-flag-description",
-    "translation": "按运行类型筛选。 只返回与指定类型匹配的保护运行。 允许的列表项有：kAll、kHydrateCDP、kSystem、kStorageArraySnapshot、kIncremental、kFull、kLog。"
+    "translation": "按运行类型过滤。 只返回与指定类型匹配的保护运行。 允许的列表项为：kAll、kHydrateCDP、kSystem、kStorageArraySnapshot、kIncremental、kFull、kLog。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-snapshot-target-types-flag-description",
-    "translation": "指定应筛选的快照目标类型。 允许的列表项包括：Local、Archival、RpaasArchival、StorageArraySnapshot、Remote。"
+    "translation": "指定应过滤的快照目标类型。 允许的列表项为：Local、Archival、RpaasArchival、StorageArraySnapshot、Remote。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-start-time-usecs-flag-description",
-    "translation": "时间范围筛选器的开始时间。 将开始时间指定为 Unix 纪元时间戳（以微秒为单位），将仅返回在此时间之后执行的运行。 默认情况下，该时间为 endTimeUsecs 减去一个小时。"
+    "translation": "时间范围过滤器的开始时间。 将开始时间指定为 Unix 纪元时间戳（以微秒为单位），将仅返回在此时间之后执行的运行。 缺省情况下，该时间为 endTimeUsecs 减去一个小时。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-use-cached-data-flag-description",
-    "translation": "指定我们是否能从读取副本缓存中处理 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
+    "translation": "指定我们是否可以处理来自读取副本缓存的 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
   },
   {
     "id": "backup-recovery-protection-group-run-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-action-flag-description",
-    "translation": "必需。 指定对保护运行执行的操作类型。 允许的值包括：Pause、Resume、Cancel。"
+    "translation": "必需。 指定对保护运行执行的操作类型。 允许的值为：Pause、Resume、Cancel。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-cancel-params-flag-description",
-    "translation": "指定保护运行的取消操作参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护运行的取消操作参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-command-long-description",
@@ -2013,27 +2021,27 @@
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-command-short-description",
-    "translation": "真的保护组运行的操作。"
+    "translation": "对保护组运行执行的操作。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-id-flag-description",
-    "translation": "必需。 指定保护组的唯一 ID。"
+    "translation": "必需。 指定保护组的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-pause-params-flag-description",
-    "translation": "指定保护运行的暂停操作参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护运行的暂停操作参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-resume-params-flag-description",
-    "translation": "指定保护运行的恢复操作参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护运行的恢复操作参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-run-update-command-long-description",
-    "translation": "更新特定保护组的运行。 用户可以执行以下操作：1. 延长或缩短本地、复制和存档快照的保留时间。 2. 可在此运行中对失败的复制快照尝试执行重新同步操作。 3. 在运行中添加新的复制和存档快照目标。 4. 添加或删除快照上的合法保留。 仅具有 DSO 角色的用户才能执行此操作。 5. 删除作为此运行一部分创建的快照。 6. 在用户无法在过期时间前手动删除快照的现有快照上应用数据锁。"
+    "translation": "更新特定保护组的运行。 用户可执行以下操作：1. 延长或缩短本地、复制和存档快照的保留时间。 2. 可在此运行中对失败的复制快照尝试执行重新同步操作。 3. 在运行中添加新的复制和存档快照目标。 4. 添加或删除快照上的合法保留。 仅具有 DSO 角色的用户才能执行此操作。 5. 删除作为此运行的一部分创建的快照。 6. 对现有快照应用数据锁定，用户在到期时间前无法手动删除快照。"
   },
   {
     "id": "backup-recovery-protection-group-run-update-command-short-description",
@@ -2041,15 +2049,15 @@
   },
   {
     "id": "backup-recovery-protection-group-run-update-id-flag-description",
-    "translation": "必需。 指定保护组的唯一 ID。"
+    "translation": "必需。 指定保护组的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-group-run-update-update-protection-group-run-params-flag-description",
-    "translation": "必需。 null 也可以是 JSON 文件的路径。 最小长度为 1 项。"
+    "translation": "必需。 也可以是 JSON 文件的路径。 最小长度为 1 项。"
   },
   {
     "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-group-update-abort-in-blackouts-flag-description",
@@ -2057,19 +2065,19 @@
   },
   {
     "id": "backup-recovery-protection-group-update-advanced-configs-flag-description",
-    "translation": "指定保护作业的高级配置。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护作业的高级配置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-alert-policy-alert-targets-flag-description",
-    "translation": "指定接收警报的目标列表。 也可以是 JSON 文件的路径。"
+    "translation": "指定接收警报的目标列表。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-alert-policy-backup-run-status-flag-description",
-    "translation": "指定用户希望接收警报的运行状态。 允许的列表项包括：kSuccess、kFailure、kSlaViolation、kWarning。 最小长度为 1 项。"
+    "translation": "指定用户希望接收警报的运行状态。 允许的列表项为：kSuccess、kFailure、kSlaViolation、kWarning。 最小长度为 1 项。"
   },
   {
     "id": "backup-recovery-protection-group-update-alert-policy-flag-description",
-    "translation": "指定提醒用户注意保护组状态的策略。 也可以是 JSON 文件的路径。"
+    "translation": "指定提醒用户注意保护组状态的策略。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-alert-policy-raise-object-level-failure-alert-after-each-attempt-flag-description",
@@ -2101,11 +2109,11 @@
   },
   {
     "id": "backup-recovery-protection-group-update-environment-flag-description",
-    "translation": "必需。 指定保护组的环境类型。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "必需。 指定保护组的环境类型。 允许的值为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protection-group-update-id-flag-description",
-    "translation": "必需。 指定保护组的 ID。"
+    "translation": "必需。 指定保护组的标识。"
   },
   {
     "id": "backup-recovery-protection-group-update-is-paused-flag-description",
@@ -2117,23 +2125,23 @@
   },
   {
     "id": "backup-recovery-protection-group-update-mssql-params-file-protection-type-params-flag-description",
-    "translation": "指定参数以创建基于文件的 MSSQL 保护组。 也可以是 JSON 文件的路径。"
+    "translation": "指定参数以创建基于文件的 MSSQL 保护组。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-mssql-params-flag-description",
-    "translation": "指定 MSSQL 保护组的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定 MSSQL 保护组的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-mssql-params-native-protection-type-params-flag-description",
-    "translation": "指定参数以创建基于本机的 MSSQL 保护组。 也可以是 JSON 文件的路径。"
+    "translation": "指定参数以创建基于本机的 MSSQL 保护组。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-mssql-params-protection-type-flag-description",
-    "translation": "指定 MSSQL 保护组类型。 允许值为：kFile、kVolume、kNative。"
+    "translation": "指定 MSSQL 保护组类型。 允许的值为：kFile、kVolume、kNative。"
   },
   {
     "id": "backup-recovery-protection-group-update-mssql-params-volume-protection-type-params-flag-description",
-    "translation": "指定用于创建基于卷的 MSSQL 保护组的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定用于创建基于卷的 MSSQL 保护组的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-name-flag-description",
@@ -2145,23 +2153,23 @@
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-file-protection-type-params-flag-description",
-    "translation": "指定物理相关保护组的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定物理相关保护组的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-protection-type-flag-description",
-    "translation": "指定物理保护组类型。 允许值为：kFile、kVolume。"
+    "translation": "指定物理保护组类型。 允许的值为：kFile、kVolume。"
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-volume-protection-type-params-flag-description",
-    "translation": "指定基于卷的物理保护组的特定参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定基于卷的物理保护组的特定参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-policy-id-flag-description",
-    "translation": "必需。 指定与保护组关联的保护策略的唯一 ID。 策略提供重试设置保护计划、优先级、SLA 等。"
+    "translation": "必需。 指定与保护组关联的保护策略的唯一标识。 策略提供重试设置保护计划、优先级、SLA 等。"
   },
   {
     "id": "backup-recovery-protection-group-update-priority-flag-description",
@@ -2169,15 +2177,15 @@
   },
   {
     "id": "backup-recovery-protection-group-update-qos-policy-flag-description",
-    "translation": "指定保护组将写入 HDD 还是 SSD。 允许的值包括：kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll。"
+    "translation": "指定保护组将写入 HDD 还是 SSD。 允许的值为：kBackupHDD、kBackupSSD、kTestAndDevHigh、kBackupAll。"
   },
   {
     "id": "backup-recovery-protection-group-update-sla-flag-description",
-    "translation": "指定此保护组的 SLA 参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定此保护组的 SLA 参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-start-time-flag-description",
-    "translation": "指定一天中的时间。 用于日程安排。 也可以是 JSON 文件的路径。"
+    "translation": "指定一天中的时间。 用于日程安排。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-group-update-start-time-hour-flag-description",
@@ -2189,47 +2197,47 @@
   },
   {
     "id": "backup-recovery-protection-group-update-start-time-time-zone-flag-description",
-    "translation": "指定用户的时区。 如果未指定，则默认值假定为 America/Los_Angeles。 默认值为 America/Los_Angeles。"
+    "translation": "指定用户的时区。 如果未指定，则缺省值假定为 America/Los_Angeles。 缺省值为 America/Los_Angeles。"
   },
   {
     "id": "backup-recovery-protection-group-update-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-bmr-flag-description",
-    "translation": "指定物理源保护情况下的 BMR 计划。 也可以是 JSON 文件的路径。"
+    "translation": "指定物理源保护情况下的 BMR 计划。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-cdp-flag-description",
-    "translation": "为保护组指定 CDP（连续数据保护）备份设置。 也可以是 JSON 文件的路径。"
+    "translation": "为保护组指定 CDP（连续数据保护）备份设置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-flag-description",
-    "translation": "指定保护策略的备份计划和保留时间。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护策略的备份计划和保留时间。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-log-flag-description",
-    "translation": "为保护组指定日志备份设置。 也可以是 JSON 文件的路径。"
+    "translation": "为保护组指定日志备份设置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-regular-flag-description",
-    "translation": "指定增量和完全策略设置以及常用保留策略设置。” 也可以是 JSON 文件的路径。"
+    "translation": "指定增量和完全策略设置以及常用保留策略设置。” 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-run-timeouts-flag-description",
-    "translation": "指定不同运行类型（kFull、kRegular 等）的备份超时。 也可以是 JSON 文件的路径。"
+    "translation": "指定不同运行类型（kFull、kRegular 等）的备份超时。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-storage-array-snapshot-flag-description",
-    "translation": "为保护组指定存储快照管理备份设置。 也可以是 JSON 文件的路径。"
+    "translation": "为保护组指定存储快照管理备份设置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-blackout-window-flag-description",
-    "translation": "中断窗口列表。 如果指定，该字段将在新的组运行未开始时定义中断时段。 如果已计划但尚未执行组运行，而中断时段开始，则行为取决于策略字段 AbortInBlackoutPeriod。 也可以是 JSON 文件的路径。"
+    "translation": "中断窗口列表。 如果指定，该字段将在新的组运行未开始时定义中断时段。 如果已计划但尚未执行组运行，而中断时段开始，则行为取决于策略字段 AbortInBlackoutPeriod。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-cascaded-targets-config-flag-description",
-    "translation": "指定级联复制的配置。 利用级联复制，复制集群 (Rx) 可进一步复制快照副本并将其归档到更多目标。 建议在将要创建保护组的位置创建级联配置。 也可以是 JSON 文件的路径。"
+    "translation": "指定级联复制的配置。 利用级联复制，复制集群 (Rx) 可进一步复制快照副本并将其归档到更多目标。 建议在将要创建保护组的位置创建级联配置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-command-long-description",
@@ -2241,7 +2249,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-data-lock-flag-description",
-    "translation": "该字段现已弃用。 请在备份保留中使用 DataLockConfig。 允许的值包括：Compliance、Administrative。"
+    "translation": "此字段现已弃用。 请在备份保留中使用 DataLockConfig。 允许的值为：Compliance、Administrative。"
   },
   {
     "id": "backup-recovery-protection-policy-create-description-flag-description",
@@ -2249,11 +2257,11 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-extended-retention-flag-description",
-    "translation": "指定要应用于备份快照的其他保留策略。 备份快照的保留时间是其适用的所有保留策略的最大值。 也可以是 JSON 文件的路径。"
+    "translation": "指定要应用于备份快照的其他保留策略。 备份快照的保留时间是其适用的所有保留策略的最大值。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-is-cbs-enabled-flag-description",
-    "translation": "如果客户端支持基于日历的时间表，则指定 true。 此功能的默认值为 false。"
+    "translation": "如果客户端支持基于日历的时间表，则指定 true。 此功能的缺省值为 false。"
   },
   {
     "id": "backup-recovery-protection-policy-create-last-modification-time-usecs-flag-description",
@@ -2265,31 +2273,31 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-archival-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-cloud-spin-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-flag-description",
-    "translation": "指定保护策略的复制、存档和云旋转目标。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护策略的复制、存档和云旋转目标。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-onprem-deploy-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-replication-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-rpaas-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-retry-options-flag-description",
-    "translation": "保护组运行失败时保护策略的重试选项。 也可以是 JSON 文件的路径。"
+    "translation": "保护组运行失败时保护策略的重试选项。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-create-retry-options-retries-flag-description",
@@ -2301,7 +2309,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-template-id-flag-description",
-    "translation": "指定策略所链接的父策略模板 ID。"
+    "translation": "指定策略所链接的父策略模板标识。"
   },
   {
     "id": "backup-recovery-protection-policy-create-version-flag-description",
@@ -2309,11 +2317,11 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-policy-delete-command-long-description",
-    "translation": "根据给定的策略 ID 删除保护策略。"
+    "translation": "根据给定的策略标识删除保护策略。"
   },
   {
     "id": "backup-recovery-protection-policy-delete-command-short-description",
@@ -2321,15 +2329,15 @@
   },
   {
     "id": "backup-recovery-protection-policy-delete-id-flag-description",
-    "translation": "必需。 指定要删除的保护策略的唯一 ID。"
+    "translation": "必需。 指定要删除的保护策略的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-policy-delete-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-policy-get-command-long-description",
-    "translation": "根据提供的策略 ID 返回保护策略详细信息。"
+    "translation": "根据提供的策略标识返回保护策略详细信息。"
   },
   {
     "id": "backup-recovery-protection-policy-get-command-short-description",
@@ -2337,31 +2345,31 @@
   },
   {
     "id": "backup-recovery-protection-policy-get-id-flag-description",
-    "translation": "必需。 指定要返回的保护策略的唯一 ID。"
+    "translation": "必需。 指定要返回的保护策略的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-policy-get-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-protection-policy-get-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-policy-group-long-description",
-    "translation": "ProtectionPolicy 资源的命令。"
+    "translation": "用于 ProtectionPolicy 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-policy-group-short-description",
-    "translation": "ProtectionPolicy 资源的命令。"
+    "translation": "用于 ProtectionPolicy 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-policy-list-command-long-description",
-    "translation": "根据筛选查询参数列出保护策略。"
+    "translation": "根据过滤查询参数列出保护策略。"
   },
   {
     "id": "backup-recovery-protection-policy-list-command-short-description",
-    "translation": "根据提供的筛选参数列出保护策略。"
+    "translation": "根据提供的过滤参数列出保护策略。"
   },
   {
     "id": "backup-recovery-protection-policy-list-exclude-linked-policies-flag-description",
@@ -2369,67 +2377,67 @@
   },
   {
     "id": "backup-recovery-protection-policy-list-ids-flag-description",
-    "translation": "根据策略 ID 列表筛选策略。"
+    "translation": "根据策略标识列表过滤策略。"
   },
   {
     "id": "backup-recovery-protection-policy-list-include-replicated-policies-flag-description",
-    "translation": "如果 includeReplicatedPolicies 设置为 true，则响应也将包含复制的策略。 默认情况下，复制策略不包含在响应中。"
+    "translation": "如果 includeReplicatedPolicies 设置为 true，则响应也将包含复制的策略。 缺省情况下，响应中不包含复制策略。"
   },
   {
     "id": "backup-recovery-protection-policy-list-include-stats-flag-description",
-    "translation": "如果 includeStats 设置为 true，则响应将返回保护组和保护对象的数量。 默认情况下，响应中不包含保护统计信息。"
+    "translation": "如果 includeStats 设置为 true，则响应将返回保护组和保护对象的数量。 缺省情况下，响应中不包含保护统计信息。"
   },
   {
     "id": "backup-recovery-protection-policy-list-policy-names-flag-description",
-    "translation": "根据策略名称列表筛选策略。"
+    "translation": "根据策略名称列表过滤策略。"
   },
   {
     "id": "backup-recovery-protection-policy-list-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-protection-policy-list-types-flag-description",
-    "translation": "类型可指定要返回的策略类型。 允许的列表项包括：Regular、Internal。"
+    "translation": "类型可指定要返回的策略类型。 允许的列表项为：Regular、Internal。"
   },
   {
     "id": "backup-recovery-protection-policy-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-bmr-flag-description",
-    "translation": "指定物理源保护情况下的 BMR 计划。 也可以是 JSON 文件的路径。"
+    "translation": "指定物理源保护情况下的 BMR 计划。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-cdp-flag-description",
-    "translation": "为保护组指定 CDP（连续数据保护）备份设置。 也可以是 JSON 文件的路径。"
+    "translation": "为保护组指定 CDP（连续数据保护）备份设置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-flag-description",
-    "translation": "指定保护策略的备份计划和保留时间。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护策略的备份计划和保留时间。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-log-flag-description",
-    "translation": "为保护组指定日志备份设置。 也可以是 JSON 文件的路径。"
+    "translation": "为保护组指定日志备份设置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-regular-flag-description",
-    "translation": "指定增量和完全策略设置以及常用保留策略设置。” 也可以是 JSON 文件的路径。"
+    "translation": "指定增量和完全策略设置以及常用保留策略设置。” 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-run-timeouts-flag-description",
-    "translation": "指定不同运行类型（kFull、kRegular 等）的备份超时。 也可以是 JSON 文件的路径。"
+    "translation": "指定不同运行类型（kFull、kRegular 等）的备份超时。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-storage-array-snapshot-flag-description",
-    "translation": "为保护组指定存储快照管理备份设置。 也可以是 JSON 文件的路径。"
+    "translation": "为保护组指定存储快照管理备份设置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-blackout-window-flag-description",
-    "translation": "中断窗口列表。 如果指定，该字段将在新的组运行未开始时定义中断时段。 如果已计划但尚未执行组运行，而中断时段开始，则行为取决于策略字段 AbortInBlackoutPeriod。 也可以是 JSON 文件的路径。"
+    "translation": "中断窗口列表。 如果指定，该字段将在新的组运行未开始时定义中断时段。 如果已计划但尚未执行组运行，而中断时段开始，则行为取决于策略字段 AbortInBlackoutPeriod。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-cascaded-targets-config-flag-description",
-    "translation": "指定级联复制的配置。 利用级联复制，复制集群 (Rx) 可进一步复制快照副本并将其归档到更多目标。 建议在将要创建保护组的位置创建级联配置。 也可以是 JSON 文件的路径。"
+    "translation": "指定级联复制的配置。 利用级联复制，复制集群 (Rx) 可进一步复制快照副本并将其归档到更多目标。 建议在将要创建保护组的位置创建级联配置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-command-long-description",
@@ -2441,7 +2449,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-data-lock-flag-description",
-    "translation": "该字段现已弃用。 请在备份保留中使用 DataLockConfig。 允许的值包括：Compliance、Administrative。"
+    "translation": "此字段现已弃用。 请在备份保留中使用 DataLockConfig。 允许的值为：Compliance、Administrative。"
   },
   {
     "id": "backup-recovery-protection-policy-update-description-flag-description",
@@ -2449,15 +2457,15 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-extended-retention-flag-description",
-    "translation": "指定要应用于备份快照的其他保留策略。 备份快照的保留时间是其适用的所有保留策略的最大值。 也可以是 JSON 文件的路径。"
+    "translation": "指定要应用于备份快照的其他保留策略。 备份快照的保留时间是其适用的所有保留策略的最大值。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-id-flag-description",
-    "translation": "必需。 指定要更新的保护策略的唯一 ID。"
+    "translation": "必需。 指定要更新的保护策略的唯一标识。"
   },
   {
     "id": "backup-recovery-protection-policy-update-is-cbs-enabled-flag-description",
-    "translation": "如果客户端支持基于日历的时间表，则指定 true。 此功能的默认值为 false。"
+    "translation": "如果客户端支持基于日历的时间表，则指定 true。 此功能的缺省值为 false。"
   },
   {
     "id": "backup-recovery-protection-policy-update-last-modification-time-usecs-flag-description",
@@ -2469,31 +2477,31 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-archival-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-cloud-spin-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-flag-description",
-    "translation": "指定保护策略的复制、存档和云旋转目标。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护策略的复制、存档和云旋转目标。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-onprem-deploy-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-replication-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-rpaas-targets-flag-description",
-    "translation": "null 也可以是 JSON 文件的路径。"
+    "translation": "也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-retry-options-flag-description",
-    "translation": "保护组运行失败时保护策略的重试选项。 也可以是 JSON 文件的路径。"
+    "translation": "保护组运行失败时保护策略的重试选项。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-policy-update-retry-options-retries-flag-description",
@@ -2505,7 +2513,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-template-id-flag-description",
-    "translation": "指定策略所链接的父策略模板 ID。"
+    "translation": "指定策略所链接的父策略模板标识。"
   },
   {
     "id": "backup-recovery-protection-policy-update-version-flag-description",
@@ -2513,31 +2521,31 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-group-long-description",
-    "translation": "ProtectionSource 资源的命令。"
+    "translation": "用于 ProtectionSource 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-source-group-short-description",
-    "translation": "ProtectionSource 资源的命令。"
+    "translation": "用于 ProtectionSource 资源的命令。"
   },
   {
     "id": "backup-recovery-protection-source-list-after-cursor-entity-id-flag-description",
-    "translation": "指定从哪个实体 ID 开始返回项目。"
+    "translation": "指定从哪个实体标识开始返回项目。"
   },
   {
     "id": "backup-recovery-protection-source-list-all-under-hierarchy-flag-description",
-    "translation": "AllUnderHierarchy 指定是否应返回登录用户所在组织层次结构下所有租户的对象。"
+    "translation": "AllUnderHierarchy 指定是否应返回登录用户的组织层次结构下所有租户的对象。"
   },
   {
     "id": "backup-recovery-protection-source-list-before-cursor-entity-id-flag-description",
-    "translation": "指定要将项返回到的实体 ID。"
+    "translation": "指定要将项目返回到的实体标识。"
   },
   {
     "id": "backup-recovery-protection-source-list-command-long-description",
-    "translation": "如果未指定参数，则返回所有在 Cohesity 集群上注册的保护源。 此外，还会返回从每个源收集的对象子树。 例如，Cohesity 集群会询问源 VMware vCenter Server，并创建一个分层对象子树，以镜像 vCenter Server 上的库存树。 对象树的内容将作为“protectionSource”的“节点”层次结构返回。 指定参数可以改变返回的结果。"
+    "translation": "如果未指定参数，则返回所有在 Cohesity 集群上注册的保护源。 此外，还会返回从每个源收集的对象子树。 例如，Cohesity 集群会询问源 VMware vCenter Server，并创建一个镜像 vCenter Server 上的库存树的分层对象子树。 对象树的内容将作为“protectionSource”的“节点”层次结构返回。 指定参数可以改变返回的结果。"
   },
   {
     "id": "backup-recovery-protection-source-list-command-short-description",
@@ -2549,31 +2557,31 @@
   },
   {
     "id": "backup-recovery-protection-source-list-environment-flag-description",
-    "translation": "不推荐使用此字段。 改为使用环境。"
+    "translation": "此字段已弃用。 改为使用环境。"
   },
   {
     "id": "backup-recovery-protection-source-list-environments-flag-description",
-    "translation": "只返回与传入的环境类型（“kVMware”、“kSQL”、“kView”、“kPhysical”、“kPuppeteer”、“kPure”、“kNetapp”、“kGenericNas”、“kHyperV”、“kAcropolis”或“kAzure”）相匹配的保护源。 例如，将此参数设置为“kVMware”，以仅返回在“kVMware”(VMware vCenterServer) 环境中找到的源（及其对象子树）。 允许的列表项包括：kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、 kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3。"
+    "translation": "只返回与传入的环境类型（如“kVMware”、“kSQL”、“kView”、“kPhysical”、“kPuppeteer”、“kPure”、“kNetapp”、“kGenericNas”、“kHyperV”、“kAcropolis”或“kAzure”）相匹配的保护源。 例如，将此参数设置为“kVMware”，以仅返回在“kVMware”(VMware vCenterServer) 环境中找到的源（及其对象子树）。 允许的列表项为：kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3。"
   },
   {
     "id": "backup-recovery-protection-source-list-exclude-aws-types-flag-description",
-    "translation": "指定要针对 AWS 筛选掉的与传入的类型（如“kEC2Instance”、“kRDSInstance”、“kAuroraCluster”、“kTag”、“kAuroraTag”、“kRDSTag”、“kS3Bucket”、“kS3Tag”）相匹配的对象类型。 例如，将此参数设置为“kEC2Instance”，以避免返回 ec2 实例。 允许的列表项包括：kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag。"
+    "translation": "指定要针对 AWS 过滤掉的与传入的类型（如“kEC2Instance”、“kRDSInstance”、“kAuroraCluster”、“kTag”、“kAuroraTag”、“kRDSTag”、“kS3Bucket”、“kS3Tag”）相匹配的对象类型。 例如，将此参数设置为“kEC2Instance”，以排除返回 ec2 实例。 允许的列表项为：kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag。"
   },
   {
     "id": "backup-recovery-protection-source-list-exclude-kubernetes-types-flag-description",
-    "translation": "指定要针对 Kubernetes 筛选掉的与传入类型（如“kService”）相匹配的对象类型。 例如，将此参数设置为“kService”，以避免返回服务。 允许的列表项有：kService。"
+    "translation": "指定要针对 Kubernetes 过滤掉的与传入类型（如“kService”）相匹配的对象类型。 例如，将此参数设置为“kService”，以排除返回服务。 允许的列表项为：kService。"
   },
   {
     "id": "backup-recovery-protection-source-list-exclude-office365-types-flag-description",
-    "translation": "指定要针对 Office 365 筛选掉的与传入的类型（如“kDomain”、“kOutlook”、“kMailbox”等）匹配的对象类型。 例如，将此参数设置为“kMailbox”，以避免返回邮箱对象。 允许的列表项包括：kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite。"
+    "translation": "指定要针对 Office 365 过滤掉的与传入的类型（如“kDomain”、“kOutlook”、“kMailbox”等）匹配的对象类型。 例如，将此参数设置为“kMailbox”，以排除返回邮箱对象。 允许的列表项为：kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite。"
   },
   {
     "id": "backup-recovery-protection-source-list-exclude-types-flag-description",
-    "translation": "筛选掉与传入类型（如“kVCenter”、“kFolder”、“kDatacenter”、“kComputeResource”、“kResourcePool”、“kDatastore”、“kHostSystem”、“kVirtualMachine”等）匹配的对象类型（及其子树）。 例如，将此参数设置为“kResourcePool”，以避免返回资源池对象。 允许的列表项包括：kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag。"
+    "translation": "过滤掉与传入类型（如“kVCenter”、“kFolder”、“kDatacenter”、“kComputeResource”、“kResourcePool”、“kDatastore”、“kHostSystem”、“kVirtualMachine”等）匹配的对象类型（及其子树）。 例如，将此参数设置为“kResourcePool”，以排除返回资源池对象。 允许的列表项为：kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag。"
   },
   {
     "id": "backup-recovery-protection-source-list-get-teams-channels-flag-description",
-    "translation": "根据策略 ID 列表筛选策略。"
+    "translation": "根据策略标识列表过滤策略。"
   },
   {
     "id": "backup-recovery-protection-source-list-has-valid-mailbox-flag-description",
@@ -2585,11 +2593,11 @@
   },
   {
     "id": "backup-recovery-protection-source-list-id-flag-description",
-    "translation": "返回传入的保护源 ID 的对象子树。"
+    "translation": "返回传入的保护源标识的对象子树。"
   },
   {
     "id": "backup-recovery-protection-source-list-include-datastores-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的 kDatastore 对象类型。 默认情况下，不会返回数据存储。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的 kDatastore 对象类型。 缺省情况下，不返回数据存储。"
   },
   {
     "id": "backup-recovery-protection-source-list-include-entity-permission-info-flag-description",
@@ -2597,7 +2605,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-include-networks-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的 kNetwork 对象类型。 默认情况下，不返回网络对象。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的 kNetwork 对象类型。 缺省情况下，不返回网络对象。"
   },
   {
     "id": "backup-recovery-protection-source-list-include-object-protection-info-flag-description",
@@ -2605,7 +2613,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-include-sfdc-fields-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的对象的字段。 默认情况下，不返回 Sfdc 对象字段。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的对象的字段。 缺省情况下，不返回 Sfdc 对象字段。"
   },
   {
     "id": "backup-recovery-protection-source-list-include-source-credentials-flag-description",
@@ -2613,11 +2621,11 @@
   },
   {
     "id": "backup-recovery-protection-source-list-include-system-v-apps-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的系统 VApp 对象类型。 默认情况下，不返回虚拟机文件夹对象。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的系统 VApp 对象类型。 缺省情况下，不返回虚拟机文件夹对象。"
   },
   {
     "id": "backup-recovery-protection-source-list-include-vm-folders-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的 kVMFolder 对象类型。 默认情况下，不返回虚拟机文件夹对象。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的 kVMFolder 对象类型。 缺省情况下，不返回虚拟机文件夹对象。"
   },
   {
     "id": "backup-recovery-protection-source-list-is-security-group-flag-description",
@@ -2625,7 +2633,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-node-id-flag-description",
-    "translation": "指定“源”实体层次结构中任何一级节点的实体 ID，其中其子节点将被分页。"
+    "translation": "指定“源”实体层次结构中任意级别节点的实体标识，该节点的子节点将被分页。"
   },
   {
     "id": "backup-recovery-protection-source-list-num-levels-flag-description",
@@ -2633,31 +2641,31 @@
   },
   {
     "id": "backup-recovery-protection-source-list-page-size-flag-description",
-    "translation": "指定页面内返回实体的最大数量。"
+    "translation": "指定页面内返回的最大实体数。"
   },
   {
     "id": "backup-recovery-protection-source-list-prune-aggregation-info-flag-description",
-    "translation": "指定是否修剪有关受保护/不受保护实体数量的聚合信息。"
+    "translation": "指定是否修剪有关受保护/不受保护实体数的聚合信息。"
   },
   {
     "id": "backup-recovery-protection-source-list-prune-non-critical-info-flag-description",
-    "translation": "指定是否修剪实体内的非关键信息。 如果是虚拟机，虚拟磁盘信息将被修剪。 在 Office365 中，将对有关用户实体的元数据进行修剪。 这可用于限制调用者响应的大小。"
+    "translation": "指定是否修剪实体内的非关键信息。 如果是虚拟机，虚拟磁盘信息将被修剪。 如果是 Office365，有关用户实体的元数据将被修剪。 这可用于限制调用者响应的大小。"
   },
   {
     "id": "backup-recovery-protection-source-list-request-initiator-type-flag-description",
-    "translation": "指定请求类型。 可能的值为 UIUser 和 UIAuto，这意味着请求由用户触发或属于自动刷新请求。 magneto 等服务将利用此项来确定请求的优先级，从而通过优先处理优先级较高的请求，更加智能地处理过载情况。"
+    "translation": "指定请求类型。 可能的值为 UIUser 和 UIAuto，这意味着请求由用户触发或是一个自动刷新请求。 magneto 等服务将利用此项来确定请求的优先级，从而通过优先处理优先级较高的请求，更加智能地处理过载情况。"
   },
   {
     "id": "backup-recovery-protection-source-list-sids-flag-description",
-    "translation": "根据列表中给出的 SID 筛选对象子树。"
+    "translation": "根据列表中给出的 SID 过滤对象子树。"
   },
   {
     "id": "backup-recovery-protection-source-list-use-cached-data-flag-description",
-    "translation": "指定是否可以对读取副本缓存发出 GET 请求。 将此项设置为 true 可确保向读取副本发出 API 请求。 将此项设置为 false 则会将请求发送给主站。"
+    "translation": "指定我们是否可以向读取副本缓存提供 GET 请求。 将此项设置为 true 可确保向读取副本提供 API 请求。 将此项设置为 false 则会向主站提供请求。"
   },
   {
     "id": "backup-recovery-protection-source-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-refresh-command-long-description",
@@ -2669,15 +2677,15 @@
   },
   {
     "id": "backup-recovery-protection-source-refresh-id-flag-description",
-    "translation": "必需。 指定保护源的 ID。"
+    "translation": "必需。 指定保护源的标识。"
   },
   {
     "id": "backup-recovery-protection-source-refresh-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-register-advanced-configs-flag-description",
-    "translation": "指定保护源的高级配置。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护源的高级配置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-source-register-command-long-description",
@@ -2689,27 +2697,27 @@
   },
   {
     "id": "backup-recovery-protection-source-register-connection-id-flag-description",
-    "translation": "指定连接的 ID，可通过该连接访问该源。 只有租户用户注册的源才可设置此项。"
+    "translation": "指定连接的标识，可通过该连接访问该源。 只应对租户用户注册的源设置此项。"
   },
   {
     "id": "backup-recovery-protection-source-register-connections-flag-description",
-    "translation": "指定源的连接列表。 也可以是 JSON 文件的路径。"
+    "translation": "指定源的连接列表。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-source-register-connector-group-id-flag-description",
-    "translation": "指定连接器组的连接器组 ID。"
+    "translation": "指定连接器组的连接器组标识。"
   },
   {
     "id": "backup-recovery-protection-source-register-data-source-connection-id-flag-description",
-    "translation": "指定连接的 ID，可通过该连接访问该源。 只有租户用户注册的源才可设置此项。 此外，这也是 connectionId 的“字符串”。 添加此属性是为了适应 ID 值超过 2^53 - 1 的情况，这是 JS 能够保持精度的最大值。"
+    "translation": "指定连接的标识，可通过该连接访问该源。 只应对租户用户注册的源设置此项。 此外，这也是 connectionId 的“字符串”。 添加此属性是为了适应标识值超过 2^53 - 1 的情况，这是 JS 保持精度的最大值。"
   },
   {
     "id": "backup-recovery-protection-source-register-encryption-key-flag-description",
-    "translation": "指定用户为凭证加密所用的密钥。"
+    "translation": "指定用户用于加密凭证的密钥。"
   },
   {
     "id": "backup-recovery-protection-source-register-environment-flag-description",
-    "translation": "必需。 指定保护源的环境类型。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "必需。 指定保护源的环境类型。 允许的值为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protection-source-register-is-internal-encrypted-flag-description",
@@ -2721,7 +2729,7 @@
   },
   {
     "id": "backup-recovery-protection-source-register-physical-params-applications-flag-description",
-    "translation": "指定要注册到物理源的应用程序列表。 允许的列表项有：kSQL、kOracle。"
+    "translation": "指定要注册到物理源的应用程序列表。 允许的列表项为：kSQL、kOracle。"
   },
   {
     "id": "backup-recovery-protection-source-register-physical-params-endpoint-flag-description",
@@ -2729,7 +2737,7 @@
   },
   {
     "id": "backup-recovery-protection-source-register-physical-params-flag-description",
-    "translation": "指定注册物理服务器的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定注册物理服务器的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-source-register-physical-params-force-register-flag-description",
@@ -2741,11 +2749,11 @@
   },
   {
     "id": "backup-recovery-protection-source-register-physical-params-physical-type-flag-description",
-    "translation": "指定物理服务器的类型。 允许的值包括：kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster。"
+    "translation": "指定物理服务器的类型。 允许的值为：kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster。"
   },
   {
     "id": "backup-recovery-protection-source-register-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-command-long-description",
@@ -2757,11 +2765,11 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-id-flag-description",
-    "translation": "必需。 指定保护源注册的 ID。"
+    "translation": "必需。 指定保护源注册的标识。"
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-registration-get-command-long-description",
@@ -2773,15 +2781,15 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-get-id-flag-description",
-    "translation": "必需。 指定保护源注册的 ID。"
+    "translation": "必需。 指定保护源注册的标识。"
   },
   {
     "id": "backup-recovery-protection-source-registration-get-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-protection-source-registration-get-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-command-long-description",
@@ -2793,19 +2801,19 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-environment-flag-description",
-    "translation": "必需。 指定要修补的保护源的环境类型。 目前唯一支持的环境是 kCassandra。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "必需。 指定要修补的保护源的环境类型。 目前唯一支持的环境是 kCassandra。 允许的值为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-id-flag-description",
-    "translation": "必需。 指定保护源注册的 ID。"
+    "translation": "必需。 指定保护源注册的标识。"
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-advanced-configs-flag-description",
-    "translation": "指定保护源的高级配置。 也可以是 JSON 文件的路径。"
+    "translation": "指定保护源的高级配置。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-command-long-description",
@@ -2817,31 +2825,31 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-connection-id-flag-description",
-    "translation": "指定连接的 ID，可通过该连接访问该源。 只有租户用户注册的源才可设置此项。"
+    "translation": "指定连接的标识，可通过该连接访问该源。 只应对租户用户注册的源设置此项。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-connections-flag-description",
-    "translation": "指定源的连接列表。 也可以是 JSON 文件的路径。"
+    "translation": "指定源的连接列表。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-connector-group-id-flag-description",
-    "translation": "指定连接器组的连接器组 ID。"
+    "translation": "指定连接器组的连接器组标识。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-data-source-connection-id-flag-description",
-    "translation": "指定连接的 ID，可通过该连接访问该源。 只有租户用户注册的源才可设置此项。 此外，这也是 connectionId 的“字符串”。 添加此属性是为了适应 ID 值超过 2^53 - 1 的情况，这是 JS 能够保持精度的最大值。"
+    "translation": "指定连接的标识，可通过该连接访问该源。 只应对租户用户注册的源设置此项。 此外，这也是 connectionId 的“字符串”。 添加此属性是为了适应标识值超过 2^53 - 1 的情况，这是 JS 保持精度的最大值。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-encryption-key-flag-description",
-    "translation": "指定用户为凭证加密所用的密钥。"
+    "translation": "指定用户用于加密凭证的密钥。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-environment-flag-description",
-    "translation": "必需。 指定保护源的环境类型。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "必需。 指定保护源的环境类型。 允许的值为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-id-flag-description",
-    "translation": "必需。 指定保护源注册的 ID。"
+    "translation": "必需。 指定保护源注册的标识。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-is-internal-encrypted-flag-description",
@@ -2857,7 +2865,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-physical-params-applications-flag-description",
-    "translation": "指定要注册到物理源的应用程序列表。 允许的列表项有：kSQL、kOracle。"
+    "translation": "指定要注册到物理源的应用程序列表。 允许的列表项为：kSQL、kOracle。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-physical-params-endpoint-flag-description",
@@ -2865,7 +2873,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-physical-params-flag-description",
-    "translation": "指定注册物理服务器的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定注册物理服务器的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-physical-params-force-register-flag-description",
@@ -2877,11 +2885,11 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-physical-params-physical-type-flag-description",
-    "translation": "指定物理服务器的类型。 允许的值包括：kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster。"
+    "translation": "指定物理服务器的类型。 允许的值为：kGroup、kHost、kWindowsCluster、kOracleRACCluster、kOracleAPCluster、kUnixCluster。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-command-long-description",
@@ -2893,11 +2901,11 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-encryption-key-flag-description",
-    "translation": "指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-ids-flag-description",
-    "translation": "ID 指定要返回的源注册 ID 列表。 如果留空，则默认返回所有源注册。"
+    "translation": "标识指定要返回的源注册标识列表。 如果留空，缺省情况下将返回每个源注册。"
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-ignore-tenant-migration-in-progress-check-flag-description",
@@ -2909,15 +2917,15 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-include-source-credentials-flag-description",
-    "translation": "如果为 true，则将包含已注册来源的加密可信信息。 首先使用内部密钥对凭证进行加密，然后使用用户提供的加密密钥再次加密。"
+    "translation": "如果为 true，则将包含已注册源的加密凭证。 首先使用内部密钥对凭证进行加密，然后使用用户提供的加密密钥重新加密。"
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-use-cached-data-flag-description",
-    "translation": "指定我们是否能从读取副本缓存中处理 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
+    "translation": "指定我们是否可以处理来自读取副本缓存的 GET 请求。 读取副本和主数据源之间有 15 秒的滞后。"
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-protection-sources-group-long-description",
@@ -2929,19 +2937,19 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-after-cursor-entity-id-flag-description",
-    "translation": "指定从哪个实体 ID 开始返回项目。"
+    "translation": "指定从哪个实体标识开始返回项目。"
   },
   {
     "id": "backup-recovery-protection-sources-list-all-under-hierarchy-flag-description",
-    "translation": "AllUnderHierarchy 指定是否应返回登录用户所在组织层次结构下所有租户的对象。"
+    "translation": "AllUnderHierarchy 指定是否应返回登录用户的组织层次结构下所有租户的对象。"
   },
   {
     "id": "backup-recovery-protection-sources-list-before-cursor-entity-id-flag-description",
-    "translation": "指定要将项返回到的实体 ID。"
+    "translation": "指定要将项目返回到的实体标识。"
   },
   {
     "id": "backup-recovery-protection-sources-list-command-long-description",
-    "translation": "如果未指定参数，则返回所有在 Cohesity 集群上注册的保护源。 此外，还会返回从每个源收集的对象子树。 例如，Cohesity 集群会询问源 VMware vCenter Server，并创建一个分层对象子树，以镜像 vCenter Server 上的库存树。 对象树的内容将作为“protectionSource”的“节点”层次结构返回。 指定参数可以改变返回的结果。"
+    "translation": "如果未指定参数，则返回所有在 Cohesity 集群上注册的保护源。 此外，还会返回从每个源收集的对象子树。 例如，Cohesity 集群会询问源 VMware vCenter Server，并创建一个镜像 vCenter Server 上的库存树的分层对象子树。 对象树的内容将作为“protectionSource”的“节点”层次结构返回。 指定参数可以改变返回的结果。"
   },
   {
     "id": "backup-recovery-protection-sources-list-command-short-description",
@@ -2953,31 +2961,31 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-environment-flag-description",
-    "translation": "不推荐使用此字段。 改为使用环境。"
+    "translation": "此字段已弃用。 改为使用环境。"
   },
   {
     "id": "backup-recovery-protection-sources-list-environments-flag-description",
-    "translation": "只返回与传入的环境类型（“kVMware”、“kSQL”、“kView”、“kPhysical”、“kPuppeteer”、“kPure”、“kNetapp”、“kGenericNas”、“kHyperV”、“kAcropolis”或“kAzure”）相匹配的保护源。 例如，将此参数设置为“kVMware”，以仅返回在“kVMware”(VMware vCenterServer) 环境中找到的源（及其对象子树）。 允许的列表项包括：kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、 kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3。"
+    "translation": "只返回与传入的环境类型（如“kVMware”、“kSQL”、“kView”、“kPhysical”、“kPuppeteer”、“kPure”、“kNetapp”、“kGenericNas”、“kHyperV”、“kAcropolis”或“kAzure”）相匹配的保护源。 例如，将此参数设置为“kVMware”，以仅返回在“kVMware”(VMware vCenterServer) 环境中找到的源（及其对象子树）。 允许的列表项为：kVMware、kHyperV、kSQL、kView、kPuppeteer、kPhysical、kPure、kNimble、kAzure、kNetapp、kAgent、kGenericNas、kAcropolis、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kO365、kO365Outlook、kHyperFlex、kGCPNative、kAzureNative、kKubernetes、kElastifile、kAD、kRDSSnapshotManager、kCassandra、kMongoDB、kCouchbase、kHdfs、kHBase、kUDA、KSfdc、kAwsS3。"
   },
   {
     "id": "backup-recovery-protection-sources-list-exclude-aws-types-flag-description",
-    "translation": "指定要针对 AWS 筛选掉的与传入的类型（如“kEC2Instance”、“kRDSInstance”、“kAuroraCluster”、“kTag”、“kAuroraTag”、“kRDSTag”、“kS3Bucket”、“kS3Tag”）相匹配的对象类型。 例如，将此参数设置为“kEC2Instance”，以避免返回 ec2 实例。 允许的列表项包括：kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag。"
+    "translation": "指定要针对 AWS 过滤掉的与传入的类型（如“kEC2Instance”、“kRDSInstance”、“kAuroraCluster”、“kTag”、“kAuroraTag”、“kRDSTag”、“kS3Bucket”、“kS3Tag”）相匹配的对象类型。 例如，将此参数设置为“kEC2Instance”，以排除返回 ec2 实例。 允许的列表项为：kEC2Instance、kRDSInstance、kAuroraCluster、kS3Bucket、kTag、kRDSTag、kAuroraTag、kS3Tag。"
   },
   {
     "id": "backup-recovery-protection-sources-list-exclude-kubernetes-types-flag-description",
-    "translation": "指定要针对 Kubernetes 筛选掉的与传入类型（如“kService”）相匹配的对象类型。 例如，将此参数设置为“kService”，以避免返回服务。 允许的列表项有：kService。"
+    "translation": "指定要针对 Kubernetes 过滤掉的与传入类型（如“kService”）相匹配的对象类型。 例如，将此参数设置为“kService”，以排除返回服务。 允许的列表项为：kService。"
   },
   {
     "id": "backup-recovery-protection-sources-list-exclude-office365-types-flag-description",
-    "translation": "指定要针对 Office 365 筛选掉的与传入的类型（如“kDomain”、“kOutlook”、“kMailbox”等）匹配的对象类型。 例如，将此参数设置为“kMailbox”，以避免返回邮箱对象。 允许的列表项包括：kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite。"
+    "translation": "指定要针对 Office 365 过滤掉的与传入的类型（如“kDomain”、“kOutlook”、“kMailbox”等）匹配的对象类型。 例如，将此参数设置为“kMailbox”，以排除返回邮箱对象。 允许的列表项为：kDomain、kOutlook、kMailbox、kUsers、kUser、kGroups、kGroup、kSites、kSite。"
   },
   {
     "id": "backup-recovery-protection-sources-list-exclude-types-flag-description",
-    "translation": "筛选掉与传入类型（如“kVCenter”、“kFolder”、“kDatacenter”、“kComputeResource”、“kResourcePool”、“kDatastore”、“kHostSystem”、“kVirtualMachine”等）匹配的对象类型（及其子树）。 例如，将此参数设置为“kResourcePool”，以避免返回资源池对象。 允许的列表项包括：kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag。"
+    "translation": "过滤掉与传入类型（如“kVCenter”、“kFolder”、“kDatacenter”、“kComputeResource”、“kResourcePool”、“kDatastore”、“kHostSystem”、“kVirtualMachine”等）匹配的对象类型（及其子树）。 例如，将此参数设置为“kResourcePool”，以排除返回资源池对象。 允许的列表项为：kVCenter、kFolder、kDatacenter、kComputeResource、kClusterComputeResource、kResourcePool、kDatastore、kHostSystem、kVirtualMachine、kVirtualApp、kStandaloneHost、kStoragePod、kNetwork、kDistributedVirtualPortgroup、kTagCategory、kTag。"
   },
   {
     "id": "backup-recovery-protection-sources-list-get-teams-channels-flag-description",
-    "translation": "根据策略 ID 列表筛选策略。"
+    "translation": "根据策略标识列表过滤策略。"
   },
   {
     "id": "backup-recovery-protection-sources-list-has-valid-mailbox-flag-description",
@@ -2989,11 +2997,11 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-id-flag-description",
-    "translation": "返回传入的保护源 ID 的对象子树。"
+    "translation": "返回传入的保护源标识的对象子树。"
   },
   {
     "id": "backup-recovery-protection-sources-list-include-datastores-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的 kDatastore 对象类型。 默认情况下，不会返回数据存储。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的 kDatastore 对象类型。 缺省情况下，不返回数据存储。"
   },
   {
     "id": "backup-recovery-protection-sources-list-include-entity-permission-info-flag-description",
@@ -3001,7 +3009,7 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-include-networks-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的 kNetwork 对象类型。 默认情况下，不返回网络对象。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的 kNetwork 对象类型。 缺省情况下，不返回网络对象。"
   },
   {
     "id": "backup-recovery-protection-sources-list-include-object-protection-info-flag-description",
@@ -3009,7 +3017,7 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-include-sfdc-fields-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的对象的字段。 默认情况下，不返回 Sfdc 对象字段。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的对象的字段。 缺省情况下，不返回 Sfdc 对象字段。"
   },
   {
     "id": "backup-recovery-protection-sources-list-include-source-credentials-flag-description",
@@ -3017,11 +3025,11 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-include-system-v-apps-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的系统 VApp 对象类型。 默认情况下，不返回虚拟机文件夹对象。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的系统 VApp 对象类型。 缺省情况下，不返回虚拟机文件夹对象。"
   },
   {
     "id": "backup-recovery-protection-sources-list-include-vm-folders-flag-description",
-    "translation": "将此参数设置为 true，除了对象子树外，还将返回在源中找到的 kVMFolder 对象类型。 默认情况下，不返回虚拟机文件夹对象。"
+    "translation": "将此参数设置为 true，除了返回其对象子树外，还将返回在源中找到的 kVMFolder 对象类型。 缺省情况下，不返回虚拟机文件夹对象。"
   },
   {
     "id": "backup-recovery-protection-sources-list-is-security-group-flag-description",
@@ -3029,7 +3037,7 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-node-id-flag-description",
-    "translation": "指定“源”实体层次结构中任何一级节点的实体 ID，其中其子节点将被分页。"
+    "translation": "指定“源”实体层次结构中任意级别节点的实体标识，该节点的子节点将被分页。"
   },
   {
     "id": "backup-recovery-protection-sources-list-num-levels-flag-description",
@@ -3037,31 +3045,31 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-page-size-flag-description",
-    "translation": "指定页面内返回实体的最大数量。"
+    "translation": "指定页面内返回的最大实体数。"
   },
   {
     "id": "backup-recovery-protection-sources-list-prune-aggregation-info-flag-description",
-    "translation": "指定是否修剪有关受保护/不受保护实体数量的聚合信息。"
+    "translation": "指定是否修剪有关受保护/不受保护实体数的聚合信息。"
   },
   {
     "id": "backup-recovery-protection-sources-list-prune-non-critical-info-flag-description",
-    "translation": "指定是否修剪实体内的非关键信息。 如果是虚拟机，虚拟磁盘信息将被修剪。 在 Office365 中，将对有关用户实体的元数据进行修剪。 这可用于限制调用者响应的大小。"
+    "translation": "指定是否修剪实体内的非关键信息。 如果是虚拟机，虚拟磁盘信息将被修剪。 如果是 Office365，有关用户实体的元数据将被修剪。 这可用于限制调用者响应的大小。"
   },
   {
     "id": "backup-recovery-protection-sources-list-request-initiator-type-flag-description",
-    "translation": "指定请求类型。 可能的值为 UIUser 和 UIAuto，这意味着请求由用户触发或属于自动刷新请求。 magneto 等服务将利用此项来确定请求的优先级，从而通过优先处理优先级较高的请求，更加智能地处理过载情况。"
+    "translation": "指定请求类型。 可能的值为 UIUser 和 UIAuto，这意味着请求由用户触发或是一个自动刷新请求。 magneto 等服务将利用此项来确定请求的优先级，从而通过优先处理优先级较高的请求，更加智能地处理过载情况。"
   },
   {
     "id": "backup-recovery-protection-sources-list-sids-flag-description",
-    "translation": "根据列表中给出的 SID 筛选对象子树。"
+    "translation": "根据列表中给出的 SID 过滤对象子树。"
   },
   {
     "id": "backup-recovery-protection-sources-list-use-cached-data-flag-description",
-    "translation": "指定是否可以对读取副本缓存发出 GET 请求。 将此项设置为 true 可确保向读取副本发出 API 请求。 将此项设置为 false 则会将请求发送给主站。"
+    "translation": "指定我们是否可以向读取副本缓存提供 GET 请求。 将此项设置为 true 可确保向读取副本提供 API 请求。 将此项设置为 false 则会向主站提供请求。"
   },
   {
     "id": "backup-recovery-protection-sources-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-recovery-create-command-long-description",
@@ -3073,19 +3081,35 @@
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-flag-description",
-    "translation": "指定特定于 SQL 环境的恢复选项。 也可以是 JSON 文件的路径。"
+    "translation": "指定特定于 SQL 环境的恢复选项。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-recover-app-params-flag-description",
-    "translation": "指定恢复 SQL 数据库的参数。 也可以是 JSON 文件的路径。 最小长度为 1 项。"
+    "translation": "指定恢复 SQL 数据库的参数。 它也可以是 JSON 文件的路径。 最小长度为 1 项。"
+  },
+  {
+    "id": "backup-recovery-management-console-group-short-description",
+    "translation": "备份恢复管理资源的命令。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-short-description",
+    "translation": "列出提供程序实例。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-command-short-description",
+    "translation": "数据源连接器日志。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-command-short-description",
+    "translation": "数据源连接器状态。"
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
-    "translation": "指定要执行的恢复操作类型。 允许的值是 RecoverApps、CloneApps。"
+    "translation": "指定要执行的恢复操作类型。 允许的值为：RecoverApps、CloneApps。"
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-vlan-config-flag-description",
-    "translation": "指定与恢复操作相关的 VLAN 参数。 如果未指定，则将从以下选项中自动选择 VLAN 设置：a. 如果在 IBM 上配置了 VLAN，那么 VLAN 主机/VIP 将自动基于客户端（如 ESXI 主机）的 IP 地址。 b. 如果 IBM 上未配置 VLAN，则将使用分区主机名或 VIP 进行恢复。 也可以是 JSON 文件的路径。"
+    "translation": "指定与恢复操作相关的 VLAN 参数。 如果未指定，则将从以下选项中自动选择 VLAN 设置：a. 如果在 IBM 上配置了 VLAN，那么 VLAN 主机/VIP 将自动基于客户端（如 ESXI 主机）的 IP 地址。 b. 如果 IBM 上未配置 VLAN，则将使用分区主机名或 VIP 进行恢复。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-name-flag-description",
@@ -3093,47 +3117,47 @@
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-download-file-and-folder-params-flag-description",
-    "translation": "指定下载文件和文件夹的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定下载文件和文件夹的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-flag-description",
-    "translation": "指定物理环境特定的恢复选项。 也可以是 JSON 文件的路径。"
+    "translation": "指定物理环境特定的恢复选项。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-mount-volume-params-flag-description",
-    "translation": "指定挂载物理卷的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定挂载物理卷的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-objects-flag-description",
-    "translation": "指定恢复对象参数列表。 恢复文件时，指定包含要恢复文件的对象。 也可以是 JSON 文件的路径。"
+    "translation": "指定恢复对象参数列表。 恢复文件时，指定包含要恢复文件的对象。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-recover-file-and-folder-params-flag-description",
-    "translation": "指定执行文件和文件夹恢复的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定执行文件和文件夹恢复的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-recover-volume-params-flag-description",
-    "translation": "指定恢复物理卷的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定恢复物理卷的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-recovery-action-flag-description",
-    "translation": "指定要执行的恢复操作类型。 允许的值包括：RecoverPhysicalVolumes、InstantVolumeMount、RecoverFiles、RecoverSystem。"
+    "translation": "指定要执行的恢复操作类型。 允许的值为：RecoverPhysicalVolumes、InstantVolumeMount、RecoverFiles、RecoverSystem。"
   },
   {
     "id": "backup-recovery-recovery-create-physical-params-system-recovery-params-flag-description",
-    "translation": "指定执行系统恢复的参数。 也可以是 JSON 文件的路径。"
+    "translation": "指定执行系统恢复的参数。 它也可以是 JSON 文件的路径。"
   },
   {
     "id": "backup-recovery-recovery-create-request-initiator-type-flag-description",
-    "translation": "指定来自 UI 的请求类型，此类型用于 magneto 等服务以确定请求的优先级。 允许的值包括：UIUser、UIAuto、Helios。"
+    "translation": "指定来自 UI 的请求类型，用于 magneto 等服务以确定请求的优先级。 允许的值为：UIUser、UIAuto、Helios。"
   },
   {
     "id": "backup-recovery-recovery-create-snapshot-environment-flag-description",
-    "translation": "必需。 指定需要执行恢复的快照的环境类型。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "必需。 指定需要执行恢复的快照的环境类型。 允许的值为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-recovery-files-download-command-long-description",
@@ -3145,15 +3169,15 @@
   },
   {
     "id": "backup-recovery-recovery-files-download-file-type-flag-description",
-    "translation": "指定下载类型，如：error、success_files_list。"
+    "translation": "指定下载类型，即 error、success_files_list。"
   },
   {
     "id": "backup-recovery-recovery-files-download-id-flag-description",
-    "translation": "必需。 指定“恢复”的 ID。 "
+    "translation": "必需。 指定“恢复”的标识。 "
   },
   {
     "id": "backup-recovery-recovery-files-download-include-tenants-flag-description",
-    "translation": "指定是否应返回登录用户所在组织层次结构下所有组织的对象。"
+    "translation": "指定是否应返回登录用户的组织层次结构下所有组织的对象。"
   },
   {
     "id": "backup-recovery-recovery-files-download-length-flag-description",
@@ -3161,7 +3185,7 @@
   },
   {
     "id": "backup-recovery-recovery-files-download-source-name-flag-description",
-    "translation": "指定进行还原的源名称。"
+    "translation": "指定进行复原的源名称。"
   },
   {
     "id": "backup-recovery-recovery-files-download-start-offset-flag-description",
@@ -3169,39 +3193,39 @@
   },
   {
     "id": "backup-recovery-recovery-files-download-start-time-flag-description",
-    "translation": "指定还原任务的开始时间。"
+    "translation": "指定复原任务的开始时间。"
   },
   {
     "id": "backup-recovery-recovery-files-download-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-recovery-get-command-long-description",
-    "translation": "获取给定 ID 的恢复信息。"
+    "translation": "获取给定标识的恢复。"
   },
   {
     "id": "backup-recovery-recovery-get-command-short-description",
-    "translation": "获取给定 ID 的恢复信息。"
+    "translation": "获取给定标识的恢复。"
   },
   {
     "id": "backup-recovery-recovery-get-id-flag-description",
-    "translation": "必需。 指定“恢复”的 ID。 "
+    "translation": "必需。 指定“恢复”的标识。 "
   },
   {
     "id": "backup-recovery-recovery-get-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-recovery-group-long-description",
-    "translation": "恢复资源的命令。"
+    "translation": "用于 Recovery 资源的命令。"
   },
   {
     "id": "backup-recovery-recovery-group-short-description",
-    "translation": "恢复资源的命令。"
+    "translation": "用于 Recovery 资源的命令。"
   },
   {
     "id": "backup-recovery-recovery-list-archival-target-type-flag-description",
-    "translation": "指定已执行恢复的快照的存档目标类型。 该参数仅适用于“snapshotTargetType”为“Archival”的情况。 允许的列表项包括：Tape、Cloud、Nas。"
+    "translation": "指定已执行恢复的快照的存档目标类型。 该参数仅适用于“snapshotTargetType”为“Archival”的情况。 允许的列表项为：Tape、Cloud、Nas。"
   },
   {
     "id": "backup-recovery-recovery-list-command-long-description",
@@ -3217,23 +3241,23 @@
   },
   {
     "id": "backup-recovery-recovery-list-ids-flag-description",
-    "translation": "筛选给定 ID 的恢复。 "
+    "translation": "过滤给定标识的恢复。 "
   },
   {
     "id": "backup-recovery-recovery-list-recovery-actions-flag-description",
-    "translation": "指定用于筛选恢复的恢复操作列表。 如果为空，将返回与所有操作相关的恢复。 允许的列表项包括：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、RecoverVApps、RecoverVAppTemplates、UptierSnapshot、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverRDSPostgres、RecoverAzureSQL、RecoverApps、CloneApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverExchangeDbs、CloneAppView、RecoverSanVolumes、RecoverSanGroup、RecoverMailbox、RecoverOneDrive、RecoverSharePoint、RecoverPublicFolders、RecoverMsGroup、RecoverMsTeam、ConvertToPst、DownloadChats、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM、RecoverNamespaces、RecoverObjects、RecoverSfdcObjects、RecoverSfdcOrg、RecoverSfdcRecords、DownloadFilesAndFolders、CloneVMs、CloneView、CloneRefreshApp、CloneVMsToView、ConvertAndDeployVMs、DeployVMs。"
+    "translation": "指定用于过滤恢复的恢复操作列表。 如果为空，将返回与所有操作相关的恢复。 允许的列表项为：RecoverVMs、RecoverFiles、InstantVolumeMount、RecoverVmDisks、RecoverVApps、RecoverVAppTemplates、UptierSnapshot、RecoverRDS、RecoverAurora、RecoverS3Buckets、RecoverRDSPostgres、RecoverAzureSQL、RecoverApps、CloneApps、RecoverNasVolume、RecoverPhysicalVolumes、RecoverSystem、RecoverExchangeDbs、CloneAppView、RecoverSanVolumes、RecoverSanGroup、RecoverMailbox、RecoverOneDrive、RecoverSharePoint、RecoverPublicFolders、RecoverMsGroup、RecoverMsTeam、ConvertToPst、DownloadChats、RecoverMailboxCSM、RecoverOneDriveCSM、RecoverSharePointCSM、RecoverNamespaces、RecoverObjects、RecoverSfdcObjects、RecoverSfdcOrg、RecoverSfdcRecords、DownloadFilesAndFolders、CloneVMs、CloneView、CloneRefreshApp、CloneVMsToView、ConvertAndDeployVMs、DeployVMs。"
   },
   {
     "id": "backup-recovery-recovery-list-return-only-child-recoveries-flag-description",
-    "translation": "如果传递的值为 true，则只返回子恢复。 该筛选器应始终与“ID”筛选器一起使用。"
+    "translation": "如果传递的值为 true，则只返回子恢复。 此过滤器应始终与“标识”过滤器一起使用。"
   },
   {
     "id": "backup-recovery-recovery-list-snapshot-environments-flag-description",
-    "translation": "指定用于筛选恢复的快照环境类型列表。 如果为空，将返回与所有环境相关的恢复。 允许的列表项有：kPhysical、kSQL。"
+    "translation": "指定用于过滤恢复的快照环境类型列表。 如果为空，将返回与所有环境相关的恢复。 允许的列表项为：kPhysical、kSQL。"
   },
   {
     "id": "backup-recovery-recovery-list-snapshot-target-type-flag-description",
-    "translation": "指定执行恢复的快照的目标类型。 允许的列表项包括：Local、Archival、RpaasArchival、StorageArraySnapshot、Remote。"
+    "translation": "指定执行恢复的快照的目标类型。 允许的列表项为：Local、Archival、RpaasArchival、StorageArraySnapshot、Remote。"
   },
   {
     "id": "backup-recovery-recovery-list-start-time-usecs-flag-description",
@@ -3241,19 +3265,19 @@
   },
   {
     "id": "backup-recovery-recovery-list-status-flag-description",
-    "translation": "指定用于筛选恢复的运行状态列表。 如果为空，将返回所有运行状态的恢复。 允许的项包括：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、 Finalizing、Skipped、LegalHold。"
+    "translation": "指定用于过滤恢复的运行状态列表。 如果为空，将返回所有运行状态的恢复。 允许的列表项为：Accepted、Running、Canceled、Canceling、Failed、Missed、Succeeded、SucceededWithWarning、OnHold、Finalizing、Skipped、LegalHold。"
   },
   {
     "id": "backup-recovery-recovery-list-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-restore-points-command-long-description",
-    "translation": "列出还原点，即在给定时间范围内返回快照。"
+    "translation": "列出复原点，即返回给定时间范围内的快照。"
   },
   {
     "id": "backup-recovery-restore-points-command-short-description",
-    "translation": "列出指定时间范围内的还原点。"
+    "translation": "列出给定时间范围内的复原点。"
   },
   {
     "id": "backup-recovery-restore-points-end-time-usecs-flag-description",
@@ -3261,7 +3285,7 @@
   },
   {
     "id": "backup-recovery-restore-points-environment-flag-description",
-    "translation": "必需。 指定保护源环境类型。 允许的值包括：kVMware、kHyperV、kAzure、kGCP、kKVM、kAcropolis、kAWS、kPhysical、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPure、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kSAPHANA、kHBase、kUDA、kSfdc。"
+    "translation": "必需。 指定保护源环境类型。 允许的值为：kVMware、kHyperV、kAzure、kGCP、kKVM、kAcropolis、kAWS、kPhysical、kGPFS、kElastifile、kNetapp、kGenericNas、kIsilon、kFlashBlade、kPure、kIbmFlashSystem、kSQL、kExchange、kAD、kOracle、kView、kRemoteAdapter、kO365、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kSAPHANA、kHBase、kUDA、kSfdc。"
   },
   {
     "id": "backup-recovery-restore-points-protection-group-ids-flag-description",
@@ -3269,7 +3293,7 @@
   },
   {
     "id": "backup-recovery-restore-points-source-id-flag-description",
-    "translation": "指定要恢复的保护源 ID。"
+    "translation": "指定要复原的保护源标识。"
   },
   {
     "id": "backup-recovery-restore-points-start-time-usecs-flag-description",
@@ -3277,7 +3301,7 @@
   },
   {
     "id": "backup-recovery-restore-points-xibm-tenant-id-flag-description",
-    "translation": "必需。 指定用于加密源证书的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
+    "translation": "必需。 指定用于加密源凭证的密钥。 如果 includeSourceCredentials 设置为 true，则必须指定此密钥。"
   },
   {
     "id": "backup-recovery-short-description",
@@ -3441,11 +3465,11 @@
   },
   {
     "id": "final-usage-line-help-menu",
-    "translation": "使用“ibmcloud {{.COMMAND_PATH}} service-command -- help”，以获取有关命令的更多信息。"
+    "translation": "使用“ibmcloud {{.COMMAND_PATH}} service-command --help”，可获取有关命令的更多信息。"
   },
   {
     "id": "force-flag-description",
-    "translation": "强制命令执行。"
+    "translation": "强制执行命令。"
   },
   {
     "id": "global-options-header-help-menu",
@@ -3545,7 +3569,7 @@
   },
   {
     "id": "quiet-global-flag-description",
-    "translation": "禁用详细消息。"
+    "translation": "禁止详细消息。"
   },
   {
     "id": "response-processing-error",
@@ -3557,11 +3581,735 @@
   },
   {
     "id": "service-url-global-flag-description",
-    "translation": "提供 API 的基本端点 URL 。"
+    "translation": "提供 API 的基本端点 URL。"
   },
   {
     "id": "connector-service-url-global-flag-description",
     "translation": "提供 API 的连接器端点 URL。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-short-description",
+    "translation": "管理控制台组件的命令。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-long-description",
+    "translation": "管理控制台组件的命令。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-short-description",
+    "translation": "列出报表组件。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-long-description",
+    "translation": "获取已登录用户可访问的所有报表组件的列表。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-ids-flag-description",
+    "translation": "指定要获取的报表组件的 ID。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-short-description",
+    "translation": "根据 ID 获取报表组件。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-long-description",
+    "translation": "获取有关报表组件的信息。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-id-flag-description",
+    "translation": "必需。 指定报表组件的 ID。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-short-description",
+    "translation": "获取组件预览。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-long-description",
+    "translation": "获取 ID 指定的组件预览。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-id-flag-description",
+    "translation": "必需。 指定该组件的 ID。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-filters-flag-description",
+    "translation": "指定适用于报表中给定组件的全局过滤器列表。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-flag-description",
+    "translation": "指定用于限制结果数据集的参数。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-sort-flag-description",
+    "translation": "指定要应用于结果数据的排序（排列）参数。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-timezone-flag-description",
+    "translation": "指定用户的时区。 如果为 nil，则默认使用 UTC。 指定的时间应为 IANA 时区数据库中的地点名称，例如“America/Los_Angeles”。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-from-flag-description",
+    "translation": "指定在应用大小参数之前，需跳过的结果数据偏移量。 例如，若数据集大小为 10 个对象，from=2 且 size=5，则将从 10 个对象中返回从偏移量 2 开始的 5 个对象，即第 2 至第 7 个对象。 如果未指定，则不会跳过任何对象。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-size-flag-description",
+    "translation": "指定从指定偏移量开始返回的对象数量。 最小值为 1。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-short-description",
+    "translation": "管理控制台资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-long-description",
+    "translation": "管理控制台资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-short-description",
+    "translation": "获取资源。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-long-description",
+    "translation": "获取在管理控制台上已发现的各类可用资源。 这些值可用于筛选选项。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-resource-type-flag-description",
+    "translation": "必需。 指定资源类型。 允许的值包括：Policies、ProtectionGroups、RegisteredSources、MessageCodeMappings。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-short-description",
+    "translation": "管理控制台报告的命令。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-long-description",
+    "translation": "管理控制台报告的命令。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-short-description",
+    "translation": "列出报告类型的属性。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-long-description",
+    "translation": "获取报告类型的属性列表。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-report-type-flag-description",
+    "translation": "必需。 指定报告类型。 允许的值包括：Failures、 ProtectedUnprotectedObjects、ProtectedObjects、ProtectionActivity、ProtectionGroupSummary、ProtectionRuns、ProtectionRunsTrend、Recovery。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-short-description",
+    "translation": "列出报告。"
+  },
+  {
+    "id": "management-reporting-service-url-global-flag-description",
+    "translation": "为该 API 提供管理控制台报告端点 URL。"
+  },
+  {
+    "id": "management-sre-url-global-flag-description",
+    "translation": "为该 API 提供管理控制台 SRE 端点 URL。"
+  },
+  {
+    "id": "management-sre-service-authentication-url-global-flag-description",
+    "translation": "提供管理控制台 SRE 认证端点 URL。"
+  },
+  {
+    "id": "management-sre-service-password-global-flag-description",
+    "translation": "请提供管理控制台 SRE 密码。"
+  },
+  {
+    "id": "management-sre-service-username-global-flag-description",
+    "translation": "提供管理控制台 SRE 用户名。"
+  },
+  {
+    "id": "management-sre-service-apikey-global-flag-description",
+    "translation": "提供管理控制台 SRE apikey。"
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-short-description",
+    "translation": "ProviderInstances 资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-long-description",
+    "translation": "ProviderInstances 资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-short-description",
+    "translation": "列出提供程序实例。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-long-description",
+    "translation": "列出所有提供程序实例及其详细信息。 该 API 返回提供程序实例的详细列表。 提供程序负责管理实例的生命周期，而本 API 仅用于提供相关实例的元数据信息。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-instance-ids-flag-description",
+    "translation": "用于筛选的提供程序实例 ID 列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-regions-flag-description",
+    "translation": "用于筛选的提供程序实例区域列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-include-service-instance-status-flag-description",
+    "translation": "用于判断是否在为服务实例返回状态信息的同时，包含集群详情、软件版本等其他详细信息的布尔标志。 缺省值为 false。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-long-description",
+    "translation": "获取已登录用户可访问的所有报告的列表。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-ids-flag-description",
+    "translation": "指定要获取的报告 ID。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-user-context-flag-description",
+    "translation": "指定用户上下文以筛选报表。 允许的值包括：IBMBaaS。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-short-description",
+    "translation": "获取报告。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-long-description",
+    "translation": "获取指定 ID 的报告。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-id-flag-description",
+    "translation": "必需。 指定报告的 ID。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-short-description",
+    "translation": "获取报告预览。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-long-description",
+    "translation": "获取已配置报告的预览。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-id-flag-description",
+    "translation": "必需。 指定报告的 ID。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-component-ids-flag-description",
+    "translation": "指定用于评估给定报告的组件 ID 列表。 若未指定，则评估所有组件。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-filters-flag-description",
+    "translation": "指定适用于报表中给定组件的全局过滤器列表。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-timezone-flag-description",
+    "translation": "指定用户的时区。 如果为 nil，则默认使用 UTC。 指定的时间应为 IANA 时区数据库中的地点名称，例如“America/Los_Angeles”。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-short-description",
+    "translation": "导出报告。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-long-description",
+    "translation": "导出已配置的报告。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-id-flag-description",
+    "translation": "必需。 指定报告的 ID。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-async-flag-description",
+    "translation": "指定报告是否应异步生成。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-filters-flag-description",
+    "translation": "指定适用于报表中给定组件的全局过滤器列表。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-layout-flag-description",
+    "translation": "需要导出的报告布局。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-report-format-flag-description",
+    "translation": "需要导出的报告格式。 允许的值包括：XLS、CSV。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-timezone-flag-description",
+    "translation": "指定用户的时区。 如果为 nil，则默认使用 UTC。 指定的时间应为 IANA 时区数据库中的地点名称，例如“America/Los_Angeles”。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-short-description",
+    "translation": "管理 IBM REST API。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-long-description",
+    "translation": "IBM API 提供 RESTful 接口，用于访问 IBM 集群和管理控制台上的各类数据管理操作。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-bad-url-error-message",
+    "translation": "无效 URL：请使用 BACKUP_RECOVERY_MANAGEMENT_SRE_URL 环境变量或凭据文件中的密钥，设置基本 URL。"
+  },
+  {
+    "id": "mutually-exclusive-fields",
+    "translation": "该{{.FLAG_NAME}}选项与其可单独设置的子字段选项是互斥的。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-short-description",
+    "translation": "ClusterUpgrade 资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-long-description",
+    "translation": "ClusterUpgrade 资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-short-description",
+    "translation": "获取升级信息。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-long-description",
+    "translation": "获取集群升级的进度详细信息和日志。 日志将采用 JSON 字符串格式。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-cluster-identifiers-flag-description",
+    "translation": "获取集群标识符列表的升级进度详细信息，格式为 clusterId:clusterIncarnationId。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-short-description",
+    "translation": "更新已计划的集群升级。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-long-description",
+    "translation": "更新已计划的集群升级。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-auth-headers-flag-description",
+    "translation": "指定升级请求的可选标头。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-clusters-flag-description",
+    "translation": "待升级集群的数组。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "指定两个集群升级之间的时间差。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-package-url-flag-description",
+    "translation": "指定可从中下载软件包的 URL。 注意：此选项仅在多集群管理器 (MCM) 中受支持。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-flag-description",
+    "translation": "指定补丁升级请求的各项参数。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-target-version-flag-description",
+    "translation": "指定集群将要升级到的目标版本。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "指定集群必须进行升级的时间（毫秒）。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-type-flag-description",
+    "translation": "指定需要对集群执行的升级类型。 缺省值为 Upgrade。 允许的值包括：Upgrade、Patch、UpgradePatch。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "指定补丁集群请求的可选标头。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "指定是否可以忽略预检查结果。 缺省值为 false。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-package-url-flag-description",
+    "translation": "指定从中可下载补丁包的 URL。 注意：此选项仅在多集群管理器 (MCM) 中受支持。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-target-version-flag-description",
+    "translation": "指定集群将要升级到的目标补丁版本。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-short-description",
+    "translation": "启动即时和计划的集群升级。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-long-description",
+    "translation": "启动即时和计划的集群升级。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-auth-headers-flag-description",
+    "translation": "指定升级请求的可选标头。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-clusters-flag-description",
+    "translation": "待升级集群的数组。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "指定两个集群升级之间的时间差。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-package-url-flag-description",
+    "translation": "指定可从中下载软件包的 URL。 注意：此选项仅在多集群管理器 (MCM) 中受支持。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-flag-description",
+    "translation": "指定补丁升级请求的各项参数。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-target-version-flag-description",
+    "translation": "指定集群将要升级到的目标版本。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "指定集群必须进行升级的时间（毫秒）。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-type-flag-description",
+    "translation": "指定需要对集群执行的升级类型。 缺省值为 Upgrade。 允许的值包括：Upgrade、Patch、UpgradePatch。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "指定补丁集群请求的可选标头。 它应该是一个 JSON 字符串或指向 JSON 文件的路径。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "指定是否可以忽略预检查结果。 缺省值为 false。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-package-url-flag-description",
+    "translation": "指定从中可下载补丁包的 URL。 注意：此选项仅在多集群管理器 (MCM) 中受支持。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-target-version-flag-description",
+    "translation": "指定集群将要升级到的目标补丁版本。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-short-description",
+    "translation": "取消已计划的集群升级。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-long-description",
+    "translation": "取消已计划的集群升级。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-cluster-identifiers-flag-description",
+    "translation": "指定集群标识列表。 格式为：clusterId:clusterIncarnationId。 "
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-short-description",
+    "translation": "警报资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-long-description",
+    "translation": "警报资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-short-description",
+    "translation": "获取警报。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-long-description",
+    "translation": "获取警报。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-ids-flag-description",
+    "translation": "依据警报 ID 列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-types-flag-description",
+    "translation": "依据警报类型列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
+    "translation": "依据警报类别列表进行筛选。 允许的列表项包括：kDisk、kNode、kCluster、kChassis、kPowerSupply、kCPU、kMemory、kTemperature、kFan、kNIC、kFirmware、kNodeHealth、kOperatingSystem、kDataPath、kMetadata、kIndexing、kHelios、kAppMarketPlace、kSystemService、kLicense、kSecurity、kUpgrade、kClusterManagement、kAuditLog、kNetworking、kConfiguration、kStorageUsage、kFaultTolerance、kBackupRestore、kArchivalRestore、kRemoteReplication、kQuota、kCDP、kViewFailover、kDisasterRecovery、kStorageDevice、kStoragePool、kGeneralSoftwareFailure、kAgent。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-states-flag-description",
+    "translation": "依据警报状态列表进行筛选。 允许的列表项包括：kResolved、kOpen、kNote、kSuppressed。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-severities-flag-description",
+    "translation": "依据警报严重性类型列表进行筛选。 允许的列表项包括：kCritical、kWarning、kInfo。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-type-buckets-flag-description",
+    "translation": "依据警报类型分组列表进行筛选。 允许的列表项包括：kHardware、kSoftware、kDataService、kMaintenance。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-start-time-usecs-flag-description",
+    "translation": "指定用于筛选警报的开始时间，该时间应为 Unix 纪元时间（微秒）形式。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-end-time-usecs-flag-description",
+    "translation": "指定用于筛选警报的结束时间，该时间应为 Unix 纪元时间（微秒）形式。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-max-alerts-flag-description",
+    "translation": "指定需要返回的警报最大数量。缺省值为 100，允许最大值为1000。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-key-flag-description",
+    "translation": "指定用于筛选警报的属性名称。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-value-flag-description",
+    "translation": "指定用于筛选警报的属性值。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-name-flag-description",
+    "translation": "指定用于筛选警报的警报名称。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-resolution-ids-flag-description",
+    "translation": "指定用于筛选警报的警报解决方案 ID。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-tenant-ids-flag-description",
+    "translation": "依据租户 ID 进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-all-under-hierarchy-flag-description",
+    "translation": "依据已登录用户组织层级结构下所有租户的对象进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-x-scope-identifier-flag-description",
+    "translation": "该字段唯一标识一个服务实例。 请将值指定为“service-instance-id: <value>”。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-short-description",
+    "translation": "获取警报摘要。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-long-description",
+    "translation": "获取按类别分组的警报摘要。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-long-description",
+    "translation": "列出所有提供程序实例及其详细信息。 该 API 返回提供程序实例的详细列表。 提供程序负责管理实例的生命周期，而本 API 仅用于提供相关实例的元数据信息。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-instance-ids-flag-description",
+    "translation": "用于筛选的提供程序实例 ID 列表。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-regions-flag-description",
+    "translation": "用于筛选的提供程序实例区域列表。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-include-service-instance-status-flag-description",
+    "translation": "用于判断是否在为服务实例返回状态信息的同时，包含集群详情、软件版本等其他详细信息的布尔标志。 缺省值为 false。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "依据开始时间进行筛选。 请将开始时间指定为 Unix 纪元时间戳记（以微秒为单位）。 默认为当前时间减去一天。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "依据结束时间进行筛选。 将结束时间指定为 Unix 纪元时间戳记（以微秒为单位）。 默认为当前时间。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-include-tenants-flag-description",
+    "translation": "IncludeTenants 参数指定在计算摘要时，是否应使用已登录用户组织层级结构下所有租户的警报。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-tenant-ids-flag-description",
+    "translation": "TenantIds 包含其警报将用于计算摘要的租户 ID。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-states-list-flag-description",
+    "translation": "指定用于筛选警报的警报状态列表。 如果未指定，则仅使用未关闭的警报来获取摘要。 允许的列表项包括：kResolved、kOpen、kNote、kSuppressed。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
+    "translation": "该字段唯一标识一个服务实例。 请将值指定为“service-instance-id: <value>”。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-short-description",
+    "translation": "ManagementAlerts 资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-long-description",
+    "translation": "ManagementAlerts 资源的命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-short-description",
+    "translation": "在管理控制台上获取警报摘要。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-long-description",
+    "translation": "获取按类别分组的警报摘要。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-cluster-identifiers-flag-description",
+    "translation": "指定集群标识列表。 格式为 clusterId:clusterIncarnationId。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "依据开始时间进行筛选。 请将开始时间指定为 Unix 纪元时间戳记（以微秒为单位）。 默认为当前时间减去一天。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "依据结束时间进行筛选。 将结束时间指定为 Unix 纪元时间戳记（以微秒为单位）。 默认为当前时间。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-states-list-flag-description",
+    "translation": "指定用于筛选警报的警报状态列表。 如果未指定，则仅使用未关闭的警报来获取摘要。 允许的列表项包括：kResolved、kOpen、kNote、kSuppressed。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-short-description",
+    "translation": "获取管理控制台警报列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-long-description",
+    "translation": "获取管理控制台警报列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-id-list-flag-description",
+    "translation": "依据警报 ID 列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-state-list-flag-description",
+    "translation": "依据警报状态列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-list-flag-description",
+    "translation": "依据警报类型列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-severity-list-flag-description",
+    "translation": "依据警报严重性类型列表进行筛选。 允许的列表项包括：kCritical、kWarning、kInfo。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-region-ids-flag-description",
+    "translation": "依据区域 ID 列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-cluster-identifiers-flag-description",
+    "translation": "依据集群 ID 列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-start-date-usecs-flag-description",
+    "translation": "指定待返回警报的开始时间。 所有返回的警报均是在指定的开始时间之后生成。 该值应为 Unix 时间戳纪元（微秒）形式。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-end-date-usecs-flag-description",
+    "translation": "指定待返回警报的结束时间。 所有返回的警报均在指定的结束时间之前生成。 该值应为 Unix 时间戳纪元（微秒）形式。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-max-alerts-flag-description",
+    "translation": "指定待返回警报的最大数量。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-category-list-flag-description",
+    "translation": "依据警报类别列表进行筛选。 允许的列表项包括：kDisk、kNode、kCluster、kChassis、kPowerSupply、kCPU、kMemory、kTemperature、kFan、kNIC、kFirmware、kNodeHealth、kOperatingSystem、kDataPath、kMetadata、kIndexing、kHelios、kAppMarketPlace、kSystemService、kLicense、kSecurity、kUpgrade、kClusterManagement、kAuditLog、kNetworking、kConfiguration、kStorageUsage、kFaultTolerance、kBackupRestore、kArchivalRestore、kRemoteReplication、kQuota、kCDP、kViewFailover、kDisasterRecovery、kStorageDevice、kStoragePool、kGeneralSoftwareFailure、kAgent。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-tenant-ids-flag-description",
+    "translation": "依据租户 ID 进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-bucket-list-flag-description",
+    "translation": "依据警报类型分组列表进行筛选。 允许的列表项包括：kHardware、kSoftware、kDataService、kMaintenance。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-key-list-flag-description",
+    "translation": "指定用于查询的警报属性键列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-value-list-flag-description",
+    "translation": "指定警报属性值的列表，同一个键的多个值应以竖线'|'分隔。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-name-flag-description",
+    "translation": "指定用于筛选警报的警报名称。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-service-instance-ids-flag-description",
+    "translation": "指定用于为 IBM 客户筛选警报的服务实例 ID。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-short-description",
+    "translation": "列出 BRS 系统中的警报解决方案。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-long-description",
+    "translation": "返回 IBM 系统中找到的符合给定参数筛选条件的管理控制台警报解决方案对象。 如果未指定筛选参数，则返回最多 MaxResolutions 个警报解决方案对象。 每个对象均提供警报解决方案信息和已解决警报信息的详细信息。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-max-resolutions-flag-description",
+    "translation": "必需。 指定待返回解决方案的最大数量，按创建时间从新到旧排序。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-name-flag-description",
+    "translation": "指定用于查询的警报解决方案名称。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-id-flag-description",
+    "translation": "指定用于查询的警报解决 ID。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-short-description",
+    "translation": "计算活动警报的统计数据。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-long-description",
+    "translation": "计算活动警报的统计数据。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-start-time-usecs-flag-description",
+    "translation": "必需。 指定用于计算活动警报统计数据的起始时间，该时间应为 Unix 时间纪元（微秒）形式。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-end-time-usecs-flag-description",
+    "translation": "必需。 指定用于计算活动警报统计数据的结束时间，该时间应为 Unix 纪元时间（微秒）形式。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-cluster-ids-flag-description",
+    "translation": "指定集群 ID 列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-service-instance-ids-flag-description",
+    "translation": "指定用于筛选警报统计数据的服务实例 ID 列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-region-ids-flag-description",
+    "translation": "依据区域 ID 列表进行筛选。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-exclude-stats-by-cluster-flag-description",
+    "translation": "指定是否需要排除每个集群的活动警报统计数据。 若设置为 false（缺省值），响应中将包含每个集群的活动警报统计数据。 若设置为 true，响应中将仅包含汇总后的统计摘要。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-alert-source-flag-description",
+    "translation": "指定警报生成源的列表。 如果未指定，响应中将包含所有来源的所有警报。 允许的值包括：kCluster、kHelios。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-tenant-ids-flag-description",
+    "translation": "指定租户列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-short-description",
+    "translation": "集群资源命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-long-description",
+    "translation": "集群资源命令。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-short-description",
+    "translation": "获取与该版本兼容的集群。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-long-description",
+    "translation": "获取可升级至指定发行版本的兼容集群列表。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-release-version-flag-description",
+    "translation": ""
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-short-description",
+    "translation": "包含升级详细信息的集群信息。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-long-description",
+    "translation": "获取群集信息及其升级详细信息。"
   },
   {
     "id": "show-help",

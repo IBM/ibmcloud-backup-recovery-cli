@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.1.0
+
+### Content
+
+#### Features
+
+* Global Management Console
+
 ## 1.0.2
 
 ### Content

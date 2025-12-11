@@ -100,6 +100,14 @@
     "translation": "URL de conector no válido: Configure el URL del conector utilizando la variable de entorno BACKUP_RECOVERY_CONNECTOR_URL o una clave en un archivo de credenciales."
   },
   {
+    "id": "backup-recovery-bad-management-console-reporting-url-error-message",
+    "translation": "URL no válida: configure la URL de informes de la consola de gestión con la variable de entorno BACKUP_RECOVERY_MANAGEMENT_REPORTING_URL o con la clave en un archivo de credenciales."
+  },
+  {
+    "id": "backup-recovery-bad-management-console-sre-url-error-message",
+    "translation": "URL de SRE del gestor de recuperación de copias de seguridad no válida: configure la URL del conector con la variable de entorno BACKUP_RECOVERY_CONNECTOR_URL o especifique una clave en un archivo de credenciales."
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "Obtener información sobre los conectores disponibles."
   },
@@ -113,7 +121,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
-    "translation": "Enumera los registros del conector de origen de datos."
+    "translation": "Lista los registros del conector de origen de datos."
   },
   {
     "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
@@ -137,7 +145,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-status-list-command-short-description",
-    "translation": "Muestra el estado del conector del origen de datos."
+    "translation": "Lista el estado del conector del origen de datos."
   },
   {
     "id": "backup-recovery-data-source-connector-status-list-command-long-description",
@@ -177,11 +185,11 @@
   },
   {
     "id": "backup-recovery-data-source-connection-group-long-description",
-    "translation": "Mandatos para el recurso DataSourceConnection.Mandatos"
+    "translation": "Mandatos para el recurso DataSourceConnection."
   },
   {
     "id": "backup-recovery-data-source-connection-group-short-description",
-    "translation": "Mandatos para el recurso DataSourceConnection.Mandatos"
+    "translation": "Mandatos para el recurso DataSourceConnection."
   },
   {
     "id": "backup-recovery-data-source-connection-list-command-long-description",
@@ -245,7 +253,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-short-description",
-    "translation": "Elimine un conector de origen de datos utilizando su ID."
+    "translation": "Eliminar un conector de origen de datos utilizando su ID."
   },
   {
     "id": "backup-recovery-data-source-connector-delete-connector-id-flag-description",
@@ -357,7 +365,7 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-object-point-in-time-usecs-flag-description",
-    "translation": "Especifica la marca de tiempo (en microsegundos de Epoch) para recuperar un punto en el tiempo en el pasado."
+    "translation": "Especifica la indicación de fecha y hora en microsegundos (desde Epoch) para recuperar un punto en el tiempo en el pasado."
   },
   {
     "id": "backup-recovery-download-recovery-create-object-protection-group-id-flag-description",
@@ -949,11 +957,11 @@
   },
   {
     "id": "backup-recovery-object-snapshots-list-command-long-description",
-    "translation": "Lista las instantáneas de un objeto determinado."
+    "translation": "Listar las instantáneas de un objeto determinado."
   },
   {
     "id": "backup-recovery-object-snapshots-list-command-short-description",
-    "translation": "Lista las instantáneas de un objeto determinado."
+    "translation": "Listar las instantáneas de un objeto determinado."
   },
   {
     "id": "backup-recovery-object-snapshots-list-from-time-usecs-flag-description",
@@ -1305,7 +1313,7 @@
   },
   {
     "id": "backup-recovery-user-update-google-account-flag-description",
-    "translation": "Información de cuenta de Google de un usuario de Helios BaaS. También puede ser una vía de acceso a un archivo JSON."
+    "translation": "Información de la cuenta de Google de un usuario de la consola de gestión BRS. También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-user-update-idp-user-info-flag-description",
@@ -1369,7 +1377,7 @@
   },
   {
     "id": "backup-recovery-user-update-profiles-flag-description",
-    "translation": "Especifica los perfiles de usuario. NOTA: Actualmente se utiliza para Helios. También puede ser una vía de acceso a un archivo JSON."
+    "translation": "Especifica los perfiles de usuario. NOTA: Actualmente se utiliza para la consola de gestión. También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-user-update-restricted-flag-description",
@@ -1393,7 +1401,7 @@
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-flag-description",
-    "translation": "Información de cuenta de Salesforce de un usuario de Helios. También puede ser una vía de acceso a un archivo JSON."
+    "translation": "Información de la cuenta de Salesforce de un usuario de la consola de gestión. También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-user-update-sid-flag-description",
@@ -1485,7 +1493,7 @@
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
-    "translation": "Especifica el estado del acceso a Helios."
+    "translation": "Especifica el estado del acceso a la consola de gestión."
   },
   {
     "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
@@ -1557,7 +1565,7 @@
   },
   {
     "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
-    "translation": "SiteContinuityInfo contiene información sobre la suscripción a la Site Continuity, como por ejemplo si está activa o no. También puede ser una vía de acceso a un archivo JSON."
+    "translation": "SiteContinuityInfo contiene información sobre la suscripción a Site Continuity, como por ejemplo si está activa o no. También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
@@ -1661,7 +1669,7 @@
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-protection-type-flag-description",
@@ -1809,23 +1817,23 @@
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-any-status-flag-description",
-    "translation": "Filtrar por el estado de la última ejecución.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Filtrar por el estado de la última ejecución. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-archival-status-flag-description",
-    "translation": "Filtrar por el estado de la última ejecución de archivo en la nube.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Filtrar por el estado de la última ejecución de archivo en la nube. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-cloud-spin-status-flag-description",
-    "translation": "Filtrar por último estado de ejecución de rotación de la nube.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Filtrar por último estado de ejecución de rotación de la nube. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-local-backup-status-flag-description",
-    "translation": "Filtrar por el estado de ejecución de la última copia de seguridad local.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Filtrar por el estado de ejecución de la última copia de seguridad local. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-list-last-run-replication-status-flag-description",
-    "translation": "Filtrar por último estado de ejecución de replicación remota.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Filtrar por último estado de ejecución de replicación remota. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-list-names-flag-description",
@@ -1833,7 +1841,7 @@
   },
   {
     "id": "backup-recovery-protection-group-list-policy-ids-flag-description",
-    "translation": "Filtrar por Id. de políticas asociadas a Grupo de Protección. Sólo se devuelven los Grupos de Protección asociados a los identificadores de política especificados."
+    "translation": "Filtrar por Id. de políticas asociadas a Grupo de Protección. Solo se devuelven los Grupos de Protección asociados a los identificadores de política especificados."
   },
   {
     "id": "backup-recovery-protection-group-list-prune-excluded-source-ids-flag-description",
@@ -1913,11 +1921,11 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-archival-run-status-flag-description",
-    "translation": "Especifica una lista de estados de archivo, se devolverán las ejecuciones que coincidan con el estado.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Especifica una lista de estados de archivo, se devolverán las ejecuciones que coincidan con el estado. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-run-list-cloud-spin-run-status-flag-description",
-    "translation": "Especifica una lista de estados de rotación de la nube, se devolverán las ejecuciones que coincidan con el estado.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Especifica una lista de estados de rotación de la nube, se devolverán las ejecuciones que coincidan con el estado. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-run-list-command-long-description",
@@ -1953,7 +1961,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-local-backup-run-status-flag-description",
-    "translation": "Especifica una lista de estados de copias de seguridad locales, se devolverán las ejecuciones que coincidan con el estado.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Especifica una lista de estados de copias de seguridad locales, se devolverán las ejecuciones que coincidan con el estado. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-run-list-num-runs-flag-description",
@@ -1965,7 +1973,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-replication-run-status-flag-description",
-    "translation": "Especifica una lista de estados de réplica, se devolverán las ejecuciones que coincidan con el estado.<br> 'Running' indica que la ejecución sigue en curso.'<br> 'Canceled' indica que la ejecución ha sido cancelada.'<br> 'Canceling' indica que la ejecución está en proceso de cancelación.<br> 'Failed' indica que la ejecución ha fallado.<br> 'Missed' indica que la ejecución no ha podido tener lugar a la hora programada porque la ejecución anterior aún estaba teniendo lugar.<br> 'Succeeded' indica que la ejecución ha finalizado con éxito.<br> 'SucceededWithWarning' indica que la ejecución finalizó con éxito, pero hubo algunos mensajes de advertencia.<br> 'Paused' indica que se ha pausado la ejecución en curso.<br> 'Skipped' indica que se ha omitido la ejecución. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
+    "translation": "Especifica una lista de estados de réplica, se devolverán las ejecuciones que coincidan con el estado. \"En ejecución\" indica que la ejecución aún está en curso. \"Cancelado\" indica que la ejecución ha sido cancelada. \"Cancelando\" indica que la ejecución está en proceso de ser cancelada. \"Fallado\" indica que la ejecución ha fallado. \"Omitido\" indica que la ejecución no ha podido realizarse a la hora planificada porque la ejecución anterior aún estaba en curso. \"Satisfactorio\" indica que la ejecución ha finalizado correctamente. 'SucceededWithWarning' indica que la ejecución se ha completado con éxito, pero se han generado algunos mensajes de advertencia. \"Pausado\" indica que la ejecución en curso se ha pausado. \"Omitido\" indica que la ejecución se ha omitido. Los elementos de lista permitidos son: Aceptado, En ejecución, Cancelado, Cancelando, Fallido, Perdido, Superado, SucceededWithWarning, OnHold, Finalizando, Omitido, En pausa."
   },
   {
     "id": "backup-recovery-protection-group-run-list-request-initiator-type-flag-description",
@@ -2033,7 +2041,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-update-command-long-description",
-    "translation": "La actualización se ejecuta para un Grupo de Protección determinado. Un usuario puede realizar las siguientes acciones: 1. Ampliar o reducir la retención de instantáneas locales, de réplica y de archivo. 2. Puede realizar una operación de resincronización en intentos fallidos de instantáneas de copia en esta Ejecución. 3. Añadir nuevos destinos de instantáneas de réplica y de archivo a la Ejecución. 4. Añadir o eliminar la retención legal de las instantáneas. Solo un usuario con rol DSO puede realizar esta operación. 5. Eliminar las instantáneas que se crearon como parte de esta Ejecución. 6. Aplocar un bloqueo de datos a las instantáneas existentes cuando un usuario no pueda eliminarlas manualmente antes de que caduquen."
+    "translation": "La actualización se ejecuta para un Grupo de Protección determinado. Un usuario puede realizar las siguientes acciones: 1. Ampliar o reducir la retención de instantáneas locales, de réplica y de archivo. 2. Puede realizar una operación de resincronización en intentos fallidos de instantáneas de copia en esta Ejecución. 3. Añadir nuevos destinos de instantáneas de réplica y de archivo a la Ejecución. 4. Añadir o eliminar la retención legal de las instantáneas. Solo un usuario con rol DSO puede realizar esta operación. 5. Eliminar las instantáneas que se crearon como parte de esta Ejecución. 6. Aplicar un bloqueo de datos a las instantáneas existentes cuando un usuario no pueda eliminarlas manualmente antes de que caduquen."
   },
   {
     "id": "backup-recovery-protection-group-run-update-command-short-description",
@@ -2045,7 +2053,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-update-update-protection-group-run-params-flag-description",
-    "translation": "Obligatorio. null También puede ser una vía de acceso a un archivo JSON. La longitud mínima es 1 elemento."
+    "translation": "Obligatorio. También puede ser una vía de acceso a un archivo JSON. La longitud mínima es 1 elemento."
   },
   {
     "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
@@ -2105,7 +2113,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-id-flag-description",
-    "translation": "Obligatorio. Especifica el id del Grupo de Protección."
+    "translation": "Obligatorio. Especifica el id del Grupo de protección."
   },
   {
     "id": "backup-recovery-protection-group-update-is-paused-flag-description",
@@ -2149,7 +2157,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-protection-type-flag-description",
@@ -2265,11 +2273,11 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-archival-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-cloud-spin-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-flag-description",
@@ -2277,15 +2285,15 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-onprem-deploy-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-replication-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-create-remote-target-policy-rpaas-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-create-retry-options-flag-description",
@@ -2469,11 +2477,11 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-archival-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-cloud-spin-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-flag-description",
@@ -2481,15 +2489,15 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-onprem-deploy-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-replication-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-update-remote-target-policy-rpaas-targets-flag-description",
-    "translation": "null También puede ser una vía de acceso a un archivo JSON."
+    "translation": "También puede ser una vía de acceso a un archivo JSON."
   },
   {
     "id": "backup-recovery-protection-policy-update-retry-options-flag-description",
@@ -3080,6 +3088,22 @@
     "translation": "Especifica los parámetros para recuperar bases de datos SQL. También puede ser una vía de acceso a un archivo JSON. La longitud mínima es 1 elemento."
   },
   {
+    "id": "backup-recovery-management-console-group-short-description",
+    "translation": "Mandatos para el recurso de gestión de recuperación de copias de seguridad."
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-short-description",
+    "translation": "Listar instancias de proveedor."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-command-short-description",
+    "translation": "Registros del conector de origen de datos."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-command-short-description",
+    "translation": "Estado del conector de origen de datos."
+  },
+  {
     "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
     "translation": "Especifica el tipo de acción de recuperación que se va a realizar. Los valores permitidos son: RecoverApps, CloneApps."
   },
@@ -3297,7 +3321,7 @@
   },
   {
     "id": "config-command-short-description",
-    "translation": "Controle la configuración persistente."
+    "translation": "Controlar la configuración persistente."
   },
   {
     "id": "config-error",
@@ -3305,15 +3329,15 @@
   },
   {
     "id": "config-get-command-long-description",
-    "translation": "Obtenga el valor establecido actualmente para una opción específica."
+    "translation": "Obtener el valor establecido actualmente para una opción específica."
   },
   {
     "id": "config-get-command-short-description",
-    "translation": "Imprime el valor de configuración establecido actualmente de una opción."
+    "translation": "Imprimir el valor de configuración establecido actualmente de una opción."
   },
   {
     "id": "config-get-subcommand-long-description",
-    "translation": "Obtenga el valor establecido actualmente para la opción '{{.NAME}}'."
+    "translation": "Obtener el valor establecido actualmente para la opción '{{.NAME}}'."
   },
   {
     "id": "config-get-subcommand-read-error",
@@ -3325,11 +3349,11 @@
   },
   {
     "id": "config-list-command-long-description",
-    "translation": "Lista todos los valores de configuración establecidos actualmente."
+    "translation": "Listar todos los valores de configuración establecidos actualmente."
   },
   {
     "id": "config-list-command-short-description",
-    "translation": "Imprime los valores de configuración establecidos actualmente."
+    "translation": "Imprimir los valores de configuración establecidos actualmente."
   },
   {
     "id": "config-list-read-error",
@@ -3345,19 +3369,19 @@
   },
   {
     "id": "config-set-command-long-description",
-    "translation": "Establezca un nuevo valor de configuración para una opción específica."
+    "translation": "Establecer un nuevo valor de configuración para una opción específica."
   },
   {
     "id": "config-set-command-short-description",
-    "translation": "Establezca un valor de configuración para una opción."
+    "translation": "Establecer un valor de configuración para una opción."
   },
   {
     "id": "config-set-subcommand-long-description",
-    "translation": "Establezca un nuevo valor para la opción '{{.NAME}}'."
+    "translation": "Establecer un nuevo valor para la opción '{{.NAME}}'."
   },
   {
     "id": "config-set-subcommand-short-description",
-    "translation": "Establezca un valor para '{{.NAME}}'"
+    "translation": "Establecer un valor para '{{.NAME}}'"
   },
   {
     "id": "config-subcommand-no-value-set",
@@ -3373,19 +3397,19 @@
   },
   {
     "id": "config-unset-command-long-description",
-    "translation": "Desestablezca el valor establecido actualmente para una opción específica."
+    "translation": "Desestablecer el valor establecido actualmente para una opción específica."
   },
   {
     "id": "config-unset-command-short-description",
-    "translation": "Desestablezca el valor de configuración de una opción."
+    "translation": "Desestablecer el valor de configuración de una opción."
   },
   {
     "id": "config-unset-subcommand-long-description",
-    "translation": "Desestablezca el valor establecido actualmente para la opción '{{.NAME}}'."
+    "translation": "Desestablecer el valor establecido actualmente para la opción '{{.NAME}}'."
   },
   {
     "id": "config-unset-subcommand-short-description",
-    "translation": "Desestablezca el valor para '{{.NAME}}'"
+    "translation": "Desestablecer el valor para '{{.NAME}}'"
   },
   {
     "id": "confirm-delete",
@@ -3441,7 +3465,7 @@
   },
   {
     "id": "final-usage-line-help-menu",
-    "translation": "Utilice \"ibmcloud {{.COMMAND_PATH}} mandato-servicio --help\" para obtener más información sobre un mandato."
+    "translation": "Utilice \"ibmcloud {{.COMMAND_PATH}} service-command --help\" para obtener más información sobre un mandato."
   },
   {
     "id": "force-flag-description",
@@ -3533,7 +3557,7 @@
   },
   {
     "id": "output-global-flag-description",
-    "translation": "Elija un formato de salida; puede ser 'json', 'yaml', 'tui' o 'table'."
+    "translation": "Elija un formato de salida: puede ser 'json', 'yaml', 'tui' o 'table'."
   },
   {
     "id": "parsing-error",
@@ -3545,7 +3569,7 @@
   },
   {
     "id": "quiet-global-flag-description",
-    "translation": "Suprime los mensajes detallados."
+    "translation": "Suprimir los mensajes detallados."
   },
   {
     "id": "response-processing-error",
@@ -3562,6 +3586,730 @@
   {
     "id": "connector-service-url-global-flag-description",
     "translation": "Proporcione el URL del punto final del conector para la API."
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-short-description",
+    "translation": "Mandatos para los componentes de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-long-description",
+    "translation": "Mandatos para los componentes de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-short-description",
+    "translation": "Listar componentes de informe."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-long-description",
+    "translation": "Capta la lista de todos los componentes de informe a los que puede acceder el usuario que ha iniciado sesión."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-ids-flag-description",
+    "translation": "Especifica los ID de componente de informe que se va a captar."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-short-description",
+    "translation": "Captar un componente de informe por ID."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-long-description",
+    "translation": "Obtener información sobre un componente de informe."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-id-flag-description",
+    "translation": "Obligatorio. Especifica el ID del componente de informe."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-short-description",
+    "translation": "Obtener vista previa de un componente."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-long-description",
+    "translation": "Obtener vista previa de un componente especificado por ID."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-id-flag-description",
+    "translation": "Obligatorio. Especifica el ID del componente."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-filters-flag-description",
+    "translation": "Especifica la lista de filtros globales que son aplicables a los componentes especificados en el informe. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-flag-description",
+    "translation": "Especifica los parámetros para limitar el conjunto de datos resultante. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-sort-flag-description",
+    "translation": "Especifica los parámetros de ordenación que se aplicarán a los datos resultantes. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-timezone-flag-description",
+    "translation": "Especifica la zona horaria del usuario. Si es nulo, se establece de forma predeterminada en UTC. La hora especificada debe ser un nombre de ubicación presente en la base de datos de zonas horarias de la IANA, por ejemplo, \"América/Los_Ángeles\"."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-from-flag-description",
+    "translation": "Especifica el desplazamiento de los datos resultantes que se omitirán antes de aplicar el parámetro de tamaño. Por ejemplo, si el tamaño del conjunto de datos es de 10 objetos, from=2 y size=5, entonces de los 10 objetos solo se devuelven 5 objetos a partir del desplazamiento 2, es decir, del 2 al 7. Si no se especifica, no se omite ninguno de los objetos."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-size-flag-description",
+    "translation": "Especifica el número de objetos que se devolverán desde el desplazamiento especificado. El valor mínimo es 1."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-short-description",
+    "translation": "Mandatos para los recursos de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-long-description",
+    "translation": "Mandatos para los recursos de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-short-description",
+    "translation": "Obtener recursos."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-long-description",
+    "translation": "Obtener distintos tipos de recursos disponibles que se han identificado en la consola de gestión. Estos valores se pueden utilizar para filtrar las opciones."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-resource-type-flag-description",
+    "translation": "Obligatorio. Especifica el tipo de recurso. Los valores permitidos son: Policies, ProtectionGroups, RegisteredSources, MessageCodeMappings."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-short-description",
+    "translation": "Mandatos para los informes de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-long-description",
+    "translation": "Mandatos para los informes de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-short-description",
+    "translation": "Listar las propiedades de un tipo de informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-long-description",
+    "translation": "Obtiene la lista de propiedades de un tipo de informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-report-type-flag-description",
+    "translation": "Obligatorio. Especifica el tipo de informe. Los valores permitidos son: Failures, ProtectedUnprotectedObjects, ProtectedObjects, ProtectionActivity, ProtectionGroupSummary, ProtectionRuns, ProtectionRunsTrend, Recovery."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-short-description",
+    "translation": "Listar informes."
+  },
+  {
+    "id": "management-reporting-service-url-global-flag-description",
+    "translation": "Proporcione la URL del punto final de informes de la consola de gestión para la API."
+  },
+  {
+    "id": "management-sre-url-global-flag-description",
+    "translation": "Proporcione la URL del punto final de SRE de la consola de gestión para la API."
+  },
+  {
+    "id": "management-sre-service-authentication-url-global-flag-description",
+    "translation": "Proporcione la URL del punto final de autenticación de SRE de la consola de gestión."
+  },
+  {
+    "id": "management-sre-service-password-global-flag-description",
+    "translation": "Proporcione la contraseña de SRE de la consola de gestión."
+  },
+  {
+    "id": "management-sre-service-username-global-flag-description",
+    "translation": "Proporcione el nombre de usuario de SRE de la consola de gestión."
+  },
+  {
+    "id": "management-sre-service-apikey-global-flag-description",
+    "translation": "Proporcione la clave de API de SRE de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-short-description",
+    "translation": "Mandatos para el recurso ProviderInstances."
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-long-description",
+    "translation": "Mandatos para el recurso ProviderInstances."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-short-description",
+    "translation": "Listar instancias de proveedor."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-long-description",
+    "translation": "Listar todas las instancias de proveedor con los detalles. La API devuelve la lista detallada de las instancias de proveedor. Los proveedores son responsables de gestionar el ciclo de vida de las instancias, y el único objetivo de esta API es proporcionar información de metadatos sobre las instancias."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-instance-ids-flag-description",
+    "translation": "Lista de ID de instancias de proveedor por los que filtrar."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-regions-flag-description",
+    "translation": "Lista de regiones por las que filtrar las instancias de proveedor."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-include-service-instance-status-flag-description",
+    "translation": "Indicador booleano para comprobar si se deben incluir otros detalles, como los detalles del clúster y la versión del software, junto con el estado de las instancias del servicio. El valor predeterminado es false."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-long-description",
+    "translation": "Capta la lista de todos los informes a los que puede acceder el usuario que ha iniciado sesión."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-ids-flag-description",
+    "translation": "Especifica los ID de los informes que se deben captar."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-user-context-flag-description",
+    "translation": "Especifica el contexto de usuario por el que filtrar los reportes. Los valores permitidos son: IBMBaaS."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-short-description",
+    "translation": "Captar un informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-long-description",
+    "translation": "Obtener un informe para un ID determinado."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-id-flag-description",
+    "translation": "Obligatorio. Especifica el ID del informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-short-description",
+    "translation": "Obtener una vista previa del informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-long-description",
+    "translation": "Obtener una vista previa de un informe configurado."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-id-flag-description",
+    "translation": "Obligatorio. Especifica el ID del informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-component-ids-flag-description",
+    "translation": "Especifica la lista de los ID de componentes que se evaluarán para el informe indicado. Si no se especifica, se evalúan todos los componentes."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-filters-flag-description",
+    "translation": "Especifica la lista de filtros globales que son aplicables a los componentes especificados en el informe. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-timezone-flag-description",
+    "translation": "Especifica la zona horaria del usuario. Si es nulo, se establece de forma predeterminada en UTC. La hora especificada debe ser un nombre de ubicación presente en la base de datos de zonas horarias de la IANA, por ejemplo, \"América/Los_Ángeles\"."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-short-description",
+    "translation": "Exportar un informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-long-description",
+    "translation": "Exportar un informe configurado."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-id-flag-description",
+    "translation": "Obligatorio. Especifica el ID del informe."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-async-flag-description",
+    "translation": "Especifica si el informe debe generarse de forma asíncrona."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-filters-flag-description",
+    "translation": "Especifica la lista de filtros globales que son aplicables a los componentes especificados en el informe. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-layout-flag-description",
+    "translation": "El diseño del informe que debe exportarse."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-report-format-flag-description",
+    "translation": "El formato en el que se debe exportar el informe. Los valores permitidos son: XLS, CSV."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-timezone-flag-description",
+    "translation": "Especifica la zona horaria del usuario. Si es nulo, se establece de forma predeterminada en UTC. La hora especificada debe ser un nombre de ubicación presente en la base de datos de zonas horarias de la IANA, por ejemplo, \"América/Los_Ángeles\"."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-short-description",
+    "translation": "Gestionar API REST de IBM."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-long-description",
+    "translation": "La API de IBM proporciona una interfaz RESTful para acceder a las diversas operaciones de gestión de datos en el clúster y la consola de gestión de IBM."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-bad-url-error-message",
+    "translation": "URL no válida: establezca la URL base utilizando la variable de entorno BACKUP_RECOVERY_MANAGEMENT_SRE_URL o una clave en un archivo de credenciales."
+  },
+  {
+    "id": "mutually-exclusive-fields",
+    "translation": "La opción {{.FLAG_NAME}} es mutuamente excluyente con sus opciones de subcampo configurables individualmente."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-short-description",
+    "translation": "Mandatos para el recurso ClusterUpgrade."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-long-description",
+    "translation": "Mandatos para el recurso ClusterUpgrade."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-short-description",
+    "translation": "Captar información sobre actualizaciones."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-long-description",
+    "translation": "Obtener detalles del progreso y registros de una actualización de clúster. Los registros estarán en formato de cadena JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-cluster-identifiers-flag-description",
+    "translation": "Obtener los detalles del progreso de la actualización para una lista de identificadores de clústeres en el formato clusterId:clusterIncarnationId."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-short-description",
+    "translation": "Lleva a cabo las actualizaciones programadas del clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-long-description",
+    "translation": "Lleva a cabo las actualizaciones programadas del clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-auth-headers-flag-description",
+    "translation": "Especifica los encabezados opcionales para la solicitud de actualización. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-clusters-flag-description",
+    "translation": "Matriz para los clústeres que se van a actualizar. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "Especifica la diferencia de tiempo entre la actualización de dos clústeres."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-package-url-flag-description",
+    "translation": "Especifica la URL desde la que se puede descargar el paquete. Nota: Esta opción solo es compatible con el Gestor multiclúster (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-flag-description",
+    "translation": "Especifica los parámetros para la solicitud de actualización del parche. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-target-version-flag-description",
+    "translation": "Especifica la versión objetivo a la que se actualizarán los clústeres."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "Especifica el tiempo en milisegundos en el que se debe actualizar el clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-type-flag-description",
+    "translation": "Especifica el tipo de actualización que se va a realizar en un clúster. El valor predeterminado es Upgrade. Los valores permitidos son: Upgrade, Patch, UpgradePatch."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "Especifica los encabezados opcionales para la solicitud del clúster de parches. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "Especifique si se pueden ignorar los resultados de la comprobación previa. El valor predeterminado es false."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-package-url-flag-description",
+    "translation": "Especifica la URL desde la que se puede descargar el paquete de parches. Nota: Esta opción solo es compatible con el Gestor multiclúster (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-target-version-flag-description",
+    "translation": "Especifica la versión del parche objetivo a la que se actualizarán los clústeres."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-short-description",
+    "translation": "Inicia la actualización instantánea y programada del clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-long-description",
+    "translation": "Inicia la actualización instantánea y programada del clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-auth-headers-flag-description",
+    "translation": "Especifica los encabezados opcionales para la solicitud de actualización. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-clusters-flag-description",
+    "translation": "Matriz para los clústeres que se van a actualizar. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "Especifica la diferencia de tiempo entre la actualización de dos clústeres."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-package-url-flag-description",
+    "translation": "Especifica la URL desde la que se puede descargar el paquete. Nota: Esta opción solo es compatible con el Gestor multiclúster (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-flag-description",
+    "translation": "Especifica los parámetros para la solicitud de actualización del parche. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-target-version-flag-description",
+    "translation": "Especifica la versión objetivo a la que se actualizarán los clústeres."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "Especifica el tiempo en milisegundos en el que se debe actualizar el clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-type-flag-description",
+    "translation": "Especifica el tipo de actualización que se va a realizar en un clúster. El valor predeterminado es Upgrade. Los valores permitidos son: Upgrade, Patch, UpgradePatch."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "Especifica los encabezados opcionales para la solicitud del clúster de parches. Debe ser una cadena JSON o una ruta a un archivo JSON."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "Especifique si se pueden ignorar los resultados de la comprobación previa. El valor predeterminado es false."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-package-url-flag-description",
+    "translation": "Especifica la URL desde la que se puede descargar el paquete de parches. Nota: Esta opción solo es compatible con el Gestor multiclúster (MCM)."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-target-version-flag-description",
+    "translation": "Especifica la versión del parche objetivo a la que se actualizarán los clústeres."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-short-description",
+    "translation": "Cancela las actualizaciones planificadas del clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-long-description",
+    "translation": "Cancela las actualizaciones planificadas del clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-cluster-identifiers-flag-description",
+    "translation": "Especifica la lista de identificadores de clúster. El formato es clusterId:clusterIncarnationId. "
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-short-description",
+    "translation": "Mandatos para el recurso de alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-long-description",
+    "translation": "Mandatos para el recurso de alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-short-description",
+    "translation": "Obtener alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-long-description",
+    "translation": "Obtener alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-ids-flag-description",
+    "translation": "Filtrar por lista de ID de alerta."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-types-flag-description",
+    "translation": "Filtrar por lista de tipos de alerta."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
+    "translation": "Filtrar por lista de categorías de alertas. Los elementos permitidos en la lista son: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-states-flag-description",
+    "translation": "Filtrar por lista de estados de alerta. Los elementos permitidos en la lista son: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-severities-flag-description",
+    "translation": "Filtrar por lista de tipos de gravedad de alerta. Los elementos permitidos en la lista son: kCritical, kWarning, kInfo."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-type-buckets-flag-description",
+    "translation": "Filtrar por lista de grupos de tipos de alerta. Los elementos permitidos en la lista son: kHardware, kSoftware, kDataService, kMaintenance."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-start-time-usecs-flag-description",
+    "translation": "Especifica la hora de inicio en tiempo Epoch de Unix, en microsegundos, por la que filtrar las alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-end-time-usecs-flag-description",
+    "translation": "Especifica la hora de finalización en tiempo Epoch de Unix, en microsegundos, por la que para filtrar las alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-max-alerts-flag-description",
+    "translation": "Especifica el número máximo de alertas a devolver. El valor predeterminado es 100 y el valor máximo permitido es 1000."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-key-flag-description",
+    "translation": "Especifica el nombre de la propiedad por la que se filtrarán las alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-value-flag-description",
+    "translation": "Especifica el valor de la propiedad por el que se filtrarán las alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-name-flag-description",
+    "translation": "Especifica el nombre de la alerta por el que se filtrarán las alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-resolution-ids-flag-description",
+    "translation": "Especifica los ID de resolución de alerta por los que se filtrarán las alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-tenant-ids-flag-description",
+    "translation": "Filtrar por ID de arrendatario."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-all-under-hierarchy-flag-description",
+    "translation": "Filtrar por objetos de todos los arrendatarios bajo la jerarquía de la organización del usuario que ha iniciado sesión."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-x-scope-identifier-flag-description",
+    "translation": "Este campo representa de forma exclusiva una instancia de servicio. Especifique los valores como \"service-instance-id: <value>\"."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-short-description",
+    "translation": "Obtener resumen de alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-long-description",
+    "translation": "Obtener un resumen de las alertas agrupadas por categoría."
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-long-description",
+    "translation": "Listar todas las instancias de proveedor con los detalles. La API devuelve la lista detallada de las instancias de proveedor. Los proveedores son responsables de gestionar el ciclo de vida de las instancias, y el único objetivo de esta API es proporcionar información de metadatos sobre las instancias."
+  },
+  {
+    "id": "backup-recovery-provider-instances-instance-ids-flag-description",
+    "translation": "Lista de ID de instancias de proveedor por los que filtrar."
+  },
+  {
+    "id": "backup-recovery-provider-instances-regions-flag-description",
+    "translation": "Lista de regiones por las que filtrar las instancias de proveedor."
+  },
+  {
+    "id": "backup-recovery-provider-instances-include-service-instance-status-flag-description",
+    "translation": "Indicador booleano para comprobar si se deben incluir otros detalles, como los detalles del clúster y la versión del software, junto con el estado de las instancias del servicio. El valor predeterminado es false."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "Filtrar por hora de inicio. Especifique la hora de inicio como una indicación de fecha y hora de Epoch de UNIX (en microsegundos). De forma predeterminada, es la hora actual menos un día."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "Filtrar por hora de finalización. Especifique la hora de finalización como una indicación de fecha y hora de Epoch de Unix (en microsegundos). De forma predeterminada es la hora actual."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-include-tenants-flag-description",
+    "translation": "IncludeTenants especifica si deben utilizarse las alertas de todos los arrendatarios dentro de la jerarquía de la organización del usuario que ha iniciado sesión para calcular el resumen."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-tenant-ids-flag-description",
+    "translation": "TenantIds contiene los ID de los arrendatarios para los que se utilizarán alertas para calcular el resumen."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-states-list-flag-description",
+    "translation": "Especifica la lista de estados de alerta por los que se filtrarán las alertas. Si no se especifica, solo se utilizarán las alertas abiertas para obtener el resumen. Los elementos permitidos en la lista son: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
+    "translation": "Este campo representa de forma exclusiva una instancia de servicio. Especifique los valores como \"service-instance-id: <value>\"."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-short-description",
+    "translation": "Mandatos para el recurso ManagementAlerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-long-description",
+    "translation": "Mandatos para el recurso ManagementAlerts."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-short-description",
+    "translation": "Obtener un resumen de las alertas en la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-long-description",
+    "translation": "Obtener un resumen de las alertas agrupadas por categoría."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-cluster-identifiers-flag-description",
+    "translation": "Especifica la lista de identificadores de clúster. El formato es clusterId:clusterIncarnationId."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "Filtrar por hora de inicio. Especifique la hora de inicio como una indicación de fecha y hora de Epoch de UNIX (en microsegundos). De forma predeterminada, es la hora actual menos un día."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "Filtrar por hora de finalización. Especifique la hora de finalización como una indicación de fecha y hora de Epoch de Unix (en microsegundos). De forma predeterminada es la hora actual."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-states-list-flag-description",
+    "translation": "Especifica la lista de estados de alerta por los que se filtrarán las alertas. Si no se especifica, solo se utilizarán las alertas abiertas para obtener el resumen. Los elementos permitidos en la lista son: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-short-description",
+    "translation": "Obtener la lista de alertas de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-long-description",
+    "translation": "Obtener la lista de alertas de la consola de gestión."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-id-list-flag-description",
+    "translation": "Filtrar por lista de ID de alerta."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-state-list-flag-description",
+    "translation": "Filtrar por lista de estados de alerta."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-list-flag-description",
+    "translation": "Filtrar por lista de tipos de alerta."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-severity-list-flag-description",
+    "translation": "Filtrar por lista de tipos de gravedad de alerta. Los elementos permitidos en la lista son: kCritical, kWarning, kInfo."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-region-ids-flag-description",
+    "translation": "Filtrar por lista de ID de región."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-cluster-identifiers-flag-description",
+    "translation": "Filtrar por lista de ID de clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-start-date-usecs-flag-description",
+    "translation": "Especifica la hora de inicio de las alertas que se devolverán. Todas las alertas devueltas se activan después de la hora de inicio especificada. Este valor debe estar en un epoch de indicación de fecha y hora Unix en microsegundos."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-end-date-usecs-flag-description",
+    "translation": "Especifica la hora de finalización de las alertas que se devolverán. Todas las alertas devueltas se activan antes de la hora de finalización especificada. Este valor debe estar en un epoch de indicación de fecha y hora Unix en microsegundos."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-max-alerts-flag-description",
+    "translation": "Especifica el número máximo de alertas que se devolverán."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-category-list-flag-description",
+    "translation": "Filtrar por lista de categorías de alertas. Los elementos permitidos en la lista son: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-tenant-ids-flag-description",
+    "translation": "Filtrar por ID de arrendatario."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-bucket-list-flag-description",
+    "translation": "Filtrar por lista de grupos de tipos de alerta. Los elementos permitidos en la lista son: kHardware, kSoftware, kDataService, kMaintenance."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-key-list-flag-description",
+    "translation": "Especifica la lista de claves de propiedades de alerta que se van a consultar."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-value-list-flag-description",
+    "translation": "Especifica la lista de valores de la propiedad de alerta; si hay varios valores para una clave, deben unirse mediante «|»."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-name-flag-description",
+    "translation": "Especifica el nombre de la alerta por el que se filtrarán las alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-service-instance-ids-flag-description",
+    "translation": "Especifica los ID de instancia de servicios por los que se filtrarán las alertas para los clientes de IBM."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-short-description",
+    "translation": "Listar las resoluciones de alertas en el sistema BRS."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-long-description",
+    "translation": "Devuelve los objetos de resolución de alertas de la consola de gestión encontrados en el sistema de IBM que coinciden con los criterios de filtro de los parámetros proporcionados. Si no se especifican parámetros de filtro, se devuelven MaxResolutions objetos de resolución de alertas. Cada objeto proporciona detalles sobre la información de resolución de alertas y la información de alertas resueltas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-max-resolutions-flag-description",
+    "translation": "Obligatorio. Especifica el número máximo de resoluciones que se devolverán, desde la creada en último lugar hasta la más reciente."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-name-flag-description",
+    "translation": "Especifica el nombre de la resolución de alerta que se desea consultar."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-id-flag-description",
+    "translation": "Especifica el ID de resolución de alerta que se desea consultar."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-short-description",
+    "translation": "Calcular las estadísticas de las alertas activas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-long-description",
+    "translation": "Calcular las estadísticas de las alertas activas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-start-time-usecs-flag-description",
+    "translation": "Obligatorio. Especifica la hora de inicio en tiempo Epoch de Unix, en microsegundos, a partir del cual se calculan las estadísticas de alertas activas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-end-time-usecs-flag-description",
+    "translation": "Obligatorio. Especifica la hora de finalización en tiempo Epoch de Unix, en microsegundos, a la que se calculan las estadísticas de alertas activas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-cluster-ids-flag-description",
+    "translation": "Especifica la lista de los ID de clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-service-instance-ids-flag-description",
+    "translation": "Especifica la lista de los ID de instancias de servicio por las que se filtrarán las estadísticas de alertas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-region-ids-flag-description",
+    "translation": "Filtrar por una lista de ID de región."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-exclude-stats-by-cluster-flag-description",
+    "translation": "Especifica si se deben excluir las estadísticas de alertas activas por clúster. Si se establece en falso (valor predeterminado), la respuesta incluirá las estadísticas de alertas activas por clúster. Si se establece en verdadero, la respuesta incluirá solo el resumen de estadísticas agregadas."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-alert-source-flag-description",
+    "translation": "Especifica una lista de fuentes de origen de alertas. Si no se especifica, en la respuesta se tienen en cuenta todas las alertas de todas las fuentes. Los valores permitidos son: kCluster, kHelios."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-tenant-ids-flag-description",
+    "translation": "Especifica una lista de arrendatarios."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-short-description",
+    "translation": "Mandatos para el recurso de clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-long-description",
+    "translation": "Mandatos para el recurso de clúster."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-short-description",
+    "translation": "Captar clústeres compatibles para la versión de release."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-long-description",
+    "translation": "Obtener una lista de clústeres compatibles con una actualización a la versión especificada."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-release-version-flag-description",
+    "translation": ""
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-short-description",
+    "translation": "Información sobre los clústeres con los detalles de actualización."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-long-description",
+    "translation": "Obtener información sobre los clústeres y sus detalles de actualización."
   },
   {
     "id": "show-help",
