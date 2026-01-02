@@ -1012,6 +1012,74 @@
     "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
   },
   {
+    "id": "backup-recovery-protection-sources-registration-info-command-short-description",
+    "translation": "Returns the registration and protection information of the registered Protection Sources."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-command-long-description",
+    "translation": "**Privileges:** ```PROTECTION_VIEW``` <br><br>Returns the registration and protection information of the registered Protection Sources."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-x-ibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-environments-flag-description",
+    "translation": "Return only Protection Sources that match the passed in environment type such as 'kVMware', 'kSQL', 'kView' 'kPhysical', 'kPuppeteer', 'kPure', 'kNetapp', 'kGenericNas', 'kHyperV', 'kAcropolis', or 'kAzure'. For example, set this parameter to 'kVMware' to only return the Sources (and their Object subtrees) found in the 'kVMware' (VMware vCenter Server) environment. NOTE: 'kPuppeteer' refers to Cohesity's Remote Adapter. Allowable list items are: kVMware, kSQL, kView, kPuppeteer, kPhysical, kPure, kNetapp, kGenericNas, kHyperV, kAcropolis, kAzure, kPhysicalFiles, kIsilon, kGPFS, kKVM, kAWS, kExchange, kHyperVVSS, kOracle, kGCP, kFlashBlade, kAWSNative, kVCD, kO365, kO365Outlook, kHyperFlex, kGCPNative, kKubernetes, kCassandra, kMongoDB, kCouchbase, kHdfs, kHive, kHBase, kUDA, kAwsS3."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-ids-flag-description",
+    "translation": "Return only the registered root nodes whose Ids are given in the list."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-entity-permission-info-flag-description",
+    "translation": "If specified, then a list of entities with permissions assigned to them are returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-sids-flag-description",
+    "translation": "Filter the registered root nodes for the sids given in the list."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-source-credentials-flag-description",
+    "translation": "If specified, then crednetial for the registered sources will be included. Credential is first encrypted with internal key and then reencrypted with user supplied 'encryption_key'."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-encryption-key-flag-description",
+    "translation": "Key to be used to encrypt the source credential. If include_source_credentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-applications-tree-info-flag-description",
+    "translation": "Specifies whether to return applications tree info or not."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-prune-non-critical-info-flag-description",
+    "translation": "Specifies whether to prune non critical info within entities. Incase of VMs, virtual disk information will be pruned. Incase of Office365, metadata about user entities will be pruned. This can be used to limit the size of the response by caller."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-request-initiator-type-flag-description",
+    "translation": "Specifies the type of the request. Possible values are UIUser and UIAuto, which means the request is triggered by user or is an auto refresh request. Services like magneto will use this to determine the priority of the requests, so that it can more intelligently handle overload situations by prioritizing higher priority requests."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request to the read replica cache. setting this to true ensures that the API request is served to the read replica. setting this to false will serve the request to the master."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-external-metadata-flag-description",
+    "translation": "Specifies if entity external metadata should be included within the response to get entity hierarchy call."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-maintenance-status-flag-description",
+    "translation": "Specifies the maintenance status of a source 'UnderMaintenance' indicates the source is currently under maintenance. 'ScheduledMaintenance' indicates the source is scheduled for maintenance. 'NotConfigured' indicates maintenance is not configured on the source. Allowable values are: UnderMaintenance, ScheduledMaintenance, NotConfigured."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-tenant-ids-flag-description",
+    "translation": "TenantIds contains ids of the tenants for which objects are to be returned."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy specifies if objects of all the tenants under the hierarchy of the logged in user's organization should be returned."
+  },
+  {
     "id": "backup-recovery-objects-search-cluster-identifiers-flag-description",
     "translation": "Specifies the list of cluster identifiers. Format is clusterId:clusterIncarnationId. Only records from clusters having these identifiers will be returned."
   },
@@ -1656,6 +1724,54 @@
     "translation": "Specifies the params to create a Volume based MSSQL Protection Group. It can also be a path to a JSON file."
   },
   {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-enable-indexing-flag-description",
+    "translation": "Specifies if indexing of files and folders is allowed or not while backing up namespace. If allowed files and folder can be recovered."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-label-ids-flag-description",
+    "translation": "Array of arrays of label IDs that specify labels to exclude. Optionally specify a list of labels to exclude from protecting by listing protection source ids of labels in this two dimensional array. Using this two dimensional array of label IDs, the Cluster generates a list of namespaces to exclude from protecting, which are derived from intersections of the inner arrays and union of the outer array. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-object-ids-flag-description",
+    "translation": "Specifies the objects to be excluded in the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-params-flag-description",
+    "translation": "Specifies the parameters to in/exclude objects (e.g.: volumes). An object satisfying any of these criteria will be included by this filter. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-include-params-flag-description",
+    "translation": "Specifies the parameters to in/exclude objects (e.g.: volumes). An object satisfying any of these criteria will be included by this filter. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-label-ids-flag-description",
+    "translation": "Array of array of label IDs that specify labels to protect. Optionally specify a list of labels to protect by listing protection source ids of labels in this two dimensional array. Using this two dimensional array of label IDs, the cluster generates a list of namespaces to protect, which are derived from intersections of the inner arrays and union of the outer array. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-leverage-csi-snapshot-flag-description",
+    "translation": "Specifies if CSI snapshots should be used for backup of namespaces."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-non-snapshot-backup-flag-description",
+    "translation": "Specifies if snapshot backup fails, non-snapshot backup will be proceeded."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-objects-flag-description",
+    "translation": "Specifies the objects included in the Protection Group. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-vlan-params-flag-description",
+    "translation": "Specifies VLAN params associated with the backup/restore operation. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-volume-backup-failure-flag-description",
+    "translation": "Specifies whether to process with backup if volumes backup fails."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-flag-description",
+    "translation": "Specifies the parameters which are related to Kubernetes Protection Groups. It should be a JSON string or a path to a JSON file."
+  },
+  {
     "id": "backup-recovery-protection-group-create-name-flag-description",
     "translation": "Required. Specifies the name of the Protection Group."
   },
@@ -2132,6 +2248,10 @@
     "translation": "Specifies the parameters specific to MSSQL Protection Group. It can also be a path to a JSON file."
   },
   {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-flag-description",
+    "translation": "Specifies the parameters which are related to Kubernetes Protection Groups. It should be a JSON string or a path to a JSON file."
+  },
+  {
     "id": "backup-recovery-protection-group-update-mssql-params-native-protection-type-params-flag-description",
     "translation": "Specifies the params to create a Native based MSSQL Protection Group. It can also be a path to a JSON file."
   },
@@ -2142,6 +2262,50 @@
   {
     "id": "backup-recovery-protection-group-update-mssql-params-volume-protection-type-params-flag-description",
     "translation": "Specifies the params to create a Volume based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-enable-indexing-flag-description",
+    "translation": "Specifies if indexing of files and folders is allowed or not while backing up namespace. If allowed files and folder can be recovered."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-label-ids-flag-description",
+    "translation": "Array of arrays of label IDs that specify labels to exclude. Optionally specify a list of labels to exclude from protecting by listing protection source ids of labels in this two dimensional array. Using this two dimensional array of label IDs, the Cluster generates a list of namespaces to exclude from protecting, which are derived from intersections of the inner arrays and union of the outer array. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-object-ids-flag-description",
+    "translation": "Specifies the objects to be excluded in the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-params-flag-description",
+    "translation": "Specifies the parameters to in/exclude objects (e.g.: volumes). An object satisfying any of these criteria will be included by this filter. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-include-params-flag-description",
+    "translation": "Specifies the parameters to in/exclude objects (e.g.: volumes). An object satisfying any of these criteria will be included by this filter. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-label-ids-flag-description",
+    "translation": "Array of array of label IDs that specify labels to protect. Optionally specify a list of labels to protect by listing protection source ids of labels in this two dimensional array. Using this two dimensional array of label IDs, the cluster generates a list of namespaces to protect, which are derived from intersections of the inner arrays and union of the outer array. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-leverage-csi-snapshot-flag-description",
+    "translation": "Specifies if CSI snapshots should be used for backup of namespaces."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-non-snapshot-backup-flag-description",
+    "translation": "Specifies if snapshot backup fails, non-snapshot backup will be proceeded."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-objects-flag-description",
+    "translation": "Specifies the objects included in the Protection Group. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-vlan-params-flag-description",
+    "translation": "Specifies VLAN params associated with the backup/restore operation. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-volume-backup-failure-flag-description",
+    "translation": "Specifies whether to process with backup if volumes backup fails."
   },
   {
     "id": "backup-recovery-protection-group-update-name-flag-description",
@@ -2712,6 +2876,82 @@
     "translation": "Specifies the id of the connection from where this source is reachable. This should only be set for a source being registered by a tenant user. Also, this is the 'string' of connectionId. This property was added to accommodate for ID values that exceed 2^53 - 1, which is the max value for which JS maintains precision."
   },
   {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-flag-description",
+    "translation": "Specifies the parameters to register a Kubernetes source. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-auto-protect-config-flag-description",
+    "translation": "Specifies the parameters to auto protect the source after registration. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-client-private-key-flag-description",
+    "translation": "Specifies the bearer token or private key of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-data-mover-image-location-flag-description",
+    "translation": "Specifies the datamover image location of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-datamover-service-type-flag-description",
+    "translation": "Specifies the data mover service type of Kubernetes source. Allowable values are: kNodePort, kLoadBalancer, kClusterIp."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-default-vlan-params-flag-description",
+    "translation": "Specifies VLAN params associated with the backup/restore operation. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-endpoint-flag-description",
+    "translation": "Specifies the endpoint of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-init-container-image-location-flag-description",
+    "translation": "Specifies the initial container image location of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-kubernetes-distribution-flag-description",
+    "translation": "Specifies the distribution type of Kubernetes source. Allowable values are: kOpenshift, kMainline, kVMwareTanzu, kRancher, kEKS, kGKE, kAKS, kIKS, kROKS."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-kubernetes-type-flag-description",
+    "translation": "Specifies the type of kubernetes source. Allowable values are: kCluster, kNamespace, kService, kPVC, kPersistentVolumeClaim, kPersistentVolume, kLabel."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-priority-class-name-flag-description",
+    "translation": "Specifies the priority class name for cohesity resources."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-resource-annotations-flag-description",
+    "translation": "Specifies resource annotations to be applied on cohesity resources. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-resource-labels-flag-description",
+    "translation": "Specifies resource label to be applied on cohesity resources. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-san-fields-flag-description",
+    "translation": "Specifies the SAN field for agent certificate."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-service-annotations-flag-description",
+    "translation": "Specifies the service annotation object of Kubernetes source. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-aws-plugin-image-location-flag-description",
+    "translation": "Specifies the velero AWS plugin image location of the Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-image-location-flag-description",
+    "translation": "Specifies the velero image location of the Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-openshift-plugin-image-location-flag-description",
+    "translation": "Specifies the velero open shift plugin image for the Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-vlan-info-vec-flag-description",
+    "translation": "Specifies VLAN information provided during registration. It should be a JSON string or a path to a JSON file."
+  },
+  {
     "id": "backup-recovery-protection-source-register-encryption-key-flag-description",
     "translation": "Specifies the key that user has encrypted the credential with."
   },
@@ -2886,6 +3126,78 @@
   {
     "id": "backup-recovery-protection-source-registration-update-physical-params-physical-type-flag-description",
     "translation": "Specifies the type of physical server. Allowable values are: kGroup, kHost, kWindowsCluster, kOracleRACCluster, kOracleAPCluster, kUnixCluster."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-auto-protect-config-flag-description",
+    "translation": "Specifies the parameters to auto protect the source after registration. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-client-private-key-flag-description",
+    "translation": "Specifies the bearer token or private key of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-data-mover-image-location-flag-description",
+    "translation": "Specifies the datamover image location of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-datamover-service-type-flag-description",
+    "translation": "Specifies the data mover service type of Kubernetes source. Allowable values are: kNodePort, kLoadBalancer, kClusterIp."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-default-vlan-params-flag-description",
+    "translation": "Specifies VLAN params associated with the backup/restore operation. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-endpoint-flag-description",
+    "translation": "Specifies the endpoint of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-init-container-image-location-flag-description",
+    "translation": "Specifies the initial container image location of Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-distribution-flag-description",
+    "translation": "Specifies the distribution type of Kubernetes source. Allowable values are: kOpenshift, kMainline, kVMwareTanzu, kRancher, kEKS, kGKE, kAKS, kIKS, kROKS."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-type-flag-description",
+    "translation": "Specifies the type of kubernetes source. Allowable values are: kCluster, kNamespace, kService, kPVC, kPersistentVolumeClaim, kPersistentVolume, kLabel."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-priority-class-name-flag-description",
+    "translation": "Specifies the priority class name for cohesity resources."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-resource-annotations-flag-description",
+    "translation": "Specifies resource annotations to be applied on cohesity resources. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-resource-labels-flag-description",
+    "translation": "Specifies resource label to be applied on cohesity resources. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-san-fields-flag-description",
+    "translation": "Specifies the SAN field for agent certificate."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-service-annotations-flag-description",
+    "translation": "Specifies the service annotation object of Kubernetes source. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-aws-plugin-image-location-flag-description",
+    "translation": "Specifies the velero AWS plugin image location of the Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-image-location-flag-description",
+    "translation": "Specifies the velero image location of the Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-openshift-plugin-image-location-flag-description",
+    "translation": "Specifies the velero open shift plugin image for the Kubernetes source."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-vlan-info-vec-flag-description",
+    "translation": "Specifies VLAN information provided during registration. It should be a JSON string or a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
@@ -3124,6 +3436,10 @@
     "translation": "Specifies the recovery options specific to Physical environment. It can also be a path to a JSON file."
   },
   {
+    "id": "backup-recovery-recovery-create-kubernetes-params-flag-description",
+    "translation": "Specifies the recovery options specific to Kubernetes environment. It should be a JSON string or a path to a JSON file."
+  },
+  {
     "id": "backup-recovery-recovery-create-physical-params-mount-volume-params-flag-description",
     "translation": "Specifies the parameters to mount Physical Volumes. It can also be a path to a JSON file."
   },
@@ -3146,6 +3462,26 @@
   {
     "id": "backup-recovery-recovery-create-physical-params-system-recovery-params-flag-description",
     "translation": "Specifies the parameters to perform a system recovery. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-download-file-and-folder-params-flag-description",
+    "translation": "Specifies the parameters to download files and folders. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-objects-flag-description",
+    "translation": "Specifies the list of objects which need to be recovered. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recover-file-and-folder-params-flag-description",
+    "translation": "Specifies the parameters to perform a file and folder recovery. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recover-namespace-params-flag-description",
+    "translation": "Specifies the parameters to recover Kubernetes Namespaces. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recovery-action-flag-description",
+    "translation": "Specifies the type of recover action to be performed. Allowable values are: RecoverNamespaces, RecoverFiles, DownloadFilesAndFolders."
   },
   {
     "id": "backup-recovery-recovery-create-request-initiator-type-flag-description",

@@ -6,7 +6,7 @@ import "github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 const PluginMajorVersion = 1
 
 // plugin minor version
-const PluginMinorVersion = 1
+const PluginMinorVersion = 2
 
 // plugin build version
 const PluginBuildVersion = 0

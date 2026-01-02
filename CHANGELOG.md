@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.2.0
+
+### Content
+
+#### Features
+
+* Support for IKS/ROKS
+
 ## 1.1.0
 
 ### Content

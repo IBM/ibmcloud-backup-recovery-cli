@@ -7,11 +7,11 @@ require (
 	github.com/IBM/go-sdk-core/v5 v5.21.2
 	github.com/IBM/ibm-backup-recovery-sdk-go v1.2.0
 	github.com/Xuanwo/go-locale v1.1.3
-	github.com/gdamore/tcell/v2 v2.13.2
+	github.com/gdamore/tcell/v2 v2.13.5
 	github.com/ghodss/yaml v1.0.0
 	github.com/go-openapi/strfmt v0.25.0
 	github.com/jmespath/go-jmespath v0.4.0
-	github.com/nicksnyder/go-i18n/v2 v2.6.0
+	github.com/nicksnyder/go-i18n/v2 v2.6.1
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.38.3
 	github.com/rivo/tview v0.0.0-20241103174730-c76f7879f592

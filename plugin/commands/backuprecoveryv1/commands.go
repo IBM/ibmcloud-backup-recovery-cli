@@ -313,6 +313,7 @@ type RequestSender interface {
 func GetProtectionSourceGroup(utils Utilities) *cobra.Command {
 	commands := []*cobra.Command{
 		GetListProtectionSourcesCommand(NewListProtectionSourcesCommandRunner(utils, ListProtectionSourcesRequestSender{})),
+		GetListProtectionSourcesRegistrationInfoCommand(NewListProtectionSourcesRegistrationInfoCommandRunner(utils, ListProtectionSourcesRegistrationInfoRequestSender{})),
 		GetGetSourceRegistrationsCommand(NewGetSourceRegistrationsCommandRunner(utils, GetSourceRegistrationsRequestSender{})),
 		GetRegisterProtectionSourceCommand(NewRegisterProtectionSourceCommandRunner(utils, RegisterProtectionSourceRequestSender{})),
 		GetGetProtectionSourceRegistrationCommand(NewGetProtectionSourceRegistrationCommandRunner(utils, GetProtectionSourceRegistrationRequestSender{})),
@@ -760,25 +761,45 @@ func NewRegisterProtectionSourceCommandRunner(utils Utilities, sender RequestSen
 }
 
 type RegisterProtectionSourceCommandRunner struct {
-	XIBMTenantID                string
-	Environment                 string
-	Name                        string
-	IsInternalEncrypted         bool
-	EncryptionKey               string
-	ConnectionID                int64
-	Connections                 string
-	ConnectorGroupID            int64
-	AdvancedConfigs             string
-	DataSourceConnectionID      string
-	PhysicalParams              string
-	PhysicalParamsEndpoint      string
-	PhysicalParamsForceRegister bool
-	PhysicalParamsHostType      string
-	PhysicalParamsPhysicalType  string
-	PhysicalParamsApplications  string
-	RequiredFlags               []string
-	sender                      RequestSender
-	utils                       Utilities
+	XIBMTenantID                                           string
+	Environment                                            string
+	Name                                                   string
+	IsInternalEncrypted                                    bool
+	EncryptionKey                                          string
+	ConnectionID                                           int64
+	Connections                                            string
+	ConnectorGroupID                                       int64
+	AdvancedConfigs                                        string
+	DataSourceConnectionID                                 string
+	KubernetesParams                                       string
+	PhysicalParams                                         string
+	KubernetesParamsAutoProtectConfig                      string
+	KubernetesParamsClientPrivateKey                       string
+	KubernetesParamsCohesityDataprotectPluginImageLocation string
+	KubernetesParamsDataMoverImageLocation                 string
+	KubernetesParamsDatamoverServiceType                   string
+	KubernetesParamsDefaultVlanParams                      string
+	KubernetesParamsEndpoint                               string
+	KubernetesParamsInitContainerImageLocation             string
+	KubernetesParamsKubernetesDistribution                 string
+	KubernetesParamsKubernetesType                         string
+	KubernetesParamsPriorityClassName                      string
+	KubernetesParamsResourceAnnotations                    string
+	KubernetesParamsResourceLabels                         string
+	KubernetesParamsSanFields                              string
+	KubernetesParamsServiceAnnotations                     string
+	KubernetesParamsVeleroAwsPluginImageLocation           string
+	KubernetesParamsVeleroImageLocation                    string
+	KubernetesParamsVeleroOpenshiftPluginImageLocation     string
+	KubernetesParamsVlanInfoVec                            string
+	PhysicalParamsEndpoint                                 string
+	PhysicalParamsForceRegister                            bool
+	PhysicalParamsHostType                                 string
+	PhysicalParamsPhysicalType                             string
+	PhysicalParamsApplications                             string
+	RequiredFlags                                          []string
+	sender                                                 RequestSender
+	utils                                                  Utilities
 }
 
 // Command mapping: protection-source register, GetRegisterProtectionSourceCommand
@@ -794,17 +815,18 @@ func GetRegisterProtectionSourceCommand(r *RegisterProtectionSourceCommandRunner
 			"x-cli-command":       "register",
 		},
 		Example: `  ibmcloud backup-recovery protection-source register \
-	 --xibm-tenant-id tenantId \
-	 --environment kPhysical \
-	 --name register-protection-source \
-	 --is-internal-encrypted=true \
-	 --encryption-key encryptionKey \
-	 --connection-id 26 \
-	 --connections '[{"connectionId": 26, "entityId": 26, "connectorGroupId": 26, "dataSourceConnectionId": "DatasourceConnectionId"}]' \
-	 --connector-group-id 26 \
-	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
-	 --data-source-connection-id DatasourceConnectionId \
-	 --physical-params '{"endpoint": "xxx.xx.xx.xx", "forceRegister": true, "hostType": "kLinux", "physicalType": "kGroup", "applications": ["kSQL","kOracle"]}'`,
+	  --xibm-tenant-id tenantId \
+	  --environment kPhysical \
+	  --name register-protection-source \
+	  --is-internal-encrypted=true \
+	  --encryption-key encryptionKey \
+	  --connection-id 26 \
+	  --connections '[{"connectionId": 26, "entityId": 26, "connectorGroupId": 26, "dataSourceConnectionId": "DatasourceConnectionId"}]' \
+	  --connector-group-id 26 \
+	  --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
+	  --data-source-connection-id DatasourceConnectionId \
+	  --kubernetes-params '{"autoProtectConfig": {"errorMessage": "exampleString", "isDefaultAutoProtected": true, "policyId": "exampleString", "protectionGroupId": "exampleString", "storageDomainId": 26}, "clientPrivateKey": "exampleString", "dataMoverImageLocation": "exampleString", "datamoverServiceType": "kNodePort", "defaultVlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "endpoint": "exampleString", "initContainerImageLocation": "exampleString", "kubernetesDistribution": "kOpenshift", "kubernetesType": "kCluster", "priorityClassName": "exampleString", "resourceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "resourceLabels": [{"key": "exampleString", "value": "exampleString"}], "sanFields": ["exampleString","anotherTestString"], "serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "veleroAwsPluginImageLocation": "exampleString", "veleroImageLocation": "exampleString", "veleroOpenshiftPluginImageLocation": "exampleString", "vlanInfoVec": [{"serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}}]}' \
+	  --physical-params '{"endpoint": "xxx.xx.xx.xx", "forceRegister": true, "hostType": "kLinux", "physicalType": "kGroup", "applications": ["kSQL","kOracle"]}'`,
 	}
 
 	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-protection-source-register-xibm-tenant-id-flag-description"))
@@ -817,7 +839,27 @@ func GetRegisterProtectionSourceCommand(r *RegisterProtectionSourceCommandRunner
 	cmd.Flags().Int64VarP(&r.ConnectorGroupID, "connector-group-id", "", 0, translation.T("backup-recovery-protection-source-register-connector-group-id-flag-description"))
 	cmd.Flags().StringVarP(&r.AdvancedConfigs, "advanced-configs", "", "", translation.T("backup-recovery-protection-source-register-advanced-configs-flag-description"))
 	cmd.Flags().StringVarP(&r.DataSourceConnectionID, "data-source-connection-id", "", "", translation.T("backup-recovery-protection-source-register-data-source-connection-id-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParams, "kubernetes-params", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParams, "physical-params", "", "", translation.T("backup-recovery-protection-source-register-physical-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsAutoProtectConfig, "kubernetes-params-auto-protect-config", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-auto-protect-config-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsClientPrivateKey, "kubernetes-params-client-private-key", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-client-private-key-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsCohesityDataprotectPluginImageLocation, "kubernetes-params-cohesity-dataprotect-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-cohesity-dataprotect-plugin-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsDataMoverImageLocation, "kubernetes-params-data-mover-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-data-mover-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsDatamoverServiceType, "kubernetes-params-datamover-service-type", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-datamover-service-type-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsDefaultVlanParams, "kubernetes-params-default-vlan-params", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-default-vlan-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsEndpoint, "kubernetes-params-endpoint", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-endpoint-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsInitContainerImageLocation, "kubernetes-params-init-container-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-init-container-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsKubernetesDistribution, "kubernetes-params-kubernetes-distribution", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-kubernetes-distribution-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsKubernetesType, "kubernetes-params-kubernetes-type", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-kubernetes-type-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsPriorityClassName, "kubernetes-params-priority-class-name", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-priority-class-name-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsResourceAnnotations, "kubernetes-params-resource-annotations", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-resource-annotations-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsResourceLabels, "kubernetes-params-resource-labels", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-resource-labels-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsSanFields, "kubernetes-params-san-fields", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-san-fields-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsServiceAnnotations, "kubernetes-params-service-annotations", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-service-annotations-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVeleroAwsPluginImageLocation, "kubernetes-params-velero-aws-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-velero-aws-plugin-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVeleroImageLocation, "kubernetes-params-velero-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-velero-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVeleroOpenshiftPluginImageLocation, "kubernetes-params-velero-openshift-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-velero-openshift-plugin-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVlanInfoVec, "kubernetes-params-vlan-info-vec", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-vlan-info-vec-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsEndpoint, "physical-params-endpoint", "", "", translation.T("backup-recovery-protection-source-register-physical-params-endpoint-flag-description"))
 	cmd.Flags().BoolVarP(&r.PhysicalParamsForceRegister, "physical-params-force-register", "", false, translation.T("backup-recovery-protection-source-register-physical-params-force-register-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsHostType, "physical-params-host-type", "", "", translation.T("backup-recovery-protection-source-register-physical-params-host-type-flag-description"))
@@ -840,6 +882,7 @@ func (r *RegisterProtectionSourceCommandRunner) Run(cmd *cobra.Command, args []s
 
 	r.utils.ConfirmRunningCommand()
 	OptionsModel := backuprecoveryv1.RegisterProtectionSourceOptions{}
+	KubernetesParamsHelper := &backuprecoveryv1.KubernetesSourceRegistrationParams{}
 	PhysicalParamsHelper := &backuprecoveryv1.PhysicalSourceRegistrationParams{}
 
 	// optional params should only be set when they are explicitly passed by the user
@@ -926,6 +969,34 @@ func (r *RegisterProtectionSourceCommandRunner) Run(cmd *cobra.Command, args []s
 		if flag.Name == "data-source-connection-id" {
 			OptionsModel.SetDataSourceConnectionID(r.DataSourceConnectionID)
 		}
+		if flag.Name == "kubernetes-params" {
+			var KubernetesParams *backuprecoveryv1.KubernetesSourceRegistrationParams
+			err, msg := deserialize.Model(
+				r.KubernetesParams,
+				"kubernetes-params",
+				"KubernetesSourceRegistrationParams",
+				backuprecoveryv1.UnmarshalKubernetesSourceRegistrationParams,
+				&KubernetesParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetKubernetesParams(KubernetesParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesVlanInfo":["serviceAnnotations#KubernetesServiceAnnotationObject","vlanParams#VlanParams"],"KubernetesLabelObject":["key","value"],"KubernetesServiceAnnotationObject":["key","value"],"KubernetesAutoProtectConfig":["errorMessage","isDefaultAutoProtected","policyId","protectionGroupId","storageDomainId"]},"fields":["veleroImageLocation","resourceLabels#KubernetesLabelObject","datamoverServiceType","priorityClassName","veleroAwsPluginImageLocation","autoProtectConfig#KubernetesAutoProtectConfig","resourceAnnotations#KubernetesLabelObject","kubernetesType","vlanInfoVec#KubernetesVlanInfo","endpoint","dataMoverImageLocation","serviceAnnotations#KubernetesServiceAnnotationObject","veleroOpenshiftPluginImageLocation","defaultVlanParams#VlanParams","initContainerImageLocation","kubernetesDistribution","cohesityDataprotectPluginImageLocation","sanFields","clientPrivateKey"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
 		if flag.Name == "physical-params" {
 			var PhysicalParams *backuprecoveryv1.PhysicalSourceRegistrationParams
 			err, msg := deserialize.Model(
@@ -954,6 +1025,216 @@ func (r *RegisterProtectionSourceCommandRunner) Run(cmd *cobra.Command, args []s
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params-auto-protect-config" {
+			var KubernetesParamsAutoProtectConfig *backuprecoveryv1.KubernetesAutoProtectConfig
+			err, msg := deserialize.Model(
+				r.KubernetesParamsAutoProtectConfig,
+				"kubernetes-params-auto-protect-config",
+				"KubernetesAutoProtectConfig",
+				backuprecoveryv1.UnmarshalKubernetesAutoProtectConfig,
+				&KubernetesParamsAutoProtectConfig,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.AutoProtectConfig = KubernetesParamsAutoProtectConfig
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsAutoProtectConfig, `{"fields":["protectionGroupId","storageDomainId","policyId","errorMessage","isDefaultAutoProtected"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-auto-protect-config",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-auto-protect-config",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-auto-protect-config",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-client-private-key" {
+			KubernetesParamsHelper.ClientPrivateKey = core.StringPtr(r.KubernetesParamsClientPrivateKey)
+		}
+		if flag.Name == "kubernetes-params-cohesity-dataprotect-plugin-image-location" {
+			KubernetesParamsHelper.CohesityDataprotectPluginImageLocation = core.StringPtr(r.KubernetesParamsCohesityDataprotectPluginImageLocation)
+		}
+		if flag.Name == "kubernetes-params-data-mover-image-location" {
+			KubernetesParamsHelper.DataMoverImageLocation = core.StringPtr(r.KubernetesParamsDataMoverImageLocation)
+		}
+		if flag.Name == "kubernetes-params-datamover-service-type" {
+			KubernetesParamsHelper.DatamoverServiceType = core.StringPtr(r.KubernetesParamsDatamoverServiceType)
+		}
+		if flag.Name == "kubernetes-params-default-vlan-params" {
+			var KubernetesParamsDefaultVlanParams *backuprecoveryv1.VlanParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsDefaultVlanParams,
+				"kubernetes-params-default-vlan-params",
+				"VlanParams",
+				backuprecoveryv1.UnmarshalVlanParams,
+				&KubernetesParamsDefaultVlanParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.DefaultVlanParams = KubernetesParamsDefaultVlanParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsDefaultVlanParams, `{"fields":["disableVlan","vlanId","interfaceName"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-default-vlan-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-default-vlan-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-default-vlan-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-endpoint" {
+			KubernetesParamsHelper.Endpoint = core.StringPtr(r.KubernetesParamsEndpoint)
+		}
+		if flag.Name == "kubernetes-params-init-container-image-location" {
+			KubernetesParamsHelper.InitContainerImageLocation = core.StringPtr(r.KubernetesParamsInitContainerImageLocation)
+		}
+		if flag.Name == "kubernetes-params-kubernetes-distribution" {
+			KubernetesParamsHelper.KubernetesDistribution = core.StringPtr(r.KubernetesParamsKubernetesDistribution)
+		}
+		if flag.Name == "kubernetes-params-kubernetes-type" {
+			KubernetesParamsHelper.KubernetesType = core.StringPtr(r.KubernetesParamsKubernetesType)
+		}
+		if flag.Name == "kubernetes-params-priority-class-name" {
+			KubernetesParamsHelper.PriorityClassName = core.StringPtr(r.KubernetesParamsPriorityClassName)
+		}
+		if flag.Name == "kubernetes-params-resource-annotations" {
+			var KubernetesParamsResourceAnnotations []backuprecoveryv1.KubernetesLabelObject
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsResourceAnnotations,
+				"kubernetes-params-resource-annotations",
+				"KubernetesLabelObject",
+				backuprecoveryv1.UnmarshalKubernetesLabelObject,
+				&KubernetesParamsResourceAnnotations,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ResourceAnnotations = KubernetesParamsResourceAnnotations
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsResourceAnnotations, `{"fields":["value","key"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-resource-annotations",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-annotations",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-annotations",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-resource-labels" {
+			var KubernetesParamsResourceLabels []backuprecoveryv1.KubernetesLabelObject
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsResourceLabels,
+				"kubernetes-params-resource-labels",
+				"KubernetesLabelObject",
+				backuprecoveryv1.UnmarshalKubernetesLabelObject,
+				&KubernetesParamsResourceLabels,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ResourceLabels = KubernetesParamsResourceLabels
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsResourceLabels, `{"fields":["value","key"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-resource-labels",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-labels",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-labels",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-san-fields" {
+			var KubernetesParamsSanFields []string
+			err, msg := deserialize.List(r.KubernetesParamsSanFields, "kubernetes-params-san-fields", "JSON", &KubernetesParamsSanFields)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.SanFields = KubernetesParamsSanFields
+		}
+		if flag.Name == "kubernetes-params-service-annotations" {
+			var KubernetesParamsServiceAnnotations []backuprecoveryv1.KubernetesServiceAnnotationObject
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsServiceAnnotations,
+				"kubernetes-params-service-annotations",
+				"KubernetesServiceAnnotationObject",
+				backuprecoveryv1.UnmarshalKubernetesServiceAnnotationObject,
+				&KubernetesParamsServiceAnnotations,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ServiceAnnotations = KubernetesParamsServiceAnnotations
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsServiceAnnotations, `{"fields":["value","key"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-service-annotations",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-service-annotations",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-service-annotations",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-velero-aws-plugin-image-location" {
+			KubernetesParamsHelper.VeleroAwsPluginImageLocation = core.StringPtr(r.KubernetesParamsVeleroAwsPluginImageLocation)
+		}
+		if flag.Name == "kubernetes-params-velero-image-location" {
+			KubernetesParamsHelper.VeleroImageLocation = core.StringPtr(r.KubernetesParamsVeleroImageLocation)
+		}
+		if flag.Name == "kubernetes-params-velero-openshift-plugin-image-location" {
+			KubernetesParamsHelper.VeleroOpenshiftPluginImageLocation = core.StringPtr(r.KubernetesParamsVeleroOpenshiftPluginImageLocation)
+		}
+		if flag.Name == "kubernetes-params-vlan-info-vec" {
+			var KubernetesParamsVlanInfoVec []backuprecoveryv1.KubernetesVlanInfo
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsVlanInfoVec,
+				"kubernetes-params-vlan-info-vec",
+				"KubernetesVlanInfo",
+				backuprecoveryv1.UnmarshalKubernetesVlanInfo,
+				&KubernetesParamsVlanInfoVec,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.VlanInfoVec = KubernetesParamsVlanInfoVec
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsVlanInfoVec, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesServiceAnnotationObject":["key","value"]},"fields":["vlanParams#VlanParams","serviceAnnotations#KubernetesServiceAnnotationObject"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-vlan-info-vec",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-info-vec",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-info-vec",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
 		if flag.Name == "physical-params-endpoint" {
 			PhysicalParamsHelper.Endpoint = core.StringPtr(r.PhysicalParamsEndpoint)
 		}
@@ -974,6 +1255,16 @@ func (r *RegisterProtectionSourceCommandRunner) Run(cmd *cobra.Command, args []s
 		}
 	})
 
+	if !reflect.ValueOf(*KubernetesParamsHelper).IsZero() {
+		if OptionsModel.KubernetesParams == nil {
+			OptionsModel.SetKubernetesParams(KubernetesParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "kubernetes-params",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
 	if !reflect.ValueOf(*PhysicalParamsHelper).IsZero() {
 		if OptionsModel.PhysicalParams == nil {
 			OptionsModel.SetPhysicalParams(PhysicalParamsHelper)
@@ -1014,6 +1305,7 @@ func (r *RegisterProtectionSourceCommandRunner) MakeRequest(OptionsModel backupr
 		"lastRefreshedTimeMsecs",
 		"externalMetadata",
 		"physicalParams",
+		"kubernetesParams",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -1053,9 +1345,9 @@ func GetGetProtectionSourceRegistrationCommand(r *GetProtectionSourceRegistratio
 			"x-cli-command":       "registration-get",
 		},
 		Example: `  ibmcloud backup-recovery protection-source registration-get \
-	 --id 26 \
-	 --xibm-tenant-id tenantId \
-	 --request-initiator-type UIUser`,
+		--id 26 \
+		--xibm-tenant-id tenantId \
+		--request-initiator-type UIUser`,
 	}
 
 	cmd.Flags().Int64VarP(&r.ID, "id", "", 0, translation.T("backup-recovery-protection-source-registration-get-id-flag-description"))
@@ -1123,6 +1415,7 @@ func (r *GetProtectionSourceRegistrationCommandRunner) MakeRequest(OptionsModel 
 		"lastRefreshedTimeMsecs",
 		"externalMetadata",
 		"physicalParams",
+		"kubernetesParams",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -1141,27 +1434,47 @@ func NewUpdateProtectionSourceRegistrationCommandRunner(utils Utilities, sender 
 }
 
 type UpdateProtectionSourceRegistrationCommandRunner struct {
-	ID                          int64
-	XIBMTenantID                string
-	Environment                 string
-	Name                        string
-	IsInternalEncrypted         bool
-	EncryptionKey               string
-	ConnectionID                int64
-	Connections                 string
-	ConnectorGroupID            int64
-	AdvancedConfigs             string
-	DataSourceConnectionID      string
-	LastModifiedTimestampUsecs  int64
-	PhysicalParams              string
-	PhysicalParamsEndpoint      string
-	PhysicalParamsForceRegister bool
-	PhysicalParamsHostType      string
-	PhysicalParamsPhysicalType  string
-	PhysicalParamsApplications  string
-	RequiredFlags               []string
-	sender                      RequestSender
-	utils                       Utilities
+	ID                                                     int64
+	XIBMTenantID                                           string
+	Environment                                            string
+	Name                                                   string
+	IsInternalEncrypted                                    bool
+	EncryptionKey                                          string
+	ConnectionID                                           int64
+	Connections                                            string
+	ConnectorGroupID                                       int64
+	AdvancedConfigs                                        string
+	DataSourceConnectionID                                 string
+	LastModifiedTimestampUsecs                             int64
+	PhysicalParams                                         string
+	KubernetesParams                                       string
+	PhysicalParamsEndpoint                                 string
+	PhysicalParamsForceRegister                            bool
+	PhysicalParamsHostType                                 string
+	PhysicalParamsPhysicalType                             string
+	PhysicalParamsApplications                             string
+	KubernetesParamsAutoProtectConfig                      string
+	KubernetesParamsClientPrivateKey                       string
+	KubernetesParamsCohesityDataprotectPluginImageLocation string
+	KubernetesParamsDataMoverImageLocation                 string
+	KubernetesParamsDatamoverServiceType                   string
+	KubernetesParamsDefaultVlanParams                      string
+	KubernetesParamsEndpoint                               string
+	KubernetesParamsInitContainerImageLocation             string
+	KubernetesParamsKubernetesDistribution                 string
+	KubernetesParamsKubernetesType                         string
+	KubernetesParamsPriorityClassName                      string
+	KubernetesParamsResourceAnnotations                    string
+	KubernetesParamsResourceLabels                         string
+	KubernetesParamsSanFields                              string
+	KubernetesParamsServiceAnnotations                     string
+	KubernetesParamsVeleroAwsPluginImageLocation           string
+	KubernetesParamsVeleroImageLocation                    string
+	KubernetesParamsVeleroOpenshiftPluginImageLocation     string
+	KubernetesParamsVlanInfoVec                            string
+	RequiredFlags                                          []string
+	sender                                                 RequestSender
+	utils                                                  Utilities
 }
 
 // Command mapping: protection-source registration-update, GetUpdateProtectionSourceRegistrationCommand
@@ -1177,19 +1490,20 @@ func GetUpdateProtectionSourceRegistrationCommand(r *UpdateProtectionSourceRegis
 			"x-cli-command":       "registration-update",
 		},
 		Example: `  ibmcloud backup-recovery protection-source registration-update \
-	 --id 26 \
-	 --xibm-tenant-id tenantId \
-	 --environment kPhysical \
-	 --name update-protection-source \
-	 --is-internal-encrypted=true \
-	 --encryption-key encryptionKey \
-	 --connection-id 26 \
-	 --connections '[{"connectionId": 26, "entityId": 26, "connectorGroupId": 26, "dataSourceConnectionId": "DatasourceConnectionId"}]' \
-	 --connector-group-id 26 \
-	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
-	 --data-source-connection-id DatasourceConnectionId \
-	 --last-modified-timestamp-usecs 26 \
-	 --physical-params '{"endpoint": "xxx.xx.xx.xx", "forceRegister": true, "hostType": "kLinux", "physicalType": "kGroup", "applications": ["kSQL","kOracle"]}'`,
+	  --id 26 \
+	  --xibm-tenant-id tenantId \
+	  --environment kPhysical \
+	  --name update-protection-source \
+	  --is-internal-encrypted=true \
+	  --encryption-key encryptionKey \
+	  --connection-id 26 \
+	  --connections '[{"connectionId": 26, "entityId": 26, "connectorGroupId": 26, "dataSourceConnectionId": "DatasourceConnectionId"}]' \
+	  --connector-group-id 26 \
+	  --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
+	  --data-source-connection-id DatasourceConnectionId \
+	  --last-modified-timestamp-usecs 26 \
+	  --physical-params '{"endpoint": "xxx.xx.xx.xx", "forceRegister": true, "hostType": "kLinux", "physicalType": "kGroup", "applications": ["kSQL","kOracle"]}' \
+	  --kubernetes-params '{"autoProtectConfig": {"errorMessage": "exampleString", "isDefaultAutoProtected": true, "policyId": "exampleString", "protectionGroupId": "exampleString", "storageDomainId": 26}, "clientPrivateKey": "exampleString", "dataMoverImageLocation": "exampleString", "datamoverServiceType": "kNodePort", "defaultVlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "endpoint": "exampleString", "initContainerImageLocation": "exampleString", "kubernetesDistribution": "kOpenshift", "kubernetesType": "kCluster", "priorityClassName": "exampleString", "resourceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "resourceLabels": [{"key": "exampleString", "value": "exampleString"}], "sanFields": ["exampleString","anotherTestString"], "serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "veleroAwsPluginImageLocation": "exampleString", "veleroImageLocation": "exampleString", "veleroOpenshiftPluginImageLocation": "exampleString", "vlanInfoVec": [{"serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}}]}'`,
 	}
 
 	cmd.Flags().Int64VarP(&r.ID, "id", "", 0, translation.T("backup-recovery-protection-source-registration-update-id-flag-description"))
@@ -1205,11 +1519,31 @@ func GetUpdateProtectionSourceRegistrationCommand(r *UpdateProtectionSourceRegis
 	cmd.Flags().StringVarP(&r.DataSourceConnectionID, "data-source-connection-id", "", "", translation.T("backup-recovery-protection-source-registration-update-data-source-connection-id-flag-description"))
 	cmd.Flags().Int64VarP(&r.LastModifiedTimestampUsecs, "last-modified-timestamp-usecs", "", 0, translation.T("backup-recovery-protection-source-registration-update-last-modified-timestamp-usecs-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParams, "physical-params", "", "", translation.T("backup-recovery-protection-source-registration-update-physical-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParams, "kubernetes-params", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsEndpoint, "physical-params-endpoint", "", "", translation.T("backup-recovery-protection-source-registration-update-physical-params-endpoint-flag-description"))
 	cmd.Flags().BoolVarP(&r.PhysicalParamsForceRegister, "physical-params-force-register", "", false, translation.T("backup-recovery-protection-source-registration-update-physical-params-force-register-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsHostType, "physical-params-host-type", "", "", translation.T("backup-recovery-protection-source-registration-update-physical-params-host-type-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsPhysicalType, "physical-params-physical-type", "", "", translation.T("backup-recovery-protection-source-registration-update-physical-params-physical-type-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsApplications, "physical-params-applications", "", "", translation.T("backup-recovery-protection-source-registration-update-physical-params-applications-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsAutoProtectConfig, "kubernetes-params-auto-protect-config", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-auto-protect-config-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsClientPrivateKey, "kubernetes-params-client-private-key", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-client-private-key-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsCohesityDataprotectPluginImageLocation, "kubernetes-params-cohesity-dataprotect-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-cohesity-dataprotect-plugin-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsDataMoverImageLocation, "kubernetes-params-data-mover-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-data-mover-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsDatamoverServiceType, "kubernetes-params-datamover-service-type", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-datamover-service-type-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsDefaultVlanParams, "kubernetes-params-default-vlan-params", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-default-vlan-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsEndpoint, "kubernetes-params-endpoint", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-endpoint-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsInitContainerImageLocation, "kubernetes-params-init-container-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-init-container-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsKubernetesDistribution, "kubernetes-params-kubernetes-distribution", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-distribution-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsKubernetesType, "kubernetes-params-kubernetes-type", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-type-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsPriorityClassName, "kubernetes-params-priority-class-name", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-priority-class-name-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsResourceAnnotations, "kubernetes-params-resource-annotations", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-resource-annotations-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsResourceLabels, "kubernetes-params-resource-labels", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-resource-labels-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsSanFields, "kubernetes-params-san-fields", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-san-fields-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsServiceAnnotations, "kubernetes-params-service-annotations", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-service-annotations-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVeleroAwsPluginImageLocation, "kubernetes-params-velero-aws-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-velero-aws-plugin-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVeleroImageLocation, "kubernetes-params-velero-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-velero-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVeleroOpenshiftPluginImageLocation, "kubernetes-params-velero-openshift-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-velero-openshift-plugin-image-location-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVlanInfoVec, "kubernetes-params-vlan-info-vec", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-vlan-info-vec-flag-description"))
 	r.RequiredFlags = []string{
 		"id",
 		"xibm-tenant-id",
@@ -1229,6 +1563,7 @@ func (r *UpdateProtectionSourceRegistrationCommandRunner) Run(cmd *cobra.Command
 	r.utils.ConfirmRunningCommand()
 	OptionsModel := backuprecoveryv1.UpdateProtectionSourceRegistrationOptions{}
 	PhysicalParamsHelper := &backuprecoveryv1.PhysicalSourceRegistrationParams{}
+	KubernetesParamsHelper := &backuprecoveryv1.KubernetesSourceRegistrationParams{}
 
 	// optional params should only be set when they are explicitly passed by the user
 	// otherwise, the default type values will be sent to the service
@@ -1348,6 +1683,34 @@ func (r *UpdateProtectionSourceRegistrationCommandRunner) Run(cmd *cobra.Command
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params" {
+			var KubernetesParams *backuprecoveryv1.KubernetesSourceRegistrationParams
+			err, msg := deserialize.Model(
+				r.KubernetesParams,
+				"kubernetes-params",
+				"KubernetesSourceRegistrationParams",
+				backuprecoveryv1.UnmarshalKubernetesSourceRegistrationParams,
+				&KubernetesParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetKubernetesParams(KubernetesParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesVlanInfo":["serviceAnnotations#KubernetesServiceAnnotationObject","vlanParams#VlanParams"],"KubernetesLabelObject":["key","value"],"KubernetesServiceAnnotationObject":["key","value"],"KubernetesAutoProtectConfig":["errorMessage","isDefaultAutoProtected","policyId","protectionGroupId","storageDomainId"]},"fields":["veleroImageLocation","resourceLabels#KubernetesLabelObject","datamoverServiceType","priorityClassName","veleroAwsPluginImageLocation","autoProtectConfig#KubernetesAutoProtectConfig","resourceAnnotations#KubernetesLabelObject","kubernetesType","vlanInfoVec#KubernetesVlanInfo","endpoint","dataMoverImageLocation","serviceAnnotations#KubernetesServiceAnnotationObject","veleroOpenshiftPluginImageLocation","defaultVlanParams#VlanParams","initContainerImageLocation","kubernetesDistribution","cohesityDataprotectPluginImageLocation","sanFields","clientPrivateKey"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
 		if flag.Name == "physical-params-endpoint" {
 			PhysicalParamsHelper.Endpoint = core.StringPtr(r.PhysicalParamsEndpoint)
 		}
@@ -1366,6 +1729,216 @@ func (r *UpdateProtectionSourceRegistrationCommandRunner) Run(cmd *cobra.Command
 			r.utils.HandleError(err, msg)
 			PhysicalParamsHelper.Applications = PhysicalParamsApplications
 		}
+		if flag.Name == "kubernetes-params-auto-protect-config" {
+			var KubernetesParamsAutoProtectConfig *backuprecoveryv1.KubernetesAutoProtectConfig
+			err, msg := deserialize.Model(
+				r.KubernetesParamsAutoProtectConfig,
+				"kubernetes-params-auto-protect-config",
+				"KubernetesAutoProtectConfig",
+				backuprecoveryv1.UnmarshalKubernetesAutoProtectConfig,
+				&KubernetesParamsAutoProtectConfig,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.AutoProtectConfig = KubernetesParamsAutoProtectConfig
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsAutoProtectConfig, `{"fields":["protectionGroupId","storageDomainId","policyId","errorMessage","isDefaultAutoProtected"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-auto-protect-config",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-auto-protect-config",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-auto-protect-config",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-client-private-key" {
+			KubernetesParamsHelper.ClientPrivateKey = core.StringPtr(r.KubernetesParamsClientPrivateKey)
+		}
+		if flag.Name == "kubernetes-params-cohesity-dataprotect-plugin-image-location" {
+			KubernetesParamsHelper.CohesityDataprotectPluginImageLocation = core.StringPtr(r.KubernetesParamsCohesityDataprotectPluginImageLocation)
+		}
+		if flag.Name == "kubernetes-params-data-mover-image-location" {
+			KubernetesParamsHelper.DataMoverImageLocation = core.StringPtr(r.KubernetesParamsDataMoverImageLocation)
+		}
+		if flag.Name == "kubernetes-params-datamover-service-type" {
+			KubernetesParamsHelper.DatamoverServiceType = core.StringPtr(r.KubernetesParamsDatamoverServiceType)
+		}
+		if flag.Name == "kubernetes-params-default-vlan-params" {
+			var KubernetesParamsDefaultVlanParams *backuprecoveryv1.VlanParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsDefaultVlanParams,
+				"kubernetes-params-default-vlan-params",
+				"VlanParams",
+				backuprecoveryv1.UnmarshalVlanParams,
+				&KubernetesParamsDefaultVlanParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.DefaultVlanParams = KubernetesParamsDefaultVlanParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsDefaultVlanParams, `{"fields":["disableVlan","vlanId","interfaceName"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-default-vlan-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-default-vlan-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-default-vlan-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-endpoint" {
+			KubernetesParamsHelper.Endpoint = core.StringPtr(r.KubernetesParamsEndpoint)
+		}
+		if flag.Name == "kubernetes-params-init-container-image-location" {
+			KubernetesParamsHelper.InitContainerImageLocation = core.StringPtr(r.KubernetesParamsInitContainerImageLocation)
+		}
+		if flag.Name == "kubernetes-params-kubernetes-distribution" {
+			KubernetesParamsHelper.KubernetesDistribution = core.StringPtr(r.KubernetesParamsKubernetesDistribution)
+		}
+		if flag.Name == "kubernetes-params-kubernetes-type" {
+			KubernetesParamsHelper.KubernetesType = core.StringPtr(r.KubernetesParamsKubernetesType)
+		}
+		if flag.Name == "kubernetes-params-priority-class-name" {
+			KubernetesParamsHelper.PriorityClassName = core.StringPtr(r.KubernetesParamsPriorityClassName)
+		}
+		if flag.Name == "kubernetes-params-resource-annotations" {
+			var KubernetesParamsResourceAnnotations []backuprecoveryv1.KubernetesLabelObject
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsResourceAnnotations,
+				"kubernetes-params-resource-annotations",
+				"KubernetesLabelObject",
+				backuprecoveryv1.UnmarshalKubernetesLabelObject,
+				&KubernetesParamsResourceAnnotations,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ResourceAnnotations = KubernetesParamsResourceAnnotations
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsResourceAnnotations, `{"fields":["value","key"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-resource-annotations",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-annotations",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-annotations",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-resource-labels" {
+			var KubernetesParamsResourceLabels []backuprecoveryv1.KubernetesLabelObject
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsResourceLabels,
+				"kubernetes-params-resource-labels",
+				"KubernetesLabelObject",
+				backuprecoveryv1.UnmarshalKubernetesLabelObject,
+				&KubernetesParamsResourceLabels,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ResourceLabels = KubernetesParamsResourceLabels
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsResourceLabels, `{"fields":["value","key"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-resource-labels",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-labels",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-resource-labels",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-san-fields" {
+			var KubernetesParamsSanFields []string
+			err, msg := deserialize.List(r.KubernetesParamsSanFields, "kubernetes-params-san-fields", "JSON", &KubernetesParamsSanFields)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.SanFields = KubernetesParamsSanFields
+		}
+		if flag.Name == "kubernetes-params-service-annotations" {
+			var KubernetesParamsServiceAnnotations []backuprecoveryv1.KubernetesServiceAnnotationObject
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsServiceAnnotations,
+				"kubernetes-params-service-annotations",
+				"KubernetesServiceAnnotationObject",
+				backuprecoveryv1.UnmarshalKubernetesServiceAnnotationObject,
+				&KubernetesParamsServiceAnnotations,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ServiceAnnotations = KubernetesParamsServiceAnnotations
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsServiceAnnotations, `{"fields":["value","key"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-service-annotations",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-service-annotations",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-service-annotations",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-velero-aws-plugin-image-location" {
+			KubernetesParamsHelper.VeleroAwsPluginImageLocation = core.StringPtr(r.KubernetesParamsVeleroAwsPluginImageLocation)
+		}
+		if flag.Name == "kubernetes-params-velero-image-location" {
+			KubernetesParamsHelper.VeleroImageLocation = core.StringPtr(r.KubernetesParamsVeleroImageLocation)
+		}
+		if flag.Name == "kubernetes-params-velero-openshift-plugin-image-location" {
+			KubernetesParamsHelper.VeleroOpenshiftPluginImageLocation = core.StringPtr(r.KubernetesParamsVeleroOpenshiftPluginImageLocation)
+		}
+		if flag.Name == "kubernetes-params-vlan-info-vec" {
+			var KubernetesParamsVlanInfoVec []backuprecoveryv1.KubernetesVlanInfo
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsVlanInfoVec,
+				"kubernetes-params-vlan-info-vec",
+				"KubernetesVlanInfo",
+				backuprecoveryv1.UnmarshalKubernetesVlanInfo,
+				&KubernetesParamsVlanInfoVec,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.VlanInfoVec = KubernetesParamsVlanInfoVec
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsVlanInfoVec, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesServiceAnnotationObject":["key","value"]},"fields":["vlanParams#VlanParams","serviceAnnotations#KubernetesServiceAnnotationObject"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-vlan-info-vec",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-info-vec",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-info-vec",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
 	})
 
 	if !reflect.ValueOf(*PhysicalParamsHelper).IsZero() {
@@ -1374,6 +1947,16 @@ func (r *UpdateProtectionSourceRegistrationCommandRunner) Run(cmd *cobra.Command
 		} else {
 			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
 				"FLAG_NAME": "PhysicalParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*KubernetesParamsHelper).IsZero() {
+		if OptionsModel.KubernetesParams == nil {
+			OptionsModel.SetKubernetesParams(KubernetesParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "kubernetes-params",
 			}))
 			r.utils.HandleError(flagErr, "")
 		}
@@ -1408,6 +1991,7 @@ func (r *UpdateProtectionSourceRegistrationCommandRunner) MakeRequest(OptionsMod
 		"lastRefreshedTimeMsecs",
 		"externalMetadata",
 		"physicalParams",
+		"kubernetesParams",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -1518,6 +2102,7 @@ func (r *PatchProtectionSourceRegistrationCommandRunner) MakeRequest(OptionsMode
 		"lastRefreshedTimeMsecs",
 		"externalMetadata",
 		"physicalParams",
+		"kubernetesParams",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -2006,14 +2591,14 @@ func GetGetProtectionPoliciesCommand(r *GetProtectionPoliciesCommandRunner) *cob
 			"x-cli-command":       "list",
 		},
 		Example: `  ibmcloud backup-recovery protection-policy list \
-	 --xibm-tenant-id tenantId \
-	 --request-initiator-type UIUser \
-	 --ids policyId1 \
-	 --policy-names policyName1 \
-	 --types Regular,Internal \
-	 --exclude-linked-policies=true \
-	 --include-replicated-policies=true \
-	 --include-stats=true`,
+	  --xibm-tenant-id tenantId \
+	  --request-initiator-type UIUser \
+	  --ids policyId1 \
+	  --policy-names policyName1 \
+	  --types Regular,Internal \
+	  --exclude-linked-policies=true \
+	  --include-replicated-policies=true \
+	  --include-stats=true`,
 	}
 
 	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-protection-policy-list-xibm-tenant-id-flag-description"))
@@ -2973,21 +3558,21 @@ func GetUpdateProtectionPolicyCommand(r *UpdateProtectionPolicyCommandRunner) *c
 			"x-cli-command":       "update",
 		},
 		Example: `  ibmcloud backup-recovery protection-policy update \
-	 --id exampleString \
-	 --xibm-tenant-id tenantId \
-	 --name update-protection-policy \
-	 --backup-policy '{"regular": {"incremental": {"schedule": {"unit": "Minutes", "minuteSchedule": {"frequency": 1}, "hourSchedule": {"frequency": 1}, "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}}, "full": {"schedule": {"unit": "Days", "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}}, "fullBackups": [{"schedule": {"unit": "Days", "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}], "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "primaryBackupTarget": {"targetType": "Local", "archivalTargetSettings": {"targetId": 26, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}}, "useDefaultBackupTarget": true}}, "log": {"schedule": {"unit": "Minutes", "minuteSchedule": {"frequency": 1}, "hourSchedule": {"frequency": 1}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "bmr": {"schedule": {"unit": "Days", "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "cdp": {"retention": {"unit": "Minutes", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "storageArraySnapshot": {"schedule": {"unit": "Minutes", "minuteSchedule": {"frequency": 1}, "hourSchedule": {"frequency": 1}, "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}]}' \
-	 --description 'Protection Policy' \
-	 --blackout-window '[{"day": "Sunday", "startTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "endTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "configId": "Config-Id"}]' \
-	 --extended-retention '[{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]' \
-	 --remote-target-policy '{"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}' \
-	 --cascaded-targets-config '[{"sourceClusterId": 26, "remoteTargets": {"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}}]' \
-	 --retry-options '{"retries": 0, "retryIntervalMins": 1}' \
-	 --data-lock Compliance \
-	 --version 38 \
-	 --is-cbs-enabled=true \
-	 --last-modification-time-usecs 26 \
-	 --template-id protection-policy-template`,
+	  --id exampleString \
+	  --xibm-tenant-id tenantId \
+	  --name update-protection-policy \
+	  --backup-policy '{"regular": {"incremental": {"schedule": {"unit": "Minutes", "minuteSchedule": {"frequency": 1}, "hourSchedule": {"frequency": 1}, "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}}, "full": {"schedule": {"unit": "Days", "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}}, "fullBackups": [{"schedule": {"unit": "Days", "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}], "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "primaryBackupTarget": {"targetType": "Local", "archivalTargetSettings": {"targetId": 26, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}}, "useDefaultBackupTarget": true}}, "log": {"schedule": {"unit": "Minutes", "minuteSchedule": {"frequency": 1}, "hourSchedule": {"frequency": 1}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "bmr": {"schedule": {"unit": "Days", "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "cdp": {"retention": {"unit": "Minutes", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "storageArraySnapshot": {"schedule": {"unit": "Minutes", "minuteSchedule": {"frequency": 1}, "hourSchedule": {"frequency": 1}, "daySchedule": {"frequency": 1}, "weekSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}, "monthSchedule": {"dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "weekOfMonth": "First", "dayOfMonth": 10}, "yearSchedule": {"dayOfYear": "First"}}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}}, "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}]}' \
+	  --description 'Protection Policy' \
+	  --blackout-window '[{"day": "Sunday", "startTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "endTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "configId": "Config-Id"}]' \
+	  --extended-retention '[{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]' \
+	  --remote-target-policy '{"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}' \
+	  --cascaded-targets-config '[{"sourceClusterId": 26, "remoteTargets": {"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}}]' \
+	  --retry-options '{"retries": 0, "retryIntervalMins": 1}' \
+	  --data-lock Compliance \
+	  --version 38 \
+	  --is-cbs-enabled=true \
+	  --last-modification-time-usecs 26 \
+	  --template-id protection-policy-template`,
 	}
 
 	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-protection-policy-update-id-flag-description"))
@@ -3795,7 +4380,7 @@ func GetGetProtectionGroupsCommand(r *GetProtectionGroupsCommandRunner) *cobra.C
 	 --names policyName1 \
 	 --policy-ids policyId1 \
 	 --include-groups-with-datalock-only=true \
-	 --environments kPhysical,kSQL \
+	 --environments kPhysical,kSQL,kKubernetes \
 	 --is-active=true \
 	 --is-deleted=true \
 	 --is-paused=true \
@@ -4000,6 +4585,7 @@ type CreateProtectionGroupCommandRunner struct {
 	AdvancedConfigs                                         string
 	PhysicalParams                                          string
 	MssqlParams                                             string
+	KubernetesParams                                        string
 	StartTimeHour                                           int64
 	StartTimeMinute                                         int64
 	StartTimeTimeZone                                       string
@@ -4015,6 +4601,17 @@ type CreateProtectionGroupCommandRunner struct {
 	MssqlParamsNativeProtectionTypeParams                   string
 	MssqlParamsProtectionType                               string
 	MssqlParamsVolumeProtectionTypeParams                   string
+	KubernetesParamsEnableIndexing                          bool
+	KubernetesParamsExcludeLabelIds                         string
+	KubernetesParamsExcludeObjectIds                        string
+	KubernetesParamsExcludeParams                           string
+	KubernetesParamsIncludeParams                           string
+	KubernetesParamsLabelIds                                string
+	KubernetesParamsLeverageCSISnapshot                     bool
+	KubernetesParamsNonSnapshotBackup                       bool
+	KubernetesParamsObjects                                 string
+	KubernetesParamsVlanParams                              string
+	KubernetesParamsVolumeBackupFailure                     bool
 	RequiredFlags                                           []string
 	sender                                                  RequestSender
 	utils                                                   Utilities
@@ -4050,7 +4647,8 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 	 --is-paused=true \
 	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
 	 --physical-params '{"protectionType": "kFile", "volumeProtectionTypeParams": {"objects": [{"id": 3, "volumeGuids": ["volumeGuid1"], "enableSystemBackup": true, "excludedVssWriters": ["writerName1","writerName2"]}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "quiesce": true, "continueOnQuiesceFailure": true, "incrementalBackupAfterRestart": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "excludedVssWriters": ["writerName1","writerName2"], "cobmrBackup": true}, "fileProtectionTypeParams": {"excludedVssWriters": ["writerName1","writerName2"], "objects": [{"excludedVssWriters": ["writerName1","writerName2"], "id": 2, "filePaths": [{"includedPath": "~/dir1/", "excludedPaths": ["~/dir2"], "skipNestedVolumes": true}], "usesPathLevelSkipNestedVolumeSetting": true, "nestedVolumeTypesToSkip": ["volume1"], "followNasSymlinkTarget": true, "metadataFilePath": "~/dir3"}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "performBrickBasedDeduplication": true, "taskTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "quiesce": true, "continueOnQuiesceFailure": true, "cobmrBackup": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "globalExcludePaths": ["~/dir1"], "globalExcludeFS": ["~/dir2"], "ignorableErrors": ["kEOF","kNonExistent"], "allowParallelRuns": true}}' \
-	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}'`,
+	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}' \
+	 --kubernetes-params '{"enableIndexing": true, "excludeLabelIds": [26,27,26,27],[26,27, 26,27], "excludeObjectIds": [26,27], "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "labelIds": [26,27,26,27],[26,27, 26,27], "leverageCSISnapshot": true, "nonSnapshotBackup": true, "objects": [{"backupOnlyPvc": true, "excludePvcs": [{}], "excludedResources": ["exampleString","anotherTestString"], "id": 26, "includePvcs": [{}], "includedResources": ["exampleString","anotherTestString"], "quiesceGroups": [{"quiesceMode": "kQuiesceTogether", "quiesceRules": [{"podSelectorLabels": [{}], "postSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}], "preSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}]}]}]}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "volumeBackupFailure": true}'`,
 	}
 
 	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-protection-group-create-xibm-tenant-id-flag-description"))
@@ -4071,6 +4669,7 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 	cmd.Flags().StringVarP(&r.AdvancedConfigs, "advanced-configs", "", "", translation.T("backup-recovery-protection-group-create-advanced-configs-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParams, "physical-params", "", "", translation.T("backup-recovery-protection-group-create-physical-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParams, "mssql-params", "", "", translation.T("backup-recovery-protection-group-create-mssql-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParams, "kubernetes-params", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-flag-description"))
 	cmd.Flags().Int64VarP(&r.StartTimeHour, "start-time-hour", "", 0, translation.T("backup-recovery-protection-group-create-start-time-hour-flag-description"))
 	cmd.Flags().Int64VarP(&r.StartTimeMinute, "start-time-minute", "", 0, translation.T("backup-recovery-protection-group-create-start-time-minute-flag-description"))
 	cmd.Flags().StringVarP(&r.StartTimeTimeZone, "start-time-time-zone", "", "", translation.T("backup-recovery-protection-group-create-start-time-time-zone-flag-description"))
@@ -4086,6 +4685,17 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 	cmd.Flags().StringVarP(&r.MssqlParamsNativeProtectionTypeParams, "mssql-params-native-protection-type-params", "", "", translation.T("backup-recovery-protection-group-create-mssql-params-native-protection-type-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParamsProtectionType, "mssql-params-protection-type", "", "", translation.T("backup-recovery-protection-group-create-mssql-params-protection-type-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParamsVolumeProtectionTypeParams, "mssql-params-volume-protection-type-params", "", "", translation.T("backup-recovery-protection-group-create-mssql-params-volume-protection-type-params-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsEnableIndexing, "kubernetes-params-enable-indexing", "", false, translation.T("backup-recovery-protection-group-create-kubernetes-params-enable-indexing-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsExcludeLabelIds, "kubernetes-params-exclude-label-ids", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-exclude-label-ids-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsExcludeObjectIds, "kubernetes-params-exclude-object-ids", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-exclude-object-ids-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsExcludeParams, "kubernetes-params-exclude-params", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-exclude-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsIncludeParams, "kubernetes-params-include-params", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-include-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsLabelIds, "kubernetes-params-label-ids", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-label-ids-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsLeverageCSISnapshot, "kubernetes-params-leverage-csi-snapshot", "", false, translation.T("backup-recovery-protection-group-create-kubernetes-params-leverage-csi-snapshot-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsNonSnapshotBackup, "kubernetes-params-non-snapshot-backup", "", false, translation.T("backup-recovery-protection-group-create-kubernetes-params-non-snapshot-backup-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsObjects, "kubernetes-params-objects", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-objects-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVlanParams, "kubernetes-params-vlan-params", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-vlan-params-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsVolumeBackupFailure, "kubernetes-params-volume-backup-failure", "", false, translation.T("backup-recovery-protection-group-create-kubernetes-params-volume-backup-failure-flag-description"))
 	r.RequiredFlags = []string{
 		"xibm-tenant-id",
 		"name",
@@ -4109,6 +4719,7 @@ func (r *CreateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 	AlertPolicyHelper := &backuprecoveryv1.ProtectionGroupAlertingPolicy{}
 	PhysicalParamsHelper := &backuprecoveryv1.PhysicalProtectionGroupParams{}
 	MssqlParamsHelper := &backuprecoveryv1.MSSQLProtectionGroupParams{}
+	KubernetesParamsHelper := &backuprecoveryv1.KubernetesProtectionGroupParams{}
 
 	// optional params should only be set when they are explicitly passed by the user
 	// otherwise, the default type values will be sent to the service
@@ -4318,6 +4929,34 @@ func (r *CreateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params" {
+			var KubernetesParams *backuprecoveryv1.KubernetesProtectionGroupParams
+			err, msg := deserialize.Model(
+				r.KubernetesParams,
+				"kubernetes-params",
+				"KubernetesProtectionGroupParams",
+				backuprecoveryv1.UnmarshalKubernetesProtectionGroupParams,
+				&KubernetesParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetKubernetesParams(KubernetesParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"KubernetesProtectionGroupObjectParams":["backupOnlyPvc","excludeParams#KubernetesFilterParams","excludePvcs#KubernetesPvcInfo","excludedResources","failBackupOnHookFailure","id","includeParams#KubernetesFilterParams","includePvcs#KubernetesPvcInfo","includedResources","quiesceGroups#QuiesceGroup"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["leverageCSISnapshot","includeParams#KubernetesFilterParams","excludeLabelIds","labelIds","excludeObjectIds","excludeParams#KubernetesFilterParams","objects#KubernetesProtectionGroupObjectParams","enableIndexing","vlanParams#VlanParams","volumeBackupFailure","nonSnapshotBackup"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
 		if flag.Name == "start-time-hour" {
 			StartTimeHelper.Hour = core.Int64Ptr(r.StartTimeHour)
 		}
@@ -4516,6 +5155,148 @@ func (r *CreateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params-enable-indexing" {
+			KubernetesParamsHelper.EnableIndexing = core.BoolPtr(r.KubernetesParamsEnableIndexing)
+		}
+		if flag.Name == "kubernetes-params-exclude-label-ids" {
+			var KubernetesParamsExcludeLabelIds [][]int64
+			err, msg := deserialize.JSON(r.KubernetesParamsExcludeLabelIds, "kubernetes-params-exclude-label-ids", "JSON", &KubernetesParamsExcludeLabelIds)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ExcludeLabelIds = KubernetesParamsExcludeLabelIds
+		}
+		if flag.Name == "kubernetes-params-exclude-object-ids" {
+			var KubernetesParamsExcludeObjectIds []int64
+			err, msg := deserialize.List(r.KubernetesParamsExcludeObjectIds, "kubernetes-params-exclude-object-ids", "JSON", &KubernetesParamsExcludeObjectIds)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ExcludeObjectIds = KubernetesParamsExcludeObjectIds
+		}
+		if flag.Name == "kubernetes-params-exclude-params" {
+			var KubernetesParamsExcludeParams *backuprecoveryv1.KubernetesFilterParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsExcludeParams,
+				"kubernetes-params-exclude-params",
+				"KubernetesFilterParams",
+				backuprecoveryv1.UnmarshalKubernetesFilterParams,
+				&KubernetesParamsExcludeParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ExcludeParams = KubernetesParamsExcludeParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsExcludeParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"ResourceInstance":["entityId","name"],"KubernetesLabel":[]},"fields":["labelCombinationMethod","objects","selectedResources#ResourceInfo","labelVector#KubernetesLabel"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-exclude-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-exclude-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-exclude-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-include-params" {
+			var KubernetesParamsIncludeParams *backuprecoveryv1.KubernetesFilterParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsIncludeParams,
+				"kubernetes-params-include-params",
+				"KubernetesFilterParams",
+				backuprecoveryv1.UnmarshalKubernetesFilterParams,
+				&KubernetesParamsIncludeParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.IncludeParams = KubernetesParamsIncludeParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsIncludeParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"ResourceInstance":["entityId","name"],"KubernetesLabel":[]},"fields":["labelCombinationMethod","objects","selectedResources#ResourceInfo","labelVector#KubernetesLabel"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-include-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-include-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-include-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-label-ids" {
+			var KubernetesParamsLabelIds [][]int64
+			err, msg := deserialize.JSON(r.KubernetesParamsLabelIds, "kubernetes-params-label-ids", "JSON", &KubernetesParamsLabelIds)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.LabelIds = KubernetesParamsLabelIds
+		}
+		if flag.Name == "kubernetes-params-leverage-csi-snapshot" {
+			KubernetesParamsHelper.LeverageCSISnapshot = core.BoolPtr(r.KubernetesParamsLeverageCSISnapshot)
+		}
+		if flag.Name == "kubernetes-params-non-snapshot-backup" {
+			KubernetesParamsHelper.NonSnapshotBackup = core.BoolPtr(r.KubernetesParamsNonSnapshotBackup)
+		}
+		if flag.Name == "kubernetes-params-objects" {
+			var KubernetesParamsObjects []backuprecoveryv1.KubernetesProtectionGroupObjectParams
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsObjects,
+				"kubernetes-params-objects",
+				"KubernetesProtectionGroupObjectParams",
+				backuprecoveryv1.UnmarshalKubernetesProtectionGroupObjectParams,
+				&KubernetesParamsObjects,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.Objects = KubernetesParamsObjects
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsObjects, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["includeParams#KubernetesFilterParams","failBackupOnHookFailure","excludedResources","includePvcs#KubernetesPvcInfo","excludeParams#KubernetesFilterParams","quiesceGroups#QuiesceGroup","id","excludePvcs#KubernetesPvcInfo","includedResources","backupOnlyPvc"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-objects",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-objects",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-objects",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-vlan-params" {
+			var KubernetesParamsVlanParams *backuprecoveryv1.VlanParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsVlanParams,
+				"kubernetes-params-vlan-params",
+				"VlanParams",
+				backuprecoveryv1.UnmarshalVlanParams,
+				&KubernetesParamsVlanParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.VlanParams = KubernetesParamsVlanParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsVlanParams, `{"fields":["disableVlan","vlanId","interfaceName"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-vlan-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-volume-backup-failure" {
+			KubernetesParamsHelper.VolumeBackupFailure = core.BoolPtr(r.KubernetesParamsVolumeBackupFailure)
+		}
 	})
 
 	if !reflect.ValueOf(*StartTimeHelper).IsZero() {
@@ -4554,6 +5335,16 @@ func (r *CreateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 		} else {
 			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
 				"FLAG_NAME": "MssqlParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*KubernetesParamsHelper).IsZero() {
+		if OptionsModel.KubernetesParams == nil {
+			OptionsModel.SetKubernetesParams(KubernetesParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "kubernetes-params",
 			}))
 			r.utils.HandleError(flagErr, "")
 		}
@@ -4601,6 +5392,7 @@ func (r *CreateProtectionGroupCommandRunner) MakeRequest(OptionsModel backupreco
 		"advancedConfigs",
 		"physicalParams",
 		"mssqlParams",
+		"kubernetesParams",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -4741,6 +5533,7 @@ func (r *GetProtectionGroupByIDCommandRunner) MakeRequest(OptionsModel backuprec
 		"advancedConfigs",
 		"physicalParams",
 		"mssqlParams",
+		"kubernetesParams",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -4778,6 +5571,7 @@ type UpdateProtectionGroupCommandRunner struct {
 	AdvancedConfigs                                         string
 	PhysicalParams                                          string
 	MssqlParams                                             string
+	KubernetesParams                                        string
 	StartTimeHour                                           int64
 	StartTimeMinute                                         int64
 	StartTimeTimeZone                                       string
@@ -4793,6 +5587,17 @@ type UpdateProtectionGroupCommandRunner struct {
 	MssqlParamsNativeProtectionTypeParams                   string
 	MssqlParamsProtectionType                               string
 	MssqlParamsVolumeProtectionTypeParams                   string
+	KubernetesParamsEnableIndexing                          bool
+	KubernetesParamsExcludeLabelIds                         string
+	KubernetesParamsExcludeObjectIds                        string
+	KubernetesParamsExcludeParams                           string
+	KubernetesParamsIncludeParams                           string
+	KubernetesParamsLabelIds                                string
+	KubernetesParamsLeverageCSISnapshot                     bool
+	KubernetesParamsNonSnapshotBackup                       bool
+	KubernetesParamsObjects                                 string
+	KubernetesParamsVlanParams                              string
+	KubernetesParamsVolumeBackupFailure                     bool
 	RequiredFlags                                           []string
 	sender                                                  RequestSender
 	utils                                                   Utilities
@@ -4829,7 +5634,8 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 	 --is-paused=true \
 	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
 	 --physical-params '{"protectionType": "kFile", "volumeProtectionTypeParams": {"objects": [{"id": 3, "volumeGuids": ["volumeGuid1"], "enableSystemBackup": true, "excludedVssWriters": ["writerName1","writerName2"]}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "quiesce": true, "continueOnQuiesceFailure": true, "incrementalBackupAfterRestart": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "excludedVssWriters": ["writerName1","writerName2"], "cobmrBackup": true}, "fileProtectionTypeParams": {"excludedVssWriters": ["writerName1","writerName2"], "objects": [{"excludedVssWriters": ["writerName1","writerName2"], "id": 2, "filePaths": [{"includedPath": "~/dir1/", "excludedPaths": ["~/dir2"], "skipNestedVolumes": true}], "usesPathLevelSkipNestedVolumeSetting": true, "nestedVolumeTypesToSkip": ["volume1"], "followNasSymlinkTarget": true, "metadataFilePath": "~/dir3"}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "performBrickBasedDeduplication": true, "taskTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "quiesce": true, "continueOnQuiesceFailure": true, "cobmrBackup": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "globalExcludePaths": ["~/dir1"], "globalExcludeFS": ["~/dir2"], "ignorableErrors": ["kEOF","kNonExistent"], "allowParallelRuns": true}}' \
-	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}'`,
+	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}' \
+	 --kubernetes-params '{"enableIndexing": true, "excludeLabelIds": [26,27,26,27],[26,27, 26,27], "excludeObjectIds": [26,27], "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "labelIds": [26,27,26,27],[26,27, 26,27], "leverageCSISnapshot": true, "nonSnapshotBackup": true, "objects": [{"backupOnlyPvc": true, "excludePvcs": [{}], "excludedResources": ["exampleString","anotherTestString"], "id": 26, "includePvcs": [{}], "includedResources": ["exampleString","anotherTestString"], "quiesceGroups": [{"quiesceMode": "kQuiesceTogether", "quiesceRules": [{"podSelectorLabels": [{}], "postSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}], "preSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}]}]}]}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "volumeBackupFailure": true}'`,
 	}
 
 	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-protection-group-update-id-flag-description"))
@@ -4851,6 +5657,7 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 	cmd.Flags().StringVarP(&r.AdvancedConfigs, "advanced-configs", "", "", translation.T("backup-recovery-protection-group-update-advanced-configs-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParams, "physical-params", "", "", translation.T("backup-recovery-protection-group-update-physical-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParams, "mssql-params", "", "", translation.T("backup-recovery-protection-group-update-mssql-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParams, "kubernetes-params", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-flag-description"))
 	cmd.Flags().Int64VarP(&r.StartTimeHour, "start-time-hour", "", 0, translation.T("backup-recovery-protection-group-update-start-time-hour-flag-description"))
 	cmd.Flags().Int64VarP(&r.StartTimeMinute, "start-time-minute", "", 0, translation.T("backup-recovery-protection-group-update-start-time-minute-flag-description"))
 	cmd.Flags().StringVarP(&r.StartTimeTimeZone, "start-time-time-zone", "", "", translation.T("backup-recovery-protection-group-update-start-time-time-zone-flag-description"))
@@ -4866,6 +5673,17 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 	cmd.Flags().StringVarP(&r.MssqlParamsNativeProtectionTypeParams, "mssql-params-native-protection-type-params", "", "", translation.T("backup-recovery-protection-group-update-mssql-params-native-protection-type-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParamsProtectionType, "mssql-params-protection-type", "", "", translation.T("backup-recovery-protection-group-update-mssql-params-protection-type-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParamsVolumeProtectionTypeParams, "mssql-params-volume-protection-type-params", "", "", translation.T("backup-recovery-protection-group-update-mssql-params-volume-protection-type-params-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsEnableIndexing, "kubernetes-params-enable-indexing", "", false, translation.T("backup-recovery-protection-group-update-kubernetes-params-enable-indexing-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsExcludeLabelIds, "kubernetes-params-exclude-label-ids", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-exclude-label-ids-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsExcludeObjectIds, "kubernetes-params-exclude-object-ids", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-exclude-object-ids-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsExcludeParams, "kubernetes-params-exclude-params", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-exclude-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsIncludeParams, "kubernetes-params-include-params", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-include-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsLabelIds, "kubernetes-params-label-ids", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-label-ids-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsLeverageCSISnapshot, "kubernetes-params-leverage-csi-snapshot", "", false, translation.T("backup-recovery-protection-group-update-kubernetes-params-leverage-csi-snapshot-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsNonSnapshotBackup, "kubernetes-params-non-snapshot-backup", "", false, translation.T("backup-recovery-protection-group-update-kubernetes-params-non-snapshot-backup-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsObjects, "kubernetes-params-objects", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-objects-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsVlanParams, "kubernetes-params-vlan-params", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-vlan-params-flag-description"))
+	cmd.Flags().BoolVarP(&r.KubernetesParamsVolumeBackupFailure, "kubernetes-params-volume-backup-failure", "", false, translation.T("backup-recovery-protection-group-update-kubernetes-params-volume-backup-failure-flag-description"))
 	r.RequiredFlags = []string{
 		"id",
 		"xibm-tenant-id",
@@ -4890,6 +5708,7 @@ func (r *UpdateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 	AlertPolicyHelper := &backuprecoveryv1.ProtectionGroupAlertingPolicy{}
 	PhysicalParamsHelper := &backuprecoveryv1.PhysicalProtectionGroupParams{}
 	MssqlParamsHelper := &backuprecoveryv1.MSSQLProtectionGroupParams{}
+	KubernetesParamsHelper := &backuprecoveryv1.KubernetesProtectionGroupParams{}
 
 	// optional params should only be set when they are explicitly passed by the user
 	// otherwise, the default type values will be sent to the service
@@ -5102,6 +5921,34 @@ func (r *UpdateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params" {
+			var KubernetesParams *backuprecoveryv1.KubernetesProtectionGroupParams
+			err, msg := deserialize.Model(
+				r.KubernetesParams,
+				"kubernetes-params",
+				"KubernetesProtectionGroupParams",
+				backuprecoveryv1.UnmarshalKubernetesProtectionGroupParams,
+				&KubernetesParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetKubernetesParams(KubernetesParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"KubernetesProtectionGroupObjectParams":["backupOnlyPvc","excludeParams#KubernetesFilterParams","excludePvcs#KubernetesPvcInfo","excludedResources","failBackupOnHookFailure","id","includeParams#KubernetesFilterParams","includePvcs#KubernetesPvcInfo","includedResources","quiesceGroups#QuiesceGroup"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["leverageCSISnapshot","includeParams#KubernetesFilterParams","excludeLabelIds","labelIds","excludeObjectIds","excludeParams#KubernetesFilterParams","objects#KubernetesProtectionGroupObjectParams","enableIndexing","vlanParams#VlanParams","volumeBackupFailure","nonSnapshotBackup"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
 		if flag.Name == "start-time-hour" {
 			StartTimeHelper.Hour = core.Int64Ptr(r.StartTimeHour)
 		}
@@ -5300,6 +6147,148 @@ func (r *UpdateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params-enable-indexing" {
+			KubernetesParamsHelper.EnableIndexing = core.BoolPtr(r.KubernetesParamsEnableIndexing)
+		}
+		if flag.Name == "kubernetes-params-exclude-label-ids" {
+			var KubernetesParamsExcludeLabelIds [][]int64
+			err, msg := deserialize.JSON(r.KubernetesParamsExcludeLabelIds, "kubernetes-params-exclude-label-ids", "JSON", &KubernetesParamsExcludeLabelIds)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ExcludeLabelIds = KubernetesParamsExcludeLabelIds
+		}
+		if flag.Name == "kubernetes-params-exclude-object-ids" {
+			var KubernetesParamsExcludeObjectIds []int64
+			err, msg := deserialize.List(r.KubernetesParamsExcludeObjectIds, "kubernetes-params-exclude-object-ids", "JSON", &KubernetesParamsExcludeObjectIds)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ExcludeObjectIds = KubernetesParamsExcludeObjectIds
+		}
+		if flag.Name == "kubernetes-params-exclude-params" {
+			var KubernetesParamsExcludeParams *backuprecoveryv1.KubernetesFilterParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsExcludeParams,
+				"kubernetes-params-exclude-params",
+				"KubernetesFilterParams",
+				backuprecoveryv1.UnmarshalKubernetesFilterParams,
+				&KubernetesParamsExcludeParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.ExcludeParams = KubernetesParamsExcludeParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsExcludeParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"ResourceInstance":["entityId","name"],"KubernetesLabel":[]},"fields":["labelCombinationMethod","objects","selectedResources#ResourceInfo","labelVector#KubernetesLabel"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-exclude-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-exclude-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-exclude-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-include-params" {
+			var KubernetesParamsIncludeParams *backuprecoveryv1.KubernetesFilterParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsIncludeParams,
+				"kubernetes-params-include-params",
+				"KubernetesFilterParams",
+				backuprecoveryv1.UnmarshalKubernetesFilterParams,
+				&KubernetesParamsIncludeParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.IncludeParams = KubernetesParamsIncludeParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsIncludeParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"ResourceInstance":["entityId","name"],"KubernetesLabel":[]},"fields":["labelCombinationMethod","objects","selectedResources#ResourceInfo","labelVector#KubernetesLabel"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-include-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-include-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-include-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-label-ids" {
+			var KubernetesParamsLabelIds [][]int64
+			err, msg := deserialize.JSON(r.KubernetesParamsLabelIds, "kubernetes-params-label-ids", "JSON", &KubernetesParamsLabelIds)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.LabelIds = KubernetesParamsLabelIds
+		}
+		if flag.Name == "kubernetes-params-leverage-csi-snapshot" {
+			KubernetesParamsHelper.LeverageCSISnapshot = core.BoolPtr(r.KubernetesParamsLeverageCSISnapshot)
+		}
+		if flag.Name == "kubernetes-params-non-snapshot-backup" {
+			KubernetesParamsHelper.NonSnapshotBackup = core.BoolPtr(r.KubernetesParamsNonSnapshotBackup)
+		}
+		if flag.Name == "kubernetes-params-objects" {
+			var KubernetesParamsObjects []backuprecoveryv1.KubernetesProtectionGroupObjectParams
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsObjects,
+				"kubernetes-params-objects",
+				"KubernetesProtectionGroupObjectParams",
+				backuprecoveryv1.UnmarshalKubernetesProtectionGroupObjectParams,
+				&KubernetesParamsObjects,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.Objects = KubernetesParamsObjects
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsObjects, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["includeParams#KubernetesFilterParams","failBackupOnHookFailure","excludedResources","includePvcs#KubernetesPvcInfo","excludeParams#KubernetesFilterParams","quiesceGroups#QuiesceGroup","id","excludePvcs#KubernetesPvcInfo","includedResources","backupOnlyPvc"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-objects",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-objects",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-objects",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-vlan-params" {
+			var KubernetesParamsVlanParams *backuprecoveryv1.VlanParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsVlanParams,
+				"kubernetes-params-vlan-params",
+				"VlanParams",
+				backuprecoveryv1.UnmarshalVlanParams,
+				&KubernetesParamsVlanParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.VlanParams = KubernetesParamsVlanParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsVlanParams, `{"fields":["disableVlan","vlanId","interfaceName"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-vlan-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-vlan-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-volume-backup-failure" {
+			KubernetesParamsHelper.VolumeBackupFailure = core.BoolPtr(r.KubernetesParamsVolumeBackupFailure)
+		}
 	})
 
 	if !reflect.ValueOf(*StartTimeHelper).IsZero() {
@@ -5338,6 +6327,16 @@ func (r *UpdateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 		} else {
 			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
 				"FLAG_NAME": "MssqlParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*KubernetesParamsHelper).IsZero() {
+		if OptionsModel.KubernetesParams == nil {
+			OptionsModel.SetKubernetesParams(KubernetesParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "kubernetes-params",
 			}))
 			r.utils.HandleError(flagErr, "")
 		}
@@ -5385,6 +6384,7 @@ func (r *UpdateProtectionGroupCommandRunner) MakeRequest(OptionsModel backupreco
 		"advancedConfigs",
 		"physicalParams",
 		"mssqlParams",
+		"kubernetesParams",
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
@@ -6376,7 +7376,7 @@ func GetGetRecoveriesCommand(r *GetRecoveriesCommandRunner) *cobra.Command {
 	 --end-time-usecs 26 \
 	 --snapshot-target-type Local,Archival,RpaasArchival,StorageArraySnapshot,Remote \
 	 --archival-target-type Tape,Cloud,Nas \
-	 --snapshot-environments kPhysical,kSQL \
+	 --snapshot-environments kPhysical,kSQL,kKubernetes \
 	 --status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,LegalHold \
 	 --recovery-actions RecoverVMs,RecoverFiles,InstantVolumeMount,RecoverVmDisks,RecoverVApps,RecoverVAppTemplates,UptierSnapshot,RecoverRDS,RecoverAurora,RecoverS3Buckets,RecoverRDSPostgres,RecoverAzureSQL,RecoverApps,CloneApps,RecoverNasVolume,RecoverPhysicalVolumes,RecoverSystem,RecoverExchangeDbs,CloneAppView,RecoverSanVolumes,RecoverSanGroup,RecoverMailbox,RecoverOneDrive,RecoverSharePoint,RecoverPublicFolders,RecoverMsGroup,RecoverMsTeam,ConvertToPst,DownloadChats,RecoverMailboxCSM,RecoverOneDriveCSM,RecoverSharePointCSM,RecoverNamespaces,RecoverObjects,RecoverSfdcObjects,RecoverSfdcOrg,RecoverSfdcRecords,DownloadFilesAndFolders,CloneVMs,CloneView,CloneRefreshApp,CloneVMsToView,ConvertAndDeployVMs,DeployVMs`,
 	}
@@ -6495,25 +7495,31 @@ func NewCreateRecoveryCommandRunner(utils Utilities, sender RequestSender) *Crea
 }
 
 type CreateRecoveryCommandRunner struct {
-	XIBMTenantID                              string
-	Name                                      string
-	SnapshotEnvironment                       string
-	PhysicalParams                            string
-	MssqlParams                               string
-	RequestInitiatorType                      string
-	PhysicalParamsObjects                     string
-	PhysicalParamsRecoveryAction              string
-	PhysicalParamsRecoverVolumeParams         string
-	PhysicalParamsMountVolumeParams           string
-	PhysicalParamsRecoverFileAndFolderParams  string
-	PhysicalParamsDownloadFileAndFolderParams string
-	PhysicalParamsSystemRecoveryParams        string
-	MssqlParamsRecoverAppParams               string
-	MssqlParamsRecoveryAction                 string
-	MssqlParamsVlanConfig                     string
-	RequiredFlags                             []string
-	sender                                    RequestSender
-	utils                                     Utilities
+	XIBMTenantID                                string
+	Name                                        string
+	SnapshotEnvironment                         string
+	PhysicalParams                              string
+	KubernetesParams                            string
+	MssqlParams                                 string
+	RequestInitiatorType                        string
+	PhysicalParamsObjects                       string
+	PhysicalParamsRecoveryAction                string
+	PhysicalParamsRecoverVolumeParams           string
+	PhysicalParamsMountVolumeParams             string
+	PhysicalParamsRecoverFileAndFolderParams    string
+	PhysicalParamsDownloadFileAndFolderParams   string
+	PhysicalParamsSystemRecoveryParams          string
+	KubernetesParamsDownloadFileAndFolderParams string
+	KubernetesParamsObjects                     string
+	KubernetesParamsRecoverFileAndFolderParams  string
+	KubernetesParamsRecoverNamespaceParams      string
+	KubernetesParamsRecoveryAction              string
+	MssqlParamsRecoverAppParams                 string
+	MssqlParamsRecoveryAction                   string
+	MssqlParamsVlanConfig                       string
+	RequiredFlags                               []string
+	sender                                      RequestSender
+	utils                                       Utilities
 }
 
 // Command mapping: recovery create, GetCreateRecoveryCommand
@@ -6533,6 +7539,7 @@ func GetCreateRecoveryCommand(r *CreateRecoveryCommandRunner) *cobra.Command {
 	 --name create-recovery \
 	 --snapshot-environment kPhysical \
 	 --physical-params '{"objects": [{"snapshotId": "snapshotID", "pointInTimeUsecs": 26, "protectionGroupId": "protectionGroupID", "protectionGroupName": "protectionGroupName", "recoverFromStandby": true}], "recoveryAction": "RecoverPhysicalVolumes", "recoverVolumeParams": {"targetEnvironment": "kPhysical", "physicalTargetParams": {"mountTarget": {"id": 26}, "volumeMapping": [{"sourceVolumeGuid": "sourceVolumeGuid", "destinationVolumeGuid": "destinationVolumeGuid"}], "forceUnmountVolume": true, "vlanConfig": {"id": 38, "disableVlan": true}}}, "mountVolumeParams": {"targetEnvironment": "kPhysical", "physicalTargetParams": {"mountToOriginalTarget": true, "originalTargetConfig": {"serverCredentials": {"username": "Username", "password": "Password"}}, "newTargetConfig": {"mountTarget": {"id": 26}, "serverCredentials": {"username": "Username", "password": "Password"}}, "readOnlyMount": true, "volumeNames": ["volume1"], "vlanConfig": {"id": 38, "disableVlan": true}}}, "recoverFileAndFolderParams": {"filesAndFolders": [{"absolutePath": "~/folder1", "isDirectory": true, "isViewFileRecovery": true}], "targetEnvironment": "kPhysical", "physicalTargetParams": {"recoverTarget": {"id": 26}, "restoreToOriginalPaths": true, "overwriteExisting": true, "alternateRestoreDirectory": "~/dirAlt", "preserveAttributes": true, "preserveTimestamps": true, "preserveAcls": true, "continueOnError": true, "saveSuccessFiles": true, "vlanConfig": {"id": 38, "disableVlan": true}, "restoreEntityType": "kRegular"}}, "downloadFileAndFolderParams": {"expiryTimeUsecs": 26, "filesAndFolders": [{"absolutePath": "~/folder1", "isDirectory": true, "isViewFileRecovery": true}], "downloadFilePath": "~/downloadFile"}, "systemRecoveryParams": {"fullNasPath": "~/nas"}}' \
+	 --kubernetes-params '{"downloadFileAndFolderParams": {"expiryTimeUsecs": 26, "filesAndFolders": [{"absolutePath": "~/folder1", "isDirectory": true, "isViewFileRecovery": true}], "downloadFilePath": "exampleString"}, "objects": [{"snapshotId": "snapshotID", "pointInTimeUsecs": 26, "protectionGroupId": "protectionGroupID", "protectionGroupName": "protectionGroupName", "recoverFromStandby": true}], "recoverFileAndFolderParams": {"filesAndFolders": [{"absolutePath": "~/folder1", "isDirectory": true, "isViewFileRecovery": true}], "kubernetesTargetParams": {"continueOnError": true, "newTargetConfig": {"absolutePath": "exampleString", "targetNamespace": {"id": 26}, "targetPvc": {"id": 26}, "targetSource": {"id": 26}}, "originalTargetConfig": {"alternatePath": "exampleString", "recoverToOriginalPath": true}, "overwriteExisting": true, "preserveAttributes": true, "recoverToOriginalTarget": true, "vlanConfig": {"id": 38, "disableVlan": true}}, "targetEnvironment": "kKubernetes"}, "recoverNamespaceParams": {"kubernetesTargetParams": {"excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "excludedPvcs": [{}], "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "objects": [{"snapshotId": "snapshotID", "pointInTimeUsecs": 26, "protectionGroupId": "protectionGroupID", "protectionGroupName": "protectionGroupName", "recoverFromStandby": true}], "recoverProtectionGroupRunsParams": [{"archivalTargetId": 26, "protectionGroupId": "exampleString", "protectionGroupInstanceId": 26, "protectionGroupRunId": "exampleString"}], "recoverPvcsOnly": true, "recoveryTargetConfig": {"newSourceConfig": {"source": {"id": 26}}, "recoverToNewSource": true}, "renameRecoveredNamespacesParams": {"prefix": "exampleString", "suffix": "exampleString"}, "skipClusterCompatibilityCheck": true, "storageClass": {"storageClassMapping": [{}], "useStorageClassMapping": true}}, "targetEnvironment": "kKubernetes", "vlanConfig": {"id": 38, "disableVlan": true}}, "recoveryAction": "RecoverNamespaces"}' \
 	 --mssql-params '{"recoverAppParams": [{"snapshotId": "snapshotId", "pointInTimeUsecs": 26, "protectionGroupId": "protectionGroupId", "protectionGroupName": "protectionGroupName", "recoverFromStandby": true, "aagInfo": {"name": "aagInfoName", "objectId": 26}, "hostInfo": {"id": "hostInfoId", "name": "hostInfoName", "environment": "kPhysical"}, "isEncrypted": true, "sqlTargetParams": {"newSourceConfig": {"keepCdc": true, "multiStageRestoreOptions": {"enableAutoSync": true, "enableMultiStageRestore": true}, "nativeLogRecoveryWithClause": "LogRecoveryWithClause", "nativeRecoveryWithClause": "RecoveryWithClause", "overwritingPolicy": "FailIfExists", "replayEntireLastLog": true, "restoreTimeUsecs": 26, "secondaryDataFilesDirList": [{"directory": "~/dir1", "filenamePattern": ".sql"}], "withNoRecovery": true, "dataFileDirectoryLocation": "~/dir1", "databaseName": "recovery-database-sql", "host": {"id": 26}, "instanceName": "database-instance-1", "logFileDirectoryLocation": "~/dir2"}, "originalSourceConfig": {"keepCdc": true, "multiStageRestoreOptions": {"enableAutoSync": true, "enableMultiStageRestore": true}, "nativeLogRecoveryWithClause": "LogRecoveryWithClause", "nativeRecoveryWithClause": "RecoveryWithClause", "overwritingPolicy": "FailIfExists", "replayEntireLastLog": true, "restoreTimeUsecs": 26, "secondaryDataFilesDirList": [{"directory": "~/dir1", "filenamePattern": ".sql"}], "withNoRecovery": true, "captureTailLogs": true, "dataFileDirectoryLocation": "~/dir1", "logFileDirectoryLocation": "~/dir2", "newDatabaseName": "recovery-database-sql-new"}, "recoverToNewSource": true}, "targetEnvironment": "kSQL"}], "recoveryAction": "RecoverApps", "vlanConfig": {"id": 38, "disableVlan": true}}' \
 	 --request-initiator-type UIUser`,
 	}
@@ -6541,6 +7548,7 @@ func GetCreateRecoveryCommand(r *CreateRecoveryCommandRunner) *cobra.Command {
 	cmd.Flags().StringVarP(&r.Name, "name", "", "", translation.T("backup-recovery-recovery-create-name-flag-description"))
 	cmd.Flags().StringVarP(&r.SnapshotEnvironment, "snapshot-environment", "", "", translation.T("backup-recovery-recovery-create-snapshot-environment-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParams, "physical-params", "", "", translation.T("backup-recovery-recovery-create-physical-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParams, "kubernetes-params", "", "", translation.T("backup-recovery-recovery-create-kubernetes-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParams, "mssql-params", "", "", translation.T("backup-recovery-recovery-create-mssql-params-flag-description"))
 	cmd.Flags().StringVarP(&r.RequestInitiatorType, "request-initiator-type", "", "", translation.T("backup-recovery-recovery-create-request-initiator-type-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsObjects, "physical-params-objects", "", "", translation.T("backup-recovery-recovery-create-physical-params-objects-flag-description"))
@@ -6550,6 +7558,11 @@ func GetCreateRecoveryCommand(r *CreateRecoveryCommandRunner) *cobra.Command {
 	cmd.Flags().StringVarP(&r.PhysicalParamsRecoverFileAndFolderParams, "physical-params-recover-file-and-folder-params", "", "", translation.T("backup-recovery-recovery-create-physical-params-recover-file-and-folder-params-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsDownloadFileAndFolderParams, "physical-params-download-file-and-folder-params", "", "", translation.T("backup-recovery-recovery-create-physical-params-download-file-and-folder-params-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParamsSystemRecoveryParams, "physical-params-system-recovery-params", "", "", translation.T("backup-recovery-recovery-create-physical-params-system-recovery-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsDownloadFileAndFolderParams, "kubernetes-params-download-file-and-folder-params", "", "", translation.T("backup-recovery-recovery-create-kubernetes-params-download-file-and-folder-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsObjects, "kubernetes-params-objects", "", "", translation.T("backup-recovery-recovery-create-kubernetes-params-objects-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsRecoverFileAndFolderParams, "kubernetes-params-recover-file-and-folder-params", "", "", translation.T("backup-recovery-recovery-create-kubernetes-params-recover-file-and-folder-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsRecoverNamespaceParams, "kubernetes-params-recover-namespace-params", "", "", translation.T("backup-recovery-recovery-create-kubernetes-params-recover-namespace-params-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParamsRecoveryAction, "kubernetes-params-recovery-action", "", "", translation.T("backup-recovery-recovery-create-kubernetes-params-recovery-action-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParamsRecoverAppParams, "mssql-params-recover-app-params", "", "", translation.T("backup-recovery-recovery-create-mssql-params-recover-app-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParamsRecoveryAction, "mssql-params-recovery-action", "", "", translation.T("backup-recovery-recovery-create-mssql-params-recovery-action-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParamsVlanConfig, "mssql-params-vlan-config", "", "", translation.T("backup-recovery-recovery-create-mssql-params-vlan-config-flag-description"))
@@ -6572,6 +7585,7 @@ func (r *CreateRecoveryCommandRunner) Run(cmd *cobra.Command, args []string) {
 	r.utils.ConfirmRunningCommand()
 	OptionsModel := backuprecoveryv1.CreateRecoveryOptions{}
 	PhysicalParamsHelper := &backuprecoveryv1.RecoverPhysicalParams{}
+	KubernetesParamsHelper := &backuprecoveryv1.RecoveryRequestParamsKubernetesParams{}
 	MssqlParamsHelper := &backuprecoveryv1.RecoverSqlParams{}
 
 	// optional params should only be set when they are explicitly passed by the user
@@ -6611,6 +7625,34 @@ func (r *CreateRecoveryCommandRunner) Run(cmd *cobra.Command, args []string) {
 			} else if len(extraFieldPaths) > 1 {
 				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
 					"FLAG_NAME":  "physical-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params" {
+			var KubernetesParams *backuprecoveryv1.RecoveryRequestParamsKubernetesParams
+			err, msg := deserialize.Model(
+				r.KubernetesParams,
+				"kubernetes-params",
+				"RecoveryRequestParamsKubernetesParams",
+				backuprecoveryv1.UnmarshalRecoveryRequestParamsKubernetesParams,
+				&KubernetesParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetKubernetesParams(KubernetesParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"KubernetesTargetParamsForRecoverFileAndFolderVlanConfig":["id","disableVlan"],"KubernetesRecoverFilesNewTargetConfigTargetPvc":["id"],"KubernetesPvcInfo":[],"CommonRecoverFileAndFolderInfo":["absolutePath","isDirectory","isViewFileRecovery"],"KubernetesStorageClassParams":["storageClassMapping#KubernetesLabel","useStorageClassMapping"],"KubernetesTargetParamsForRecoverFileAndFolderOriginalTargetConfig":["alternatePath","recoverToOriginalPath"],"RecoverKubernetesFileAndFolderParamsKubernetesTargetParams":["continueOnError","newTargetConfig#KubernetesTargetParamsForRecoverFileAndFolderNewTargetConfig","originalTargetConfig#KubernetesTargetParamsForRecoverFileAndFolderOriginalTargetConfig","overwriteExisting","preserveAttributes","recoverToOriginalTarget","vlanConfig#KubernetesTargetParamsForRecoverFileAndFolderVlanConfig"],"RecoverKubernetesParamsRecoverNamespaceParams":["kubernetesTargetParams#RecoverKubernetesNamespaceParamsKubernetesTargetParams","targetEnvironment","vlanConfig#RecoverKubernetesNamespaceParamsVlanConfig"],"RecoverKubernetesParamsDownloadFileAndFolderParams":["expiryTimeUsecs","filesAndFolders#CommonRecoverFileAndFolderInfo","downloadFilePath"],"RecoverProtectionGroupRunParams":["archivalTargetId","protectionGroupId","protectionGroupInstanceId","protectionGroupRunId"],"CommonRecoverObjectSnapshotParams":["snapshotId","pointInTimeUsecs","protectionGroupId","protectionGroupName","recoverFromStandby"],"RecoverKubernetesNamespaceParamsVlanConfig":["id","disableVlan"],"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesRecoverFilesNewTargetConfigTargetSource":["id"],"KubernetesNamespaceRecoveryTargetConfigNewSourceConfig":["source#KubernetesNamespaceRecoveryNewSourceConfigSource"],"RecoverKubernetesNamespaceParamsKubernetesTargetParams":["excludeParams#KubernetesFilterParams","excludedPvcs#KubernetesPvcInfo","includeParams#KubernetesFilterParams","objects#KubernetesRecoveryObjectParams","recoverClusterScopedResources#RecoverClusterScopedResourcesParams","recoverProtectionGroupRunsParams#RecoverProtectionGroupRunParams","recoverPvcsOnly","recoveryRegionMigrationParams#KubernetesRecoveryMigrationParams","recoveryTargetConfig#KubernetesTargetParamsForRecoverKubernetesNamespaceRecoveryTargetConfig","recoveryZoneMigrationParams#KubernetesRecoveryMigrationParams","renameRecoveredNamespacesParams#KubernetesTargetParamsForRecoverKubernetesNamespaceRenameRecoveredNamespacesParams","skipClusterCompatibilityCheck","storageClass#KubernetesStorageClassParams"],"RecoverKubernetesParamsRecoverFileAndFolderParams":["filesAndFolders#CommonRecoverFileAndFolderInfo","kubernetesTargetParams#RecoverKubernetesFileAndFolderParamsKubernetesTargetParams","targetEnvironment"],"KubernetesTargetParamsForRecoverKubernetesNamespaceRecoveryTargetConfig":["newSourceConfig#KubernetesNamespaceRecoveryTargetConfigNewSourceConfig","recoverToNewSource"],"KubernetesLabel":[],"KubernetesRecoveryObjectParams":["snapshotId","pointInTimeUsecs","protectionGroupId","protectionGroupName","recoverFromStandby","excludeParams#KubernetesFilterParams","includeParams#KubernetesFilterParams","recoverPvcsOnly","storageClass#KubernetesStorageClassParams","unbindPvcs"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"KubernetesRecoveryMigrationParams":["currentValue","newValue"],"KubernetesRecoverFilesNewTargetConfigTargetNamespace":["id"],"KubernetesNamespaceRecoveryNewSourceConfigSource":["id"],"ResourceInstance":["entityId","name"],"RecoverClusterScopedResourcesParams":["snapshotId"],"KubernetesTargetParamsForRecoverKubernetesNamespaceRenameRecoveredNamespacesParams":["prefix","suffix"],"KubernetesTargetParamsForRecoverFileAndFolderNewTargetConfig":["absolutePath","targetNamespace#KubernetesRecoverFilesNewTargetConfigTargetNamespace","targetPvc#KubernetesRecoverFilesNewTargetConfigTargetPvc","targetSource#KubernetesRecoverFilesNewTargetConfigTargetSource"]},"fields":["downloadFileAndFolderParams#RecoverKubernetesParamsDownloadFileAndFolderParams","recoverFileAndFolderParams#RecoverKubernetesParamsRecoverFileAndFolderParams","recoverNamespaceParams#RecoverKubernetesParamsRecoverNamespaceParams","recoveryAction","objects#CommonRecoverObjectSnapshotParams"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
 					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
 				}))
 			}
@@ -6817,6 +7859,121 @@ func (r *CreateRecoveryCommandRunner) Run(cmd *cobra.Command, args []string) {
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params-download-file-and-folder-params" {
+			var KubernetesParamsDownloadFileAndFolderParams *backuprecoveryv1.RecoverKubernetesParamsDownloadFileAndFolderParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsDownloadFileAndFolderParams,
+				"kubernetes-params-download-file-and-folder-params",
+				"RecoverKubernetesParamsDownloadFileAndFolderParams",
+				backuprecoveryv1.UnmarshalRecoverKubernetesParamsDownloadFileAndFolderParams,
+				&KubernetesParamsDownloadFileAndFolderParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.DownloadFileAndFolderParams = KubernetesParamsDownloadFileAndFolderParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsDownloadFileAndFolderParams, `{"schemas":{"CommonRecoverFileAndFolderInfo":["absolutePath","isDirectory","isViewFileRecovery"]},"fields":["filesAndFolders#CommonRecoverFileAndFolderInfo","downloadFilePath","expiryTimeUsecs"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-download-file-and-folder-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-download-file-and-folder-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-download-file-and-folder-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-objects" {
+			var KubernetesParamsObjects []backuprecoveryv1.CommonRecoverObjectSnapshotParams
+			err, msg := deserialize.ModelSlice(
+				r.KubernetesParamsObjects,
+				"kubernetes-params-objects",
+				"CommonRecoverObjectSnapshotParams",
+				backuprecoveryv1.UnmarshalCommonRecoverObjectSnapshotParams,
+				&KubernetesParamsObjects,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.Objects = KubernetesParamsObjects
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsObjects, `{"fields":["protectionGroupId","snapshotId","pointInTimeUsecs","protectionGroupName","recoverFromStandby"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-objects",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-objects",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-objects",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-recover-file-and-folder-params" {
+			var KubernetesParamsRecoverFileAndFolderParams *backuprecoveryv1.RecoverKubernetesParamsRecoverFileAndFolderParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsRecoverFileAndFolderParams,
+				"kubernetes-params-recover-file-and-folder-params",
+				"RecoverKubernetesParamsRecoverFileAndFolderParams",
+				backuprecoveryv1.UnmarshalRecoverKubernetesParamsRecoverFileAndFolderParams,
+				&KubernetesParamsRecoverFileAndFolderParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.RecoverFileAndFolderParams = KubernetesParamsRecoverFileAndFolderParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsRecoverFileAndFolderParams, `{"schemas":{"KubernetesRecoverFilesNewTargetConfigTargetSource":["id"],"KubernetesTargetParamsForRecoverFileAndFolderOriginalTargetConfig":["alternatePath","recoverToOriginalPath"],"RecoverKubernetesFileAndFolderParamsKubernetesTargetParams":["continueOnError","newTargetConfig#KubernetesTargetParamsForRecoverFileAndFolderNewTargetConfig","originalTargetConfig#KubernetesTargetParamsForRecoverFileAndFolderOriginalTargetConfig","overwriteExisting","preserveAttributes","recoverToOriginalTarget","vlanConfig#KubernetesTargetParamsForRecoverFileAndFolderVlanConfig"],"KubernetesRecoverFilesNewTargetConfigTargetNamespace":["id"],"KubernetesTargetParamsForRecoverFileAndFolderVlanConfig":["id","disableVlan"],"KubernetesRecoverFilesNewTargetConfigTargetPvc":["id"],"CommonRecoverFileAndFolderInfo":["absolutePath","isDirectory","isViewFileRecovery"],"KubernetesTargetParamsForRecoverFileAndFolderNewTargetConfig":["absolutePath","targetNamespace#KubernetesRecoverFilesNewTargetConfigTargetNamespace","targetPvc#KubernetesRecoverFilesNewTargetConfigTargetPvc","targetSource#KubernetesRecoverFilesNewTargetConfigTargetSource"]},"fields":["filesAndFolders#CommonRecoverFileAndFolderInfo","targetEnvironment","kubernetesTargetParams#RecoverKubernetesFileAndFolderParamsKubernetesTargetParams"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-recover-file-and-folder-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-recover-file-and-folder-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-recover-file-and-folder-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-recover-namespace-params" {
+			var KubernetesParamsRecoverNamespaceParams *backuprecoveryv1.RecoverKubernetesParamsRecoverNamespaceParams
+			err, msg := deserialize.Model(
+				r.KubernetesParamsRecoverNamespaceParams,
+				"kubernetes-params-recover-namespace-params",
+				"RecoverKubernetesParamsRecoverNamespaceParams",
+				backuprecoveryv1.UnmarshalRecoverKubernetesParamsRecoverNamespaceParams,
+				&KubernetesParamsRecoverNamespaceParams,
+			)
+			r.utils.HandleError(err, msg)
+			KubernetesParamsHelper.RecoverNamespaceParams = KubernetesParamsRecoverNamespaceParams
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParamsRecoverNamespaceParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesNamespaceRecoveryTargetConfigNewSourceConfig":["source#KubernetesNamespaceRecoveryNewSourceConfigSource"],"RecoverKubernetesNamespaceParamsKubernetesTargetParams":["excludeParams#KubernetesFilterParams","excludedPvcs#KubernetesPvcInfo","includeParams#KubernetesFilterParams","objects#KubernetesRecoveryObjectParams","recoverClusterScopedResources#RecoverClusterScopedResourcesParams","recoverProtectionGroupRunsParams#RecoverProtectionGroupRunParams","recoverPvcsOnly","recoveryRegionMigrationParams#KubernetesRecoveryMigrationParams","recoveryTargetConfig#KubernetesTargetParamsForRecoverKubernetesNamespaceRecoveryTargetConfig","recoveryZoneMigrationParams#KubernetesRecoveryMigrationParams","renameRecoveredNamespacesParams#KubernetesTargetParamsForRecoverKubernetesNamespaceRenameRecoveredNamespacesParams","skipClusterCompatibilityCheck","storageClass#KubernetesStorageClassParams"],"KubernetesTargetParamsForRecoverKubernetesNamespaceRecoveryTargetConfig":["newSourceConfig#KubernetesNamespaceRecoveryTargetConfigNewSourceConfig","recoverToNewSource"],"KubernetesPvcInfo":[],"KubernetesLabel":[],"KubernetesStorageClassParams":["storageClassMapping#KubernetesLabel","useStorageClassMapping"],"KubernetesRecoveryObjectParams":["snapshotId","pointInTimeUsecs","protectionGroupId","protectionGroupName","recoverFromStandby","excludeParams#KubernetesFilterParams","includeParams#KubernetesFilterParams","recoverPvcsOnly","storageClass#KubernetesStorageClassParams","unbindPvcs"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"KubernetesRecoveryMigrationParams":["currentValue","newValue"],"RecoverProtectionGroupRunParams":["archivalTargetId","protectionGroupId","protectionGroupInstanceId","protectionGroupRunId"],"KubernetesNamespaceRecoveryNewSourceConfigSource":["id"],"ResourceInstance":["entityId","name"],"RecoverClusterScopedResourcesParams":["snapshotId"],"RecoverKubernetesNamespaceParamsVlanConfig":["id","disableVlan"],"KubernetesTargetParamsForRecoverKubernetesNamespaceRenameRecoveredNamespacesParams":["prefix","suffix"]},"fields":["vlanConfig#RecoverKubernetesNamespaceParamsVlanConfig","targetEnvironment","kubernetesTargetParams#RecoverKubernetesNamespaceParamsKubernetesTargetParams"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params-recover-namespace-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-recover-namespace-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params-recover-namespace-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-recovery-action" {
+			KubernetesParamsHelper.RecoveryAction = core.StringPtr(r.KubernetesParamsRecoveryAction)
+		}
 		if flag.Name == "mssql-params-recover-app-params" {
 			var MssqlParamsRecoverAppParams []backuprecoveryv1.RecoverSqlAppParams
 			err, msg := deserialize.ModelSlice(
@@ -6888,6 +8045,16 @@ func (r *CreateRecoveryCommandRunner) Run(cmd *cobra.Command, args []string) {
 			r.utils.HandleError(flagErr, "")
 		}
 	}
+	if !reflect.ValueOf(*KubernetesParamsHelper).IsZero() {
+		if OptionsModel.KubernetesParams == nil {
+			OptionsModel.SetKubernetesParams(KubernetesParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "kubernetes-params",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
 	if !reflect.ValueOf(*MssqlParamsHelper).IsZero() {
 		if OptionsModel.MssqlParams == nil {
 			OptionsModel.SetMssqlParams(MssqlParamsHelper)
@@ -6932,6 +8099,7 @@ func (r *CreateRecoveryCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.
 		"retrieveArchiveTasks",
 		"isMultiStageRestore",
 		"physicalParams",
+		"kubernetesParams",
 		"mssqlParams",
 	})
 
@@ -7041,6 +8209,7 @@ func (r *GetRecoveryByIDCommandRunner) MakeRequest(OptionsModel backuprecoveryv1
 		"retrieveArchiveTasks",
 		"isMultiStageRestore",
 		"physicalParams",
+		"kubernetesParams",
 		"mssqlParams",
 	})
 
@@ -8705,6 +9874,182 @@ func (r *GetObjectSnapshotsCommandRunner) MakeRequest(OptionsModel backuprecover
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for ListProtectionSourcesRegistrationInfo command
+type ListProtectionSourcesRegistrationInfoRequestSender struct{}
+
+func (s ListProtectionSourcesRegistrationInfoRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.ListProtectionSourcesRegistrationInfo(optionsModel.(*backuprecoveryv1.ListProtectionSourcesRegistrationInfoOptions))
+}
+
+// Command Runner for ListProtectionSourcesRegistrationInfo command
+func NewListProtectionSourcesRegistrationInfoCommandRunner(utils Utilities, sender RequestSender) *ListProtectionSourcesRegistrationInfoCommandRunner {
+	return &ListProtectionSourcesRegistrationInfoCommandRunner{utils: utils, sender: sender}
+}
+
+type ListProtectionSourcesRegistrationInfoCommandRunner struct {
+	XIBMTenantID                string
+	Environments                string
+	Ids                         string
+	IncludeEntityPermissionInfo bool
+	Sids                        string
+	IncludeSourceCredentials    bool
+	EncryptionKey               string
+	IncludeApplicationsTreeInfo bool
+	PruneNonCriticalInfo        bool
+	RequestInitiatorType        string
+	UseCachedData               bool
+	IncludeExternalMetadata     bool
+	MaintenanceStatus           string
+	TenantIds                   string
+	AllUnderHierarchy           bool
+	RequiredFlags               []string
+	sender                      RequestSender
+	utils                       Utilities
+}
+
+// Command mapping: registration-info, GetListProtectionSourcesRegistrationInfoCommand
+func GetListProtectionSourcesRegistrationInfoCommand(r *ListProtectionSourcesRegistrationInfoCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "registration-info --x-ibm-tenant-id X-IBM-TENANT-ID [--environments ENVIRONMENTS] [--ids IDS] [--include-entity-permission-info=INCLUDE-ENTITY-PERMISSION-INFO] [--sids SIDS] [--include-source-credentials=INCLUDE-SOURCE-CREDENTIALS] [--encryption-key ENCRYPTION-KEY] [--include-applications-tree-info=INCLUDE-APPLICATIONS-TREE-INFO] [--prune-non-critical-info=PRUNE-NON-CRITICAL-INFO] [--request-initiator-type REQUEST-INITIATOR-TYPE] [--use-cached-data=USE-CACHED-DATA] [--include-external-metadata=INCLUDE-EXTERNAL-METADATA] [--maintenance-status MAINTENANCE-STATUS] [--tenant-ids TENANT-IDS] [--all-under-hierarchy=ALL-UNDER-HIERARCHY]",
+		Short:                 translation.T("backup-recovery-protection-sources-registration-info-command-short-description"),
+		Long:                  translation.T("backup-recovery-protection-sources-registration-info-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery protection-source registration-info \
+	  --xibm-tenant-id tenantId \
+	  --environments kVMware,kSQL,kView,kPuppeteer,kPhysical,kPure,kNetapp,kGenericNas,kHyperV,kAcropolis,kAzure,kPhysicalFiles,kIsilon,kGPFS,kKVM,kAWS,kExchange,kHyperVVSS,kOracle,kGCP,kFlashBlade,kAWSNative,kVCD,kO365,kO365Outlook,kHyperFlex,kGCPNative,kKubernetes,kCassandra,kMongoDB,kCouchbase,kHdfs,kHive,kHBase,kUDA,kAwsS3 \
+	  --ids 26,27 \
+	  --include-entity-permission-info=true \
+	  --sids exampleString,anotherTestString \
+	  --include-source-credentials=true \
+	  --encryption-key exampleString \
+	  --include-applications-tree-info=true \
+	  --prune-non-critical-info=true \
+	  --request-initiator-type exampleString \
+	  --use-cached-data=true \
+	  --include-external-metadata=true \
+	  --maintenance-status UnderMaintenance \
+	  --tenant-ids exampleString,anotherTestString \
+	  --all-under-hierarchy=true`,
+	}
+
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-protection-sources-registration-info-x-ibm-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.Environments, "environments", "", "", translation.T("backup-recovery-protection-sources-registration-info-environments-flag-description"))
+	cmd.Flags().StringVarP(&r.Ids, "ids", "", "", translation.T("backup-recovery-protection-sources-registration-info-ids-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeEntityPermissionInfo, "include-entity-permission-info", "", false, translation.T("backup-recovery-protection-sources-registration-info-include-entity-permission-info-flag-description"))
+	cmd.Flags().StringVarP(&r.Sids, "sids", "", "", translation.T("backup-recovery-protection-sources-registration-info-sids-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeSourceCredentials, "include-source-credentials", "", false, translation.T("backup-recovery-protection-sources-registration-info-include-source-credentials-flag-description"))
+	cmd.Flags().StringVarP(&r.EncryptionKey, "encryption-key", "", "", translation.T("backup-recovery-protection-sources-registration-info-encryption-key-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeApplicationsTreeInfo, "include-applications-tree-info", "", false, translation.T("backup-recovery-protection-sources-registration-info-include-applications-tree-info-flag-description"))
+	cmd.Flags().BoolVarP(&r.PruneNonCriticalInfo, "prune-non-critical-info", "", false, translation.T("backup-recovery-protection-sources-registration-info-prune-non-critical-info-flag-description"))
+	cmd.Flags().StringVarP(&r.RequestInitiatorType, "request-initiator-type", "", "", translation.T("backup-recovery-protection-sources-registration-info-request-initiator-type-flag-description"))
+	cmd.Flags().BoolVarP(&r.UseCachedData, "use-cached-data", "", false, translation.T("backup-recovery-protection-sources-registration-info-use-cached-data-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeExternalMetadata, "include-external-metadata", "", false, translation.T("backup-recovery-protection-sources-registration-info-include-external-metadata-flag-description"))
+	cmd.Flags().StringVarP(&r.MaintenanceStatus, "maintenance-status", "", "", translation.T("backup-recovery-protection-sources-registration-info-maintenance-status-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantIds, "tenant-ids", "", "", translation.T("backup-recovery-protection-sources-registration-info-tenant-ids-flag-description"))
+	cmd.Flags().BoolVarP(&r.AllUnderHierarchy, "all-under-hierarchy", "", false, translation.T("backup-recovery-protection-sources-registration-info-all-under-hierarchy-flag-description"))
+	r.RequiredFlags = []string{
+		"xibm-tenant-id",
+	}
+
+	return cmd
+}
+
+// Primary logic for running ListProtectionSourcesRegistrationInfo
+func (r *ListProtectionSourcesRegistrationInfoCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.ListProtectionSourcesRegistrationInfoOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+		if flag.Name == "environments" {
+			var Environments []string
+			err, msg := deserialize.List(r.Environments, "environments", "JSON", &Environments)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetEnvironments(Environments)
+		}
+		if flag.Name == "ids" {
+			var Ids []int64
+			err, msg := deserialize.List(r.Ids, "ids", "JSON", &Ids)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetIds(Ids)
+		}
+		if flag.Name == "include-entity-permission-info" {
+			OptionsModel.SetIncludeEntityPermissionInfo(r.IncludeEntityPermissionInfo)
+		}
+		if flag.Name == "sids" {
+			var Sids []string
+			err, msg := deserialize.List(r.Sids, "sids", "JSON", &Sids)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetSids(Sids)
+		}
+		if flag.Name == "include-source-credentials" {
+			OptionsModel.SetIncludeSourceCredentials(r.IncludeSourceCredentials)
+		}
+		if flag.Name == "encryption-key" {
+			OptionsModel.SetEncryptionKey(r.EncryptionKey)
+		}
+		if flag.Name == "include-applications-tree-info" {
+			OptionsModel.SetIncludeApplicationsTreeInfo(r.IncludeApplicationsTreeInfo)
+		}
+		if flag.Name == "prune-non-critical-info" {
+			OptionsModel.SetPruneNonCriticalInfo(r.PruneNonCriticalInfo)
+		}
+		if flag.Name == "request-initiator-type" {
+			OptionsModel.SetRequestInitiatorType(r.RequestInitiatorType)
+		}
+		if flag.Name == "use-cached-data" {
+			OptionsModel.SetUseCachedData(r.UseCachedData)
+		}
+		if flag.Name == "include-external-metadata" {
+			OptionsModel.SetIncludeExternalMetadata(r.IncludeExternalMetadata)
+		}
+		if flag.Name == "maintenance-status" {
+			OptionsModel.SetMaintenanceStatus(r.MaintenanceStatus)
+		}
+		if flag.Name == "tenant-ids" {
+			var TenantIds []string
+			err, msg := deserialize.List(r.TenantIds, "tenant-ids", "JSON", &TenantIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetTenantIds(TenantIds)
+		}
+		if flag.Name == "all-under-hierarchy" {
+			OptionsModel.SetAllUnderHierarchy(r.AllUnderHierarchy)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *ListProtectionSourcesRegistrationInfoCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.ListProtectionSourcesRegistrationInfoOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"rootNodes",
+		"stats",
+		"statsByEnv",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
 // RequestSender for CreateDownloadFilesAndFoldersRecovery command
 type CreateDownloadFilesAndFoldersRecoveryRequestSender struct{}
 
@@ -8950,6 +10295,7 @@ func (r *CreateDownloadFilesAndFoldersRecoveryCommandRunner) MakeRequest(Options
 		"retrieveArchiveTasks",
 		"isMultiStageRestore",
 		"physicalParams",
+		"kubernetesParams",
 		"mssqlParams",
 	})
 
