@@ -29,7 +29,7 @@
   },
   {
     "id": "backup-recovery-agent-download-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-agent-ids-flag-description",
@@ -65,7 +65,7 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-agent-upgrade-task-group-long-description",
@@ -89,7 +89,7 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-bad-url-error-message",
@@ -117,7 +117,7 @@
   },
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
@@ -181,7 +181,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-delete-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-data-source-connection-group-long-description",
@@ -209,7 +209,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-data-source-connection-patch-command-long-description",
@@ -229,7 +229,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-patch-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-command-long-description",
@@ -245,7 +245,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
@@ -261,7 +261,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-data-source-connector-group-long-description",
@@ -293,7 +293,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-data-source-connector-patch-command-long-description",
@@ -333,7 +333,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-download-recovery-create-command-long-description",
@@ -389,7 +389,7 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-indexed-file-download-command-long-description",
@@ -425,7 +425,7 @@
   },
   {
     "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-indexed-objects-search-cassandra-params-cassandra-object-types-flag-description",
@@ -949,7 +949,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-long-description",
@@ -1009,7 +1009,7 @@
   },
   {
     "id": "backup-recovery-object-snapshots-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-sources-registration-info-command-short-description",
@@ -1021,7 +1021,7 @@
   },
   {
     "id": "backup-recovery-protection-sources-registration-info-x-ibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-sources-registration-info-environments-flag-description",
@@ -1197,7 +1197,7 @@
   },
   {
     "id": "backup-recovery-objects-search-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protected-objects-search-cdp-protected-only-flag-description",
@@ -1641,7 +1641,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-create-abort-in-blackouts-flag-description",
@@ -1829,7 +1829,7 @@
   },
   {
     "id": "backup-recovery-protection-group-create-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-delete-command-long-description",
@@ -1849,7 +1849,7 @@
   },
   {
     "id": "backup-recovery-protection-group-delete-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-get-command-long-description",
@@ -1881,7 +1881,7 @@
   },
   {
     "id": "backup-recovery-protection-group-get-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-group-long-description",
@@ -1981,7 +1981,7 @@
   },
   {
     "id": "backup-recovery-protection-group-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-run-create-command-long-description",
@@ -2025,7 +2025,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-create-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-run-group-long-description",
@@ -2121,7 +2121,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-action-flag-description",
@@ -2153,7 +2153,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-run-update-command-long-description",
@@ -2173,7 +2173,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-group-update-abort-in-blackouts-flag-description",
@@ -2365,7 +2365,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-bmr-flag-description",
@@ -2481,7 +2481,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-policy-delete-command-long-description",
@@ -2497,7 +2497,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-delete-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-policy-get-command-long-description",
@@ -2517,7 +2517,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-get-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-policy-group-long-description",
@@ -2565,7 +2565,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-bmr-flag-description",
@@ -2685,7 +2685,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-group-long-description",
@@ -2829,7 +2829,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-refresh-command-long-description",
@@ -2845,7 +2845,7 @@
   },
   {
     "id": "backup-recovery-protection-source-refresh-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-register-advanced-configs-flag-description",
@@ -2993,7 +2993,7 @@
   },
   {
     "id": "backup-recovery-protection-source-register-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-command-long-description",
@@ -3009,7 +3009,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-registration-get-command-long-description",
@@ -3029,7 +3029,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-get-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-command-long-description",
@@ -3049,7 +3049,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-registration-update-advanced-configs-flag-description",
@@ -3201,7 +3201,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-command-long-description",
@@ -3213,7 +3213,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-encryption-key-flag-description",
-    "translation": "Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-ids-flag-description",
@@ -3237,7 +3237,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-protection-sources-group-long-description",
@@ -3381,7 +3381,7 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-recovery-create-command-long-description",
@@ -3493,7 +3493,7 @@
   },
   {
     "id": "backup-recovery-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-recovery-files-download-command-long-description",
@@ -3533,7 +3533,7 @@
   },
   {
     "id": "backup-recovery-recovery-files-download-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-recovery-get-command-long-description",
@@ -3549,7 +3549,7 @@
   },
   {
     "id": "backup-recovery-recovery-get-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-recovery-group-long-description",
@@ -3605,7 +3605,7 @@
   },
   {
     "id": "backup-recovery-recovery-list-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-restore-points-command-long-description",
@@ -3637,7 +3637,7 @@
   },
   {
     "id": "backup-recovery-restore-points-xibm-tenant-id-flag-description",
-    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+    "translation": "Required. Specifies the unique id of the tenant."
   },
   {
     "id": "backup-recovery-short-description",

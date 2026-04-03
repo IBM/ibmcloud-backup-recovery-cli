@@ -777,6 +777,7 @@ type RegisterProtectionSourceCommandRunner struct {
 	KubernetesParamsClientPrivateKey                       string
 	KubernetesParamsCohesityDataprotectPluginImageLocation string
 	KubernetesParamsDataMoverImageLocation                 string
+	KubernetesParamsDatamoverHostportNumber                int64
 	KubernetesParamsDatamoverServiceType                   string
 	KubernetesParamsDefaultVlanParams                      string
 	KubernetesParamsEndpoint                               string
@@ -825,7 +826,7 @@ func GetRegisterProtectionSourceCommand(r *RegisterProtectionSourceCommandRunner
 	  --connector-group-id 26 \
 	  --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
 	  --data-source-connection-id DatasourceConnectionId \
-	  --kubernetes-params '{"autoProtectConfig": {"errorMessage": "exampleString", "isDefaultAutoProtected": true, "policyId": "exampleString", "protectionGroupId": "exampleString", "storageDomainId": 26}, "clientPrivateKey": "exampleString", "dataMoverImageLocation": "exampleString", "datamoverServiceType": "kNodePort", "defaultVlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "endpoint": "exampleString", "initContainerImageLocation": "exampleString", "kubernetesDistribution": "kOpenshift", "kubernetesType": "kCluster", "priorityClassName": "exampleString", "resourceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "resourceLabels": [{"key": "exampleString", "value": "exampleString"}], "sanFields": ["exampleString","anotherTestString"], "serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "veleroAwsPluginImageLocation": "exampleString", "veleroImageLocation": "exampleString", "veleroOpenshiftPluginImageLocation": "exampleString", "vlanInfoVec": [{"serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}}]}' \
+    --kubernetes-params '{"autoProtectConfig": {"errorMessage": "exampleString", "isDefaultAutoProtected": true, "policyId": "exampleString", "protectionGroupId": "exampleString", "storageDomainId": 26}, "clientPrivateKey": "exampleString", "cohesityDataprotectPluginImageLocation": "exampleString", "dataMoverImageLocation": "exampleString", "datamoverHostportNumber": 38, "datamoverServiceType": "kNodePort", "defaultVlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "endpoint": "exampleString", "initContainerImageLocation": "exampleString", "kubernetesDistribution": "kOpenshift", "kubernetesType": "kCluster", "priorityClassName": "exampleString", "resourceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "resourceLabels": [{"key": "exampleString", "value": "exampleString"}], "sanFields": ["exampleString","anotherTestString"], "serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "veleroAwsPluginImageLocation": "exampleString", "veleroImageLocation": "exampleString", "veleroOpenshiftPluginImageLocation": "exampleString", "vlanInfoVec": [{"serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}}]}' \
 	  --physical-params '{"endpoint": "xxx.xx.xx.xx", "forceRegister": true, "hostType": "kLinux", "physicalType": "kGroup", "applications": ["kSQL","kOracle"]}'`,
 	}
 
@@ -845,6 +846,7 @@ func GetRegisterProtectionSourceCommand(r *RegisterProtectionSourceCommandRunner
 	cmd.Flags().StringVarP(&r.KubernetesParamsClientPrivateKey, "kubernetes-params-client-private-key", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-client-private-key-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsCohesityDataprotectPluginImageLocation, "kubernetes-params-cohesity-dataprotect-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-cohesity-dataprotect-plugin-image-location-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsDataMoverImageLocation, "kubernetes-params-data-mover-image-location", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-data-mover-image-location-flag-description"))
+	cmd.Flags().Int64VarP(&r.KubernetesParamsDatamoverHostportNumber, "kubernetes-params-datamover-hostport-number", "", 0, translation.T("backup-recovery-protection-source-register-kubernetes-params-datamover-hostport-number-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsDatamoverServiceType, "kubernetes-params-datamover-service-type", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-datamover-service-type-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsDefaultVlanParams, "kubernetes-params-default-vlan-params", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-default-vlan-params-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsEndpoint, "kubernetes-params-endpoint", "", "", translation.T("backup-recovery-protection-source-register-kubernetes-params-endpoint-flag-description"))
@@ -980,7 +982,7 @@ func (r *RegisterProtectionSourceCommandRunner) Run(cmd *cobra.Command, args []s
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetKubernetesParams(KubernetesParams)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesVlanInfo":["serviceAnnotations#KubernetesServiceAnnotationObject","vlanParams#VlanParams"],"KubernetesLabelObject":["key","value"],"KubernetesServiceAnnotationObject":["key","value"],"KubernetesAutoProtectConfig":["errorMessage","isDefaultAutoProtected","policyId","protectionGroupId","storageDomainId"]},"fields":["veleroImageLocation","resourceLabels#KubernetesLabelObject","datamoverServiceType","priorityClassName","veleroAwsPluginImageLocation","autoProtectConfig#KubernetesAutoProtectConfig","resourceAnnotations#KubernetesLabelObject","kubernetesType","vlanInfoVec#KubernetesVlanInfo","endpoint","dataMoverImageLocation","serviceAnnotations#KubernetesServiceAnnotationObject","veleroOpenshiftPluginImageLocation","defaultVlanParams#VlanParams","initContainerImageLocation","kubernetesDistribution","cohesityDataprotectPluginImageLocation","sanFields","clientPrivateKey"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesVlanInfo":["serviceAnnotations#KubernetesServiceAnnotationObject","vlanParams#VlanParams"],"KubernetesLabelObject":["key","value"],"KubernetesServiceAnnotationObject":["key","value"],"KubernetesAutoProtectConfig":["errorMessage","isDefaultAutoProtected","policyId","protectionGroupId","storageDomainId"]},"fields":["veleroImageLocation","datamoverHostportNumber","resourceLabels#KubernetesLabelObject","datamoverServiceType","priorityClassName","veleroAwsPluginImageLocation","autoProtectConfig#KubernetesAutoProtectConfig","resourceAnnotations#KubernetesLabelObject","kubernetesType","vlanInfoVec#KubernetesVlanInfo","endpoint","dataMoverImageLocation","serviceAnnotations#KubernetesServiceAnnotationObject","veleroOpenshiftPluginImageLocation","defaultVlanParams#VlanParams","initContainerImageLocation","kubernetesDistribution","cohesityDataprotectPluginImageLocation","sanFields","clientPrivateKey"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "kubernetes-params",
@@ -1061,6 +1063,9 @@ func (r *RegisterProtectionSourceCommandRunner) Run(cmd *cobra.Command, args []s
 		}
 		if flag.Name == "kubernetes-params-data-mover-image-location" {
 			KubernetesParamsHelper.DataMoverImageLocation = core.StringPtr(r.KubernetesParamsDataMoverImageLocation)
+		}
+		if flag.Name == "kubernetes-params-datamover-hostport-number" {
+			KubernetesParamsHelper.DatamoverHostportNumber = core.Int64Ptr(r.KubernetesParamsDatamoverHostportNumber)
 		}
 		if flag.Name == "kubernetes-params-datamover-service-type" {
 			KubernetesParamsHelper.DatamoverServiceType = core.StringPtr(r.KubernetesParamsDatamoverServiceType)
@@ -1457,6 +1462,7 @@ type UpdateProtectionSourceRegistrationCommandRunner struct {
 	KubernetesParamsClientPrivateKey                       string
 	KubernetesParamsCohesityDataprotectPluginImageLocation string
 	KubernetesParamsDataMoverImageLocation                 string
+	KubernetesParamsDatamoverHostportNumber                int64
 	KubernetesParamsDatamoverServiceType                   string
 	KubernetesParamsDefaultVlanParams                      string
 	KubernetesParamsEndpoint                               string
@@ -1503,7 +1509,7 @@ func GetUpdateProtectionSourceRegistrationCommand(r *UpdateProtectionSourceRegis
 	  --data-source-connection-id DatasourceConnectionId \
 	  --last-modified-timestamp-usecs 26 \
 	  --physical-params '{"endpoint": "xxx.xx.xx.xx", "forceRegister": true, "hostType": "kLinux", "physicalType": "kGroup", "applications": ["kSQL","kOracle"]}' \
-	  --kubernetes-params '{"autoProtectConfig": {"errorMessage": "exampleString", "isDefaultAutoProtected": true, "policyId": "exampleString", "protectionGroupId": "exampleString", "storageDomainId": 26}, "clientPrivateKey": "exampleString", "dataMoverImageLocation": "exampleString", "datamoverServiceType": "kNodePort", "defaultVlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "endpoint": "exampleString", "initContainerImageLocation": "exampleString", "kubernetesDistribution": "kOpenshift", "kubernetesType": "kCluster", "priorityClassName": "exampleString", "resourceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "resourceLabels": [{"key": "exampleString", "value": "exampleString"}], "sanFields": ["exampleString","anotherTestString"], "serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "veleroAwsPluginImageLocation": "exampleString", "veleroImageLocation": "exampleString", "veleroOpenshiftPluginImageLocation": "exampleString", "vlanInfoVec": [{"serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}}]}'`,
+          --kubernetes-params '{"autoProtectConfig": {"errorMessage": "exampleString", "isDefaultAutoProtected": true, "policyId": "exampleString", "protectionGroupId": "exampleString", "storageDomainId": 26}, "clientPrivateKey": "exampleString", "cohesityDataprotectPluginImageLocation": "exampleString", "dataMoverImageLocation": "exampleString", "datamoverHostportNumber": 38, "datamoverServiceType": "kNodePort", "defaultVlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "endpoint": "exampleString", "initContainerImageLocation": "exampleString", "kubernetesDistribution": "kOpenshift", "kubernetesType": "kCluster", "priorityClassName": "exampleString", "resourceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "resourceLabels": [{"key": "exampleString", "value": "exampleString"}], "sanFields": ["exampleString","anotherTestString"], "serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "veleroAwsPluginImageLocation": "exampleString", "veleroImageLocation": "exampleString", "veleroOpenshiftPluginImageLocation": "exampleString", "vlanInfoVec": [{"serviceAnnotations": [{"key": "exampleString", "value": "exampleString"}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}}]}'`,
 	}
 
 	cmd.Flags().Int64VarP(&r.ID, "id", "", 0, translation.T("backup-recovery-protection-source-registration-update-id-flag-description"))
@@ -1529,6 +1535,7 @@ func GetUpdateProtectionSourceRegistrationCommand(r *UpdateProtectionSourceRegis
 	cmd.Flags().StringVarP(&r.KubernetesParamsClientPrivateKey, "kubernetes-params-client-private-key", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-client-private-key-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsCohesityDataprotectPluginImageLocation, "kubernetes-params-cohesity-dataprotect-plugin-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-cohesity-dataprotect-plugin-image-location-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsDataMoverImageLocation, "kubernetes-params-data-mover-image-location", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-data-mover-image-location-flag-description"))
+	cmd.Flags().Int64VarP(&r.KubernetesParamsDatamoverHostportNumber, "kubernetes-params-datamover-hostport-number", "", 0, translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-datamover-hostport-number-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsDatamoverServiceType, "kubernetes-params-datamover-service-type", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-datamover-service-type-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsDefaultVlanParams, "kubernetes-params-default-vlan-params", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-default-vlan-params-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsEndpoint, "kubernetes-params-endpoint", "", "", translation.T("backup-recovery-protection-source-registration-update-kubernetes-params-endpoint-flag-description"))
@@ -1694,7 +1701,7 @@ func (r *UpdateProtectionSourceRegistrationCommandRunner) Run(cmd *cobra.Command
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetKubernetesParams(KubernetesParams)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesVlanInfo":["serviceAnnotations#KubernetesServiceAnnotationObject","vlanParams#VlanParams"],"KubernetesLabelObject":["key","value"],"KubernetesServiceAnnotationObject":["key","value"],"KubernetesAutoProtectConfig":["errorMessage","isDefaultAutoProtected","policyId","protectionGroupId","storageDomainId"]},"fields":["veleroImageLocation","resourceLabels#KubernetesLabelObject","datamoverServiceType","priorityClassName","veleroAwsPluginImageLocation","autoProtectConfig#KubernetesAutoProtectConfig","resourceAnnotations#KubernetesLabelObject","kubernetesType","vlanInfoVec#KubernetesVlanInfo","endpoint","dataMoverImageLocation","serviceAnnotations#KubernetesServiceAnnotationObject","veleroOpenshiftPluginImageLocation","defaultVlanParams#VlanParams","initContainerImageLocation","kubernetesDistribution","cohesityDataprotectPluginImageLocation","sanFields","clientPrivateKey"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesVlanInfo":["serviceAnnotations#KubernetesServiceAnnotationObject","vlanParams#VlanParams"],"KubernetesLabelObject":["key","value"],"KubernetesServiceAnnotationObject":["key","value"],"KubernetesAutoProtectConfig":["errorMessage","isDefaultAutoProtected","policyId","protectionGroupId","storageDomainId"]},"fields":["veleroImageLocation","datamoverHostportNumber","resourceLabels#KubernetesLabelObject","datamoverServiceType","priorityClassName","veleroAwsPluginImageLocation","autoProtectConfig#KubernetesAutoProtectConfig","resourceAnnotations#KubernetesLabelObject","kubernetesType","vlanInfoVec#KubernetesVlanInfo","endpoint","dataMoverImageLocation","serviceAnnotations#KubernetesServiceAnnotationObject","veleroOpenshiftPluginImageLocation","defaultVlanParams#VlanParams","initContainerImageLocation","kubernetesDistribution","cohesityDataprotectPluginImageLocation","sanFields","clientPrivateKey"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "kubernetes-params",
@@ -1765,6 +1772,9 @@ func (r *UpdateProtectionSourceRegistrationCommandRunner) Run(cmd *cobra.Command
 		}
 		if flag.Name == "kubernetes-params-data-mover-image-location" {
 			KubernetesParamsHelper.DataMoverImageLocation = core.StringPtr(r.KubernetesParamsDataMoverImageLocation)
+		}
+		if flag.Name == "kubernetes-params-datamover-hostport-number" {
+			KubernetesParamsHelper.DatamoverHostportNumber = core.Int64Ptr(r.KubernetesParamsDatamoverHostportNumber)
 		}
 		if flag.Name == "kubernetes-params-datamover-service-type" {
 			KubernetesParamsHelper.DatamoverServiceType = core.StringPtr(r.KubernetesParamsDatamoverServiceType)
