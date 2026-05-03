@@ -2583,6 +2583,7 @@ type GetProtectionPoliciesCommandRunner struct {
 	ExcludeLinkedPolicies     bool
 	IncludeReplicatedPolicies bool
 	IncludeStats              bool
+	VaultIds string
 	RequiredFlags             []string
 	sender                    RequestSender
 	utils                     Utilities
@@ -2591,7 +2592,7 @@ type GetProtectionPoliciesCommandRunner struct {
 // Command mapping: protection-policy list, GetGetProtectionPoliciesCommand
 func GetGetProtectionPoliciesCommand(r *GetProtectionPoliciesCommandRunner) *cobra.Command {
 	cmd := &cobra.Command{
-		Use:                   "list --xibm-tenant-id XIBM-TENANT-ID [--request-initiator-type REQUEST-INITIATOR-TYPE] [--ids IDS] [--policy-names POLICY-NAMES] [--types TYPES] [--exclude-linked-policies=EXCLUDE-LINKED-POLICIES] [--include-replicated-policies=INCLUDE-REPLICATED-POLICIES] [--include-stats=INCLUDE-STATS]",
+		Use: "list --xibm-tenant-id XIBM-TENANT-ID [--request-initiator-type REQUEST-INITIATOR-TYPE] [--ids IDS] [--policy-names POLICY-NAMES] [--types TYPES] [--exclude-linked-policies=EXCLUDE-LINKED-POLICIES] [--include-replicated-policies=INCLUDE-REPLICATED-POLICIES] [--include-stats=INCLUDE-STATS] [--vault-ids VAULT-IDS]",
 		Short:                 translation.T("backup-recovery-protection-policy-list-command-short-description"),
 		Long:                  translation.T("backup-recovery-protection-policy-list-command-long-description"),
 		Run:                   r.Run,
@@ -2608,7 +2609,8 @@ func GetGetProtectionPoliciesCommand(r *GetProtectionPoliciesCommandRunner) *cob
 	  --types Regular,Internal \
 	  --exclude-linked-policies=true \
 	  --include-replicated-policies=true \
-	  --include-stats=true`,
+    --include-stats=true \
+    --vault-ids 26,27`,
 	}
 
 	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-protection-policy-list-xibm-tenant-id-flag-description"))
@@ -2619,6 +2621,7 @@ func GetGetProtectionPoliciesCommand(r *GetProtectionPoliciesCommandRunner) *cob
 	cmd.Flags().BoolVarP(&r.ExcludeLinkedPolicies, "exclude-linked-policies", "", false, translation.T("backup-recovery-protection-policy-list-exclude-linked-policies-flag-description"))
 	cmd.Flags().BoolVarP(&r.IncludeReplicatedPolicies, "include-replicated-policies", "", false, translation.T("backup-recovery-protection-policy-list-include-replicated-policies-flag-description"))
 	cmd.Flags().BoolVarP(&r.IncludeStats, "include-stats", "", false, translation.T("backup-recovery-protection-policy-list-include-stats-flag-description"))
+	cmd.Flags().StringVarP(&r.VaultIds, "vault-ids", "", "", translation.T("backup-recovery-protection-policy-list-vault-ids-flag-description"))
 	r.RequiredFlags = []string{
 		"xibm-tenant-id",
 	}
@@ -2672,6 +2675,12 @@ func (r *GetProtectionPoliciesCommandRunner) Run(cmd *cobra.Command, args []stri
 		}
 		if flag.Name == "include-stats" {
 			OptionsModel.SetIncludeStats(r.IncludeStats)
+		}
+		if flag.Name == "vault-ids" {
+			var VaultIds []int64
+			err, msg := deserialize.List(r.VaultIds, "vault-ids", "JSON", &VaultIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetVaultIds(VaultIds)
 		}
 	})
 
@@ -4384,27 +4393,27 @@ func GetGetProtectionGroupsCommand(r *GetProtectionGroupsCommandRunner) *cobra.C
 			"x-cli-command":       "list",
 		},
 		Example: `  ibmcloud backup-recovery protection-group list \
-	 --xibm-tenant-id tenantID \
-	 --request-initiator-type UIUser \
-	 --ids protectionGroupId1 \
-	 --names policyName1 \
-	 --policy-ids policyId1 \
-	 --include-groups-with-datalock-only=true \
-	 --environments kPhysical,kSQL,kKubernetes \
-	 --is-active=true \
-	 --is-deleted=true \
-	 --is-paused=true \
-	 --last-run-local-backup-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
-	 --last-run-replication-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
-	 --last-run-archival-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
-	 --last-run-cloud-spin-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
-	 --last-run-any-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
-	 --is-last-run-sla-violated=true \
-	 --include-last-run-info=true \
-	 --prune-excluded-source-ids=true \
-	 --prune-source-ids=true \
-	 --use-cached-data=true \
-	 --source-ids 26,27`,
+    --xibm-tenant-id tenantId \
+    --request-initiator-type UIUser \
+    --ids protectionGroupId1 \
+    --names policyName1 \
+    --policy-ids policyId1 \
+    --include-groups-with-datalock-only=true \
+    --environments kPhysical,kSQL,kKubernetes \
+    --is-active=true \
+    --is-deleted=true \
+    --is-paused=true \
+    --last-run-local-backup-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
+    --last-run-replication-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
+    --last-run-archival-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
+    --last-run-cloud-spin-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
+    --last-run-any-status Accepted,Running,Canceled,Canceling,Failed,Missed,Succeeded,SucceededWithWarning,OnHold,Finalizing,Skipped,Paused \
+    --is-last-run-sla-violated=true \
+    --include-last-run-info=true \
+    --prune-excluded-source-ids=true \
+    --prune-source-ids=true \
+    --use-cached-data=true \
+    --source-ids 26,27`,
 	}
 
 	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-protection-group-list-xibm-tenant-id-flag-description"))
@@ -4620,6 +4629,7 @@ type CreateProtectionGroupCommandRunner struct {
 	KubernetesParamsLeverageCSISnapshot                     bool
 	KubernetesParamsNonSnapshotBackup                       bool
 	KubernetesParamsObjects                                 string
+	KubernetesParamsSnapshotTimeoutSeconds int64
 	KubernetesParamsVlanParams                              string
 	KubernetesParamsVolumeBackupFailure                     bool
 	RequiredFlags                                           []string
@@ -4658,7 +4668,7 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
 	 --physical-params '{"protectionType": "kFile", "volumeProtectionTypeParams": {"objects": [{"id": 3, "volumeGuids": ["volumeGuid1"], "enableSystemBackup": true, "excludedVssWriters": ["writerName1","writerName2"]}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "quiesce": true, "continueOnQuiesceFailure": true, "incrementalBackupAfterRestart": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "excludedVssWriters": ["writerName1","writerName2"], "cobmrBackup": true}, "fileProtectionTypeParams": {"excludedVssWriters": ["writerName1","writerName2"], "objects": [{"excludedVssWriters": ["writerName1","writerName2"], "id": 2, "filePaths": [{"includedPath": "~/dir1/", "excludedPaths": ["~/dir2"], "skipNestedVolumes": true}], "usesPathLevelSkipNestedVolumeSetting": true, "nestedVolumeTypesToSkip": ["volume1"], "followNasSymlinkTarget": true, "metadataFilePath": "~/dir3"}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "performBrickBasedDeduplication": true, "taskTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "quiesce": true, "continueOnQuiesceFailure": true, "cobmrBackup": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "globalExcludePaths": ["~/dir1"], "globalExcludeFS": ["~/dir2"], "ignorableErrors": ["kEOF","kNonExistent"], "allowParallelRuns": true}}' \
 	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}' \
-	 --kubernetes-params '{"enableIndexing": true, "excludeLabelIds": [26,27,26,27],[26,27, 26,27], "excludeObjectIds": [26,27], "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "labelIds": [26,27,26,27],[26,27, 26,27], "leverageCSISnapshot": true, "nonSnapshotBackup": true, "objects": [{"backupOnlyPvc": true, "excludePvcs": [{}], "excludedResources": ["exampleString","anotherTestString"], "id": 26, "includePvcs": [{}], "includedResources": ["exampleString","anotherTestString"], "quiesceGroups": [{"quiesceMode": "kQuiesceTogether", "quiesceRules": [{"podSelectorLabels": [{}], "postSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}], "preSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}]}]}]}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "volumeBackupFailure": true}'`,
+         --kubernetes-params '{"enableIndexing": true, "excludeLabelIds": [26,27,26,27],[26,27, 26,27], "excludeObjectIds": [26,27], "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "labelIds": [26,27,26,27],[26,27, 26,27], "leverageCSISnapshot": true, "nonSnapshotBackup": true, "objects": [{"backupOnlyPvc": true, "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "excludePvcs": [{}], "excludedResources": ["exampleString","anotherTestString"], "failBackupOnHookFailure": true, "id": 26, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "includePvcs": [{}], "includedResources": ["exampleString","anotherTestString"], "quiesceGroups": [{"quiesceMode": "kQuiesceTogether", "quiesceRules": [{"podSelectorLabels": [{}], "postSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}], "preSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}]}]}]}], "snapshotTimeoutSeconds": 38, "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "volumeBackupFailure": true}'`,
 	}
 
 	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-protection-group-create-xibm-tenant-id-flag-description"))
@@ -4704,6 +4714,7 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 	cmd.Flags().BoolVarP(&r.KubernetesParamsLeverageCSISnapshot, "kubernetes-params-leverage-csi-snapshot", "", false, translation.T("backup-recovery-protection-group-create-kubernetes-params-leverage-csi-snapshot-flag-description"))
 	cmd.Flags().BoolVarP(&r.KubernetesParamsNonSnapshotBackup, "kubernetes-params-non-snapshot-backup", "", false, translation.T("backup-recovery-protection-group-create-kubernetes-params-non-snapshot-backup-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsObjects, "kubernetes-params-objects", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-objects-flag-description"))
+	cmd.Flags().Int64VarP(&r.KubernetesParamsSnapshotTimeoutSeconds, "kubernetes-params-snapshot-timeout-seconds", "", 0, translation.T("backup-recovery-protection-group-create-kubernetes-params-snapshot-timeout-seconds-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsVlanParams, "kubernetes-params-vlan-params", "", "", translation.T("backup-recovery-protection-group-create-kubernetes-params-vlan-params-flag-description"))
 	cmd.Flags().BoolVarP(&r.KubernetesParamsVolumeBackupFailure, "kubernetes-params-volume-backup-failure", "", false, translation.T("backup-recovery-protection-group-create-kubernetes-params-volume-backup-failure-flag-description"))
 	r.RequiredFlags = []string{
@@ -4950,7 +4961,7 @@ func (r *CreateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetKubernetesParams(KubernetesParams)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"KubernetesProtectionGroupObjectParams":["backupOnlyPvc","excludeParams#KubernetesFilterParams","excludePvcs#KubernetesPvcInfo","excludedResources","failBackupOnHookFailure","id","includeParams#KubernetesFilterParams","includePvcs#KubernetesPvcInfo","includedResources","quiesceGroups#QuiesceGroup"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["leverageCSISnapshot","includeParams#KubernetesFilterParams","excludeLabelIds","labelIds","excludeObjectIds","excludeParams#KubernetesFilterParams","objects#KubernetesProtectionGroupObjectParams","enableIndexing","vlanParams#VlanParams","volumeBackupFailure","nonSnapshotBackup"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"KubernetesProtectionGroupObjectParams":["backupOnlyPvc","excludeParams#KubernetesFilterParams","excludePvcs#KubernetesPvcInfo","excludedResources","failBackupOnHookFailure","id","includeParams#KubernetesFilterParams","includePvcs#KubernetesPvcInfo","includedResources","quiesceGroups#QuiesceGroup"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["leverageCSISnapshot","includeParams#KubernetesFilterParams","excludeLabelIds","labelIds","excludeObjectIds","excludeParams#KubernetesFilterParams","objects#KubernetesProtectionGroupObjectParams","enableIndexing","vlanParams#VlanParams","volumeBackupFailure","snapshotTimeoutSeconds","nonSnapshotBackup"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "kubernetes-params",
@@ -5276,6 +5287,9 @@ func (r *CreateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 				}))
 			}
 		}
+		if flag.Name == "kubernetes-params-snapshot-timeout-seconds" {
+			KubernetesParamsHelper.SnapshotTimeoutSeconds = core.Int64Ptr(r.KubernetesParamsSnapshotTimeoutSeconds)
+		}
 		if flag.Name == "kubernetes-params-vlan-params" {
 			var KubernetesParamsVlanParams *backuprecoveryv1.VlanParams
 			err, msg := deserialize.Model(
@@ -5445,12 +5459,12 @@ func GetGetProtectionGroupByIDCommand(r *GetProtectionGroupByIDCommandRunner) *c
 			"x-cli-command":       "get",
 		},
 		Example: `  ibmcloud backup-recovery protection-group get \
-	 --id exampleString \
-	 --xibm-tenant-id tenantID \
-	 --request-initiator-type UIUser \
-	 --include-last-run-info=true \
-	 --prune-excluded-source-ids=true \
-	 --prune-source-ids=true`,
+    --id exampleString \
+    --xibm-tenant-id tenantId \
+    --request-initiator-type UIUser \
+    --include-last-run-info=true \
+    --prune-excluded-source-ids=true \
+    --prune-source-ids=true`,
 	}
 
 	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-protection-group-get-id-flag-description"))
@@ -5606,6 +5620,7 @@ type UpdateProtectionGroupCommandRunner struct {
 	KubernetesParamsLeverageCSISnapshot                     bool
 	KubernetesParamsNonSnapshotBackup                       bool
 	KubernetesParamsObjects                                 string
+	KubernetesParamsSnapshotTimeoutSeconds int64
 	KubernetesParamsVlanParams                              string
 	KubernetesParamsVolumeBackupFailure                     bool
 	RequiredFlags                                           []string
@@ -5645,7 +5660,7 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
 	 --physical-params '{"protectionType": "kFile", "volumeProtectionTypeParams": {"objects": [{"id": 3, "volumeGuids": ["volumeGuid1"], "enableSystemBackup": true, "excludedVssWriters": ["writerName1","writerName2"]}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "quiesce": true, "continueOnQuiesceFailure": true, "incrementalBackupAfterRestart": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "excludedVssWriters": ["writerName1","writerName2"], "cobmrBackup": true}, "fileProtectionTypeParams": {"excludedVssWriters": ["writerName1","writerName2"], "objects": [{"excludedVssWriters": ["writerName1","writerName2"], "id": 2, "filePaths": [{"includedPath": "~/dir1/", "excludedPaths": ["~/dir2"], "skipNestedVolumes": true}], "usesPathLevelSkipNestedVolumeSetting": true, "nestedVolumeTypesToSkip": ["volume1"], "followNasSymlinkTarget": true, "metadataFilePath": "~/dir3"}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "performBrickBasedDeduplication": true, "taskTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "quiesce": true, "continueOnQuiesceFailure": true, "cobmrBackup": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "globalExcludePaths": ["~/dir1"], "globalExcludeFS": ["~/dir2"], "ignorableErrors": ["kEOF","kNonExistent"], "allowParallelRuns": true}}' \
 	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}' \
-	 --kubernetes-params '{"enableIndexing": true, "excludeLabelIds": [26,27,26,27],[26,27, 26,27], "excludeObjectIds": [26,27], "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27]}, "labelIds": [26,27,26,27],[26,27, 26,27], "leverageCSISnapshot": true, "nonSnapshotBackup": true, "objects": [{"backupOnlyPvc": true, "excludePvcs": [{}], "excludedResources": ["exampleString","anotherTestString"], "id": 26, "includePvcs": [{}], "includedResources": ["exampleString","anotherTestString"], "quiesceGroups": [{"quiesceMode": "kQuiesceTogether", "quiesceRules": [{"podSelectorLabels": [{}], "postSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}], "preSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}]}]}]}], "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "volumeBackupFailure": true}'`,
+         --kubernetes-params '{"enableIndexing": true, "excludeLabelIds": [26,27,26,27],[26,27, 26,27], "excludeObjectIds": [26,27], "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "labelIds": [26,27,26,27],[26,27, 26,27], "leverageCSISnapshot": true, "nonSnapshotBackup": true, "objects": [{"backupOnlyPvc": true, "excludeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "excludePvcs": [{}], "excludedResources": ["exampleString","anotherTestString"], "failBackupOnHookFailure": true, "id": 26, "includeParams": {"labelCombinationMethod": "AND", "labelVector": [{}], "objects": [26,27], "selectedResources": [{"apiGroup": "exampleString", "isClusterScoped": true, "kind": "exampleString", "name": "exampleString", "resourceList": [{"entityId": 26, "name": "exampleString"}], "version": "exampleString"}]}, "includePvcs": [{}], "includedResources": ["exampleString","anotherTestString"], "quiesceGroups": [{"quiesceMode": "kQuiesceTogether", "quiesceRules": [{"podSelectorLabels": [{}], "postSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}], "preSnapshotHooks": [{"commands": ["exampleString","anotherTestString"], "container": "exampleString", "failOnError": true, "timeout": 26}]}]}]}], "snapshotTimeoutSeconds": 38, "vlanParams": {"disableVlan": true, "interfaceName": "exampleString", "vlanId": 38}, "volumeBackupFailure": true}'`,
 	}
 
 	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-protection-group-update-id-flag-description"))
@@ -5692,6 +5707,7 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 	cmd.Flags().BoolVarP(&r.KubernetesParamsLeverageCSISnapshot, "kubernetes-params-leverage-csi-snapshot", "", false, translation.T("backup-recovery-protection-group-update-kubernetes-params-leverage-csi-snapshot-flag-description"))
 	cmd.Flags().BoolVarP(&r.KubernetesParamsNonSnapshotBackup, "kubernetes-params-non-snapshot-backup", "", false, translation.T("backup-recovery-protection-group-update-kubernetes-params-non-snapshot-backup-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsObjects, "kubernetes-params-objects", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-objects-flag-description"))
+	cmd.Flags().Int64VarP(&r.KubernetesParamsSnapshotTimeoutSeconds, "kubernetes-params-snapshot-timeout-seconds", "", 0, translation.T("backup-recovery-protection-group-update-kubernetes-params-snapshot-timeout-seconds-flag-description"))
 	cmd.Flags().StringVarP(&r.KubernetesParamsVlanParams, "kubernetes-params-vlan-params", "", "", translation.T("backup-recovery-protection-group-update-kubernetes-params-vlan-params-flag-description"))
 	cmd.Flags().BoolVarP(&r.KubernetesParamsVolumeBackupFailure, "kubernetes-params-volume-backup-failure", "", false, translation.T("backup-recovery-protection-group-update-kubernetes-params-volume-backup-failure-flag-description"))
 	r.RequiredFlags = []string{
@@ -5942,7 +5958,7 @@ func (r *UpdateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetKubernetesParams(KubernetesParams)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"KubernetesProtectionGroupObjectParams":["backupOnlyPvc","excludeParams#KubernetesFilterParams","excludePvcs#KubernetesPvcInfo","excludedResources","failBackupOnHookFailure","id","includeParams#KubernetesFilterParams","includePvcs#KubernetesPvcInfo","includedResources","quiesceGroups#QuiesceGroup"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["leverageCSISnapshot","includeParams#KubernetesFilterParams","excludeLabelIds","labelIds","excludeObjectIds","excludeParams#KubernetesFilterParams","objects#KubernetesProtectionGroupObjectParams","enableIndexing","vlanParams#VlanParams","volumeBackupFailure","nonSnapshotBackup"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"schemas":{"ResourceInfo":["apiGroup","isClusterScoped","kind","name","resourceList#ResourceInstance","version"],"KubernetesFilterParams":["labelCombinationMethod","labelVector#KubernetesLabel","objects","selectedResources#ResourceInfo"],"VlanParams":["disableVlan","interfaceName","vlanId"],"KubernetesHook":["commands","container","failOnError","timeout"],"ResourceInstance":["entityId","name"],"QuiesceRule":["podSelectorLabels#KubernetesLabel","postSnapshotHooks#KubernetesHook","preSnapshotHooks#KubernetesHook"],"KubernetesProtectionGroupObjectParams":["backupOnlyPvc","excludeParams#KubernetesFilterParams","excludePvcs#KubernetesPvcInfo","excludedResources","failBackupOnHookFailure","id","includeParams#KubernetesFilterParams","includePvcs#KubernetesPvcInfo","includedResources","quiesceGroups#QuiesceGroup"],"QuiesceGroup":["quiesceMode","quiesceRules#QuiesceRule"],"KubernetesPvcInfo":[],"KubernetesLabel":[]},"fields":["leverageCSISnapshot","includeParams#KubernetesFilterParams","excludeLabelIds","labelIds","excludeObjectIds","excludeParams#KubernetesFilterParams","objects#KubernetesProtectionGroupObjectParams","enableIndexing","vlanParams#VlanParams","volumeBackupFailure","snapshotTimeoutSeconds","nonSnapshotBackup"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "kubernetes-params",
@@ -6267,6 +6283,9 @@ func (r *UpdateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
 				}))
 			}
+		}
+		if flag.Name == "kubernetes-params-snapshot-timeout-seconds" {
+			KubernetesParamsHelper.SnapshotTimeoutSeconds = core.Int64Ptr(r.KubernetesParamsSnapshotTimeoutSeconds)
 		}
 		if flag.Name == "kubernetes-params-vlan-params" {
 			var KubernetesParamsVlanParams *backuprecoveryv1.VlanParams
@@ -8483,33 +8502,37 @@ func NewCreateDataSourceConnectionCommandRunner(utils Utilities, sender RequestS
 }
 
 type CreateDataSourceConnectionCommandRunner struct {
+	XIBMTenantID string
 	ConnectionName string
-	XIBMTenantID   string
-	RequiredFlags  []string
-	sender         RequestSender
-	utils          Utilities
+	ConnectionEnvType string
+	RequiredFlags []string
+	sender RequestSender
+	utils Utilities
 }
 
 // Command mapping: data-source-connection create, GetCreateDataSourceConnectionCommand
 func GetCreateDataSourceConnectionCommand(r *CreateDataSourceConnectionCommandRunner) *cobra.Command {
 	cmd := &cobra.Command{
-		Use:                   "create --connection-name CONNECTION-NAME [--xibm-tenant-id XIBM-TENANT-ID]",
-		Short:                 translation.T("backup-recovery-data-source-connection-create-command-short-description"),
-		Long:                  translation.T("backup-recovery-data-source-connection-create-command-long-description"),
-		Run:                   r.Run,
+		Use: "create --xibm-tenant-id XIBM-TENANT-ID --connection-name CONNECTION-NAME [--connection-env-type CONNECTION-ENV-TYPE]",
+		Short: translation.T("backup-recovery-data-source-connection-create-command-short-description"),
+		Long: translation.T("backup-recovery-data-source-connection-create-command-long-description"),
+		Run: r.Run,
 		DisableFlagsInUseLine: true,
 		Annotations: map[string]string{
 			"x-cli-command-group": "data-source-connection",
 			"x-cli-command":       "create",
 		},
 		Example: `  ibmcloud backup-recovery data-source-connection create \
-	 --connection-name data-source-connection \
-	 --xibm-tenant-id tenantId`,
+    --xibm-tenant-id tenantId \
+    --connection-name data-source-connection \
+    --connection-env-type kRoksVpc`,
 	}
 
-	cmd.Flags().StringVarP(&r.ConnectionName, "connection-name", "", "", translation.T("backup-recovery-data-source-connection-create-connection-name-flag-description"))
 	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-data-source-connection-create-xibm-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.ConnectionName, "connection-name", "", "", translation.T("backup-recovery-data-source-connection-create-connection-name-flag-description"))
+	cmd.Flags().StringVarP(&r.ConnectionEnvType, "connection-env-type", "", "", translation.T("backup-recovery-data-source-connection-create-connection-env-type-flag-description"))
 	r.RequiredFlags = []string{
+		"xibm-tenant-id",
 		"connection-name",
 	}
 
@@ -8530,11 +8553,14 @@ func (r *CreateDataSourceConnectionCommandRunner) Run(cmd *cobra.Command, args [
 	// otherwise, the default type values will be sent to the service
 	flagSet := cmd.Flags()
 	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
 		if flag.Name == "connection-name" {
 			OptionsModel.SetConnectionName(r.ConnectionName)
 		}
-		if flag.Name == "xibm-tenant-id" {
-			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		if flag.Name == "connection-env-type" {
+			OptionsModel.SetConnectionEnvType(r.ConnectionEnvType)
 		}
 	})
 
@@ -8552,6 +8578,7 @@ func (r *CreateDataSourceConnectionCommandRunner) MakeRequest(OptionsModel backu
 	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
 
 	r.utils.SetTableHeaderOrder([]string{
+		"connectionEnvType",
 		"connectionId",
 		"connectionName",
 		"connectorIds",
@@ -8746,6 +8773,7 @@ func (r *PatchDataSourceConnectionCommandRunner) MakeRequest(OptionsModel backup
 	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
 
 	r.utils.SetTableHeaderOrder([]string{
+		"connectionEnvType",
 		"connectionId",
 		"connectionName",
 		"connectorIds",
