@@ -13,7 +13,7 @@ This repository contains the source for the Backup Recovery CLI plug-in.
 
 ## Getting Started
 
-Get started with IBM Cloud Backup and Recovery [here](https://cloud.ibm.com/docs/backup-recovery?topic=backup-recovery-getting-started-backup-recovery).
+Get started with [IBM Cloud Backup and Recovery documentation](https://cloud.ibm.com/docs/backup-recovery?topic=backup-recovery-getting-started-backup-recovery).
 
 ## Installation
 
