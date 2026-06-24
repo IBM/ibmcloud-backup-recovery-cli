@@ -8,6 +8,62 @@
     "translation": "별명"
   },
   {
+    "id": "backup-recovery-access-token-create-command-long-description",
+    "translation": "다른 REST API 요청을 하기 전에 REST 클라이언트는 유효한 IBM 사용자 이름과 비밀번호로 액세스 토큰 요청을 해야 합니다. 이 POST 요청은 액세스 토큰을 리턴하고 IBM 클러스터에서 생성한 응답을 입력합니다. 다른 IBM REST API 조작에 대한 후속 요청은 http 헤더에 'Authorization'을 다음 형식으로 설정하여 리턴된 액세스 토큰과 유형을 지정해야 합니다. Authorization:- token_type access_token 생성된 토큰은 24시간 동안 유효합니다. 만료된 토큰으로 요청하면 '토큰 만료' 오류 메시지가 리턴됩니다. 이 오류를 확인하고 요청을 다시 발행하기 전에 다른 액세스 토큰을 요청하는 코드를 REST 클라이언트에 추가하십시오."
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-short-description",
+    "translation": "액세스 토큰을 작성합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-create-domain-flag-description",
+    "translation": "사용자가 로그인하는 도메인을 지정합니다. 로컬 사용자의 경우 도메인은 LOCAL입니다. LDAP/AD 사용자의 경우 도메인은 LDAP 연결 문자열에 맵핑됩니다. 사용자는 사용자 이름과 도메인의 조합으로 고유하게 식별됩니다. LOCAL이 기본 도메인입니다."
+  },
+  {
+    "id": "backup-recovery-access-token-create-password-flag-description",
+    "translation": "IBM 사용자 계정의 비밀번호를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-create-username-flag-description",
+    "translation": "IBM 사용자의 로그인 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-certificate-flag-description",
+    "translation": "인증서 기본 인증 클러스터에 로그인할 때 사용할 인증서를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-command-long-description",
+    "translation": "POST 요청은 액세스 토큰을 리턴하고 BRS 클러스터에서 생성한 응답을 입력합니다. 생성된 토큰은 24시간 동안 유효합니다. 만료된 토큰으로 요청하면 '토큰 만료' 오류 메시지가 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-command-short-description",
+    "translation": "액세스 토큰을 생성합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-domain-flag-description",
+    "translation": "사용자가 로그인하는 도메인을 지정합니다. 로컬 사용자 모델의 경우 도메인은 항상 LOCAL입니다. LDAP/AD 사용자의 경우 도메인은 LDAP 연결 문자열에 맵핑됩니다. 사용자는 사용자 이름과 도메인의 조합으로 고유하게 식별됩니다. 이를 설정하지 않은 경우, LOCAL로 간주됩니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-otp-code-flag-description",
+    "translation": "MFA 검증을 위한 OTP 코드를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-otp-type-flag-description",
+    "translation": "MFA 검증에 사용할 OTP 유형을 지정합니다.\n'Totp'는 코드가 TOTP임을 의미하고,\n'Email'은 코드가 이메일 OTP임을 의미합니다. 허용 가능한 값: Totp, Email."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-password-flag-description",
+    "translation": "BRS 사용자 계정의 비밀번호를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-private-key-flag-description",
+    "translation": "위 인증서에 일치하는 개인 키를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-access-token-generate-username-flag-description",
+    "translation": "BRS 사용자의 로그인 이름을 지정합니다."
+  },
+  {
     "id": "backup-recovery-agent-download-command-long-description",
     "translation": "다양한 호스트용 에이전트를 다운로드하십시오."
   },
@@ -29,7 +85,7 @@
   },
   {
     "id": "backup-recovery-agent-download-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-agent-ids-flag-description",
@@ -65,7 +121,7 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-agent-upgrade-task-group-long-description",
@@ -89,11 +145,7 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
-  },
-  {
-    "id": "backup-recovery-bad-url-error-message",
-    "translation": "유효하지 않은 URL: 신임 정보 파일의 키 또는 BACKUP_RECOVERY_URL 환경 변수로 기본 URL을 설정하십시오."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-bad-connector-url-error-message",
@@ -108,6 +160,146 @@
     "translation": "올바르지 않은 백업 복구 관리자 SRE URL: 신임 정보 파일에서 BACKUP_RECOVERY_CONNECTOR_URL 환경 변수 또는 키를 사용하여 커넥터 URL을 설정하십시오."
   },
   {
+    "id": "backup-recovery-bad-url-error-message",
+    "translation": "유효하지 않은 URL: 신임 정보 파일의 키 또는 BACKUP_RECOVERY_URL 환경 변수로 기본 URL을 설정하십시오."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-cloud-type-flag-description",
+    "translation": "필수입니다. 백업 및 복구 인스턴스를 사용하는 클라우드 환경 유형을 지정합니다. 현재는 장애 조치에 대해 'ibm'만 지원됩니다. 허용되는 값: ibm."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-command-long-description",
+    "translation": "지정된 모든 백업 및 복구(볼트) 인스턴스의 최신 장애 조치 상태를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-command-short-description",
+    "translation": "지정된 모든 백업 및 복구 인스턴스의 최신 장애 조치 상태를 가져옵니다. 여기서 백업 및 복구 인스턴스는 볼트를 의미합니다."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-vault-ids-flag-description",
+    "translation": "필수입니다. 최신 장애 조치 상태를 페치할 백업 및 복구 인스턴스, 즉 볼트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-xibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-cloud-type-flag-description",
+    "translation": "필수입니다. 백업 및 복구 인스턴스를 사용하는 클라우드 환경 유형을 지정합니다. 현재 복구 스캔에 대해서는 'ibm'만 지원됩니다. 허용되는 값: ibm."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-command-long-description",
+    "translation": "지정된 모든 백업 및 복구(볼트) 인스턴스의 최신 복구 스캔 상태를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-command-short-description",
+    "translation": "지정된 모든 백업 및 복구 인스턴스의 최신 복구 스캔 상태를 가져옵니다. 여기서 백업 및 복구 인스턴스는 볼트를 의미합니다."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-vault-ids-flag-description",
+    "translation": "최신 복구 스캔 상태를 페치할 백업 및 복구 인스턴스의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-xibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-command-long-description",
+    "translation": "DataProtect 클러스터에 커넥터 에이전트를 등록하기 위한 JWT 등록 토큰이 포함된 구성을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-command-short-description",
+    "translation": "커넥터 에이전트를 클레임하기 위한 구성을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-get-command-long-description",
+    "translation": "DataProtect 클러스터에 커넥터 에이전트를 등록하기 위한 JWT 등록 토큰이 포함된 구성을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-get-command-short-description",
+    "translation": "커넥터 에이전트를 클레임하기 위한 구성을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-get-xibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-group-long-description",
+    "translation": "ConnectorAgent 리소스에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-group-short-description",
+    "translation": "ConnectorAgent 리소스에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-command-long-description",
+    "translation": "연결 이름 또는 연결 ID(둘 중 하나)에 대한 필터를 기반으로 지정된 테넌트의 커넥터 에이전트 목록을 표시합니다. 필터가 제공되지 않은 경우 해당 테넌트의 모든 에이전트가 나열됩니다. 오류가 발생하면 일부 결과가 채워지지 않습니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-command-short-description",
+    "translation": "커넥터 에이전트를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-connection-ids-flag-description",
+    "translation": "커넥터 에이전트를 페치할 연결 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-connection-names-flag-description",
+    "translation": "커넥터 에이전트를 가져올 연결 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-tenant-id-flag-description",
+    "translation": "필수입니다. 커넥터 에이전트를 가져올 테넌트의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-xibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-command-long-description",
+    "translation": "제공된 등록 토큰을 사용하여 백업 인스턴스에 커넥터 에이전트를 등록합니다. 이 백업 인스턴스를 등록할 커넥터 에이전트의 등록 토큰은 사용자가 백업 인스턴스에서 관련 '/connector-agents' API를 호출하여 획득해야 합니다. 중복 등록을 시도할 경우, 이 API는 이미 등록되어 있음을 표시하는 헤더와 함께 성공을 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-command-short-description",
+    "translation": "커넥터 에이전트를 등록합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-connection-name-flag-description",
+    "translation": "필수입니다. 커넥터 에이전트와 연관될 이름을 지정합니다. 이 값은 이 커넥터 에이전트가 등록된 테넌트 내에서 고유해야 합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-join-existing-connection-flag-description",
+    "translation": "이 에이전트가 이전 등록(예: 클러스터형 소스의 경우 동일한 클러스터 내 다른 에이전트)에 의해 이미 클레임된 연결에 참여하는지 여부. 이 값이 true일 경우, 서버는 요청을 중복으로 간주하여 거부하지 않고 기존 연결에 이 에이전트를 추가합니다. 연결이 아직 존재하지 않는 경우, 이 플래그 설정과 관계없이 새 연결이 작성됩니다. 기본값은 false입니다."
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-registration-token-flag-description",
+    "translation": "필수입니다. JWT 등록 토큰. 단일 토큰을 사용하여 해당 테넌트에 여러 개의 커넥터 에이전트를 등록할 수 있습니다. 기본적으로 토큰의 유효 기간은 24시간입니다."
+  },
+  {
+    "id": "backup-recovery-connector-agents-command-long-description",
+    "translation": "연결 이름 또는 연결 ID(둘 중 하나)에 대한 필터를 기반으로 지정된 테넌트의 커넥터 에이전트 목록을 표시합니다. 필터가 제공되지 않은 경우 해당 테넌트의 모든 에이전트가 나열됩니다. 오류가 발생하면 일부 결과가 채워지지 않습니다."
+  },
+  {
+    "id": "backup-recovery-connector-agents-command-short-description",
+    "translation": "커넥터 에이전트를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agents-connection-ids-flag-description",
+    "translation": "커넥터 에이전트를 페치할 연결 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agents-connection-names-flag-description",
+    "translation": "커넥터 에이전트를 가져올 연결 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-agents-tenant-id-flag-description",
+    "translation": "필수입니다. 커넥터 에이전트를 가져올 테넌트의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-connector-logs-access-token-description",
+    "translation": "필수입니다. 커넥터로부터 받은 액세스 토큰입니다."
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "사용 가능한 커넥터에 대한 정보를 가져옵니다."
   },
@@ -117,39 +309,11 @@
   },
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
-    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
-    "translation": "데이터 소스 커넥터 로그를 나열합니다."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
-    "translation": "데이터 소스 커넥터 작성 및 등록에 해당하는 로그를 나열합니다."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-command-short-description",
-    "translation": "데이터 소스 커넥터를 등록합니다."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-command-long-description",
-    "translation": "제공된 등록 토큰을 사용하여 클러스터에 데이터 소스 커넥터를 등록합니다. 이 커넥터를 등록할 데이터 소스 연결에 대한 등록 토큰은 사용자가 관련 '/data-source-connections' API를 호출하여 얻어야 합니다."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
-    "translation": "필수입니다. 등록 토큰."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
-    "translation": "등록에 사용할 커넥터의 ID. 동일한 테넌트에 속한 두 개의 커넥터는 서로 다른 ID를 갖도록 보장됩니다."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
-    "translation": "데이터 소스 커넥터 상태를 나열합니다."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
-    "translation": "클러스터 연결 상태뿐만 아니라 등록을 포함한 데이터 소스 커넥터 상태를 나열합니다."
+    "id": "backup-recovery-connector-status-access-token-description",
+    "translation": "필수입니다. 커넥터로부터 받은 액세스 토큰입니다."
   },
   {
     "id": "backup-recovery-data-source-connection-create-command-long-description",
@@ -160,12 +324,16 @@
     "translation": "데이터 소스 연결을 작성합니다."
   },
   {
+    "id": "backup-recovery-data-source-connection-create-connection-env-type-flag-description",
+    "translation": "작성 중인 연결의 환경 유형을 지정합니다. 연결 환경 유형은 일단 지정하면 변경할 수 없으며, 해당 연결의 커넥터에는 동일한 환경 유형만 사용할 수 있습니다. 허용되는 값: kRoksVpc, kRoksClassic, kIksVpc, kIksClassic."
+  },
+  {
     "id": "backup-recovery-data-source-connection-create-connection-name-flag-description",
     "translation": "필수입니다. 작성 중인 연결의 이름을 지정합니다. 특정 테넌트에 대해 서로 다른 연결은 동일한 이름을 가질 수 없습니다. 그러나 두 개(혹은 그 이상)의 서로 다른 테넌트가 각각 동일한 이름으로 연결될 수 있습니다."
   },
   {
     "id": "backup-recovery-data-source-connection-create-xibm-tenant-id-flag-description",
-    "translation": "클러스터에 액세스하는 테넌트의 ID입니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-data-source-connection-delete-command-long-description",
@@ -181,7 +349,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-delete-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-data-source-connection-group-long-description",
@@ -209,7 +377,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-data-source-connection-patch-command-long-description",
@@ -229,7 +397,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-patch-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-command-long-description",
@@ -245,7 +413,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
@@ -261,7 +429,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-data-source-connector-group-long-description",
@@ -293,7 +461,19 @@
   },
   {
     "id": "backup-recovery-data-source-connector-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-command-short-description",
+    "translation": "데이터 소스 커넥터 로그."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
+    "translation": "데이터 소스 커넥터 작성 및 등록에 해당하는 로그를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
+    "translation": "데이터 소스 커넥터 로그를 나열합니다."
   },
   {
     "id": "backup-recovery-data-source-connector-patch-command-long-description",
@@ -312,28 +492,36 @@
     "translation": "커넥터의 이름입니다."
   },
   {
-    "id": "backup-recovery-access-token-create-command-short-description",
-    "translation": "액세스 토큰을 작성합니다."
-  },
-  {
-    "id": "backup-recovery-access-token-create-command-long-description",
-    "translation": "다른 REST API 요청을 하기 전에 REST 클라이언트는 유효한 Cohesity 사용자 이름과 비밀번호로 액세스 토큰 요청을 해야 합니다. 이 POST 요청은 액세스 토큰을 리턴하고 Cohesity 클러스터에서 생성한 응답을 입력합니다. 다른 Cohesity REST API 조작에 대한 후속 요청은 http 헤더에 'Authorization'을 다음 형식으로 설정하여 리턴된 액세스 토큰과 유형을 지정해야 합니다. Authorization:- token_type access_token 생성된 토큰은 24시간 동안 유효합니다. 만료된 토큰으로 요청하면 '토큰 만료' 오류 메시지가 리턴됩니다. 이 오류를 확인하고 요청을 다시 발행하기 전에 다른 액세스 토큰을 요청하는 코드를 REST 클라이언트에 추가하십시오."
-  },
-  {
-    "id": "backup-recovery-access-token-create-username-flag-description",
-    "translation": "Cohesity 사용자의 로그인 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-access-token-create-password-flag-description",
-    "translation": "Cohesity 사용자 계정의 비밀번호를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-access-token-create-domain-flag-description",
-    "translation": "사용자가 로그인하는 도메인을 지정합니다. 로컬 사용자의 경우 도메인은 LOCAL입니다. LDAP/AD 사용자의 경우 도메인은 LDAP 연결 문자열에 맵핑됩니다. 사용자는 사용자 이름과 도메인의 조합으로 고유하게 식별됩니다. LOCAL이 기본 도메인입니다."
-  },
-  {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-long-description",
+    "translation": "제공된 등록 토큰을 사용하여 클러스터에 데이터 소스 커넥터를 등록합니다. 이 커넥터를 등록할 데이터 소스 연결에 대한 등록 토큰은 사용자가 관련 '/data-source-connections' API를 호출하여 얻어야 합니다."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-short-description",
+    "translation": "데이터 소스 커넥터를 등록합니다."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
+    "translation": "등록에 사용할 커넥터의 ID. 동일한 테넌트에 속한 두 개의 커넥터는 서로 다른 ID를 갖도록 보장됩니다."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
+    "translation": "필수입니다. 등록 토큰."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-command-short-description",
+    "translation": "데이터 소스 커넥터 상태."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
+    "translation": "클러스터 연결 상태뿐만 아니라 등록을 포함한 데이터 소스 커넥터 상태를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
+    "translation": "데이터 소스 커넥터 상태를 나열합니다."
   },
   {
     "id": "backup-recovery-download-recovery-create-command-long-description",
@@ -389,7 +577,43 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-certificate-flag-description",
+    "translation": "인증서 기본 인증 클러스터에 로그인할 때 사용할 인증서를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-command-long-description",
+    "translation": "필요한 권한 없음\n\n다른 REST API 요청을 하기 전에 REST 클라이언트는 유효한 BRS 사용자 이름과 비밀번호를 사용하여\n'POST /public/accessToken' 요청을 해야 합니다. 이 POST 요청은 액세스 토큰을 리턴하고 BRS 클러스터에서 생성한 응답을 입력합니다. 다른 BRS REST API 조작에 대한 후속 요청은 http 헤더에 'Authorization'을 다음 형식으로 설정하여 리턴된 액세스 토큰과 유형을 지정해야 합니다.\n\nAuthorization:- token_type access_token\n\n생성된 토큰은 24시간 동안 유효합니다. 만료된 토큰으로 요청하면 '토큰 만료' 오류 메시지가 리턴됩니다. 이 오류를 확인하고 요청을 다시 발행하기 전에 다른 액세스 토큰을 요청하는 코드를 REST 클라이언트에 추가하십시오."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-command-short-description",
+    "translation": "액세스 토큰을 생성합니다."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-domain-flag-description",
+    "translation": "사용자가 로그인하는 도메인을 지정합니다. 로컬 사용자 모델의 경우 도메인은 항상 LOCAL입니다. LDAP/AD 사용자의 경우 도메인은 LDAP 연결 문자열에 맵핑됩니다. 사용자는 사용자 이름과 도메인의 조합으로 고유하게 식별됩니다. 이를 설정하지 않은 경우, LOCAL로 간주됩니다."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-otp-code-flag-description",
+    "translation": "MFA 검증을 위한 OTP 코드를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-otp-type-flag-description",
+    "translation": "MFA 검증에 사용할 OTP 유형을 지정합니다.\n'Totp'는 코드가 TOTP임을 의미하고,\n'Email'은 코드가 이메일 OTP임을 의미합니다. 허용 가능한 값: Totp, Email."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-password-flag-description",
+    "translation": "BRS 사용자 계정의 비밀번호를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-private-key-flag-description",
+    "translation": "위 인증서에 일치하는 개인 키를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-generate-access-token-username-flag-description",
+    "translation": "BRS 사용자의 로그인 이름을 지정합니다."
   },
   {
     "id": "backup-recovery-indexed-file-download-command-long-description",
@@ -425,7 +649,7 @@
   },
   {
     "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-indexed-objects-search-cassandra-params-cassandra-object-types-flag-description",
@@ -921,7 +1145,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-storage-domain-ids-flag-description",
-    "translation": "보호 그룹이 지정된 스토리지 도메인의 응집성 보기에 데이터를 쓰는 인덱싱된 오브젝트를 필터링할 스토리지 도메인 ID를 지정합니다."
+    "translation": "보호 그룹이 지정된 스토리지 도메인의 IBM 보기에 데이터를 쓰는 인덱싱된 오브젝트를 필터링할 스토리지 도메인 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-indexed-objects-search-tags-flag-description",
@@ -949,11 +1173,791 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-cloud-type-flag-description",
+    "translation": "필수입니다. 백업 및 복구 인스턴스의 유형을 지정합니다. 현재는 'ibm'만 지원됩니다. 허용되는 값: ibm."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-command-long-description",
+    "translation": "지정된 백업 및 복구(볼트) 인스턴스에 대한 장애 조치를 시작합니다."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-command-short-description",
+    "translation": "지정된 백업 및 복구 인스턴스에 대한 장애 조치를 시작합니다. 여기서 백업 및 복구 인스턴스는 볼트를 의미합니다."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-failover-request-params-flag-description",
+    "translation": "백업 및 복구 인스턴스에 특정된 매개변수를 지정합니다. 즉, 볼트. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-failover-request-params-vault-id-flag-description",
+    "translation": "장애 조치를 시작할 IBM Cloud Backup 및 Recovery 인스턴스의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-xibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-long-description",
     "translation": "백업 복구 서비스를 구성하는 데 사용되는 REST API입니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-long-description",
+    "translation": "보고서 구성요소에 대한 정보를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-short-description",
+    "translation": "ID로 보고서 구성요소 페치"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-id-flag-description",
+    "translation": "필수입니다. 보고서 구성요소의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-long-description",
+    "translation": "ID로 지정된 구성요소의 미리보기를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-short-description",
+    "translation": "구성요소의 미리보기를 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-filters-flag-description",
+    "translation": "보고서 내 지정된 구성요소에 적용 가능한 글로벌 필터 목록을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-id-flag-description",
+    "translation": "필수입니다. 구성요소의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-flag-description",
+    "translation": "결과 데이터 세트를 제한하기 위한 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-from-flag-description",
+    "translation": "결과 데이터가 크기 매개변수를 적용하기 전에 건너뛸 오프셋을 지정합니다. 예를 들어 데이터셋 크기가 10개 오브젝트이고, from=2, size=5인 경우, 10개 객체 중 오프셋 2부터 시작하여 2에서 7까지 5개의 오브젝트만 리턴됩니다. 지정하지 않으면 어떤 오브젝트도 건너뛰지 않습니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-size-flag-description",
+    "translation": "지정된 오프셋부터 리턴될 오브젝트의 수를 지정합니다. 최소값은 1입니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-sort-flag-description",
+    "translation": "결과 데이터에 적용할 정렬(순서 지정) 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-timezone-flag-description",
+    "translation": "사용자의 표준 시간대를 지정합니다. nil인 경우, 기본값은 UTC입니다. 지정된 시간은 IANA 시간대 데이터베이스의 위치 이름이어야 합니다(예: 'America/Los_Angeles')."
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-long-description",
+    "translation": "관리 콘솔 구성요소에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-short-description",
+    "translation": "관리 콘솔 구성요소에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-long-description",
+    "translation": "로그인한 사용자가 액세스 가능한 모든 보고서 구성요소 목록을 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-short-description",
+    "translation": "보고서 구성요소를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-ids-flag-description",
+    "translation": "페치할 보고서 구성요소의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-group-short-description",
+    "translation": "백업 복구 관리 자원에 대한 명령."
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-long-description",
+    "translation": "ProviderInstances 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-short-description",
+    "translation": "ProviderInstances 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-async-flag-description",
+    "translation": "보고서를 비동기적으로 생성할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-long-description",
+    "translation": "구성된 보고서를 내보냅니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-short-description",
+    "translation": "보고서를 내보냅니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-filters-flag-description",
+    "translation": "보고서 내 지정된 구성요소에 적용 가능한 글로벌 필터 목록을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-id-flag-description",
+    "translation": "필수입니다. 보고서의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-layout-flag-description",
+    "translation": "내보내야 할 보고서의 레이아웃입니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-report-format-flag-description",
+    "translation": "보고서를 내보내는 형식입니다. 허용되는 값: XLS, CSV."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-timezone-flag-description",
+    "translation": "사용자의 표준 시간대를 지정합니다. nil인 경우, 기본값은 UTC입니다. 지정된 시간은 IANA 시간대 데이터베이스의 위치 이름이어야 합니다(예: 'America/Los_Angeles')."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-long-description",
+    "translation": "지정된 ID에 대한 보고서를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-short-description",
+    "translation": "보고서를 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-id-flag-description",
+    "translation": "필수입니다. 보고서의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-long-description",
+    "translation": "구성된 보고서의 미리보기를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-short-description",
+    "translation": "보고서 미리보기를 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-component-ids-flag-description",
+    "translation": "지정된 보고서에 대해 평가할 구성요소 ID의 목록을 지정합니다. 지정되지 않은 경우 모든 구성요소가 평가됩니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-filters-flag-description",
+    "translation": "보고서 내 지정된 구성요소에 적용 가능한 글로벌 필터 목록을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-id-flag-description",
+    "translation": "필수입니다. 보고서의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-timezone-flag-description",
+    "translation": "사용자의 표준 시간대를 지정합니다. nil인 경우, 기본값은 UTC입니다. 지정된 시간은 IANA 시간대 데이터베이스의 위치 이름이어야 합니다(예: 'America/Los_Angeles')."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-long-description",
+    "translation": "관리 콘솔 보고서에 대한 명령."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-short-description",
+    "translation": "관리 콘솔 보고서에 대한 명령."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-long-description",
+    "translation": "로그인한 사용자가 액세스 가능한 모든 보고서 목록을 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-short-description",
+    "translation": "보고서를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-ids-flag-description",
+    "translation": "페치할 보고서의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-user-context-flag-description",
+    "translation": "보고서를 필터링하기 위한 사용자 컨텍스트를 지정합니다. 허용되는 값: IBMBaaS."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-long-description",
+    "translation": "보고서 유형의 특성 목록을 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-short-description",
+    "translation": "보고서 유형의 특성을 나열합니다."
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-report-type-flag-description",
+    "translation": "필수입니다. 보고서 유형을 지정합니다. 허용되는 값: Failures, ProtectedUnprotectedObjects, ProtectedObjects, ProtectionActivity, ProtectionGroupSummary, ProtectionRuns, ProtectionRunsTrend, Recovery."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-long-description",
+    "translation": "관리 콘솔 자원에 대한 명령."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-short-description",
+    "translation": "관리 콘솔 자원에 대한 명령."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-long-description",
+    "translation": "관리 콘솔에서 발견할 수 있는 다양한 우형의 자원을 가져옵니다. 이러한 값은 필터링 옵션에 사용할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-short-description",
+    "translation": "자원을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-resource-type-flag-description",
+    "translation": "필수입니다. 자원 유형을 지정합니다. 허용되는 값: Policies, ProtectionGroups, RegisteredSources, MessageCodeMappings."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-long-description",
+    "translation": "카테고리별로 그룹화된 경보 요약을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-short-description",
+    "translation": "경보 요약을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "종료 시간으로 필터링합니다. 종료 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본값은 현재 시간입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-include-tenants-flag-description",
+    "translation": "IncludeTenants는 로그인한 사용자의 조직 계층 구조 아래에 있는 모든 테넌트의 경보를 요약 계산에 포함할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "시작 시간으로 필터링합니다. 시작 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본적으로 현재 시간에서 하루를 뺀 시간입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-states-list-flag-description",
+    "translation": "경보를 필터링할 경보 상태 목록을 지정합니다. 지정하지 않으면 열려 있는 경보만 요약을 얻는 데 사용됩니다. 허용되는 목록 항목: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-tenant-ids-flag-description",
+    "translation": "TenantIds는 요약값을 계산하기 위해 경보를 사용할 테넌트의 ID를 포함합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
+    "translation": "이 필드는 서비스 인스턴스를 고유하게 표시합니다. 값을 \"service-instance-id: <value>\" 형식으로 지정하십시오."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-long-description",
+    "translation": "경보 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-short-description",
+    "translation": "경보 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
+    "translation": "경보 카탈로그 목록으로 필터링합니다. 허용되는 목록 항목: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-ids-flag-description",
+    "translation": "경보 ID 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-name-flag-description",
+    "translation": "경보를 필터링할 경보의 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-severities-flag-description",
+    "translation": "경보 심각도 유형 목록으로 필터링합니다. 허용되는 목록 항목: kCritical, kWarning, kInfo."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-states-flag-description",
+    "translation": "경보 상태 목록으로 필터링합니다. 허용되는 목록 항목: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-type-buckets-flag-description",
+    "translation": "경보 유형 버킷 목록으로 필터링합니다. 허용되는 목록 항목: kHardware, kSoftware, kDataService, kMaintenance."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-types-flag-description",
+    "translation": "경고 유형 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-all-under-hierarchy-flag-description",
+    "translation": "로그인한 사용자의 조직 계층 구조 아래에 있는 모든 테넌트의 오브젝트로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-long-description",
+    "translation": "경보를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-short-description",
+    "translation": "경보를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-end-time-usecs-flag-description",
+    "translation": "경보를 필터링하기 위한 Unix epoch 시간의 종료 시간을 마이크로초 단위로 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-max-alerts-flag-description",
+    "translation": "리턴할 최대 경보 수를 지정합니다. 기본값은 100이고 허용되는 최대값은 1000입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-key-flag-description",
+    "translation": "경보를 필터링할 특성의 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-value-flag-description",
+    "translation": "경보를 필터링할 특성의 값을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-resolution-ids-flag-description",
+    "translation": "경보를 필터링할 경보 분석 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-start-time-usecs-flag-description",
+    "translation": "경보를 필터링하기 위한 Unix epoch 시간의 시작 시간을 마이크로초 단위로 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-tenant-ids-flag-description",
+    "translation": "테넌트 ID로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-x-scope-identifier-flag-description",
+    "translation": "이 필드는 서비스 인스턴스를 고유하게 표시합니다. 값을 \"service-instance-id: <value>\" 형식으로 지정하십시오."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-bad-url-error-message",
+    "translation": "올바르지 않은 URL: 신임 정보 파일의 BACKUP_RECOVERY_MANAGEMENT_SRE_URL 환경 변수 또는 키를 사용하여 기본 URL을 설정하십시오."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-long-description",
+    "translation": "클러스터 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-short-description",
+    "translation": "클러스터 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-long-description",
+    "translation": "클러스터 정보와 해당 업그레이드 세부사항을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-short-description",
+    "translation": "업그레이드 세부사항이 포함된 클러스터 정보입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-long-description",
+    "translation": "지정된 릴리스 버전으로 업그레이드할 수 있는 클러스터 목록을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-short-description",
+    "translation": "릴리스 버전에 호환되는 클러스터를 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-release-version-flag-description",
+    "translation": ""
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-auth-headers-flag-description",
+    "translation": "업그레이드 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-clusters-flag-description",
+    "translation": "업그레이드될 클러스터에 대한 배열입니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-long-description",
+    "translation": "즉시 및 스케줄된 클러스터 업그레이드를 시작합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-short-description",
+    "translation": "즉시 및 스케줄된 클러스터 업그레이드를 시작합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "두 클러스터의 업그레이드 간 시간 차이를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-package-url-flag-description",
+    "translation": "패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "패치 클러스터 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-flag-description",
+    "translation": "패치 업그레이드 요청의 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "사전 검사 결과를 무시할 수 있는지 지정하십시오. 기본값은 false입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-package-url-flag-description",
+    "translation": "패치 패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-target-version-flag-description",
+    "translation": "업그레이드할 클러스터에 대한 대상 패치 버전을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-target-version-flag-description",
+    "translation": "업그레이드할 클러스터에 대한 대상 버전을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "클러스터가 업그레이드되어야 하는 시간을 밀리초 단위로 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-type-flag-description",
+    "translation": "클러스터에 수행할 업그레이드 유형을 지정합니다. 기본값은 Upgrade입니다. 허용되는 값: Upgrade, Patch, UpgradePatch."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-cluster-identifiers-flag-description",
+    "translation": "클러스터 ID 목록을 지정합니다. 형식은 clusterId:clusterIncarnationId입니다. "
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-long-description",
+    "translation": "스케줄된 클러스터 업그레이드를 취소합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-short-description",
+    "translation": "스케줄된 클러스터 업그레이드를 취소합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-cluster-identifiers-flag-description",
+    "translation": "클러스터 ID 목록에 대한 업그레이드 진행 상태 세부사항을 clusterId:clusterIncarnationId 형식으로 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-long-description",
+    "translation": "클러스터 업그레이드의 진행 상태 세부사항 및 로그를 가져옵니다. 로그는 JSON 문자열 형식으로 기록됩니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-short-description",
+    "translation": "업그레이드 정보를 페치합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-long-description",
+    "translation": "ClusterUpgrade 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-short-description",
+    "translation": "ClusterUpgrade 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-auth-headers-flag-description",
+    "translation": "업그레이드 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-clusters-flag-description",
+    "translation": "업그레이드될 클러스터에 대한 배열입니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-long-description",
+    "translation": "스케줄된 클러스터 업그레이드를 업데이트합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-short-description",
+    "translation": "스케줄된 클러스터 업그레이드를 업데이트합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "두 클러스터의 업그레이드 간 시간 차이를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-package-url-flag-description",
+    "translation": "패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "패치 클러스터 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-flag-description",
+    "translation": "패치 업그레이드 요청의 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "사전 검사 결과를 무시할 수 있는지 지정하십시오. 기본값은 false입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-package-url-flag-description",
+    "translation": "패치 패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-target-version-flag-description",
+    "translation": "업그레이드할 클러스터에 대한 대상 패치 버전을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-target-version-flag-description",
+    "translation": "업그레이드할 클러스터에 대한 대상 버전을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "클러스터가 업그레이드되어야 하는 시간을 밀리초 단위로 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-type-flag-description",
+    "translation": "클러스터에 수행할 업그레이드 유형을 지정합니다. 기본값은 Upgrade입니다. 허용되는 값: Upgrade, Patch, UpgradePatch."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-long-description",
+    "translation": "IBM API는 IBM 클러스터 및 관리 콘솔에서 다양한 데이터 관리 조작에 액세스할 수 있는 RESTful 인터페이스를 제공합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-cluster-identifiers-flag-description",
+    "translation": "클러스터 ID 목록을 지정합니다. 형식은 clusterId:clusterIncarnationId입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-long-description",
+    "translation": "카테고리별로 그룹화된 경보 요약을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-short-description",
+    "translation": "관리 콘솔에서 경보 요약을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "종료 시간으로 필터링합니다. 종료 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본값은 현재 시간입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "시작 시간으로 필터링합니다. 시작 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본적으로 현재 시간에서 하루를 뺀 시간입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-states-list-flag-description",
+    "translation": "경보를 필터링할 경보 상태 목록을 지정합니다. 지정하지 않으면 열려 있는 경보만 요약을 얻는 데 사용됩니다. 허용되는 목록 항목: kResolved, kOpen, kNote, kSuppressed."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-long-description",
+    "translation": "ManagementAlerts 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-short-description",
+    "translation": "ManagementAlerts 자원에 대한 명령입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-category-list-flag-description",
+    "translation": "경보 카탈로그 목록으로 필터링합니다. 허용되는 목록 항목: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-id-list-flag-description",
+    "translation": "경보 ID 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-name-flag-description",
+    "translation": "경보를 필터링할 경보의 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-key-list-flag-description",
+    "translation": "쿼리할 경보 특성 키 목록을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-value-list-flag-description",
+    "translation": "경보 특성 값의 목록을 지정합니다. 하나의 키에 대한 다중 값은 '|'로 연결해야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-severity-list-flag-description",
+    "translation": "경보 심각도 유형 목록으로 필터링합니다. 허용되는 목록 항목: kCritical, kWarning, kInfo."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-state-list-flag-description",
+    "translation": "경보 상태 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-bucket-list-flag-description",
+    "translation": "경보 유형 버킷 목록으로 필터링합니다. 허용되는 목록 항목: kHardware, kSoftware, kDataService, kMaintenance."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-list-flag-description",
+    "translation": "경고 유형 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-cluster-identifiers-flag-description",
+    "translation": "클러스터 ID 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-long-description",
+    "translation": "관리 콘솔 경보 목록을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-short-description",
+    "translation": "관리 콘솔 경보 목록을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-end-date-usecs-flag-description",
+    "translation": "리턴될 경보의 종료 시간을 지정합니다. 리턴된 모든 경보는 지정된 종료 시간 이전에 발생한 것입니다. 이 값은 Unix 시간소인 epoch(마이크로초)로 입력해야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-max-alerts-flag-description",
+    "translation": "리턴할 최대 경보 수를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-region-ids-flag-description",
+    "translation": "지역 ID 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-long-description",
+    "translation": "지정된 매개변수의 필터 기준과 일치하는 IBM 시스템에서 발견된 관리 콘솔 경보 분석 오브젝트를 리턴합니다. 필터 매개변수가 지정되지 않은 경우, MaxResolutions 경보 분석 오브젝트가 리턴됩니다. 각 오브젝트는 경보 분석 정보와 분석된 경보 정보에 대한 세부사항을 제공합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-short-description",
+    "translation": "BRS 시스템에서 경보 분석을 나열합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-max-resolutions-flag-description",
+    "translation": "필수입니다. 가장 최근에 작성된 것부터 가장 먼저 작성된 것까지 리턴할 해상도의 최대 수를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-id-flag-description",
+    "translation": "쿼리할 경보 분석 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-name-flag-description",
+    "translation": "쿼리할 경보 분석 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-service-instance-ids-flag-description",
+    "translation": "IBM 고객을 위한 경보를 필터링하도록 서비스 인스턴스 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-start-date-usecs-flag-description",
+    "translation": "리턴될 경보의 시작 시간을 지정합니다. 리턴된 모든 경보는 지정된 시작 시간 이후에 발생합니다. 이 값은 Unix 시간소인 epoch(마이크로초)로 입력해야 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-tenant-ids-flag-description",
+    "translation": "테넌트 ID로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-alert-source-flag-description",
+    "translation": "경보 생성 소스 목록을 지정합니다. 지정되지 않은 경우, 모든 소스의 모든 경보가 응답에 고려됩니다. 허용 가능한 값: kCluster, kHelios."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-cluster-ids-flag-description",
+    "translation": "클러스터 ID 목록을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-long-description",
+    "translation": "활성 경보에 대한 통계를 계산합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-short-description",
+    "translation": "활성 경보에 대한 통계를 계산합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-end-time-usecs-flag-description",
+    "translation": "필수입니다. 활성 경보 통계가 계산되는 종료 시간을 마이크로초 단위의 Unix epoch로 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-exclude-stats-by-cluster-flag-description",
+    "translation": "클러스터별 활성 경보의 통계 데이터를 제외할지 여부를 지정합니다. False(기본값)로 설정된 경우, 클러스터별 활성 경보의 통계가 응답에 포함됩니다. true로 설정된 경우 응답에는 집계된 통계 요약만 포함됩니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-region-ids-flag-description",
+    "translation": "지역 ID 목록으로 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-service-instance-ids-flag-description",
+    "translation": "경보 통계를 필터링하도록 서비스 인스턴스 ID 목록을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-start-time-usecs-flag-description",
+    "translation": "필수입니다. 활성 경보 통계가 계산되는 시작 시간을 마이크로초 단위의 Unix epoch로 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-tenant-ids-flag-description",
+    "translation": "테넌트 목록을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-short-description",
+    "translation": "IBM REST API를 관리합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-long-description",
+    "translation": "모든 제공자 인스턴스를 세부사항과 함께 나열합니다. API는 제공자 인스턴스의 자세한 목록을 리턴합니다. 제공자는 인스턴스의 라이프사이클을 관리할 책임이 있으며, 이 API는 인스턴스에 대한 메타데이터 정보만 제공하는 것을 목적으로 합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-short-description",
+    "translation": "제공자 인스턴스를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-include-service-instance-status-flag-description",
+    "translation": "서비스 인스턴스의 상태와 함께 클러스터 세부사항 및 소프트웨어 버전과 같은 기타 세부사항을 포함할지 여부를 확인하는 Bool 플래그입니다. 기본값은 false입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-instance-ids-flag-description",
+    "translation": "필터링할 제공자 인스턴스 ID 목록입니다."
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-regions-flag-description",
+    "translation": "제공자 인스턴스를 필터링할 지역 목록입니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-command-long-description",
+    "translation": "오브젝트 스냅샷 및 기타 정보를 기반으로 모든 워크플로우에 대한 메타 정보를 생성합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-command-short-description",
+    "translation": "오브젝트 스냅샷 및 기타 정보를 기반으로 모든 워크플로우에 대한 메타 정보를 생성합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-environment-flag-description",
+    "translation": "필수입니다. 보호 그룹의 환경 유형을 지정합니다. 허용되는 값: kVMware, kHyperV, kVCD, kSQL, kView, kRemoteAdapter, kPhysical, kPure, kIbmFlashSystem, kAzure, kNetapp, kGenericNas, kAcropolis, kIsilon, kKVM, kAWS, kAWSNative, kAwsS3, kAWSSnapshotManager, kRDSSnapshotManager, kAuroraSnapshotManager, kAwsRDSPostgresBackup, kAwsRDSPostgres, kAwsAuroraPostgres, kAwsDynamoDB, kAzureNative, kAzureSQL, kAzureEntraID, kAzureSnapshotManager, kExchange, kOracle, kGCP, kFlashBlade, kO365, kHyperFlex, kAD, kGPFS, kKubernetes, kNimble, kElastifile, kCassandra, kMongoDB, kCouchbase, kHdfs, kHive, kHBase, kUDA, kSAPHANA, kO365Sharepoint, kO365PublicFolders, kO365Teams, kO365Group, kO365Exchange, kO365OneDrive, kSfdc, kO365ExchangeCSM, kO365OneDriveCSM, kO365SharepointCSM, kExperimentalAdapter, kMongoDBPhysical, kDB2."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-kubernetes-params-flag-description",
+    "translation": "Kubernetes 오브젝트의 매개변수를 지정합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-kubernetes-params-object-id-flag-description",
+    "translation": "리소스를 페치할 오브젝트 ID의 유형을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-base-dir-flag-description",
+    "translation": "대상 위치에서 Oracle의 기본 디렉토리를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-db-file-destination-flag-description",
+    "translation": "데이터베이스 파일(데이터 파일, 로그 파일 등)을 저장할 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-db-name-flag-description",
+    "translation": "복원할 Oracle 데이터베이스의 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-flag-description",
+    "translation": "대체 복원 또는 복제를 위한 메타 정보를 구성하는 Oracle 매개변수입니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-home-dir-flag-description",
+    "translation": "대상 위치에서 Oracle의 홈 디렉토리를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-clone-flag-description",
+    "translation": "조작이 복제 작업인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-disaster-recovery-flag-description",
+    "translation": "복구가 재해 복구 유형에 해당하는지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-granular-restore-flag-description",
+    "translation": "이 조작이 세분화 복원인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-recovery-validation-flag-description",
+    "translation": "이 조작이 복구 유효성 검증인지 아닌지를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-flag-description",
+    "translation": "종속 오브젝트 목록을 구성하기 위한 매개변수를 지정합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-meta-info-type-flag-description",
+    "translation": "Salesforce 오브젝트에서 페치할 메타 정보의 유형을 지정합니다. 허용되는 값: DependentObjects."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-object-name-flag-description",
+    "translation": "오브젝트의 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-snapshot-id-flag-description",
+    "translation": "필수입니다. 스냅샷 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-object-snapshots-list-command-long-description",
@@ -1009,7 +2013,7 @@
   },
   {
     "id": "backup-recovery-object-snapshots-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-objects-search-cluster-identifiers-flag-description",
@@ -1029,7 +2033,7 @@
   },
   {
     "id": "backup-recovery-objects-search-environments-flag-description",
-    "translation": "오브젝트를 필터링할 환경 유형을 지정합니다. 허용되는 목록 항목: kPhysical, kSQL."
+    "translation": "오브젝트를 필터링할 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-objects-search-external-filters-flag-description",
@@ -1129,6 +2133,78 @@
   },
   {
     "id": "backup-recovery-objects-search-xibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-command-long-description",
+    "translation": "Pulse에서 태스크의 진행 상황과 상태를 검색합니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-command-short-description",
+    "translation": "Pulse에서 태스크의 진행 상황과 상태를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-end-time-secs-flag-description",
+    "translation": "이 시간 이전에 완료된 태스크."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-exclude-sub-tasks-flag-description",
+    "translation": "일치하는 루트 및 서브 태스크에 대한 정보를 건너뜁니다. 기본적으로 일치하는 태스크에 대해 전체 태스크 트리가 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-include-finished-tasks-flag-description",
+    "translation": "완료된 태스크도 리턴합니다. 기본적으로 Pulse는 활성 태스크만 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-max-tasks-flag-description",
+    "translation": "일치하는 태스크는 최대 이 개수까지만 리턴합니다. 이 제한조건은 각 쿼리의 결과 그룹에 적용됩니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-attribute-vec-flag-description",
+    "translation": "지정된 경우, 현재 쿼리와 일치하는 태스크는 이러한 KeyValuePairs 필터를 통해 추가로 필터링됩니다. 이를 통해 클라이언트는 태스크 작성 시 지정한 사용자 정의 속성을 기준으로 검색할 수 있는 기능을 제공합니다. 지정된 키-값 쌍을 모두 포함하는 태스크만 리턴됩니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-end-time-secs-flag-description",
+    "translation": "이 시간 이전에 완료된 태스크."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-exclude-sub-tasks-flag-description",
+    "translation": "일치하는 루트 및 서브 태스크에 대한 정보를 건너뜁니다. 기본적으로 일치하는 태스크에 대해 전체 태스크 트리가 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-fetch-logs-max-level-flag-description",
+    "translation": "Pulse 트리에 대해 이벤트 로그를 페치할 레벨의 수. 단, 이는 include_event_logs가 true일 경우에만 적용된다는 점에 유의하십시오."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-include-event-logs-flag-description",
+    "translation": "이 옵션이 설정되면 이벤트 로그가 응답 메시지에 포함됩니다. 그렇지 않으면 제거됩니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-include-finished-tasks-flag-description",
+    "translation": "완료된 태스크도 리턴합니다. 기본적으로 Pulse는 활성 태스크만 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-max-tasks-flag-description",
+    "translation": "일치하는 태스크는 최대 이 개수까지만 리턴합니다. 이 제한조건은 각 쿼리의 결과 그룹에 적용됩니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-start-time-secs-flag-description",
+    "translation": "이 시간 이후에 시작된 태스크."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-task-path-vec-flag-description",
+    "translation": "쿼리 중인 태스크 이름으로 이어지는 계층적 경로. 여기에 지정된 태스크 경로 이름은 접두부일 수 있습니다. 클라이언트가 여러 개의 경로/접두부를 지정할 수 있습니다. Pulse는 각 경로 쿼리에 대해 하나의 ResultGroup을 리턴합니다.\n\nPulse는 각 경로를 별도로 처리하므로 중복된 경로가 있는 경우 중복된 결과를 리턴합니다.\n\n루트 태스크와 서브 태스크 모두 @task_path_vec에 지정할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-start-time-secs-flag-description",
+    "translation": "이 시간 이후에 시작된 태스크."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-task-path-vec-flag-description",
+    "translation": "쿼리 중인 태스크 이름으로 이어지는 계층적 경로. 여기에 지정된 태스크 경로 이름은 접두부일 수 있습니다. 클라이언트가 여러 개의 경로/접두부를 지정할 수 있습니다. Pulse는 각 경로 쿼리에 대해 하나의 ResultGroup을 리턴합니다.\n\nPulse는 각 경로를 별도로 처리하므로 중복된 경로가 있는 경우 중복된 결과를 리턴합니다.\n\n루트 태스크와 서브 태스크 모두 @task_path_vec에 지정할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-xibm-tenant-id-flag-description",
     "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
   },
   {
@@ -1145,7 +2221,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-environments-flag-description",
-    "translation": "오브젝트를 필터링할 환경 유형을 지정합니다. 허용되는 목록 항목: kPhysical, kSQL."
+    "translation": "오브젝트를 필터링할 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protected-objects-search-filter-snapshot-from-usecs-flag-description",
@@ -1157,7 +2233,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-object-action-key-flag-description",
-    "translation": "오브젝트의 보호를 고유하게 나타내는 ObjectActionKey로 필터링합니다. 오브젝트는 여러 가지 방법으로 보호할 수 있지만 주어진 ObjectActionKey 조합에 대해 최대 한 번만 보호할 수 있습니다. 지정된 경우, objectActionKey와 일치하는 최신 스냅샷 정보가 해당 오브젝트에 대한 것입니다. 허용되는 값: kPhysical, kSQL."
+    "translation": "오브젝트의 보호를 고유하게 나타내는 ObjectActionKey로 필터링합니다. 오브젝트는 여러 가지 방법으로 보호할 수 있지만 주어진 ObjectActionKey 조합에 대해 최대 한 번만 보호할 수 있습니다. 지정된 경우, objectActionKey와 일치하는 최신 스냅샷 정보가 해당 오브젝트에 대한 것입니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protected-objects-search-object-ids-flag-description",
@@ -1200,380 +2276,8 @@
     "translation": "읽기 복제본 캐시 캐시에 GET 요청을 제공할 수 있는지 여부를 지정합니다. 읽기 복제본과 기본 데이터 소스 간에 15초의 지연이 있습니다."
   },
   {
-    "id": "backup-recovery-users-command-short-description",
-    "translation": "사용자를 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-users-command-long-description",
-    "translation": "매개변수를 지정하지 않으면 현재 Cohesity 클러스터에 있는 모든 사용자가 리턴됩니다. 매개변수를 지정하면 리턴되는 결과를 필터링할 수 있습니다."
-  },
-  {
-    "id": "backup-recovery-users-session-name-flag-description",
-    "translation": "필수입니다. 커넥터 로그인 API에서 수신한 세션 쿠키입니다."
-  },
-  {
-    "id": "backup-recovery-connector-logs-access-token-description",
-    "translation": "필수입니다. 커넥터로부터 받은 액세스 토큰입니다."
-  },
-  {
-    "id": "backup-recovery-connector-status-access-token-description",
-    "translation": "필수입니다. 커넥터로부터 받은 액세스 토큰입니다."
-  },
-  {
-    "id": "backup-recovery-users-tenant-ids-flag-description",
-    "translation": "TenantIds 오브젝트를 리턴할 테넌트의 ID를 포함합니다."
-  },
-  {
-    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
-    "translation": "AllUnderHierarchy는 로그인한 사용자 조직의 계층 구조 아래에 있는 모든 테넌트의 오브젝트를 리턴할지 여부를 지정합니다. TenantIds에는 오브젝트가 리턴될 테넌트의 ID가 포함되어 있습니다. returned.TenantIds"
-  },
-  {
-    "id": "backup-recovery-users-usernames-flag-description",
-    "translation": "선택적으로 필터링할 사용자 ID 목록을 지정하십시오. 사용자 ID가 포함된 모든 사용자가 리턴됩니다."
-  },
-  {
-    "id": "backup-recovery-users-email-addresses-flag-description",
-    "translation": "선택적으로 필터링할 이메일 주소 목록을 지정할 수 있습니다."
-  },
-  {
-    "id": "backup-recovery-users-domain-flag-description",
-    "translation": "선택적으로 필터링할 도메인을 지정할 수 있습니다. 도메인을 지정하지 않으면 Cohesity 클러스터의 모든 사용자가 검색됩니다. 도메인을 지정하면 해당 도메인과 연관된 Cohesity 클러스터의 사용자만 검색됩니다."
-  },
-  {
-    "id": "backup-recovery-users-partial-match-flag-description",
-    "translation": "선택적으로 부분 일치를 활성화할지 여부를 지정하십시오. 설정하면 사용자 이름이 포함된 이름을 가진 모든 사용자가 리턴됩니다. False로 설정하면 사용자 이름과 정확히 같은 이름을 가진 사용자만 리턴됩니다. 기본적으로 이 매개변수는 true로 설정되어 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-command-short-description",
-    "translation": "사용자를 업데이트합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-command-long-description",
-    "translation": "Cohesity 클러스터에서 업데이트된 사용자를 리턴합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-session-name-flag-description",
-    "translation": "필수입니다. 커넥터로부터 받은 액세스 토큰입니다."
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-flag-description",
-    "translation": "활성 디렉터리를 사용하여 로그인한 AD 사용자의 정보를 지정합니다. 이 정보는 클러스터에 저장되지 않습니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-additional-group-names-flag-description",
-    "translation": "이 사용자가 속할 수 있는 추가 그룹의 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
-    "translation": "관리 사용자가 데이터 보안 사용자를 수정할 수 있는지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
-    "translation": "AuditLogSettings는 감사 로그 구성이 있는 구조체를 지정합니다. Bb가 없을 때 0이 클러스터 기본값이 되도록 설정합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-authentication-type-flag-description",
-    "translation": "사용자의 인증 유형을 지정합니다. 'kAuthLocal'은 인증된 사용자가 로컬 사용자임을 의미합니다. 'kAuthAd'는 인증된 사용자가 Active Directory 사용자임을 의미합니다. 'kAuthSalesforce'는 인증된 사용자가 Salesforce 사용자임을 의미합니다. 'kAuthGoogle'는 인증된 사용자가 Google 사용자임을 의미합니다. 'kAuthSso'는 인증된 사용자가 SSO 사용자임을 의미합니다. 허용되는 값: kAuthLocal, kAuthAd, kAuthSalesforce, kAuthGoogle, kAuthSso."
-  },
-  {
-    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
-    "translation": "이 사용자가 액세스할 수 있는 클러스터 목록을 지정합니다. 이를 지정하지 않으면 모든 클러스터에 액세스 권한이 부여됩니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
-    "translation": "Cohesity 클러스터에서 사용자 계정이 작성된 에포크 시간(밀리초)을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-current-password-flag-description",
-    "translation": "비밀번호를 업데이트할 때 현재 비밀번호를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-description-flag-description",
-    "translation": "사용자에 대한 설명을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-domain-flag-description",
-    "translation": "Cohesity 클러스터의 기본 LOCAL 도메인에 대해 Active Directory 또는 LOCAL의 FQDN(완전한 도메인 이름)을 지정합니다. 사용자는 사용자 이름과 도메인의 조합으로 고유하게 식별됩니다."
-  },
-  {
-    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
-    "translation": "사용자가 효력이 발생하는 에포크 시간(밀리초)을 지정합니다. 그때까지는 사용자가 로그인할 수 없습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-email-address-flag-description",
-    "translation": "사용자의 이메일 주소를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
-    "translation": "사용자가 만료되는 에포크 시간(밀리초)을 지정합니다. 그 이후에는 사용자가 로그인할 수 없습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-force-password-change-flag-description",
-    "translation": "사용자에게 비밀번호 변경을 강제할지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-google-account-flag-description",
-    "translation": "관리 콘솔 BRS 사용자의 Google 계정 정보. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-flag-description",
-    "translation": "IdP를 사용하여 로그인한 IdP 사용자 정보를 지정합니다. 이 정보는 클러스터에 저장되지 않습니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
-    "translation": "Intercom ID 검증을 위한 Messenger 토큰을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-is-account-locked-flag-description",
-    "translation": "사용자 계정이 잠겨 있는지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-is-active-flag-description",
-    "translation": "IsActive는 사용자가 활성화되어 있는지 또는 고객에 의해 비활성화되었는지 여부를 지정합니다. 기본 동작은 'true'입니다."
-  },
-  {
-    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
-    "translation": "사용자가 마지막으로 로그인에 성공한 에포크 시간(밀리초)을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
-    "translation": "Cohesity 클러스터에서 사용자 계정이 마지막으로 수정된 에포크 시간(밀리초)을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-mfa-info-flag-description",
-    "translation": "MFA에 대한 정보를 지정합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-mfa-methods-flag-description",
-    "translation": "클러스터에서 활성화된 MFA 방법을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-object-class-flag-description",
-    "translation": "사용자의 오브젝트 클래스를 지정합니다. 사용자 또는 그룹일 수 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-org-membership-flag-description",
-    "translation": "OrgMembership에는 이 사용자가 전환할 수 있는 모든 tenantIds 목록이 포함되어 있습니다. 세션 사용자를 작성할 때만 이 필드가 즉석에서 채워집니다. 사용자에게 지정된 다양한 그룹에서 tenantIds를 발견합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-password-flag-description",
-    "translation": "이 사용자의 비밀번호를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-preferences-flag-description",
-    "translation": "이 사용자의 환경 설정을 지정합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
-    "translation": "이전 사용자 로그인의 에포크 시간(밀리초)을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-primary-group-name-flag-description",
-    "translation": "이 사용자의 기본 그룹 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-privilege-ids-flag-description",
-    "translation": "역할의 Cohesity 권한을 지정합니다. 역할에 있는 모든 권한의 조합을 기반으로 채워집니다. 고유 권한 Id 값을 입력하십시오. 아래 열거형 값은 모두 Cohesity에서 고유하게 정의된 모든 권한에 대한 값을 지정합니다. 허용되는 목록 항목: kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease."
-  },
-  {
-    "id": "backup-recovery-user-update-profiles-flag-description",
-    "translation": "사용자 프로파일을 지정합니다. 참고: 현재 관리 콘솔에 사용 중입니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-restricted-flag-description",
-    "translation": "사용자가 제한된 사용자인지 여부. 제한된 사용자는 자신에게 권한이 있는 오브젝트만 볼 수 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-roles-flag-description",
-    "translation": "'Admin', 'Ops' 또는 'View' 등 사용자와 연결할 Cohesity 역할을 지정합니다. Cohesity 역할은 이 사용자의 Cohesity 클러스터에 대한 권한을 결정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
-    "translation": "S3 계정 액세스 키 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-s3-account-id-flag-description",
-    "translation": "S3 계정 표준 사용자 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
-    "translation": "S3 계정 시크릿 키를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-flag-description",
-    "translation": "관리 콘솔 사용자의 Salesforce 계정 정보. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-sid-flag-description",
-    "translation": "사용자의 고유 보안 ID(SID)를 지정합니다. 이 필드는 사용자 수정 시 필수 입력 사항입니다."
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-flag-description",
-    "translation": "SpogContext는 이 클러스터에서 조치를 수행하는 사용자 및 클러스터에 대한 모든 정보를 지정합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-flag-description",
-    "translation": "이를 Helios, DRaaS 및 DSaaS로 확장합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
-    "translation": "MCM 사용자의 테넌트 액세스를 지정합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-tenant-id-flag-description",
-    "translation": "사용자의 유효 테넌트 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-username-flag-description",
-    "translation": "사용자의 로그인 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
-    "translation": "그룹의 SID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
-    "translation": "이 사용자가 속해 있는 그룹을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
-    "translation": "유동 사용자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
-    "translation": "ReadLogging은 읽기 로그를 캡처해야 하는지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
-    "translation": "Google에 의해 지정된 계정 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
-    "translation": "Google에 의해 지정된 사용자 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
-    "translation": "그룹의 SID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
-    "translation": "사용자가 속해 있는 Idp 그룹을 지정합니다. 사용자가 클러스터에 등록되어 있지 않을 수 있으므로 ID 그룹 멤버십을 캡처해야 할 수 있습니다. 이렇게 하면 나중에 클러스터에 그룹이 작성되더라도 사용자는 해당 그룹의 tenantIds에도 즉시 액세스할 수 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
-    "translation": "IdP에 대해 클러스터에 의해 지정된 고유 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
-    "translation": "유동 사용자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
-    "translation": "이 클러스터에 대해 공급업체가 지정하는 고유 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
-    "translation": "공급업체가 사용자에 대해 지정하는 고유 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
-    "translation": "IdP 서비스를 제공하는 공급업체를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
-    "translation": "사용자에 대해 MFA를 비활성화할지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-preferences-locale-flag-description",
-    "translation": "로케일은 사용자의 언어 설정을 반영합니다. 필요할 때마다 Scribe에 저장된 사용자 환경 설정을 사용하여 사용자를 채웁니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
-    "translation": "Salesforce에 의해 지정된 계정 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
-    "translation": "관리 콘솔 액세스 상태를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
-    "translation": "사용자가 DGaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
-    "translation": "사용자가 DMaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
-    "translation": "사용자가 DRaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
-    "translation": "사용자가 RPaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
-    "translation": "사용자가 Cohesity의 영업 담당자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
-    "translation": "사용자가 Cohesity의 지원 담당자인지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
-    "translation": "Salesforce에 의해 지정된 사용자 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
-    "translation": "SPOG를 통해 이 클러스터에 액세스하는 원격 클러스터의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
-    "translation": "SPOG를 통해 이 클러스터에 액세스하는 사용자의 SID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
-    "translation": "SPOG를 통해 이 클러스터에 액세스하는 사용자의 사용자 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
-    "translation": "ClassificationInfo에는 Datahawk 분류 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
-    "translation": "DMaaSSubscriptionInfo에는 활성화 여부 등 Data Protect 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
-    "translation": "ClassificationInfo에는 Datahawk 분류 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
-    "translation": "FortKnoxInfo는 Fortknox Azure 또는 Azure FreeTrial 또는 AwsCold 또는 AwsCold FreeTrial 구독이 활성화되어 있는지 여부 등의 정보를 보관합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
-    "translation": "FortKnoxInfo는 Fortknox Azure 또는 Azure FreeTrial 또는 AwsCold 또는 AwsCold FreeTrial 구독이 활성화되어 있는지 여부 등의 정보를 보관합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
-    "translation": "FortKnoxInfo는 Fortknox Azure 또는 Azure FreeTrial 또는 AwsCold 또는 AwsCold FreeTrial 구독이 활성화되어 있는지 여부 등의 정보를 보관합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
-    "translation": "RansomwareInfo는 FortKnox/FortKnoxFreeTrial 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보를 보유합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
-    "translation": "SiteContinuityInfo에는 사이트 연속성 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
-    "translation": "ThreatProtectionInfo는 활성화 여부 등 Datahawk ThreatProtection 구독에 대한 정보를 보유합니다. JSON 파일의 경로일 수도 있습니다."
-  },
-  {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-create-abort-in-blackouts-flag-description",
@@ -1625,11 +2329,63 @@
   },
   {
     "id": "backup-recovery-protection-group-create-environment-flag-description",
-    "translation": "필수입니다. 보호 그룹의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL."
+    "translation": "필수입니다. 보호 그룹의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protection-group-create-is-paused-flag-description",
     "translation": "보호 그룹을 일시중지할지 여부를 지정합니다. 일시중지된 보호 그룹에 대해서는 새 실행이 스케줄되지 않습니다. 영향을 받지 않는 경우 활성 실행됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-enable-indexing-flag-description",
+    "translation": "네임스페이스를 백업할 때 파일 및 폴더의 인덱싱을 허용할지 여부를 지정합니다. 허용된 파일과 폴더를 복구할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-label-ids-flag-description",
+    "translation": "제외할 레이블을 지정하는 레이블 ID 배열의 배열입니다. 선택적으로, 이 2차원 배열에 보호 소스 ID를 나열하여 보호 대상에서 제외할 레이블 목록을 지정할 수 있습니다. 클러스터는 레이블 ID의 2차원 배열을 사용하여 보호에서 제외할 네임스페이스 목록을 생성하는데, 이 목록은 내부 배열의 교집합과 외부 배열의 합집합에서 파생됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-object-ids-flag-description",
+    "translation": "보호 그룹에서 제외할 오브젝트를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-params-flag-description",
+    "translation": "오브젝트(예: 볼륨)를 포함하거나 제외할 매개변수를 지정합니다. 이 기준 중 하나라도 충족하는 오브젝트는 이 필터에 의해 포함됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-flag-description",
+    "translation": "Kubernetes 보호 그룹과 관련된 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-include-params-flag-description",
+    "translation": "오브젝트(예: 볼륨)를 포함하거나 제외할 매개변수를 지정합니다. 이 기준 중 하나라도 충족하는 오브젝트는 이 필터에 의해 포함됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-label-ids-flag-description",
+    "translation": "보호할 레이블을 지정하는 레이블 ID 배열의 배열입니다. 선택적으로, 이 2차원 배열에 레이블의 보호 소스 ID를 나열하여 보호할 레이블 목록을 지정할 수 있습니다. 클러스터는 레이블 ID의 2차원 배열을 사용하여 보호할 네임스페이스 목록을 생성하는데, 이 목록은 내부 배열의 교집합과 외부 배열의 합집합에서 파생됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-leverage-csi-snapshot-flag-description",
+    "translation": "네임스페이스 백업에 CSI 스냅샷을 사용할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-non-snapshot-backup-flag-description",
+    "translation": "스냅샷 백업이 실패할 경우, 스냅샷이 아닌 백업을 진행할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-objects-flag-description",
+    "translation": "보호 그룹에 포함된 오브젝트를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-snapshot-timeout-seconds-flag-description",
+    "translation": "볼륨 스냅샷이 준비될 때까지 대기하는 사용자 지정 제한시간(초)을 지정합니다. 이는 CSI 스냅샷이 사용으로 설정되지 않으면 지원되지 않습니다. 기본값: IBM baas의 경우 900초, 그 외의 경우 300초."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-vlan-params-flag-description",
+    "translation": "백업/복원 작업과 연관된 VLAN 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-volume-backup-failure-flag-description",
+    "translation": "볼륨 백업이 실패할 경우 백업을 진행할지 여부를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-create-last-modified-timestamp-usecs-flag-description",
@@ -1662,6 +2418,10 @@
   {
     "id": "backup-recovery-protection-group-create-pause-in-blackouts-flag-description",
     "translation": "정책에 지정된 블랙아웃 기간이 시작될 경우 현재 실행 중인 작업을 일시중지할지 여부를 지정합니다. 선택한 정책에 하나 이상의 블랙아웃 기간이 있는 경우에만 사용할 수 있습니다. 기본값은 false입니다. 'abortInBlackouts'가 true로 전송된 경우 이 필드를 true로 설정해서는 안 됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-paused-note-flag-description",
+    "translation": "향후 실행을 일시정지하는 이유를 설명하는 현재 사용자의 메모(해당되는 경우)."
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-file-protection-type-params-flag-description",
@@ -1713,7 +2473,7 @@
   },
   {
     "id": "backup-recovery-protection-group-create-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-delete-command-long-description",
@@ -1733,7 +2493,7 @@
   },
   {
     "id": "backup-recovery-protection-group-delete-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-get-command-long-description",
@@ -1765,7 +2525,7 @@
   },
   {
     "id": "backup-recovery-protection-group-get-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-group-long-description",
@@ -1785,7 +2545,7 @@
   },
   {
     "id": "backup-recovery-protection-group-list-environments-flag-description",
-    "translation": "'kVMware', 'kView' 등과 같은 환경 유형별로 필터링합니다. 지정된 환경 유형을 보호하는 보호 그룹만 리턴됩니다. 허용되는 목록 항목: kPhysical, kSQL."
+    "translation": "'kVMware', 'kView' 등과 같은 환경 유형별로 필터링합니다. 지정된 환경 유형을 보호하는 보호 그룹만 리턴됩니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protection-group-list-ids-flag-description",
@@ -1865,7 +2625,7 @@
   },
   {
     "id": "backup-recovery-protection-group-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-run-create-command-long-description",
@@ -1909,7 +2669,43 @@
   },
   {
     "id": "backup-recovery-protection-group-run-create-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-command-long-description",
+    "translation": "보호 그룹에 대한 실행을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-command-short-description",
+    "translation": "보호 그룹에 대한 실행을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-id-flag-description",
+    "translation": "필수입니다. 보호 그룹의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-include-object-details-flag-description",
+    "translation": "보호 실행에 대한 오브젝트 세부사항을 결과에 포함할지 여부를 지정합니다. True로 설정하면 보호된 오브젝트의 세부사항이 리턴됩니다. False로 설정하거나 지정하지 않으면 세부사항이 리턴되지 않습니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-include-tenants-flag-description",
+    "translation": "True인 경우, 이 응답에는 현재 사용자에게 볼 권한이 있는 모든 테넌트에서 작성한 보호 그룹 실행이 포함됩니다. false인 경우, 현재 사용자가 작성한 보호 그룹만 리턴됩니다. 지정되지 않은 경우, 기본적으로 true입니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-request-initiator-type-flag-description",
+    "translation": "Magneto와 같은 서비스에서 요청의 우선순위를 결정하는 데 사용되는 UI의 요청 유형을 지정합니다. 허용되는 값: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-run-id-flag-description",
+    "translation": "필수입니다. 보호 그룹 실행의 고유 실행 ID를 지정합니다. "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-tenant-ids-flag-description",
+    "translation": "TenantIds에는 실행이 리턴될 테넌트의 ID가 포함되어 있습니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-use-cached-data-flag-description",
+    "translation": "읽기 복제본 캐시에서 GET 요청을 제공할 수 있는지 여부를 지정합니다. 읽기 복제본과 기본 데이터 소스 간에 15초의 지연이 있습니다."
   },
   {
     "id": "backup-recovery-protection-group-run-group-long-description",
@@ -2005,7 +2801,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-action-flag-description",
@@ -2037,7 +2833,67 @@
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-command-long-description",
+    "translation": "실행의 진행 상태를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-command-short-description",
+    "translation": "실행의 진행 상태를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-end-time-usecs-flag-description",
+    "translation": "Unix 에포크 시간소인(마이크로초)으로, 진행 태스크가 종료되기 전의 시간을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-exclude-object-details-flag-description",
+    "translation": "오브젝트를 리턴할지 여부를 지정합니다. 기본적으로 모든 태스크 트리가 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-event-logs-flag-description",
+    "translation": "이벤트 로그를 포함할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-finished-tasks-flag-description",
+    "translation": "완료된 태스크를 리턴할지 여부를 지정합니다. 기본적으로 활성 태스크만 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-tenants-flag-description",
+    "translation": "True인 경우, 이 응답에는 현재 사용자에게 볼 권한이 있는 모든 테넌트에서 작성한 보호 그룹 실행이 포함됩니다. false인 경우, 현재 사용자가 작성한 보호 그룹만 리턴됩니다. 지정되지 않은 경우, 기본적으로 true입니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-max-log-level-flag-description",
+    "translation": "이벤트 로그를 가져올 레벨 수를 지정합니다. 이는 includeEventLogs가 true인 경우에만 적용됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-max-tasks-num-flag-description",
+    "translation": "리턴할 태스크의 최대 수를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-object-task-paths-flag-description",
+    "translation": "오브젝트 레벨 태스크 경로를 지정합니다. 이는 objectID와 관련됩니다. 이 정보가 제공되면 오브젝트보다 우선순위가 높아지며, 오브젝트의 실제 태스크 경로를 참조하지 않고 진행 상태 세부사항을 직접 페치하는 데 사용됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-objects-flag-description",
+    "translation": "진행 상태가 리턴될 오브젝트를 지정합니다. 이는 보호 그룹 실행에만 적용되며, 오브젝트 실행의 경우에는 무시됩니다. 오브젝트가 지정된 경우 전체 실행 진행 상태는 리턴되지 않고, 지정된 오브젝트의 진행 상태만 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-run-id-flag-description",
+    "translation": "필수입니다. 보호 실행의 고유 실행 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-run-task-path-flag-description",
+    "translation": "실행 또는 오브젝트 실행의 태스크 경로를 지정합니다. 이는 하나 이상의 오브젝트가 포함된 보호 그룹의 진행 상태가 필요한 경우에만 적용됩니다. 이 정보가 제공되면 오브젝트의 실제 태스크 경로를 확인하지 않고 진행 상태 세부사항을 직접 페치하는 데 사용됩니다. 여전히 오브젝트 필드가 필요하며, 그렇지 않으면 응답 형식이 변경됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-start-time-usecs-flag-description",
+    "translation": "Unix 에포크 시간소인(마이크로초)으로, 진행 태스크가 시작된 후의 시간을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-tenant-ids-flag-description",
+    "translation": "TenantIds에는 실행이 리턴될 테넌트의 ID가 포함되어 있습니다."
   },
   {
     "id": "backup-recovery-protection-group-run-update-command-long-description",
@@ -2057,7 +2913,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-update-abort-in-blackouts-flag-description",
@@ -2109,7 +2965,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-environment-flag-description",
-    "translation": "필수입니다. 보호 그룹의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL."
+    "translation": "필수입니다. 보호 그룹의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protection-group-update-id-flag-description",
@@ -2118,6 +2974,58 @@
   {
     "id": "backup-recovery-protection-group-update-is-paused-flag-description",
     "translation": "보호 그룹을 일시중지할지 여부를 지정합니다. 일시중지된 보호 그룹에 대해서는 새 실행이 스케줄되지 않습니다. 영향을 받지 않는 경우 활성 실행됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-enable-indexing-flag-description",
+    "translation": "네임스페이스를 백업할 때 파일 및 폴더의 인덱싱을 허용할지 여부를 지정합니다. 허용된 파일과 폴더를 복구할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-label-ids-flag-description",
+    "translation": "제외할 레이블을 지정하는 레이블 ID 배열의 배열입니다. 선택적으로, 이 2차원 배열에 보호 소스 ID를 나열하여 보호 대상에서 제외할 레이블 목록을 지정할 수 있습니다. 클러스터는 레이블 ID의 2차원 배열을 사용하여 보호에서 제외할 네임스페이스 목록을 생성하는데, 이 목록은 내부 배열의 교집합과 외부 배열의 합집합에서 파생됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-object-ids-flag-description",
+    "translation": "보호 그룹에서 제외할 오브젝트를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-params-flag-description",
+    "translation": "오브젝트(예: 볼륨)를 포함하거나 제외할 매개변수를 지정합니다. 이 기준 중 하나라도 충족하는 오브젝트는 이 필터에 의해 포함됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-flag-description",
+    "translation": "Kubernetes 보호 그룹과 관련된 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-include-params-flag-description",
+    "translation": "오브젝트(예: 볼륨)를 포함하거나 제외할 매개변수를 지정합니다. 이 기준 중 하나라도 충족하는 오브젝트는 이 필터에 의해 포함됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-label-ids-flag-description",
+    "translation": "보호할 레이블을 지정하는 레이블 ID 배열의 배열입니다. 선택적으로, 이 2차원 배열에 레이블의 보호 소스 ID를 나열하여 보호할 레이블 목록을 지정할 수 있습니다. 클러스터는 레이블 ID의 2차원 배열을 사용하여 보호할 네임스페이스 목록을 생성하는데, 이 목록은 내부 배열의 교집합과 외부 배열의 합집합에서 파생됩니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-leverage-csi-snapshot-flag-description",
+    "translation": "네임스페이스 백업에 CSI 스냅샷을 사용할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-non-snapshot-backup-flag-description",
+    "translation": "스냅샷 백업이 실패할 경우, 스냅샷이 아닌 백업을 진행할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-objects-flag-description",
+    "translation": "보호 그룹에 포함된 오브젝트를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-snapshot-timeout-seconds-flag-description",
+    "translation": "볼륨 스냅샷이 준비될 때까지 대기하는 사용자 지정 제한시간(초)을 지정합니다. 이는 CSI 스냅샷이 사용으로 설정되지 않으면 지원되지 않습니다. 기본값: IBM baas의 경우 900초, 그 외의 경우 300초."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-vlan-params-flag-description",
+    "translation": "백업/복원 작업과 연관된 VLAN 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-volume-backup-failure-flag-description",
+    "translation": "볼륨 백업이 실패할 경우 백업을 진행할지 여부를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-group-update-last-modified-timestamp-usecs-flag-description",
@@ -2150,6 +3058,10 @@
   {
     "id": "backup-recovery-protection-group-update-pause-in-blackouts-flag-description",
     "translation": "정책에 지정된 블랙아웃 기간이 시작될 경우 현재 실행 중인 작업을 일시중지할지 여부를 지정합니다. 선택한 정책에 하나 이상의 블랙아웃 기간이 있는 경우에만 사용할 수 있습니다. 기본값은 false입니다. 'abortInBlackouts'가 true로 전송된 경우 이 필드를 true로 설정해서는 안 됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-paused-note-flag-description",
+    "translation": "향후 실행을 일시정지하는 이유를 설명하는 현재 사용자의 메모(해당되는 경우)."
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-file-protection-type-params-flag-description",
@@ -2201,7 +3113,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-bmr-flag-description",
@@ -2317,7 +3229,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-policy-delete-command-long-description",
@@ -2333,7 +3245,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-delete-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-policy-get-command-long-description",
@@ -2353,7 +3265,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-get-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-policy-group-long-description",
@@ -2400,8 +3312,12 @@
     "translation": "유형은 리턴할 정책의 정책 유형을 지정합니다. 허용되는 목록 항목: Regular, Internal."
   },
   {
+    "id": "backup-recovery-protection-policy-list-vault-ids-flag-description",
+    "translation": "볼트 ID 목록으로 필터링합니다. 지정된 볼트 중 하나로 아카이브되도록 설정된 정책이 리턴됩니다."
+  },
+  {
     "id": "backup-recovery-protection-policy-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-bmr-flag-description",
@@ -2521,7 +3437,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-group-long-description",
@@ -2545,7 +3461,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-command-long-description",
-    "translation": "매개변수를 지정하지 않으면 응집성 클러스터에 등록된 모든 보호 소스가 리턴됩니다. 또한 각 소스에서 수집된 오브젝트 하위 트리가 리턴됩니다. 예를 들어, 응집성 클러스터는 소스 VMware vCenter Server를 조사하고 vCenter Server의 인벤토리 트리를 미러링하는 계층적 오브젝트 서브트리를 작성합니다. 오브젝트 트리의 컨텐츠는 \"protectionSource\"의 \"nodes\" 계층 구조로 리턴됩니다. 매개변수를 지정하면 리턴되는 결과가 변경될 수 있습니다."
+    "translation": "매개변수를 지정하지 않으면 IBM 클러스터에 등록된 모든 보호 소스가 리턴됩니다. 또한 각 소스에서 수집된 오브젝트 하위 트리가 리턴됩니다. 예를 들어, IBM 클러스터는 소스 VMware vCenter를 조사하고 vCenter Server의 인벤토리 트리를 미러링하는 계층적 오브젝트 서브트리를 작성합니다. 오브젝트 트리의 컨텐츠는 \"protectionSource\"의 \"nodes\" 계층 구조로 리턴됩니다. 매개변수를 지정하면 리턴되는 결과가 변경될 수 있습니다."
   },
   {
     "id": "backup-recovery-protection-source-list-command-short-description",
@@ -2665,7 +3581,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-refresh-command-long-description",
@@ -2681,7 +3597,7 @@
   },
   {
     "id": "backup-recovery-protection-source-refresh-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-register-advanced-configs-flag-description",
@@ -2717,11 +3633,87 @@
   },
   {
     "id": "backup-recovery-protection-source-register-environment-flag-description",
-    "translation": "필수입니다. 보호 소스의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL."
+    "translation": "필수입니다. 보호 소스의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protection-source-register-is-internal-encrypted-flag-description",
     "translation": "신임 정보를 내부 키로 암호화할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-auto-protect-config-flag-description",
+    "translation": "등록 후 소스를 자동으로 보호하기 위한 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-client-private-key-flag-description",
+    "translation": "Kubernetes 소스의 베어러 토큰 또는 개인 키를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-data-mover-image-location-flag-description",
+    "translation": "Kubernetes 소스의 데이터 이동기 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-datamover-service-type-flag-description",
+    "translation": "Kubernetes 소스의 데이터 이동기 서비스 유형을 지정합니다. 허용되는 값: kNodePort, kLoadBalancer, kClusterIp, kHostPort."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-default-vlan-params-flag-description",
+    "translation": "백업/복원 작업과 연관된 VLAN 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-endpoint-flag-description",
+    "translation": "Kubernetes 소스의 엔드포인트를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-flag-description",
+    "translation": "Kubernetes 소스를 등록하기 위한 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-init-container-image-location-flag-description",
+    "translation": "Kubernetes 소스의 초기 컨테이너 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-kubernetes-distribution-flag-description",
+    "translation": "Kubernetes 소스의 배포 유형을 지정합니다. 허용되는 값: kOpenshift, kMainline, kVMwareTanzu, kRancher, kEKS, kGKE, kAKS, kIKS, kROKS."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-kubernetes-type-flag-description",
+    "translation": "Kubernetes 소스 유형을 지정합니다. 허용되는 값: kCluster, kNamespace, kService, kPVC, kPersistentVolumeClaim, kPersistentVolume, kLabel."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-priority-class-name-flag-description",
+    "translation": "IBM 리소스의 우선순위 클래스 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-resource-annotations-flag-description",
+    "translation": "IBM 리소스에 적용할 리소스 어노테이션을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-resource-labels-flag-description",
+    "translation": "IBM 리소스에 적용할 리소스 레이블을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-san-fields-flag-description",
+    "translation": "에이전트 인증서의 SAN 필드를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-service-annotations-flag-description",
+    "translation": "Kubernetes 소스의 서비스 어노테이션 오브젝트를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-aws-plugin-image-location-flag-description",
+    "translation": "Kubernetes 소스의 velero AWS 플러그인 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-image-location-flag-description",
+    "translation": "Kubernetes 소스의 velero 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-openshift-plugin-image-location-flag-description",
+    "translation": "Kubernetes 소스의 velero OpenShift 플러그인 이미지를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-vlan-info-vec-flag-description",
+    "translation": "등록 시 제공된 VLAN 정보를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
   },
   {
     "id": "backup-recovery-protection-source-register-name-flag-description",
@@ -2753,7 +3745,7 @@
   },
   {
     "id": "backup-recovery-protection-source-register-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-command-long-description",
@@ -2769,7 +3761,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-registration-get-command-long-description",
@@ -2789,7 +3781,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-get-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-command-long-description",
@@ -2801,7 +3793,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-environment-flag-description",
-    "translation": "필수입니다. 패치할 보호 소스의 환경 유형을 지정합니다. 현재 지원되는 유일한 환경은 kCassandra입니다. 허용되는 값: kPhysical, kSQL."
+    "translation": "필수입니다. 패치할 보호 소스의 환경 유형을 지정합니다. 현재 지원되는 유일한 환경은 kCassandra입니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-id-flag-description",
@@ -2809,7 +3801,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-registration-update-advanced-configs-flag-description",
@@ -2845,7 +3837,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-environment-flag-description",
-    "translation": "필수입니다. 보호 소스의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL."
+    "translation": "필수입니다. 보호 소스의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-protection-source-registration-update-id-flag-description",
@@ -2854,6 +3846,78 @@
   {
     "id": "backup-recovery-protection-source-registration-update-is-internal-encrypted-flag-description",
     "translation": "신임 정보를 내부 키로 암호화할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-auto-protect-config-flag-description",
+    "translation": "등록 후 소스를 자동으로 보호하기 위한 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-client-private-key-flag-description",
+    "translation": "Kubernetes 소스의 베어러 토큰 또는 개인 키를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-data-mover-image-location-flag-description",
+    "translation": "Kubernetes 소스의 데이터 이동기 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-datamover-service-type-flag-description",
+    "translation": "Kubernetes 소스의 데이터 이동기 서비스 유형을 지정합니다. 허용되는 값: kNodePort, kLoadBalancer, kClusterIp, kHostPort."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-default-vlan-params-flag-description",
+    "translation": "백업/복원 작업과 연관된 VLAN 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-endpoint-flag-description",
+    "translation": "Kubernetes 소스의 엔드포인트를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-init-container-image-location-flag-description",
+    "translation": "Kubernetes 소스의 초기 컨테이너 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-distribution-flag-description",
+    "translation": "Kubernetes 소스의 배포 유형을 지정합니다. 허용되는 값: kOpenshift, kMainline, kVMwareTanzu, kRancher, kEKS, kGKE, kAKS, kIKS, kROKS."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-type-flag-description",
+    "translation": "Kubernetes 소스 유형을 지정합니다. 허용되는 값: kCluster, kNamespace, kService, kPVC, kPersistentVolumeClaim, kPersistentVolume, kLabel."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-priority-class-name-flag-description",
+    "translation": "IBM 리소스의 우선순위 클래스 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-resource-annotations-flag-description",
+    "translation": "IBM 리소스에 적용할 리소스 어노테이션을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-resource-labels-flag-description",
+    "translation": "IBM 리소스에 적용할 리소스 레이블을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-san-fields-flag-description",
+    "translation": "에이전트 인증서의 SAN 필드를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-service-annotations-flag-description",
+    "translation": "Kubernetes 소스의 서비스 어노테이션 오브젝트를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-aws-plugin-image-location-flag-description",
+    "translation": "Kubernetes 소스의 velero AWS 플러그인 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-image-location-flag-description",
+    "translation": "Kubernetes 소스의 velero 이미지 위치를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-openshift-plugin-image-location-flag-description",
+    "translation": "Kubernetes 소스의 velero OpenShift 플러그인 이미지를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-vlan-info-vec-flag-description",
+    "translation": "등록 시 제공된 VLAN 정보를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
   },
   {
     "id": "backup-recovery-protection-source-registration-update-last-modified-timestamp-usecs-flag-description",
@@ -2889,7 +3953,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-command-long-description",
@@ -2901,7 +3965,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-encryption-key-flag-description",
-    "translation": "소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-ids-flag-description",
@@ -2925,7 +3989,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-protection-sources-group-long-description",
@@ -2949,7 +4013,7 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-command-long-description",
-    "translation": "매개변수를 지정하지 않으면 응집성 클러스터에 등록된 모든 보호 소스가 리턴됩니다. 또한 각 소스에서 수집된 오브젝트 하위 트리가 리턴됩니다. 예를 들어, 응집성 클러스터는 소스 VMware vCenter Server를 조사하고 vCenter Server의 인벤토리 트리를 미러링하는 계층적 오브젝트 서브트리를 작성합니다. 오브젝트 트리의 컨텐츠는 \"protectionSource\"의 \"nodes\" 계층 구조로 리턴됩니다. 매개변수를 지정하면 리턴되는 결과가 변경될 수 있습니다."
+    "translation": "매개변수를 지정하지 않으면 IBM 클러스터에 등록된 모든 보호 소스가 리턴됩니다. 또한 각 소스에서 수집된 오브젝트 하위 트리가 리턴됩니다. 예를 들어, IBM 클러스터는 소스 VMware vCenter를 조사하고 vCenter Server의 인벤토리 트리를 미러링하는 계층적 오브젝트 서브트리를 작성합니다. 오브젝트 트리의 컨텐츠는 \"protectionSource\"의 \"nodes\" 계층 구조로 리턴됩니다. 매개변수를 지정하면 리턴되는 결과가 변경될 수 있습니다."
   },
   {
     "id": "backup-recovery-protection-sources-list-command-short-description",
@@ -3069,7 +4133,107 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy는 로그인한 사용자 조직의 계층 구조 아래에 있는 모든 테넌트의 오브젝트를 리턴할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-command-long-description",
+    "translation": "**권한:** ```PROTECTION_VIEW``` <br><br>등록된 보호 소스의 등록 및 보호 정보를 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-command-short-description",
+    "translation": "등록된 보호 소스의 등록 및 보호 정보를 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-encryption-key-flag-description",
+    "translation": "소스 신임 정보를 암호화하는 데 사용할 키입니다. Include_source_credentials가 true로 설정된 경우 이 키를 지정해야 합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-environments-flag-description",
+    "translation": "전달된 환경 유형과 일치하는 보호 소스만 리턴합니다(예: 'kVMware', 'kSQL', 'kView' 'kPhysical', 'kPuppeteer', 'kPure', 'kNetapp', 'kGenericNas', 'kHyperV', 'kAcropolis', 또는 'kAzure' 등). 예를 들어 이 매개변수를 'kVMware'로 설정하면 'kVMware'(VMware vCenter Server) 환경에서 발견된 소스(및 해당 오브젝트 서브트리)만 리턴됩니다. 참고: 'kPuppeteer'는 IBM의 원격 어댑터를 의미합니다. 허용 가능 목록 항목: kVMware, kSQL, kView, kPuppeteer, kPhysical, kPure, kNetapp, kGenericNas, kHyperV, kAcropolis, kAzure, kPhysicalFiles, kIsilon, kGPFS, kKVM, kAWS, kExchange, kHyperVVSS, kOracle, kGCP, kFlashBlade, kAWSNative, kVCD, kO365, kO365Outlook, kHyperFlex, kGCPNative, kKubernetes, kCassandra, kMongoDB, kCouchbase, kHdfs, kHive, kHBase, kUDA, kAwsS3."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-ids-flag-description",
+    "translation": "목록에 명시된 ID를 가진 등록된 루트 노드만 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-applications-tree-info-flag-description",
+    "translation": "애플리케이션 트리 정보를 리턴할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-entity-permission-info-flag-description",
+    "translation": "지정된 경우, 권한이 지정된 엔티티 목록이 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-external-metadata-flag-description",
+    "translation": "응답에서 엔티티 계층 구조 호출 시 엔티티 외부 메타데이터를 포함할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-source-credentials-flag-description",
+    "translation": "지정하면 등록된 소스에 대한 신임 정보가 포함됩니다. 신임 정보는 먼저 내부 키로 암호화된 다음 사용자가 제공한 'encryption_key'로 다시 암호화됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-maintenance-status-flag-description",
+    "translation": "소스의 유지보수 상태를 지정합니다. 'UnderMaintenance'는 소스가 현재 유지보수 중임을 표시합니다. 'ScheduledMaintenance'는 해당 소스가 유지보수 예정임을 표시합니다. 'NotConfigured'는 소스에서 유지보수가 구성되지 않았음을 표시합니다. 허용되는 값: UnderMaintenance, ScheduledMaintenance, NotConfigured."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-prune-non-critical-info-flag-description",
+    "translation": "엔티티 내에서 중요하지 않은 정보를 정리할지 여부를 지정합니다. VM의 경우 가상 디스크 정보가 정리됩니다. Office365의 경우 사용자 오브젝트에 대한 메타데이터가 정리됩니다. 이는 호출자별로 응답 크기를 제한하는 데 사용할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-request-initiator-type-flag-description",
+    "translation": "요청 유형을 지정합니다. 가능한 값은 사용자에 의해 요청이 트리거되거나 자동 새로 고침 요청임을 의미하는 UIUser 및 UIAuto입니다. Magneto와 같은 서비스는 이를 통해 요청의 우선순위를 결정하여 우선순위가 높은 요청에 우선순위를 부여함으로써 과부하 상황을 보다 지능적으로 처리할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-sids-flag-description",
+    "translation": "목록에 지정된 SID를 기준으로 등록된 루트 노드를 필터링합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-tenant-ids-flag-description",
+    "translation": "TenantIds 오브젝트를 리턴할 테넌트의 ID를 포함합니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-use-cached-data-flag-description",
+    "translation": "읽기 복제본 캐시에 GET 요청을 제공할 수 있는지 여부를 지정합니다. True로 설정하면 API 요청이 읽기 복제본에 제공되도록 합니다. 이를 false로 설정하면 요청이 마스터에 전송됩니다."
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-x-ibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-long-description",
+    "translation": "모든 제공자 인스턴스를 세부사항과 함께 나열합니다. API는 제공자 인스턴스의 자세한 목록을 리턴합니다. 제공자는 인스턴스의 라이프사이클을 관리할 책임이 있으며, 이 API는 인스턴스에 대한 메타데이터 정보만 제공하는 것을 목적으로 합니다."
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-short-description",
+    "translation": "제공자 인스턴스를 나열합니다."
+  },
+  {
+    "id": "backup-recovery-provider-instances-include-service-instance-status-flag-description",
+    "translation": "서비스 인스턴스의 상태와 함께 클러스터 세부사항 및 소프트웨어 버전과 같은 기타 세부사항을 포함할지 여부를 확인하는 Bool 플래그입니다. 기본값은 false입니다."
+  },
+  {
+    "id": "backup-recovery-provider-instances-instance-ids-flag-description",
+    "translation": "필터링할 제공자 인스턴스 ID 목록입니다."
+  },
+  {
+    "id": "backup-recovery-provider-instances-regions-flag-description",
+    "translation": "제공자 인스턴스를 필터링할 지역 목록입니다."
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-command-long-description",
+    "translation": "지정된 ID에 대한 복구를 취소합니다."
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-command-short-description",
+    "translation": "지정된 ID에 대한 복구를 취소합니다."
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-id-flag-description",
+    "translation": "필수입니다. 복구의 ID를 지정합니다. "
   },
   {
     "id": "backup-recovery-recovery-create-command-long-description",
@@ -3080,28 +4244,36 @@
     "translation": "복구를 수행합니다."
   },
   {
+    "id": "backup-recovery-recovery-create-kubernetes-params-download-file-and-folder-params-flag-description",
+    "translation": "파일 및 폴더를 다운로드할 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-flag-description",
+    "translation": "Kubernetes 환경과 관련된 복구 옵션을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-objects-flag-description",
+    "translation": "복구해야 할 오브젝트 목록을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recover-file-and-folder-params-flag-description",
+    "translation": "파일 및 폴더 복구를 수행하기 위한 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recover-namespace-params-flag-description",
+    "translation": "Kubernetes 네임스페이스를 복구하기 위한 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recovery-action-flag-description",
+    "translation": "수행할 복구 조치의 유형을 지정합니다. 허용되는 값: RecoverNamespaces, RecoverFiles, DownloadFilesAndFolders."
+  },
+  {
     "id": "backup-recovery-recovery-create-mssql-params-flag-description",
     "translation": "Sql 환경과 관련된 복구 옵션을 지정합니다. JSON 파일의 경로일 수도 있습니다."
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-recover-app-params-flag-description",
     "translation": "Sql 데이터베이스를 복구할 매개변수를 지정합니다. JSON 파일의 경로일 수도 있습니다. 최소 길이는 1개 항목입니다."
-  },
-  {
-    "id": "backup-recovery-management-console-group-short-description",
-    "translation": "백업 복구 관리 자원에 대한 명령."
-  },
-  {
-    "id": "backup-recovery-provider-instances-command-short-description",
-    "translation": "제공자 인스턴스를 나열합니다."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-logs-command-short-description",
-    "translation": "데이터 소스 커넥터 로그."
-  },
-  {
-    "id": "backup-recovery-data-source-connector-status-command-short-description",
-    "translation": "데이터 소스 커넥터 상태."
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
@@ -3153,11 +4325,11 @@
   },
   {
     "id": "backup-recovery-recovery-create-snapshot-environment-flag-description",
-    "translation": "필수입니다. 복구를 수행해야 하는 스냅샷의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL."
+    "translation": "필수입니다. 복구를 수행해야 하는 스냅샷의 환경 유형을 지정합니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-recovery-files-download-command-long-description",
@@ -3197,7 +4369,7 @@
   },
   {
     "id": "backup-recovery-recovery-files-download-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-recovery-get-command-long-description",
@@ -3213,7 +4385,7 @@
   },
   {
     "id": "backup-recovery-recovery-get-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-recovery-group-long-description",
@@ -3253,7 +4425,7 @@
   },
   {
     "id": "backup-recovery-recovery-list-snapshot-environments-flag-description",
-    "translation": "복구를 필터링할 스냅샷 환경 유형 목록을 지정합니다. 비어 있으면 모든 환경과 관련된 복구가 리턴됩니다. 허용되는 목록 항목: kPhysical, kSQL."
+    "translation": "복구를 필터링할 스냅샷 환경 유형 목록을 지정합니다. 비어 있으면 모든 환경과 관련된 복구가 리턴됩니다. 허용되는 값: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-recovery-list-snapshot-target-type-flag-description",
@@ -3269,7 +4441,27 @@
   },
   {
     "id": "backup-recovery-recovery-list-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-command-long-description",
+    "translation": "제공된 등록 토큰을 사용하여 백업 인스턴스에 커넥터 에이전트를 등록합니다. 이 백업 인스턴스를 등록할 커넥터 에이전트의 등록 토큰은 사용자가 백업 인스턴스에서 관련 '/connector-agents' API를 호출하여 획득해야 합니다. 중복 등록을 시도할 경우, 이 API는 이미 등록되어 있음을 표시하는 헤더와 함께 성공을 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-command-short-description",
+    "translation": "커넥터 에이전트를 등록합니다."
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-connection-name-flag-description",
+    "translation": "필수입니다. 커넥터 에이전트와 연관될 이름을 지정합니다. 이 값은 이 커넥터 에이전트가 등록된 테넌트 내에서 고유해야 합니다."
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-join-existing-connection-flag-description",
+    "translation": "이 에이전트가 이전 등록(예: 클러스터형 소스의 경우 동일한 클러스터 내 다른 에이전트)에 의해 이미 클레임된 연결에 참여하는지 여부. 이 값이 true일 경우, 서버는 요청을 중복으로 간주하여 거부하지 않고 기존 연결에 이 에이전트를 추가합니다. 연결이 아직 존재하지 않는 경우, 이 플래그 설정과 관계없이 새 연결이 작성됩니다. 기본값은 false입니다."
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-registration-token-flag-description",
+    "translation": "필수입니다. JWT 등록 토큰. 단일 토큰을 사용하여 해당 테넌트에 여러 개의 커넥터 에이전트를 등록할 수 있습니다. 기본적으로 토큰의 유효 기간은 24시간입니다."
   },
   {
     "id": "backup-recovery-restore-points-command-long-description",
@@ -3301,11 +4493,511 @@
   },
   {
     "id": "backup-recovery-restore-points-xibm-tenant-id-flag-description",
-    "translation": "필수입니다. 소스 신임 정보를 암호화하는 데 사용할 키를 지정합니다. includeSourceCredentials를 true로 설정한 경우 이 키를 지정해야 합니다."
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "backup-recovery-short-description",
     "translation": "IBM 백업 복구 API를 관리합니다."
+  },
+  {
+    "id": "backup-recovery-tenant-create-command-long-description",
+    "translation": "**권한:** ORGANIZATION_MODIFY."
+  },
+  {
+    "id": "backup-recovery-tenant-create-command-short-description",
+    "translation": "새 테넌트를 작성합니다."
+  },
+  {
+    "id": "backup-recovery-tenant-create-description-flag-description",
+    "translation": "테넌트에 대한 설명."
+  },
+  {
+    "id": "backup-recovery-tenant-create-is-managed-on-helios-flag-description",
+    "translation": "테넌트가 Helios에서 관리되는지 여부를 표시하는 플래그입니다."
+  },
+  {
+    "id": "backup-recovery-tenant-create-name-flag-description",
+    "translation": "필수입니다. 테넌트의 이름."
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-cluster-hostname-flag-description",
+    "translation": "테넌트가 인식하는 IBM 클러스터의 호스트 이름으로, 테넌트의 네트워크에서 라우팅이 가능한 주소입니다. 테넌트의 VLAN 호스트 이름이 있는 경우 이를 대신 사용할 수 있지만, 사용할 VLAN 호스트 이름이 없는 경우에는 이 값을 반드시 제공해야 합니다. 또한, 이 값이 설정되면 VLAN 호스트 이름보다 우선적으로 적용됩니다."
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-cluster-ips-flag-description",
+    "translation": "IBM 클러스터에 대해 테넌트의 네트워크 관점에서 보이는 IP 세트입니다. 'clusterHostname' 및 'clusterIps' 중 하나만 필요합니다."
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-connector-enabled-flag-description",
+    "translation": "커넥터(하이브리드 익스텐더)가 사용으로 설정되어 있는지 여부."
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-flag-description",
+    "translation": "클러스터 내 테넌트에 대한 네트워킹 정보. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-tenant-create-tenant-id-suffix-flag-description",
+    "translation": "필수입니다. 이 접미부는 cohesity에서 상위 테넌트 ID를 뒤에 붙여 실제 테넌트 ID를 생성하는 데 사용됩니다. 최대 길이는 10자입니다."
+  },
+  {
+    "id": "backup-recovery-tenant-delete-command-long-description",
+    "translation": "**알 수 없는 권한**."
+  },
+  {
+    "id": "backup-recovery-tenant-delete-command-short-description",
+    "translation": "지정된 ID를 가진 테넌트를 삭제합니다."
+  },
+  {
+    "id": "backup-recovery-tenant-delete-id-flag-description",
+    "translation": "필수입니다. 테넌트 ID입니다. "
+  },
+  {
+    "id": "backup-recovery-tenant-update-command-long-description",
+    "translation": "**알 수 없는 권한**\n\n테넌트의 특성을 업데이트합니다."
+  },
+  {
+    "id": "backup-recovery-tenant-update-command-short-description",
+    "translation": "테넌트를 업데이트합니다."
+  },
+  {
+    "id": "backup-recovery-tenant-update-description-flag-description",
+    "translation": "테넌트에 대한 설명."
+  },
+  {
+    "id": "backup-recovery-tenant-update-id-flag-description",
+    "translation": "필수입니다. 널l 최소 길이는 2자입니다."
+  },
+  {
+    "id": "backup-recovery-tenant-update-name-flag-description",
+    "translation": "테넌트의 이름."
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-cluster-hostname-flag-description",
+    "translation": "테넌트가 인식하는 IBM 클러스터의 호스트 이름으로, 테넌트의 네트워크에서 라우팅이 가능한 주소입니다. 테넌트의 VLAN 호스트 이름이 있는 경우 이를 대신 사용할 수 있지만, 사용할 VLAN 호스트 이름이 없는 경우에는 이 값을 반드시 제공해야 합니다. 또한, 이 값이 설정되면 VLAN 호스트 이름보다 우선적으로 적용됩니다."
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-cluster-ips-flag-description",
+    "translation": "IBM 클러스터에 대해 테넌트의 네트워크 관점에서 보이는 IP 세트입니다. 'clusterHostname' 및 'clusterIps' 중 하나만 필요합니다."
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-connector-enabled-flag-description",
+    "translation": "커넥터(하이브리드 익스텐더)가 사용으로 설정되어 있는지 여부."
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-flag-description",
+    "translation": "클러스터 내 테넌트에 대한 네트워킹 정보. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-tenants-command-long-description",
+    "translation": "**권한:** ORGANIZATION_VIEW."
+  },
+  {
+    "id": "backup-recovery-tenants-command-short-description",
+    "translation": "테넌트의 목록을 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-tenants-ids-flag-description",
+    "translation": "필터링할 tenantIds 목록."
+  },
+  {
+    "id": "backup-recovery-tenants-liveness-modes-flag-description",
+    "translation": "테넌트의 활성 모드별로 필터링합니다. 이 필터는 'IBM'과 같은 외부 공급업체에 대한 테넌트 메타데이터가 추가된 경우에만 적용됩니다. 그 외의 모든 경우에는 이 필터에 제공된 값이 무시됩니다. 허용 가능 목록 항목: 활성, 대기, 일시중단."
+  },
+  {
+    "id": "backup-recovery-tenants-ownership-modes-flag-description",
+    "translation": "테넌트의 소유 모드별로 필터링합니다. 이 필터는 'IBM'과 같은 외부 공급업체에 대한 테넌트 메타데이터가 추가된 경우에만 적용됩니다. 그 외의 모든 경우에는 이 필터에 제공된 값이 무시됩니다. 허용 가능 목록 항목: Primary, Secondary."
+  },
+  {
+    "id": "backup-recovery-tenants-statuses-flag-description",
+    "translation": "테넌트의 현재 상태로 필터링합니다. 비워두면 활성화된 테넌트와 비활성화된 테넌트만 리턴됩니다. 허용되는 목록 항목: Active, Inactive, MarkedForDeletion, Deleted."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-flag-description",
+    "translation": "활성 디렉터리를 사용하여 로그인한 AD 사용자의 정보를 지정합니다. 이 정보는 클러스터에 저장되지 않습니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
+    "translation": "그룹의 SID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
+    "translation": "이 사용자가 속해 있는 그룹을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
+    "translation": "유동 사용자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-additional-group-names-flag-description",
+    "translation": "이 사용자가 속할 수 있는 추가 그룹의 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
+    "translation": "관리 사용자가 데이터 보안 사용자를 수정할 수 있는지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
+    "translation": "AuditLogSettings는 감사 로그 구성이 있는 구조체를 지정합니다. Bb가 없을 때 0이 클러스터 기본값이 되도록 설정합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
+    "translation": "ReadLogging은 읽기 로그를 캡처해야 하는지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-authentication-type-flag-description",
+    "translation": "사용자의 인증 유형을 지정합니다. 'kAuthLocal'은 인증된 사용자가 로컬 사용자임을 의미합니다. 'kAuthAd'는 인증된 사용자가 Active Directory 사용자임을 의미합니다. 'kAuthSalesforce'는 인증된 사용자가 Salesforce 사용자임을 의미합니다. 'kAuthGoogle'는 인증된 사용자가 Google 사용자임을 의미합니다. 'kAuthSso'는 인증된 사용자가 SSO 사용자임을 의미합니다. 허용되는 값: kAuthLocal, kAuthAd, kAuthSalesforce, kAuthGoogle, kAuthSso."
+  },
+  {
+    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
+    "translation": "이 사용자가 액세스할 수 있는 클러스터 목록을 지정합니다. 이를 지정하지 않으면 모든 클러스터에 액세스 권한이 부여됩니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-command-long-description",
+    "translation": "IBM 클러스터에서 업데이트된 사용자를 리턴합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-command-short-description",
+    "translation": "사용자를 업데이트합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
+    "translation": "IBM 클러스터에서 사용자 계정이 작성된 에포크 시간(밀리초)을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-current-password-flag-description",
+    "translation": "비밀번호를 업데이트할 때 현재 비밀번호를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-description-flag-description",
+    "translation": "사용자에 대한 설명을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-domain-flag-description",
+    "translation": "IBM 클러스터의 기본 LOCAL 도메인에 대해 Active Directory 또는 LOCAL의 FQDN(완전한 도메인 이름)을 지정합니다. 사용자는 사용자 이름과 도메인의 조합으로 고유하게 식별됩니다."
+  },
+  {
+    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
+    "translation": "사용자가 효력이 발생하는 에포크 시간(밀리초)을 지정합니다. 그때까지는 사용자가 로그인할 수 없습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-email-address-flag-description",
+    "translation": "사용자의 이메일 주소를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
+    "translation": "사용자가 만료되는 에포크 시간(밀리초)을 지정합니다. 그 이후에는 사용자가 로그인할 수 없습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-force-password-change-flag-description",
+    "translation": "사용자에게 비밀번호 변경을 강제할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
+    "translation": "Google에 의해 지정된 계정 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-flag-description",
+    "translation": "관리 콘솔 BRS 사용자의 Google 계정 정보. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
+    "translation": "Google에 의해 지정된 사용자 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-flag-description",
+    "translation": "IdP를 사용하여 로그인한 IdP 사용자 정보를 지정합니다. 이 정보는 클러스터에 저장되지 않습니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
+    "translation": "그룹의 SID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
+    "translation": "사용자가 속해 있는 Idp 그룹을 지정합니다. 사용자가 클러스터에 등록되어 있지 않을 수 있으므로 ID 그룹 멤버십을 캡처해야 할 수 있습니다. 이렇게 하면 나중에 클러스터에 그룹이 작성되더라도 사용자는 해당 그룹의 tenantIds에도 즉시 액세스할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
+    "translation": "IdP에 대해 클러스터에 의해 지정된 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
+    "translation": "유동 사용자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
+    "translation": "이 클러스터에 대해 공급업체가 지정하는 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
+    "translation": "공급업체가 사용자에 대해 지정하는 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
+    "translation": "IdP 서비스를 제공하는 공급업체를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
+    "translation": "Intercom ID 검증을 위한 Messenger 토큰을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-is-account-locked-flag-description",
+    "translation": "사용자 계정이 잠겨 있는지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-is-active-flag-description",
+    "translation": "IsActive는 사용자가 활성화되어 있는지 또는 고객에 의해 비활성화되었는지 여부를 지정합니다. 기본 동작은 'true'입니다."
+  },
+  {
+    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
+    "translation": "사용자가 마지막으로 로그인에 성공한 에포크 시간(밀리초)을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
+    "translation": "IBM 클러스터에서 사용자 계정이 마지막으로 수정된 에포크 시간(밀리초)을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-flag-description",
+    "translation": "MFA에 대한 정보를 지정합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
+    "translation": "사용자에 대해 MFA를 비활성화할지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-methods-flag-description",
+    "translation": "클러스터에서 활성화된 MFA 방법을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-object-class-flag-description",
+    "translation": "사용자의 오브젝트 클래스를 지정합니다. 사용자 또는 그룹일 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-org-membership-flag-description",
+    "translation": "OrgMembership에는 이 사용자가 전환할 수 있는 모든 tenantIds 목록이 포함되어 있습니다. 세션 사용자를 작성할 때만 이 필드가 즉석에서 채워집니다. 사용자에게 지정된 다양한 그룹에서 tenantIds를 발견합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-password-flag-description",
+    "translation": "이 사용자의 비밀번호를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-flag-description",
+    "translation": "이 사용자의 환경 설정을 지정합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-locale-flag-description",
+    "translation": "로케일은 사용자의 언어 설정을 반영합니다. 필요할 때마다 Scribe에 저장된 사용자 환경 설정을 사용하여 사용자를 채웁니다."
+  },
+  {
+    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
+    "translation": "이전 사용자 로그인의 에포크 시간(밀리초)을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-primary-group-name-flag-description",
+    "translation": "이 사용자의 기본 그룹 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-privilege-ids-flag-description",
+    "translation": "역할의 IBM 권한을 지정합니다. 역할에 있는 모든 권한의 조합을 기반으로 채워집니다. 고유 권한 Id 값을 입력하십시오. 아래 열거형 값은 모두 IBM에서 고유하게 정의된 모든 권한에 대한 값을 지정합니다. 허용되는 목록 항목: kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease."
+  },
+  {
+    "id": "backup-recovery-user-update-profiles-flag-description",
+    "translation": "사용자 프로파일을 지정합니다. 참고: 현재 관리 콘솔에 사용 중입니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-restricted-flag-description",
+    "translation": "사용자가 제한된 사용자인지 여부. 제한된 사용자는 자신에게 권한이 있는 오브젝트만 볼 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-roles-flag-description",
+    "translation": "'Admin', 'Ops' 또는 'View' 등 사용자와 연결할 IBM 역할을 지정합니다. IBM 역할은 이 사용자의 IBM 클러스터에 대한 권한을 판별합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
+    "translation": "S3 계정 액세스 키 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-s3-account-id-flag-description",
+    "translation": "S3 계정 표준 사용자 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
+    "translation": "S3 계정 시크릿 키를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
+    "translation": "Salesforce에 의해 지정된 계정 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-flag-description",
+    "translation": "관리 콘솔 사용자의 Salesforce 계정 정보. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
+    "translation": "관리 콘솔 액세스 상태를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
+    "translation": "사용자가 DGaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
+    "translation": "사용자가 DMaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
+    "translation": "사용자가 DRaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
+    "translation": "사용자가 RPaaS 라이센스가 있는 사용자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
+    "translation": "사용자가 IBM의 영업 담당자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
+    "translation": "사용자가 IBM의 지원 담당자인지 여부를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
+    "translation": "Salesforce에 의해 지정된 사용자 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-session-name-flag-description",
+    "translation": "필수입니다. 커넥터로부터 받은 액세스 토큰입니다."
+  },
+  {
+    "id": "backup-recovery-user-update-sid-flag-description",
+    "translation": "사용자의 고유 보안 ID(SID)를 지정합니다. 이 필드는 사용자 수정 시 필수 입력 사항입니다."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-flag-description",
+    "translation": "SpogContext는 이 클러스터에서 조치를 수행하는 사용자 및 클러스터에 대한 모든 정보를 지정합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
+    "translation": "SPOG를 통해 이 클러스터에 액세스하는 원격 클러스터의 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
+    "translation": "SPOG를 통해 이 클러스터에 액세스하는 사용자의 SID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
+    "translation": "SPOG를 통해 이 클러스터에 액세스하는 사용자의 사용자 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
+    "translation": "ClassificationInfo에는 Datahawk 분류 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
+    "translation": "ClassificationInfo에는 Datahawk 분류 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
+    "translation": "DMaaSSubscriptionInfo에는 활성화 여부 등 Data Protect 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-flag-description",
+    "translation": "이를 Helios, DRaaS 및 DSaaS로 확장합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
+    "translation": "FortKnoxInfo는 Fortknox Azure 또는 Azure FreeTrial 또는 AwsCold 또는 AwsCold FreeTrial 구독이 활성화되어 있는지 여부 등의 정보를 보관합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
+    "translation": "FortKnoxInfo는 Fortknox Azure 또는 Azure FreeTrial 또는 AwsCold 또는 AwsCold FreeTrial 구독이 활성화되어 있는지 여부 등의 정보를 보관합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
+    "translation": "FortKnoxInfo는 Fortknox Azure 또는 Azure FreeTrial 또는 AwsCold 또는 AwsCold FreeTrial 구독이 활성화되어 있는지 여부 등의 정보를 보관합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
+    "translation": "RansomwareInfo는 FortKnox/FortKnoxFreeTrial 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보를 보유합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
+    "translation": "SiteContinuityInfo에는 사이트 연속성 구독이 활성화되어 있는지 여부와 같은 구독에 대한 정보가 저장됩니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
+    "translation": "ThreatProtectionInfo는 활성화 여부 등 Datahawk ThreatProtection 구독에 대한 정보를 보유합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
+    "translation": "MCM 사용자의 테넌트 액세스를 지정합니다. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-id-flag-description",
+    "translation": "사용자의 유효 테넌트 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-user-update-username-flag-description",
+    "translation": "사용자의 로그인 이름을 지정합니다."
+  },
+  {
+    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy는 로그인한 사용자 조직의 계층 구조 아래에 있는 모든 테넌트의 오브젝트를 리턴할지 여부를 지정합니다. TenantIds에는 오브젝트가 리턴될 테넌트의 ID가 포함되어 있습니다. returned.TenantIds"
+  },
+  {
+    "id": "backup-recovery-users-command-long-description",
+    "translation": "매개변수를 지정하지 않으면 현재 IBM 클러스터에 있는 모든 사용자가 리턴됩니다. 매개변수를 지정하면 리턴되는 결과를 필터링할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-users-command-short-description",
+    "translation": "사용자를 가져옵니다."
+  },
+  {
+    "id": "backup-recovery-users-domain-flag-description",
+    "translation": "선택적으로 필터링할 도메인을 지정할 수 있습니다. 도메인을 지정하지 않으면 IBM 클러스터의 모든 사용자가 검색됩니다. 도메인을 지정하면 해당 도메인과 연관된 IBM 클러스터의 사용자만 검색됩니다."
+  },
+  {
+    "id": "backup-recovery-users-email-addresses-flag-description",
+    "translation": "선택적으로 필터링할 이메일 주소 목록을 지정할 수 있습니다."
+  },
+  {
+    "id": "backup-recovery-users-partial-match-flag-description",
+    "translation": "선택적으로 부분 일치를 활성화할지 여부를 지정하십시오. 설정하면 사용자 이름이 포함된 이름을 가진 모든 사용자가 리턴됩니다. False로 설정하면 사용자 이름과 정확히 같은 이름을 가진 사용자만 리턴됩니다. 기본적으로 이 매개변수는 true로 설정되어 있습니다."
+  },
+  {
+    "id": "backup-recovery-users-session-name-flag-description",
+    "translation": "필수입니다. 커넥터 로그인 API에서 수신한 세션 쿠키입니다."
+  },
+  {
+    "id": "backup-recovery-users-tenant-ids-flag-description",
+    "translation": "TenantIds 오브젝트를 리턴할 테넌트의 ID를 포함합니다."
+  },
+  {
+    "id": "backup-recovery-users-usernames-flag-description",
+    "translation": "선택적으로 필터링할 사용자 ID 목록을 지정하십시오. 사용자 ID가 포함된 모든 사용자가 리턴됩니다."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-cloud-type-flag-description",
+    "translation": "필수입니다. 복구 스캔을 위해 볼트가 등록된 클라우드 유형을 지정합니다. 현재는 'ibm'만 지원됩니다. 허용되는 값: ibm."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-command-long-description",
+    "translation": "지정된 백업 및 복구(볼트) 인스턴스에서 복구 스캔을 시작합니다."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-command-short-description",
+    "translation": "지정된 백업 및 복구 인스턴스에서 복구 스캔을 시작합니다. 여기서 백업 및 복구 인스턴스는 볼트를 의미합니다."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-recovery-scan-request-params-flag-description",
+    "translation": "백업 및 복구 인스턴스에 특정된 매개변수를 지정합니다. 즉, 볼트. JSON 파일의 경로일 수도 있습니다."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-recovery-scan-request-params-vault-id-flag-description",
+    "translation": "복구 스캔을 시작할 IBM Cloud Backup 및 복구 인스턴스의 고유 ID를 지정합니다."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-xibm-tenant-id-flag-description",
+    "translation": "필수입니다. 테넌트의 고유 ID를 지정합니다."
   },
   {
     "id": "command-help-error",
@@ -3420,6 +5112,10 @@
     "translation": "확인을 해제할 수 없습니다."
   },
   {
+    "id": "connector-service-url-global-flag-description",
+    "translation": "API의 기본 엔드포인트 URL을 제공합니다."
+  },
+  {
     "id": "credentials-error",
     "translation": "플러그인을 인증할 수 없습니다.\n 'ibmcloud login'으로 로그인하거나, 신임정보를 환경 변수로 내보내거나, 해당 신임정보를 신임정보 파일로 저장해야 합니다.\n 자세한 정보는 다음 링크를 참조하십시오: https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#define-configuration-properties.\n오류"
   },
@@ -3508,12 +5204,40 @@
     "translation": "'{{.PATH}}' 로그 파일을 작성하는 중에 다음 오류가 발생했습니다:\n{{.ERROR}}\n\n"
   },
   {
+    "id": "management-reporting-service-url-global-flag-description",
+    "translation": "API에 대한 관리 콘솔 보고 엔드포인트 URL을 제공하십시오."
+  },
+  {
+    "id": "management-sre-service-apikey-global-flag-description",
+    "translation": "관리 콘솔 SRE API 키를 제공하십시오."
+  },
+  {
+    "id": "management-sre-service-authentication-url-global-flag-description",
+    "translation": "관리 콘솔 SRE 인증 엔드포인트 URL을 제공하십시오."
+  },
+  {
+    "id": "management-sre-service-password-global-flag-description",
+    "translation": "관리 콘솔 SRE 비밀번호를 제공하십시오."
+  },
+  {
+    "id": "management-sre-service-username-global-flag-description",
+    "translation": "관리 콘솔 SRE 사용자 이름을 제공하십시오."
+  },
+  {
+    "id": "management-sre-url-global-flag-description",
+    "translation": "API에 대한 관리 콘솔 SRE 엔드포인트 URL을 제공하십시오."
+  },
+  {
     "id": "missing-flags-argument-error",
     "translation": "플래그에 인수가 필요함: {{.FLAG}}"
   },
   {
     "id": "missing-required-flags-error",
     "translation": "필수 플래그 {{.FLAGS}}이(가) 설정되지 않음"
+  },
+  {
+    "id": "mutually-exclusive-fields",
+    "translation": "{{.FLAG_NAME}} 옵션은 개별적으로 설정 가능한 하위 필드 옵션과 상호 배타적입니다."
   },
   {
     "id": "name-header-help-menu",
@@ -3582,734 +5306,6 @@
   {
     "id": "service-url-global-flag-description",
     "translation": "API의 기본 엔드포인트 URL을 제공합니다."
-  },
-  {
-    "id": "connector-service-url-global-flag-description",
-    "translation": "API의 기본 엔드포인트 URL을 제공합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-group-short-description",
-    "translation": "관리 콘솔 구성요소에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-group-long-description",
-    "translation": "관리 콘솔 구성요소에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-list-command-short-description",
-    "translation": "보고서 구성요소를 나열합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-list-command-long-description",
-    "translation": "로그인한 사용자가 액세스 가능한 모든 보고서 구성요소 목록을 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-list-ids-flag-description",
-    "translation": "페치할 보고서 구성요소의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-command-short-description",
-    "translation": "ID로 보고서 구성요소 페치"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-command-long-description",
-    "translation": "보고서 구성요소에 대한 정보를 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-id-flag-description",
-    "translation": "필수입니다. 보고서 구성요소의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-command-short-description",
-    "translation": "구성요소의 미리보기를 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-command-long-description",
-    "translation": "ID로 지정된 구성요소의 미리보기를 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-id-flag-description",
-    "translation": "필수입니다. 구성요소의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-filters-flag-description",
-    "translation": "보고서 내 지정된 구성요소에 적용 가능한 글로벌 필터 목록을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-limit-flag-description",
-    "translation": "결과 데이터 세트를 제한하기 위한 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-sort-flag-description",
-    "translation": "결과 데이터에 적용할 정렬(순서 지정) 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-timezone-flag-description",
-    "translation": "사용자의 표준 시간대를 지정합니다. nil인 경우, 기본값은 UTC입니다. 지정된 시간은 IANA 시간대 데이터베이스의 위치 이름이어야 합니다(예: 'America/Los_Angeles')."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-limit-from-flag-description",
-    "translation": "결과 데이터가 크기 매개변수를 적용하기 전에 건너뛸 오프셋을 지정합니다. 예를 들어 데이터셋 크기가 10개 오브젝트이고, from=2, size=5인 경우, 10개 객체 중 오프셋 2부터 시작하여 2에서 7까지 5개의 오브젝트만 리턴됩니다. 지정하지 않으면 어떤 오브젝트도 건너뛰지 않습니다."
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-limit-size-flag-description",
-    "translation": "지정된 오프셋부터 리턴될 오브젝트의 수를 지정합니다. 최소값은 1입니다."
-  },
-  {
-    "id": "backup-recovery-management-console-resources-group-short-description",
-    "translation": "관리 콘솔 자원에 대한 명령."
-  },
-  {
-    "id": "backup-recovery-management-console-resources-group-long-description",
-    "translation": "관리 콘솔 자원에 대한 명령."
-  },
-  {
-    "id": "backup-recovery-management-console-resources-list-command-short-description",
-    "translation": "자원을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-console-resources-list-command-long-description",
-    "translation": "관리 콘솔에서 발견할 수 있는 다양한 우형의 자원을 가져옵니다. 이러한 값은 필터링 옵션에 사용할 수 있습니다."
-  },
-  {
-    "id": "backup-recovery-management-console-resources-list-resource-type-flag-description",
-    "translation": "필수입니다. 자원 유형을 지정합니다. 허용되는 값: Policies, ProtectionGroups, RegisteredSources, MessageCodeMappings."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-group-short-description",
-    "translation": "관리 콘솔 보고서에 대한 명령."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-group-long-description",
-    "translation": "관리 콘솔 보고서에 대한 명령."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-report-type-command-short-description",
-    "translation": "보고서 유형의 특성을 나열합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-report-type-command-long-description",
-    "translation": "보고서 유형의 특성 목록을 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-report-type-report-type-flag-description",
-    "translation": "필수입니다. 보고서 유형을 지정합니다. 허용되는 값: Failures, ProtectedUnprotectedObjects, ProtectedObjects, ProtectionActivity, ProtectionGroupSummary, ProtectionRuns, ProtectionRunsTrend, Recovery."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-command-short-description",
-    "translation": "보고서를 나열합니다."
-  },
-  {
-    "id": "management-reporting-service-url-global-flag-description",
-    "translation": "API에 대한 관리 콘솔 보고 엔드포인트 URL을 제공하십시오."
-  },
-  {
-    "id": "management-sre-url-global-flag-description",
-    "translation": "API에 대한 관리 콘솔 SRE 엔드포인트 URL을 제공하십시오."
-  },
-  {
-    "id": "management-sre-service-authentication-url-global-flag-description",
-    "translation": "관리 콘솔 SRE 인증 엔드포인트 URL을 제공하십시오."
-  },
-  {
-    "id": "management-sre-service-password-global-flag-description",
-    "translation": "관리 콘솔 SRE 비밀번호를 제공하십시오."
-  },
-  {
-    "id": "management-sre-service-username-global-flag-description",
-    "translation": "관리 콘솔 SRE 사용자 이름을 제공하십시오."
-  },
-  {
-    "id": "management-sre-service-apikey-global-flag-description",
-    "translation": "관리 콘솔 SRE API 키를 제공하십시오."
-  },
-  {
-    "id": "backup-recovery-management-console-provider-instances-group-short-description",
-    "translation": "ProviderInstances 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-console-provider-instances-group-long-description",
-    "translation": "ProviderInstances 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-short-description",
-    "translation": "제공자 인스턴스를 나열합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-long-description",
-    "translation": "모든 제공자 인스턴스를 세부사항과 함께 나열합니다. API는 제공자 인스턴스의 자세한 목록을 리턴합니다. 제공자는 인스턴스의 라이프사이클을 관리할 책임이 있으며, 이 API는 인스턴스에 대한 메타데이터 정보만 제공하는 것을 목적으로 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-instance-ids-flag-description",
-    "translation": "필터링할 제공자 인스턴스 ID 목록입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-regions-flag-description",
-    "translation": "제공자 인스턴스를 필터링할 지역 목록입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-include-service-instance-status-flag-description",
-    "translation": "서비스 인스턴스의 상태와 함께 클러스터 세부사항 및 소프트웨어 버전과 같은 기타 세부사항을 포함할지 여부를 확인하는 Bool 플래그입니다. 기본값은 false입니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-command-long-description",
-    "translation": "로그인한 사용자가 액세스 가능한 모든 보고서 목록을 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-ids-flag-description",
-    "translation": "페치할 보고서의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-user-context-flag-description",
-    "translation": "보고서를 필터링하기 위한 사용자 컨텍스트를 지정합니다. 허용되는 값: IBMBaaS."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-command-short-description",
-    "translation": "보고서를 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-command-long-description",
-    "translation": "지정된 ID에 대한 보고서를 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-id-flag-description",
-    "translation": "필수입니다. 보고서의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-command-short-description",
-    "translation": "보고서 미리보기를 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-command-long-description",
-    "translation": "구성된 보고서의 미리보기를 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-id-flag-description",
-    "translation": "필수입니다. 보고서의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-component-ids-flag-description",
-    "translation": "지정된 보고서에 대해 평가할 구성요소 ID의 목록을 지정합니다. 지정되지 않은 경우 모든 구성요소가 평가됩니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-filters-flag-description",
-    "translation": "보고서 내 지정된 구성요소에 적용 가능한 글로벌 필터 목록을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-timezone-flag-description",
-    "translation": "사용자의 표준 시간대를 지정합니다. nil인 경우, 기본값은 UTC입니다. 지정된 시간은 IANA 시간대 데이터베이스의 위치 이름이어야 합니다(예: 'America/Los_Angeles')."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-command-short-description",
-    "translation": "보고서를 내보냅니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-command-long-description",
-    "translation": "구성된 보고서를 내보냅니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-id-flag-description",
-    "translation": "필수입니다. 보고서의 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-async-flag-description",
-    "translation": "보고서를 비동기적으로 생성할지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-filters-flag-description",
-    "translation": "보고서 내 지정된 구성요소에 적용 가능한 글로벌 필터 목록을 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-layout-flag-description",
-    "translation": "내보내야 할 보고서의 레이아웃입니다."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-report-format-flag-description",
-    "translation": "보고서를 내보내는 형식입니다. 허용되는 값: XLS, CSV."
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-timezone-flag-description",
-    "translation": "사용자의 표준 시간대를 지정합니다. nil인 경우, 기본값은 UTC입니다. 지정된 시간은 IANA 시간대 데이터베이스의 위치 이름이어야 합니다(예: 'America/Los_Angeles')."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-short-description",
-    "translation": "IBM REST API를 관리합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-long-description",
-    "translation": "IBM API는 IBM 클러스터 및 관리 콘솔에서 다양한 데이터 관리 조작에 액세스할 수 있는 RESTful 인터페이스를 제공합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-bad-url-error-message",
-    "translation": "올바르지 않은 URL: 신임 정보 파일의 BACKUP_RECOVERY_MANAGEMENT_SRE_URL 환경 변수 또는 키를 사용하여 기본 URL을 설정하십시오."
-  },
-  {
-    "id": "mutually-exclusive-fields",
-    "translation": "{{.FLAG_NAME}} 옵션은 개별적으로 설정 가능한 하위 필드 옵션과 상호 배타적입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-short-description",
-    "translation": "ClusterUpgrade 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-long-description",
-    "translation": "ClusterUpgrade 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-short-description",
-    "translation": "업그레이드 정보를 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-long-description",
-    "translation": "클러스터 업그레이드의 진행 상태 세부사항 및 로그를 가져옵니다. 로그는 JSON 문자열 형식으로 기록됩니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-cluster-identifiers-flag-description",
-    "translation": "클러스터 ID 목록에 대한 업그레이드 진행 상태 세부사항을 clusterId:clusterIncarnationId 형식으로 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-short-description",
-    "translation": "스케줄된 클러스터 업그레이드를 업데이트합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-long-description",
-    "translation": "스케줄된 클러스터 업그레이드를 업데이트합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-auth-headers-flag-description",
-    "translation": "업그레이드 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-clusters-flag-description",
-    "translation": "업그레이드될 클러스터에 대한 배열입니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-interval-for-rolling-upgrade-in-hours-flag-description",
-    "translation": "두 클러스터의 업그레이드 간 시간 차이를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-package-url-flag-description",
-    "translation": "패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-flag-description",
-    "translation": "패치 업그레이드 요청의 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-target-version-flag-description",
-    "translation": "업그레이드할 클러스터에 대한 대상 버전을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-time-stamp-to-upgrade-at-msecs-flag-description",
-    "translation": "클러스터가 업그레이드되어야 하는 시간을 밀리초 단위로 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-type-flag-description",
-    "translation": "클러스터에 수행할 업그레이드 유형을 지정합니다. 기본값은 Upgrade입니다. 허용되는 값: Upgrade, Patch, UpgradePatch."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-auth-headers-flag-description",
-    "translation": "패치 클러스터 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
-    "translation": "사전 검사 결과를 무시할 수 있는지 지정하십시오. 기본값은 false입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-package-url-flag-description",
-    "translation": "패치 패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-target-version-flag-description",
-    "translation": "업그레이드할 클러스터에 대한 대상 패치 버전을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-short-description",
-    "translation": "즉시 및 스케줄된 클러스터 업그레이드를 시작합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-long-description",
-    "translation": "즉시 및 스케줄된 클러스터 업그레이드를 시작합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-auth-headers-flag-description",
-    "translation": "업그레이드 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-clusters-flag-description",
-    "translation": "업그레이드될 클러스터에 대한 배열입니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-interval-for-rolling-upgrade-in-hours-flag-description",
-    "translation": "두 클러스터의 업그레이드 간 시간 차이를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-package-url-flag-description",
-    "translation": "패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-flag-description",
-    "translation": "패치 업그레이드 요청의 매개변수를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-target-version-flag-description",
-    "translation": "업그레이드할 클러스터에 대한 대상 버전을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-time-stamp-to-upgrade-at-msecs-flag-description",
-    "translation": "클러스터가 업그레이드되어야 하는 시간을 밀리초 단위로 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-type-flag-description",
-    "translation": "클러스터에 수행할 업그레이드 유형을 지정합니다. 기본값은 Upgrade입니다. 허용되는 값: Upgrade, Patch, UpgradePatch."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-auth-headers-flag-description",
-    "translation": "패치 클러스터 요청에 대한 선택적 헤더를 지정합니다. JSON 문자열 또는 JSON 파일의 경로여야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
-    "translation": "사전 검사 결과를 무시할 수 있는지 지정하십시오. 기본값은 false입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-package-url-flag-description",
-    "translation": "패치 패키지를 다운로드할 수 있는 URL을 지정합니다. 참고: 이 옵션은 MCM(Multi-Cluster Manager)에서만 지원됩니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-target-version-flag-description",
-    "translation": "업그레이드할 클러스터에 대한 대상 패치 버전을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-short-description",
-    "translation": "스케줄된 클러스터 업그레이드를 취소합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-long-description",
-    "translation": "스케줄된 클러스터 업그레이드를 취소합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-cluster-identifiers-flag-description",
-    "translation": "클러스터 ID 목록을 지정합니다. 형식은 clusterId:clusterIncarnationId입니다. "
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-group-short-description",
-    "translation": "경보 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-group-long-description",
-    "translation": "경보 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-command-short-description",
-    "translation": "경보를 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-command-long-description",
-    "translation": "경보를 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-ids-flag-description",
-    "translation": "경보 ID 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-types-flag-description",
-    "translation": "경고 유형 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
-    "translation": "경보 카탈로그 목록으로 필터링합니다. 허용되는 목록 항목: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-states-flag-description",
-    "translation": "경보 상태 목록으로 필터링합니다. 허용되는 목록 항목: kResolved, kOpen, kNote, kSuppressed."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-severities-flag-description",
-    "translation": "경보 심각도 유형 목록으로 필터링합니다. 허용되는 목록 항목: kCritical, kWarning, kInfo."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-type-buckets-flag-description",
-    "translation": "경보 유형 버킷 목록으로 필터링합니다. 허용되는 목록 항목: kHardware, kSoftware, kDataService, kMaintenance."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-start-time-usecs-flag-description",
-    "translation": "경보를 필터링하기 위한 Unix epoch 시간의 시작 시간을 마이크로초 단위로 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-end-time-usecs-flag-description",
-    "translation": "경보를 필터링하기 위한 Unix epoch 시간의 종료 시간을 마이크로초 단위로 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-max-alerts-flag-description",
-    "translation": "리턴할 최대 경보 수를 지정합니다. 기본값은 100이고 허용되는 최대값은 1000입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-property-key-flag-description",
-    "translation": "경보를 필터링할 특성의 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-property-value-flag-description",
-    "translation": "경보를 필터링할 특성의 값을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-name-flag-description",
-    "translation": "경보를 필터링할 경보의 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-resolution-ids-flag-description",
-    "translation": "경보를 필터링할 경보 분석 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-tenant-ids-flag-description",
-    "translation": "테넌트 ID로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-all-under-hierarchy-flag-description",
-    "translation": "로그인한 사용자의 조직 계층 구조 아래에 있는 모든 테넌트의 오브젝트로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-x-scope-identifier-flag-description",
-    "translation": "이 필드는 서비스 인스턴스를 고유하게 표시합니다. 값을 \"service-instance-id: <value>\" 형식으로 지정하십시오."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-short-description",
-    "translation": "경보 요약을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-long-description",
-    "translation": "카테고리별로 그룹화된 경보 요약을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-provider-instances-command-long-description",
-    "translation": "모든 제공자 인스턴스를 세부사항과 함께 나열합니다. API는 제공자 인스턴스의 자세한 목록을 리턴합니다. 제공자는 인스턴스의 라이프사이클을 관리할 책임이 있으며, 이 API는 인스턴스에 대한 메타데이터 정보만 제공하는 것을 목적으로 합니다."
-  },
-  {
-    "id": "backup-recovery-provider-instances-instance-ids-flag-description",
-    "translation": "필터링할 제공자 인스턴스 ID 목록입니다."
-  },
-  {
-    "id": "backup-recovery-provider-instances-regions-flag-description",
-    "translation": "제공자 인스턴스를 필터링할 지역 목록입니다."
-  },
-  {
-    "id": "backup-recovery-provider-instances-include-service-instance-status-flag-description",
-    "translation": "서비스 인스턴스의 상태와 함께 클러스터 세부사항 및 소프트웨어 버전과 같은 기타 세부사항을 포함할지 여부를 확인하는 Bool 플래그입니다. 기본값은 false입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-start-time-usecs-flag-description",
-    "translation": "시작 시간으로 필터링합니다. 시작 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본적으로 현재 시간에서 하루를 뺀 시간입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-end-time-usecs-flag-description",
-    "translation": "종료 시간으로 필터링합니다. 종료 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본값은 현재 시간입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-include-tenants-flag-description",
-    "translation": "IncludeTenants는 로그인한 사용자의 조직 계층 구조 아래에 있는 모든 테넌트의 경보를 요약 계산에 포함할지 여부를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-tenant-ids-flag-description",
-    "translation": "TenantIds는 요약값을 계산하기 위해 경보를 사용할 테넌트의 ID를 포함합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-states-list-flag-description",
-    "translation": "경보를 필터링할 경보 상태 목록을 지정합니다. 지정하지 않으면 열려 있는 경보만 요약을 얻는 데 사용됩니다. 허용되는 목록 항목: kResolved, kOpen, kNote, kSuppressed."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
-    "translation": "이 필드는 서비스 인스턴스를 고유하게 표시합니다. 값을 \"service-instance-id: <value>\" 형식으로 지정하십시오."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-group-short-description",
-    "translation": "ManagementAlerts 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-group-long-description",
-    "translation": "ManagementAlerts 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-short-description",
-    "translation": "관리 콘솔에서 경보 요약을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-long-description",
-    "translation": "카테고리별로 그룹화된 경보 요약을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-cluster-identifiers-flag-description",
-    "translation": "클러스터 ID 목록을 지정합니다. 형식은 clusterId:clusterIncarnationId입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-start-time-usecs-flag-description",
-    "translation": "시작 시간으로 필터링합니다. 시작 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본적으로 현재 시간에서 하루를 뺀 시간입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-end-time-usecs-flag-description",
-    "translation": "종료 시간으로 필터링합니다. 종료 시간을 Unix epoch 시간소인(마이크로초)로 지정합니다. 기본값은 현재 시간입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-states-list-flag-description",
-    "translation": "경보를 필터링할 경보 상태 목록을 지정합니다. 지정하지 않으면 열려 있는 경보만 요약을 얻는 데 사용됩니다. 허용되는 목록 항목: kResolved, kOpen, kNote, kSuppressed."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-short-description",
-    "translation": "관리 콘솔 경보 목록을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-long-description",
-    "translation": "관리 콘솔 경보 목록을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-id-list-flag-description",
-    "translation": "경보 ID 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-state-list-flag-description",
-    "translation": "경보 상태 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-list-flag-description",
-    "translation": "경고 유형 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-severity-list-flag-description",
-    "translation": "경보 심각도 유형 목록으로 필터링합니다. 허용되는 목록 항목: kCritical, kWarning, kInfo."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-region-ids-flag-description",
-    "translation": "지역 ID 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-cluster-identifiers-flag-description",
-    "translation": "클러스터 ID 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-start-date-usecs-flag-description",
-    "translation": "리턴될 경보의 시작 시간을 지정합니다. 리턴된 모든 경보는 지정된 시작 시간 이후에 발생합니다. 이 값은 Unix 시간소인 epoch(마이크로초)로 입력해야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-end-date-usecs-flag-description",
-    "translation": "리턴될 경보의 종료 시간을 지정합니다. 리턴된 모든 경보는 지정된 종료 시간 이전에 발생한 것입니다. 이 값은 Unix 시간소인 epoch(마이크로초)로 입력해야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-max-alerts-flag-description",
-    "translation": "리턴할 최대 경보 수를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-category-list-flag-description",
-    "translation": "경보 카탈로그 목록으로 필터링합니다. 허용되는 목록 항목: kDisk, kNode, kCluster, kChassis, kPowerSupply, kCPU, kMemory, kTemperature, kFan, kNIC, kFirmware, kNodeHealth, kOperatingSystem, kDataPath, kMetadata, kIndexing, kHelios, kAppMarketPlace, kSystemService, kLicense, kSecurity, kUpgrade, kClusterManagement, kAuditLog, kNetworking, kConfiguration, kStorageUsage, kFaultTolerance, kBackupRestore, kArchivalRestore, kRemoteReplication, kQuota, kCDP, kViewFailover, kDisasterRecovery, kStorageDevice, kStoragePool, kGeneralSoftwareFailure, kAgent."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-tenant-ids-flag-description",
-    "translation": "테넌트 ID로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-bucket-list-flag-description",
-    "translation": "경보 유형 버킷 목록으로 필터링합니다. 허용되는 목록 항목: kHardware, kSoftware, kDataService, kMaintenance."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-key-list-flag-description",
-    "translation": "쿼리할 경보 특성 키 목록을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-value-list-flag-description",
-    "translation": "경보 특성 값의 목록을 지정합니다. 하나의 키에 대한 다중 값은 '|'로 연결해야 합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-name-flag-description",
-    "translation": "경보를 필터링할 경보의 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-service-instance-ids-flag-description",
-    "translation": "IBM 고객을 위한 경보를 필터링하도록 서비스 인스턴스 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-short-description",
-    "translation": "BRS 시스템에서 경보 분석을 나열합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-long-description",
-    "translation": "지정된 매개변수의 필터 기준과 일치하는 IBM 시스템에서 발견된 관리 콘솔 경보 분석 오브젝트를 리턴합니다. 필터 매개변수가 지정되지 않은 경우, MaxResolutions 경보 분석 오브젝트가 리턴됩니다. 각 오브젝트는 경보 분석 정보와 분석된 경보 정보에 대한 세부사항을 제공합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-max-resolutions-flag-description",
-    "translation": "필수입니다. 가장 최근에 작성된 것부터 가장 먼저 작성된 것까지 리턴할 해상도의 최대 수를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-name-flag-description",
-    "translation": "쿼리할 경보 분석 이름을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-id-flag-description",
-    "translation": "쿼리할 경보 분석 ID를 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-short-description",
-    "translation": "활성 경보에 대한 통계를 계산합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-long-description",
-    "translation": "활성 경보에 대한 통계를 계산합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-start-time-usecs-flag-description",
-    "translation": "필수입니다. 활성 경보 통계가 계산되는 시작 시간을 마이크로초 단위의 Unix epoch로 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-end-time-usecs-flag-description",
-    "translation": "필수입니다. 활성 경보 통계가 계산되는 종료 시간을 마이크로초 단위의 Unix epoch로 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-cluster-ids-flag-description",
-    "translation": "클러스터 ID 목록을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-service-instance-ids-flag-description",
-    "translation": "경보 통계를 필터링하도록 서비스 인스턴스 ID 목록을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-region-ids-flag-description",
-    "translation": "지역 ID 목록으로 필터링합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-exclude-stats-by-cluster-flag-description",
-    "translation": "클러스터별 활성 경보의 통계 데이터를 제외할지 여부를 지정합니다. False(기본값)로 설정된 경우, 클러스터별 활성 경보의 통계가 응답에 포함됩니다. true로 설정된 경우 응답에는 집계된 통계 요약만 포함됩니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-alert-source-flag-description",
-    "translation": "경보 생성 소스 목록을 지정합니다. 지정되지 않은 경우, 모든 소스의 모든 경보가 응답에 고려됩니다. 허용 가능한 값: kCluster, kHelios."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-tenant-ids-flag-description",
-    "translation": "테넌트 목록을 지정합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-group-short-description",
-    "translation": "클러스터 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-group-long-description",
-    "translation": "클러스터 자원에 대한 명령입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-list-command-short-description",
-    "translation": "릴리스 버전에 호환되는 클러스터를 페치합니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-list-command-long-description",
-    "translation": "지정된 릴리스 버전으로 업그레이드할 수 있는 클러스터 목록을 가져옵니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-list-release-version-flag-description",
-    "translation": ""
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-info-command-short-description",
-    "translation": "업그레이드 세부사항이 포함된 클러스터 정보입니다."
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-info-command-long-description",
-    "translation": "클러스터 정보와 해당 업그레이드 세부사항을 가져옵니다."
   },
   {
     "id": "show-help",

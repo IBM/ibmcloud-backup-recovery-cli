@@ -1,12 +1,12 @@
 # CHANGELOG
 
-## 1.2.3
+## 1.3.0
 
 ### Content
 
-#### Defects
+#### Features
 
-* Internal fixes and improvements
+* Support for ConnectorAgent
 
 ## 1.2.2
 

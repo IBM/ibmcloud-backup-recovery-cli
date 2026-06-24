@@ -121,7 +121,9 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 		GetClusterGroup(utils),
 		GetDataSourceConnectionGroup(utils),
 		GetDataSourceConnectorGroup(utils),
+		GetConnectorAgentGroup(utils),
 		GetCreateAccessTokenCommand(NewCreateAccessTokenCommandRunner(utils, CreateAccessTokenRequestSender{})),
+		GetGenerateAccessTokenCommand(NewGenerateAccessTokenCommandRunner(utils, GenerateAccessTokenRequestSender{})),
 		GetDownloadAgentCommand(NewDownloadAgentCommandRunner(utils, DownloadAgentRequestSender{})),
 		GetGetConnectorMetadataCommand(NewGetConnectorMetadataCommandRunner(utils, GetConnectorMetadataRequestSender{})),
 		GetGetDataSourceConnectorLogsCommand(NewGetDataSourceConnectorLogsCommandRunner(utils, GetDataSourceConnectorLogsRequestSender{})),
@@ -167,6 +169,18 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 	backupRecoveryCommand.PersistentFlags().StringVar(utils.ExposeOutputFormatVar(), "output", "table", translation.T("output-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().StringVarP(utils.ExposeJMESQueryVar(), "jmes-query", "j", "", translation.T("jmes-query-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().BoolP("quiet", "q", false, translation.T("quiet-global-flag-description"))
+
+	// Hide all flags except -h (help) and -q (quiet) from help output
+	backupRecoveryCommand.Flags().MarkHidden("service-url")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("connector-service-url")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-reporting-service-url")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-url")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-authentication-url")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-password")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-username")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-apikey")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("output")
+	backupRecoveryCommand.PersistentFlags().MarkHidden("jmes-query")
 
 	backupRecoveryCommand.AddCommand(serviceCommands...)
 	return backupRecoveryCommand

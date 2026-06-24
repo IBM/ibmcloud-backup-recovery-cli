@@ -4,8 +4,8 @@ go 1.26.4
 
 require (
 	github.com/IBM-Cloud/ibm-cloud-cli-sdk v1.11.1
-	github.com/IBM/go-sdk-core/v5 v5.21.4
-	github.com/IBM/ibm-backup-recovery-sdk-go v1.2.6
+	github.com/IBM/go-sdk-core/v5 v5.22.0
+	github.com/IBM/ibm-backup-recovery-sdk-go v1.3.1
 	github.com/Xuanwo/go-locale v1.1.3
 	github.com/gdamore/tcell/v2 v2.13.10
 	github.com/ghodss/yaml v1.0.0
@@ -13,7 +13,7 @@ require (
 	github.com/jmespath/go-jmespath v0.4.0
 	github.com/nicksnyder/go-i18n/v2 v2.6.1
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.42.0
+	github.com/onsi/gomega v1.42.1
 	github.com/rivo/tview v0.0.0-20241103174730-c76f7879f592
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/pflag v1.0.10
@@ -33,7 +33,7 @@ require (
 	github.com/go-openapi/errors v0.22.7 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-playground/validator/v10 v10.30.3 // indirect
+	github.com/go-playground/validator/v10 v10.28.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/gofrs/flock v0.8.1 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect

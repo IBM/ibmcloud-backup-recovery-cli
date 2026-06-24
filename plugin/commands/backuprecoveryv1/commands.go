@@ -40,6 +40,16 @@ import (
 
 var serviceName string = "backup_recovery"
 
+// Helper function to add required flags annotation to command
+func addRequiredFlagsAnnotation(cmd *cobra.Command, requiredFlags []string) {
+	if len(requiredFlags) > 0 {
+		if cmd.Annotations == nil {
+			cmd.Annotations = make(map[string]string)
+		}
+		cmd.Annotations["required-flags"] = strings.Join(requiredFlags, ",")
+	}
+}
+
 func (r *BackupRecoveryV1CommandHelper) GetManagementSreAuthenticatorAndURL() (core.Authenticator, string) {
 	authenticator := new(baas.ManagementSreAuthenticator)
 
@@ -468,6 +478,7 @@ func GetListProtectionSourcesCommand(r *ListProtectionSourcesCommandRunner) *cob
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -685,6 +696,7 @@ func GetGetSourceRegistrationsCommand(r *GetSourceRegistrationsCommandRunner) *c
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -872,6 +884,7 @@ func GetRegisterProtectionSourceCommand(r *RegisterProtectionSourceCommandRunner
 		"environment",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -1363,6 +1376,7 @@ func GetGetProtectionSourceRegistrationCommand(r *GetProtectionSourceRegistratio
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -1557,6 +1571,7 @@ func GetUpdateProtectionSourceRegistrationCommand(r *UpdateProtectionSourceRegis
 		"environment",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2055,6 +2070,7 @@ func GetPatchProtectionSourceRegistrationCommand(r *PatchProtectionSourceRegistr
 		"environment",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2166,6 +2182,7 @@ func GetDeleteProtectionSourceRegistrationCommand(r *DeleteProtectionSourceRegis
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2257,6 +2274,7 @@ func GetRefreshProtectionSourceByIDCommand(r *RefreshProtectionSourceByIDCommand
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2358,6 +2376,7 @@ func GetGetUpgradeTasksCommand(r *GetUpgradeTasksCommandRunner) *cobra.Command {
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2464,6 +2483,7 @@ func GetCreateUpgradeTaskCommand(r *CreateUpgradeTaskCommandRunner) *cobra.Comma
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2583,7 +2603,7 @@ type GetProtectionPoliciesCommandRunner struct {
 	ExcludeLinkedPolicies     bool
 	IncludeReplicatedPolicies bool
 	IncludeStats              bool
-	VaultIds string
+	VaultIds                  string
 	RequiredFlags             []string
 	sender                    RequestSender
 	utils                     Utilities
@@ -2592,7 +2612,7 @@ type GetProtectionPoliciesCommandRunner struct {
 // Command mapping: protection-policy list, GetGetProtectionPoliciesCommand
 func GetGetProtectionPoliciesCommand(r *GetProtectionPoliciesCommandRunner) *cobra.Command {
 	cmd := &cobra.Command{
-		Use: "list --xibm-tenant-id XIBM-TENANT-ID [--request-initiator-type REQUEST-INITIATOR-TYPE] [--ids IDS] [--policy-names POLICY-NAMES] [--types TYPES] [--exclude-linked-policies=EXCLUDE-LINKED-POLICIES] [--include-replicated-policies=INCLUDE-REPLICATED-POLICIES] [--include-stats=INCLUDE-STATS] [--vault-ids VAULT-IDS]",
+		Use:                   "list --xibm-tenant-id XIBM-TENANT-ID [--request-initiator-type REQUEST-INITIATOR-TYPE] [--ids IDS] [--policy-names POLICY-NAMES] [--types TYPES] [--exclude-linked-policies=EXCLUDE-LINKED-POLICIES] [--include-replicated-policies=INCLUDE-REPLICATED-POLICIES] [--include-stats=INCLUDE-STATS] [--vault-ids VAULT-IDS]",
 		Short:                 translation.T("backup-recovery-protection-policy-list-command-short-description"),
 		Long:                  translation.T("backup-recovery-protection-policy-list-command-long-description"),
 		Run:                   r.Run,
@@ -2626,6 +2646,7 @@ func GetGetProtectionPoliciesCommand(r *GetProtectionPoliciesCommandRunner) *cob
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2768,8 +2789,8 @@ func GetCreateProtectionPolicyCommand(r *CreateProtectionPolicyCommandRunner) *c
 	 --description 'Protection Policy' \
 	 --blackout-window '[{"day": "Sunday", "startTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "endTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "configId": "Config-Id"}]' \
 	 --extended-retention '[{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]' \
-	 --remote-target-policy '{"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}' \
-	 --cascaded-targets-config '[{"sourceClusterId": 26, "remoteTargets": {"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}}]' \
+    --remote-target-policy '{"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetName": "Failover-External", "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}' \
+    --cascaded-targets-config '[{"sourceClusterId": 26, "remoteTargets": {"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetName": "Failover-External", "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}}]' \
 	 --retry-options '{"retries": 0, "retryIntervalMins": 1}' \
 	 --data-lock Compliance \
 	 --version 38 \
@@ -2810,6 +2831,7 @@ func GetCreateProtectionPolicyCommand(r *CreateProtectionPolicyCommandRunner) *c
 		"name",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -2934,7 +2956,7 @@ func (r *CreateProtectionPolicyCommandRunner) Run(cmd *cobra.Command, args []str
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetRemoteTargetPolicy(RemoteTargetPolicy)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicy, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["rpaasTargets#RpaasTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicy, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetName","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["rpaasTargets#RpaasTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "remote-target-policy",
@@ -2962,7 +2984,7 @@ func (r *CreateProtectionPolicyCommandRunner) Run(cmd *cobra.Command, args []str
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetCascadedTargetsConfig(CascadedTargetsConfig)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.CascadedTargetsConfig, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"TargetsConfiguration":["replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","rpaasTargets#RpaasTargetConfiguration"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["remoteTargets#TargetsConfiguration","sourceClusterId"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.CascadedTargetsConfig, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"TargetsConfiguration":["replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","rpaasTargets#RpaasTargetConfiguration"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetName","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["remoteTargets#TargetsConfiguration","sourceClusterId"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "cascaded-targets-config",
@@ -3229,7 +3251,7 @@ func (r *CreateProtectionPolicyCommandRunner) Run(cmd *cobra.Command, args []str
 			)
 			r.utils.HandleError(err, msg)
 			RemoteTargetPolicyHelper.ArchivalTargets = RemoteTargetPolicyArchivalTargets
-			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicyArchivalTargets, `{"schemas":{"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"OracleTiers":["tiers#OracleTier"],"AWSTiers":["tiers#AWSTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AzureTiers":["tiers#AzureTier"]},"fields":["schedule#TargetSchedule","backupRunType","tierSettings#TierLevelSettings","runTimeouts#CancellationTimeoutParams","targetId","configId","extendedRetention#ExtendedRetentionPolicy","retention#Retention","copyOnRunSuccess","logRetention#LogRetention"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicyArchivalTargets, `{"schemas":{"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"OracleTiers":["tiers#OracleTier"],"AWSTiers":["tiers#AWSTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AzureTiers":["tiers#AzureTier"]},"fields":["schedule#TargetSchedule","backupRunType","targetName","tierSettings#TierLevelSettings","runTimeouts#CancellationTimeoutParams","targetId","configId","extendedRetention#ExtendedRetentionPolicy","retention#Retention","copyOnRunSuccess","logRetention#LogRetention"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "remote-target-policy-archival-targets",
@@ -3453,6 +3475,7 @@ func GetGetProtectionPolicyByIDCommand(r *GetProtectionPolicyByIDCommandRunner) 
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -3584,8 +3607,8 @@ func GetUpdateProtectionPolicyCommand(r *UpdateProtectionPolicyCommandRunner) *c
 	  --description 'Protection Policy' \
 	  --blackout-window '[{"day": "Sunday", "startTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "endTime": {"hour": 1, "minute": 15, "timeZone": "America/Los_Angeles"}, "configId": "Config-Id"}]' \
 	  --extended-retention '[{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]' \
-	  --remote-target-policy '{"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}' \
-	  --cascaded-targets-config '[{"sourceClusterId": 26, "remoteTargets": {"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}}]' \
+    --remote-target-policy '{"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetName": "exampleString", "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}' \
+    --cascaded-targets-config '[{"sourceClusterId": 26, "remoteTargets": {"replicationTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "awsTargetConfig": {"region": 26, "sourceId": 26}, "azureTargetConfig": {"resourceGroup": 26, "sourceId": 26}, "targetType": "RemoteCluster", "remoteTargetConfig": {"clusterId": 26}}], "archivalTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetName": "exampleString", "tierSettings": {"awsTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAmazonS3Standard"}]}, "azureTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kAzureTierHot"}]}, "cloudPlatform": "AWS", "googleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kGoogleStandard"}]}, "oracleTiering": {"tiers": [{"moveAfterUnit": "Days", "moveAfter": 26, "tierType": "kOracleTierStandard"}]}}, "extendedRetention": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "runType": "Regular", "configId": "Config-Id"}]}], "cloudSpinTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "target": {"awsParams": {"customTagList": [{"key": "custom-tag-key", "value": "custom-tag-value"}], "region": 3, "subnetId": 26, "vpcId": 26}, "azureParams": {"availabilitySetId": 26, "networkResourceGroupId": 26, "resourceGroupId": 26, "storageAccountId": 26, "storageContainerId": 26, "storageResourceGroupId": 26, "tempVmResourceGroupId": 26, "tempVmStorageAccountId": 26, "tempVmStorageContainerId": 26, "tempVmSubnetId": 26, "tempVmVirtualNetworkId": 26}, "id": 2}}], "onpremDeployTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "params": {"id": 4}}], "rpaasTargets": [{"schedule": {"unit": "Runs", "frequency": 3}, "retention": {"unit": "Days", "duration": 1, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "copyOnRunSuccess": true, "configId": "Config-Id", "backupRunType": "Regular", "runTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "logRetention": {"unit": "Days", "duration": 0, "dataLockConfig": {"mode": "Compliance", "unit": "Days", "duration": 1, "enableWormOnExternalTarget": true}}, "targetId": 5, "targetType": "Tape"}]}}]' \
 	  --retry-options '{"retries": 0, "retryIntervalMins": 1}' \
 	  --data-lock Compliance \
 	  --version 38 \
@@ -3628,6 +3651,7 @@ func GetUpdateProtectionPolicyCommand(r *UpdateProtectionPolicyCommandRunner) *c
 		"name",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -3755,7 +3779,7 @@ func (r *UpdateProtectionPolicyCommandRunner) Run(cmd *cobra.Command, args []str
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetRemoteTargetPolicy(RemoteTargetPolicy)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicy, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["rpaasTargets#RpaasTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicy, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetName","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["rpaasTargets#RpaasTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "remote-target-policy",
@@ -3783,7 +3807,7 @@ func (r *UpdateProtectionPolicyCommandRunner) Run(cmd *cobra.Command, args []str
 			)
 			r.utils.HandleError(err, msg)
 			OptionsModel.SetCascadedTargetsConfig(CascadedTargetsConfig)
-			extraFieldPaths, err := r.utils.ValidateJSON(r.CascadedTargetsConfig, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"TargetsConfiguration":["replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","rpaasTargets#RpaasTargetConfiguration"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["remoteTargets#TargetsConfiguration","sourceClusterId"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.CascadedTargetsConfig, `{"schemas":{"OracleTiers":["tiers#OracleTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"OnpremDeployTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","params#OnpremDeployParams"],"TargetsConfiguration":["replicationTargets#ReplicationTargetConfiguration","archivalTargets#ArchivalTargetConfiguration","cloudSpinTargets#CloudSpinTargetConfiguration","onpremDeployTargets#OnpremDeployTargetConfiguration","rpaasTargets#RpaasTargetConfiguration"],"RemoteTargetConfig":["clusterId"],"AwsCloudSpinParams":["customTagList#CustomTagParams","region","subnetId","vpcId"],"OnpremDeployParams":["id"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AzureCloudSpinParams":["availabilitySetId","networkResourceGroupId","resourceGroupId","storageAccountId","storageContainerId","storageResourceGroupId","tempVmResourceGroupId","tempVmStorageAccountId","tempVmStorageContainerId","tempVmSubnetId","tempVmVirtualNetworkId"],"AzureTargetConfig":["resourceGroup","sourceId"],"RpaasTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetType"],"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ReplicationTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","awsTargetConfig#AWSTargetConfig","azureTargetConfig#AzureTargetConfig","targetType","remoteTargetConfig#RemoteTargetConfig"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"CustomTagParams":["key","value"],"CloudSpinTarget":["awsParams#AwsCloudSpinParams","azureParams#AzureCloudSpinParams","id"],"AWSTiers":["tiers#AWSTier"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"CloudSpinTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","target#CloudSpinTarget"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AWSTargetConfig":["region","sourceId"],"ArchivalTargetConfiguration":["schedule#TargetSchedule","retention#Retention","copyOnRunSuccess","configId","backupRunType","runTimeouts#CancellationTimeoutParams","logRetention#LogRetention","targetId","targetName","tierSettings#TierLevelSettings","extendedRetention#ExtendedRetentionPolicy"],"AzureTiers":["tiers#AzureTier"]},"fields":["remoteTargets#TargetsConfiguration","sourceClusterId"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "cascaded-targets-config",
@@ -4050,7 +4074,7 @@ func (r *UpdateProtectionPolicyCommandRunner) Run(cmd *cobra.Command, args []str
 			)
 			r.utils.HandleError(err, msg)
 			RemoteTargetPolicyHelper.ArchivalTargets = RemoteTargetPolicyArchivalTargets
-			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicyArchivalTargets, `{"schemas":{"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"OracleTiers":["tiers#OracleTier"],"AWSTiers":["tiers#AWSTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AzureTiers":["tiers#AzureTier"]},"fields":["schedule#TargetSchedule","backupRunType","tierSettings#TierLevelSettings","runTimeouts#CancellationTimeoutParams","targetId","configId","extendedRetention#ExtendedRetentionPolicy","retention#Retention","copyOnRunSuccess","logRetention#LogRetention"]}`)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.RemoteTargetPolicyArchivalTargets, `{"schemas":{"TargetSchedule":["unit","frequency"],"OracleTier":["moveAfterUnit","moveAfter","tierType"],"ExtendedRetentionSchedule":["unit","frequency"],"TierLevelSettings":["awsTiering#AWSTiers","azureTiering#AzureTiers","cloudPlatform","googleTiering#GoogleTiers","oracleTiering#OracleTiers"],"OracleTiers":["tiers#OracleTier"],"AWSTiers":["tiers#AWSTier"],"GoogleTier":["moveAfterUnit","moveAfter","tierType"],"Retention":["unit","duration","dataLockConfig#DataLockConfig"],"GoogleTiers":["tiers#GoogleTier"],"ExtendedRetentionPolicy":["schedule#ExtendedRetentionSchedule","retention#Retention","runType","configId"],"DataLockConfig":["mode","unit","duration","enableWormOnExternalTarget"],"CancellationTimeoutParams":["timeoutMins","backupType"],"AzureTier":["moveAfterUnit","moveAfter","tierType"],"AWSTier":["moveAfterUnit","moveAfter","tierType"],"LogRetention":["unit","duration","dataLockConfig#DataLockConfig"],"AzureTiers":["tiers#AzureTier"]},"fields":["schedule#TargetSchedule","backupRunType","targetName","tierSettings#TierLevelSettings","runTimeouts#CancellationTimeoutParams","targetId","configId","extendedRetention#ExtendedRetentionPolicy","retention#Retention","copyOnRunSuccess","logRetention#LogRetention"]}`)
 			if err != nil {
 				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
 					"FLAG_NAME": "remote-target-policy-archival-targets",
@@ -4275,6 +4299,7 @@ func GetDeleteProtectionPolicyCommand(r *DeleteProtectionPolicyCommandRunner) *c
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -4441,6 +4466,7 @@ func GetGetProtectionGroupsCommand(r *GetProtectionGroupsCommandRunner) *cobra.C
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -4629,7 +4655,7 @@ type CreateProtectionGroupCommandRunner struct {
 	KubernetesParamsLeverageCSISnapshot                     bool
 	KubernetesParamsNonSnapshotBackup                       bool
 	KubernetesParamsObjects                                 string
-	KubernetesParamsSnapshotTimeoutSeconds int64
+	KubernetesParamsSnapshotTimeoutSeconds                  int64
 	KubernetesParamsVlanParams                              string
 	KubernetesParamsVolumeBackupFailure                     bool
 	RequiredFlags                                           []string
@@ -4724,6 +4750,7 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 		"environment",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -5478,6 +5505,7 @@ func GetGetProtectionGroupByIDCommand(r *GetProtectionGroupByIDCommandRunner) *c
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -5620,7 +5648,7 @@ type UpdateProtectionGroupCommandRunner struct {
 	KubernetesParamsLeverageCSISnapshot                     bool
 	KubernetesParamsNonSnapshotBackup                       bool
 	KubernetesParamsObjects                                 string
-	KubernetesParamsSnapshotTimeoutSeconds int64
+	KubernetesParamsSnapshotTimeoutSeconds                  int64
 	KubernetesParamsVlanParams                              string
 	KubernetesParamsVolumeBackupFailure                     bool
 	RequiredFlags                                           []string
@@ -5718,6 +5746,7 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 		"environment",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -6470,6 +6499,7 @@ func GetDeleteProtectionGroupCommand(r *DeleteProtectionGroupCommandRunner) *cob
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -6523,7 +6553,9 @@ func GetProtectionGroupRunGroup(utils Utilities) *cobra.Command {
 		GetGetProtectionGroupRunsCommand(NewGetProtectionGroupRunsCommandRunner(utils, GetProtectionGroupRunsRequestSender{})),
 		GetUpdateProtectionGroupRunCommand(NewUpdateProtectionGroupRunCommandRunner(utils, UpdateProtectionGroupRunRequestSender{})),
 		GetCreateProtectionGroupRunCommand(NewCreateProtectionGroupRunCommandRunner(utils, CreateProtectionGroupRunRequestSender{})),
+		GetGetProtectionGroupRunCommand(NewGetProtectionGroupRunCommandRunner(utils, GetProtectionGroupRunRequestSender{})),
 		GetPerformActionOnProtectionGroupRunCommand(NewPerformActionOnProtectionGroupRunCommandRunner(utils, PerformActionOnProtectionGroupRunRequestSender{})),
+		GetGetProtectionRunProgressCommand(NewGetProtectionRunProgressCommandRunner(utils, GetProtectionRunProgressRequestSender{})),
 	}
 
 	command := &cobra.Command{
@@ -6636,6 +6668,7 @@ func GetGetProtectionGroupRunsCommand(r *GetProtectionGroupRunsCommandRunner) *c
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -6805,6 +6838,7 @@ func GetUpdateProtectionGroupRunCommand(r *UpdateProtectionGroupRunCommandRunner
 		"update-protection-group-run-params",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -6941,6 +6975,7 @@ func GetCreateProtectionGroupRunCommand(r *CreateProtectionGroupRunCommandRunner
 		"run-type",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -7144,6 +7179,149 @@ func (r *CreateProtectionGroupRunCommandRunner) MakeRequest(OptionsModel backupr
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for GetProtectionGroupRun command
+type GetProtectionGroupRunRequestSender struct{}
+
+func (s GetProtectionGroupRunRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.GetProtectionGroupRun(optionsModel.(*backuprecoveryv1.GetProtectionGroupRunOptions))
+}
+
+// Command Runner for GetProtectionGroupRun command
+func NewGetProtectionGroupRunCommandRunner(utils Utilities, sender RequestSender) *GetProtectionGroupRunCommandRunner {
+	return &GetProtectionGroupRunCommandRunner{utils: utils, sender: sender}
+}
+
+type GetProtectionGroupRunCommandRunner struct {
+	ID                   string
+	RunID                string
+	RequestInitiatorType string
+	TenantIds            string
+	IncludeTenants       bool
+	IncludeObjectDetails bool
+	UseCachedData        bool
+	RequiredFlags        []string
+	sender               RequestSender
+	utils                Utilities
+}
+
+// Command mapping: protection-group-run get, GetGetProtectionGroupRunCommand
+func GetGetProtectionGroupRunCommand(r *GetProtectionGroupRunCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "get --id ID --run-id RUN-ID [--request-initiator-type REQUEST-INITIATOR-TYPE] [--tenant-ids TENANT-IDS] [--include-tenants=INCLUDE-TENANTS] [--include-object-details=INCLUDE-OBJECT-DETAILS] [--use-cached-data=USE-CACHED-DATA]",
+		Short:                 translation.T("backup-recovery-protection-group-run-get-command-short-description"),
+		Long:                  translation.T("backup-recovery-protection-group-run-get-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command-group": "protection-group-run",
+			"x-cli-description":   "Get a run for a Protection Group.",
+			"x-cli-command":       "get",
+		},
+		Example: `  ibmcloud backup-recovery protection-group-run get \
+    --id exampleString \
+    --run-id exampleString \
+    --request-initiator-type UIUser \
+    --tenant-ids exampleString,anotherTestString \
+    --include-tenants=true \
+    --include-object-details=true \
+    --use-cached-data=true`,
+	}
+
+	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-protection-group-run-get-id-flag-description"))
+	cmd.Flags().StringVarP(&r.RunID, "run-id", "", "", translation.T("backup-recovery-protection-group-run-get-run-id-flag-description"))
+	cmd.Flags().StringVarP(&r.RequestInitiatorType, "request-initiator-type", "", "", translation.T("backup-recovery-protection-group-run-get-request-initiator-type-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantIds, "tenant-ids", "", "", translation.T("backup-recovery-protection-group-run-get-tenant-ids-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeTenants, "include-tenants", "", false, translation.T("backup-recovery-protection-group-run-get-include-tenants-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeObjectDetails, "include-object-details", "", false, translation.T("backup-recovery-protection-group-run-get-include-object-details-flag-description"))
+	cmd.Flags().BoolVarP(&r.UseCachedData, "use-cached-data", "", false, translation.T("backup-recovery-protection-group-run-get-use-cached-data-flag-description"))
+	r.RequiredFlags = []string{
+		"id",
+		"run-id",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running GetProtectionGroupRun
+func (r *GetProtectionGroupRunCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetProtectionGroupRunOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "id" {
+			OptionsModel.SetID(r.ID)
+		}
+		if flag.Name == "run-id" {
+			OptionsModel.SetRunID(r.RunID)
+		}
+		if flag.Name == "request-initiator-type" {
+			OptionsModel.SetRequestInitiatorType(r.RequestInitiatorType)
+		}
+		if flag.Name == "tenant-ids" {
+			var TenantIds []string
+			err, msg := deserialize.List(r.TenantIds, "tenant-ids", "JSON", &TenantIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetTenantIds(TenantIds)
+		}
+		if flag.Name == "include-tenants" {
+			OptionsModel.SetIncludeTenants(r.IncludeTenants)
+		}
+		if flag.Name == "include-object-details" {
+			OptionsModel.SetIncludeObjectDetails(r.IncludeObjectDetails)
+		}
+		if flag.Name == "use-cached-data" {
+			OptionsModel.SetUseCachedData(r.UseCachedData)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetProtectionGroupRunCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetProtectionGroupRunOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"id",
+		"protectionGroupInstanceId",
+		"protectionGroupId",
+		"isReplicationRun",
+		"originClusterIdentifier",
+		"originProtectionGroupId",
+		"protectionGroupName",
+		"isLocalSnapshotsDeleted",
+		"objects",
+		"localBackupInfo",
+		"originalBackupInfo",
+		"replicationInfo",
+		"archivalInfo",
+		"cloudSpinInfo",
+		"onLegalHold",
+		"permissions",
+		"isCloudArchivalDirect",
+		"hasLocalSnapshot",
+		"environment",
+		"externallyTriggeredBackupTag",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
 // RequestSender for PerformActionOnProtectionGroupRun command
 type PerformActionOnProtectionGroupRunRequestSender struct{}
 
@@ -7202,6 +7380,7 @@ func GetPerformActionOnProtectionGroupRunCommand(r *PerformActionOnProtectionGro
 		"action",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -7337,11 +7516,179 @@ func (r *PerformActionOnProtectionGroupRunCommandRunner) MakeRequest(OptionsMode
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for GetProtectionRunProgress command
+type GetProtectionRunProgressRequestSender struct{}
+
+func (s GetProtectionRunProgressRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.GetProtectionRunProgress(optionsModel.(*backuprecoveryv1.GetProtectionRunProgressOptions))
+}
+
+// Command Runner for GetProtectionRunProgress command
+func NewGetProtectionRunProgressCommandRunner(utils Utilities, sender RequestSender) *GetProtectionRunProgressCommandRunner {
+	return &GetProtectionRunProgressCommandRunner{utils: utils, sender: sender}
+}
+
+type GetProtectionRunProgressCommandRunner struct {
+	RunID                string
+	Objects              string
+	TenantIds            string
+	IncludeTenants       bool
+	IncludeFinishedTasks bool
+	StartTimeUsecs       int64
+	EndTimeUsecs         int64
+	MaxTasksNum          int64
+	ExcludeObjectDetails bool
+	IncludeEventLogs     bool
+	MaxLogLevel          int64
+	RunTaskPath          string
+	ObjectTaskPaths      string
+	RequiredFlags        []string
+	sender               RequestSender
+	utils                Utilities
+}
+
+// Command mapping: protection-group-run progress, GetGetProtectionRunProgressCommand
+func GetGetProtectionRunProgressCommand(r *GetProtectionRunProgressCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "progress --run-id RUN-ID [--objects OBJECTS] [--tenant-ids TENANT-IDS] [--include-tenants=INCLUDE-TENANTS] [--include-finished-tasks=INCLUDE-FINISHED-TASKS] [--start-time-usecs START-TIME-USECS] [--end-time-usecs END-TIME-USECS] [--max-tasks-num MAX-TASKS-NUM] [--exclude-object-details=EXCLUDE-OBJECT-DETAILS] [--include-event-logs=INCLUDE-EVENT-LOGS] [--max-log-level MAX-LOG-LEVEL] [--run-task-path RUN-TASK-PATH] [--object-task-paths OBJECT-TASK-PATHS]",
+		Short:                 translation.T("backup-recovery-protection-group-run-progress-command-short-description"),
+		Long:                  translation.T("backup-recovery-protection-group-run-progress-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command-group": "protection-group-run",
+			"x-cli-description":   "Get the progress of a run.",
+			"x-cli-command":       "progress",
+		},
+		Example: `  ibmcloud backup-recovery protection-group-run progress \
+    --run-id exampleString \
+    --objects 26,27 \
+    --tenant-ids exampleString,anotherTestString \
+    --include-tenants=true \
+    --include-finished-tasks=true \
+    --start-time-usecs 26 \
+    --end-time-usecs 26 \
+    --max-tasks-num 38 \
+    --exclude-object-details=true \
+    --include-event-logs=true \
+    --max-log-level 38 \
+    --run-task-path exampleString \
+    --object-task-paths exampleString,anotherTestString`,
+	}
+
+	cmd.Flags().StringVarP(&r.RunID, "run-id", "", "", translation.T("backup-recovery-protection-group-run-progress-run-id-flag-description"))
+	cmd.Flags().StringVarP(&r.Objects, "objects", "", "", translation.T("backup-recovery-protection-group-run-progress-objects-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantIds, "tenant-ids", "", "", translation.T("backup-recovery-protection-group-run-progress-tenant-ids-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeTenants, "include-tenants", "", false, translation.T("backup-recovery-protection-group-run-progress-include-tenants-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeFinishedTasks, "include-finished-tasks", "", false, translation.T("backup-recovery-protection-group-run-progress-include-finished-tasks-flag-description"))
+	cmd.Flags().Int64VarP(&r.StartTimeUsecs, "start-time-usecs", "", 0, translation.T("backup-recovery-protection-group-run-progress-start-time-usecs-flag-description"))
+	cmd.Flags().Int64VarP(&r.EndTimeUsecs, "end-time-usecs", "", 0, translation.T("backup-recovery-protection-group-run-progress-end-time-usecs-flag-description"))
+	cmd.Flags().Int64VarP(&r.MaxTasksNum, "max-tasks-num", "", 0, translation.T("backup-recovery-protection-group-run-progress-max-tasks-num-flag-description"))
+	cmd.Flags().BoolVarP(&r.ExcludeObjectDetails, "exclude-object-details", "", false, translation.T("backup-recovery-protection-group-run-progress-exclude-object-details-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeEventLogs, "include-event-logs", "", false, translation.T("backup-recovery-protection-group-run-progress-include-event-logs-flag-description"))
+	cmd.Flags().Int64VarP(&r.MaxLogLevel, "max-log-level", "", 0, translation.T("backup-recovery-protection-group-run-progress-max-log-level-flag-description"))
+	cmd.Flags().StringVarP(&r.RunTaskPath, "run-task-path", "", "", translation.T("backup-recovery-protection-group-run-progress-run-task-path-flag-description"))
+	cmd.Flags().StringVarP(&r.ObjectTaskPaths, "object-task-paths", "", "", translation.T("backup-recovery-protection-group-run-progress-object-task-paths-flag-description"))
+	r.RequiredFlags = []string{
+		"run-id",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running GetProtectionRunProgress
+func (r *GetProtectionRunProgressCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetProtectionRunProgressOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "run-id" {
+			OptionsModel.SetRunID(r.RunID)
+		}
+		if flag.Name == "objects" {
+			var Objects []int64
+			err, msg := deserialize.List(r.Objects, "objects", "JSON", &Objects)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetObjects(Objects)
+		}
+		if flag.Name == "tenant-ids" {
+			var TenantIds []string
+			err, msg := deserialize.List(r.TenantIds, "tenant-ids", "JSON", &TenantIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetTenantIds(TenantIds)
+		}
+		if flag.Name == "include-tenants" {
+			OptionsModel.SetIncludeTenants(r.IncludeTenants)
+		}
+		if flag.Name == "include-finished-tasks" {
+			OptionsModel.SetIncludeFinishedTasks(r.IncludeFinishedTasks)
+		}
+		if flag.Name == "start-time-usecs" {
+			OptionsModel.SetStartTimeUsecs(r.StartTimeUsecs)
+		}
+		if flag.Name == "end-time-usecs" {
+			OptionsModel.SetEndTimeUsecs(r.EndTimeUsecs)
+		}
+		if flag.Name == "max-tasks-num" {
+			OptionsModel.SetMaxTasksNum(r.MaxTasksNum)
+		}
+		if flag.Name == "exclude-object-details" {
+			OptionsModel.SetExcludeObjectDetails(r.ExcludeObjectDetails)
+		}
+		if flag.Name == "include-event-logs" {
+			OptionsModel.SetIncludeEventLogs(r.IncludeEventLogs)
+		}
+		if flag.Name == "max-log-level" {
+			OptionsModel.SetMaxLogLevel(r.MaxLogLevel)
+		}
+		if flag.Name == "run-task-path" {
+			OptionsModel.SetRunTaskPath(r.RunTaskPath)
+		}
+		if flag.Name == "object-task-paths" {
+			var ObjectTaskPaths []string
+			err, msg := deserialize.List(r.ObjectTaskPaths, "object-task-paths", "JSON", &ObjectTaskPaths)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetObjectTaskPaths(ObjectTaskPaths)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetProtectionRunProgressCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetProtectionRunProgressOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"archivalRun",
+		"localRun",
+		"replicationRun",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
 func GetRecoveryGroup(utils Utilities) *cobra.Command {
 	commands := []*cobra.Command{
 		GetGetRecoveriesCommand(NewGetRecoveriesCommandRunner(utils, GetRecoveriesRequestSender{})),
 		GetCreateRecoveryCommand(NewCreateRecoveryCommandRunner(utils, CreateRecoveryRequestSender{})),
 		GetGetRecoveryByIDCommand(NewGetRecoveryByIDCommandRunner(utils, GetRecoveryByIDRequestSender{})),
+		GetCancelRecoveryByIDCommand(NewCancelRecoveryByIDCommandRunner(utils, CancelRecoveryByIDRequestSender{})),
 		GetDownloadFilesFromRecoveryCommand(NewDownloadFilesFromRecoveryCommandRunner(utils, DownloadFilesFromRecoveryRequestSender{})),
 	}
 
@@ -7424,6 +7771,7 @@ func GetGetRecoveriesCommand(r *GetRecoveriesCommandRunner) *cobra.Command {
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -7601,6 +7949,7 @@ func GetCreateRecoveryCommand(r *CreateRecoveryCommandRunner) *cobra.Command {
 		"snapshot-environment",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8180,6 +8529,7 @@ func GetGetRecoveryByIDCommand(r *GetRecoveryByIDCommandRunner) *cobra.Command {
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8243,6 +8593,87 @@ func (r *GetRecoveryByIDCommandRunner) MakeRequest(OptionsModel backuprecoveryv1
 	})
 
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for CancelRecoveryByID command
+type CancelRecoveryByIDRequestSender struct{}
+
+func (s CancelRecoveryByIDRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	res, err := ServiceInstance.CancelRecoveryByID(optionsModel.(*backuprecoveryv1.CancelRecoveryByIdOptions))
+	// CancelRecoveryByID returns an empty response body
+	return nil, res, err
+}
+
+// Command Runner for CancelRecoveryByID command
+func NewCancelRecoveryByIDCommandRunner(utils Utilities, sender RequestSender) *CancelRecoveryByIDCommandRunner {
+	return &CancelRecoveryByIDCommandRunner{utils: utils, sender: sender}
+}
+
+type CancelRecoveryByIDCommandRunner struct {
+	ID            string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: recovery cancel, GetCancelRecoveryByIDCommand
+func GetCancelRecoveryByIDCommand(r *CancelRecoveryByIDCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "cancel --id ID",
+		Short:                 translation.T("backup-recovery-recovery-cancel-command-short-description"),
+		Long:                  translation.T("backup-recovery-recovery-cancel-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command-group": "recovery",
+			"x-cli-description":   "Cancel Recovery for a given id.",
+			"x-cli-command":       "cancel",
+		},
+		Example: `  ibmcloud backup-recovery recovery cancel \
+    --id exampleString`,
+	}
+
+	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-recovery-cancel-id-flag-description"))
+	r.RequiredFlags = []string{
+		"id",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running CancelRecoveryByID
+func (r *CancelRecoveryByIDCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.CancelRecoveryByIdOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "id" {
+			OptionsModel.SetID(r.ID)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *CancelRecoveryByIDCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.CancelRecoveryByIdOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+	r.utils.ProcessEmptyResponse(DetailedResponse, ResponseErr)
 }
 
 // RequestSender for DownloadFilesFromRecovery command
@@ -8310,6 +8741,7 @@ func GetDownloadFilesFromRecoveryCommand(r *DownloadFilesFromRecoveryCommandRunn
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8435,6 +8867,7 @@ func GetGetDataSourceConnectionsCommand(r *GetDataSourceConnectionsCommandRunner
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8502,21 +8935,21 @@ func NewCreateDataSourceConnectionCommandRunner(utils Utilities, sender RequestS
 }
 
 type CreateDataSourceConnectionCommandRunner struct {
-	XIBMTenantID string
-	ConnectionName string
+	XIBMTenantID      string
+	ConnectionName    string
 	ConnectionEnvType string
-	RequiredFlags []string
-	sender RequestSender
-	utils Utilities
+	RequiredFlags     []string
+	sender            RequestSender
+	utils             Utilities
 }
 
 // Command mapping: data-source-connection create, GetCreateDataSourceConnectionCommand
 func GetCreateDataSourceConnectionCommand(r *CreateDataSourceConnectionCommandRunner) *cobra.Command {
 	cmd := &cobra.Command{
-		Use: "create --xibm-tenant-id XIBM-TENANT-ID --connection-name CONNECTION-NAME [--connection-env-type CONNECTION-ENV-TYPE]",
-		Short: translation.T("backup-recovery-data-source-connection-create-command-short-description"),
-		Long: translation.T("backup-recovery-data-source-connection-create-command-long-description"),
-		Run: r.Run,
+		Use:                   "create --xibm-tenant-id XIBM-TENANT-ID --connection-name CONNECTION-NAME [--connection-env-type CONNECTION-ENV-TYPE]",
+		Short:                 translation.T("backup-recovery-data-source-connection-create-command-short-description"),
+		Long:                  translation.T("backup-recovery-data-source-connection-create-command-long-description"),
+		Run:                   r.Run,
 		DisableFlagsInUseLine: true,
 		Annotations: map[string]string{
 			"x-cli-command-group": "data-source-connection",
@@ -8536,6 +8969,7 @@ func GetCreateDataSourceConnectionCommand(r *CreateDataSourceConnectionCommandRu
 		"connection-name",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8638,6 +9072,7 @@ func GetDeleteDataSourceConnectionCommand(r *DeleteDataSourceConnectionCommandRu
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8731,6 +9166,7 @@ func GetPatchDataSourceConnectionCommand(r *PatchDataSourceConnectionCommandRunn
 		"connection-name",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8829,6 +9265,7 @@ func GetGenerateDataSourceConnectionRegistrationTokenCommand(r *GenerateDataSour
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -8867,6 +9304,306 @@ func (r *GenerateDataSourceConnectionRegistrationTokenCommandRunner) MakeRequest
 
 	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+func GetConnectorAgentGroup(utils Utilities) *cobra.Command {
+	commands := []*cobra.Command{
+		GetListConnectorAgentsCommand(NewListConnectorAgentsCommandRunner(utils, ListConnectorAgentsRequestSender{})),
+		GetGetConnectorAgentConfigCommand(NewGetConnectorAgentConfigCommandRunner(utils, GetConnectorAgentConfigRequestSender{})),
+		GetRegisterConnectorAgentCommand(NewRegisterConnectorAgentCommandRunner(utils, RegisterConnectorAgentRequestSender{})),
+	}
+
+	command := &cobra.Command{
+		Use:                   "connector-agent [action]",
+		Short:                 translation.T("backup-recovery-connector-agent-group-short-description"),
+		Long:                  translation.T("backup-recovery-connector-agent-group-long-description"),
+		DisableFlagsInUseLine: true,
+	}
+
+	command.AddCommand(commands...)
+
+	return command
+}
+
+// RequestSender for ListConnectorAgents command
+type ListConnectorAgentsRequestSender struct{}
+
+func (s ListConnectorAgentsRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.ListConnectorAgents(optionsModel.(*backuprecoveryv1.ListConnectorAgentsOptions))
+}
+
+// Command Runner for ListConnectorAgents command
+func NewListConnectorAgentsCommandRunner(utils Utilities, sender RequestSender) *ListConnectorAgentsCommandRunner {
+	return &ListConnectorAgentsCommandRunner{utils: utils, sender: sender}
+}
+
+type ListConnectorAgentsCommandRunner struct {
+	XIBMTenantID    string
+	TenantID        string
+	ConnectionNames string
+	ConnectionIds   string
+	RequiredFlags   []string
+	sender          RequestSender
+	utils           Utilities
+}
+
+// Command mapping: connector-agent list, GetListConnectorAgentsCommand
+func GetListConnectorAgentsCommand(r *ListConnectorAgentsCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "list --xibm-tenant-id XIBM-TENANT-ID --tenant-id TENANT-ID [--connection-names CONNECTION-NAMES] [--connection-ids CONNECTION-IDS]",
+		Short:                 translation.T("backup-recovery-connector-agent-list-command-short-description"),
+		Long:                  translation.T("backup-recovery-connector-agent-list-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command-group": "connector-agent",
+			"x-cli-command":       "list",
+		},
+		Example: `  ibmcloud backup-recovery connector-agent list \
+    --xibm-tenant-id tenantId \
+    --tenant-id exampleString \
+    --connection-names exampleString,anotherTestString \
+    --connection-ids 26,27`,
+	}
+
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-connector-agent-list-xibm-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantID, "tenant-id", "", "", translation.T("backup-recovery-connector-agent-list-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.ConnectionNames, "connection-names", "", "", translation.T("backup-recovery-connector-agent-list-connection-names-flag-description"))
+	cmd.Flags().StringVarP(&r.ConnectionIds, "connection-ids", "", "", translation.T("backup-recovery-connector-agent-list-connection-ids-flag-description"))
+	r.RequiredFlags = []string{
+		"xibm-tenant-id",
+		"tenant-id",
+	}
+
+	return cmd
+}
+
+// Primary logic for running ListConnectorAgents
+func (r *ListConnectorAgentsCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.ListConnectorAgentsOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+		if flag.Name == "tenant-id" {
+			OptionsModel.SetTenantID(r.TenantID)
+		}
+		if flag.Name == "connection-names" {
+			var ConnectionNames []string
+			err, msg := deserialize.List(r.ConnectionNames, "connection-names", "JSON", &ConnectionNames)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetConnectionNames(ConnectionNames)
+		}
+		if flag.Name == "connection-ids" {
+			var ConnectionIds []int64
+			err, msg := deserialize.List(r.ConnectionIds, "connection-ids", "JSON", &ConnectionIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetConnectionIds(ConnectionIds)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *ListConnectorAgentsCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.ListConnectorAgentsOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"connectorAgents",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for GetConnectorAgentConfig command
+type GetConnectorAgentConfigRequestSender struct{}
+
+func (s GetConnectorAgentConfigRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.GetConnectorAgentConfig(optionsModel.(*backuprecoveryv1.GetConnectorAgentConfigOptions))
+}
+
+// Command Runner for GetConnectorAgentConfig command
+func NewGetConnectorAgentConfigCommandRunner(utils Utilities, sender RequestSender) *GetConnectorAgentConfigCommandRunner {
+	return &GetConnectorAgentConfigCommandRunner{utils: utils, sender: sender}
+}
+
+type GetConnectorAgentConfigCommandRunner struct {
+	XIBMTenantID  string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: connector-agent config-get, GetGetConnectorAgentConfigCommand
+func GetGetConnectorAgentConfigCommand(r *GetConnectorAgentConfigCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "config-get --xibm-tenant-id XIBM-TENANT-ID",
+		Short:                 translation.T("backup-recovery-connector-agent-config-get-command-short-description"),
+		Long:                  translation.T("backup-recovery-connector-agent-config-get-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command-group": "connector-agent",
+			"x-cli-command":       "config-get",
+		},
+		Example: `  ibmcloud backup-recovery connector-agent config-get \
+    --xibm-tenant-id tenantId`,
+	}
+
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-connector-agent-config-get-xibm-tenant-id-flag-description"))
+	r.RequiredFlags = []string{
+		"xibm-tenant-id",
+	}
+
+	return cmd
+}
+
+// Primary logic for running GetConnectorAgentConfig
+func (r *GetConnectorAgentConfigCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetConnectorAgentConfigOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetConnectorAgentConfigCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetConnectorAgentConfigOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"registrationToken",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for RegisterConnectorAgent command
+type RegisterConnectorAgentRequestSender struct{}
+
+func (s RegisterConnectorAgentRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	res, err := ServiceInstance.RegisterConnectorAgent(optionsModel.(*backuprecoveryv1.RegisterConnectorAgentOptions))
+	// RegisterConnectorAgent returns an empty response body
+	return nil, res, err
+}
+
+// Command Runner for RegisterConnectorAgent command
+func NewRegisterConnectorAgentCommandRunner(utils Utilities, sender RequestSender) *RegisterConnectorAgentCommandRunner {
+	return &RegisterConnectorAgentCommandRunner{utils: utils, sender: sender}
+}
+
+type RegisterConnectorAgentCommandRunner struct {
+	RegistrationToken      string
+	ConnectionName         string
+	JoinExistingConnection bool
+	RequiredFlags          []string
+	sender                 RequestSender
+	utils                  Utilities
+}
+
+// Command mapping: connector-agent register, GetRegisterConnectorAgentCommand
+func GetRegisterConnectorAgentCommand(r *RegisterConnectorAgentCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "register --registration-token REGISTRATION-TOKEN --connection-name CONNECTION-NAME [--join-existing-connection=JOIN-EXISTING-CONNECTION]",
+		Short:                 translation.T("backup-recovery-connector-agent-register-command-short-description"),
+		Long:                  translation.T("backup-recovery-connector-agent-register-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command-group": "connector-agent",
+			"x-cli-command":       "register",
+		},
+		Example: `  ibmcloud backup-recovery connector-agent register \
+    --registration-token exampleString \
+    --connection-name exampleString \
+    --join-existing-connection=false`,
+	}
+
+	cmd.Flags().StringVarP(&r.RegistrationToken, "registration-token", "", "", translation.T("backup-recovery-connector-agent-register-registration-token-flag-description"))
+	cmd.Flags().StringVarP(&r.ConnectionName, "connection-name", "", "", translation.T("backup-recovery-connector-agent-register-connection-name-flag-description"))
+	cmd.Flags().BoolVarP(&r.JoinExistingConnection, "join-existing-connection", "", false, translation.T("backup-recovery-connector-agent-register-join-existing-connection-flag-description"))
+	r.RequiredFlags = []string{
+		"registration-token",
+		"connection-name",
+	}
+
+	return cmd
+}
+
+// Primary logic for running RegisterConnectorAgent
+func (r *RegisterConnectorAgentCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.RegisterConnectorAgentOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "registration-token" {
+			OptionsModel.SetRegistrationToken(r.RegistrationToken)
+		}
+		if flag.Name == "connection-name" {
+			OptionsModel.SetConnectionName(r.ConnectionName)
+		}
+		if flag.Name == "join-existing-connection" {
+			OptionsModel.SetJoinExistingConnection(r.JoinExistingConnection)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *RegisterConnectorAgentCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.RegisterConnectorAgentOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+	r.utils.ProcessEmptyResponse(DetailedResponse, ResponseErr)
 }
 
 func GetDataSourceConnectorGroup(utils Utilities) *cobra.Command {
@@ -8937,6 +9674,7 @@ func GetGetDataSourceConnectorsCommand(r *GetDataSourceConnectorsCommandRunner) 
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9042,6 +9780,7 @@ func GetDeleteDataSourceConnectorCommand(r *DeleteDataSourceConnectorCommandRunn
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9134,6 +9873,7 @@ func GetPatchDataSourceConnectorCommand(r *PatchDataSourceConnectorCommandRunner
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9277,6 +10017,122 @@ func (r *CreateAccessTokenCommandRunner) MakeRequest(OptionsModel backuprecovery
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for GenerateAccessToken command
+type GenerateAccessTokenRequestSender struct{}
+
+func (s GenerateAccessTokenRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.GenerateAccessToken(optionsModel.(*backuprecoveryv1.GenerateAccessTokenOptions))
+}
+
+// Command Runner for GenerateAccessToken command
+func NewGenerateAccessTokenCommandRunner(utils Utilities, sender RequestSender) *GenerateAccessTokenCommandRunner {
+	return &GenerateAccessTokenCommandRunner{utils: utils, sender: sender}
+}
+
+type GenerateAccessTokenCommandRunner struct {
+	Certificate   string
+	Domain        string
+	OtpCode       string
+	OtpType       string
+	Password      string
+	PrivateKey    string
+	Username      string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: access-token-generate, GetGenerateAccessTokenCommand
+func GetGenerateAccessTokenCommand(r *GenerateAccessTokenCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "access-token-generate [--certificate CERTIFICATE] [--domain DOMAIN] [--otp-code OTP-CODE] [--otp-type OTP-TYPE] [--password PASSWORD] [--private-key PRIVATE-KEY] [--username USERNAME]",
+		Short:                 translation.T("backup-recovery-access-token-generate-command-short-description"),
+		Long:                  translation.T("backup-recovery-access-token-generate-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-command": "access-token-generate",
+		},
+		Example: `  ibmcloud backup-recovery access-token-generate \
+    --certificate exampleString \
+    --domain exampleString \
+    --otp-code exampleString \
+    --otp-type Totp \
+    --password exampleString \
+    --private-key exampleString \
+    --username exampleString`,
+	}
+
+	cmd.Flags().StringVarP(&r.Certificate, "certificate", "", "", translation.T("backup-recovery-access-token-generate-certificate-flag-description"))
+	cmd.Flags().StringVarP(&r.Domain, "domain", "", "", translation.T("backup-recovery-access-token-generate-domain-flag-description"))
+	cmd.Flags().StringVarP(&r.OtpCode, "otp-code", "", "", translation.T("backup-recovery-access-token-generate-otp-code-flag-description"))
+	cmd.Flags().StringVarP(&r.OtpType, "otp-type", "", "", translation.T("backup-recovery-access-token-generate-otp-type-flag-description"))
+	cmd.Flags().StringVarP(&r.Password, "password", "", "", translation.T("backup-recovery-access-token-generate-password-flag-description"))
+	cmd.Flags().StringVarP(&r.PrivateKey, "private-key", "", "", translation.T("backup-recovery-access-token-generate-private-key-flag-description"))
+	cmd.Flags().StringVarP(&r.Username, "username", "", "", translation.T("backup-recovery-access-token-generate-username-flag-description"))
+
+	return cmd
+}
+
+// Primary logic for running GenerateAccessToken
+func (r *GenerateAccessTokenCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GenerateAccessTokenOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "certificate" {
+			OptionsModel.SetCertificate(r.Certificate)
+		}
+		if flag.Name == "domain" {
+			OptionsModel.SetDomain(r.Domain)
+		}
+		if flag.Name == "otp-code" {
+			OptionsModel.SetOtpCode(r.OtpCode)
+		}
+		if flag.Name == "otp-type" {
+			OptionsModel.SetOtpType(r.OtpType)
+		}
+		if flag.Name == "password" {
+			OptionsModel.SetPassword(r.Password)
+		}
+		if flag.Name == "private-key" {
+			OptionsModel.SetPrivateKey(r.PrivateKey)
+		}
+		if flag.Name == "username" {
+			OptionsModel.SetUsername(r.Username)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GenerateAccessTokenCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GenerateAccessTokenOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"accessToken",
+		"privileges",
+		"tokenType",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
 // RequestSender for DownloadAgent command
 type DownloadAgentRequestSender struct{}
 
@@ -9329,6 +10185,7 @@ func GetDownloadAgentCommand(r *DownloadAgentCommandRunner) *cobra.Command {
 		"output-file",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9451,6 +10308,7 @@ func GetGetConnectorMetadataCommand(r *GetConnectorMetadataCommandRunner) *cobra
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9619,6 +10477,7 @@ func GetRegisterDataSourceConnectorCommand(r *RegisterDataSourceConnectorCommand
 		"access-token",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9703,6 +10562,7 @@ func GetGetDataSourceConnectorStatusCommand(r *GetDataSourceConnectorStatusComma
 		"access-token",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9819,6 +10679,7 @@ func GetGetObjectSnapshotsCommand(r *GetObjectSnapshotsCommandRunner) *cobra.Com
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -9990,6 +10851,7 @@ func GetListProtectionSourcesRegistrationInfoCommand(r *ListProtectionSourcesReg
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -10088,6 +10950,280 @@ func (r *ListProtectionSourcesRegistrationInfoCommandRunner) MakeRequest(Options
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for ConstructMetaInfo command
+type ConstructMetaInfoRequestSender struct{}
+
+func (s ConstructMetaInfoRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.ConstructMetaInfo(optionsModel.(*backuprecoveryv1.ConstructMetaInfoOptions))
+}
+
+// Command Runner for ConstructMetaInfo command
+func NewConstructMetaInfoCommandRunner(utils Utilities, sender RequestSender) *ConstructMetaInfoCommandRunner {
+	return &ConstructMetaInfoCommandRunner{utils: utils, sender: sender}
+}
+
+type ConstructMetaInfoCommandRunner struct {
+	SnapshotID                       string
+	Environment                      string
+	KubernetesParams                 string
+	OracleParams                     string
+	SfdcParams                       string
+	KubernetesParamsObjectID         int64
+	OracleParamsBaseDir              string
+	OracleParamsDbFileDestination    string
+	OracleParamsDbName               string
+	OracleParamsHomeDir              string
+	OracleParamsIsClone              bool
+	OracleParamsIsDisasterRecovery   bool
+	OracleParamsIsGranularRestore    bool
+	OracleParamsIsRecoveryValidation bool
+	SfdcParamsMetaInfoType           string
+	SfdcParamsObjectName             string
+	RequiredFlags                    []string
+	sender                           RequestSender
+	utils                            Utilities
+}
+
+// Command mapping: meta-info-create, GetConstructMetaInfoCommand
+func GetConstructMetaInfoCommand(r *ConstructMetaInfoCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "meta-info-create [command options]",
+		Short:                 translation.T("backup-recovery-meta-info-create-command-short-description"),
+		Long:                  translation.T("backup-recovery-meta-info-create-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-description": "Construct meta info for any workflow from object snapshot and some other information.",
+			"x-cli-command":     "meta-info-create",
+		},
+		Example: `  ibmcloud backup-recovery meta-info-create \
+    --snapshot-id exampleString \
+    --environment kVMware \
+    --kubernetes-params '{"objectId": 26}' \
+    --oracle-params '{"baseDir": "exampleString", "dbFileDestination": "exampleString", "dbName": "exampleString", "homeDir": "exampleString", "isClone": true, "isDisasterRecovery": true, "isGranularRestore": true, "isRecoveryValidation": true}' \
+    --sfdc-params '{"metaInfoType": "DependentObjects", "objectName": "exampleString"}'`,
+	}
+
+	cmd.Flags().StringVarP(&r.SnapshotID, "snapshot-id", "", "", translation.T("backup-recovery-meta-info-create-snapshot-id-flag-description"))
+	cmd.Flags().StringVarP(&r.Environment, "environment", "", "", translation.T("backup-recovery-meta-info-create-environment-flag-description"))
+	cmd.Flags().StringVarP(&r.KubernetesParams, "kubernetes-params", "", "", translation.T("backup-recovery-meta-info-create-kubernetes-params-flag-description"))
+	cmd.Flags().StringVarP(&r.OracleParams, "oracle-params", "", "", translation.T("backup-recovery-meta-info-create-oracle-params-flag-description"))
+	cmd.Flags().StringVarP(&r.SfdcParams, "sfdc-params", "", "", translation.T("backup-recovery-meta-info-create-sfdc-params-flag-description"))
+	cmd.Flags().Int64VarP(&r.KubernetesParamsObjectID, "kubernetes-params-object-id", "", 0, translation.T("backup-recovery-meta-info-create-kubernetes-params-object-id-flag-description"))
+	cmd.Flags().StringVarP(&r.OracleParamsBaseDir, "oracle-params-base-dir", "", "", translation.T("backup-recovery-meta-info-create-oracle-params-base-dir-flag-description"))
+	cmd.Flags().StringVarP(&r.OracleParamsDbFileDestination, "oracle-params-db-file-destination", "", "", translation.T("backup-recovery-meta-info-create-oracle-params-db-file-destination-flag-description"))
+	cmd.Flags().StringVarP(&r.OracleParamsDbName, "oracle-params-db-name", "", "", translation.T("backup-recovery-meta-info-create-oracle-params-db-name-flag-description"))
+	cmd.Flags().StringVarP(&r.OracleParamsHomeDir, "oracle-params-home-dir", "", "", translation.T("backup-recovery-meta-info-create-oracle-params-home-dir-flag-description"))
+	cmd.Flags().BoolVarP(&r.OracleParamsIsClone, "oracle-params-is-clone", "", false, translation.T("backup-recovery-meta-info-create-oracle-params-is-clone-flag-description"))
+	cmd.Flags().BoolVarP(&r.OracleParamsIsDisasterRecovery, "oracle-params-is-disaster-recovery", "", false, translation.T("backup-recovery-meta-info-create-oracle-params-is-disaster-recovery-flag-description"))
+	cmd.Flags().BoolVarP(&r.OracleParamsIsGranularRestore, "oracle-params-is-granular-restore", "", false, translation.T("backup-recovery-meta-info-create-oracle-params-is-granular-restore-flag-description"))
+	cmd.Flags().BoolVarP(&r.OracleParamsIsRecoveryValidation, "oracle-params-is-recovery-validation", "", false, translation.T("backup-recovery-meta-info-create-oracle-params-is-recovery-validation-flag-description"))
+	cmd.Flags().StringVarP(&r.SfdcParamsMetaInfoType, "sfdc-params-meta-info-type", "", "", translation.T("backup-recovery-meta-info-create-sfdc-params-meta-info-type-flag-description"))
+	cmd.Flags().StringVarP(&r.SfdcParamsObjectName, "sfdc-params-object-name", "", "", translation.T("backup-recovery-meta-info-create-sfdc-params-object-name-flag-description"))
+	r.RequiredFlags = []string{
+		"snapshot-id",
+		"environment",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running ConstructMetaInfo
+func (r *ConstructMetaInfoCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.ConstructMetaInfoOptions{}
+	KubernetesParamsHelper := &backuprecoveryv1.ConstructMetaInfoRequestKubernetesParams{}
+	OracleParamsHelper := &backuprecoveryv1.ConstructMetaInfoRequestOracleParams{}
+	SfdcParamsHelper := &backuprecoveryv1.ConstructMetaInfoRequestSfdcParams{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "snapshot-id" {
+			OptionsModel.SetSnapshotID(r.SnapshotID)
+		}
+		if flag.Name == "environment" {
+			OptionsModel.SetEnvironment(r.Environment)
+		}
+		if flag.Name == "kubernetes-params" {
+			var KubernetesParams *backuprecoveryv1.ConstructMetaInfoRequestKubernetesParams
+			err, msg := deserialize.Model(
+				r.KubernetesParams,
+				"kubernetes-params",
+				"ConstructMetaInfoRequestKubernetesParams",
+				backuprecoveryv1.UnmarshalConstructMetaInfoRequestKubernetesParams,
+				&KubernetesParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetKubernetesParams(KubernetesParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.KubernetesParams, `{"fields":["objectId"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "kubernetes-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "kubernetes-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "oracle-params" {
+			var OracleParams *backuprecoveryv1.ConstructMetaInfoRequestOracleParams
+			err, msg := deserialize.Model(
+				r.OracleParams,
+				"oracle-params",
+				"ConstructMetaInfoRequestOracleParams",
+				backuprecoveryv1.UnmarshalConstructMetaInfoRequestOracleParams,
+				&OracleParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetOracleParams(OracleParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.OracleParams, `{"fields":["baseDir","isGranularRestore","dbFileDestination","isDisasterRecovery","dbName","isRecoveryValidation","isClone","homeDir"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "oracle-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "oracle-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "oracle-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "sfdc-params" {
+			var SfdcParams *backuprecoveryv1.ConstructMetaInfoRequestSfdcParams
+			err, msg := deserialize.Model(
+				r.SfdcParams,
+				"sfdc-params",
+				"ConstructMetaInfoRequestSfdcParams",
+				backuprecoveryv1.UnmarshalConstructMetaInfoRequestSfdcParams,
+				&SfdcParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetSfdcParams(SfdcParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.SfdcParams, `{"fields":["metaInfoType","objectName"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "sfdc-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "sfdc-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "sfdc-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "kubernetes-params-object-id" {
+			KubernetesParamsHelper.ObjectID = core.Int64Ptr(r.KubernetesParamsObjectID)
+		}
+		if flag.Name == "oracle-params-base-dir" {
+			OracleParamsHelper.BaseDir = core.StringPtr(r.OracleParamsBaseDir)
+		}
+		if flag.Name == "oracle-params-db-file-destination" {
+			OracleParamsHelper.DbFileDestination = core.StringPtr(r.OracleParamsDbFileDestination)
+		}
+		if flag.Name == "oracle-params-db-name" {
+			OracleParamsHelper.DbName = core.StringPtr(r.OracleParamsDbName)
+		}
+		if flag.Name == "oracle-params-home-dir" {
+			OracleParamsHelper.HomeDir = core.StringPtr(r.OracleParamsHomeDir)
+		}
+		if flag.Name == "oracle-params-is-clone" {
+			OracleParamsHelper.IsClone = core.BoolPtr(r.OracleParamsIsClone)
+		}
+		if flag.Name == "oracle-params-is-disaster-recovery" {
+			OracleParamsHelper.IsDisasterRecovery = core.BoolPtr(r.OracleParamsIsDisasterRecovery)
+		}
+		if flag.Name == "oracle-params-is-granular-restore" {
+			OracleParamsHelper.IsGranularRestore = core.BoolPtr(r.OracleParamsIsGranularRestore)
+		}
+		if flag.Name == "oracle-params-is-recovery-validation" {
+			OracleParamsHelper.IsRecoveryValidation = core.BoolPtr(r.OracleParamsIsRecoveryValidation)
+		}
+		if flag.Name == "sfdc-params-meta-info-type" {
+			SfdcParamsHelper.MetaInfoType = core.StringPtr(r.SfdcParamsMetaInfoType)
+		}
+		if flag.Name == "sfdc-params-object-name" {
+			SfdcParamsHelper.ObjectName = core.StringPtr(r.SfdcParamsObjectName)
+		}
+	})
+
+	if !reflect.ValueOf(*KubernetesParamsHelper).IsZero() {
+		if OptionsModel.KubernetesParams == nil {
+			OptionsModel.SetKubernetesParams(KubernetesParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "KubernetesParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*OracleParamsHelper).IsZero() {
+		if OptionsModel.OracleParams == nil {
+			OptionsModel.SetOracleParams(OracleParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "OracleParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+	if !reflect.ValueOf(*SfdcParamsHelper).IsZero() {
+		if OptionsModel.SfdcParams == nil {
+			OptionsModel.SetSfdcParams(SfdcParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "SfdcParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *ConstructMetaInfoCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.ConstructMetaInfoOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"environment",
+		"kubernetesParams",
+		"oracleParams",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
 // RequestSender for CreateDownloadFilesAndFoldersRecovery command
 type CreateDownloadFilesAndFoldersRecoveryRequestSender struct{}
 
@@ -10158,6 +11294,7 @@ func GetCreateDownloadFilesAndFoldersRecoveryCommand(r *CreateDownloadFilesAndFo
 		"files-and-folders",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -10398,6 +11535,7 @@ func GetGetRestorePointsInTimeRangeCommand(r *GetRestorePointsInTimeRangeCommand
 		"start-time-usecs",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -10519,6 +11657,7 @@ func GetDownloadIndexedFileCommand(r *DownloadIndexedFileCommandRunner) *cobra.C
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -10900,6 +12039,7 @@ func GetSearchIndexedObjectsCommand(r *SearchIndexedObjectsCommandRunner) *cobra
 		"object-type",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -12376,6 +13516,7 @@ func GetSearchObjectsCommand(r *SearchObjectsCommandRunner) *cobra.Command {
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -12639,6 +13780,7 @@ func GetSearchProtectedObjectsCommand(r *SearchProtectedObjectsCommandRunner) *c
 		"xibm-tenant-id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -12749,6 +13891,724 @@ func (r *SearchProtectedObjectsCommandRunner) MakeRequest(OptionsModel backuprec
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for GetProgressMonitors command
+type GetProgressMonitorsRequestSender struct{}
+
+func (s GetProgressMonitorsRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.GetProgressMonitors(optionsModel.(*backuprecoveryv1.GetProgressMonitorsOptions))
+}
+
+// Command Runner for GetProgressMonitors command
+func NewGetProgressMonitorsCommandRunner(utils Utilities, sender RequestSender) *GetProgressMonitorsCommandRunner {
+	return &GetProgressMonitorsCommandRunner{utils: utils, sender: sender}
+}
+
+type GetProgressMonitorsCommandRunner struct {
+	XIBMTenantID            string
+	NewAttributeVec         string
+	NewEndTimeSecs          int64
+	NewExcludeSubTasks      bool
+	NewFetchLogsMaxLevel    int64
+	NewIncludeEventLogs     bool
+	NewIncludeFinishedTasks bool
+	NewMaxTasks             int64
+	NewStartTimeSecs        int64
+	NewTaskPathVec          string
+	TaskPathVec             string
+	IncludeFinishedTasks    bool
+	StartTimeSecs           int64
+	EndTimeSecs             int64
+	MaxTasks                int64
+	ExcludeSubTasks         bool
+	RequiredFlags           []string
+	sender                  RequestSender
+	utils                   Utilities
+}
+
+// Command mapping: progress-monitors-status, GetGetProgressMonitorsCommand
+func GetGetProgressMonitorsCommand(r *GetProgressMonitorsCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "progress-monitors-status [command options]",
+		Short:                 translation.T("backup-recovery-progress-monitors-status-command-short-description"),
+		Long:                  translation.T("backup-recovery-progress-monitors-status-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-description": "Retrieves the progress and status of tasks from Pulse.",
+			"x-cli-command":     "progress-monitors-status",
+		},
+		Example: `  ibmcloud backup-recovery progress-monitors-status \
+    --xibm-tenant-id tenantId \
+    --new-attribute-vec '[{"key": "exampleString", "value": {"data": {"OneofData": {}}, "type": 38}}]' \
+    --new-end-time-secs 26 \
+    --new-exclude-sub-tasks=true \
+    --new-fetch-logs-max-level 38 \
+    --new-include-event-logs=true \
+    --new-include-finished-tasks=true \
+    --new-max-tasks 38 \
+    --new-start-time-secs 26 \
+    --new-task-path-vec exampleString,anotherTestString \
+    --task-path-vec exampleString,anotherTestString \
+    --include-finished-tasks=true \
+    --start-time-secs 26 \
+    --end-time-secs 26 \
+    --max-tasks 38 \
+    --exclude-sub-tasks=true`,
+	}
+
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-progress-monitors-status-xibm-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.NewAttributeVec, "new-attribute-vec", "", "", translation.T("backup-recovery-progress-monitors-status-new-attribute-vec-flag-description"))
+	cmd.Flags().Int64VarP(&r.NewEndTimeSecs, "new-end-time-secs", "", 0, translation.T("backup-recovery-progress-monitors-status-new-end-time-secs-flag-description"))
+	cmd.Flags().BoolVarP(&r.NewExcludeSubTasks, "new-exclude-sub-tasks", "", false, translation.T("backup-recovery-progress-monitors-status-new-exclude-sub-tasks-flag-description"))
+	cmd.Flags().Int64VarP(&r.NewFetchLogsMaxLevel, "new-fetch-logs-max-level", "", 0, translation.T("backup-recovery-progress-monitors-status-new-fetch-logs-max-level-flag-description"))
+	cmd.Flags().BoolVarP(&r.NewIncludeEventLogs, "new-include-event-logs", "", false, translation.T("backup-recovery-progress-monitors-status-new-include-event-logs-flag-description"))
+	cmd.Flags().BoolVarP(&r.NewIncludeFinishedTasks, "new-include-finished-tasks", "", false, translation.T("backup-recovery-progress-monitors-status-new-include-finished-tasks-flag-description"))
+	cmd.Flags().Int64VarP(&r.NewMaxTasks, "new-max-tasks", "", 0, translation.T("backup-recovery-progress-monitors-status-new-max-tasks-flag-description"))
+	cmd.Flags().Int64VarP(&r.NewStartTimeSecs, "new-start-time-secs", "", 0, translation.T("backup-recovery-progress-monitors-status-new-start-time-secs-flag-description"))
+	cmd.Flags().StringVarP(&r.NewTaskPathVec, "new-task-path-vec", "", "", translation.T("backup-recovery-progress-monitors-status-new-task-path-vec-flag-description"))
+	cmd.Flags().StringVarP(&r.TaskPathVec, "task-path-vec", "", "", translation.T("backup-recovery-progress-monitors-status-task-path-vec-flag-description"))
+	cmd.Flags().BoolVarP(&r.IncludeFinishedTasks, "include-finished-tasks", "", false, translation.T("backup-recovery-progress-monitors-status-include-finished-tasks-flag-description"))
+	cmd.Flags().Int64VarP(&r.StartTimeSecs, "start-time-secs", "", 0, translation.T("backup-recovery-progress-monitors-status-start-time-secs-flag-description"))
+	cmd.Flags().Int64VarP(&r.EndTimeSecs, "end-time-secs", "", 0, translation.T("backup-recovery-progress-monitors-status-end-time-secs-flag-description"))
+	cmd.Flags().Int64VarP(&r.MaxTasks, "max-tasks", "", 0, translation.T("backup-recovery-progress-monitors-status-max-tasks-flag-description"))
+	cmd.Flags().BoolVarP(&r.ExcludeSubTasks, "exclude-sub-tasks", "", false, translation.T("backup-recovery-progress-monitors-status-exclude-sub-tasks-flag-description"))
+	r.RequiredFlags = []string{
+		"xibm-tenant-id",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running GetProgressMonitors
+func (r *GetProgressMonitorsCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetProgressMonitorsOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+		if flag.Name == "new-attribute-vec" {
+			var NewAttributeVec []backuprecoveryv1.KeyValuePair
+			err, msg := deserialize.ModelSlice(
+				r.NewAttributeVec,
+				"new-attribute-vec",
+				"KeyValuePair",
+				backuprecoveryv1.UnmarshalKeyValuePair,
+				&NewAttributeVec,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetNewAttributeVec(NewAttributeVec)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.NewAttributeVec, `{"fields":["key","value"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "new-attribute-vec",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "new-attribute-vec",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "new-attribute-vec",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "new-end-time-secs" {
+			OptionsModel.SetNewEndTimeSecs(r.NewEndTimeSecs)
+		}
+		if flag.Name == "new-exclude-sub-tasks" {
+			OptionsModel.SetNewExcludeSubTasks(r.NewExcludeSubTasks)
+		}
+		if flag.Name == "new-fetch-logs-max-level" {
+			OptionsModel.SetNewFetchLogsMaxLevel(r.NewFetchLogsMaxLevel)
+		}
+		if flag.Name == "new-include-event-logs" {
+			OptionsModel.SetNewIncludeEventLogs(r.NewIncludeEventLogs)
+		}
+		if flag.Name == "new-include-finished-tasks" {
+			OptionsModel.SetNewIncludeFinishedTasks(r.NewIncludeFinishedTasks)
+		}
+		if flag.Name == "new-max-tasks" {
+			OptionsModel.SetNewMaxTasks(r.NewMaxTasks)
+		}
+		if flag.Name == "new-start-time-secs" {
+			OptionsModel.SetNewStartTimeSecs(r.NewStartTimeSecs)
+		}
+		if flag.Name == "new-task-path-vec" {
+			var NewTaskPathVec []string
+			err, msg := deserialize.List(r.NewTaskPathVec, "new-task-path-vec", "JSON", &NewTaskPathVec)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetNewTaskPathVec(NewTaskPathVec)
+		}
+		if flag.Name == "task-path-vec" {
+			var TaskPathVec []string
+			err, msg := deserialize.List(r.TaskPathVec, "task-path-vec", "JSON", &TaskPathVec)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetTaskPathVec(TaskPathVec)
+		}
+		if flag.Name == "include-finished-tasks" {
+			OptionsModel.SetIncludeFinishedTasks(r.IncludeFinishedTasks)
+		}
+		if flag.Name == "start-time-secs" {
+			OptionsModel.SetStartTimeSecs(r.StartTimeSecs)
+		}
+		if flag.Name == "end-time-secs" {
+			OptionsModel.SetEndTimeSecs(r.EndTimeSecs)
+		}
+		if flag.Name == "max-tasks" {
+			OptionsModel.SetMaxTasks(r.MaxTasks)
+		}
+		if flag.Name == "exclude-sub-tasks" {
+			OptionsModel.SetExcludeSubTasks(r.ExcludeSubTasks)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetProgressMonitorsCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetProgressMonitorsOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"error",
+		"resultGroupVec",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for ListTenants command
+type ListTenantsRequestSender struct{}
+
+func (s ListTenantsRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.ListTenants(optionsModel.(*backuprecoveryv1.ListTenantsOptions))
+}
+
+// Command Runner for ListTenants command
+func NewListTenantsCommandRunner(utils Utilities, sender RequestSender) *ListTenantsCommandRunner {
+	return &ListTenantsCommandRunner{utils: utils, sender: sender}
+}
+
+type ListTenantsCommandRunner struct {
+	Ids            string
+	Statuses       string
+	LivenessModes  string
+	OwnershipModes string
+	RequiredFlags  []string
+	sender         RequestSender
+	utils          Utilities
+}
+
+// Command mapping: tenants, GetListTenantsCommand
+func GetListTenantsCommand(r *ListTenantsCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "tenants [--ids IDS] [--statuses STATUSES] [--liveness-modes LIVENESS-MODES] [--ownership-modes OWNERSHIP-MODES]",
+		Short:                 translation.T("backup-recovery-tenants-command-short-description"),
+		Long:                  translation.T("backup-recovery-tenants-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery tenants \
+    --ids exampleString,anotherTestString \
+    --statuses Active,Inactive,MarkedForDeletion,Deleted \
+    --liveness-modes Active,Standby,Suspend \
+    --ownership-modes Primary,Secondary`,
+	}
+
+	cmd.Flags().StringVarP(&r.Ids, "ids", "", "", translation.T("backup-recovery-tenants-ids-flag-description"))
+	cmd.Flags().StringVarP(&r.Statuses, "statuses", "", "", translation.T("backup-recovery-tenants-statuses-flag-description"))
+	cmd.Flags().StringVarP(&r.LivenessModes, "liveness-modes", "", "", translation.T("backup-recovery-tenants-liveness-modes-flag-description"))
+	cmd.Flags().StringVarP(&r.OwnershipModes, "ownership-modes", "", "", translation.T("backup-recovery-tenants-ownership-modes-flag-description"))
+
+	return cmd
+}
+
+// Primary logic for running ListTenants
+func (r *ListTenantsCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.ListTenantsOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "ids" {
+			var Ids []string
+			err, msg := deserialize.List(r.Ids, "ids", "JSON", &Ids)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetIds(Ids)
+		}
+		if flag.Name == "statuses" {
+			var Statuses []string
+			err, msg := deserialize.List(r.Statuses, "statuses", "JSON", &Statuses)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetStatuses(Statuses)
+		}
+		if flag.Name == "liveness-modes" {
+			var LivenessModes []string
+			err, msg := deserialize.List(r.LivenessModes, "liveness-modes", "JSON", &LivenessModes)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetLivenessModes(LivenessModes)
+		}
+		if flag.Name == "ownership-modes" {
+			var OwnershipModes []string
+			err, msg := deserialize.List(r.OwnershipModes, "ownership-modes", "JSON", &OwnershipModes)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetOwnershipModes(OwnershipModes)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *ListTenantsCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.ListTenantsOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for CreateTenant command
+type CreateTenantRequestSender struct{}
+
+func (s CreateTenantRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.CreateTenant(optionsModel.(*backuprecoveryv1.CreateTenantOptions))
+}
+
+// Command Runner for CreateTenant command
+func NewCreateTenantCommandRunner(utils Utilities, sender RequestSender) *CreateTenantCommandRunner {
+	return &CreateTenantCommandRunner{utils: utils, sender: sender}
+}
+
+type CreateTenantCommandRunner struct {
+	Name                    string
+	TenantIdSuffix          string
+	Description             string
+	IsManagedOnHelios       bool
+	Network                 string
+	NetworkConnectorEnabled bool
+	NetworkClusterHostname  string
+	NetworkClusterIps       string
+	RequiredFlags           []string
+	sender                  RequestSender
+	utils                   Utilities
+}
+
+// Command mapping: tenant-create, GetCreateTenantCommand
+func GetCreateTenantCommand(r *CreateTenantCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "tenant-create --name NAME --tenant-id-suffix TENANT-ID-SUFFIX [--description DESCRIPTION] [--is-managed-on-helios=IS-MANAGED-ON-HELIOS] [--network (NETWORK | @NETWORK-FILE) | --network-connector-enabled=NETWORK-CONNECTOR-ENABLED --network-cluster-hostname NETWORK-CLUSTER-HOSTNAME --network-cluster-ips NETWORK-CLUSTER-IPS]",
+		Short:                 translation.T("backup-recovery-tenant-create-command-short-description"),
+		Long:                  translation.T("backup-recovery-tenant-create-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery tenant-create \
+    --name exampleString \
+    --tenant-id-suffix exampleString \
+    --description exampleString \
+    --is-managed-on-helios=true \
+    --network '{"connectorEnabled": true, "clusterHostname": "exampleString", "clusterIps": ["exampleString","anotherTestString"]}'`,
+	}
+
+	cmd.Flags().StringVarP(&r.Name, "name", "", "", translation.T("backup-recovery-tenant-create-name-flag-description"))
+	cmd.Flags().StringVarP(&r.TenantIdSuffix, "tenant-id-suffix", "", "", translation.T("backup-recovery-tenant-create-tenant-id-suffix-flag-description"))
+	cmd.Flags().StringVarP(&r.Description, "description", "", "", translation.T("backup-recovery-tenant-create-description-flag-description"))
+	cmd.Flags().BoolVarP(&r.IsManagedOnHelios, "is-managed-on-helios", "", false, translation.T("backup-recovery-tenant-create-is-managed-on-helios-flag-description"))
+	cmd.Flags().StringVarP(&r.Network, "network", "", "", translation.T("backup-recovery-tenant-create-network-flag-description"))
+	cmd.Flags().BoolVarP(&r.NetworkConnectorEnabled, "network-connector-enabled", "", false, translation.T("backup-recovery-tenant-create-network-connector-enabled-flag-description"))
+	cmd.Flags().StringVarP(&r.NetworkClusterHostname, "network-cluster-hostname", "", "", translation.T("backup-recovery-tenant-create-network-cluster-hostname-flag-description"))
+	cmd.Flags().StringVarP(&r.NetworkClusterIps, "network-cluster-ips", "", "", translation.T("backup-recovery-tenant-create-network-cluster-ips-flag-description"))
+	r.RequiredFlags = []string{
+		"name",
+		"tenant-id-suffix",
+	}
+
+	return cmd
+}
+
+// Primary logic for running CreateTenant
+func (r *CreateTenantCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.CreateTenantOptions{}
+	NetworkHelper := &backuprecoveryv1.CreateTenantRequestNetwork{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "name" {
+			OptionsModel.SetName(r.Name)
+		}
+		if flag.Name == "tenant-id-suffix" {
+			OptionsModel.SetTenantIdSuffix(r.TenantIdSuffix)
+		}
+		if flag.Name == "description" {
+			OptionsModel.SetDescription(r.Description)
+		}
+		if flag.Name == "is-managed-on-helios" {
+			OptionsModel.SetIsManagedOnHelios(r.IsManagedOnHelios)
+		}
+		if flag.Name == "network" {
+			var Network *backuprecoveryv1.CreateTenantRequestNetwork
+			err, msg := deserialize.Model(
+				r.Network,
+				"network",
+				"CreateTenantRequestNetwork",
+				backuprecoveryv1.UnmarshalCreateTenantRequestNetwork,
+				&Network,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetNetwork(Network)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.Network, `{"fields":["clusterIps","clusterHostname","connectorEnabled"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "network",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "network",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "network",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "network-connector-enabled" {
+			NetworkHelper.ConnectorEnabled = core.BoolPtr(r.NetworkConnectorEnabled)
+		}
+		if flag.Name == "network-cluster-hostname" {
+			NetworkHelper.ClusterHostname = core.StringPtr(r.NetworkClusterHostname)
+		}
+		if flag.Name == "network-cluster-ips" {
+			var NetworkClusterIps []string
+			err, msg := deserialize.List(r.NetworkClusterIps, "network-cluster-ips", "JSON", &NetworkClusterIps)
+			r.utils.HandleError(err, msg)
+			NetworkHelper.ClusterIps = NetworkClusterIps
+		}
+	})
+
+	if !reflect.ValueOf(*NetworkHelper).IsZero() {
+		if OptionsModel.Network == nil {
+			OptionsModel.SetNetwork(NetworkHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "Network",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *CreateTenantCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.CreateTenantOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"id",
+		"name",
+		"description",
+		"status",
+		"network",
+		"createdAtTimeMsecs",
+		"lastUpdatedAtTimeMsecs",
+		"deletedAtTimeMsecs",
+		"isManagedOnHelios",
+		"externalVendorMetadata",
+		"activeDeactivation",
+		"finishedDeactivations",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for UpdateTenant command
+type UpdateTenantRequestSender struct{}
+
+func (s UpdateTenantRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.UpdateTenant(optionsModel.(*backuprecoveryv1.UpdateTenantOptions))
+}
+
+// Command Runner for UpdateTenant command
+func NewUpdateTenantCommandRunner(utils Utilities, sender RequestSender) *UpdateTenantCommandRunner {
+	return &UpdateTenantCommandRunner{utils: utils, sender: sender}
+}
+
+type UpdateTenantCommandRunner struct {
+	ID                      string
+	Name                    string
+	Description             string
+	Network                 string
+	NetworkConnectorEnabled bool
+	NetworkClusterHostname  string
+	NetworkClusterIps       string
+	RequiredFlags           []string
+	sender                  RequestSender
+	utils                   Utilities
+}
+
+// Command mapping: tenant-update, GetUpdateTenantCommand
+func GetUpdateTenantCommand(r *UpdateTenantCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "tenant-update --id ID [--name NAME] [--description DESCRIPTION] [--network (NETWORK | @NETWORK-FILE) | --network-connector-enabled=NETWORK-CONNECTOR-ENABLED --network-cluster-hostname NETWORK-CLUSTER-HOSTNAME --network-cluster-ips NETWORK-CLUSTER-IPS]",
+		Short:                 translation.T("backup-recovery-tenant-update-command-short-description"),
+		Long:                  translation.T("backup-recovery-tenant-update-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery tenant-update \
+    --id exampleString \
+    --name exampleString \
+    --description exampleString \
+    --network '{"connectorEnabled": true, "clusterHostname": "exampleString", "clusterIps": ["exampleString","anotherTestString"]}'`,
+	}
+
+	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-tenant-update-id-flag-description"))
+	cmd.Flags().StringVarP(&r.Name, "name", "", "", translation.T("backup-recovery-tenant-update-name-flag-description"))
+	cmd.Flags().StringVarP(&r.Description, "description", "", "", translation.T("backup-recovery-tenant-update-description-flag-description"))
+	cmd.Flags().StringVarP(&r.Network, "network", "", "", translation.T("backup-recovery-tenant-update-network-flag-description"))
+	cmd.Flags().BoolVarP(&r.NetworkConnectorEnabled, "network-connector-enabled", "", false, translation.T("backup-recovery-tenant-update-network-connector-enabled-flag-description"))
+	cmd.Flags().StringVarP(&r.NetworkClusterHostname, "network-cluster-hostname", "", "", translation.T("backup-recovery-tenant-update-network-cluster-hostname-flag-description"))
+	cmd.Flags().StringVarP(&r.NetworkClusterIps, "network-cluster-ips", "", "", translation.T("backup-recovery-tenant-update-network-cluster-ips-flag-description"))
+	r.RequiredFlags = []string{
+		"id",
+	}
+
+	return cmd
+}
+
+// Primary logic for running UpdateTenant
+func (r *UpdateTenantCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.UpdateTenantOptions{}
+	NetworkHelper := &backuprecoveryv1.TenantNetwork{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "id" {
+			OptionsModel.SetID(r.ID)
+		}
+		if flag.Name == "name" {
+			OptionsModel.SetName(r.Name)
+		}
+		if flag.Name == "description" {
+			OptionsModel.SetDescription(r.Description)
+		}
+		if flag.Name == "network" {
+			var Network *backuprecoveryv1.TenantNetwork
+			err, msg := deserialize.Model(
+				r.Network,
+				"network",
+				"TenantNetwork",
+				backuprecoveryv1.UnmarshalTenantNetwork,
+				&Network,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetNetwork(Network)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.Network, `{"fields":["clusterIps","clusterHostname","connectorEnabled"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "network",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "network",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "network",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "network-connector-enabled" {
+			NetworkHelper.ConnectorEnabled = core.BoolPtr(r.NetworkConnectorEnabled)
+		}
+		if flag.Name == "network-cluster-hostname" {
+			NetworkHelper.ClusterHostname = core.StringPtr(r.NetworkClusterHostname)
+		}
+		if flag.Name == "network-cluster-ips" {
+			var NetworkClusterIps []string
+			err, msg := deserialize.List(r.NetworkClusterIps, "network-cluster-ips", "JSON", &NetworkClusterIps)
+			r.utils.HandleError(err, msg)
+			NetworkHelper.ClusterIps = NetworkClusterIps
+		}
+	})
+
+	if !reflect.ValueOf(*NetworkHelper).IsZero() {
+		if OptionsModel.Network == nil {
+			OptionsModel.SetNetwork(NetworkHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "Network",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *UpdateTenantCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.UpdateTenantOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPUpdate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"id",
+		"name",
+		"description",
+		"status",
+		"network",
+		"createdAtTimeMsecs",
+		"lastUpdatedAtTimeMsecs",
+		"deletedAtTimeMsecs",
+		"isManagedOnHelios",
+		"externalVendorMetadata",
+		"activeDeactivation",
+		"finishedDeactivations",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for DeleteTenant command
+type DeleteTenantRequestSender struct{}
+
+func (s DeleteTenantRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	res, err := ServiceInstance.DeleteTenant(optionsModel.(*backuprecoveryv1.DeleteTenantOptions))
+	// DeleteTenant returns an empty response body
+	return nil, res, err
+}
+
+// Command Runner for DeleteTenant command
+func NewDeleteTenantCommandRunner(utils Utilities, sender RequestSender) *DeleteTenantCommandRunner {
+	return &DeleteTenantCommandRunner{utils: utils, sender: sender}
+}
+
+type DeleteTenantCommandRunner struct {
+	ID                        string
+	ForceDeleteWithoutConfirm bool
+	RequiredFlags             []string
+	sender                    RequestSender
+	utils                     Utilities
+}
+
+// Command mapping: tenant-delete, GetDeleteTenantCommand
+func GetDeleteTenantCommand(r *DeleteTenantCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "tenant-delete --id ID",
+		Short:                 translation.T("backup-recovery-tenant-delete-command-short-description"),
+		Long:                  translation.T("backup-recovery-tenant-delete-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Example: `  ibmcloud backup-recovery tenant-delete \
+    --id exampleString`,
+	}
+
+	cmd.Flags().StringVarP(&r.ID, "id", "", "", translation.T("backup-recovery-tenant-delete-id-flag-description"))
+	cmd.Flags().BoolVarP(&r.ForceDeleteWithoutConfirm, "force", "f", false, translation.T("force-flag-description"))
+	r.RequiredFlags = []string{
+		"id",
+	}
+
+	return cmd
+}
+
+// Primary logic for running DeleteTenant
+func (r *DeleteTenantCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	if !r.utils.ConfirmDelete(r.ForceDeleteWithoutConfirm) {
+		// confirm delete, exit otherwise
+		return
+	}
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.DeleteTenantOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "id" {
+			OptionsModel.SetID(r.ID)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *DeleteTenantCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.DeleteTenantOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPDelete,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+	r.utils.ProcessEmptyResponse(DetailedResponse, ResponseErr)
+}
+
 // RequestSender for GetUsers command
 type GetUsersRequestSender struct{}
 
@@ -12803,6 +14663,7 @@ func GetGetUsersCommand(r *GetUsersCommandRunner) *cobra.Command {
 		"session-name",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -13113,6 +14974,7 @@ func GetUpdateUserCommand(r *UpdateUserCommandRunner) *cobra.Command {
 		"session-name",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -14232,6 +16094,7 @@ func GetGetComponentByIDCommand(r *GetComponentByIDCommandRunner) *cobra.Command
 		"id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -14339,6 +16202,7 @@ func GetGetComponentPreviewCommand(r *GetComponentPreviewCommandRunner) *cobra.C
 		"id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -14534,6 +16398,7 @@ func GetGetResourcesCommand(r *GetResourcesCommandRunner) *cobra.Command {
 		"resource-type",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -14647,6 +16512,7 @@ func GetGetReportTypeCommand(r *GetReportTypeCommandRunner) *cobra.Command {
 		"report-type",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -14817,6 +16683,7 @@ func GetGetReportByIDCommand(r *GetReportByIDCommandRunner) *cobra.Command {
 		"id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -14913,6 +16780,7 @@ func GetGetReportPreviewCommand(r *GetReportPreviewCommandRunner) *cobra.Command
 		"id",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -15057,6 +16925,7 @@ func GetExportReportCommand(r *ExportReportCommandRunner) *cobra.Command {
 		"output-file",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -16515,6 +18384,7 @@ func GetGetManagementAlertResolutionCommand(r *GetManagementAlertResolutionComma
 		"max-resolutions",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 
@@ -16620,6 +18490,7 @@ func GetGetManagementAlertsStatsCommand(r *GetManagementAlertsStatsCommandRunner
 		"end-time-usecs",
 	}
 
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
 	return cmd
 }
 

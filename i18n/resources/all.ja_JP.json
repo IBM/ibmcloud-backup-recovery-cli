@@ -8,6 +8,62 @@
     "translation": "別名"
   },
   {
+    "id": "backup-recovery-access-token-create-command-long-description",
+    "translation": "他のREST API要求を行う前に、RESTクライアントは有効なIBMのユーザー名とパスワードを使用してアクセス・トークンの要求を行う必要があります。 このPOST要求は、IBMクラスターによって生成された応答でアクセス・トークンとタイプを返します。 その後、他のIBM REST API操作に対する要求では、HTTPヘッダーの「Authorization」に以下の形式で返されたアクセス・トークンとそのタイプを指定する必要があります。- Authorization: token_type access_token- 生成されたトークンの有効期間は24時間です。 期限切れのトークンを使用してリクエストが行われた場合、「トークンの有効期限が切れています」というエラー メッセージが返されます。 このエラーをチェックし、リクエストを再発行する前に別のアクセス・トークンを要求するコードをRESTクライアントに追加します。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-command-short-description",
+    "translation": "アクセス・トークンを作成します。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-domain-flag-description",
+    "translation": "ユーザーがログインするドメインを指定します。 ローカル・ユーザーの場合、ドメインはLOCALです。 LDAP/ADユーザーの場合、ドメインはLDAP接続文字列にマップされます。 ユーザーはユーザー名とドメインの組み合わせによって一意的に識別されます。 LOCALはデフォルトのドメインです。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-password-flag-description",
+    "translation": "IBMユーザー・アカウントのパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-create-username-flag-description",
+    "translation": "IBMユーザーのログイン名を指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-certificate-flag-description",
+    "translation": "Cert Base Authクラスターへのログインに使用する証明書を指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-command-long-description",
+    "translation": "このPOST要求は、BRSクラスターによって生成された応答でアクセス・トークンとタイプを返します。 生成されたトークンの有効期間は24時間です。 期限切れのトークンを使用してリクエストが行われた場合、「トークンの有効期限が切れています」というエラー メッセージが返されます。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-command-short-description",
+    "translation": "アクセス・トークンを生成します。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-domain-flag-description",
+    "translation": "ユーザーがログインするドメインを指定します。 ローカル・ユーザー・モデルの場合、ドメインは常にLOCALです。 LDAP/ADユーザー・モデルの場合、ドメインはLDAP接続文字列にマッピングされます。 ユーザーは、ユーザー名とドメインの組み合わせによって一意に識別されます。 これが設定されていない場合、LOCALが想定されます。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-otp-code-flag-description",
+    "translation": "MFA検証のOTPコードを指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-otp-type-flag-description",
+    "translation": "MFA検証のOTPタイプを指定します。\n「Totp」は、コードがTOTPであることを示します。\n「Email」は、コードがメールOTPであることを示します。 許容値: Totp、Email。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-password-flag-description",
+    "translation": "BRSユーザー・アカウントのパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-private-key-flag-description",
+    "translation": "上記の証明書に対応する秘密鍵を指定します。"
+  },
+  {
+    "id": "backup-recovery-access-token-generate-username-flag-description",
+    "translation": "BRSユーザーのログイン名を指定します。"
+  },
+  {
     "id": "backup-recovery-agent-download-command-long-description",
     "translation": "異なるホスト用のエージェントをダウンロードします。"
   },
@@ -29,7 +85,7 @@
   },
   {
     "id": "backup-recovery-agent-download-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-agent-ids-flag-description",
@@ -65,7 +121,7 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-create-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-agent-upgrade-task-group-long-description",
@@ -89,11 +145,7 @@
   },
   {
     "id": "backup-recovery-agent-upgrade-task-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
-  },
-  {
-    "id": "backup-recovery-bad-url-error-message",
-    "translation": "無効な URL: BACKUP_RECOVERY_URL 環境変数または資格情報ファイルのキーでベース URL を設定します。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-bad-connector-url-error-message",
@@ -108,6 +160,146 @@
     "translation": "無効なバックアップ・リカバリー・マネージャー SRE URL: コネクターURLを BACKUP_RECOVERY_CONNECTOR_URL 環境変数または認証情報ファイル内のキーで設定してください。"
   },
   {
+    "id": "backup-recovery-bad-url-error-message",
+    "translation": "無効な URL: BACKUP_RECOVERY_URL 環境変数または資格情報ファイルのキーでベース URL を設定します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-cloud-type-flag-description",
+    "translation": "必須。 バックアップおよびリカバリー・インスタンスが使用されるクラウド環境タイプを指定します。 現在、フェイルオーバーでサポートされているのは「ibm」のみです。 許容値: ibm。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-command-long-description",
+    "translation": "指定されたすべてのバックアップおよびリカバリー (ボールト) インスタンスの最新のフェイルオーバー状況を取得します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-command-short-description",
+    "translation": "指定されたすべてのバックアップおよびリカバリー・インスタンスの最新のフェイルオーバー状況を取得します。 ここでいう「バックアップおよびリカバリー・インスタンス」とは、ボールトを指します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-vault-ids-flag-description",
+    "translation": "必須。 最新のフェイルオーバー状況を取得するバックアップおよびリカバリー・インスタンス (すなわちボールト) の固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-xibm-tenant-id-flag-description",
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-cloud-type-flag-description",
+    "translation": "必須。 バックアップおよびリカバリー・インスタンスが使用されるクラウド環境タイプを指定します。 現在、リカバリー・スキャンでサポートされているのは「ibm」のみです。 許容値: ibm。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-command-long-description",
+    "translation": "指定されたすべてのバックアップおよびリカバリー (ボールト) インスタンスの最新のリカバリー・スキャン状況を取得します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-command-short-description",
+    "translation": "指定されたすべてのバックアップおよびリカバリー・インスタンスの最新のリカバリー・スキャン状況を取得します。 ここでいう「バックアップおよびリカバリー・インスタンス」とは、ボールトを指します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-vault-ids-flag-description",
+    "translation": "最新のリカバリー・スキャン状況を取得するバックアップおよびリカバリー・インスタンスの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-xibm-tenant-id-flag-description",
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-command-long-description",
+    "translation": "DataProtectクラスターにコネクター・エージェントを要求するための、JWT登録トークンを含む構成を取得します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-command-short-description",
+    "translation": "コネクター・エージェントを要求するための構成を取得します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-get-command-long-description",
+    "translation": "DataProtectクラスターにコネクター・エージェントを要求するための、JWT登録トークンを含む構成を取得します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-get-command-short-description",
+    "translation": "コネクター・エージェントを要求するための構成を取得します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-config-get-xibm-tenant-id-flag-description",
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-group-long-description",
+    "translation": "ConnectorAgentリソースに対するコマンド。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-group-short-description",
+    "translation": "ConnectorAgentリソースに対するコマンド。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-command-long-description",
+    "translation": "接続名または接続ID (両方同時には使用不可) のフィルターに基づいて、指定されたテナントのコネクター・エージェントをリストします。 フィルターが指定されていない場合、そのテナントに属するすべてのエージェントがリストされます。 エラーが発生した場合、部分的な結果は生成されません。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-command-short-description",
+    "translation": "コネクター・エージェントをリストします。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-connection-ids-flag-description",
+    "translation": "コネクター・エージェントを取得する接続IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-connection-names-flag-description",
+    "translation": "コネクター・エージェントを取得する接続名を指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-tenant-id-flag-description",
+    "translation": "必須。 コネクター・エージェントを取得する対象テナントのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-list-xibm-tenant-id-flag-description",
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-command-long-description",
+    "translation": "指定された登録トークンを使用して、バックアップ・インスタンスにコネクター・エージェントを登録します。 登録するコネクター・エージェントの登録トークンは、バックアップ・インスタンス上で関連する「/connector-agents」APIを呼び出すことにより、ユーザーが取得する必要があります。 重複登録が試みられた場合、このAPIは、すでに登録済みであることを示すヘッダーとともに成功を返します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-command-short-description",
+    "translation": "コネクター・エージェントを登録します。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-connection-name-flag-description",
+    "translation": "必須。 コネクター・エージェントに関連付ける名前を指定します。 この名前は、このコネクター・エージェントが登録されているテナント内で固有である必要があります。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-join-existing-connection-flag-description",
+    "translation": "このエージェントが、以前の登録によってすでに要求されている接続に参加するかどうかを指定します (例: クラスター化されたソースの場合、同じクラスター内の別のエージェント)。 trueの場合、サーバーは要求を重複として拒否するのではなく、既存の接続にこのエージェントを追加します。 接続がまだ存在しない場合、このフラグの設定に関係なく、新しい接続が作成されます。 デフォルト値は\tfalse です。"
+  },
+  {
+    "id": "backup-recovery-connector-agent-register-registration-token-flag-description",
+    "translation": "必須。 JWT登録トークン。 1つのトークンを使用して、そのテナント内で複数のコネクター・エージェントを登録できます。 デフォルトでは、トークンの有効期間は24時間です。"
+  },
+  {
+    "id": "backup-recovery-connector-agents-command-long-description",
+    "translation": "接続名または接続ID (両方同時には使用不可) のフィルターに基づいて、指定されたテナントのコネクター・エージェントをリストします。 フィルターが指定されていない場合、そのテナントに属するすべてのエージェントがリストされます。 エラーが発生した場合、部分的な結果は生成されません。"
+  },
+  {
+    "id": "backup-recovery-connector-agents-command-short-description",
+    "translation": "コネクター・エージェントをリストします。"
+  },
+  {
+    "id": "backup-recovery-connector-agents-connection-ids-flag-description",
+    "translation": "コネクター・エージェントを取得する接続IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agents-connection-names-flag-description",
+    "translation": "コネクター・エージェントを取得する接続名を指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-agents-tenant-id-flag-description",
+    "translation": "必須。 コネクター・エージェントを取得する対象テナントのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-connector-logs-access-token-description",
+    "translation": "必須。 コネクターから受信したアクセス・トークン。"
+  },
+  {
     "id": "backup-recovery-connector-metadata-get-command-long-description",
     "translation": "使用可能なコネクターに関する情報を取得します。"
   },
@@ -117,39 +309,11 @@
   },
   {
     "id": "backup-recovery-connector-metadata-get-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
-    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
-    "translation": "データ・ソース・コネクターのログをリストします。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
-    "translation": "データ・ソース・コネクターの作成と登録に対応するログをリストします。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-command-short-description",
-    "translation": "データ・ソース・コネクターを登録します。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-command-long-description",
-    "translation": "提供された登録トークンを使用して、データ・ソース・コネクターをクラスターに登録します。 このコネクターを登録するデータ・ソース接続の登録トークンは、関連する「/data-source-connections」のAPIを呼び出してユーザーが取得する必要があります。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
-    "translation": "必須。 登録トークン。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
-    "translation": "登録に使用するコネクターのID。 同じテナントに属する2つのコネクターは、異なるIDを持つことが保証されます。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
-    "translation": "データ・ソース・コネクターの状況をリストします。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
-    "translation": "登録とクラスター接続状況を含むデータ・ソース・コネクターの状況をリストします。"
+    "id": "backup-recovery-connector-status-access-token-description",
+    "translation": "必須。 コネクターから受信したアクセス・トークン。"
   },
   {
     "id": "backup-recovery-data-source-connection-create-command-long-description",
@@ -160,12 +324,16 @@
     "translation": "データ・ソース接続を作成します。"
   },
   {
+    "id": "backup-recovery-data-source-connection-create-connection-env-type-flag-description",
+    "translation": "作成する接続の環境タイプを指定します。 接続環境タイプは一度指定すると変更できず、その接続内のコネクターには同じ環境タイプのみが許可されます。 許容値: kRoksVpc、kRoksClassic、kIksVpc、kIksClassic。"
+  },
+  {
     "id": "backup-recovery-data-source-connection-create-connection-name-flag-description",
     "translation": "必須。 作成する接続の名前を指定します。 特定のテナントについて、異なる接続が同じ名前を持つことはできません。 しかし、2つ(またはそれ以上)の異なるテナントが、それぞれに同じ名前の接続を持つことはできます。"
   },
   {
     "id": "backup-recovery-data-source-connection-create-xibm-tenant-id-flag-description",
-    "translation": "クラスターにアクセスしているテナントのID。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-data-source-connection-delete-command-long-description",
@@ -181,7 +349,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-delete-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-data-source-connection-group-long-description",
@@ -209,7 +377,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-data-source-connection-patch-command-long-description",
@@ -229,7 +397,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-patch-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-command-long-description",
@@ -245,7 +413,7 @@
   },
   {
     "id": "backup-recovery-data-source-connection-registration-token-generate-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-data-source-connector-delete-command-long-description",
@@ -261,7 +429,7 @@
   },
   {
     "id": "backup-recovery-data-source-connector-delete-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-data-source-connector-group-long-description",
@@ -293,7 +461,19 @@
   },
   {
     "id": "backup-recovery-data-source-connector-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-command-short-description",
+    "translation": "データ・ソース・コネクターのログ。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-long-description",
+    "translation": "データ・ソース・コネクターの作成と登録に対応するログをリストします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-logs-list-command-short-description",
+    "translation": "データ・ソース・コネクターのログをリストします。"
   },
   {
     "id": "backup-recovery-data-source-connector-patch-command-long-description",
@@ -312,28 +492,36 @@
     "translation": "コネクターの名前。"
   },
   {
-    "id": "backup-recovery-access-token-create-command-short-description",
-    "translation": "アクセス・トークンを作成します。"
-  },
-  {
-    "id": "backup-recovery-access-token-create-command-long-description",
-    "translation": "他のREST API要求を行う前に、RESTクライアントは有効なCohesityユーザー名とパスワードを使用してアクセス・トークン要求を行う必要があります。 このPOST要求は、アクセス・トークンおよびCohesityクラスターによって生成された応答のタイプを返します。 他のCohesity REST API操作への後続の要求では、「- Authorization:- token_type access_token」の形式でhttpヘッダーに「Authorization」を設定することで返されるアクセス・トークンおよびタイプを指定する必要があります。生成されたトークンは24時間有効です。 有効期限切れのトークンを使用して要求が行われた場合、「トークンの有効期限が切れています」というエラー・メッセージが返されます。 RESTクライアントにコードを追加してこのエラーを確認し、別のアクセス・トークンを要求してから要求を再発行します。"
-  },
-  {
-    "id": "backup-recovery-access-token-create-username-flag-description",
-    "translation": "Cohesityユーザーのログイン名を指定します。"
-  },
-  {
-    "id": "backup-recovery-access-token-create-password-flag-description",
-    "translation": "Cohesityユーザー・アカウントのパスワードを指定します。"
-  },
-  {
-    "id": "backup-recovery-access-token-create-domain-flag-description",
-    "translation": "ユーザーがログインするドメインを指定します。 ローカル・ユーザーの場合、ドメインはLOCALです。 LDAP/ADユーザーの場合、ドメインはLDAP接続文字列にマップされます。 ユーザーはユーザー名とドメインの組み合わせによって一意的に識別されます。 LOCALはデフォルトのドメインです。"
-  },
-  {
     "id": "backup-recovery-data-source-connector-patch-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-long-description",
+    "translation": "提供された登録トークンを使用して、データ・ソース・コネクターをクラスターに登録します。 このコネクターを登録するデータ・ソース接続の登録トークンは、関連する「/data-source-connections」のAPIを呼び出してユーザーが取得する必要があります。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-command-short-description",
+    "translation": "データ・ソース・コネクターを登録します。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-connector-id-flag-description",
+    "translation": "登録に使用するコネクターのID。 同じテナントに属する2つのコネクターは、異なるIDを持つことが保証されます。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-register-registration-token-flag-description",
+    "translation": "必須。 登録トークン。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-command-short-description",
+    "translation": "データ・ソース・コネクターのステータス。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-long-description",
+    "translation": "登録とクラスター接続状況を含むデータ・ソース・コネクターの状況をリストします。"
+  },
+  {
+    "id": "backup-recovery-data-source-connector-status-list-command-short-description",
+    "translation": "データ・ソース・コネクターの状況をリストします。"
   },
   {
     "id": "backup-recovery-download-recovery-create-command-long-description",
@@ -389,7 +577,43 @@
   },
   {
     "id": "backup-recovery-download-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-certificate-flag-description",
+    "translation": "Cert Base Authクラスターへのログインに使用する証明書を指定します。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-command-long-description",
+    "translation": "特権は不要です\n\n他のREST API要求を行う前に、RESTクライアントは有効なBRSユーザー名とパスワードを使用して「POST /public/accessToken」要求を送信する必要があります。 このPOST要求は、BRSクラスターによって生成された応答でアクセス・トークンとタイプを返します。 その後、他のBRS REST API操作に対する要求では、HTTPヘッダーの「Authorization」に以下の形式で返されたアクセス・トークンとそのタイプを指定する必要があります。\n\nAuthorization: token_type access_token\n\n生成されたトークンの有効期間は24時間です。 期限切れのトークンを使用してリクエストが行われた場合、「トークンの有効期限が切れています」というエラー メッセージが返されます。 このエラーをチェックし、リクエストを再発行する前に別のアクセス・トークンを要求するコードをRESTクライアントに追加します。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-command-short-description",
+    "translation": "アクセス・トークンを生成します。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-domain-flag-description",
+    "translation": "ユーザーがログインするドメインを指定します。 ローカル・ユーザー・モデルの場合、ドメインは常にLOCALです。 LDAP/ADユーザー・モデルの場合、ドメインはLDAP接続文字列にマッピングされます。 ユーザーは、ユーザー名とドメインの組み合わせによって一意に識別されます。 これが設定されていない場合、LOCALが想定されます。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-otp-code-flag-description",
+    "translation": "MFA検証のOTPコードを指定します。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-otp-type-flag-description",
+    "translation": "MFA検証のOTPタイプを指定します。\n「Totp」は、コードがTOTPであることを示します。\n「Email」は、コードがメールOTPであることを示します。 許容値: Totp、Email。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-password-flag-description",
+    "translation": "BRSユーザー・アカウントのパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-private-key-flag-description",
+    "translation": "上記の証明書に対応する秘密鍵を指定します。"
+  },
+  {
+    "id": "backup-recovery-generate-access-token-username-flag-description",
+    "translation": "BRSユーザーのログイン名を指定します。"
   },
   {
     "id": "backup-recovery-indexed-file-download-command-long-description",
@@ -425,7 +649,7 @@
   },
   {
     "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-cassandra-params-cassandra-object-types-flag-description",
@@ -921,7 +1145,7 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-storage-domain-ids-flag-description",
-    "translation": "保護グループが指定されたストレージ・ドメインのCohesityビューにデータを書き込んでいる索引付きオブジェクトをフィルタリングするためのストレージ・ドメインIDを指定します。"
+    "translation": "指定されたストレージ・ドメイン上のIBMビューにデータを書き込んでいる保護グループの、インデックス付きオブジェクトをフィルタリングするストレージ・ドメインIDを指定します。"
   },
   {
     "id": "backup-recovery-indexed-objects-search-tags-flag-description",
@@ -949,11 +1173,791 @@
   },
   {
     "id": "backup-recovery-indexed-objects-search-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-cloud-type-flag-description",
+    "translation": "必須。 バックアップおよびリカバリー・インスタンスのタイプを指定します。 現在、サポートされているのは「ibm」のみです。 許容値: ibm。"
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-command-long-description",
+    "translation": "指定されたバックアップおよびリカバリー (ボールト) インスタンスのフェイルオーバーを開始します。"
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-command-short-description",
+    "translation": "指定されたバックアップおよびリカバリー・インスタンスのフェイルオーバーを開始します。 ここでいう「バックアップおよびリカバリー・インスタンス」とは、ボールトを指します。"
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-failover-request-params-flag-description",
+    "translation": "バックアップおよびリカバリー・インスタンスに固有のパラメーターを指定します。 すなわち、ボールトを指します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-failover-request-params-vault-id-flag-description",
+    "translation": "フェイルオーバーを開始する対象のIBM Cloudバックアップおよびリカバリー・インスタンスの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-xibm-tenant-id-flag-description",
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-long-description",
     "translation": "バックアップ/リカバリー・サービスの構成に使用するREST API。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-long-description",
+    "translation": "レポート・コンポーネントに関する情報を入手します。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-command-short-description",
+    "translation": "IDでレポート・コンポーネントを取り出します。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-id-flag-description",
+    "translation": "必須。 レポート・コンポーネントのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-long-description",
+    "translation": "IDで指定されたコンポーネントのプレビューを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-command-short-description",
+    "translation": "コンポーネントのプレビューをフェッチします。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-filters-flag-description",
+    "translation": "レポート内の指定されたコンポーネントに適用されるグローバル・フィルターのリストを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-id-flag-description",
+    "translation": "必須。 コンポーネントのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-flag-description",
+    "translation": "結果のデータセットを制限するためのパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-from-flag-description",
+    "translation": "結果データにサイズ・パラメーターを適用する前にスキップされるオフセットを指定します。 例えば、データセットのサイズが10個のオブジェクトであり、from=2、size=5の場合、10個のオブジェクトのうち、オフセット2（つまり2番目から7番目）から始まる5個のオブジェクトのみが返されます。 指定がない場合、どのオブジェクトもスキップされません。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-limit-size-flag-description",
+    "translation": "指定されたオフセットから返されるオブジェクトの数を指定します。 最小値は 1 です。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-sort-flag-description",
+    "translation": "結果データに適用するソート（順序付け）パラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-get-preview-timezone-flag-description",
+    "translation": "ユーザーのタイム・ゾーンを指定します。 nilの場合、デフォルトはUTCとなります。 指定された時刻は、IANAタイム・ゾーン・データベースに記載されているロケーション名である必要があります。例：'America/Los_Angeles'。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-long-description",
+    "translation": "管理コンソールのコンポーネントに関するコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-group-short-description",
+    "translation": "管理コンソールのコンポーネントに関するコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-long-description",
+    "translation": "ログインしているユーザーがアクセス可能なすべてのレポート・コンポーネントのリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-command-short-description",
+    "translation": "レポート・コンポーネントの一覧を表示します。"
+  },
+  {
+    "id": "backup-recovery-management-console-components-list-ids-flag-description",
+    "translation": "取得するレポート・コンポーネントのIDを指定してください。"
+  },
+  {
+    "id": "backup-recovery-management-console-group-short-description",
+    "translation": "バックアップ・リカバリー管理リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-long-description",
+    "translation": "リソース ProviderInstances のコマンド"
+  },
+  {
+    "id": "backup-recovery-management-console-provider-instances-group-short-description",
+    "translation": "リソース ProviderInstances のコマンド"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-async-flag-description",
+    "translation": "レポートを非同期的に生成するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-long-description",
+    "translation": "設定済みのレポートをエクスポートします。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-command-short-description",
+    "translation": "レポートをエクスポートします。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-filters-flag-description",
+    "translation": "レポート内の指定されたコンポーネントに適用されるグローバル・フィルターのリストを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-id-flag-description",
+    "translation": "必須。 レポートのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-layout-flag-description",
+    "translation": "エクスポートが必要なレポートのレイアウト。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-report-format-flag-description",
+    "translation": "レポートをエクスポートするために必要な形式。 許容される値は次のとおりです：XLS、CSV。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-export-timezone-flag-description",
+    "translation": "ユーザーのタイム・ゾーンを指定します。 nilの場合、デフォルトはUTCとなります。 指定された時刻は、IANAタイム・ゾーン・データベースに記載されているロケーション名である必要があります。例：'America/Los_Angeles'。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-long-description",
+    "translation": "指定されたIDのレポートを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-command-short-description",
+    "translation": "レポートを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-id-flag-description",
+    "translation": "必須。 レポートのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-long-description",
+    "translation": "設定済み報告書のプレビューを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-command-short-description",
+    "translation": "レポートのプレビューを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-component-ids-flag-description",
+    "translation": "指定されたレポートに対して評価するコンポーネントIDのリストを指定します。 指定がない場合、すべてのコンポーネントが評価されます。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-filters-flag-description",
+    "translation": "レポート内の指定されたコンポーネントに適用されるグローバル・フィルターのリストを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-id-flag-description",
+    "translation": "必須。 レポートのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-get-preview-timezone-flag-description",
+    "translation": "ユーザーのタイム・ゾーンを指定します。 nilの場合、デフォルトはUTCとなります。 指定された時刻は、IANAタイム・ゾーン・データベースに記載されているロケーション名である必要があります。例：'America/Los_Angeles'。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-long-description",
+    "translation": "管理コンソール・レポート用のコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-group-short-description",
+    "translation": "管理コンソール・レポート用のコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-long-description",
+    "translation": "ログイン中のユーザーがアクセス可能なすべてのレポートのリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-command-short-description",
+    "translation": "レポートを一覧表示します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-ids-flag-description",
+    "translation": "取り出すレポートのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-list-user-context-flag-description",
+    "translation": "レポートをフィルタリングする際のユーザー・コンテキストを指定します。 許容値は次の通りです：IBMBaaS。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-long-description",
+    "translation": "レポート・タイプのプロパティ一覧を取得します。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-command-short-description",
+    "translation": "レポート・タイプのプロパティの一覧表示をします。"
+  },
+  {
+    "id": "backup-recovery-management-console-reports-report-type-report-type-flag-description",
+    "translation": "必須。 レポートの種類を指定します。 許容値は次の通りです：失敗、ProtectedUnprotectedObjects,ProtectedObjects,ProtectionActivity,ProtectionGroupSummary,ProtectionRuns,ProtectionRunsTrend,復旧。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-long-description",
+    "translation": "管理コンソールの参考情報に対するコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-group-short-description",
+    "translation": "管理コンソールの参考情報に対するコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-long-description",
+    "translation": "管理コンソールで検出された各種リソースを入手します。 これらの値はフィルタリング・オプションに使用できます。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-command-short-description",
+    "translation": "リソースを入手します。"
+  },
+  {
+    "id": "backup-recovery-management-console-resources-list-resource-type-flag-description",
+    "translation": "必須。 リソースのタイプを指定します。 許容値は次の通りです：ポリシー、ProtectionGroups,RegisteredSources,MessageCodeMappings。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-long-description",
+    "translation": "カテゴリ別にグループ化されたアラートの要約を取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-short-description",
+    "translation": "アラート概要を取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "終了時間でフィルタリングします。 終了時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトは現在時刻です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-include-tenants-flag-description",
+    "translation": "IncludeTenants は、ログインしたユーザーの組織の階層構造下にあるすべてのテナントのアラートをサマリー計算に使用するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "開始時間でフィルタリングします。 開始時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトでは、現在の時刻から1日を差し引いた時刻です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-states-list-flag-description",
+    "translation": "アラートをフィルタリングするためのアラート状態のリストを指定します。 指定がない場合、サマリーの取得には未解決のアラートのみが使用されます。 許容されるリスト項目は次のとおりです：kResolved,kOpen,kNote,kSuppressed。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-tenant-ids-flag-description",
+    "translation": "TenantIds は、アラートを使用して集計を計算するためのテナントのIDを含んでいます。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
+    "translation": "このフィールドはサービス・インスタンスを一意的に表します。 値を「service-instance-id: <value>」として指定してください。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-long-description",
+    "translation": "アラート・リソースに対するコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-group-short-description",
+    "translation": "アラート・リソースに対するコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
+    "translation": "アラート・カテゴリーのリストでフィルターします。 許容リスト項目は以下の通りです：kDisk,kNode,kCluster,kChassis,kPowerSupply,kCPU,kMemory,kTemperature,kFan,kNIC,kFirmware,kNodeHealth,kOperatingSystem,kDataPath,kMetadata,kIndexing,kHelios,kAppMarketPlace,kSystemService,kLicense,kSecurity,kUpgrade,kClusterManagement,kAuditLog,kNetworking,kConfiguration,kStorageUsage,kFaultTolerance,kBackupRestore,kArchivalRestore,kRemoteReplication,kQuota,kCDP,kViewFailover,kDisasterRecovery,kStorageDevice,kStoragePool,kGeneralSoftwareFailure,kAgent。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-ids-flag-description",
+    "translation": "アラートIDのリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-name-flag-description",
+    "translation": "アラートをフィルタリングするためのアラート名を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-severities-flag-description",
+    "translation": "アラート重大度タイプのリストでフィルターします。 許容されるリスト項目は以下の通りです：kCritical,kWarning,kInfo。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-states-flag-description",
+    "translation": "アラート状態のリストでフィルタリングします。 許容されるリスト項目は次のとおりです：kResolved,kOpen,kNote,kSuppressed。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-type-buckets-flag-description",
+    "translation": "アラート・タイプのバケット一覧でフィルターします。 許容されるリスト項目は次のとおりです：kHardware,kSoftware,kDataService,kMaintenance。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-alert-types-flag-description",
+    "translation": "アラート・タイプのリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-all-under-hierarchy-flag-description",
+    "translation": "ログインしたユーザーの組織の階層下にある、すべてのテナントのオブジェクトでフィルターリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-long-description",
+    "translation": "アラートを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-command-short-description",
+    "translation": "アラートを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-end-time-usecs-flag-description",
+    "translation": "アラートをフィルタリングするための終了時刻をマイクロ秒単位のUNIXエポック時刻で指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-max-alerts-flag-description",
+    "translation": "返すアラートの最大数を指定します。 デフォルト値は100で、最大許容値は1000です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-key-flag-description",
+    "translation": "アラートをフィルタリングするプロパティーの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-property-value-flag-description",
+    "translation": "アラートをフィルタリングするプロパティーの値を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-resolution-ids-flag-description",
+    "translation": "アラートをフィルタリングするためのアラート解決IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-start-time-usecs-flag-description",
+    "translation": "アラートをフィルタリングするために、開始時刻をマイクロ秒単位のUNIXエポック時刻で指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-tenant-ids-flag-description",
+    "translation": "テナントIDでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-alerts-list-x-scope-identifier-flag-description",
+    "translation": "このフィールドはサービス・インスタンスを一意的に表します。 値を「service-instance-id: <value>」として指定してください。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-bad-url-error-message",
+    "translation": "無効な URL: ベース URL を BACKUP_RECOVERY_MANAGEMENT_SRE_URL 環境変数または認証情報ファイル内のキーで設定してください。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-long-description",
+    "translation": "クラスター・リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-group-short-description",
+    "translation": "クラスター・リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-long-description",
+    "translation": "クラスター情報とそのアップグレードの詳細を取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-info-command-short-description",
+    "translation": "クラスター情報とアップグレードの詳細。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-long-description",
+    "translation": "指定されたリリース・バージョンにアップグレード可能なクラスターのリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-command-short-description",
+    "translation": "リリース・バージョンに対応する互換性のあるクラスターを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-list-release-version-flag-description",
+    "translation": ""
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-auth-headers-flag-description",
+    "translation": "アップグレード要求に対するオプションのヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-clusters-flag-description",
+    "translation": "アップグレード対象クラスターの配列 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-long-description",
+    "translation": "即時およびスケジュールされたクラスターのアップグレードを開始します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-short-description",
+    "translation": "即時およびスケジュールされたクラスターのアップグレードを開始します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "2つのクラスターのアップグレード間の時間差を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-package-url-flag-description",
+    "translation": "パッケージをダウンロードできるURLを指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "パッチ・クラスター要求のオプション・ヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-flag-description",
+    "translation": "パッチ・アップグレード要求のパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "事前チェック結果を無視できるかどうかを指定してください。 デフォルト値は\tfalse です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-package-url-flag-description",
+    "translation": "パッチパッケージをダウンロードできる URL を指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-target-version-flag-description",
+    "translation": "クラスターをアップグレードする対象のパッチ・バージョンを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-target-version-flag-description",
+    "translation": "クラスタをアップグレードする対象バージョンを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "クラスターをアップグレードする必要がある時刻をミリ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-type-flag-description",
+    "translation": "クラスターに対して実行するアップグレードの種類を指定します。 デフォルト値はアップグレードです。 許容値は次の通りです：アップグレード、パッチ、UpgradePatch。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-cluster-identifiers-flag-description",
+    "translation": "クラスタ識別子のリストを指定します。 フォーマットは clusterId:clusterIncarnationIdです。 "
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-long-description",
+    "translation": "スケジュールされたクラスターのアップグレードをキャンセルします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-short-description",
+    "translation": "スケジュールされたクラスターのアップグレードをキャンセルします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-cluster-identifiers-flag-description",
+    "translation": "指定された形式 clusterId:clusterIncarnationId のクラスター識別子リストに対するアップグレード進捗詳細を取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-long-description",
+    "translation": "クラスターのアップグレードに関する進行の詳細およびログを取得します。 ログはJSON文字列形式で出力されます。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-short-description",
+    "translation": "アップグレード情報を取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-long-description",
+    "translation": "リソース ClusterUpgrade のコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-short-description",
+    "translation": "リソース ClusterUpgrade のコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-auth-headers-flag-description",
+    "translation": "アップグレード要求に対するオプションのヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-clusters-flag-description",
+    "translation": "アップグレード対象クラスターの配列 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-long-description",
+    "translation": "スケジュールされたクラスター・アップグレードを更新します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-short-description",
+    "translation": "スケジュールされたクラスター・アップグレードを更新します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-interval-for-rolling-upgrade-in-hours-flag-description",
+    "translation": "2つのクラスターのアップグレード間の時間差を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-package-url-flag-description",
+    "translation": "パッケージをダウンロードできるURLを指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-auth-headers-flag-description",
+    "translation": "パッチ・クラスター要求のオプション・ヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-flag-description",
+    "translation": "パッチ・アップグレード要求のパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
+    "translation": "事前チェック結果を無視できるかどうかを指定してください。 デフォルト値は\tfalse です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-package-url-flag-description",
+    "translation": "パッチパッケージをダウンロードできる URL を指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-target-version-flag-description",
+    "translation": "クラスターをアップグレードする対象のパッチ・バージョンを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-target-version-flag-description",
+    "translation": "クラスタをアップグレードする対象バージョンを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-time-stamp-to-upgrade-at-msecs-flag-description",
+    "translation": "クラスターをアップグレードする必要がある時刻をミリ秒単位で指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-type-flag-description",
+    "translation": "クラスターに対して実行するアップグレードの種類を指定します。 デフォルト値はアップグレードです。 許容値は次の通りです：アップグレード、パッチ、UpgradePatch。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-long-description",
+    "translation": "IBM APIは、IBM クラスターおよび管理コンソール上の様々なデータ管理操作にアクセスするためのRESTfulインターフェースを提供します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-cluster-identifiers-flag-description",
+    "translation": "クラスタ識別子のリストを指定します。 フォーマットは clusterId:clusterIncarnationId です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-long-description",
+    "translation": "カテゴリ別にグループ化されたアラートの要約を取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-short-description",
+    "translation": "管理コンソールでアラートのサマリーを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-end-time-usecs-flag-description",
+    "translation": "終了時間でフィルタリングします。 終了時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトは現在時刻です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-start-time-usecs-flag-description",
+    "translation": "開始時間でフィルタリングします。 開始時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトでは、現在の時刻から1日を差し引いた時刻です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-states-list-flag-description",
+    "translation": "アラートをフィルタリングするためのアラート状態のリストを指定します。 指定がない場合、サマリーの取得には未解決のアラートのみが使用されます。 許容されるリスト項目は次のとおりです：kResolved,kOpen,kNote,kSuppressed。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-long-description",
+    "translation": "ManagementAlerts リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-group-short-description",
+    "translation": "ManagementAlerts リソースのコマンド。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-category-list-flag-description",
+    "translation": "アラート・カテゴリーのリストでフィルターします。 許容リスト項目は以下の通りです：kDisk,kNode,kCluster,kChassis,kPowerSupply,kCPU,kMemory,kTemperature,kFan,kNIC,kFirmware,kNodeHealth,kOperatingSystem,kDataPath,kMetadata,kIndexing,kHelios,kAppMarketPlace,kSystemService,kLicense,kSecurity,kUpgrade,kClusterManagement,kAuditLog,kNetworking,kConfiguration,kStorageUsage,kFaultTolerance,kBackupRestore,kArchivalRestore,kRemoteReplication,kQuota,kCDP,kViewFailover,kDisasterRecovery,kStorageDevice,kStoragePool,kGeneralSoftwareFailure,kAgent。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-id-list-flag-description",
+    "translation": "アラートIDのリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-name-flag-description",
+    "translation": "アラートをフィルタリングするためのアラート名を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-key-list-flag-description",
+    "translation": "クエリー対象のアラート・プロパティキーのリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-value-list-flag-description",
+    "translation": "アラート・プロパティ値のリストを指定します。1つのキーに対する複数の値は「|」で結合してください。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-severity-list-flag-description",
+    "translation": "アラート重大度タイプのリストでフィルターします。 許容されるリスト項目は以下の通りです：kCritical,kWarning,kInfo。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-state-list-flag-description",
+    "translation": "アラート状態のリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-bucket-list-flag-description",
+    "translation": "アラート・タイプのバケット一覧でフィルターします。 許容されるリスト項目は次のとおりです：kHardware,kSoftware,kDataService,kMaintenance。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-list-flag-description",
+    "translation": "アラート・タイプのリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-cluster-identifiers-flag-description",
+    "translation": "クラスターIDのリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-long-description",
+    "translation": "管理コンソールのアラートリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-short-description",
+    "translation": "管理コンソールのアラートリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-end-date-usecs-flag-description",
+    "translation": "返されるアラートの終了時刻を指定します。 返されたすべてのアラートは、指定された終了時刻より前に発生します。 この値は、Unix タイムスタンプ・エポックでマイクロ秒単位がなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-max-alerts-flag-description",
+    "translation": "返すアラートの最大数を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-region-ids-flag-description",
+    "translation": "地域IDのリストでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-long-description",
+    "translation": "指定されたパラメーターのフィルタ条件に一致する、IBM システム内で検出された管理コンソールのアラート解決オブジェクトを返します。 フィルター・パラメータが指定されていない場合、MaxResolutions アラート解決オブジェクトが返されます。 各オブジェクトは、アラート解決情報および解決済みアラート情報の詳細を提供します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-short-description",
+    "translation": "BRSシステム内のアラート解決策を一覧表示します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-max-resolutions-flag-description",
+    "translation": "必須。 返される解決策の最大数を指定します。最新の作成されたものから最も古い作成されたものまで返されます。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-id-flag-description",
+    "translation": "クエリーするアラート解決IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-name-flag-description",
+    "translation": "クエリー対象のアラート解決名（Alert Resolution Name）を指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-service-instance-ids-flag-description",
+    "translation": "サービスインスタンスIDを指定して、IBM の顧客向けのアラートをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-start-date-usecs-flag-description",
+    "translation": "返されるアラートの開始時刻を指定します。 返されたすべてのアラートは、指定された開始時刻以降に発生したものです。 この値は、Unix タイムスタンプ・エポックでマイクロ秒単位がなければなりません。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-list-tenant-ids-flag-description",
+    "translation": "テナントIDでフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-alert-source-flag-description",
+    "translation": "アラートの発生元のリストを指定します。 指定がない場合、すべてのソースからのすべてのアラートが応答に考慮されます。 許容値は次の通りです： kCluster, kHelios。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-cluster-ids-flag-description",
+    "translation": "クラスターIDのリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-long-description",
+    "translation": "アクティブなアラートの統計情報を計算します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-short-description",
+    "translation": "アクティブなアラートの統計情報を計算します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-end-time-usecs-flag-description",
+    "translation": "必須。 アクティブなアラート統計が計算される終了時刻を、マイクロ秒単位のUnixタイム・エポックで指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-exclude-stats-by-cluster-flag-description",
+    "translation": "クラスターごとのアクティブ・アラートの統計を除外する必要があるかどうかを指定します。 偽の（デフォルト値）に設定されている場合、クラスタごとのアクティブなアラートの統計情報が応答に含まれます。 trueに設定した場合、レスポンスには集計された統計情報のサマリーのみが含まれます。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-region-ids-flag-description",
+    "translation": "地域 ID のリストを使用してフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-service-instance-ids-flag-description",
+    "translation": "アラート統計情報をフィルタリングするためのサービス・インスタンスIDのリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-start-time-usecs-flag-description",
+    "translation": "必須。 アクティブなアラートの統計情報を計算するための開始時刻を、マイクロ秒単位のUNIXタイム・エポックで指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-tenant-ids-flag-description",
+    "translation": "テナントのリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-short-description",
+    "translation": "IBM REST APIを管理します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-long-description",
+    "translation": "すべてのプロバイダー・インスタンスを詳細とともに一覧表示します。 APIはプロバイダー・インスタンスの詳細なリストを返します。 プロバイダーはインスタンスのライフサイクル管理を担当しており、このAPIはインスタンスに関するメタデータ情報を提供することのみを目的としています。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-short-description",
+    "translation": "プロバイダー・インスタンスの一覧を表示します。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-include-service-instance-status-flag-description",
+    "translation": "サービス・インスタンスのステータスに加えて、クラスターの詳細やソフトウェア・バージョンなどのその他の詳細情報を含めるかどうかを確認するためのブール・フラグ。 デフォルト値は\tfalse です。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-instance-ids-flag-description",
+    "translation": "フィルタリングに使用するプロバイダー・インスタンスIDのリスト。"
+  },
+  {
+    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-regions-flag-description",
+    "translation": "プロバイダー・インスタンスをフィルタリングするための地域リスト。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-command-long-description",
+    "translation": "オブジェクトのスナップショットおよびその他の情報から、任意のワークフローのメタ情報を構築します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-command-short-description",
+    "translation": "オブジェクトのスナップショットおよびその他の情報から、任意のワークフローのメタ情報を構築します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-environment-flag-description",
+    "translation": "必須。 保護グループの環境タイプを指定します。 許容値: kVMware、kHyperV、kVCD、kSQL、kView、kRemoteAdapter、kPhysical、kPure、kIbmFlashSystem、kAzure、kNetapp、kGenericNas、kAcropolis、kIsilon、kKVM、kAWS、kAWSNative、kAwsS3、kAWSSnapshotManager、kRDSSnapshotManager、kAuroraSnapshotManager、kAwsRDSPostgresBackup、kAwsRDSPostgres、kAwsAuroraPostgres、kAwsDynamoDB、kAzureNative、kAzureSQL、kAzureEntraID、kAzureSnapshotManager、kExchange、kOracle、kGCP、kFlashBlade、kO365、kHyperFlex、kAD、kGPFS、kKubernetes、kNimble、kElastifile、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kHBase、kUDA、kSAPHANA、kO365Sharepoint、kO365PublicFolders、kO365Teams、kO365Group、kO365Exchange、kO365OneDrive、kSfdc、kO365ExchangeCSM、kO365OneDriveCSM、kO365SharepointCSM、kExperimentalAdapter、kMongoDBPhysical、kDB2。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-kubernetes-params-flag-description",
+    "translation": "Kubernetesオブジェクトのオブジェクト・パラメーターを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-kubernetes-params-object-id-flag-description",
+    "translation": "リソースを取得するオブジェクトIDの種類を指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-base-dir-flag-description",
+    "translation": "宛先のOracleの基本ディレクトリーを指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-db-file-destination-flag-description",
+    "translation": "データベース・ファイル (データ・ファイル、ログ・ファイルなど) を配置する場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-db-name-flag-description",
+    "translation": "復元先のOracleデータベースの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-flag-description",
+    "translation": "代替復元またはクローンのメタ情報を構築するためのOracleパラメーター。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-home-dir-flag-description",
+    "translation": "宛先のOracleのホーム・ディレクトリーを指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-clone-flag-description",
+    "translation": "操作がクローンであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-disaster-recovery-flag-description",
+    "translation": "このリカバリーが災害復旧のタイプであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-granular-restore-flag-description",
+    "translation": "操作がきめ細かな復元であるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-recovery-validation-flag-description",
+    "translation": "操作がリカバリー検証であるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-flag-description",
+    "translation": "依存オブジェクトのリストを作成するためのパラメーターを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-meta-info-type-flag-description",
+    "translation": "Salesforceオブジェクトに対して取得するメタ情報の種類を指定します。 許容値: DependentObjects。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-object-name-flag-description",
+    "translation": "オブジェクトの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-meta-info-create-snapshot-id-flag-description",
+    "translation": "必須。 スナップショット ID を指定します。"
   },
   {
     "id": "backup-recovery-object-snapshots-list-command-long-description",
@@ -1009,7 +2013,7 @@
   },
   {
     "id": "backup-recovery-object-snapshots-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-objects-search-cluster-identifiers-flag-description",
@@ -1029,7 +2033,7 @@
   },
   {
     "id": "backup-recovery-objects-search-environments-flag-description",
-    "translation": "オブジェクトをフィルタリングするための環境タイプを指定します。 許容リスト項目はkPhysical、kSQLです。"
+    "translation": "オブジェクトをフィルタリングする環境タイプを指定します。 許容リスト項目: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-objects-search-external-filters-flag-description",
@@ -1129,7 +2133,79 @@
   },
   {
     "id": "backup-recovery-objects-search-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-command-long-description",
+    "translation": "Pulseからタスクの進捗状況とステータスを取得します。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-command-short-description",
+    "translation": "Pulseからタスクの進捗状況とステータスを取得します。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-end-time-secs-flag-description",
+    "translation": "この時刻より前に終了したタスク。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-exclude-sub-tasks-flag-description",
+    "translation": "一致するルート・タスクおよびサブタスクのサブタスクに関する情報をスキップします。 デフォルトでは、一致するタスクに対してタスク・ツリー全体が返されます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-include-finished-tasks-flag-description",
+    "translation": "完了したタスクも返します。 デフォルトでは、Pulseはアクティブなタスクのみを返します。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-max-tasks-flag-description",
+    "translation": "一致するタスクは最大でこの数まで返します。 この制約は、各照会の結果グループに適用されます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-attribute-vec-flag-description",
+    "translation": "指定された場合、現在の照会に一致するタスクは、これらのKeyValuePairsによってさらに絞り込まれます。 これにより、クライアントはタスク作成時に指定したカスタム属性で検索できるようになります。 指定されたキーと値のペアを「すべて」持つタスクのみが返されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-end-time-secs-flag-description",
+    "translation": "この時刻より前に終了したタスク。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-exclude-sub-tasks-flag-description",
+    "translation": "一致するルート・タスクおよびサブタスクのサブタスクに関する情報をスキップします。 デフォルトでは、一致するタスクに対してタスク・ツリー全体が返されます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-fetch-logs-max-level-flag-description",
+    "translation": "パルス・ツリーでイベント・ログを取得するレベル数。 これは`include_event_logs`が`true`の場合にのみ適用されます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-include-event-logs-flag-description",
+    "translation": "設定されている場合、イベント・ログが応答メッセージに含まれます。 そうでない場合は、消去されます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-include-finished-tasks-flag-description",
+    "translation": "完了したタスクも返します。 デフォルトでは、Pulseはアクティブなタスクのみを返します。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-max-tasks-flag-description",
+    "translation": "一致するタスクは最大でこの数まで返します。 この制約は、各照会の結果グループに適用されます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-start-time-secs-flag-description",
+    "translation": "この時刻以降に開始されたタスク。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-task-path-vec-flag-description",
+    "translation": "照会対象のタスク名への階層的パス。 ここで指定するタスクのパス名は、プレフィックスでもかまいません。 クライアントは、複数のパスやプレフィックスを指定することができます。 Pulseは、各パス照会に対して1つのResultGroupを返します。\n\n各パスはPulseによって個別に処理されるため、重複するパスがある場合、Pulseは重複した結果を返します。\n\nルート・タスクとサブタスクの両方を@task_path_vecに指定できます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-start-time-secs-flag-description",
+    "translation": "この時刻以降に開始されたタスク。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-task-path-vec-flag-description",
+    "translation": "照会対象のタスク名への階層的パス。 ここで指定するタスクのパス名は、プレフィックスでもかまいません。 クライアントは、複数のパスやプレフィックスを指定することができます。 Pulseは、各パス照会に対して1つのResultGroupを返します。\n\n各パスはPulseによって個別に処理されるため、重複するパスがある場合、Pulseは重複した結果を返します。\n\nルート・タスクとサブタスクの両方を@task_path_vecに指定できます。"
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-xibm-tenant-id-flag-description",
+    "translation": "必須。 ソース・クレデンシャルの暗号化に使用するキーを指定します。 includeSourceCredentials が true に設定されている場合、このキーを指定する必要があります。"
   },
   {
     "id": "backup-recovery-protected-objects-search-cdp-protected-only-flag-description",
@@ -1145,7 +2221,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-environments-flag-description",
-    "translation": "オブジェクトをフィルタリングするための環境タイプを指定します。 許容リスト項目はkPhysical、kSQLです。"
+    "translation": "オブジェクトをフィルタリングする環境タイプを指定します。 許容リスト項目: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protected-objects-search-filter-snapshot-from-usecs-flag-description",
@@ -1157,7 +2233,7 @@
   },
   {
     "id": "backup-recovery-protected-objects-search-object-action-key-flag-description",
-    "translation": "オブジェクトの保護を一意的に表すObjectActionKeyでフィルタリングします。 オブジェクトは複数の方法で保護することができますが、ObjectActionKeyの指定の組み合わせに対しては最大で1回です。 指定された場合、objectActionKeyに一致する最新のスナップショット情報は、対応するオブジェクトのものです。 許容値はkPhysical、kSQLです。"
+    "translation": "オブジェクトの保護を固有に表す ObjectActionKey でフィルタリングします。 オブジェクトは複数の方法で保護することができますが、ObjectActionKey の特定の組み合わせに対しては 1 回です。 指定された場合、objectActionKey に一致する最新のスナップショット情報は、対応するオブジェクトのものです。 許容値: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protected-objects-search-object-ids-flag-description",
@@ -1200,380 +2276,8 @@
     "translation": "読み取りレプリカ・キャッシュへのGET要求を処理できるかどうかを指定します。 読み取りレプリカと1次データ・ソースの間には15秒の遅れがあります。"
   },
   {
-    "id": "backup-recovery-users-command-short-description",
-    "translation": "ユーザーを取得します。"
-  },
-  {
-    "id": "backup-recovery-users-command-long-description",
-    "translation": "パラメーターを指定しないと、現在のCohesityクラスター上のすべてのユーザーが返されます。 パラメーターを指定することで、返される結果がフィルタリングされます。"
-  },
-  {
-    "id": "backup-recovery-users-session-name-flag-description",
-    "translation": "必須。 コネクター・ログインAPIから受信するセッションCookie。"
-  },
-  {
-    "id": "backup-recovery-connector-logs-access-token-description",
-    "translation": "必須。 コネクターから受信したアクセス・トークン。"
-  },
-  {
-    "id": "backup-recovery-connector-status-access-token-description",
-    "translation": "必須。 コネクターから受信したアクセス・トークン。"
-  },
-  {
-    "id": "backup-recovery-users-tenant-ids-flag-description",
-    "translation": "TenantIdsには、オブジェクトが返されるテナントのIDが含まれます。"
-  },
-  {
-    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
-    "translation": "AllUnderHierarchyは、ログインしているユーザーの組織の階層下にあるすべてのテナントのオブジェクトを返すかどうかを指定します。returned.TenantIdsには、オブジェクトが返されるテナントのIDが含まれます。"
-  },
-  {
-    "id": "backup-recovery-users-usernames-flag-description",
-    "translation": "オプションで、フィルタリングするためのユーザー名のリストを指定します。 ユーザー名を含むすべてのユーザーが返されます。"
-  },
-  {
-    "id": "backup-recovery-users-email-addresses-flag-description",
-    "translation": "オプションで、フィルタリングするためのEメール・アドレスのリストを指定します。"
-  },
-  {
-    "id": "backup-recovery-users-domain-flag-description",
-    "translation": "オプションで、フィルタリングするためのドメインを指定します。 ドメインが指定されていない場合は、Cohesityクラスター上のすべてのユーザーが検索されます。 ドメインが指定されている場合は、そのドメインに関連付けられているCohesityクラスター上のユーザーのみが検索されます。"
-  },
-  {
-    "id": "backup-recovery-users-partial-match-flag-description",
-    "translation": "オプションで、部分一致を有効にするかどうかを指定します。 設定されている場合、ユーザー名を含む名前を持つすべてのユーザーが返されます。 falseに設定すると、ユーザー名とまったく同じ名前を持つユーザーのみが返されます。 デフォルトでは、このパラメーターはtrueに設定されています。"
-  },
-  {
-    "id": "backup-recovery-user-update-command-short-description",
-    "translation": "ユーザーを更新します。"
-  },
-  {
-    "id": "backup-recovery-user-update-command-long-description",
-    "translation": "Cohesityクラスター上で更新されたユーザーを返します。"
-  },
-  {
-    "id": "backup-recovery-user-update-session-name-flag-description",
-    "translation": "必須。 コネクターから受信したアクセス・トークン。"
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-flag-description",
-    "translation": "アクティブ・ディレクトリーを使用してログインしたADユーザーの情報を指定します。 この情報はクラスター上に格納されていません。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-additional-group-names-flag-description",
-    "translation": "このユーザーが所属する可能性がある追加のグループの名前を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
-    "translation": "管理ユーザーがデータ・セキュリティー・ユーザーを変更できるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
-    "translation": "AuditLogSettingsは、監査ログ構成を持つ構造体を指定します。 これらの設定を、bbが存在しない場合にゼロ値がクラスターのデフォルトとなるように設定してください。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-authentication-type-flag-description",
-    "translation": "ユーザーの認証タイプを指定します。 「kAuthLocal」は、認証されたユーザーがローカル・ユーザーであることを意味します。 「kAuthAd」は、認証されたユーザーがActive Directoryユーザーであることを意味します。 「kAuthSalesforce」は、認証されたユーザーがSalesforceユーザーであることを意味します。 「kAuthGoogle」は、認証されたユーザーがGoogleユーザーであることを意味します。 「kAuthSso」は、認証されたユーザーがSSOユーザーであることを意味します。 許容値はkAuthLocal、kAuthAd、kAuthSalesforce、kAuthGoogle、kAuthSsoです。"
-  },
-  {
-    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
-    "translation": "このユーザーにアクセス権限があるクラスターのリストを指定します。 これが指定されていない場合は、すべてのクラスターへのアクセス権限が付与されます。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
-    "translation": "ユーザー・アカウントがCohesityクラスター上で作成された時を、ミリ秒単位のエポック時間で指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-current-password-flag-description",
-    "translation": "パスワードの更新時に現在のパスワードを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-description-flag-description",
-    "translation": "ユーザーについての説明を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-domain-flag-description",
-    "translation": "Cohesityクラスター上のデフォルトのLOCALドメインのActive DirectoryまたはLOCALの完全修飾ドメイン・ネーム(FQDN)を指定します。 ユーザーは、ユーザー名とドメインの組み合わせによって一意的に識別されます。"
-  },
-  {
-    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
-    "translation": "ユーザーが有効になる時を、ミリ秒単位のエポック時間で指定します。 その時間までは、ユーザーはログインすることができません。"
-  },
-  {
-    "id": "backup-recovery-user-update-email-address-flag-description",
-    "translation": "ユーザーのEメール・アドレスを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
-    "translation": "ユーザーが有効期限切れになる時を、ミリ秒単位のエポック時間で指定します。 その後、ユーザーはログインできなくなります。"
-  },
-  {
-    "id": "backup-recovery-user-update-force-password-change-flag-description",
-    "translation": "ユーザーにパスワード変更を強制するかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-google-account-flag-description",
-    "translation": "Google 管理コンソール BRS ユーザーのアカウント情報 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-flag-description",
-    "translation": "IdPを使用してログインしたIdPユーザーの情報を指定します。 この情報はクラスター上に格納されていません。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
-    "translation": "インターコムID検証のためのメッセンジャー・トークンを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-is-account-locked-flag-description",
-    "translation": "ユーザー・アカウントがロックされるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-is-active-flag-description",
-    "translation": "IsActiveは、ユーザーがアクティブであるか否か、または顧客によって非アクティブにされているかを指定します。 デフォルトの動作は「true」です。"
-  },
-  {
-    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
-    "translation": "ユーザーが最後に正常にログインした時を、ミリ秒単位のエポック時間で指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
-    "translation": "ユーザー・アカウントがCohesityクラスター上で最後に変更された時を、ミリ秒単位のエポック時間で指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-mfa-info-flag-description",
-    "translation": "MFAに関する情報を指定します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-mfa-methods-flag-description",
-    "translation": "クラスター上で有効化されたMFAメソッドを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-object-class-flag-description",
-    "translation": "ユーザー(ユーザーまたはグループのいずれかになります)のオブジェクト・クラスを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-org-membership-flag-description",
-    "translation": "OrgMembershipには、このユーザーが切り替え可能なすべてのtenantIdsのリストが含まれています。 セッション・ユーザーを作成する場合にのみ、このフィールドは即座に入力されます。 ユーザーに割り当てられた様々なグループからtenantIdsを検出します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-password-flag-description",
-    "translation": "このユーザーのパスワードを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-preferences-flag-description",
-    "translation": "このユーザーの設定を指定します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
-    "translation": "前回のユーザー・ログインの、ミリ秒単位のエポック時間を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-primary-group-name-flag-description",
-    "translation": "このユーザーの1次グループの名前を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-privilege-ids-flag-description",
-    "translation": "ロールからCohesity特権を指定します。 これは、ロール内のすべての特権の合併に基づいて取り込まれます。 固有の特権ID値のタイプ。 以下のすべての列挙値は、Cohesityですべての一意的に定義された特権の値を指定します。 許容リスト項目はkPrincipalView、kPrincipalModify、kAppLaunch、kAppsManagement、kOrganizationView、kOrganizationModify、kOrganizationImpersonate、kCloneView、kCloneModify、kClusterView、kClusterModify、kClusterCreate、kClusterSupport、kClusterUpgrade、kClusterRemoteView、kClusterRemoteModify、kClusterExternalTargetView、kClusterExternalTargetModify、kClusterAudit、kAlertView、kAlertModify、kVlanView、kVlanModify、kHybridExtenderView、kHybridExtenderDownload、kAdLdapView、kAdLdapModify、kSchedulerView、kSchedulerModify、kProtectionView、kProtectionModify、kProtectionJobOperate、kProtectionSourceModify、kProtectionPolicyView、kProtectionPolicyModify、kRestoreView、kRestoreModify、kRestoreDownload、kRemoteRestore、kStorageView、kStorageModify、kStorageDomainView、kStorageDomainModify、kAnalyticsView、kAnalyticsModify、kReportsView、kMcmModify、kDataSecurity、kSmbBackup、kSmbRestore、kSmbTakeOwnership、kSmbAuditing、kMcmUnregister、kMcmUpgrade、kMcmModifySuperAdmin、kMcmViewSuperAdmin、kMcmModifyCohesityAdmin、kMcmViewCohesityAdmin、kObjectSearch、kFileDatalockExpiryTimeDecreaseです。"
-  },
-  {
-    "id": "backup-recovery-user-update-profiles-flag-description",
-    "translation": "ユーザー・プロファイルを指定します。 注：現在、管理コンソールで使用されています。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-restricted-flag-description",
-    "translation": "ユーザーが制限付きユーザーかどうか。 制限付きユーザーは、自分に権限があるオブジェクトのみを表示できます。"
-  },
-  {
-    "id": "backup-recovery-user-update-roles-flag-description",
-    "translation": "ユーザーと関連付けるCohesityロールを「Admin」、「Ops」、「View」などとして指定します。 Cohesityロールは、このユーザーのCohesityクラスターでの特権を決定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
-    "translation": "S3アカウント・アクセス・キーIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-s3-account-id-flag-description",
-    "translation": "S3アカウントの正規ユーザーIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
-    "translation": "S3アカウントの秘密鍵を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-flag-description",
-    "translation": "Salesforce管理コンソール・ユーザーのアカウント情報。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-sid-flag-description",
-    "translation": "ユーザーの固有のセキュリティーID(SID)を指定します。 ユーザーの変更においては、このフィールドは必須です。"
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-flag-description",
-    "translation": "SpogContextは、このクラスター上でアクションを実行しているユーザーおよびクラスターに関するすべての情報を指定します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-flag-description",
-    "translation": "これを拡張して、Helios、DRaaS、DSaaSを追加します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
-    "translation": "MCMユーザーのテナント・アクセスを指定します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-tenant-id-flag-description",
-    "translation": "ユーザーの有効なテナントIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-username-flag-description",
-    "translation": "ユーザーのログイン名を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
-    "translation": "グループのSIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
-    "translation": "このユーザーが所属するグループを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
-    "translation": "フローティング・ユーザーであるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
-    "translation": "ReadLoggingは、読み取りログを取り込む必要があるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
-    "translation": "Googleによって割り当てられたアカウントIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
-    "translation": "Googleによって割り当てられたユーザーIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
-    "translation": "グループのSIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
-    "translation": "ユーザーが所属するIdpグループを指定します。 ユーザーがクラスター上に登録されていない可能性があるため、idpグループのメンバーシップを取り込む必要がある場合があります。 こうすることで、後でクラスター上にグループが作成されても、ユーザーはそのグループのtenantIdsにも即座にアクセスできるようになります。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
-    "translation": "IdPに対してクラスターによって割り当てられた固有IDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
-    "translation": "これがフローティング・ユーザーであるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
-    "translation": "このクラスターに対してベンダーによって割り当てられた固有IDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
-    "translation": "ユーザーに対してベンダーによって割り当てられた固有IDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
-    "translation": "IdPサービスを提供するベンダーを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
-    "translation": "ユーザーでMFAが無効になっているかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-preferences-locale-flag-description",
-    "translation": "ロケールはユーザーの言語設定を反映します。 必要に応じて、Scribeに格納されているユーザー・プリファレンスを使用して取り込みます。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
-    "translation": "Salesforceによって割り当てられたアカウントIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
-    "translation": "管理コンソールへのアクセス状況を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
-    "translation": "ユーザーがDGaaSのライセンス・ユーザーであるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
-    "translation": "ユーザーがDMaaSのライセンス・ユーザーであるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
-    "translation": "ユーザーがDRaaSのライセンス・ユーザーであるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
-    "translation": "ユーザーがRPaaSのライセンス・ユーザーであるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
-    "translation": "ユーザーがCohesityの販売担当者であるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
-    "translation": "ユーザーがCohesityのサポート担当者であるかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
-    "translation": "Salesforceによって割り当てられたユーザーIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
-    "translation": "SPOG経由でこのクラスターにアクセスしているリモート・クラスターのIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
-    "translation": "SPOG経由でこのクラスターにアクセスしているユーザーのSIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
-    "translation": "SPOG経由でこのクラスターにアクセスしているユーザーのユーザー名を指定します。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
-    "translation": "ClassificationInfoは、アクティブであるかどうかなど、Datahawk Classificationサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
-    "translation": "DMaaSSubscriptionInfoは、アクティブであるかどうかなど、Data Protectサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
-    "translation": "ClassificationInfoは、アクティブであるかどうかなど、Datahawk Classificationサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
-    "translation": "FortKnoxInfoは、アクティブであるかどうかなど、Fortknox AzureまたはAzure FreeTrialまたはAwsColdまたはAwsCold FreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
-    "translation": "FortKnoxInfoは、アクティブであるかどうかなど、Fortknox AzureまたはAzure FreeTrialまたはAwsColdまたはAwsCold FreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
-    "translation": "FortKnoxInfoは、アクティブであるかどうかなど、Fortknox AzureまたはAzure FreeTrialまたはAwsColdまたはAwsCold FreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
-    "translation": "RansomwareInfoは、アクティブであるかどうかなど、FortKnox/FortKnoxFreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
-    "translation": "SiteContinuityInfoは、アクティブかどうかなど、Site Continuityサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
-    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
-    "translation": "ThreatProtectionInfoは、アクティブかどうかなど、Datahawk ThreatProtectionのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
-  },
-  {
     "id": "backup-recovery-protected-objects-search-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-create-abort-in-blackouts-flag-description",
@@ -1625,11 +2329,63 @@
   },
   {
     "id": "backup-recovery-protection-group-create-environment-flag-description",
-    "translation": "必須。 保護グループの環境タイプを指定します。 許容値はkPhysical、kSQLです。"
+    "translation": "必須。 保護グループの環境タイプを指定します。 許容値: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protection-group-create-is-paused-flag-description",
     "translation": "保護グループを一時停止するかどうかを指定します。 一時停止中の保護グループに対しては、新規の実行はスケジュールされません。 アクティブな実行があれば、影響はありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-enable-indexing-flag-description",
+    "translation": "名前空間のバックアップ中に、ファイルおよびフォルダーのインデックス作成を許可するかどうかを指定します。 許可されている場合、ファイルおよびフォルダーを復元できます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-label-ids-flag-description",
+    "translation": "除外するラベルを指定するためのラベルIDの配列の配列。 必要に応じて、この2次元配列に保護対象外とするラベルの保護ソースIDを列挙することで、保護から除外するラベルのリストを指定できます。 このラベルIDの2次元配列を使用して、クラスターは保護対象から除外する名前空間のリストを生成します。このリストは、内側の配列の交差部分と外側の配列の和集合から導き出されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-object-ids-flag-description",
+    "translation": "保護グループから除外するオブジェクトを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-exclude-params-flag-description",
+    "translation": "オブジェクト (例: ボリューム) を含めるか除外するかのパラメーターを指定します。 これらの条件のいずれかを満たすオブジェクトは、このフィルターによって選別されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-flag-description",
+    "translation": "Kubernetesの保護グループに関連するパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-include-params-flag-description",
+    "translation": "オブジェクト (例: ボリューム) を含めるか除外するかのパラメーターを指定します。 これらの条件のいずれかを満たすオブジェクトは、このフィルターによって選別されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-label-ids-flag-description",
+    "translation": "保護するラベルを指定するラベルIDの配列の配列。 必要に応じて、この2次元配列に保護対象のラベルの保護ソースIDを列挙することで、保護するラベルのリストを指定できます。 このラベルIDの2次元配列を使用して、クラスターは保護対象となる名前空間のリストを生成します。このリストは、内側の配列の交差部分と外側の配列の和集合から導き出されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-leverage-csi-snapshot-flag-description",
+    "translation": "名前空間のバックアップにCSIスナップショットを使用するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-non-snapshot-backup-flag-description",
+    "translation": "スナップショット・バックアップが失敗した場合に、スナップショット以外のバックアップが実行されるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-objects-flag-description",
+    "translation": "保護グループに含まれるオブジェクトを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-snapshot-timeout-seconds-flag-description",
+    "translation": "ボリューム・スナップショットが準備完了状態になるまで待機するために、ユーザーが指定したタイムアウト時間を秒単位で指定します。 CSIスナップショットが有効化されていない場合、この機能はサポートされません。 デフォルト: IBM BaaSは900秒、その他は300秒。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-vlan-params-flag-description",
+    "translation": "バックアップ/リストア操作に関連するVLANパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-kubernetes-params-volume-backup-failure-flag-description",
+    "translation": "ボリュームのバックアップが失敗した場合に、バックアップ処理を続行するかどうかを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-create-last-modified-timestamp-usecs-flag-description",
@@ -1662,6 +2418,10 @@
   {
     "id": "backup-recovery-protection-group-create-pause-in-blackouts-flag-description",
     "translation": "ポリシーで指定されたブラックアウト期間が開始した場合に、現在実行中のジョブを一時停止するかどうかを指定します。 選択したポリシーに少なくとも1つのブラックアウト期間がある場合にのみ使用可能です。 デフォルト値はfalseです。 「abortInBlackouts」がtrueとして送信される場合、このフィールドをtrueに設定することはできません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-create-paused-note-flag-description",
+    "translation": "今後の実行を一時停止する理由について、現在のユーザーが記載するメモ (該当する場合)。"
   },
   {
     "id": "backup-recovery-protection-group-create-physical-params-file-protection-type-params-flag-description",
@@ -1713,7 +2473,7 @@
   },
   {
     "id": "backup-recovery-protection-group-create-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-delete-command-long-description",
@@ -1733,7 +2493,7 @@
   },
   {
     "id": "backup-recovery-protection-group-delete-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-get-command-long-description",
@@ -1765,7 +2525,7 @@
   },
   {
     "id": "backup-recovery-protection-group-get-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-group-long-description",
@@ -1785,7 +2545,7 @@
   },
   {
     "id": "backup-recovery-protection-group-list-environments-flag-description",
-    "translation": "「kVMware」、「kView」、などの環境タイプでフィルタリングします。 指定した環境タイプを保護する保護グループのみが返されます。 許容リスト項目はkPhysical、kSQLです。"
+    "translation": "「kVMware」、「kView」、などの環境タイプでフィルタリングします。 指定した環境タイプを保護する保護グループのみが返されます。 許容リスト項目: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protection-group-list-ids-flag-description",
@@ -1865,7 +2625,7 @@
   },
   {
     "id": "backup-recovery-protection-group-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-run-create-command-long-description",
@@ -1909,7 +2669,43 @@
   },
   {
     "id": "backup-recovery-protection-group-run-create-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-command-long-description",
+    "translation": "保護グループの実行を取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-command-short-description",
+    "translation": "保護グループの実行を取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-id-flag-description",
+    "translation": "必須。 保護グループの固有の ID を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-include-object-details-flag-description",
+    "translation": "保護実行の結果にオブジェクトの詳細を含めるかどうかを指定します。 true に設定すると、保護されたオブジェクトの詳細が返されます。 false に設定されているか、指定されていない場合、詳細は返されません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-include-tenants-flag-description",
+    "translation": "trueの場合、応答には、現在のユーザーが閲覧権限を持つすべてのテナントによって作成された保護グループ実行が含まれます。 falseの場合、現在のユーザーが作成した保護グループのみが返されます。 指定されていない場合、デフォルトでtrueになります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-request-initiator-type-flag-description",
+    "translation": "UI からの要求のタイプを指定します。これは magneto のようなサービスで要求の優先度を決定するために使用されます。 使用可能な値は、UIUser、UIAuto、Helios です。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-run-id-flag-description",
+    "translation": "必須。 保護グループの実行の固有の実行IDを指定します。 "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-tenant-ids-flag-description",
+    "translation": "TenantIdsには、実行結果を返す対象となるテナントのIDが含まれます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-use-cached-data-flag-description",
+    "translation": "リード・レプリカ・キャッシュから GET 要求を処理できるかどうかを指定します。 リード・レプリカとプライマリー・データ・ソースの間には 15 秒のラグがあります。"
   },
   {
     "id": "backup-recovery-protection-group-run-group-long-description",
@@ -2005,7 +2801,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-action-flag-description",
@@ -2037,7 +2833,67 @@
   },
   {
     "id": "backup-recovery-protection-group-run-perform-action-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-command-long-description",
+    "translation": "実行の進捗状況を取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-command-short-description",
+    "translation": "実行の進捗状況を取得します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-end-time-usecs-flag-description",
+    "translation": "進行タスクが終了するUnixエポックのタイムスタンプ (マイクロ秒単位) の、それより前の時刻を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-exclude-object-details-flag-description",
+    "translation": "オブジェクトを返すかどうかを指定します。 デフォルトでは、すべてのタスク・ツリーが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-event-logs-flag-description",
+    "translation": "イベント・ログを含めるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-finished-tasks-flag-description",
+    "translation": "完了したタスクを返すかどうかを指定します。 デフォルトでは、アクティブなタスクのみが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-tenants-flag-description",
+    "translation": "trueの場合、応答には、現在のユーザーが閲覧権限を持つすべてのテナントによって作成された保護グループ実行が含まれます。 falseの場合、現在のユーザーが作成した保護グループのみが返されます。 指定されていない場合、デフォルトでtrueになります。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-max-log-level-flag-description",
+    "translation": "イベント・ログを取得する階層の数を指定します。 これは、includeEventLogsが`true`の場合にのみ適用されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-max-tasks-num-flag-description",
+    "translation": "返すタスクの最大数を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-object-task-paths-flag-description",
+    "translation": "オブジェクト・レベルのタスク・パスを指定します。 これは、objectIDに関連します。 これが指定された場合、オブジェクトよりも優先され、オブジェクトの実際のタスク・パスを参照することなく、進捗の詳細を直接取得するために使用されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-objects-flag-description",
+    "translation": "進捗状況が返される対象のオブジェクトを指定します。 これは保護グループの実行にのみ適用され、オブジェクトの実行時には無視されます。 オブジェクトが指定されている場合、実行の進捗状況は返されず、指定されたオブジェクトの進捗状況のみが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-run-id-flag-description",
+    "translation": "必須。 保護実行の固有の実行IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-run-task-path-flag-description",
+    "translation": "実行またはオブジェクトの実行におけるタスク・パスを指定します。 これは、1つ以上のオブジェクトを含む保護グループの進捗状況が必要な場合にのみ適用されます。指定された場合、オブジェクトの実際のタスク・パスを確認することなく、進捗の詳細を直接取得するために使用されます。 「オブジェクト」フィールドは依然として必須であり、指定されていない場合は応答形式が変更されます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-start-time-usecs-flag-description",
+    "translation": "進行タスクが開始されるUnixエポックのタイムスタンプ (マイクロ秒単位) 以降の時刻を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-tenant-ids-flag-description",
+    "translation": "TenantIdsには、実行結果を返す対象となるテナントのIDが含まれます。"
   },
   {
     "id": "backup-recovery-protection-group-run-update-command-long-description",
@@ -2057,7 +2913,7 @@
   },
   {
     "id": "backup-recovery-protection-group-run-update-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-update-abort-in-blackouts-flag-description",
@@ -2109,7 +2965,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-environment-flag-description",
-    "translation": "必須。 保護グループの環境タイプを指定します。 許容値はkPhysical、kSQLです。"
+    "translation": "必須。 保護グループの環境タイプを指定します。 許容値: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protection-group-update-id-flag-description",
@@ -2118,6 +2974,58 @@
   {
     "id": "backup-recovery-protection-group-update-is-paused-flag-description",
     "translation": "保護グループを一時停止するかどうかを指定します。 一時停止中の保護グループに対しては、新規の実行はスケジュールされません。 アクティブな実行があれば、影響はありません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-enable-indexing-flag-description",
+    "translation": "名前空間のバックアップ中に、ファイルおよびフォルダーのインデックス作成を許可するかどうかを指定します。 許可されている場合、ファイルおよびフォルダーを復元できます。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-label-ids-flag-description",
+    "translation": "除外するラベルを指定するためのラベルIDの配列の配列。 必要に応じて、この2次元配列に保護対象外とするラベルの保護ソースIDを列挙することで、保護から除外するラベルのリストを指定できます。 このラベルIDの2次元配列を使用して、クラスターは保護対象から除外する名前空間のリストを生成します。このリストは、内側の配列の交差部分と外側の配列の和集合から導き出されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-object-ids-flag-description",
+    "translation": "保護グループから除外するオブジェクトを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-exclude-params-flag-description",
+    "translation": "オブジェクト (例: ボリューム) を含めるか除外するかのパラメーターを指定します。 これらの条件のいずれかを満たすオブジェクトは、このフィルターによって選別されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-flag-description",
+    "translation": "Kubernetesの保護グループに関連するパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-include-params-flag-description",
+    "translation": "オブジェクト (例: ボリューム) を含めるか除外するかのパラメーターを指定します。 これらの条件のいずれかを満たすオブジェクトは、このフィルターによって選別されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-label-ids-flag-description",
+    "translation": "保護するラベルを指定するラベルIDの配列の配列。 必要に応じて、この2次元配列に保護対象のラベルの保護ソースIDを列挙することで、保護するラベルのリストを指定できます。 このラベルIDの2次元配列を使用して、クラスターは保護対象となる名前空間のリストを生成します。このリストは、内側の配列の交差部分と外側の配列の和集合から導き出されます。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-leverage-csi-snapshot-flag-description",
+    "translation": "名前空間のバックアップにCSIスナップショットを使用するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-non-snapshot-backup-flag-description",
+    "translation": "スナップショット・バックアップが失敗した場合に、スナップショット以外のバックアップが実行されるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-objects-flag-description",
+    "translation": "保護グループに含まれるオブジェクトを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-snapshot-timeout-seconds-flag-description",
+    "translation": "ボリューム・スナップショットが準備完了状態になるまで待機するために、ユーザーが指定したタイムアウト時間を秒単位で指定します。 CSIスナップショットが有効化されていない場合、この機能はサポートされません。 デフォルト: IBM BaaSは900秒、その他は300秒。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-vlan-params-flag-description",
+    "translation": "バックアップ/リストア操作に関連するVLANパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-kubernetes-params-volume-backup-failure-flag-description",
+    "translation": "ボリュームのバックアップが失敗した場合に、バックアップ処理を続行するかどうかを指定します。"
   },
   {
     "id": "backup-recovery-protection-group-update-last-modified-timestamp-usecs-flag-description",
@@ -2150,6 +3058,10 @@
   {
     "id": "backup-recovery-protection-group-update-pause-in-blackouts-flag-description",
     "translation": "ポリシーで指定されたブラックアウト期間が開始した場合に、現在実行中のジョブを一時停止するかどうかを指定します。 選択したポリシーに少なくとも1つのブラックアウト期間がある場合にのみ使用可能です。 デフォルト値はfalseです。 「abortInBlackouts」がtrueとして送信される場合、このフィールドをtrueに設定することはできません。"
+  },
+  {
+    "id": "backup-recovery-protection-group-update-paused-note-flag-description",
+    "translation": "今後の実行を一時停止する理由について、現在のユーザーが記載するメモ (該当する場合)。"
   },
   {
     "id": "backup-recovery-protection-group-update-physical-params-file-protection-type-params-flag-description",
@@ -2201,7 +3113,7 @@
   },
   {
     "id": "backup-recovery-protection-group-update-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-policy-create-backup-policy-bmr-flag-description",
@@ -2317,7 +3229,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-create-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-policy-delete-command-long-description",
@@ -2333,7 +3245,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-delete-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-policy-get-command-long-description",
@@ -2353,7 +3265,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-get-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-policy-group-long-description",
@@ -2400,8 +3312,12 @@
     "translation": "返されるポリシーのポリシー・タイプを指定します。 許可されるリスト項目はRegular、Internalです。"
   },
   {
+    "id": "backup-recovery-protection-policy-list-vault-ids-flag-description",
+    "translation": "ボールトIDのリストでフィルタリングします。 指定されたボールトのいずれかにアーカイブされたポリシーが返されます。"
+  },
+  {
     "id": "backup-recovery-protection-policy-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-policy-update-backup-policy-bmr-flag-description",
@@ -2521,7 +3437,7 @@
   },
   {
     "id": "backup-recovery-protection-policy-update-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-group-long-description",
@@ -2545,7 +3461,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-command-long-description",
-    "translation": "パラメーターを指定しない場合は、Cohesityクラスターに登録されているすべての保護ソースが返されます。 さらに、各ソースから収集されたオブジェクト・サブツリーが返されます。 例えば、CohesityクラスターはソースVMware vCenter Serverを照会し、vCenter Server上のインベントリー・ツリーをミラーリングする階層オブジェクト・サブツリーを作成します。 オブジェクト・ツリーのコンテンツは、「protectionSource」の「nodes」階層として返されます。 パラメーターを指定すると、返される結果が変わることがあります。"
+    "translation": "パラメーターが指定されていない場合、IBMクラスターに登録されているすべての保護ソースが返されます。 さらに、各ソースから収集されたオブジェクト・サブツリーが返されます。 例えば、IBMクラスターはソースのVMware vCenterサーバーを照会し、vCenterサーバー上のインベントリー・ツリーを反映した階層的なオブジェクト・サブツリーを作成します。 オブジェクト・ツリーのコンテンツは、「protectionSource」の「nodes」階層として返されます。 パラメータを指定すると、返される結果が変わることがあります。"
   },
   {
     "id": "backup-recovery-protection-source-list-command-short-description",
@@ -2665,7 +3581,7 @@
   },
   {
     "id": "backup-recovery-protection-source-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-refresh-command-long-description",
@@ -2681,7 +3597,7 @@
   },
   {
     "id": "backup-recovery-protection-source-refresh-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-register-advanced-configs-flag-description",
@@ -2717,11 +3633,87 @@
   },
   {
     "id": "backup-recovery-protection-source-register-environment-flag-description",
-    "translation": "必須。 保護ソ ースの環境タイプを指定します。 許容値はkPhysical、kSQLです。"
+    "translation": "必須。 保護ソ ースの環境タイプを指定 し ます。 許容値: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protection-source-register-is-internal-encrypted-flag-description",
     "translation": "資格情報を内部鍵によって暗号化するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-auto-protect-config-flag-description",
+    "translation": "登録後にソースを自動的に保護するためのパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-client-private-key-flag-description",
+    "translation": "Kubernetesソースのベアラー・トークンまたは秘密鍵を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-data-mover-image-location-flag-description",
+    "translation": "Kubernetesソースのデータ・ムーバー・イメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-datamover-service-type-flag-description",
+    "translation": "Kubernetesソースのデータ・ムーバー・サービス・タイプを指定します。 許容値: kNodePort、kLoadBalancer、kClusterIp、kHostPort。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-default-vlan-params-flag-description",
+    "translation": "バックアップ/リストア操作に関連するVLANパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-endpoint-flag-description",
+    "translation": "Kubernetesソースのエンドポイントを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-flag-description",
+    "translation": "Kubernetesソースを登録するためのパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-init-container-image-location-flag-description",
+    "translation": "Kubernetesソースの初期コンテナ・イメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-kubernetes-distribution-flag-description",
+    "translation": "Kubernetesソースの配布タイプを指定します。 許容値: kOpenshift、kMainline、kVMwareTanzu、kRancher、kEKS、kGKE、kAKS、kIKS、kROKS。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-kubernetes-type-flag-description",
+    "translation": "Kubernetesソースの種類を指定します。 許容値: kCluster、kNamespace、kService、kPVC、kPersistentVolumeClaim、kPersistentVolume、kLabel。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-priority-class-name-flag-description",
+    "translation": "IBMリソースの優先度クラス名を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-resource-annotations-flag-description",
+    "translation": "IBMリソースに適用するリソース注釈を指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-resource-labels-flag-description",
+    "translation": "IBMリソースに適用するリソース・ラベルを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-san-fields-flag-description",
+    "translation": "エージェント証明書のSANフィールドを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-service-annotations-flag-description",
+    "translation": "Kubernetesソースのサービス注釈オブジェクトを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-aws-plugin-image-location-flag-description",
+    "translation": "Kubernetesソースのvelero AWSプラグイン・イメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-image-location-flag-description",
+    "translation": "Kubernetesソースのveleroイメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-velero-openshift-plugin-image-location-flag-description",
+    "translation": "Kubernetesソースに対応するVelero OpenShiftプラグイン・イメージを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-register-kubernetes-params-vlan-info-vec-flag-description",
+    "translation": "登録時に提供されたVLAN情報を指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
   },
   {
     "id": "backup-recovery-protection-source-register-name-flag-description",
@@ -2753,7 +3745,7 @@
   },
   {
     "id": "backup-recovery-protection-source-register-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-command-long-description",
@@ -2769,7 +3761,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-delete-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-registration-get-command-long-description",
@@ -2789,7 +3781,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-get-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-command-long-description",
@@ -2801,7 +3793,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-environment-flag-description",
-    "translation": "必須。 パッチを適用する保護ソースの環境タイプを指定します。 現在サポートされている環境はkCassandraのみです。 許容値はkPhysical、kSQLです。"
+    "translation": "必須。 パッチを適用する保護ソースの環境タイプを指定します。 現在サポートされている環境は kCassandra のみです。 許容値: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-id-flag-description",
@@ -2809,7 +3801,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-patch-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-advanced-configs-flag-description",
@@ -2845,7 +3837,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-environment-flag-description",
-    "translation": "必須。 保護ソ ースの環境タイプを指定します。 許容値はkPhysical、kSQLです。"
+    "translation": "必須。 保護ソ ースの環境タイプを指定 し ます。 許容値: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-id-flag-description",
@@ -2854,6 +3846,78 @@
   {
     "id": "backup-recovery-protection-source-registration-update-is-internal-encrypted-flag-description",
     "translation": "資格情報を内部鍵によって暗号化するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-auto-protect-config-flag-description",
+    "translation": "登録後にソースを自動的に保護するためのパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-client-private-key-flag-description",
+    "translation": "Kubernetesソースのベアラー・トークンまたは秘密鍵を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-data-mover-image-location-flag-description",
+    "translation": "Kubernetesソースのデータ・ムーバー・イメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-datamover-service-type-flag-description",
+    "translation": "Kubernetesソースのデータ・ムーバー・サービス・タイプを指定します。 許容値: kNodePort、kLoadBalancer、kClusterIp、kHostPort。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-default-vlan-params-flag-description",
+    "translation": "バックアップ/リストア操作に関連するVLANパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-endpoint-flag-description",
+    "translation": "Kubernetesソースのエンドポイントを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-init-container-image-location-flag-description",
+    "translation": "Kubernetesソースの初期コンテナ・イメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-distribution-flag-description",
+    "translation": "Kubernetesソースの配布タイプを指定します。 許容値: kOpenshift、kMainline、kVMwareTanzu、kRancher、kEKS、kGKE、kAKS、kIKS、kROKS。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-kubernetes-type-flag-description",
+    "translation": "Kubernetesソースの種類を指定します。 許容値: kCluster、kNamespace、kService、kPVC、kPersistentVolumeClaim、kPersistentVolume、kLabel。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-priority-class-name-flag-description",
+    "translation": "IBMリソースの優先度クラス名を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-resource-annotations-flag-description",
+    "translation": "IBMリソースに適用するリソース注釈を指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-resource-labels-flag-description",
+    "translation": "IBMリソースに適用するリソース・ラベルを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-san-fields-flag-description",
+    "translation": "エージェント証明書のSANフィールドを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-service-annotations-flag-description",
+    "translation": "Kubernetesソースのサービス注釈オブジェクトを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-aws-plugin-image-location-flag-description",
+    "translation": "Kubernetesソースのvelero AWSプラグイン・イメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-image-location-flag-description",
+    "translation": "Kubernetesソースのveleroイメージの場所を指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-velero-openshift-plugin-image-location-flag-description",
+    "translation": "Kubernetesソースに対応するVelero OpenShiftプラグイン・イメージを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-source-registration-update-kubernetes-params-vlan-info-vec-flag-description",
+    "translation": "登録時に提供されたVLAN情報を指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
   },
   {
     "id": "backup-recovery-protection-source-registration-update-last-modified-timestamp-usecs-flag-description",
@@ -2889,7 +3953,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registration-update-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-command-long-description",
@@ -2901,7 +3965,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-encryption-key-flag-description",
-    "translation": "ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-ids-flag-description",
@@ -2925,7 +3989,7 @@
   },
   {
     "id": "backup-recovery-protection-source-registrations-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-protection-sources-group-long-description",
@@ -2949,7 +4013,7 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-command-long-description",
-    "translation": "パラメーターを指定しない場合は、Cohesityクラスターに登録されているすべての保護ソースが返されます。 さらに、各ソースから収集されたオブジェクト・サブツリーが返されます。 例えば、CohesityクラスターはソースVMware vCenter Serverを照会し、vCenter Server上のインベントリー・ツリーをミラーリングする階層オブジェクト・サブツリーを作成します。 オブジェクト・ツリーのコンテンツは、「protectionSource」の「nodes」階層として返されます。 パラメーターを指定すると、返される結果が変わることがあります。"
+    "translation": "パラメーターが指定されていない場合、IBMクラスターに登録されているすべての保護ソースが返されます。 さらに、各ソースから収集されたオブジェクト・サブツリーが返されます。 例えば、IBMクラスターはソースのVMware vCenterサーバーを照会し、vCenterサーバー上のインベントリー・ツリーを反映した階層的なオブジェクト・サブツリーを作成します。 オブジェクト・ツリーのコンテンツは、「protectionSource」の「nodes」階層として返されます。 パラメータを指定すると、返される結果が変わることがあります。"
   },
   {
     "id": "backup-recovery-protection-sources-list-command-short-description",
@@ -3069,7 +4133,107 @@
   },
   {
     "id": "backup-recovery-protection-sources-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchy は、ログインしているユーザーの組織の階層下にあるすべてのテナントのオブジェクトを返すかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-command-long-description",
+    "translation": "**特権:** ```PROTECTION_VIEW```<br><br>登録済みの保護ソースの登録情報および保護情報を返します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-command-short-description",
+    "translation": "登録済みの保護ソースの登録情報および保護情報を返します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-encryption-key-flag-description",
+    "translation": "ソース・クレデンシャルの暗号化に使用するキー。 include_source_credentials が true に設定されている場合、このキーを指定しなければなりません。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-environments-flag-description",
+    "translation": "「kVMware」、「kSQL」、「kView」「kPhysical」、「kPuppeteer」、「kPure」、「kNetapp」、「kGenericNas」、「kHyperV」、「kAcropolis」、また「kAzure」など、渡された環境タイプに一致する保護ソースのみを返します。 例えば、このパラメータを「kVMware」に設定すると、「kVMware」(VMware vCenterサーバー) 環境で見つかったソース (およびそのオブジェクトのサブツリー) のみが返されます。 注:「kPuppeteer」は、IBMのリモート・アダプターを指します。 許容リスト項目: kVMware、kSQL、kView、kPuppeteer、kPhysical、kPure、kNetapp、kGenericNas、kHyperV、kAcropolis、kAzure、kPhysicalFiles、kIsilon、kGPFS、kKVM、kAWS、kExchange、kHyperVVSS、kOracle、kGCP、kFlashBlade、kAWSNative、kVCD、kO365、kO365Outlook、kHyperFlex、kGCPNative、kKubernetes、kCassandra、kMongoDB、kCouchbase、kHdfs、kHive、kHBase、kUDA、kAwsS3。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-ids-flag-description",
+    "translation": "リストに記載されたIDを持つ登録済みのルート・ノードのみを返します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-applications-tree-info-flag-description",
+    "translation": "アプリケーション・ツリー情報を返すかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-entity-permission-info-flag-description",
+    "translation": "指定した場合、権限が割り当てられているエンティティーのリストが返されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-external-metadata-flag-description",
+    "translation": "エンティティー階層を取得する呼び出しの応答に、エンティティーの外部メタデータを含めるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-include-source-credentials-flag-description",
+    "translation": "指定された場合、登録されたソースのクレドネットが含まれます。 クレデンシャルは、まず内部鍵で暗号化され、次にユーザが提供する「encryption_key」で再暗 号化されます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-maintenance-status-flag-description",
+    "translation": "ソースのメンテナンス状態を指定します。「UnderMaintenance」は、そのソースが現在メンテナンス中であることを示します。 「ScheduledMaintenance」は、当該ソースでメンテナンスが予定されていることを示します。 「NotConfigured」は、ソース側でメンテナンスが設定されていないことを示します。 許容値: UnderMaintenance、ScheduledMaintenance、NotConfigured。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-prune-non-critical-info-flag-description",
+    "translation": "エンティティ内の重要でない情報を除去するかどうかを指定します。 VM の場合、仮想ディスク情報は削除されます。 Office365 の場合、ユーザー・エンティティのメタデータは削除されます。 これは、呼び出し元による応答のサイズを制限するために使用できます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-request-initiator-type-flag-description",
+    "translation": "要求のタイプを指定します。 可能な値は UIUser と UIAuto で、これは要求がユーザーによってトリガーされるか、自動リフレッシュ要求であることを意味します。 magneto のようなサービスは、要求の優先順位を決定するためにこれを使用し、優先順位の高い要求を優先することで、過負荷の状況をよりスマートに処理できるようにします。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-sids-flag-description",
+    "translation": "リストに指定されたSIDに基づいて、登録済みのルート・ノードをフィルタリングします。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-tenant-ids-flag-description",
+    "translation": "TenantIdsには、オブジェクトを返すテナントのIDが含まれます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-use-cached-data-flag-description",
+    "translation": "GET 要求をリード・レプリカ・キャッシュに送るかどうかを指定します。 これを true に設定すると、API 要求がリード・レプリカに提供されるようになります。 これを false に設定すると、要求はマスターに送られます。"
+  },
+  {
+    "id": "backup-recovery-protection-sources-registration-info-x-ibm-tenant-id-flag-description",
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-long-description",
+    "translation": "すべてのプロバイダー・インスタンスを詳細とともに一覧表示します。 APIはプロバイダー・インスタンスの詳細なリストを返します。 プロバイダーはインスタンスのライフサイクル管理を担当しており、このAPIはインスタンスに関するメタデータ情報を提供することのみを目的としています。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-command-short-description",
+    "translation": "プロバイダー・インスタンスの一覧を表示します。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-include-service-instance-status-flag-description",
+    "translation": "サービス・インスタンスのステータスに加えて、クラスターの詳細やソフトウェア・バージョンなどのその他の詳細情報を含めるかどうかを確認するためのブール・フラグ。 デフォルト値は\tfalse です。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-instance-ids-flag-description",
+    "translation": "フィルタリングに使用するプロバイダー・インスタンスIDのリスト。"
+  },
+  {
+    "id": "backup-recovery-provider-instances-regions-flag-description",
+    "translation": "プロバイダー・インスタンスをフィルタリングするための地域リスト。"
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-command-long-description",
+    "translation": "指定されたIDのリカバリーをキャンセルします。"
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-command-short-description",
+    "translation": "指定されたIDのリカバリーをキャンセルします。"
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-id-flag-description",
+    "translation": "必須。 復旧の ID を指定します。 "
   },
   {
     "id": "backup-recovery-recovery-create-command-long-description",
@@ -3080,28 +4244,36 @@
     "translation": "リカバリーを実行します。"
   },
   {
+    "id": "backup-recovery-recovery-create-kubernetes-params-download-file-and-folder-params-flag-description",
+    "translation": "ファイルやフォルダをダウンロードするためのパラメータを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-flag-description",
+    "translation": "Kubernetes環境固有のリカバリー・オプションを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-objects-flag-description",
+    "translation": "リカバリーが必要なオブジェクトのリストを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recover-file-and-folder-params-flag-description",
+    "translation": "ファイルとフォルダの復旧を実行するためのパラメータを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recover-namespace-params-flag-description",
+    "translation": "Kubernetes名前空間をリカバリーするためのパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
+  },
+  {
+    "id": "backup-recovery-recovery-create-kubernetes-params-recovery-action-flag-description",
+    "translation": "実行する復旧アクションのタイプを指定します。 許容値: RecoverNamespaces、RecoverFiles、DownloadFilesAndFolders。"
+  },
+  {
     "id": "backup-recovery-recovery-create-mssql-params-flag-description",
     "translation": "Sql環境に固有のリカバリー・オプションを指定します。 JSONファイルへのパスを指定することもできます。"
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-recover-app-params-flag-description",
     "translation": "Sqlデータベースをリカバリーするためのパラメーターを指定します。 JSONファイルへのパスを指定することもできます。 最小長は1項目です。"
-  },
-  {
-    "id": "backup-recovery-management-console-group-short-description",
-    "translation": "バックアップ・リカバリー管理リソースのコマンド。"
-  },
-  {
-    "id": "backup-recovery-provider-instances-command-short-description",
-    "translation": "プロバイダー・インスタンスの一覧を表示します。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-logs-command-short-description",
-    "translation": "データ・ソース・コネクターのログ。"
-  },
-  {
-    "id": "backup-recovery-data-source-connector-status-command-short-description",
-    "translation": "データ・ソース・コネクターのステータス。"
   },
   {
     "id": "backup-recovery-recovery-create-mssql-params-recovery-action-flag-description",
@@ -3153,11 +4325,11 @@
   },
   {
     "id": "backup-recovery-recovery-create-snapshot-environment-flag-description",
-    "translation": "必須。 リカバリーを実行する必要があるスナップショットの環境の種類を指定します。 許容値はkPhysical、kSQLです。"
+    "translation": "必須。 復旧を実行するスナップショットの環境の種類を指定します。 許容値: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-recovery-create-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-recovery-files-download-command-long-description",
@@ -3197,7 +4369,7 @@
   },
   {
     "id": "backup-recovery-recovery-files-download-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-recovery-get-command-long-description",
@@ -3213,7 +4385,7 @@
   },
   {
     "id": "backup-recovery-recovery-get-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-recovery-group-long-description",
@@ -3253,7 +4425,7 @@
   },
   {
     "id": "backup-recovery-recovery-list-snapshot-environments-flag-description",
-    "translation": "リカバリーをフィルタリングするためのスナップショット環境タイプのリストを指定します。 空の場合、すべての環境に関連するリカバリーが返されます。 許容リスト項目はkPhysical、kSQLです。"
+    "translation": "復旧をフィルタリングするスナップショット環境タイプのリストを指定します。 空の場合、すべての環境に関連する復旧が返されます。 許容リスト項目: kPhysical、kSQL、kKubernetes。"
   },
   {
     "id": "backup-recovery-recovery-list-snapshot-target-type-flag-description",
@@ -3269,7 +4441,27 @@
   },
   {
     "id": "backup-recovery-recovery-list-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-command-long-description",
+    "translation": "指定された登録トークンを使用して、バックアップ・インスタンスにコネクター・エージェントを登録します。 登録するコネクター・エージェントの登録トークンは、バックアップ・インスタンス上で関連する「/connector-agents」APIを呼び出すことにより、ユーザーが取得する必要があります。 重複登録が試みられた場合、このAPIは、すでに登録済みであることを示すヘッダーとともに成功を返します。"
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-command-short-description",
+    "translation": "コネクター・エージェントを登録します。"
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-connection-name-flag-description",
+    "translation": "必須。 コネクター・エージェントに関連付ける名前を指定します。 この名前は、このコネクター・エージェントが登録されているテナント内で固有である必要があります。"
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-join-existing-connection-flag-description",
+    "translation": "このエージェントが、以前の登録によってすでに要求されている接続に参加するかどうかを指定します (例: クラスター化されたソースの場合、同じクラスター内の別のエージェント)。 trueの場合、サーバーは要求を重複として拒否するのではなく、既存の接続にこのエージェントを追加します。 接続がまだ存在しない場合、このフラグの設定に関係なく、新しい接続が作成されます。 デフォルト値は\tfalse です。"
+  },
+  {
+    "id": "backup-recovery-register-connector-agent-registration-token-flag-description",
+    "translation": "必須。 JWT登録トークン。 1つのトークンを使用して、そのテナント内で複数のコネクター・エージェントを登録できます。 デフォルトでは、トークンの有効期間は24時間です。"
   },
   {
     "id": "backup-recovery-restore-points-command-long-description",
@@ -3301,11 +4493,511 @@
   },
   {
     "id": "backup-recovery-restore-points-xibm-tenant-id-flag-description",
-    "translation": "必須。 ソース資格情報の暗号化に使用する鍵を指定します。 includeSourceCredentialsがtrueに設定されている場合、この鍵を指定する必要があります。"
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "backup-recovery-short-description",
     "translation": "IBM バックアップ復旧 API を管理します。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-command-long-description",
+    "translation": "**特権:** ORGANIZATION_MODIFY。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-command-short-description",
+    "translation": "新しいテナントを作成します。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-description-flag-description",
+    "translation": "テナントに関する説明。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-is-managed-on-helios-flag-description",
+    "translation": "テナントがHeliosで管理されているかどうかを示すフラグ。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-name-flag-description",
+    "translation": "必須。 テナントの名前。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-cluster-hostname-flag-description",
+    "translation": "テナントから見える、かつテナントのネットワークからルーティング可能なIBMクラスターのホスト名。 テナントのVLANホスト名が利用可能であれば、それを代わりに使用することもできますが、使用可能なVLANホスト名がない場合は、この値を指定することが必須です。 また、このフィールドに値が設定されている場合、VLANホスト名よりも優先されます。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-cluster-ips-flag-description",
+    "translation": "IBMクラスターに関して、テナントのネットワークから見たIPアドレスのセット。 「clusterHostname」と「clusterIps」のうち、どちらか一方のみが必要です。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-connector-enabled-flag-description",
+    "translation": "コネクター (ハイブリッド・エクステンダー) が有効になっているかどうか。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-network-flag-description",
+    "translation": "クラスター上のテナントに関するネットワーク情報。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-tenant-create-tenant-id-suffix-flag-description",
+    "translation": "必須。 このサフィックスは、親のテナントIDを付加して実際のテナントIDを生成するために、Cohesityによって使用されます。 最大長は 10 文字です。"
+  },
+  {
+    "id": "backup-recovery-tenant-delete-command-long-description",
+    "translation": "**不明な特権**。"
+  },
+  {
+    "id": "backup-recovery-tenant-delete-command-short-description",
+    "translation": "指定されたIDを持つテナントを削除します。"
+  },
+  {
+    "id": "backup-recovery-tenant-delete-id-flag-description",
+    "translation": "必須。 テナントID。 "
+  },
+  {
+    "id": "backup-recovery-tenant-update-command-long-description",
+    "translation": "**不明な特権**\n\nテナントのプロパティーを更新します。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-command-short-description",
+    "translation": "テナントを更新します。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-description-flag-description",
+    "translation": "テナントに関する説明。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-id-flag-description",
+    "translation": "必須。 null 最小長は2文字です。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-name-flag-description",
+    "translation": "テナントの名前。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-cluster-hostname-flag-description",
+    "translation": "テナントから見える、かつテナントのネットワークからルーティング可能なIBMクラスターのホスト名。 テナントのVLANホスト名が利用可能であれば、それを代わりに使用することもできますが、使用可能なVLANホスト名がない場合は、この値を指定することが必須です。 また、このフィールドに値が設定されている場合、VLANホスト名よりも優先されます。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-cluster-ips-flag-description",
+    "translation": "IBMクラスターに関して、テナントのネットワークから見たIPアドレスのセット。 「clusterHostname」と「clusterIps」のうち、どちらか一方のみが必要です。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-connector-enabled-flag-description",
+    "translation": "コネクター (ハイブリッド・エクステンダー) が有効になっているかどうか。"
+  },
+  {
+    "id": "backup-recovery-tenant-update-network-flag-description",
+    "translation": "クラスター上のテナントに関するネットワーク情報。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-tenants-command-long-description",
+    "translation": "**特権:** ORGANIZATION_VIEW。"
+  },
+  {
+    "id": "backup-recovery-tenants-command-short-description",
+    "translation": "テナントのリストを取得します。"
+  },
+  {
+    "id": "backup-recovery-tenants-ids-flag-description",
+    "translation": "フィルタリング対象のtenantIDのリスト。"
+  },
+  {
+    "id": "backup-recovery-tenants-liveness-modes-flag-description",
+    "translation": "テナントの稼働状態モードでフィルタリングします。 このフィルターは、「IBM」などの外部ベンダーに対してテナント・メタデータが追加されている場合にのみ適用されます。 それ以外のすべての場合、このフィルターに指定された値は無視されます。 許容リスト項目: Active、Standby、Suspend。"
+  },
+  {
+    "id": "backup-recovery-tenants-ownership-modes-flag-description",
+    "translation": "テナントの所有モードでフィルタリングします。 このフィルターは、「IBM」などの外部ベンダーに対してテナント・メタデータが追加されている場合にのみ適用されます。 それ以外のすべての場合、このフィルターに指定された値は無視されます。 許容リスト項目: Primary、Secondary。"
+  },
+  {
+    "id": "backup-recovery-tenants-statuses-flag-description",
+    "translation": "テナントの現在のステータスでフィルタリングします。 空白のままにすると、アクティブなテナントと非アクティブなテナントのみが返されます。 許容リスト項目: Active、Inactive、MarkedForDeletion、Deleted。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-flag-description",
+    "translation": "アクティブ・ディレクトリーを使用してログインしたADユーザーの情報を指定します。 この情報はクラスター上に格納されていません。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-group-sids-flag-description",
+    "translation": "グループのSIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-groups-flag-description",
+    "translation": "このユーザーが所属するグループを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-ad-user-info-is-floating-user-flag-description",
+    "translation": "フローティング・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-additional-group-names-flag-description",
+    "translation": "このユーザーが所属する可能性がある追加のグループの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-allow-dso-modify-flag-description",
+    "translation": "管理ユーザーがデータ・セキュリティー・ユーザーを変更できるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-flag-description",
+    "translation": "AuditLogSettingsは、監査ログ構成を持つ構造体を指定します。 これらの設定を、bbが存在しない場合にゼロ値がクラスターのデフォルトとなるように設定してください。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-audit-log-settings-read-logging-flag-description",
+    "translation": "ReadLoggingは、読み取りログを取り込む必要があるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-authentication-type-flag-description",
+    "translation": "ユーザーの認証タイプを指定します。 「kAuthLocal」は、認証されたユーザーがローカル・ユーザーであることを意味します。 「kAuthAd」は、認証されたユーザーがActive Directoryユーザーであることを意味します。 「kAuthSalesforce」は、認証されたユーザーがSalesforceユーザーであることを意味します。 「kAuthGoogle」は、認証されたユーザーがGoogleユーザーであることを意味します。 「kAuthSso」は、認証されたユーザーがSSOユーザーであることを意味します。 許容値はkAuthLocal、kAuthAd、kAuthSalesforce、kAuthGoogle、kAuthSsoです。"
+  },
+  {
+    "id": "backup-recovery-user-update-cluster-identifiers-flag-description",
+    "translation": "このユーザーにアクセス権限があるクラスターのリストを指定します。 これが指定されていない場合は、すべてのクラスターへのアクセス権限が付与されます。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-long-description",
+    "translation": "IBMクラスターで更新されたユーザーを返します。"
+  },
+  {
+    "id": "backup-recovery-user-update-command-short-description",
+    "translation": "ユーザーを更新します。"
+  },
+  {
+    "id": "backup-recovery-user-update-created-time-msecs-flag-description",
+    "translation": "IBMクラスター上でユーザー・アカウントが作成されたエポック時刻 (ミリ秒単位) を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-current-password-flag-description",
+    "translation": "パスワードの更新時に現在のパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-description-flag-description",
+    "translation": "ユーザーについての説明を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-domain-flag-description",
+    "translation": "Active Directoryの完全修飾ドメイン・ネーム (FQDN)、またはIBMクラスター上のデフォルトのローカル・ドメインの場合はLOCALを指定します。 ユーザーは、ユーザー名とドメインの組み合わせによって一意に識別されます。"
+  },
+  {
+    "id": "backup-recovery-user-update-effective-time-msecs-flag-description",
+    "translation": "ユーザーが有効になる時を、ミリ秒単位のエポック時間で指定します。 その時間までは、ユーザーはログインすることができません。"
+  },
+  {
+    "id": "backup-recovery-user-update-email-address-flag-description",
+    "translation": "ユーザーのEメール・アドレスを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-expired-time-msecs-flag-description",
+    "translation": "ユーザーが有効期限切れになる時を、ミリ秒単位のエポック時間で指定します。 その後、ユーザーはログインできなくなります。"
+  },
+  {
+    "id": "backup-recovery-user-update-force-password-change-flag-description",
+    "translation": "ユーザーにパスワード変更を強制するかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-account-id-flag-description",
+    "translation": "Googleによって割り当てられたアカウントIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-flag-description",
+    "translation": "Google 管理コンソール BRS ユーザーのアカウント情報 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-google-account-user-id-flag-description",
+    "translation": "Googleによって割り当てられたユーザーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-flag-description",
+    "translation": "IdPを使用してログインしたIdPユーザーの情報を指定します。 この情報はクラスター上に格納されていません。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-group-sids-flag-description",
+    "translation": "グループのSIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-groups-flag-description",
+    "translation": "ユーザーが所属するIdpグループを指定します。 ユーザーがクラスター上に登録されていない可能性があるため、idpグループのメンバーシップを取り込む必要がある場合があります。 こうすることで、後でクラスター上にグループが作成されても、ユーザーはそのグループのtenantIdsにも即座にアクセスできるようになります。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-idp-id-flag-description",
+    "translation": "IdPに対してクラスターによって割り当てられた固有IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-is-floating-user-flag-description",
+    "translation": "これがフローティング・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-issuer-id-flag-description",
+    "translation": "このクラスターに対してベンダーによって割り当てられた固有IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-user-id-flag-description",
+    "translation": "ユーザーに対してベンダーによって割り当てられた固有IDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-idp-user-info-vendor-flag-description",
+    "translation": "IdPサービスを提供するベンダーを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-intercom-messenger-token-flag-description",
+    "translation": "インターコムID検証のためのメッセンジャー・トークンを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-account-locked-flag-description",
+    "translation": "ユーザー・アカウントがロックされるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-is-active-flag-description",
+    "translation": "IsActiveは、ユーザーがアクティブであるか否か、または顧客によって非アクティブにされているかを指定します。 デフォルトの動作は「true」です。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-successful-login-time-msecs-flag-description",
+    "translation": "ユーザーが最後に正常にログインした時を、ミリ秒単位のエポック時間で指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-last-updated-time-msecs-flag-description",
+    "translation": "IBMクラスター上でユーザー・アカウントが最後に変更されたエポック時刻 (ミリ秒単位) を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-flag-description",
+    "translation": "MFAに関する情報を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-info-is-user-exempt-from-mfa-flag-description",
+    "translation": "ユーザーでMFAが無効になっているかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-mfa-methods-flag-description",
+    "translation": "クラスター上で有効化されたMFAメソッドを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-object-class-flag-description",
+    "translation": "ユーザー(ユーザーまたはグループのいずれかになります)のオブジェクト・クラスを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-org-membership-flag-description",
+    "translation": "OrgMembershipには、このユーザーが切り替え可能なすべてのtenantIdsのリストが含まれています。 セッション・ユーザーを作成する場合にのみ、このフィールドは即座に入力されます。 ユーザーに割り当てられた様々なグループからtenantIdsを検出します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-password-flag-description",
+    "translation": "このユーザーのパスワードを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-flag-description",
+    "translation": "このユーザーの設定を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-preferences-locale-flag-description",
+    "translation": "ロケールはユーザーの言語設定を反映します。 必要に応じて、Scribeに格納されているユーザー・プリファレンスを使用して取り込みます。"
+  },
+  {
+    "id": "backup-recovery-user-update-previous-login-time-msecs-flag-description",
+    "translation": "前回のユーザー・ログインの、ミリ秒単位のエポック時間を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-primary-group-name-flag-description",
+    "translation": "このユーザーの1次グループの名前を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-privilege-ids-flag-description",
+    "translation": "ロールからIBMの特権を指定します。 これは、ロール内のすべての特権の結合に基づいて入力されます。 固有の特権ID値のタイプ。 以下の列挙型の値はすべて、IBMで一意的に定義されたすべての特権に対応する値を指定します。 許容されるリスト項目は以下のとおり: kPrincipalView, kPrincipalModify, kAppLaunch, kAppsManagement, kOrganizationView, kOrganizationModify, kOrganizationImpersonate, kCloneView, kCloneModify, kClusterView, kClusterModify, kClusterCreate, kClusterSupport, kClusterUpgrade, kClusterRemoteView, kClusterRemoteModify, kClusterExternalTargetView, kClusterExternalTargetModify, kClusterAudit, kAlertView, kAlertModify, kVlanView, kVlanModify, kHybridExtenderView, kHybridExtenderDownload, kAdLdapView, kAdLdapModify, kSchedulerView, kSchedulerModify, kProtectionView, kProtectionModify, kProtectionJobOperate, kProtectionSourceModify, kProtectionPolicyView, kProtectionPolicyModify, kRestoreView, kRestoreModify, kRestoreDownload, kRemoteRestore, kStorageView, kStorageModify, kStorageDomainView, kStorageDomainModify, kAnalyticsView, kAnalyticsModify, kReportsView, kMcmModify, kDataSecurity, kSmbBackup, kSmbRestore, kSmbTakeOwnership, kSmbAuditing, kMcmUnregister, kMcmUpgrade, kMcmModifySuperAdmin, kMcmViewSuperAdmin, kMcmModifyCohesityAdmin, kMcmViewCohesityAdmin, kObjectSearch, kFileDatalockExpiryTimeDecrease。"
+  },
+  {
+    "id": "backup-recovery-user-update-profiles-flag-description",
+    "translation": "ユーザー・プロファイルを指定します。 注：現在、管理コンソールで使用されています。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-restricted-flag-description",
+    "translation": "ユーザーが制限付きユーザーかどうか。 制限付きユーザーは、自分に権限があるオブジェクトのみを表示できます。"
+  },
+  {
+    "id": "backup-recovery-user-update-roles-flag-description",
+    "translation": "ユーザーに関連付けるIBMのロール (「Admin」、「Ops」、「View」など) を指定します。 IBMのロールは、このユーザーに対するIBMクラスター上の特権を決定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-access-key-id-flag-description",
+    "translation": "S3アカウント・アクセス・キーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-account-id-flag-description",
+    "translation": "S3アカウントの正規ユーザーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-s3-secret-key-flag-description",
+    "translation": "S3アカウントの秘密鍵を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-account-id-flag-description",
+    "translation": "Salesforceによって割り当てられたアカウントIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-flag-description",
+    "translation": "Salesforce管理コンソール・ユーザーのアカウント情報。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-helios-access-grant-status-flag-description",
+    "translation": "管理コンソールへのアクセス状況を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-gaa-s-user-flag-description",
+    "translation": "ユーザーがDGaaSのライセンス・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-maa-s-user-flag-description",
+    "translation": "ユーザーがDMaaSのライセンス・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-d-raa-s-user-flag-description",
+    "translation": "ユーザーがDRaaSのライセンス・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-r-paa-s-user-flag-description",
+    "translation": "ユーザーがRPaaSのライセンス・ユーザーであるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-sales-user-flag-description",
+    "translation": "ユーザーがIBMの営業担当者であるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-is-support-user-flag-description",
+    "translation": "ユーザーがIBMのサポート担当者であるかどうかを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-salesforce-account-user-id-flag-description",
+    "translation": "Salesforceによって割り当てられたユーザーIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-session-name-flag-description",
+    "translation": "必須。 コネクターから受信したアクセス・トークン。"
+  },
+  {
+    "id": "backup-recovery-user-update-sid-flag-description",
+    "translation": "ユーザーの固有のセキュリティーID(SID)を指定します。 ユーザーの変更においては、このフィールドは必須です。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-flag-description",
+    "translation": "SpogContextは、このクラスター上でアクションを実行しているユーザーおよびクラスターに関するすべての情報を指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-id-flag-description",
+    "translation": "SPOG経由でこのクラスターにアクセスしているリモート・クラスターのIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-user-sid-flag-description",
+    "translation": "SPOG経由でこのクラスターにアクセスしているユーザーのSIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-spog-context-primary-cluster-username-flag-description",
+    "translation": "SPOG経由でこのクラスターにアクセスしているユーザーのユーザー名を指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-classification-flag-description",
+    "translation": "ClassificationInfoは、アクティブであるかどうかなど、Datahawk Classificationサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-azure-flag-description",
+    "translation": "ClassificationInfoは、アクティブであるかどうかなど、Datahawk Classificationサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-data-protect-flag-description",
+    "translation": "DMaaSSubscriptionInfoは、アクティブであるかどうかなど、Data Protectサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-flag-description",
+    "translation": "これを拡張して、Helios、DRaaS、DSaaSを追加します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-cool-flag-description",
+    "translation": "FortKnoxInfoは、アクティブであるかどうかなど、Fortknox AzureまたはAzure FreeTrialまたはAwsColdまたはAwsCold FreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-azure-hot-flag-description",
+    "translation": "FortKnoxInfoは、アクティブであるかどうかなど、Fortknox AzureまたはAzure FreeTrialまたはAwsColdまたはAwsCold FreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-fort-knox-cold-flag-description",
+    "translation": "FortKnoxInfoは、アクティブであるかどうかなど、Fortknox AzureまたはAzure FreeTrialまたはAwsColdまたはAwsCold FreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-ransomware-flag-description",
+    "translation": "RansomwareInfoは、アクティブであるかどうかなど、FortKnox/FortKnoxFreeTrialのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-site-continuity-flag-description",
+    "translation": "SiteContinuityInfoは、アクティブかどうかなど、Site Continuityサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-subscription-info-threat-protection-flag-description",
+    "translation": "ThreatProtectionInfoは、アクティブかどうかなど、Datahawk ThreatProtectionのサブスクリプションの情報を保持します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-accesses-flag-description",
+    "translation": "MCMユーザーのテナント・アクセスを指定します。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-user-update-tenant-id-flag-description",
+    "translation": "ユーザーの有効なテナントIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-user-update-username-flag-description",
+    "translation": "ユーザーのログイン名を指定します。"
+  },
+  {
+    "id": "backup-recovery-users-all-under-hierarchy-flag-description",
+    "translation": "AllUnderHierarchyは、ログインしているユーザーの組織の階層下にあるすべてのテナントのオブジェクトを返すかどうかを指定します。returned.TenantIdsには、オブジェクトが返されるテナントのIDが含まれます。"
+  },
+  {
+    "id": "backup-recovery-users-command-long-description",
+    "translation": "パラメーターが指定されていない場合、IBMクラスターに現在接続しているすべてのユーザーが返されます。 パラメーターを指定すると、返される結果がフィルタリングされます。"
+  },
+  {
+    "id": "backup-recovery-users-command-short-description",
+    "translation": "ユーザーを取得します。"
+  },
+  {
+    "id": "backup-recovery-users-domain-flag-description",
+    "translation": "オプションで、フィルタリングするドメインを指定します。 ドメインが指定されていない場合、IBMクラスター上のすべてのユーザーが検索されます。 ドメインが指定されている場合、そのドメインに関連付けられたIBMクラスター上のユーザーのみが検索されます。"
+  },
+  {
+    "id": "backup-recovery-users-email-addresses-flag-description",
+    "translation": "オプションで、フィルタリングするためのEメール・アドレスのリストを指定します。"
+  },
+  {
+    "id": "backup-recovery-users-partial-match-flag-description",
+    "translation": "オプションで、部分一致を有効にするかどうかを指定します。 設定されている場合、ユーザー名を含む名前を持つすべてのユーザーが返されます。 falseに設定すると、ユーザー名とまったく同じ名前を持つユーザーのみが返されます。 デフォルトでは、このパラメーターはtrueに設定されています。"
+  },
+  {
+    "id": "backup-recovery-users-session-name-flag-description",
+    "translation": "必須。 コネクター・ログインAPIから受信するセッションCookie。"
+  },
+  {
+    "id": "backup-recovery-users-tenant-ids-flag-description",
+    "translation": "TenantIdsには、オブジェクトが返されるテナントのIDが含まれます。"
+  },
+  {
+    "id": "backup-recovery-users-usernames-flag-description",
+    "translation": "オプションで、フィルタリングするためのユーザー名のリストを指定します。 ユーザー名を含むすべてのユーザーが返されます。"
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-cloud-type-flag-description",
+    "translation": "必須。 リカバリー・スキャン用にボールトが登録されているクラウドの種類を指定します。 現在、サポートされているのは「ibm」のみです。 許容値: ibm。"
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-command-long-description",
+    "translation": "指定されたバックアップおよびリカバリー (ボールト) インスタンスでリカバリー・スキャンを開始します。"
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-command-short-description",
+    "translation": "指定されたバックアップおよびリカバリー・インスタンスでリカバリー・スキャンを開始します。 ここでいう「バックアップおよびリカバリー・インスタンス」とは、ボールトを指します。"
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-recovery-scan-request-params-flag-description",
+    "translation": "バックアップおよびリカバリー・インスタンスに固有のパラメーターを指定します。 これはボールトです。 JSONファイルへのパスを指定することもできます。"
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-recovery-scan-request-params-vault-id-flag-description",
+    "translation": "リカバリー・スキャンを開始するIBM Cloudバックアップおよびリカバリー・インスタンスの固有のIDを指定します。"
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-xibm-tenant-id-flag-description",
+    "translation": "必須。 テナントの固有のIDを指定します。"
   },
   {
     "id": "command-help-error",
@@ -3420,6 +5112,10 @@
     "translation": "確認できませんでした"
   },
   {
+    "id": "connector-service-url-global-flag-description",
+    "translation": "APIのコネクター・エンドポイントURLを指定します。"
+  },
+  {
     "id": "credentials-error",
     "translation": "プラグインを認証できません。\n「ibmcloud login」を使用してログインするか、資格情報を環境変数としてエクスポートするか、もしくは資格情報ファイルを保存してください。\n詳しくは、https://github.com/IBM/ibm-cloud-sdk-common/blob/main/README.md#define-configuration-properties を参照してください。\nエラー"
   },
@@ -3508,12 +5204,40 @@
     "translation": "ログ・ファイル「{{.PATH}}」の作成中にエラーが発生しました。\n{{.ERROR}}\n\n"
   },
   {
+    "id": "management-reporting-service-url-global-flag-description",
+    "translation": "APIに管理コンソール・レポート・エンドポイントURLを提供します。"
+  },
+  {
+    "id": "management-sre-service-apikey-global-flag-description",
+    "translation": "管理コンソールのSRE APIキーを提供してください。"
+  },
+  {
+    "id": "management-sre-service-authentication-url-global-flag-description",
+    "translation": "管理コンソールのSRE認証エンドポイント URL を提供します。"
+  },
+  {
+    "id": "management-sre-service-password-global-flag-description",
+    "translation": "管理コンソールのSREパスワードを提供してください。"
+  },
+  {
+    "id": "management-sre-service-username-global-flag-description",
+    "translation": "管理コンソールのSREユーザー名を提供してください。"
+  },
+  {
+    "id": "management-sre-url-global-flag-description",
+    "translation": "API用の管理コンソールSREエンドポイント URL を提供します。"
+  },
+  {
     "id": "missing-flags-argument-error",
     "translation": "フラグには引数が必要です: {{.FLAG}}"
   },
   {
     "id": "missing-required-flags-error",
     "translation": "必須フラグ {{.FLAGS}} が設定されていません"
+  },
+  {
+    "id": "mutually-exclusive-fields",
+    "translation": "{{.FLAG_NAME}}オプションは、個別に設定可能なサブフィールド・オプションと相互排他の関係にあります。"
   },
   {
     "id": "name-header-help-menu",
@@ -3582,734 +5306,6 @@
   {
     "id": "service-url-global-flag-description",
     "translation": "APIの基本エンドポイントURLを指定します。"
-  },
-  {
-    "id": "connector-service-url-global-flag-description",
-    "translation": "APIのコネクター・エンドポイントURLを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-group-short-description",
-    "translation": "管理コンソールのコンポーネントに関するコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-group-long-description",
-    "translation": "管理コンソールのコンポーネントに関するコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-list-command-short-description",
-    "translation": "レポート・コンポーネントの一覧を表示します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-list-command-long-description",
-    "translation": "ログインしているユーザーがアクセス可能なすべてのレポート・コンポーネントのリストを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-list-ids-flag-description",
-    "translation": "取得するレポート・コンポーネントのIDを指定してください。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-command-short-description",
-    "translation": "IDでレポート・コンポーネントを取り出します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-command-long-description",
-    "translation": "レポート・コンポーネントに関する情報を入手します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-id-flag-description",
-    "translation": "必須。 レポート・コンポーネントのIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-command-short-description",
-    "translation": "コンポーネントのプレビューをフェッチします。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-command-long-description",
-    "translation": "IDで指定されたコンポーネントのプレビューを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-id-flag-description",
-    "translation": "必須。 コンポーネントのIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-filters-flag-description",
-    "translation": "レポート内の指定されたコンポーネントに適用されるグローバル・フィルターのリストを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-limit-flag-description",
-    "translation": "結果のデータセットを制限するためのパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-sort-flag-description",
-    "translation": "結果データに適用するソート（順序付け）パラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-timezone-flag-description",
-    "translation": "ユーザーのタイム・ゾーンを指定します。 nilの場合、デフォルトはUTCとなります。 指定された時刻は、IANAタイム・ゾーン・データベースに記載されているロケーション名である必要があります。例：'America/Los_Angeles'。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-limit-from-flag-description",
-    "translation": "結果データにサイズ・パラメーターを適用する前にスキップされるオフセットを指定します。 例えば、データセットのサイズが10個のオブジェクトであり、from=2、size=5の場合、10個のオブジェクトのうち、オフセット2（つまり2番目から7番目）から始まる5個のオブジェクトのみが返されます。 指定がない場合、どのオブジェクトもスキップされません。"
-  },
-  {
-    "id": "backup-recovery-management-console-components-get-preview-limit-size-flag-description",
-    "translation": "指定されたオフセットから返されるオブジェクトの数を指定します。 最小値は 1 です。"
-  },
-  {
-    "id": "backup-recovery-management-console-resources-group-short-description",
-    "translation": "管理コンソールの参考情報に対するコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-console-resources-group-long-description",
-    "translation": "管理コンソールの参考情報に対するコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-console-resources-list-command-short-description",
-    "translation": "リソースを入手します。"
-  },
-  {
-    "id": "backup-recovery-management-console-resources-list-command-long-description",
-    "translation": "管理コンソールで検出された各種リソースを入手します。 これらの値はフィルタリング・オプションに使用できます。"
-  },
-  {
-    "id": "backup-recovery-management-console-resources-list-resource-type-flag-description",
-    "translation": "必須。 リソースのタイプを指定します。 許容値は次の通りです：ポリシー、ProtectionGroups,RegisteredSources,MessageCodeMappings。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-group-short-description",
-    "translation": "管理コンソール・レポート用のコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-group-long-description",
-    "translation": "管理コンソール・レポート用のコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-report-type-command-short-description",
-    "translation": "レポート・タイプのプロパティの一覧表示をします。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-report-type-command-long-description",
-    "translation": "レポート・タイプのプロパティ一覧を取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-report-type-report-type-flag-description",
-    "translation": "必須。 レポートの種類を指定します。 許容値は次の通りです：失敗、ProtectedUnprotectedObjects,ProtectedObjects,ProtectionActivity,ProtectionGroupSummary,ProtectionRuns,ProtectionRunsTrend,復旧。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-command-short-description",
-    "translation": "レポートを一覧表示します。"
-  },
-  {
-    "id": "management-reporting-service-url-global-flag-description",
-    "translation": "APIに管理コンソール・レポート・エンドポイントURLを提供します。"
-  },
-  {
-    "id": "management-sre-url-global-flag-description",
-    "translation": "API用の管理コンソールSREエンドポイント URL を提供します。"
-  },
-  {
-    "id": "management-sre-service-authentication-url-global-flag-description",
-    "translation": "管理コンソールのSRE認証エンドポイント URL を提供します。"
-  },
-  {
-    "id": "management-sre-service-password-global-flag-description",
-    "translation": "管理コンソールのSREパスワードを提供してください。"
-  },
-  {
-    "id": "management-sre-service-username-global-flag-description",
-    "translation": "管理コンソールのSREユーザー名を提供してください。"
-  },
-  {
-    "id": "management-sre-service-apikey-global-flag-description",
-    "translation": "管理コンソールのSRE APIキーを提供してください。"
-  },
-  {
-    "id": "backup-recovery-management-console-provider-instances-group-short-description",
-    "translation": "リソース ProviderInstances のコマンド"
-  },
-  {
-    "id": "backup-recovery-management-console-provider-instances-group-long-description",
-    "translation": "リソース ProviderInstances のコマンド"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-short-description",
-    "translation": "プロバイダー・インスタンスの一覧を表示します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-command-long-description",
-    "translation": "すべてのプロバイダー・インスタンスを詳細とともに一覧表示します。 APIはプロバイダー・インスタンスの詳細なリストを返します。 プロバイダーはインスタンスのライフサイクル管理を担当しており、このAPIはインスタンスに関するメタデータ情報を提供することのみを目的としています。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-instance-ids-flag-description",
-    "translation": "フィルタリングに使用するプロバイダー・インスタンスIDのリスト。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-regions-flag-description",
-    "translation": "プロバイダー・インスタンスをフィルタリングするための地域リスト。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-v2-provider-instances-get-include-service-instance-status-flag-description",
-    "translation": "サービス・インスタンスのステータスに加えて、クラスターの詳細やソフトウェア・バージョンなどのその他の詳細情報を含めるかどうかを確認するためのブール・フラグ。 デフォルト値は\tfalse です。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-command-long-description",
-    "translation": "ログイン中のユーザーがアクセス可能なすべてのレポートのリストを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-ids-flag-description",
-    "translation": "取り出すレポートのIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-list-user-context-flag-description",
-    "translation": "レポートをフィルタリングする際のユーザー・コンテキストを指定します。 許容値は次の通りです：IBMBaaS。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-command-short-description",
-    "translation": "レポートを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-command-long-description",
-    "translation": "指定されたIDのレポートを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-id-flag-description",
-    "translation": "必須。 レポートのIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-command-short-description",
-    "translation": "レポートのプレビューを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-command-long-description",
-    "translation": "設定済み報告書のプレビューを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-id-flag-description",
-    "translation": "必須。 レポートのIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-component-ids-flag-description",
-    "translation": "指定されたレポートに対して評価するコンポーネントIDのリストを指定します。 指定がない場合、すべてのコンポーネントが評価されます。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-filters-flag-description",
-    "translation": "レポート内の指定されたコンポーネントに適用されるグローバル・フィルターのリストを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-get-preview-timezone-flag-description",
-    "translation": "ユーザーのタイム・ゾーンを指定します。 nilの場合、デフォルトはUTCとなります。 指定された時刻は、IANAタイム・ゾーン・データベースに記載されているロケーション名である必要があります。例：'America/Los_Angeles'。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-command-short-description",
-    "translation": "レポートをエクスポートします。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-command-long-description",
-    "translation": "設定済みのレポートをエクスポートします。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-id-flag-description",
-    "translation": "必須。 レポートのIDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-async-flag-description",
-    "translation": "レポートを非同期的に生成するかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-filters-flag-description",
-    "translation": "レポート内の指定されたコンポーネントに適用されるグローバル・フィルターのリストを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-layout-flag-description",
-    "translation": "エクスポートが必要なレポートのレイアウト。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-report-format-flag-description",
-    "translation": "レポートをエクスポートするために必要な形式。 許容される値は次のとおりです：XLS、CSV。"
-  },
-  {
-    "id": "backup-recovery-management-console-reports-export-timezone-flag-description",
-    "translation": "ユーザーのタイム・ゾーンを指定します。 nilの場合、デフォルトはUTCとなります。 指定された時刻は、IANAタイム・ゾーン・データベースに記載されているロケーション名である必要があります。例：'America/Los_Angeles'。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-short-description",
-    "translation": "IBM REST APIを管理します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-long-description",
-    "translation": "IBM APIは、IBM クラスターおよび管理コンソール上の様々なデータ管理操作にアクセスするためのRESTfulインターフェースを提供します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-bad-url-error-message",
-    "translation": "無効な URL: ベース URL を BACKUP_RECOVERY_MANAGEMENT_SRE_URL 環境変数または認証情報ファイル内のキーで設定してください。"
-  },
-  {
-    "id": "mutually-exclusive-fields",
-    "translation": "{{.FLAG_NAME}}オプションは、個別に設定可能なサブフィールド・オプションと相互排他の関係にあります。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-short-description",
-    "translation": "リソース ClusterUpgrade のコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-group-long-description",
-    "translation": "リソース ClusterUpgrade のコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-short-description",
-    "translation": "アップグレード情報を取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-command-long-description",
-    "translation": "クラスターのアップグレードに関する進行の詳細およびログを取得します。 ログはJSON文字列形式で出力されます。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-get-cluster-identifiers-flag-description",
-    "translation": "指定された形式 clusterId:clusterIncarnationId のクラスター識別子リストに対するアップグレード進捗詳細を取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-short-description",
-    "translation": "スケジュールされたクラスター・アップグレードを更新します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-command-long-description",
-    "translation": "スケジュールされたクラスター・アップグレードを更新します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-auth-headers-flag-description",
-    "translation": "アップグレード要求に対するオプションのヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-clusters-flag-description",
-    "translation": "アップグレード対象クラスターの配列 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-interval-for-rolling-upgrade-in-hours-flag-description",
-    "translation": "2つのクラスターのアップグレード間の時間差を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-package-url-flag-description",
-    "translation": "パッケージをダウンロードできるURLを指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-flag-description",
-    "translation": "パッチ・アップグレード要求のパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-target-version-flag-description",
-    "translation": "クラスタをアップグレードする対象バージョンを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-time-stamp-to-upgrade-at-msecs-flag-description",
-    "translation": "クラスターをアップグレードする必要がある時刻をミリ秒単位で指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-type-flag-description",
-    "translation": "クラスターに対して実行するアップグレードの種類を指定します。 デフォルト値はアップグレードです。 許容値は次の通りです：アップグレード、パッチ、UpgradePatch。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-auth-headers-flag-description",
-    "translation": "パッチ・クラスター要求のオプション・ヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
-    "translation": "事前チェック結果を無視できるかどうかを指定してください。 デフォルト値は\tfalse です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-package-url-flag-description",
-    "translation": "パッチパッケージをダウンロードできる URL を指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-update-patch-upgrade-params-target-version-flag-description",
-    "translation": "クラスターをアップグレードする対象のパッチ・バージョンを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-short-description",
-    "translation": "即時およびスケジュールされたクラスターのアップグレードを開始します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-command-long-description",
-    "translation": "即時およびスケジュールされたクラスターのアップグレードを開始します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-auth-headers-flag-description",
-    "translation": "アップグレード要求に対するオプションのヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-clusters-flag-description",
-    "translation": "アップグレード対象クラスターの配列 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-interval-for-rolling-upgrade-in-hours-flag-description",
-    "translation": "2つのクラスターのアップグレード間の時間差を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-package-url-flag-description",
-    "translation": "パッケージをダウンロードできるURLを指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-flag-description",
-    "translation": "パッチ・アップグレード要求のパラメーターを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-target-version-flag-description",
-    "translation": "クラスタをアップグレードする対象バージョンを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-time-stamp-to-upgrade-at-msecs-flag-description",
-    "translation": "クラスターをアップグレードする必要がある時刻をミリ秒単位で指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-type-flag-description",
-    "translation": "クラスターに対して実行するアップグレードの種類を指定します。 デフォルト値はアップグレードです。 許容値は次の通りです：アップグレード、パッチ、UpgradePatch。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-auth-headers-flag-description",
-    "translation": "パッチ・クラスター要求のオプション・ヘッダーを指定します。 JSON文字列またはJSONファイルへのパスでなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-ignore-pre-checks-failure-flag-description",
-    "translation": "事前チェック結果を無視できるかどうかを指定してください。 デフォルト値は\tfalse です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-package-url-flag-description",
-    "translation": "パッチパッケージをダウンロードできる URL を指定します。 注：このオプションはマルチクラスター管理者（MCM）でのみサポート対象です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-create-patch-upgrade-params-target-version-flag-description",
-    "translation": "クラスターをアップグレードする対象のパッチ・バージョンを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-short-description",
-    "translation": "スケジュールされたクラスターのアップグレードをキャンセルします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-command-long-description",
-    "translation": "スケジュールされたクラスターのアップグレードをキャンセルします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-upgrade-delete-cluster-identifiers-flag-description",
-    "translation": "クラスタ識別子のリストを指定します。 フォーマットは clusterId:clusterIncarnationIdです。 "
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-group-short-description",
-    "translation": "アラート・リソースに対するコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-group-long-description",
-    "translation": "アラート・リソースに対するコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-command-short-description",
-    "translation": "アラートを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-command-long-description",
-    "translation": "アラートを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-ids-flag-description",
-    "translation": "アラートIDのリストでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-types-flag-description",
-    "translation": "アラート・タイプのリストでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
-    "translation": "アラート・カテゴリーのリストでフィルターします。 許容リスト項目は以下の通りです：kDisk,kNode,kCluster,kChassis,kPowerSupply,kCPU,kMemory,kTemperature,kFan,kNIC,kFirmware,kNodeHealth,kOperatingSystem,kDataPath,kMetadata,kIndexing,kHelios,kAppMarketPlace,kSystemService,kLicense,kSecurity,kUpgrade,kClusterManagement,kAuditLog,kNetworking,kConfiguration,kStorageUsage,kFaultTolerance,kBackupRestore,kArchivalRestore,kRemoteReplication,kQuota,kCDP,kViewFailover,kDisasterRecovery,kStorageDevice,kStoragePool,kGeneralSoftwareFailure,kAgent。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-states-flag-description",
-    "translation": "アラート状態のリストでフィルタリングします。 許容されるリスト項目は次のとおりです：kResolved,kOpen,kNote,kSuppressed。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-severities-flag-description",
-    "translation": "アラート重大度タイプのリストでフィルターします。 許容されるリスト項目は以下の通りです：kCritical,kWarning,kInfo。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-type-buckets-flag-description",
-    "translation": "アラート・タイプのバケット一覧でフィルターします。 許容されるリスト項目は次のとおりです：kHardware,kSoftware,kDataService,kMaintenance。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-start-time-usecs-flag-description",
-    "translation": "アラートをフィルタリングするために、開始時刻をマイクロ秒単位のUNIXエポック時刻で指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-end-time-usecs-flag-description",
-    "translation": "アラートをフィルタリングするための終了時刻をマイクロ秒単位のUNIXエポック時刻で指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-max-alerts-flag-description",
-    "translation": "返すアラートの最大数を指定します。 デフォルト値は100で、最大許容値は1000です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-property-key-flag-description",
-    "translation": "アラートをフィルタリングするプロパティーの名前を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-property-value-flag-description",
-    "translation": "アラートをフィルタリングするプロパティーの値を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-alert-name-flag-description",
-    "translation": "アラートをフィルタリングするためのアラート名を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-resolution-ids-flag-description",
-    "translation": "アラートをフィルタリングするためのアラート解決IDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-tenant-ids-flag-description",
-    "translation": "テナントIDでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-all-under-hierarchy-flag-description",
-    "translation": "ログインしたユーザーの組織の階層下にある、すべてのテナントのオブジェクトでフィルターリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-list-x-scope-identifier-flag-description",
-    "translation": "このフィールドはサービス・インスタンスを一意的に表します。 値を「service-instance-id: <value>」として指定してください。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-short-description",
-    "translation": "アラート概要を取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-command-long-description",
-    "translation": "カテゴリ別にグループ化されたアラートの要約を取得します。"
-  },
-  {
-    "id": "backup-recovery-provider-instances-command-long-description",
-    "translation": "すべてのプロバイダー・インスタンスを詳細とともに一覧表示します。 APIはプロバイダー・インスタンスの詳細なリストを返します。 プロバイダーはインスタンスのライフサイクル管理を担当しており、このAPIはインスタンスに関するメタデータ情報を提供することのみを目的としています。"
-  },
-  {
-    "id": "backup-recovery-provider-instances-instance-ids-flag-description",
-    "translation": "フィルタリングに使用するプロバイダー・インスタンスIDのリスト。"
-  },
-  {
-    "id": "backup-recovery-provider-instances-regions-flag-description",
-    "translation": "プロバイダー・インスタンスをフィルタリングするための地域リスト。"
-  },
-  {
-    "id": "backup-recovery-provider-instances-include-service-instance-status-flag-description",
-    "translation": "サービス・インスタンスのステータスに加えて、クラスターの詳細やソフトウェア・バージョンなどのその他の詳細情報を含めるかどうかを確認するためのブール・フラグ。 デフォルト値は\tfalse です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-start-time-usecs-flag-description",
-    "translation": "開始時間でフィルタリングします。 開始時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトでは、現在の時刻から1日を差し引いた時刻です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-end-time-usecs-flag-description",
-    "translation": "終了時間でフィルタリングします。 終了時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトは現在時刻です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-include-tenants-flag-description",
-    "translation": "IncludeTenants は、ログインしたユーザーの組織の階層構造下にあるすべてのテナントのアラートをサマリー計算に使用するかどうかを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-tenant-ids-flag-description",
-    "translation": "TenantIds は、アラートを使用して集計を計算するためのテナントのIDを含んでいます。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-states-list-flag-description",
-    "translation": "アラートをフィルタリングするためのアラート状態のリストを指定します。 指定がない場合、サマリーの取得には未解決のアラートのみが使用されます。 許容されるリスト項目は次のとおりです：kResolved,kOpen,kNote,kSuppressed。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
-    "translation": "このフィールドはサービス・インスタンスを一意的に表します。 値を「service-instance-id: <value>」として指定してください。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-group-short-description",
-    "translation": "ManagementAlerts リソースのコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-group-long-description",
-    "translation": "ManagementAlerts リソースのコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-short-description",
-    "translation": "管理コンソールでアラートのサマリーを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-command-long-description",
-    "translation": "カテゴリ別にグループ化されたアラートの要約を取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-cluster-identifiers-flag-description",
-    "translation": "クラスタ識別子のリストを指定します。 フォーマットは clusterId:clusterIncarnationId です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-start-time-usecs-flag-description",
-    "translation": "開始時間でフィルタリングします。 開始時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトでは、現在の時刻から1日を差し引いた時刻です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-end-time-usecs-flag-description",
-    "translation": "終了時間でフィルタリングします。 終了時刻をUNIXエポック・タイムスタンプ（マイクロ秒単位）で指定してください。 デフォルトは現在時刻です。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-get-summary-states-list-flag-description",
-    "translation": "アラートをフィルタリングするためのアラート状態のリストを指定します。 指定がない場合、サマリーの取得には未解決のアラートのみが使用されます。 許容されるリスト項目は次のとおりです：kResolved,kOpen,kNote,kSuppressed。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-short-description",
-    "translation": "管理コンソールのアラートリストを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-command-long-description",
-    "translation": "管理コンソールのアラートリストを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-id-list-flag-description",
-    "translation": "アラートIDのリストでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-state-list-flag-description",
-    "translation": "アラート状態のリストでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-list-flag-description",
-    "translation": "アラート・タイプのリストでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-severity-list-flag-description",
-    "translation": "アラート重大度タイプのリストでフィルターします。 許容されるリスト項目は以下の通りです：kCritical,kWarning,kInfo。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-region-ids-flag-description",
-    "translation": "地域IDのリストでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-cluster-identifiers-flag-description",
-    "translation": "クラスターIDのリストでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-start-date-usecs-flag-description",
-    "translation": "返されるアラートの開始時刻を指定します。 返されたすべてのアラートは、指定された開始時刻以降に発生したものです。 この値は、Unix タイムスタンプ・エポックでマイクロ秒単位がなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-end-date-usecs-flag-description",
-    "translation": "返されるアラートの終了時刻を指定します。 返されたすべてのアラートは、指定された終了時刻より前に発生します。 この値は、Unix タイムスタンプ・エポックでマイクロ秒単位がなければなりません。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-max-alerts-flag-description",
-    "translation": "返すアラートの最大数を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-category-list-flag-description",
-    "translation": "アラート・カテゴリーのリストでフィルターします。 許容リスト項目は以下の通りです：kDisk,kNode,kCluster,kChassis,kPowerSupply,kCPU,kMemory,kTemperature,kFan,kNIC,kFirmware,kNodeHealth,kOperatingSystem,kDataPath,kMetadata,kIndexing,kHelios,kAppMarketPlace,kSystemService,kLicense,kSecurity,kUpgrade,kClusterManagement,kAuditLog,kNetworking,kConfiguration,kStorageUsage,kFaultTolerance,kBackupRestore,kArchivalRestore,kRemoteReplication,kQuota,kCDP,kViewFailover,kDisasterRecovery,kStorageDevice,kStoragePool,kGeneralSoftwareFailure,kAgent。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-tenant-ids-flag-description",
-    "translation": "テナントIDでフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-type-bucket-list-flag-description",
-    "translation": "アラート・タイプのバケット一覧でフィルターします。 許容されるリスト項目は次のとおりです：kHardware,kSoftware,kDataService,kMaintenance。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-key-list-flag-description",
-    "translation": "クエリー対象のアラート・プロパティキーのリストを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-property-value-list-flag-description",
-    "translation": "アラート・プロパティ値のリストを指定します。1つのキーに対する複数の値は「|」で結合してください。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-alert-name-flag-description",
-    "translation": "アラートをフィルタリングするためのアラート名を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-service-instance-ids-flag-description",
-    "translation": "サービスインスタンスIDを指定して、IBM の顧客向けのアラートをフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-short-description",
-    "translation": "BRSシステム内のアラート解決策を一覧表示します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-command-long-description",
-    "translation": "指定されたパラメーターのフィルタ条件に一致する、IBM システム内で検出された管理コンソールのアラート解決オブジェクトを返します。 フィルター・パラメータが指定されていない場合、MaxResolutions アラート解決オブジェクトが返されます。 各オブジェクトは、アラート解決情報および解決済みアラート情報の詳細を提供します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-max-resolutions-flag-description",
-    "translation": "必須。 返される解決策の最大数を指定します。最新の作成されたものから最も古い作成されたものまで返されます。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-name-flag-description",
-    "translation": "クエリー対象のアラート解決名（Alert Resolution Name）を指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-list-resolutions-resolution-id-flag-description",
-    "translation": "クエリーするアラート解決IDを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-short-description",
-    "translation": "アクティブなアラートの統計情報を計算します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-command-long-description",
-    "translation": "アクティブなアラートの統計情報を計算します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-start-time-usecs-flag-description",
-    "translation": "必須。 アクティブなアラートの統計情報を計算するための開始時刻を、マイクロ秒単位のUNIXタイム・エポックで指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-end-time-usecs-flag-description",
-    "translation": "必須。 アクティブなアラート統計が計算される終了時刻を、マイクロ秒単位のUnixタイム・エポックで指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-cluster-ids-flag-description",
-    "translation": "クラスターIDのリストを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-service-instance-ids-flag-description",
-    "translation": "アラート統計情報をフィルタリングするためのサービス・インスタンスIDのリストを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-region-ids-flag-description",
-    "translation": "地域 ID のリストを使用してフィルタリングします。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-exclude-stats-by-cluster-flag-description",
-    "translation": "クラスターごとのアクティブ・アラートの統計を除外する必要があるかどうかを指定します。 偽の（デフォルト値）に設定されている場合、クラスタごとのアクティブなアラートの統計情報が応答に含まれます。 trueに設定した場合、レスポンスには集計された統計情報のサマリーのみが含まれます。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-alert-source-flag-description",
-    "translation": "アラートの発生元のリストを指定します。 指定がない場合、すべてのソースからのすべてのアラートが応答に考慮されます。 許容値は次の通りです： kCluster, kHelios。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-management-console-alerts-stats-tenant-ids-flag-description",
-    "translation": "テナントのリストを指定します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-group-short-description",
-    "translation": "クラスター・リソースのコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-group-long-description",
-    "translation": "クラスター・リソースのコマンド。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-list-command-short-description",
-    "translation": "リリース・バージョンに対応する互換性のあるクラスターを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-list-command-long-description",
-    "translation": "指定されたリリース・バージョンにアップグレード可能なクラスターのリストを取得します。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-list-release-version-flag-description",
-    "translation": ""
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-info-command-short-description",
-    "translation": "クラスター情報とアップグレードの詳細。"
-  },
-  {
-    "id": "backup-recovery-management-sre-api-cluster-info-command-long-description",
-    "translation": "クラスター情報とそのアップグレードの詳細を取得します。"
   },
   {
     "id": "show-help",
