@@ -45,9 +45,11 @@ USAGE:
 
 COMMANDS:
   access-token-create              Create access token.
+  access-token-generate            Generate an Access Token.
   agent-download                   Download agent.
   agent-upgrade-task               Commands for AgentUpgradeTask resource.
   config                           Control persistent configuration.
+  connector-agent                  Commands for ConnectorAgent resource.
   connector-metadata-get           Get information about the available connectors.
   data-source-connection           Commands for DataSourceConnection resource.
   data-source-connector            Commands for DataSourceConnector resource.

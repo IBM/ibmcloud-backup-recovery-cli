@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.4.0
+
+### Content
+
+#### Features
+
+* Enable OCP Virt Support
+
 ## 1.3.0
 
 ### Content
