@@ -84,6 +84,330 @@
     "translation": "Download agent for different hosts."
   },
   {
+    "id": "backup-recovery-progress-monitors-status-command-short-description",
+    "translation": "Gets the progress and status of tasks from Pulse."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-command-long-description",
+    "translation": "Retrieves the progress and status of tasks from Pulse."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the key to be used to encrypt the source credential. If includeSourceCredentials is set to true this key must be specified."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-attribute-vec-flag-description",
+    "translation": "If specified, tasks matching the current query are futher filtered by these KeyValuePairs. This gives client an ability to search by custom attributes that they specified during the task creation. Only the Tasks having 'all' of the specified key=value pairs will be returned. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-end-time-secs-flag-description",
+    "translation": "Tasks that ended before this time."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-exclude-sub-tasks-flag-description",
+    "translation": "Skip information about the sub tasks of the matching root and sub tasks. By default, the entire task tree will be returned for matching tasks."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-fetch-logs-max-level-flag-description",
+    "translation": "Number of levels till which we need to fetch the event logs for a pulse tree. Note that it is applicable only when include_event_logs is true."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-include-event-logs-flag-description",
+    "translation": "If set, the event logs will be included in the response message. Otherwise they will be cleared out."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-include-finished-tasks-flag-description",
+    "translation": "Returns finished tasks as well. By default, Pulse only returns active tasks."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-max-tasks-flag-description",
+    "translation": "Only return at most these many matching tasks. This constraint is applied with each query's result group."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-start-time-secs-flag-description",
+    "translation": "Tasks that started after this time."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-new-task-path-vec-flag-description",
+    "translation": "The hierarchical paths to the names of the tasks being queried. The task path-name specified here can be a prefix. Clients can specify multiple paths/prefixes. Pulse will return one ResultGroup for each path query.\n\nEach path is treated separately by Pulse, so if there are duplicate paths, Pulse will return duplicate results.\n\nBoth root tasks and sub tasks can be specified in @task_path_vec."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-task-path-vec-flag-description",
+    "translation": "The hierarchical paths to the names of the tasks being queried. The task path-name specified here can be a prefix. Clients can specify multiple paths/prefixes. Pulse will return one ResultGroup for each path query.\n\nEach path is treated separately by Pulse, so if there are duplicate paths, Pulse will return duplicate results.\n\nBoth root tasks and sub tasks can be specified in @task_path_vec."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-include-finished-tasks-flag-description",
+    "translation": "Returns finished tasks as well. By default, Pulse only returns active tasks."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-start-time-secs-flag-description",
+    "translation": "Tasks that started after this time."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-end-time-secs-flag-description",
+    "translation": "Tasks that ended before this time."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-max-tasks-flag-description",
+    "translation": "Only return at most these many matching tasks. This constraint is applied with each query's result group."
+  },
+  {
+    "id": "backup-recovery-progress-monitors-status-exclude-sub-tasks-flag-description",
+    "translation": "Skip information about the sub tasks of the matching root and sub tasks. By default, the entire task tree will be returned for matching tasks."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-command-short-description",
+    "translation": "Construct meta info for any workflow from object snapshot and some other information."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-command-long-description",
+    "translation": "Construct meta info for any workflow from object snapshot and some other information."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-snapshot-id-flag-description",
+    "translation": "Required. Specifies the snapshot id."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-environment-flag-description",
+    "translation": "Required. Specifies the environment type of the Protection group. Allowable values are: kVMware, kHyperV, kVCD, kSQL, kView, kRemoteAdapter, kPhysical, kPure, kIbmFlashSystem, kAzure, kNetapp, kGenericNas, kAcropolis, kIsilon, kKVM, kAWS, kAWSNative, kAwsS3, kAWSSnapshotManager, kRDSSnapshotManager, kAuroraSnapshotManager, kAwsRDSPostgresBackup, kAwsRDSPostgres, kAwsAuroraPostgres, kAwsDynamoDB, kAzureNative, kAzureSQL, kAzureEntraID, kAzureSnapshotManager, kExchange, kOracle, kGCP, kFlashBlade, kO365, kHyperFlex, kAD, kGPFS, kKubernetes, kNimble, kElastifile, kCassandra, kMongoDB, kCouchbase, kHdfs, kHive, kHBase, kUDA, kSAPHANA, kO365Sharepoint, kO365PublicFolders, kO365Teams, kO365Group, kO365Exchange, kO365OneDrive, kSfdc, kO365ExchangeCSM, kO365OneDriveCSM, kO365SharepointCSM, kExperimentalAdapter, kMongoDBPhysical, kDB2."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-kubernetes-params-flag-description",
+    "translation": "Specifies object params for kubernetes object. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-flag-description",
+    "translation": "Oracle Params to construct meta info for alternate restore or clone. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-flag-description",
+    "translation": "Specifies params to construct list of dependent objects. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-kubernetes-params-object-id-flag-description",
+    "translation": "Specifies the type of object id to fetch resources."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-base-dir-flag-description",
+    "translation": "Specifies the base directory of Oracle at destination."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-db-file-destination-flag-description",
+    "translation": "Specifies the location to put the database files(datafiles, logfiles etc.)."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-db-name-flag-description",
+    "translation": "Specifies the name of the Oracle database that we restore to."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-home-dir-flag-description",
+    "translation": "Specifies the home directory of Oracle at destination."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-clone-flag-description",
+    "translation": "Specifies whether operation is clone or not."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-disaster-recovery-flag-description",
+    "translation": "Specifies whether the recovery is of type Disaster Recovery."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-granular-restore-flag-description",
+    "translation": "Specifies whether the operation is granular restore or not."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-oracle-params-is-recovery-validation-flag-description",
+    "translation": "Specifies whether the operation is recovery validation or not."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-meta-info-type-flag-description",
+    "translation": "Specifies the type of meta info to fetch for salesforce object. Allowable values are: DependentObjects."
+  },
+  {
+    "id": "backup-recovery-meta-info-create-sfdc-params-object-name-flag-description",
+    "translation": "Specifies the name of the object."
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-command-short-description",
+    "translation": "Cancel Recovery for a given id."
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-command-long-description",
+    "translation": "Cancel Recovery for a given id."
+  },
+  {
+    "id": "backup-recovery-recovery-cancel-id-flag-description",
+    "translation": "Required. Specifies the id of a Recovery. "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-command-short-description",
+    "translation": "Get the progress of a run."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-command-short-description",
+    "translation": "Get the status of latest recovery scan for the all specified Backup and Recovery instances. Here the Backup and Recovery instance refers to the vault."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-command-long-description",
+    "translation": "Retrieves the latest recovery scan status for all specified Backup and Recovery (vault) instances."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-cloud-type-flag-description",
+    "translation": "Required. Specifies the cloud environment type where the Backup and Recovery instance is used. Currently, only 'ibm' is supported for recover scans. Allowable values are: ibm."
+  },
+  {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-vault-ids-flag-description",
+    "translation": "Specifies the unique ids of the Backup and Recovery instances for which the latest recovery scan status is to be fetched."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-command-short-description",
+    "translation": "Initiate a recovery scan on the specified Backup and Recovery instance. Here the Backup and Recovery instance refers to the vault."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-command-long-description",
+    "translation": "Initiates a recovery scan on the specified Backup and Recovery (vault) instance."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-cloud-type-flag-description",
+    "translation": "Required. Specifies the cloud type where the vault is registered for recovery scan. Currently, only 'ibm' is supported. Allowable values are: ibm."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-recovery-scan-request-params-flag-description",
+    "translation": "Specifies the parameters specific to the Backup and Recovery instance. which is the vault. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-recovery-scan-request-params-vault-id-flag-description",
+    "translation": "Specifies the unique id of the IBM Cloud Backup and Recovery instance for which the recovery scan is to be initiated."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-command-short-description",
+    "translation": "Get the status of latest failover for the all specified Backup and Recovery instances. Here the Backup and Recovery instance refers to the vault."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-command-long-description",
+    "translation": "Retrieves the latest failover status for all specified Backup and Recovery (vault) instances."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-cloud-type-flag-description",
+    "translation": "Required. Specifies the cloud environment type where the Backup and Recovery instance is used. Currently, only 'ibm' is supported for failovers. Allowable values are: ibm."
+  },
+  {
+    "id": "backup-recovery-batch-vault-failover-status-vault-ids-flag-description",
+    "translation": "Required. Specifies the unique ids of the Backup and Recovery instances i.e. vaults for which the latest failover status is to be fetched."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-command-short-description",
+    "translation": "Initiate a failover for the specified Backup and Recovery instance. Here the Backup and Recovery instance refers to the vault."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-command-long-description",
+    "translation": "Initiates a failover for the specified Backup and Recovery (vault) instance."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-cloud-type-flag-description",
+    "translation": "Required. Specifies the type of the Backup and Recovery instance. Currently, only 'ibm' is supported. Allowable values are: ibm."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-failover-request-params-flag-description",
+    "translation": "Specifies the parameters specific to the Backup and Recovery instance. viz the vault. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-failover-request-params-vault-id-flag-description",
+    "translation": "Specifies the unique id of the IBM Cloud Backup and Recovery instance for which the failover is to be initiated."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-command-long-description",
+    "translation": "Get the progress of a run."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-run-id-flag-description",
+    "translation": "Required. Specifies a unique run id of the Protection Run."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-objects-flag-description",
+    "translation": "Specifies the objects whose progress will be returned. This only applies to protection group runs and will be ignored for object runs. If the objects are specified, the run progress will not be returned and only the progress of the specified objects will be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-tenant-ids-flag-description",
+    "translation": "TenantIds contains ids of the tenants for which the run is to be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-tenants-flag-description",
+    "translation": "If true, the response will include Protection Group Runs which were created by all tenants which the current user has permission to see. If false, then only Protection Groups created by the current user will be returned. If it's not specified, it is true by default."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-finished-tasks-flag-description",
+    "translation": "Specifies whether to return finished tasks. By default only active tasks are returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-start-time-usecs-flag-description",
+    "translation": "Specifies the time after which the progress task starts in Unix epoch Timestamp(in microseconds)."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-end-time-usecs-flag-description",
+    "translation": "Specifies the time before which the progress task ends in Unix epoch Timestamp(in microseconds)."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-max-tasks-num-flag-description",
+    "translation": "Specifies the maximum number of tasks to return."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-exclude-object-details-flag-description",
+    "translation": "Specifies whether to return objects. By default all the task tree are returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-include-event-logs-flag-description",
+    "translation": "Specifies whether to include event logs."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-max-log-level-flag-description",
+    "translation": "Specifies the number of levels till which to fetch the event logs. This is applicable only when includeEventLogs is true."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-run-task-path-flag-description",
+    "translation": "Specifies the task path of the run or object run. This is applicable only if progress of a protection group with one or more object is required.If provided this will be used to fetch progress details directly without looking actual task path of the object. Objects field is stil expected else it changes the response format."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-progress-object-task-paths-flag-description",
+    "translation": "Specifies the object level task path. This relates to the objectID. If provided this will take precedence over the objects, and will be used to fetch progress details directly without looking actuall task path of the object."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-command-short-description",
+    "translation": "Get a run for a Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-command-long-description",
+    "translation": "Get a run for a Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-id-flag-description",
+    "translation": "Required. Specifies a unique id of the Protection Group."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-run-id-flag-description",
+    "translation": "Required. Specifies a unique run id of the Protection Group run. "
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-request-initiator-type-flag-description",
+    "translation": "Specifies the type of request from UI, which is used for services like magneto to determine the priority of requests. Allowable values are: UIUser, UIAuto, Helios."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-tenant-ids-flag-description",
+    "translation": "TenantIds contains ids of the tenants for which the run is to be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-include-tenants-flag-description",
+    "translation": "If true, the response will include Protection Group Runs which were created by all tenants which the current user has permission to see. If false, then only Protection Groups created by the current user will be returned. If it's not specified, it is true by default."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-include-object-details-flag-description",
+    "translation": "Specifies if the result includes the object details for a protection run. If set to true, details of the protected object will be returned. If set to false or not specified, details will not be returned."
+  },
+  {
+    "id": "backup-recovery-protection-group-run-get-use-cached-data-flag-description",
+    "translation": "Specifies whether we can serve the GET request from the read replica cache. There is a lag of 15 seconds between the read replica and primary data source."
+  },
+  {
     "id": "backup-recovery-agent-download-command-short-description",
     "translation": "Download agent."
   },
@@ -552,6 +876,14 @@
     "translation": "Specifies the list of documents to download using item ids. Only one of filesAndFolders or documents should be used. Currently only files are supported by documents. It can also be a path to a JSON file. The minimum length is 1 item."
   },
   {
+    "id": "backup-recovery-batch-vault-failover-status-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the unique id of the tenant."
+  },
+  {
+    "id": "backup-recovery-initiate-vault-failover-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the unique id of the tenant."
+  },
+  {
     "id": "backup-recovery-download-recovery-create-files-and-folders-flag-description",
     "translation": "Required. Specifies the list of files and folders to download. It can also be a path to a JSON file. The minimum length is 1 item."
   },
@@ -664,7 +996,15 @@
     "translation": "Specifies the start offset of file chunk to be downloaded."
   },
   {
+    "id": "backup-recovery-batch-vault-recovery-scan-status-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the unique id of the tenant."
+  },
+  {
     "id": "backup-recovery-indexed-file-download-xibm-tenant-id-flag-description",
+    "translation": "Required. Specifies the unique id of the tenant."
+  },
+  {
+    "id": "backup-recovery-vault-recovery-scan-xibm-tenant-id-flag-description",
     "translation": "Required. Specifies the unique id of the tenant."
   },
   {
@@ -1336,6 +1676,10 @@
     "translation": "Get a report for a given id."
   },
   {
+    "id": "backup-recovery-objects-search-environments-flag-description",
+    "translation": "Specifies the environment type to filter objects. Allowable list items are: kPhysical, kSQL, kKubernetes."
+  },
+  {
     "id": "backup-recovery-management-console-reports-get-command-short-description",
     "translation": "Fetch a Report."
   },
@@ -1452,6 +1796,10 @@
     "translation": "TenantIds contains ids of the tenants for which alerts are to be used to compute summary."
   },
   {
+    "id": "backup-recovery-protected-objects-search-environments-flag-description",
+    "translation": "Specifies the environment type to filter objects. Allowable list items are: kPhysical, kSQL, kKubernetes."
+  },
+  {
     "id": "backup-recovery-management-sre-api-alerts-get-summary-x-scope-identifier-flag-description",
     "translation": "This field uniquely represents a service        instance. Please specify the values as \"service-instance-id: <value>\"."
   },
@@ -1462,6 +1810,10 @@
   {
     "id": "backup-recovery-management-sre-api-alerts-group-short-description",
     "translation": "Commands for Alerts resource."
+  },
+  {
+    "id": "backup-recovery-protected-objects-search-object-action-key-flag-description",
+    "translation": "Filter by ObjectActionKey, which uniquely represents protection of an object. An object can be protected in multiple ways but atmost once for a given combination of ObjectActionKey. When specified, latest snapshot info matching the objectActionKey is for corresponding object. Allowable values are: kPhysical, kSQL, kKubernetes."
   },
   {
     "id": "backup-recovery-management-sre-api-alerts-list-alert-categories-flag-description",
@@ -2350,6 +2702,38 @@
   {
     "id": "backup-recovery-protection-group-create-is-paused-flag-description",
     "translation": "Specifies if the the Protection Group is paused. New runs are not scheduled for the paused Protection Groups. Active run if any is not impacted."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-paused-note-flag-description",
+    "translation": "A note from the current user explaining the reason for pausing future runs, if applicable."
+  },
+  {
+    "id": "backup-recovery-protection-group-update-paused-note-flag-description",
+    "translation": "A note from the current user explaining the reason for pausing future runs, if applicable."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-last-modified-timestamp-usecs-flag-description",
+    "translation": "Specifies the last time this protection group was updated. If this is passed into a PUT request, then the backend will validate that the timestamp passed in matches the time that the protection group was actually last modified. If the two timestamps do not match, then the request will be rejected with a stale error."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-file-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a File based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-flag-description",
+    "translation": "Specifies the parameters specific to MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-native-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a Native based MSSQL Protection Group. It can also be a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-protection-type-flag-description",
+    "translation": "Specifies the MSSQL Protection Group type. Allowable values are: kFile, kVolume, kNative."
+  },
+  {
+    "id": "backup-recovery-protection-group-create-mssql-params-volume-protection-type-params-flag-description",
+    "translation": "Specifies the params to create a Volume based MSSQL Protection Group. It can also be a path to a JSON file."
   },
   {
     "id": "backup-recovery-protection-group-create-kubernetes-params-enable-indexing-flag-description",
@@ -3730,6 +4114,18 @@
   {
     "id": "backup-recovery-protection-source-register-kubernetes-params-vlan-info-vec-flag-description",
     "translation": "Specifies VLAN information provided during registration. It should be a JSON string or a path to a JSON file."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-encryption-key-flag-description",
+    "translation": "Specifies the key that user has encrypted the credential with."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-environment-flag-description",
+    "translation": "Required. Specifies the environment type of the Protection Source. Allowable values are: kPhysical, kSQL, kKubernetes."
+  },
+  {
+    "id": "backup-recovery-protection-source-register-is-internal-encrypted-flag-description",
+    "translation": "Specifies if credentials are encrypted by internal key."
   },
   {
     "id": "backup-recovery-protection-source-register-name-flag-description",

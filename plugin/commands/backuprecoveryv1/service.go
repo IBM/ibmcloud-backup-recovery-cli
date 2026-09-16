@@ -129,12 +129,18 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 		GetGetDataSourceConnectorLogsCommand(NewGetDataSourceConnectorLogsCommandRunner(utils, GetDataSourceConnectorLogsRequestSender{})),
 		GetRegisterDataSourceConnectorCommand(NewRegisterDataSourceConnectorCommandRunner(utils, RegisterDataSourceConnectorRequestSender{})),
 		GetGetDataSourceConnectorStatusCommand(NewGetDataSourceConnectorStatusCommandRunner(utils, GetDataSourceConnectorStatusRequestSender{})),
+		GetGetBatchVaultsFailoverStatusCommand(NewGetBatchVaultsFailoverStatusCommandRunner(utils, GetBatchVaultsFailoverStatusRequestSender{})),
+		GetInitVaultsFailoverCommand(NewInitVaultsFailoverCommandRunner(utils, InitVaultsFailoverRequestSender{})),
 		GetGetObjectSnapshotsCommand(NewGetObjectSnapshotsCommandRunner(utils, GetObjectSnapshotsRequestSender{})),
+		GetConstructMetaInfoCommand(NewConstructMetaInfoCommandRunner(utils, ConstructMetaInfoRequestSender{})),
 		GetCreateDownloadFilesAndFoldersRecoveryCommand(NewCreateDownloadFilesAndFoldersRecoveryCommandRunner(utils, CreateDownloadFilesAndFoldersRecoveryRequestSender{})),
 		GetGetRestorePointsInTimeRangeCommand(NewGetRestorePointsInTimeRangeCommandRunner(utils, GetRestorePointsInTimeRangeRequestSender{})),
 		GetDownloadIndexedFileCommand(NewDownloadIndexedFileCommandRunner(utils, DownloadIndexedFileRequestSender{})),
+		GetGetBatchVaultRecoveryScanStatusCommand(NewGetBatchVaultRecoveryScanStatusCommandRunner(utils, GetBatchVaultRecoveryScanStatusRequestSender{})),
+		GetVaultRecoveryScanCommand(NewVaultRecoveryScanCommandRunner(utils, VaultRecoveryScanRequestSender{})),
 		GetSearchIndexedObjectsCommand(NewSearchIndexedObjectsCommandRunner(utils, SearchIndexedObjectsRequestSender{})),
 		GetSearchObjectsCommand(NewSearchObjectsCommandRunner(utils, SearchObjectsRequestSender{})),
+		GetGetProgressMonitorsCommand(NewGetProgressMonitorsCommandRunner(utils, GetProgressMonitorsRequestSender{})),
 		GetSearchProtectedObjectsCommand(NewSearchProtectedObjectsCommandRunner(utils, SearchProtectedObjectsRequestSender{})),
 		GetGetUsersCommand(NewGetUsersCommandRunner(utils, GetUsersRequestSender{})),
 		GetUpdateUserCommand(NewUpdateUserCommandRunner(utils, UpdateUserRequestSender{})),
@@ -156,16 +162,32 @@ func GetBackupRecoveryV1Command(utils Utilities) *cobra.Command {
 		},
 	}
 
+	// Service URL flags - hidden from help but still functional
 	backupRecoveryCommand.Flags().StringVar(&localService.ServiceURL, "service-url", "", translation.T("service-url-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ConnectorURL, "connector-service-url", "", translation.T("connector-service-url-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleReportingUrl, "management-reporting-service-url", "", translation.T("management-reporting-service-url-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreUrl, "management-sre-service-url", "", translation.T("management-sre-url-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreAuthenticationUrl, "management-sre-service-authentication-url", "", translation.T("management-sre-service-authentication-url-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSrePassword, "management-sre-service-password", "", translation.T("management-sre-service-password-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreUsername, "management-sre-service-username", "", translation.T("management-sre-service-username-global-flag-description"))
-	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreApikey, "management-sre-service-apikey", "", translation.T("management-sre-service-apikey-global-flag-description"))
+	backupRecoveryCommand.Flags().MarkHidden("service-url")
 
-	// these flags pertain to all commands
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ConnectorURL, "connector-service-url", "", translation.T("connector-service-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().MarkHidden("connector-service-url")
+
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleReportingUrl, "management-reporting-service-url", "", translation.T("management-reporting-service-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-reporting-service-url")
+
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreUrl, "management-sre-service-url", "", translation.T("management-sre-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-url")
+
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreAuthenticationUrl, "management-sre-service-authentication-url", "", translation.T("management-sre-service-authentication-url-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-authentication-url")
+
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSrePassword, "management-sre-service-password", "", translation.T("management-sre-service-password-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-password")
+
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreUsername, "management-sre-service-username", "", translation.T("management-sre-service-username-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-username")
+
+	backupRecoveryCommand.PersistentFlags().StringVar(&localService.ManagementConsoleSreApikey, "management-sre-service-apikey", "", translation.T("management-sre-service-apikey-global-flag-description"))
+	backupRecoveryCommand.PersistentFlags().MarkHidden("management-sre-service-apikey")
+
+	// these flags pertain to all commands and are visible in help
 	backupRecoveryCommand.PersistentFlags().StringVar(utils.ExposeOutputFormatVar(), "output", "table", translation.T("output-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().StringVarP(utils.ExposeJMESQueryVar(), "jmes-query", "j", "", translation.T("jmes-query-global-flag-description"))
 	backupRecoveryCommand.PersistentFlags().BoolP("quiet", "q", false, translation.T("quiet-global-flag-description"))

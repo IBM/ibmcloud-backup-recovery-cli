@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.5.0
+
+### Content
+
+#### Features
+
+* Support 3-2-1 Cross Region Copy
+
 ## 1.4.0
 
 ### Content

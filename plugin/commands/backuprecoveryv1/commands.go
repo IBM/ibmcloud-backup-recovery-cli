@@ -803,7 +803,7 @@ type RegisterProtectionSourceCommandRunner struct {
 	KubernetesParamsServiceAnnotations                     string
 	KubernetesParamsVeleroAwsPluginImageLocation           string
 	KubernetesParamsVeleroImageLocation                    string
-	KubernetesParamsVeleroKubevirtPluginImageLocation string
+	KubernetesParamsVeleroKubevirtPluginImageLocation      string
 	KubernetesParamsVeleroOpenshiftPluginImageLocation     string
 	KubernetesParamsVlanInfoVec                            string
 	PhysicalParamsEndpoint                                 string
@@ -1495,7 +1495,7 @@ type UpdateProtectionSourceRegistrationCommandRunner struct {
 	KubernetesParamsServiceAnnotations                     string
 	KubernetesParamsVeleroAwsPluginImageLocation           string
 	KubernetesParamsVeleroImageLocation                    string
-	KubernetesParamsVeleroKubevirtPluginImageLocation string
+	KubernetesParamsVeleroKubevirtPluginImageLocation      string
 	KubernetesParamsVeleroOpenshiftPluginImageLocation     string
 	KubernetesParamsVlanInfoVec                            string
 	RequiredFlags                                          []string
@@ -4637,6 +4637,7 @@ type CreateProtectionGroupCommandRunner struct {
 	AbortInBlackouts                                        bool
 	PauseInBlackouts                                        bool
 	IsPaused                                                bool
+	PausedNote                                              string
 	AdvancedConfigs                                         string
 	PhysicalParams                                          string
 	MssqlParams                                             string
@@ -4665,7 +4666,7 @@ type CreateProtectionGroupCommandRunner struct {
 	KubernetesParamsLeverageCSISnapshot                     bool
 	KubernetesParamsNonSnapshotBackup                       bool
 	KubernetesParamsObjects                                 string
-	KubernetesParamsPerformSourceSideDeduplication bool
+	KubernetesParamsPerformSourceSideDeduplication          bool
 	KubernetesParamsSnapshotTimeoutSeconds                  int64
 	KubernetesParamsVlanParams                              string
 	KubernetesParamsVolumeBackupFailure                     bool
@@ -4702,6 +4703,7 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 	 --abort-in-blackouts=true \
 	 --pause-in-blackouts=true \
 	 --is-paused=true \
+    --paused-note exampleString \
 	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
 	 --physical-params '{"protectionType": "kFile", "volumeProtectionTypeParams": {"objects": [{"id": 3, "volumeGuids": ["volumeGuid1"], "enableSystemBackup": true, "excludedVssWriters": ["writerName1","writerName2"]}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "quiesce": true, "continueOnQuiesceFailure": true, "incrementalBackupAfterRestart": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "excludedVssWriters": ["writerName1","writerName2"], "cobmrBackup": true}, "fileProtectionTypeParams": {"excludedVssWriters": ["writerName1","writerName2"], "objects": [{"excludedVssWriters": ["writerName1","writerName2"], "id": 2, "filePaths": [{"includedPath": "~/dir1/", "excludedPaths": ["~/dir2"], "skipNestedVolumes": true}], "usesPathLevelSkipNestedVolumeSetting": true, "nestedVolumeTypesToSkip": ["volume1"], "followNasSymlinkTarget": true, "metadataFilePath": "~/dir3"}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "performBrickBasedDeduplication": true, "taskTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "quiesce": true, "continueOnQuiesceFailure": true, "cobmrBackup": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "globalExcludePaths": ["~/dir1"], "globalExcludeFS": ["~/dir2"], "ignorableErrors": ["kEOF","kNonExistent"], "allowParallelRuns": true}}' \
 	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}' \
@@ -4723,6 +4725,7 @@ func GetCreateProtectionGroupCommand(r *CreateProtectionGroupCommandRunner) *cob
 	cmd.Flags().BoolVarP(&r.AbortInBlackouts, "abort-in-blackouts", "", false, translation.T("backup-recovery-protection-group-create-abort-in-blackouts-flag-description"))
 	cmd.Flags().BoolVarP(&r.PauseInBlackouts, "pause-in-blackouts", "", false, translation.T("backup-recovery-protection-group-create-pause-in-blackouts-flag-description"))
 	cmd.Flags().BoolVarP(&r.IsPaused, "is-paused", "", false, translation.T("backup-recovery-protection-group-create-is-paused-flag-description"))
+	cmd.Flags().StringVarP(&r.PausedNote, "paused-note", "", "", translation.T("backup-recovery-protection-group-create-paused-note-flag-description"))
 	cmd.Flags().StringVarP(&r.AdvancedConfigs, "advanced-configs", "", "", translation.T("backup-recovery-protection-group-create-advanced-configs-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParams, "physical-params", "", "", translation.T("backup-recovery-protection-group-create-physical-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParams, "mssql-params", "", "", translation.T("backup-recovery-protection-group-create-mssql-params-flag-description"))
@@ -4904,6 +4907,9 @@ func (r *CreateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 		}
 		if flag.Name == "is-paused" {
 			OptionsModel.SetIsPaused(r.IsPaused)
+		}
+		if flag.Name == "paused-note" {
+			OptionsModel.SetPausedNote(r.PausedNote)
 		}
 		if flag.Name == "advanced-configs" {
 			var AdvancedConfigs []backuprecoveryv1.KeyValuePair
@@ -5635,6 +5641,7 @@ type UpdateProtectionGroupCommandRunner struct {
 	AbortInBlackouts                                        bool
 	PauseInBlackouts                                        bool
 	IsPaused                                                bool
+	PausedNote                                              string
 	AdvancedConfigs                                         string
 	PhysicalParams                                          string
 	MssqlParams                                             string
@@ -5663,7 +5670,7 @@ type UpdateProtectionGroupCommandRunner struct {
 	KubernetesParamsLeverageCSISnapshot                     bool
 	KubernetesParamsNonSnapshotBackup                       bool
 	KubernetesParamsObjects                                 string
-	KubernetesParamsPerformSourceSideDeduplication bool
+	KubernetesParamsPerformSourceSideDeduplication          bool
 	KubernetesParamsSnapshotTimeoutSeconds                  int64
 	KubernetesParamsVlanParams                              string
 	KubernetesParamsVolumeBackupFailure                     bool
@@ -5701,6 +5708,7 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 	 --abort-in-blackouts=true \
 	 --pause-in-blackouts=true \
 	 --is-paused=true \
+    --paused-note exampleString \
 	 --advanced-configs '[{"key": "configKey", "value": "configValue"}]' \
 	 --physical-params '{"protectionType": "kFile", "volumeProtectionTypeParams": {"objects": [{"id": 3, "volumeGuids": ["volumeGuid1"], "enableSystemBackup": true, "excludedVssWriters": ["writerName1","writerName2"]}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "quiesce": true, "continueOnQuiesceFailure": true, "incrementalBackupAfterRestart": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "excludedVssWriters": ["writerName1","writerName2"], "cobmrBackup": true}, "fileProtectionTypeParams": {"excludedVssWriters": ["writerName1","writerName2"], "objects": [{"excludedVssWriters": ["writerName1","writerName2"], "id": 2, "filePaths": [{"includedPath": "~/dir1/", "excludedPaths": ["~/dir2"], "skipNestedVolumes": true}], "usesPathLevelSkipNestedVolumeSetting": true, "nestedVolumeTypesToSkip": ["volume1"], "followNasSymlinkTarget": true, "metadataFilePath": "~/dir3"}], "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "performSourceSideDeduplication": true, "performBrickBasedDeduplication": true, "taskTimeouts": [{"timeoutMins": 26, "backupType": "kRegular"}], "quiesce": true, "continueOnQuiesceFailure": true, "cobmrBackup": true, "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "dedupExclusionSourceIds": [26,27], "globalExcludePaths": ["~/dir1"], "globalExcludeFS": ["~/dir2"], "ignorableErrors": ["kEOF","kNonExistent"], "allowParallelRuns": true}}' \
 	 --mssql-params '{"fileProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"disableSourceSideDeduplication": true, "hostId": 26}], "objects": [{"id": 6}], "performSourceSideDeduplication": true}, "nativeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "numStreams": 38, "objects": [{"id": 6}], "withClause": "withClause"}, "protectionType": "kFile", "volumeProtectionTypeParams": {"aagBackupPreferenceType": "kPrimaryReplicaOnly", "advancedSettings": {"clonedDbBackupStatus": "kError", "dbBackupIfNotOnlineStatus": "kError", "missingDbBackupStatus": "kError", "offlineRestoringDbBackupStatus": "kError", "readOnlyDbBackupStatus": "kError", "reportAllNonAutoprotectDbErrors": "kError"}, "backupSystemDbs": true, "excludeFilters": [{"filterString": "filterString", "isRegularExpression": false}], "fullBackupsCopyOnly": true, "logBackupNumStreams": 38, "logBackupWithClause": "backupWithClause", "prePostScript": {"preScript": {"path": "~/script1", "params": "param1", "timeoutSecs": 1, "isActive": true, "continueOnError": true}, "postScript": {"path": "~/script2", "params": "param2", "timeoutSecs": 1, "isActive": true}}, "useAagPreferencesFromServer": true, "userDbBackupPreferenceType": "kBackupAllDatabases", "additionalHostParams": [{"enableSystemBackup": true, "hostId": 8, "volumeGuids": ["volumeGuid1"]}], "backupDbVolumesOnly": true, "incrementalBackupAfterRestart": true, "indexingPolicy": {"enableIndexing": true, "includePaths": ["~/dir1"], "excludePaths": ["~/dir2"]}, "objects": [{"id": 6}]}}' \
@@ -5723,6 +5731,7 @@ func GetUpdateProtectionGroupCommand(r *UpdateProtectionGroupCommandRunner) *cob
 	cmd.Flags().BoolVarP(&r.AbortInBlackouts, "abort-in-blackouts", "", false, translation.T("backup-recovery-protection-group-update-abort-in-blackouts-flag-description"))
 	cmd.Flags().BoolVarP(&r.PauseInBlackouts, "pause-in-blackouts", "", false, translation.T("backup-recovery-protection-group-update-pause-in-blackouts-flag-description"))
 	cmd.Flags().BoolVarP(&r.IsPaused, "is-paused", "", false, translation.T("backup-recovery-protection-group-update-is-paused-flag-description"))
+	cmd.Flags().StringVarP(&r.PausedNote, "paused-note", "", "", translation.T("backup-recovery-protection-group-update-paused-note-flag-description"))
 	cmd.Flags().StringVarP(&r.AdvancedConfigs, "advanced-configs", "", "", translation.T("backup-recovery-protection-group-update-advanced-configs-flag-description"))
 	cmd.Flags().StringVarP(&r.PhysicalParams, "physical-params", "", "", translation.T("backup-recovery-protection-group-update-physical-params-flag-description"))
 	cmd.Flags().StringVarP(&r.MssqlParams, "mssql-params", "", "", translation.T("backup-recovery-protection-group-update-mssql-params-flag-description"))
@@ -5908,6 +5917,9 @@ func (r *UpdateProtectionGroupCommandRunner) Run(cmd *cobra.Command, args []stri
 		}
 		if flag.Name == "is-paused" {
 			OptionsModel.SetIsPaused(r.IsPaused)
+		}
+		if flag.Name == "paused-note" {
+			OptionsModel.SetPausedNote(r.PausedNote)
 		}
 		if flag.Name == "advanced-configs" {
 			var AdvancedConfigs []backuprecoveryv1.KeyValuePair
@@ -10626,6 +10638,247 @@ func (r *GetDataSourceConnectorStatusCommandRunner) MakeRequest(OptionsModel bac
 	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
+// RequestSender for GetBatchVaultsFailoverStatus command
+type GetBatchVaultsFailoverStatusRequestSender struct{}
+
+func (s GetBatchVaultsFailoverStatusRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.GetBatchVaultsFailoverStatus(optionsModel.(*backuprecoveryv1.GetBatchVaultsFailoverStatusOptions))
+}
+
+// Command Runner for GetBatchVaultsFailoverStatus command
+func NewGetBatchVaultsFailoverStatusCommandRunner(utils Utilities, sender RequestSender) *GetBatchVaultsFailoverStatusCommandRunner {
+	return &GetBatchVaultsFailoverStatusCommandRunner{utils: utils, sender: sender}
+}
+
+type GetBatchVaultsFailoverStatusCommandRunner struct {
+	CloudType     string
+	VaultIds      string
+	XIBMTenantID  string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: batch-vault-failover-status, GetGetBatchVaultsFailoverStatusCommand
+func GetGetBatchVaultsFailoverStatusCommand(r *GetBatchVaultsFailoverStatusCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "batch-vault-failover-status --cloud-type CLOUD-TYPE --vault-ids VAULT-IDS --xibm-tenant-id XIBM-TENANT-ID",
+		Short:                 translation.T("backup-recovery-batch-vault-failover-status-command-short-description"),
+		Long:                  translation.T("backup-recovery-batch-vault-failover-status-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-description": "Retrieves the latest failover status for all specified Backup and Recovery (vault) instances.",
+			"x-cli-command":     "batch-vault-failover-status",
+		},
+		Example: `  ibmcloud backup-recovery batch-vault-failover-status \
+    --cloud-type ibm \
+    --vault-ids 26,27 \
+    --xibm-tenant-id tenantId`,
+	}
+
+	cmd.Flags().StringVarP(&r.CloudType, "cloud-type", "", "", translation.T("backup-recovery-batch-vault-failover-status-cloud-type-flag-description"))
+	cmd.Flags().StringVarP(&r.VaultIds, "vault-ids", "", "", translation.T("backup-recovery-batch-vault-failover-status-vault-ids-flag-description"))
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-batch-vault-failover-status-xibm-tenant-id-flag-description"))
+	r.RequiredFlags = []string{
+		"cloud-type",
+		"vault-ids",
+		"xibm-tenant-id",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running GetBatchVaultsFailoverStatus
+func (r *GetBatchVaultsFailoverStatusCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetBatchVaultsFailoverStatusOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "cloud-type" {
+			OptionsModel.SetCloudType(r.CloudType)
+		}
+		if flag.Name == "vault-ids" {
+			var VaultIds []int64
+			err, msg := deserialize.List(r.VaultIds, "vault-ids", "JSON", &VaultIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetVaultIds(VaultIds)
+		}
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetBatchVaultsFailoverStatusCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetBatchVaultsFailoverStatusOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"errorMessage",
+		"failoverStatuses",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for InitVaultsFailover command
+type InitVaultsFailoverRequestSender struct{}
+
+func (s InitVaultsFailoverRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.InitVaultsFailover(optionsModel.(*backuprecoveryv1.InitVaultsFailoverOptions))
+}
+
+// Command Runner for InitVaultsFailover command
+func NewInitVaultsFailoverCommandRunner(utils Utilities, sender RequestSender) *InitVaultsFailoverCommandRunner {
+	return &InitVaultsFailoverCommandRunner{utils: utils, sender: sender}
+}
+
+type InitVaultsFailoverCommandRunner struct {
+	XIBMTenantID                 string
+	CloudType                    string
+	FailoverRequestParams        string
+	FailoverRequestParamsVaultID int64
+	RequiredFlags                []string
+	sender                       RequestSender
+	utils                        Utilities
+}
+
+// Command mapping: initiate-vault-failover, GetInitVaultsFailoverCommand
+func GetInitVaultsFailoverCommand(r *InitVaultsFailoverCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "initiate-vault-failover --xibm-tenant-id XIBM-TENANT-ID --cloud-type CLOUD-TYPE [--failover-request-params (FAILOVER-REQUEST-PARAMS | @FAILOVER-REQUEST-PARAMS-FILE) | --failover-request-params-vault-id FAILOVER-REQUEST-PARAMS-VAULT-ID]",
+		Short:                 translation.T("backup-recovery-initiate-vault-failover-command-short-description"),
+		Long:                  translation.T("backup-recovery-initiate-vault-failover-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-description": "Initiates a failover for the specified Backup and Recovery (vault) instance.",
+			"x-cli-command":     "initiate-vault-failover",
+		},
+		Example: `  ibmcloud backup-recovery initiate-vault-failover \
+    --xibm-tenant-id tenantId \
+    --cloud-type ibm \
+    --failover-request-params '{"vaultId": 26}'`,
+	}
+
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-initiate-vault-failover-xibm-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.CloudType, "cloud-type", "", "", translation.T("backup-recovery-initiate-vault-failover-cloud-type-flag-description"))
+	cmd.Flags().StringVarP(&r.FailoverRequestParams, "failover-request-params", "", "", translation.T("backup-recovery-initiate-vault-failover-failover-request-params-flag-description"))
+	cmd.Flags().Int64VarP(&r.FailoverRequestParamsVaultID, "failover-request-params-vault-id", "", 0, translation.T("backup-recovery-initiate-vault-failover-failover-request-params-vault-id-flag-description"))
+	r.RequiredFlags = []string{
+		"xibm-tenant-id",
+		"cloud-type",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running InitVaultsFailover
+func (r *InitVaultsFailoverCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.InitVaultsFailoverOptions{}
+	FailoverRequestParamsHelper := &backuprecoveryv1.FailoverRequestParams{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+		if flag.Name == "cloud-type" {
+			OptionsModel.SetCloudType(r.CloudType)
+		}
+		if flag.Name == "failover-request-params" {
+			var FailoverRequestParams *backuprecoveryv1.FailoverRequestParams
+			err, msg := deserialize.Model(
+				r.FailoverRequestParams,
+				"failover-request-params",
+				"FailoverRequestParams",
+				backuprecoveryv1.UnmarshalFailoverRequestParams,
+				&FailoverRequestParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetFailoverRequestParams(FailoverRequestParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.FailoverRequestParams, `{"fields":["vaultId"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "failover-request-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "failover-request-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "failover-request-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "failover-request-params-vault-id" {
+			FailoverRequestParamsHelper.VaultID = core.Int64Ptr(r.FailoverRequestParamsVaultID)
+		}
+	})
+
+	if !reflect.ValueOf(*FailoverRequestParamsHelper).IsZero() {
+		if OptionsModel.FailoverRequestParams == nil {
+			OptionsModel.SetFailoverRequestParams(FailoverRequestParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "FailoverRequestParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *InitVaultsFailoverCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.InitVaultsFailoverOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"cloudType",
+		"failoverRequestParams",
+		"uid",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
 // RequestSender for GetObjectSnapshots command
 type GetObjectSnapshotsRequestSender struct{}
 
@@ -11731,6 +11984,246 @@ func (r *DownloadIndexedFileCommandRunner) MakeRequest(OptionsModel backuprecove
 
 	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
 	r.utils.ProcessEmptyResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for GetBatchVaultRecoveryScanStatus command
+type GetBatchVaultRecoveryScanStatusRequestSender struct{}
+
+func (s GetBatchVaultRecoveryScanStatusRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.GetBatchVaultRecoveryScanStatus(optionsModel.(*backuprecoveryv1.GetBatchVaultRecoveryScanStatusOptions))
+}
+
+// Command Runner for GetBatchVaultRecoveryScanStatus command
+func NewGetBatchVaultRecoveryScanStatusCommandRunner(utils Utilities, sender RequestSender) *GetBatchVaultRecoveryScanStatusCommandRunner {
+	return &GetBatchVaultRecoveryScanStatusCommandRunner{utils: utils, sender: sender}
+}
+
+type GetBatchVaultRecoveryScanStatusCommandRunner struct {
+	CloudType     string
+	XIBMTenantID  string
+	VaultIds      string
+	RequiredFlags []string
+	sender        RequestSender
+	utils         Utilities
+}
+
+// Command mapping: batch-vault-recovery-scan-status, GetGetBatchVaultRecoveryScanStatusCommand
+func GetGetBatchVaultRecoveryScanStatusCommand(r *GetBatchVaultRecoveryScanStatusCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "batch-vault-recovery-scan-status --cloud-type CLOUD-TYPE --xibm-tenant-id XIBM-TENANT-ID [--vault-ids VAULT-IDS]",
+		Short:                 translation.T("backup-recovery-batch-vault-recovery-scan-status-command-short-description"),
+		Long:                  translation.T("backup-recovery-batch-vault-recovery-scan-status-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-description": "Retrieves the latest recovery scan status for all specified Backup and Recovery (vault) instances.",
+			"x-cli-command":     "batch-vault-recovery-scan-status",
+		},
+		Example: `  ibmcloud backup-recovery batch-vault-recovery-scan-status \
+    --cloud-type ibm \
+    --xibm-tenant-id tenantId \
+    --vault-ids 26,27`,
+	}
+
+	cmd.Flags().StringVarP(&r.CloudType, "cloud-type", "", "", translation.T("backup-recovery-batch-vault-recovery-scan-status-cloud-type-flag-description"))
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-batch-vault-recovery-scan-status-xibm-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.VaultIds, "vault-ids", "", "", translation.T("backup-recovery-batch-vault-recovery-scan-status-vault-ids-flag-description"))
+	r.RequiredFlags = []string{
+		"cloud-type",
+		"xibm-tenant-id",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running GetBatchVaultRecoveryScanStatus
+func (r *GetBatchVaultRecoveryScanStatusCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.GetBatchVaultRecoveryScanStatusOptions{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "cloud-type" {
+			OptionsModel.SetCloudType(r.CloudType)
+		}
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+		if flag.Name == "vault-ids" {
+			var VaultIds []int64
+			err, msg := deserialize.List(r.VaultIds, "vault-ids", "JSON", &VaultIds)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetVaultIds(VaultIds)
+		}
+	})
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *GetBatchVaultRecoveryScanStatusCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.GetBatchVaultRecoveryScanStatusOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPRead,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"errorMessage",
+		"recoveryScanStatuses",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
+}
+
+// RequestSender for VaultRecoveryScan command
+type VaultRecoveryScanRequestSender struct{}
+
+func (s VaultRecoveryScanRequestSender) Send(optionsModel interface{}) (interface{}, *core.DetailedResponse, error) {
+	return ServiceInstance.VaultRecoveryScan(optionsModel.(*backuprecoveryv1.VaultRecoveryScanOptions))
+}
+
+// Command Runner for VaultRecoveryScan command
+func NewVaultRecoveryScanCommandRunner(utils Utilities, sender RequestSender) *VaultRecoveryScanCommandRunner {
+	return &VaultRecoveryScanCommandRunner{utils: utils, sender: sender}
+}
+
+type VaultRecoveryScanCommandRunner struct {
+	XIBMTenantID                     string
+	CloudType                        string
+	RecoveryScanRequestParams        string
+	RecoveryScanRequestParamsVaultID int64
+	RequiredFlags                    []string
+	sender                           RequestSender
+	utils                            Utilities
+}
+
+// Command mapping: vault-recovery-scan, GetVaultRecoveryScanCommand
+func GetVaultRecoveryScanCommand(r *VaultRecoveryScanCommandRunner) *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                   "vault-recovery-scan --xibm-tenant-id XIBM-TENANT-ID --cloud-type CLOUD-TYPE [--recovery-scan-request-params (RECOVERY-SCAN-REQUEST-PARAMS | @RECOVERY-SCAN-REQUEST-PARAMS-FILE) | --recovery-scan-request-params-vault-id RECOVERY-SCAN-REQUEST-PARAMS-VAULT-ID]",
+		Short:                 translation.T("backup-recovery-vault-recovery-scan-command-short-description"),
+		Long:                  translation.T("backup-recovery-vault-recovery-scan-command-long-description"),
+		Run:                   r.Run,
+		DisableFlagsInUseLine: true,
+		Annotations: map[string]string{
+			"x-cli-description": "Initiates a recovery scan on the specified Backup and Recovery (vault) instance.",
+			"x-cli-command":     "vault-recovery-scan",
+		},
+		Example: `  ibmcloud backup-recovery vault-recovery-scan \
+    --xibm-tenant-id tenantId \
+    --cloud-type ibm \
+    --recovery-scan-request-params '{"vaultId": 26}'`,
+	}
+
+	cmd.Flags().StringVarP(&r.XIBMTenantID, "xibm-tenant-id", "", "", translation.T("backup-recovery-vault-recovery-scan-xibm-tenant-id-flag-description"))
+	cmd.Flags().StringVarP(&r.CloudType, "cloud-type", "", "", translation.T("backup-recovery-vault-recovery-scan-cloud-type-flag-description"))
+	cmd.Flags().StringVarP(&r.RecoveryScanRequestParams, "recovery-scan-request-params", "", "", translation.T("backup-recovery-vault-recovery-scan-recovery-scan-request-params-flag-description"))
+	cmd.Flags().Int64VarP(&r.RecoveryScanRequestParamsVaultID, "recovery-scan-request-params-vault-id", "", 0, translation.T("backup-recovery-vault-recovery-scan-recovery-scan-request-params-vault-id-flag-description"))
+	r.RequiredFlags = []string{
+		"xibm-tenant-id",
+		"cloud-type",
+	}
+
+	addRequiredFlagsAnnotation(cmd, r.RequiredFlags)
+	return cmd
+}
+
+// Primary logic for running VaultRecoveryScan
+func (r *VaultRecoveryScanCommandRunner) Run(cmd *cobra.Command, args []string) {
+	Service.InitializeServiceInstance(cmd.Flags())
+
+	err := r.utils.ValidateRequiredFlags(r.RequiredFlags, cmd.Flags(), serviceName)
+	r.utils.HandleError(err, translation.T("root-command-error"))
+
+	r.utils.ConfirmRunningCommand()
+	OptionsModel := backuprecoveryv1.VaultRecoveryScanOptions{}
+	RecoveryScanRequestParamsHelper := &backuprecoveryv1.RecoveryScanRequestParams{}
+
+	// optional params should only be set when they are explicitly passed by the user
+	// otherwise, the default type values will be sent to the service
+	flagSet := cmd.Flags()
+	flagSet.Visit(func(flag *pflag.Flag) {
+		if flag.Name == "xibm-tenant-id" {
+			OptionsModel.SetXIBMTenantID(r.XIBMTenantID)
+		}
+		if flag.Name == "cloud-type" {
+			OptionsModel.SetCloudType(r.CloudType)
+		}
+		if flag.Name == "recovery-scan-request-params" {
+			var RecoveryScanRequestParams *backuprecoveryv1.RecoveryScanRequestParams
+			err, msg := deserialize.Model(
+				r.RecoveryScanRequestParams,
+				"recovery-scan-request-params",
+				"RecoveryScanRequestParams",
+				backuprecoveryv1.UnmarshalRecoveryScanRequestParams,
+				&RecoveryScanRequestParams,
+			)
+			r.utils.HandleError(err, msg)
+			OptionsModel.SetRecoveryScanRequestParams(RecoveryScanRequestParams)
+			extraFieldPaths, err := r.utils.ValidateJSON(r.RecoveryScanRequestParams, `{"fields":["vaultId"]}`)
+			if err != nil {
+				r.utils.HandleError(err, translation.T("json-parsing-error", map[string]interface{}{
+					"FLAG_NAME": "recovery-scan-request-params",
+				}))
+			} else if len(extraFieldPaths) == 1 {
+				r.utils.Warn(translation.T("extraneous-json-field", map[string]interface{}{
+					"FLAG_NAME":  "recovery-scan-request-params",
+					"FIELD_PATH": extraFieldPaths[0],
+				}))
+			} else if len(extraFieldPaths) > 1 {
+				r.utils.Warn(translation.T("extraneous-json-fields", map[string]interface{}{
+					"FLAG_NAME":  "recovery-scan-request-params",
+					"FIELD_PATH": strings.Join(extraFieldPaths, ", "),
+				}))
+			}
+		}
+		if flag.Name == "recovery-scan-request-params-vault-id" {
+			RecoveryScanRequestParamsHelper.VaultID = core.Int64Ptr(r.RecoveryScanRequestParamsVaultID)
+		}
+	})
+
+	if !reflect.ValueOf(*RecoveryScanRequestParamsHelper).IsZero() {
+		if OptionsModel.RecoveryScanRequestParams == nil {
+			OptionsModel.SetRecoveryScanRequestParams(RecoveryScanRequestParamsHelper)
+		} else {
+			flagErr := errors.New(translation.T("mutually-exclusive-fields", map[string]interface{}{
+				"FLAG_NAME": "RecoveryScanRequestParams",
+			}))
+			r.utils.HandleError(flagErr, "")
+		}
+	}
+
+	r.MakeRequest(OptionsModel)
+}
+
+func (r *VaultRecoveryScanCommandRunner) MakeRequest(OptionsModel backuprecoveryv1.VaultRecoveryScanOptions) {
+
+	// Set the operation metadata that will be passed to the utils package to help handling the response more correctly.
+	err := r.utils.SetOperationMetadata(utils.OperationMetadata{
+		OperationType: utils.OPCreate,
+	})
+	r.utils.HandleError(err, "")
+
+	_, DetailedResponse, ResponseErr := r.sender.Send(&OptionsModel)
+
+	r.utils.SetTableHeaderOrder([]string{
+		"cloudType",
+		"recoveryScanRequestParams",
+		"uid",
+	})
+
+	r.utils.ProcessResponse(DetailedResponse, ResponseErr)
 }
 
 // RequestSender for SearchIndexedObjects command
@@ -13477,7 +13970,7 @@ func GetSearchObjectsCommand(r *SearchObjectsCommandRunner) *cobra.Command {
 	 --xibm-tenant-id tenantId \
 	 --request-initiator-type UIUser \
 	 --search-string searchString \
-	 --environments kPhysical,kSQL \
+    --environments kPhysical,kSQL,kKubernetes \
 	 --protection-types kAgent,kNative,kSnapshotManager,kRDSSnapshotManager,kAuroraSnapshotManager,kAwsS3,kAwsRDSPostgresBackup,kAwsAuroraPostgres,kAwsRDSPostgres,kAzureSQL,kFile,kVolume \
 	 --protection-group-ids protectionGroupId1 \
 	 --object-ids 26,27 \
@@ -13765,7 +14258,7 @@ func GetSearchProtectedObjectsCommand(r *SearchProtectedObjectsCommandRunner) *c
 	 --xibm-tenant-id tenantId \
 	 --request-initiator-type UIUser \
 	 --search-string searchString \
-	 --environments kPhysical,kSQL \
+    --environments kPhysical,kSQL,kKubernetes \
 	 --snapshot-actions RecoverVMs,RecoverFiles,InstantVolumeMount,RecoverVmDisks,MountVolumes,RecoverVApps,RecoverRDS,RecoverAurora,RecoverS3Buckets,RecoverApps,RecoverNasVolume,RecoverPhysicalVolumes,RecoverSystem,RecoverSanVolumes,RecoverNamespaces,RecoverObjects,DownloadFilesAndFolders,RecoverPublicFolders,RecoverVAppTemplates,RecoverMailbox,RecoverOneDrive,RecoverMsTeam,RecoverMsGroup,RecoverSharePoint,ConvertToPst,RecoverSfdcRecords,RecoverAzureSQL,DownloadChats,RecoverRDSPostgres,RecoverMailboxCSM,RecoverOneDriveCSM,RecoverSharePointCSM \
 	 --object-action-key kPhysical \
 	 --protection-group-ids protectionGroupId1 \

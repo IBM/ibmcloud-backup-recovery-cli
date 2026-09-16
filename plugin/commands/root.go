@@ -27,6 +27,7 @@ import (
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/spf13/cobra"
+	"github.com/spf13/pflag"
 )
 
 var u *utils.Utils
@@ -75,6 +76,57 @@ func Init() {
 
 	cobra.AddTemplateFunc("getTerminalWidth", utils.GetTerminalWidth)
 
+	// custom function to generate detailed usage line with all flags
+	cobra.AddTemplateFunc("getDetailedUsageLine", func(cmd *cobra.Command) string {
+		usageLine := cmd.CommandPath()
+
+		// Get required flags from annotations
+		requiredFlagsStr := cmd.Annotations["required-flags"]
+		requiredFlagsMap := make(map[string]bool)
+		if requiredFlagsStr != "" {
+			for _, flagName := range strings.Split(requiredFlagsStr, ",") {
+				requiredFlagsMap[strings.TrimSpace(flagName)] = true
+			}
+		}
+
+		// Build usage from flags - required first, then optional
+		requiredParts := []string{}
+		optionalParts := []string{}
+
+		cmd.Flags().VisitAll(func(flag *pflag.Flag) {
+			if !flag.Hidden {
+				var flagUsage string
+				if flag.Value.Type() == "bool" {
+					// For boolean flags, just show the flag name
+					flagUsage = "--" + flag.Name
+				} else {
+					// For other types, show flag with uppercase placeholder
+					placeholder := strings.ToUpper(strings.ReplaceAll(flag.Name, "-", "_"))
+					flagUsage = "--" + flag.Name + " " + placeholder
+				}
+
+				// Check if this flag is required
+				if requiredFlagsMap[flag.Name] {
+					requiredParts = append(requiredParts, flagUsage)
+				} else {
+					optionalParts = append(optionalParts, "["+flagUsage+"]")
+				}
+			}
+		})
+
+		// Add required flags first (without brackets)
+		for _, part := range requiredParts {
+			usageLine += " " + part
+		}
+
+		// Then add optional flags (with brackets)
+		for _, part := range optionalParts {
+			usageLine += " " + part
+		}
+
+		return usageLine
+	})
+
 	// mark the "help" flag as global to be consistent with the ibm core cli
 	rootCommand.PersistentFlags().BoolP("help", "h", false, translation.T("show-help"))
 
@@ -103,10 +155,10 @@ func Init() {
 `)
 
 	rootCommand.SetUsageTemplate(`{{printHeader "name-header-help-menu"}}:
-  {{.Name}} - {{.Long}}
+	 {{.Name}} - {{.Long}}
 
 {{printHeader "usage-header-help-menu"}}:
-  ibmcloud {{.UseLine}}{{if gt (len .Aliases) 0}}
+	 ibmcloud {{getDetailedUsageLine .}}{{if gt (len .Aliases) 0}}
 
 {{printHeader "aliases-header-help-menu"}}:
   {{.NameAndAliases}}{{end}}{{if .HasExample}}
